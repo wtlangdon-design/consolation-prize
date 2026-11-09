@@ -11,6 +11,14 @@
   },
   "actions": [
    {
+    "do": "click",
+    "world": [
+     700,
+     830
+    ],
+    "why": "he steps back to the left, clear of the hole, so the hen and the raccoon are not behind him"
+   },
+   {
     "do": "wait",
     "seconds": 6
    }

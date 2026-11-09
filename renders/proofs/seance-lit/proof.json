@@ -4,14 +4,10 @@
  "room": "ozymandias_tent",
  "roomWidth": 1920,
  "branch": "scenes-bc-art",
- "commit": "924ceb62e14a9924e747cb7fc4cb82ba46022868",
- "workingTreeClean": false,
+ "commit": "bf2db926a535813d75d96c99afafe36b2af78a02",
+ "workingTreeClean": true,
  "dirtyAllowed": false,
- "uncommitted": [
-  "M proofs/spec/seance-dark.json",
-  " M proofs/spec/seance-lit.json",
-  "?? renders/proofs/seance-lit/"
- ],
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": null,
@@ -86,7 +82,7 @@
    ],
    "reportedHeight": 518,
    "expected": 518,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     775,
     339,
@@ -123,7 +119,7 @@
     "height": 515,
     "bottom": 812,
     "right": 1398,
-    "changed": 255103
+    "changed": 255077
    },
    "props": []
   }
@@ -132,7 +128,7 @@
   {
    "panel": "B",
    "room": "ozymandias_tent",
-   "clock": 9.7836,
+   "clock": 9.6721,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -345,15 +341,15 @@
    "controlWrites": [
     "enter(ozymandias_tent)"
    ],
-   "capturedAt": "2026-11-09T23:34:49.399Z",
+   "capturedAt": "2026-11-09T23:36:09.032Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "bbc8a388112c6cd437fae3f25f4c100335f8f59bcea04687bb534fc4b1136d95"
+   "hash": "7a4d35cf0a68ed0494c0f1ba6f113431a72d38c8506e03515e4bfab68eeb8ff1"
   },
   {
    "panel": "A",
    "room": "ozymandias_tent",
-   "clock": 10.7168,
+   "clock": 10.5721,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -562,15 +558,15 @@
     "enter(ozymandias_tent)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T23:34:50.343Z",
+   "capturedAt": "2026-11-09T23:36:09.938Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "342c8358d0cc1af6b0e2811ec90f44c84939b687cb016c4a1c3844d24c285e62"
+   "hash": "f75f9f76f134089e558fd45236a066fe96d4f2ce4e7ca3119b05c076888c0672"
   },
   {
    "panel": "D",
    "room": "ozymandias_tent",
-   "clock": 32.666,
+   "clock": 33.4378,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -731,20 +727,20 @@
    "movers": {
     "thad": {
      "at": [
-      980,
-      852
+      1490,
+      800
      ],
-     "facing": "back",
-     "clip": "idle-break",
-     "height": 515,
+     "facing": "left",
+     "clip": "idle",
+     "height": 479,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-back/idle-break-11.png",
+     "from": "art/actors/thad-idle-left/idle-02.png",
      "bounds": [
-      691,
-      337,
-      577,
-      568
+      1236,
+      321,
+      508,
+      529
      ],
      "order": 0,
      "clipLevel": 0,
@@ -794,22 +790,20 @@
     "cast(true)",
     "bystanders(true)"
    ],
-   "capturedAt": "2026-11-09T23:35:12.246Z",
+   "capturedAt": "2026-11-09T23:36:32.843Z",
    "intent": "principal changed state: OZY_E1 option 2 (doc 111): whether the dead mind the light. Visible consequence: her answer over her head at the table, and when the exchange ends the lamp turned down to a bead, the tent and the group in the dark (T_SEANCE_DARK).",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "ea514598adc3dad2bee826f369ee8e207e75063c0188e6b0a058d5a49ca6d4f1",
+   "hash": "731caf99f63c5f54861d485fc7799b83620075627fdda38282d88e2d8bf2bdf3",
    "changedBy": "flags"
   }
  ],
- "failures": [
-  "the working tree is dirty, so these frames do not correspond to 924ceb62. Commit, or re-run with --allow-dirty, which records it."
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -830,11 +824,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T23:35:12.247Z",
+ "at": "2026-11-09T23:36:32.843Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 330020,
+  "bytes": 331182,
   "panels": 5,
   "scale": 0.5
  }
