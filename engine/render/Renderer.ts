@@ -4,7 +4,7 @@ import type { PresentedOption } from '../core/DialogueRunner.ts';
 import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer, Departing } from '../core/Ambient.ts';
-import { drawnBelowFeet, figureSpeaking } from '../core/Ambient.ts';
+import { breakAt, drawnBelowFeet, figureSpeaking } from '../core/Ambient.ts';
 import { askedState } from '../dev/RoomState.ts';
 import { applyTint, moverTint, type MoverTint } from './LightFields.ts';
 
@@ -2299,17 +2299,11 @@ export class Renderer {
    * which also means a save and load lands on the frame it left.
    */
   /** Which break is playing for this character right now, and its step. */
-  ambientBreak(npc: AmbientFile): { index: number; step: number } | null {
+  ambientBreak(npc: AmbientFile): { index: number; step: number; cycle: number } | null {
     const declared = npc.sprite;
     if (!declared?.breaks?.length) return null;
     const { sprite: timed, clock } = this.timed(declared);
-    const every = timed.breakEvery ?? 26;
-    const t = clock + (timed.phase ?? 0) * every;
-    const cycle = Math.floor(t / every);
-    const into = t - cycle * every;
-    const step = Math.floor(into / 0.34);
-    const index = Math.abs(cycle * 2654435761) % declared.breaks.length;
-    return step < (declared.breaks[index]?.length ?? 0) ? { index, step } : null;
+    return breakAt(clock, timed.breakEvery ?? 26, timed.phase ?? 0, declared.breaks.map((one) => one.length));
   }
 
   private ambientFrame(declared: NonNullable<AmbientFile['sprite']>, phase: number): number {
