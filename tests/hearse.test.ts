@@ -30,6 +30,7 @@ import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import type { FlagWrites, SpokenLine } from '../engine/core/types.ts';
 import { HeadlessPlayer } from './lib/headless-player.ts';
+// @ts-expect-error -- a plain .mjs module with no declarations; it reads 8-bit RGBA PNGs.
 import { readPng } from '../tools/lib/png.mjs';
 
 // PLAYS: E6b
