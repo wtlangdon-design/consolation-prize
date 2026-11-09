@@ -233,7 +233,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 
 *The Clarion works whichever story Frame printed (B1): both say Thad's claim is worth nothing.*
 
-**THE LOOKOUT** · GIVE THE DEED — **LOOKOUT:** "A deed! Jumper." · GIVE anything else — "He wants proof I own nothing. Handing him things isn't helping."
+**THE LOOKOUT** · GIVE THE DEED — **LOOKOUT:** "A deed! Jumper." · GIVE anything else — "That proves I own something. He wants it in writing that I don't." *(errata 216)*
 
 ### THE RULE-KEEPER
 *On a barrel in the grog tent. Keeps the camp's Assay, from memory, and gets it wrong. G5, G7.*
