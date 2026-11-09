@@ -742,6 +742,7 @@
      "site": "dialogue:SUMP:SUM_E1:sump2",
      "requires": [
       "n:SUMP/SUM_E1",
+      "T_SECTION_NINETEEN=true",
       "o:SUMP/SUM_E1/sump1"
      ],
      "yields": [
