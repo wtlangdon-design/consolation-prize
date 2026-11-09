@@ -39120,6 +39120,62 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-08T22:40:03.838Z"
+  },
+  {
+   "attempt": 8,
+   "role": "plate",
+   "assetId": "room-11",
+   "subject": "room-11-fanshawe-office",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/unacted-moments/dinner-table-prompt-02.txt",
+   "promptHash": "aa673bb443db8af696dd5f31c7af27898c32d746c9fcb16e3e8ec91519c44c55",
+   "references": [
+    {
+     "path": "art/staging/room-11/plate-01/composite-source.png",
+     "hash": "9d66a132a8ceb49f843cefc0a187b8feb0a01cdbd12a0acbf1bcf1b3ec14a265",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-11/dinner-02/where-they-sit.png",
+     "hash": "a475ba2266fc2fd9b5c6e90352f1c6d7b5d9e0a2370bf028e670c26668ca6476",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "9d66a132a8ceb49f843cefc0a187b8feb0a01cdbd12a0acbf1bcf1b3ec14a265",
+   "sourcePath": "art/staging/room-11/plate-01/composite-source.png",
+   "out": "art/staging/room-11/dinner-02/source.png",
+   "outputHash": "8c31a65cccee9f8df700ef41a46155a5ac6b15229c10d17526422fa293516ca2",
+   "bytes": 2142159,
+   "usage": {
+    "input_tokens": 3626,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 554
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5177
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T00:08:05.180Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-09: \"Maybe just regenerate the whole set table instead of cutting and replacing?\" (room-11 cap raised to 8) -- the dinner table laid with one place before each man and the cloth to the floor",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T00:08:05.186Z"
   }
  ],
  "promotions": [
