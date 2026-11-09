@@ -9,7 +9,9 @@
  *     his speaking breaks say its lines in turn, round again.
  *   - The ride completes E6b, goes over black, and lands in Room 31, where ARRIVING AT THE GRAVE is said once.
  *   - The funeral's own way back and S2 are as they were.
- *   - The hearse and its mule, one figure still to be drawn, are declared only once the picture is here.
+ *   - The hearse and its mule, one figure, are declared only once the picture is here, and it is (PR 314); they
+ *     stand at the gate, and nobody walks through them while they do.
+ *   - While the prayer runs the mourners bow their heads and shut their eyes, and now and then one of them peeks.
  *
  * Every line asserted is read from doc 110 or from the content extracted from it. Nothing here is typed from a
  * document.
@@ -22,6 +24,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { AmbientLayer } from '../engine/core/Ambient.ts';
+import { WalkBoxes } from '../engine/core/WalkBoxes.ts';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
@@ -225,4 +228,39 @@ test('the hearse and its mule are declared only once their picture is in the rep
   assert.equal(manifest.ambient.includes('content/ambient/procession-hearse.json'), drawn, 'listed exactly when drawn');
   assert.equal(content.ambient.has('procession_hearse'), drawn);
   assert.equal(existsSync(resolve(ROOT, 'content/ambient/procession-hearse.json')), drawn);
+});
+
+test('while the prayer runs the mourners bow their heads and shut their eyes, and one of them peeks now and then', async () => {
+  const { state, ambient } = await inFixture('r14-stall-a');
+  const mourners = () => { ambient.arrived(); return ambient.present.find((npc) => npc.id === 'procession_mourners')!; };
+  const standing = mourners().sprite!;
+  const variant = mourners().spriteWhen?.find((one) => one.when.T_HILL_PRAYER === true);
+  assert.ok(variant?.sprite.sheet && variant.sprite.sheet !== standing.sheet, 'a bowed sheet of their own, for the prayer');
+  assert.ok(existsSync(resolve(ROOT, variant.sprite.sheet)), 'and it is drawn');
+  state.interact(target(state, 'reverend_sowerby_at_the_gate'), 'TALK_TO');
+  const praying = mourners().sprite!;
+  assert.equal(praying.sheet, variant.sprite.sheet, 'they bow when he begins');
+  assert.deepEqual(praying.frames, variant.sprite.frames);
+  assert.ok((praying.breaks ?? []).some((run) => run.includes(1)), 'the peek is a break, now and then');
+  assert.ok(!(praying.breaks ?? []).some((run) => run[0] === 0 && run.length === 1), 'and the rest is the bowed frame');
+  // Registered to the rest frame: the same size, so the group does not jump as they bow.
+  assert.deepEqual(praying.frames[0]!.slice(2), standing.frames[0]!.slice(2));
+  const { ambient: later } = await inFixture('r14-stall-b', { T_HILL_PRAYER: false });
+  later.arrived();
+  assert.equal(later.present.find((npc) => npc.id === 'procession_mourners')!.sprite!.sheet, standing.sheet,
+    'without the prayer they stand as at the funeral');
+});
+
+test('the hearse and its mule stand at the gate, and he walks round them, never through', async () => {
+  const content = await loadContent(fsReader);
+  const hitch = content.ambient.get('procession_hearse');
+  if (!hitch) return; // waits on its picture (the test above holds when that is)
+  const { state } = await inFixture('r14-stall-a');
+  assert.ok(state.room.ambient?.includes('procession_hearse'), 'cast in Room 14');
+  const floor = new WalkBoxes(state.room.walkBoxes!, (when) => state.flags.test(when));
+  assert.equal(floor.boxAt(hitch.x, hitch.y - 10), undefined, 'no floor under the hitch while it stands there');
+  assert.ok(floor.boxAt(hitch.x, hitch.y + 30), 'and floor in front of it, to walk past');
+  state.flags.set('T_PROCESSION_STALLED', false);
+  const empty = new WalkBoxes(state.room.walkBoxes!, (when) => state.flags.test(when));
+  assert.ok(empty.boxAt(hitch.x, hitch.y - 10), 'and the grass is floor again once it has gone');
 });

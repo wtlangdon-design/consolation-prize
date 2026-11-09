@@ -2046,9 +2046,24 @@ for (const [id, entry] of examineEntries) {
   // that ground was how the street ended up with nowhere to stand behind the
   // rail. It stays opt-in (`keepsGroundAbove`) because the general case is a
   // thing standing against a wall, where the strip above is the wall.
-  const carve = (band) => {
+  // AN OBSTACLE THAT IS THERE ONLY IN A STATE (errata 233: the hearse and Grievance at Boot Hill's gate, while the
+  // procession is stalled). Its `when` is one boolean flag. The floor is then built twice: once without it, enabled
+  // while the flag does not hold, and once carved round it, enabled while it does (WalkBox.enabledWhen, which the
+  // engine reads against the live flags). The two sets are never neighbours of each other.
+  const gatedObstacles = (ann.obstacles ?? []).filter((one) => one.when);
+  const steadyObstacles = (ann.obstacles ?? []).filter((one) => !one.when);
+  const gate = gatedObstacles.length ? Object.entries(gatedObstacles[0].when) : null;
+  if (gate && (gate.length !== 1 || typeof gate[0][1] !== 'boolean'
+    || gatedObstacles.some((one) => JSON.stringify(one.when) !== JSON.stringify(gatedObstacles[0].when)))) {
+    fail('obstacles: a gated obstacle\'s `when` is one boolean flag, the same for every gated obstacle');
+  }
+  const floorSets = gate
+    ? [{ obstacles: steadyObstacles, suffix: '', enabledWhen: { [gate[0][0]]: !gate[0][1] } },
+      { obstacles: ann.obstacles, suffix: `_${gate[0][0].toLowerCase()}`, enabledWhen: { [gate[0][0]]: gate[0][1] } }]
+    : [{ obstacles: ann.obstacles ?? [], suffix: '', enabledWhen: undefined }];
+  const carve = (band, obstacles = steadyObstacles) => {
     let pieces = [band];
-    for (const obstacle of ann.obstacles ?? []) {
+    for (const obstacle of obstacles) {
       const [ox, oy, ow, oh] = obstacle.rect;
       const next = [];
       for (const piece of pieces) {
@@ -2103,7 +2118,7 @@ for (const [id, entry] of examineEntries) {
       // stepping down off the boardwalk, which a floor may never do.
       scaleMode: { kind: 'fixed', height: ann.scaling.far.height },
     })) : []),
-    ...bands.flatMap(([id, y0, y1], n) => {
+    ...floorSets.flatMap((set) => bands.flatMap(([id, y0, y1], n) => {
       const near = [n === 0 ? 'boardwalk' : bands[n - 1][0], bands[n + 1]?.[0]].filter(Boolean);
       // FROM THE FLOOR'S OWN SPAN AT THIS DEPTH, not the bounding box. This
       // line is where the polygon clipping was being thrown away: quad() was
@@ -2111,10 +2126,11 @@ for (const [id, entry] of examineEntries) {
       // middle bands came out 1690 wide across a floor 1120 wide and Thad
       // could walk through the bar after all.
       const span = bandSpan(y0, y1) ?? [L, R];
-      const pieces = carve([span[0], y0, span[1] - span[0], y1 - y0]);
-      const name = (index) => (pieces.length === 1 ? id : `${id}_${index}`);
+      const pieces = carve([span[0], y0, span[1] - span[0], y1 - y0], set.obstacles);
+      const name = (index) => `${pieces.length === 1 ? id : `${id}_${index}`}${set.suffix}`;
       return pieces.map((piece, index) => ({
         id: name(index),
+        ...(set.enabledWhen ? { enabledWhen: set.enabledWhen } : {}),
         points: [{ x: piece[0], y: piece[1] }, { x: piece[0] + piece[2], y: piece[1] },
           { x: piece[0] + piece[2], y: piece[1] + piece[3] },
           { x: piece[0], y: piece[1] + piece[3] }],
@@ -2124,8 +2140,9 @@ for (const [id, entry] of examineEntries) {
         neighbours: [...near, ...pieces.map((_, other) => (other === index ? null : name(other)))]
           .filter(Boolean),
       }));
-    }),
+    })),
   ];
+  if (gate && lip) fail('obstacles: a gated obstacle in a room with a boardwalk lip is not built');
   // AUTHORED BOXES, WHERE THE FLOOR IS NOT ONE SPAN A BAND (doc 109, THE RIVER: a gravel bar mid-stream, reached by a
   // ford across the near channel). A band is one span, so a floor in two pieces joined by a strip at one depth cannot
   // be sliced into bands; the pieces the bands cannot hold are declared as rects (`walkBoxesExtra`), each with its own
@@ -2160,6 +2177,9 @@ for (const [id, entry] of examineEntries) {
     for (const one of built.walkBoxes) one.neighbours = [];
     for (let a = 0; a < built.walkBoxes.length; a += 1) {
       for (let b = a + 1; b < built.walkBoxes.length; b += 1) {
+        // Two floors for two states are never joined (a gated obstacle's sets above).
+        const [ea, eb] = [built.walkBoxes[a].enabledWhen, built.walkBoxes[b].enabledWhen];
+        if (ea && eb && JSON.stringify(ea) !== JSON.stringify(eb)) continue;
         const [ax0, ay0, ax1, ay1] = box(built.walkBoxes[a]);
         const [bx0, by0, bx1, by1] = box(built.walkBoxes[b]);
         const overlapX = Math.min(ax1, bx1) - Math.max(ax0, bx0);

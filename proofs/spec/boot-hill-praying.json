@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "boot_hill",
+ "note": "ROOM 14 WITH SOWERBY'S PRAYER RUNNING (doc 110 section 2; errata 233), proved apart from the room's main spec (node tools/gauntlet/proof.mjs boot_hill --spec proofs/spec/boot-hill-praying.json --out renders/proofs/boot-hill-praying). It starts from fixture r14-stall-b, the blessing asked, and says so; the asking is played in tests/hearse.test.ts and in the stalled proof. The mourners stand bowed, eyes shut. The principal change is the prayer itself: one of its lines, said on Sowerby's speaking break.",
+ "fixture": "r14-stall-b",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "THE PRAYER (doc 110 section 2): Sowerby's barks while T_HILL_PRAYER holds, in turn. Visible consequence: a line of the prayer over his head; HILL_PRAYER_SAID counts it.",
+  "flags": {},
+  "actions": [
+   {
+    "do": "waitFor",
+    "says": "procession_sowerby",
+    "upTo": 90,
+    "why": "a line of the prayer, on his speaking break"
+   }
+  ]
+ }
+}

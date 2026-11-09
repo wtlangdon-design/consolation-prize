@@ -211,8 +211,8 @@
       "id": "undertaker",
       "name": "THE UNDERTAKER",
       "rect": [
-        1350,
-        445,
+        1750,
+        520,
         100,
         300
       ],
@@ -265,8 +265,92 @@
         "PICK_UP": "He is holding the mule. Somebody has to."
       },
       "walkTo": {
-        "x": 1280,
-        "y": 790,
+        "x": 1690,
+        "y": 852,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "reverend_sowerby_at_the_gate",
+      "name": "REVEREND SOWERBY, AT THE GATE",
+      "rect": [
+        1250,
+        545,
+        120,
+        310
+      ],
+      "when": {
+        "T_PROCESSION_STALLED": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Reverend Sowerby, with his book open at the place, ready to see me off.",
+            "repeat": [
+              "There is a pencil behind his ear, for the counting.",
+              "He has not looked at me once. The clergy see the soul, and I am wearing a hat."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "He is turning pages to find his place, and finding it twice.",
+            "repeat": [
+              "He hums the opening of a hymn under his breath, to see if it still fits.",
+              "Nothing. He is saving it."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "when": {
+              "T_HILL_PRAYER": false
+            },
+            "say": "Reverend. Can a hill be blessed?",
+            "then": [
+              {
+                "speaker": "procession_sowerby",
+                "line": "A hill? Anything can be blessed, sir. There is a rate."
+              },
+              {
+                "speaker": "procession_sowerby",
+                "line": "…"
+              },
+              {
+                "speaker": "procession_sowerby",
+                "line": "Hills are by the foot."
+              },
+              "It's a short hill.",
+              {
+                "speaker": "procession_sowerby",
+                "line": "It is a long foot."
+              },
+              {
+                "speaker": "procession_sowerby",
+                "line": "Let us bow our heads."
+              }
+            ],
+            "set": {
+              "T_HILL_PRAYER": true
+            },
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO REVEREND SOWERBY**, while stalled, before the prayer"
+          },
+          {
+            "when": {
+              "T_HILL_PRAYER": true
+            },
+            "say": "He is mid-prayer, with his eyes shut and the whole town's shut with him. I have never had a better chance at anything.",
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO REVEREND SOWERBY**, while the prayer runs"
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "He would charge for it."
+      },
+      "walkTo": {
+        "x": 1180,
+        "y": 856,
         "facing": "right"
       }
     },
@@ -402,90 +486,6 @@
       "note": "Errata 91 E: PIKE'S NEIGHBOR before it opens -- docs/110-act-three-scenes.md::### THE LINES."
     },
     {
-      "id": "reverend_sowerby_at_the_gate",
-      "name": "REVEREND SOWERBY, AT THE GATE",
-      "rect": [
-        800,
-        490,
-        140,
-        310
-      ],
-      "when": {
-        "T_PROCESSION_STALLED": true
-      },
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Reverend Sowerby, with his book open at the place, ready to see me off.",
-            "repeat": [
-              "There is a pencil behind his ear, for the counting.",
-              "He has not looked at me once. The clergy see the soul, and I am wearing a hat."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "He is turning pages to find his place, and finding it twice.",
-            "repeat": [
-              "He hums the opening of a hymn under his breath, to see if it still fits.",
-              "Nothing. He is saving it."
-            ]
-          }
-        ],
-        "TALK_TO": [
-          {
-            "when": {
-              "T_HILL_PRAYER": false
-            },
-            "say": "Reverend. Can a hill be blessed?",
-            "then": [
-              {
-                "speaker": "procession_sowerby",
-                "line": "A hill? Anything can be blessed, sir. There is a rate."
-              },
-              {
-                "speaker": "procession_sowerby",
-                "line": "…"
-              },
-              {
-                "speaker": "procession_sowerby",
-                "line": "Hills are by the foot."
-              },
-              "It's a short hill.",
-              {
-                "speaker": "procession_sowerby",
-                "line": "It is a long foot."
-              },
-              {
-                "speaker": "procession_sowerby",
-                "line": "Let us bow our heads."
-              }
-            ],
-            "set": {
-              "T_HILL_PRAYER": true
-            },
-            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO REVEREND SOWERBY**, while stalled, before the prayer"
-          },
-          {
-            "when": {
-              "T_HILL_PRAYER": true
-            },
-            "say": "He is mid-prayer, with his eyes shut and the whole town's shut with him. I have never had a better chance at anything.",
-            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO REVEREND SOWERBY**, while the prayer runs"
-          }
-        ]
-      },
-      "overrides": {
-        "PICK_UP": "He would charge for it."
-      },
-      "walkTo": {
-        "x": 1010,
-        "y": 800,
-        "facing": "left"
-      }
-    },
-    {
       "id": "mott_s_marker",
       "name": "MOTT'S MARKER",
       "rect": [
@@ -525,66 +525,13 @@
       }
     },
     {
-      "id": "grievance_at_the_gate",
-      "name": "GRIEVANCE, AT THE GATE",
-      "rect": [
-        1110,
-        300,
-        230,
-        410
-      ],
-      "when": {
-        "T_PROCESSION_STALLED": true
-      },
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Grievance, in black harness, standing at the gate as if it were a wall.",
-            "repeat": [
-              "She has carried every coffin in Consolation up this hill. She has never once been fooled, and she does not mean to start with mine.",
-              "Her ears are flat. The livery man would call it professional."
-            ],
-            "then": [
-              "Her head is turned toward the hearse."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "A long breath out through the nose, aimed at the coffin.",
-            "repeat": [
-              "Her harness creaks as she shifts her weight. She shifts it away from the hill.",
-              "Nothing. She has said what she has to say."
-            ]
-          }
-        ],
-        "TALK_TO": [
-          {
-            "say": "I tell her, very quietly, that I am not in there. She knows.",
-            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO GRIEVANCE**"
-          }
-        ]
-      },
-      "overrides": {
-        "PULL": "She considers the request, declines it, and goes on looking at the coffin.",
-        "PUSH": "From behind? At a funeral? I would be the second thing they buried.",
-        "PICK_UP": "She is in harness, and in no mood."
-      },
-      "walkTo": {
-        "x": 1180,
-        "y": 805,
-        "facing": "back"
-      }
-    },
-    {
       "id": "mourners",
       "name": "THE MOURNERS",
       "rect": [
-        1450,
-        460,
-        380,
-        340
+        155,
+        410,
+        360,
+        328
       ],
       "when": {
         "T_PROCESSION_STALLED": true
@@ -629,19 +576,72 @@
         "PICK_UP": "They have come to carry me. It would confuse things to carry them."
       },
       "walkTo": {
-        "x": 1300,
-        "y": 840,
-        "facing": "right"
+        "x": 500,
+        "y": 852,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "grievance_at_the_gate",
+      "name": "GRIEVANCE, AT THE GATE",
+      "rect": [
+        1300,
+        450,
+        400,
+        345
+      ],
+      "when": {
+        "T_PROCESSION_STALLED": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Grievance, in black harness, standing at the gate as if it were a wall.",
+            "repeat": [
+              "She has carried every coffin in Consolation up this hill. She has never once been fooled, and she does not mean to start with mine.",
+              "Her ears are flat. The livery man would call it professional."
+            ],
+            "then": [
+              "Her head is turned toward the hearse."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A long breath out through the nose, aimed at the coffin.",
+            "repeat": [
+              "Her harness creaks as she shifts her weight. She shifts it away from the hill.",
+              "Nothing. She has said what she has to say."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "say": "I tell her, very quietly, that I am not in there. She knows.",
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO GRIEVANCE**"
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "She considers the request, declines it, and goes on looking at the coffin.",
+        "PUSH": "From behind? At a funeral? I would be the second thing they buried.",
+        "PICK_UP": "She is in harness, and in no mood."
+      },
+      "walkTo": {
+        "x": 1560,
+        "y": 856,
+        "facing": "back"
       }
     },
     {
       "id": "hearse",
       "name": "THE HEARSE",
       "rect": [
-        790,
-        240,
-        320,
-        470
+        750,
+        400,
+        520,
+        395
       ],
       "when": {
         "T_PROCESSION_STALLED": true
@@ -763,8 +763,8 @@
         "PICK_UP": "With what is in it, I very nearly could."
       },
       "walkTo": {
-        "x": 1040,
-        "y": 805,
+        "x": 1000,
+        "y": 856,
         "facing": "back"
       }
     },
@@ -895,6 +895,9 @@
   "walkBoxes": [
     {
       "id": "floor_0",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 1693,
@@ -928,6 +931,9 @@
     },
     {
       "id": "floor_1",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 770,
@@ -962,6 +968,9 @@
     },
     {
       "id": "floor_2",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 770,
@@ -996,6 +1005,9 @@
     },
     {
       "id": "floor_3_0",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 200,
@@ -1029,6 +1041,9 @@
     },
     {
       "id": "floor_3_1",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 770,
@@ -1063,6 +1078,9 @@
     },
     {
       "id": "floor_4_0",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 200,
@@ -1097,6 +1115,9 @@
     },
     {
       "id": "floor_4_1",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 770,
@@ -1131,6 +1152,9 @@
     },
     {
       "id": "floor_4_2",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 480,
@@ -1161,6 +1185,376 @@
       "neighbours": [
         "floor_4_0",
         "floor_4_1"
+      ]
+    },
+    {
+      "id": "floor_0_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 1693,
+          "y": 560
+        },
+        {
+          "x": 1880,
+          "y": 560
+        },
+        {
+          "x": 1880,
+          "y": 620
+        },
+        {
+          "x": 1693,
+          "y": 620
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_1_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_1_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 770,
+          "y": 620
+        },
+        {
+          "x": 1880,
+          "y": 620
+        },
+        {
+          "x": 1880,
+          "y": 679
+        },
+        {
+          "x": 770,
+          "y": 679
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_0_t_procession_stalled",
+        "floor_2_0_t_procession_stalled",
+        "floor_2_1_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_2_0_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 1700,
+          "y": 679
+        },
+        {
+          "x": 1880,
+          "y": 679
+        },
+        {
+          "x": 1880,
+          "y": 739
+        },
+        {
+          "x": 1700,
+          "y": 739
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_1_t_procession_stalled",
+        "floor_2_1_t_procession_stalled",
+        "floor_3_1_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_2_1_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 770,
+          "y": 679
+        },
+        {
+          "x": 1700,
+          "y": 679
+        },
+        {
+          "x": 1700,
+          "y": 725
+        },
+        {
+          "x": 770,
+          "y": 725
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_1_t_procession_stalled",
+        "floor_2_0_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_3_0_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 200,
+          "y": 739
+        },
+        {
+          "x": 480,
+          "y": 739
+        },
+        {
+          "x": 480,
+          "y": 798
+        },
+        {
+          "x": 200,
+          "y": 798
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_4_0_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_3_1_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 1700,
+          "y": 739
+        },
+        {
+          "x": 1880,
+          "y": 739
+        },
+        {
+          "x": 1880,
+          "y": 798
+        },
+        {
+          "x": 1700,
+          "y": 798
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_2_0_t_procession_stalled",
+        "floor_4_1_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_4_0_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 200,
+          "y": 798
+        },
+        {
+          "x": 480,
+          "y": 798
+        },
+        {
+          "x": 480,
+          "y": 858
+        },
+        {
+          "x": 200,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_3_0_t_procession_stalled",
+        "floor_4_3_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_4_1_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 1700,
+          "y": 798
+        },
+        {
+          "x": 1880,
+          "y": 798
+        },
+        {
+          "x": 1880,
+          "y": 858
+        },
+        {
+          "x": 1700,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_3_1_t_procession_stalled",
+        "floor_4_2_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_4_2_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 770,
+          "y": 800
+        },
+        {
+          "x": 1700,
+          "y": 800
+        },
+        {
+          "x": 1700,
+          "y": 858
+        },
+        {
+          "x": 770,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_4_1_t_procession_stalled",
+        "floor_4_3_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_4_3_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 480,
+          "y": 800
+        },
+        {
+          "x": 770,
+          "y": 800
+        },
+        {
+          "x": 770,
+          "y": 858
+        },
+        {
+          "x": 480,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_4_0_t_procession_stalled",
+        "floor_4_2_t_procession_stalled"
       ]
     }
   ],
@@ -1320,6 +1714,7 @@
   ],
   "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-14/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
   "ambient": [
+    "procession_hearse",
     "procession_mourners",
     "procession_sowerby",
     "procession_undertaker",

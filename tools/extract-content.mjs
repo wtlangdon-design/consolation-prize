@@ -6414,10 +6414,14 @@ function hearseScene() {
     note: 'THE HEARSE AND GRIEVANCE AT THE GATE (doc 110 section 2; reference/act3-hearse/brief.md operation 1): the '
       + 'coffin inside, behind the glass; Grievance in her black harness, facing up the hill, her head turned back to the '
       + 'hearse. Examined through THE HEARSE and GRIEVANCE, AT THE GATE. Declared by tools/extract-content.mjs once the '
-      + 'picture is in the repository (errata 233). Its size ruling joins content/scale-anchors.json with it.',
-    x: 1060, y: 712, zone: 1, approachRadius: 0, tree: '', barks: {}, barksNote: 'She does not speak.',
-    sprite: { sheet: HEARSE_FIGURE.sheet, frames, rate: 0.2, phase: 0.7, breaks: [[2, 2, 0], [3, 0], [1, 1, 0]], breakEvery: 7,
-      talkFrame: 0, frameNote: '0 rest · 1 a breath · 2 her head turned back to the hearse · 3 a foot stamped once (the brief).' },
+      + 'picture is in the repository (errata 233). Drawn at Room 14\'s man at the gate, 298 px (reference/act3-hearse/'
+      + 'handback.md), and stood on the open grass right of Mott\'s obelisk, which the hitch would cover in the gate itself '
+      + '(Tyler, 2026-11-09, of the first check render). Her size is ruled in content/scale-anchors.json.',
+    x: 1215, y: 792, zone: 0, approachRadius: 0, tree: '', barks: {}, barksNote: 'She does not speak.',
+    sprite: { sheet: HEARSE_FIGURE.sheet, frames, figureHeight: 298, stature: 1, rate: 0.2, phase: 0.7,
+      breaks: [[2, 2, 2, 0], [3, 3, 0], [1, 1, 0]], breakEvery: 7, talkFrame: 0,
+      frameNote: '0 rest, her head turned back a little toward the hearse · 1 a breath (derived) · 2 her head turned fully '
+        + 'back, at the hearse · 3 a front hoof stamped once (reference/act3-hearse/handback.md). The hearse is the same in all four.' },
   }, 1));
   if (!listed) {
     const anchor = '"content/ambient/procession-mourners.json"';

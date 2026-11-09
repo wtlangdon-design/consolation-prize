@@ -265,7 +265,8 @@
   "content/ambient/gulch-man-upstream.json",
   "content/ambient/procession-undertaker.json",
   "content/ambient/procession-sowerby.json",
-  "content/ambient/procession-mourners.json"
+  "content/ambient/procession-mourners.json",
+  "content/ambient/procession-hearse.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

@@ -263,6 +263,28 @@
    "ruling": "A raccoon sitting up: about a man's shin high.",
    "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
    "note": "Measured against the man at y 715, as the first raccoon is (the hole is in the face of the rise). The three are cut from his sheet."
+  },
+  {
+   "figure": "procession_hearse",
+   "animal": "Grievance hitched to the hearse at Boot Hill's gate, facing up the hill, in the rest frame",
+   "frame": 0,
+   "columns": [
+    630,
+    949
+   ],
+   "topRow": 80,
+   "feetRow": 381,
+   "withersRow": 137,
+   "withers": [
+    0.75,
+    0.9
+   ],
+   "feet": "hooves",
+   "top": "ear tips",
+   "basis": "A mule of 13-15.2 hands (1.32-1.57 m at the withers; most of the West's pack and harness mules) beside a man of about 1.72 m: withers 0.77-0.91 of him. Her head carried naturally, the poll stands about 0.3 m over the withers and the long ears another 0.3 m, so the ear tips are 1.9-2.3 m: 1.10-1.35 of him.",
+   "ruling": "A mule beside a man: her withers at his shoulder or a little below (reference/act3-hearse/brief.md: 0.75-0.9).",
+   "by": "Tyler, 2026-11-09 (errata 231, the act3-hearse budget: \"I approve all of your decisions\"; the brief's size)",
+   "note": "Errata 233. The figure is the hearse and Grievance as one cut-out (art/actors/room-14-hearse-grievance.png): columns 630-949 of the frame are her alone, the hearse and its shafts to the left. Her hooves are row 381 (the wheels reach the frame's last row, 386, which is `y`); her withers row 137, where her neck meets the collar; her ear tips row 80, the plume rising above them. HER EARS ARE SHORT and are not held to a mule's head-up range (1.10-1.35): drawn 1.01 of the man, and Tyler accepted them (2026-11-09: \"accept the short ears\"; reference/act3-hearse/handback.md, after two masked edits that repainted her head). The withers, which the brief sets, are the measure, as for funeral_grievance."
   }
  ],
  "animalsNote": "EVERY VISIBLE ANIMAL AT ITS TRUE SIZE (errata 201 for the horses; errata 205 for the rest). Each entry is measured by tests/scale.test.ts as the engine draws it, against the room's man where the animal stands: `top` (read from the sheet's top opaque row in `columns`, or `topRow`) and its feet (the bottom opaque row, or `feetRow`, or a room y in `feetY` when they are hidden). `groundY` names the floor the man is taken at when the animal is not standing on the room's floor at its anchor (a crate, a hole in a rise). Above the walk band the man is the curve carried on in a straight line, which is what a flat floor's perspective does. `basis` says where each range comes from. An entry with `knownWrong` is a measured failure recorded for Tyler and printed on every run: the test fails if it is fixed and the entry is left in.",

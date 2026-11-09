@@ -46,6 +46,20 @@
     240
    ],
    "note": "Mott's stone and its lilies (x 540-715, foot at y 795) and the grass behind them: he walks round in front, never behind, so nothing needs a clip plane."
+  },
+  {
+   "id": "hearse_and_grievance",
+   "rect": [
+    740,
+    725,
+    960,
+    75
+   ],
+   "when": {
+    "T_PROCESSION_STALLED": true
+   },
+   "keepsGroundAbove": true,
+   "note": "Errata 233: the hearse's wheels and Grievance's hooves (procession_hearse, feet at y 792, x 740-1690), while the procession is stalled. He walks in front of the hitch or behind it, never through it. The floor is built twice, with and without it (tools/compile-room.mjs, gated obstacles)."
   }
  ],
  "scaling": {
@@ -121,37 +135,37 @@
    175
   ],
   "hearse": [
-   790,
-   240,
-   320,
-   470
+   750,
+   400,
+   520,
+   395
   ],
   "grievance_at_the_gate": [
-   1110,
-   300,
-   230,
-   410
+   1300,
+   450,
+   400,
+   345
   ],
   "undertaker": [
-   1350,
-   445,
+   1750,
+   520,
    100,
    300
   ],
   "reverend_sowerby_at_the_gate": [
-   800,
-   490,
-   140,
+   1250,
+   545,
+   120,
    310
   ],
   "mourners": [
-   1450,
-   460,
-   380,
-   340
+   155,
+   410,
+   360,
+   328
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE NINETEEN is the scatter of boards between Mott's stone and Pike's (one hotspot, read along, doc 54). PIKE'S MARKER is the right-most board at the back, at the hill's crest; the plot beside it, to its right, is PIKE'S NEIGHBOR while it is dug and MY OWN PLOT after the funeral (errata 87 D). Errata 185: THE FENCE, the rails left of the gate. Errata 233 (doc 110 section 2): while the procession is stalled at the gate, THE HEARSE and GRIEVANCE, AT THE GATE over the hearse and its mule (content/ambient/procession-hearse.json, declared once its picture, art/actors/room-14-hearse-grievance.png, is in the repository: reference/act3-hearse/brief.md), REVEREND SOWERBY, AT THE GATE, THE UNDERTAKER and THE MOURNERS over their figures (procession_*).",
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE NINETEEN is the scatter of boards between Mott's stone and Pike's (one hotspot, read along, doc 54). PIKE'S MARKER is the right-most board at the back, at the hill's crest; the plot beside it, to its right, is PIKE'S NEIGHBOR while it is dug and MY OWN PLOT after the funeral (errata 87 D). Errata 185: THE FENCE, the rails left of the gate. Errata 233 (doc 110 section 2): while the procession is stalled at the gate, THE HEARSE and GRIEVANCE, AT THE GATE over the hitch (content/ambient/procession-hearse.json, art/actors/room-14-hearse-grievance.png: reference/act3-hearse/handback.md), right of Mott's obelisk, REVEREND SOWERBY, AT THE GATE, THE UNDERTAKER and THE MOURNERS over their figures (procession_*).",
  "hotspotWhen": {
   "pike_s_neighbor": {
    "T_OBITUARY": true,
@@ -236,7 +250,7 @@
    "facing": "back"
   }
  },
- "obstaclesNote": "Mott's obelisk only.",
+ "obstaclesNote": "Mott's obelisk only. Errata 233: the hitch, while the procession is stalled.",
  "lamps": [
   {
    "id": "town_lights",
@@ -388,32 +402,32 @@
  ],
  "hotspotWalkTo": {
   "hearse": {
-   "x": 1040,
-   "y": 805,
+   "x": 1000,
+   "y": 856,
    "facing": "back"
   },
   "grievance_at_the_gate": {
-   "x": 1180,
-   "y": 805,
+   "x": 1560,
+   "y": 856,
    "facing": "back"
   },
   "undertaker": {
-   "x": 1280,
-   "y": 790,
+   "x": 1690,
+   "y": 852,
    "facing": "right"
   },
   "reverend_sowerby_at_the_gate": {
-   "x": 1010,
-   "y": 800,
-   "facing": "left"
+   "x": 1180,
+   "y": 856,
+   "facing": "right"
   },
   "mourners": {
-   "x": 1300,
-   "y": 840,
-   "facing": "right"
+   "x": 500,
+   "y": 852,
+   "facing": "left"
   }
  },
- "hotspotWalkToNote": "Errata 233: where Thad stands to examine the procession's figures, between them, so he never stands on one (the point under each rect lands on Sowerby or the mourners).",
+ "hotspotWalkToNote": "Errata 233: where Thad stands to examine the procession's figures, in front of the hitch and between the people, so he never stands on one.",
  "docBlocks": [
   {
    "hotspot": "undertaker",

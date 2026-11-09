@@ -8,9 +8,9 @@
   "T_PROCESSION_STALLED": true
  },
  "note": "THE UNDERTAKER AT GRIEVANCE'S HEAD (doc 110 section 2: \"at Grievance's head in his good apron ... He has a hand on her bridle\"), while the procession is stalled at Boot Hill's gate (errata 233). Room 31's own figure (funeral_undertaker's sheet), drawn by its figureHeight at Room 14's curve. Examined and talked to through THE UNDERTAKER over him; his words are Room 14's (docBlocks).",
- "x": 1400,
- "y": 745,
- "zone": 1,
+ "x": 1800,
+ "y": 820,
+ "zone": 0,
  "approachRadius": 0,
  "tree": "",
  "barks": {},
