@@ -1,11 +1,20 @@
 # Scene A's art, handed back (reference/act3-hearse/brief.md)
 
-Three of `act3-hearse`'s four operations spent (`art/staging/ledger.json`, attempts 1 to 3). One reserve operation is left.
+All four of `act3-hearse`'s operations are spent (`art/staging/ledger.json`, attempts 1 to 4). The cut-outs are operations 1 and 2.
 
 **Attempt 3 (a reserve, Tyler: "Go with your recommendations") is NOT used.** A masked edit of operation 1's sheet
 to lengthen her ears and plait the ribbon in: the ears came out right, but the mask let it repaint her whole head and
 it turned every head to face the viewer, losing frame 2's look back at the hearse (the scene's "not fooled"); the
 ribbon still did not appear. The sheet is kept in `art/staging/act3-hearse/op-3/` for the record.
+
+**Attempt 4 (the last, Tyler: "Retry, ears only") is NOT used either.** The mask was cut to the ears and the air above
+her head only, her face outside it; the generator repainted the whole head anyway, every row facing forward alike,
+and dropped the plume. A masked edit does not hold this generator to the mask. Lengthening the ears by hand on the
+cut-out was tried and set aside: her ears stand clear of the plume in frames 0 and 1 but are mostly behind it in 2
+and 3, so a stretch would make them change length between poses.
+
+**So her ears stay short (1.01 of a man against the anchors' 1.10-1.35).** Wiring her with a scale anchor needs that
+recorded as an exception (and in `proofs/check-friction.json` if a check is loosened for it).
 
 ## Operation 1 · `art/actors/room-14-hearse-grievance.png`
 

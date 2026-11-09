@@ -1,0 +1,5 @@
+Image 1 is a sheet from my pixel-art adventure game: the same black hearse and the black mule Grievance three times, with the hero Thad at the right of each row as a ruler. Only the small clear areas of the mask may change: the space at the top of Grievance's head, where her ears and the black feather plume are.
+
+In each row, make HER EARS LONGER and change nothing else: a mule's long ears, about twice as long as they are now, growing from exactly where they grow now, pointing the SAME WAY as now in that row, their tips reaching up about level with the top of Thad's head. Keep the black feather plume between her ears as it is. Her face, her head's turn, the bridle and everything below the clear areas stay EXACTLY as they are, so the new ears must join her head where the old ones did.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the rest of the picture -- NOT sharper, NOT more detailed. Night light: the ears black, with a little dark brown inside. Flat pure magenta (#FF00FF) around them. No glow, no text, no border.

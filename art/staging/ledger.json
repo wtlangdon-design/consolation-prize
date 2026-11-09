@@ -43946,6 +43946,122 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-09T19:26:23.309Z"
+  },
+  {
+   "attempt": 4,
+   "role": "derived-state",
+   "assetId": "act3-hearse",
+   "subject": "act3-hearse-grievance-hitch",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/act3-hearse/op-4.txt",
+   "promptHash": "9df24fee251b7715da192b5af8b3d2d3341f818a050ca5cf9d65747120c9db70",
+   "references": [
+    {
+     "path": "art/staging/act3-hearse/op-4/input.png",
+     "hash": "79d21c75963c3e19e6ed2262a7d7a11c9f07f61ef57f0d9efd1f561b977129e9",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-14-boot-hill",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/act3-hearse/op-4/mask.png",
+    "hash": "4db2a087fe12794fdc2195da516d9ec67300027ba4eed727bdfe1bb6afa1f9ad"
+   },
+   "sourceHash": "79d21c75963c3e19e6ed2262a7d7a11c9f07f61ef57f0d9efd1f561b977129e9",
+   "sourcePath": "art/staging/act3-hearse/op-4/input.png",
+   "out": "art/staging/act3-hearse/op-4/sheet.png",
+   "outputHash": "f9b13032e93d0a565f7169d8425cd1f37ee38d9b19baf156f974bdea1232fbc3",
+   "bytes": 1575247,
+   "usage": {
+    "input_tokens": 7347,
+    "input_tokens_details": {
+     "image_tokens": 7084,
+     "text_tokens": 263
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 8898
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T19:30:55.324Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T19:30:55.335Z"
   }
  ],
  "promotions": [
