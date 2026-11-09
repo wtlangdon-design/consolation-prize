@@ -49,6 +49,10 @@ jobs:
           test -f dist/content/manifest.json
           test -f dist/content/rooms/main-street.json
           echo "rooms published: $(find dist/content/rooms -name '*.json' | wc -l)"
+          # PAGES TAKES 1 GB (errata 236): the deploy timed out at 1.6 GB when art/staging was shipped whole.
+          size=$(du -sm dist | cut -f1)
+          echo "site size: ${size} MB"
+          test "$size" -lt 900
 
       # enablement turns Pages on and sets its source to Actions if that has
       # not been done in repository settings, so the first deploy does not
