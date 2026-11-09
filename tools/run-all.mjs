@@ -69,6 +69,7 @@ import { check as stateImages } from './check-state-images.mjs';
 import { check as buildContracts } from './check-build-contracts.mjs';
 import { check as nightExposure } from './check-night-exposure.mjs';
 import { check as figureLight } from './check-figure-light.mjs';
+import { check as scaleVsThad } from './audit-scale-vs-thad.mjs';
 import { check as plateFlatEdges } from './check-plate-flat-edges.mjs';
 import { check as fontCandidates } from './font/check-candidates.mjs';
 import { check as repeatedLines } from './check-repeated-lines.mjs';
@@ -108,6 +109,7 @@ const CHECKS = [
   buildContracts,
   nightExposure,
   figureLight,
+  scaleVsThad,
   plateFlatEdges,
   fixtures,
   afterUse,

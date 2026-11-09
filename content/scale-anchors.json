@@ -265,5 +265,196 @@
    "note": "Measured against the man at y 715, as the first raccoon is (the hole is in the face of the rise). The three are cut from his sheet."
   }
  ],
- "animalsNote": "EVERY VISIBLE ANIMAL AT ITS TRUE SIZE (errata 201 for the horses; errata 205 for the rest). Each entry is measured by tests/scale.test.ts as the engine draws it, against the room's man where the animal stands: `top` (read from the sheet's top opaque row in `columns`, or `topRow`) and its feet (the bottom opaque row, or `feetRow`, or a room y in `feetY` when they are hidden). `groundY` names the floor the man is taken at when the animal is not standing on the room's floor at its anchor (a crate, a hole in a rise). Above the walk band the man is the curve carried on in a straight line, which is what a flat floor's perspective does. `basis` says where each range comes from. An entry with `knownWrong` is a measured failure recorded for Tyler and printed on every run: the test fails if it is fixed and the entry is left in."
+ "animalsNote": "EVERY VISIBLE ANIMAL AT ITS TRUE SIZE (errata 201 for the horses; errata 205 for the rest). Each entry is measured by tests/scale.test.ts as the engine draws it, against the room's man where the animal stands: `top` (read from the sheet's top opaque row in `columns`, or `topRow`) and its feet (the bottom opaque row, or `feetRow`, or a room y in `feetY` when they are hidden). `groundY` names the floor the man is taken at when the animal is not standing on the room's floor at its anchor (a crate, a hole in a rise). Above the walk band the man is the curve carried on in a straight line, which is what a flat floor's perspective does. `basis` says where each range comes from. An entry with `knownWrong` is a measured failure recorded for Tyler and printed on every run: the test fails if it is fixed and the entry is left in.",
+ "figures": [
+  {
+   "figure": "letter_writer",
+   "eyeRow": 14,
+   "chinRow": 23,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "map_seller",
+   "eyeRow": 13,
+   "chinRow": 20,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "man_leaving_tomorrow",
+   "eyeRow": 15,
+   "chinRow": 25,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "bell_ringer",
+   "eyeRow": 24,
+   "chinRow": 38,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "boundary_a",
+   "eyeRow": 18,
+   "chinRow": 28,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "boundary_b",
+   "eyeRow": 17,
+   "chinRow": 26,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "pratt",
+   "eyeRow": 45,
+   "chinRow": 76,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs).",
+   "expect": [
+    0.93,
+    0.99
+   ],
+   "ruling": "Pratt is 0.96 of the room's man, crown to sole, so his hat brings him level with Thad.",
+   "by": "Tyler, 2026-11-06",
+   "quote": "scale wise, he still looks way bigger than Thad. I think his current frame needs to be scaled down to better match Thad."
+  },
+  {
+   "figure": "pratt_registrar",
+   "eyeRow": 74,
+   "chinRow": 109,
+   "note": "The same sheet as pratt_jump. Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs).",
+   "expect": [
+    0.93,
+    0.99
+   ],
+   "ruling": "Pratt is 0.96 of the room's man, crown to sole, so his hat brings him level with Thad.",
+   "by": "Tyler, 2026-11-06",
+   "quote": "scale wise, he still looks way bigger than Thad. I think his current frame needs to be scaled down to better match Thad."
+  },
+  {
+   "figure": "pratt_jump",
+   "eyeRow": 74,
+   "chinRow": 109,
+   "note": "The same sheet as pratt_registrar. Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs).",
+   "expect": [
+    0.93,
+    0.99
+   ],
+   "ruling": "Pratt is 0.96 of the room's man, crown to sole, so his hat brings him level with Thad.",
+   "by": "Tyler, 2026-11-06",
+   "quote": "scale wise, he still looks way bigger than Thad. I think his current frame needs to be scaled down to better match Thad."
+  },
+  {
+   "figure": "gulch_lookout",
+   "eyeRow": 27,
+   "chinRow": 47,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "gulch_man_upstream",
+   "eyeRow": 29,
+   "chinRow": 49,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "duel_fanshawe",
+   "eyeRow": 70,
+   "chinRow": 108,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "duel_judge_3",
+   "eyeRow": 34,
+   "chinRow": 62,
+   "note": "Hatted; the chin is the jaw at row 62, not the foot of the beard. Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "fiddler",
+   "eyeRow": 24,
+   "chinRow": 41,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "prosperity_ozymandia",
+   "eyeRow": 49,
+   "chinRow": 70,
+   "note": "Her plumed hat stands on her hair; held by her eyes like the hatted men. Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs).",
+   "knownWrong": {
+    "why": "Her figureHeight (368) counted most of her plumed hat, so she was drawn 0.89 of Thad, not her stature's 0.96. Moving her the whole way breaks the one level her sheet is snapped to (errata 112 G) by 8%; the data takes her as far as 5% of the level allows (figureHeight 353, `levelMan` 383.3): 0.93.",
+    "fix": "Re-snap her sheet at figureHeight 342 / stature 0.96 (tools/art/one-level.py, a pixel operation), then set figureHeight 342 and drop levelMan: 0.96 of Thad."
+   }
+  },
+  {
+   "figure": "gulch_panner",
+   "eyeRow": 47,
+   "chinRow": 66,
+   "note": "Hatted, the brim pulled low: his eyes are in its shadow (row 47, between the brim at 38 and his mouth at 60-63). The least certain reading in the set. Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "hob",
+   "room": "back_alley",
+   "eyeRow": 30,
+   "chinRow": 55,
+   "note": "Hatted, in profile; the eye under the brim. Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "hob",
+   "room": "watchmans_shack",
+   "eyeRow": 44,
+   "chinRow": 81,
+   "note": "Hatted, in profile; the eye under the brim. Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "dogs_owner",
+   "room": "back_alley",
+   "eyeRow": 30,
+   "chinRow": 54,
+   "note": "Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "dogs_owner",
+   "room": "main_street",
+   "crownRow": 8,
+   "note": "Hatted, his head bowed to the dog, so his face does not give his height: he is held by his upright crown on the same sheet (the alley frame's, row 8; the two frames are the same size and stand on the same row)."
+  },
+  {
+   "figure": "funeral_mourners",
+   "held": true,
+   "columns": [
+    12,
+    58
+   ],
+   "note": "A GROUP, measured by its tallest adult: the young man at the left, hatless (his hat is in his hands), the nearest and tallest of the seven. Columns 12-58 hold him alone: the woman beside him begins at column 62. The men behind the women have no soles in the frame."
+  },
+  {
+   "figure": "duel_town_left",
+   "held": true,
+   "columns": [
+    172,
+    210
+   ],
+   "note": "A GROUP, measured by its tallest adult: the barman with the towel, hatless, the nearest grown man. Columns 172-210 hold him alone between the apron man's arm (to column 168) and the bonnet woman (from 215). The boy in front is nearer and is not an adult."
+  },
+  {
+   "figure": "duel_town_right",
+   "held": true,
+   "columns": [
+    131,
+    170
+   ],
+   "eyeRow": 77,
+   "chinRow": 89,
+   "note": "A GROUP, measured by its tallest adult: the bearded man in the brimmed hat at the front, soles at the frame's foot. Columns 131-170 hold his hat and head alone; the top-hatted man begins at column 182. Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+  },
+  {
+   "figure": "sign_painter",
+   "crownRow": 18,
+   "soleRow": 760,
+   "groundY": 812,
+   "note": "UP A STEP-LADDER: his soles are on the top step (row 760, the step's top at 762), not on the frame's foot (the ladder's, row 1288, on y 812), so he is held to the man at the ladder's feet. Facing the board; his face is turned away, so the crown is read under his flat cap (its top row 12, the crown about six rows under it).",
+   "knownWrong": {
+    "why": "His figureHeight (935) is the hero's height on the generation sheet, not his: from cap to the soles on his step he is 743 rows, so he is drawn 0.80 of Thad. The data cannot fix it: figureHeight scales the ladder with him, and the ladder is the height that puts his brush on the board's number line, so a bigger man would paint the sky.",
+    "fix": "Recut the sheet with the ladder shortened from 528 rows under his soles to about 262, then figureHeight 743: he is drawn 1.26x larger and his brush stays on the numbers (355 px above the ladder feet either way). Pixels: for Tyler to rule on."
+   }
+  }
+ ],
+ "figuresNote": "EVERY FIGURE BESIDE THAD, AS DRAWN (errata 234; Tyler, 2026-11-09: \"the screenshot you sent shows Thad looking much smaller than everyone else. It all needs to be scaled correctly. Similarly through the whole game.\"). tests/scale-vs-thad.test.mjs measures every visible figure's crown-to-sole IN SCREEN PIXELS, through the engine's own scale, against Thad's at the same soles (tools/audit-scale-vs-thad.mjs). A standing adult is held to 0.95-1.05 of Thad. An entry here says how to read a figure the pixels cannot: `eyeRow` and `chinRow` (a hatted head: its crown is 0.9 of the eyes-to-chin above the eyes, the share measured on the hatless cast), `crownRow` and `soleRow` (declared rows), `columns` (a group's tallest adult, which also needs `held`), `groundY` (the floor a man is held to when he is not standing on it: a man up a ladder). `expect` replaces 0.95-1.05 and must cite a ruling (`ruling`, `by`). `knownWrong` is a measured failure recorded for Tyler: printed on every run, and the test fails when it is fixed and the entry is left in. `room` limits an entry to one placement."
 }
