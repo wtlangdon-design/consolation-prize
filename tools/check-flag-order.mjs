@@ -11,8 +11,11 @@ import {
  * make the game unwinnable, an unsatisfiable gate is always an authoring bug.
  *
  * Scope note: this is the static half. The ordering-aware half -- proving no
- * gate is reached earlier than its write in actual play -- needs the puzzle
- * graph, which lands with Act content. check-puzzle-graph.mjs covers it then.
+ * gate is reached earlier than its write in actual play -- is
+ * check-puzzle-graph.mjs's (`unwrittenReads`, errata 219): a gate at a site
+ * the player can stand at, reading a value nothing reachable from a fresh
+ * save writes. Until errata 219 that half was deferred to a graph that was
+ * never filled, and this note said so on every run.
  */
 
 function collectWrites(content) {
@@ -216,7 +219,7 @@ export function check() {
     const source = declared.get(id).writtenBy.find((entry) => entry.startsWith('engine:'));
     report.note(`gated on but written by no content: "${id}" -- ${source} must exist for it to fire`);
   }
-  report.note('ordering-aware half deferred to the puzzle graph (Phase 5)');
+  report.note('the ordering-aware half is check-puzzle-graph.mjs\'s (errata 219)');
 
   return report;
 }
