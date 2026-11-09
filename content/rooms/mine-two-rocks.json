@@ -1,0 +1,477 @@
+{
+  "schema": 1,
+  "id": "mine_two_rocks",
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-48.json",
+      "reference/room-48/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        100,
+        690,
+        1780,
+        56
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        87,
+        746,
+        1793,
+        56
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        73,
+        802,
+        1807,
+        56
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      100,
+      690
+    ],
+    [
+      1880,
+      690
+    ],
+    [
+      1880,
+      858
+    ],
+    [
+      60,
+      858
+    ]
+  ],
+  "entrance": [
+    200,
+    770
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        200,
+        770
+      ],
+      "facing": "right",
+      "note": "In from the climb."
+    },
+    {
+      "from": "mine_climb",
+      "at": [
+        200,
+        770
+      ],
+      "facing": "right",
+      "note": "Up the passage from the climb."
+    },
+    {
+      "from": "mine_line",
+      "at": [
+        1030,
+        720
+      ],
+      "facing": "front",
+      "note": "Back past the big rock -- by THE WAY BACK from the line."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "other_rock",
+      "name": "THE OTHER ROCK",
+      "rect": [
+        1230,
+        430,
+        330,
+        270
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A second boulder, smaller. In any other chamber it would be the big one.",
+            "repeat": [
+              "It's a perfectly good rock. It's just been standing next to that one for ten thousand years.",
+              "I've decided to like this one best. Somebody should."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Grit running off it.",
+            "repeat": [
+              "Water ticking on it, slower than on the big one.",
+              "Not a sound. It knows it's being compared."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "I tried. It's the small one, and it still beat me. I won't be telling the big one.",
+        "TALK_TO": "I told it I liked it best. I whispered, so the big one wouldn't hear."
+      },
+      "walkTo": {
+        "x": 1395,
+        "y": 837,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "big_rock",
+      "name": "THE BIG ROCK",
+      "rect": [
+        280,
+        120,
+        590,
+        540
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A boulder the size of a stagecoach, sitting in the middle of the chamber as if it had paid for the seat.",
+            "repeat": [
+              "A passage goes round behind it. Everything in here goes round it. It's used to that.",
+              "I put my shoulder to it, for no reason I can defend. It didn't notice."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Not a whisper. It's very big and very quiet, and those go together.",
+            "repeat": [
+              "A drip running down its side, finding the path it always finds.",
+              "The silence of something that will be here after everyone."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I asked it to move, politely. It's been asked before, by better men, with dynamite."
+      },
+      "walkTo": {
+        "x": 575,
+        "y": 817,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "way_back",
+      "name": "THE WAY BACK",
+      "rect": [
+        20,
+        190,
+        240,
+        430
+      ],
+      "colour": 0,
+      "to": "mine_climb",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Back toward the climb and the bar of daylight.",
+            "repeat": [
+              "Back. I've grown fond of that shaft of light. It's the only thing down here with a view.",
+              "Back where the roof has a hole in it, and the hole has a sky."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The wind over the shaft, faint, behind me.",
+            "repeat": [
+              "Nothing much. A drip, back the way I came.",
+              "A creak from the props, back there, then nothing."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 108: back toward the climb.",
+      "walkTo": {
+        "x": 140,
+        "y": 700,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "way_past_big_rock",
+      "name": "THE WAY PAST THE BIG ROCK",
+      "rect": [
+        880,
+        240,
+        300,
+        380
+      ],
+      "colour": 0,
+      "to": "mine_line",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A passage behind the big rock, going on.",
+            "repeat": [
+              "I'd have to squeeze past the rock to take it. The rock won't move for me. Few things do.",
+              "Dark beyond the rock, the same dark as everywhere."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Dark, and a drip in it.",
+            "repeat": [
+              "Quiet air, along it.",
+              "A drip, and air. The same as the other way."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 108: past the larger rock.",
+      "walkTo": {
+        "x": 1030,
+        "y": 695,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "way_past_other_rock",
+      "name": "THE WAY PAST THE OTHER ROCK",
+      "rect": [
+        1620,
+        220,
+        270,
+        400
+      ],
+      "colour": 0,
+      "to": "mine_climb",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A passage beyond the smaller rock, going on.",
+            "repeat": [
+              "An easy walk past it. The small rock is accommodating. It has had to be.",
+              "It goes on into the dark, like everything down here that isn't a rock."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Dark, with a drip in it somewhere.",
+            "repeat": [
+              "Quiet air, that way too.",
+              "Air, and a drip. The same as past the big one."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 0
+          },
+          "say": "Ah. I've been here.",
+          "set": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 1"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "say": "This chamber again. It's growing on me.",
+          "set": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 2"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "say": "I know that rock. I've started naming the rocks.",
+          "set": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 3"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "say": "Back again. If anybody's surveying me, I'd like it noted that I'm thorough.",
+          "set": {
+            "MINE_BACK_AGAIN": 4
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 4"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": {
+              "atLeast": 4
+            }
+          },
+          "say": "Here.",
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 5"
+        }
+      ],
+      "note": "Doc 107: a wrong way at the two rocks leads back to the climb.",
+      "walkTo": {
+        "x": 1755,
+        "y": 700,
+        "facing": "back"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 100,
+          "y": 690
+        },
+        {
+          "x": 1880,
+          "y": 690
+        },
+        {
+          "x": 1880,
+          "y": 746
+        },
+        {
+          "x": 100,
+          "y": 746
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 376,
+        "nearY": 858,
+        "nearHeight": 417
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 87,
+          "y": 746
+        },
+        {
+          "x": 1880,
+          "y": 746
+        },
+        {
+          "x": 1880,
+          "y": 802
+        },
+        {
+          "x": 87,
+          "y": 802
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 376,
+        "nearY": 858,
+        "nearHeight": 417
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 73,
+          "y": 802
+        },
+        {
+          "x": 1880,
+          "y": 802
+        },
+        {
+          "x": 1880,
+          "y": 858
+        },
+        {
+          "x": 73,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 376,
+        "nearY": 858,
+        "nearHeight": 417
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "background": "art/backgrounds/room-48-mine-two-rocks.png",
+  "lamps": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-48/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120
+}

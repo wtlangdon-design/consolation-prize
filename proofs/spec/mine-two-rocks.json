@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "mine_two_rocks",
+ "note": "ROOM 48's PROOF SPEC, from fixture r48-a.",
+ "fixture": "r48-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "The two rocks have one visual state and nothing in them changes: nobody is in the mine (doc 107), and no state may show the way (the brief)."
+ }
+}

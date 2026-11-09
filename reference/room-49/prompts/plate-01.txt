@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a junction in an old mine, with two timbered passage mouths that look alike, an ore cart on its side between them, and a dim way back at the left. A man in a blue coat is standing on the floor at the right.
+
+Make exactly one change: remove the man. Paint what is behind him: the rough rock wall and the rock floor with its grit.
+
+Change nothing else: the two passage mouths and their timbers, the ore cart and its wheel, the way back at the left and the floor stay exactly as they are. The grey above and below the picture may stay grey. No people, no text, no border.

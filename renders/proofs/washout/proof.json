@@ -1,0 +1,375 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "washout",
+ "roomWidth": 1920,
+ "branch": "HEAD",
+ "commit": "3a637d4ff5cbac79e523739caf16d010ad14be23",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "M art/actors/room-45-grievance.png",
+  " M art/staging/room-45/grievance/grievance.json",
+  " M content/ambient/washout-grievance.json",
+  " M content/scale-anchors.json",
+  " M proofs/check-friction.json",
+  " M tools/art/interiors-people.py",
+  "?? node_modules"
+ ],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r45-a, then entered washout by control -- NOT proof that a player can reach it"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "floor_0",
+    "kind": "far",
+    "y": 651,
+    "xs": [
+     1706,
+     1692,
+     1720,
+     1678,
+     1734,
+     1664,
+     1748,
+     1650,
+     1762
+    ],
+    "expect": 258,
+    "x": 1706
+   },
+   "at": [
+    1706,
+    651
+   ],
+   "reportedHeight": 258,
+   "expected": 258,
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "bounds": [
+    1569,
+    393,
+    273,
+    285
+   ],
+   "order": 0,
+   "renderedHeight": 259,
+   "renderedBottom": 651,
+   "file": "raw-captures-ignored/panel-c-floor_0-far.png"
+  },
+  {
+   "mark": {
+    "box": "floor_3_0",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     273,
+     234,
+     311,
+     196,
+     349,
+     158,
+     387,
+     120,
+     425
+    ],
+    "expect": 371,
+    "x": 273
+   },
+   "at": [
+    273,
+    857
+   ],
+   "reportedHeight": 371,
+   "expected": 371,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    76,
+    486,
+    393,
+    410
+   ],
+   "order": 0,
+   "renderedHeight": 372,
+   "renderedBottom": 857,
+   "file": "raw-captures-ignored/panel-c-floor_3_0-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "washout_grievance",
+   "feet": [
+    480,
+    803
+   ],
+   "sheet": "art/actors/room-45-grievance.png",
+   "clipPlane": null,
+   "box": {
+    "x": 403,
+    "y": 401,
+    "width": 154,
+    "height": 404
+   },
+   "seen": {
+    "x": 453,
+    "y": 402,
+    "width": 104,
+    "height": 402,
+    "bottom": 803,
+    "right": 556,
+    "changed": 26823
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "washout",
+   "clock": 9.8377,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_WASHOUT_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "clarion",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 333,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      123,
+      467,
+      353,
+      368
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c4a78cff1d0b0973448d707d4b1590a73b8f59a6dde53fd3d44525f78b0f313b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(washout)"
+   ],
+   "capturedAt": "2026-11-09T03:14:32.372Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "2f43b0d847ac8a032d22856e05e70c205390ce47fb89dbe5b9be8a66ea5e44e0"
+  },
+  {
+   "panel": "A",
+   "room": "washout",
+   "clock": 10.771,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_WASHOUT_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "clarion",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 333,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c4a78cff1d0b0973448d707d4b1590a73b8f59a6dde53fd3d44525f78b0f313b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(washout)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-09T03:14:33.302Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "2b2d16a8054c2420f363fe5263d9b2d085809b5c4e9903e29a309725635836f6"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-09T03:14:37.965Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 511190,
+  "panels": 4,
+  "scale": 0.5
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "mine_adit",
+ "note": "ROOM 46's PROOF SPEC, from fixture r46-a (the trip is not yet reached from Consolation).",
+ "fixture": "r46-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "The adit has one visual state and nothing in it changes: nobody is in the mine (doc 107), and THE MINE MUST NOT SHOW THE WAY (the brief), so no state of it may differ. tests/gulch-mine.test.ts plays its ways."
+ }
+}

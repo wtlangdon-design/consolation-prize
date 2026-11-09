@@ -1,0 +1,237 @@
+{
+ "schema": 1,
+ "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
+ "room": 52,
+ "id": "room-52-grog-tent",
+ "name": "THE GROG TENT",
+ "content": [
+  {
+   "id": "look-listen",
+   "question": "LOOK/LISTEN complete?",
+   "answer": "NO",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
+    "docs/109-fiddlers-gulch-lines.md::THE DEACON, before he is found",
+    "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+    "docs/109-fiddlers-gulch-lines.md::THE RULE-KEEPER"
+   ],
+   "why": "1 subject(s) without both: THE FIND"
+  },
+  {
+   "id": "repeat-variants",
+   "question": "Repeat-selection variants complete?",
+   "answer": "NO",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
+    "docs/109-fiddlers-gulch-lines.md::THE DEACON, before he is found",
+    "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+    "docs/109-fiddlers-gulch-lines.md::THE RULE-KEEPER"
+   ],
+   "why": "1 subject(s) short of three: THE FIND (LOOK 0, LISTEN 0)"
+  },
+  {
+   "id": "act-variants",
+   "question": "Act/state variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "why": "none, by doctrine: The grog tent is reached only on the trip, in Act II (doc 107). Doc 109 writes its states as the watch's three and the fiddle's two (before and after G5), and the Deacon's before and after the find; the room has no act variation."
+  },
+  {
+   "id": "wrong-verbs",
+   "question": "Wrong-verb layer complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/49-wrong-answers.md::ROOM 52 — THE GROG TENT"
+   ],
+   "why": "10 authored refusal(s)"
+  },
+  {
+   "id": "dialogue",
+   "question": "Dialogue used by this room complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE DEACON, before he is found",
+    "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+    "docs/109-fiddlers-gulch-lines.md::THE RULE-KEEPER"
+   ],
+   "why": "3 node(s) resolve for the Deacon, the rule-keeper"
+  },
+  {
+   "id": "puzzles",
+   "question": "Puzzle requirements complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)",
+    "proofs/readiness/puzzles.json"
+   ],
+   "why": "G4, G5, G6, G9 are specified, and every piece of their content is written"
+  },
+  {
+   "id": "items",
+   "question": "Required items declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+   ],
+   "why": "the puzzle section names the documents and topics this room issues and needs"
+  },
+  {
+   "id": "flags",
+   "question": "Required flags/state declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+   ],
+   "why": "the puzzle section names the topic flags this room sets"
+  },
+  {
+   "id": "staging",
+   "question": "Beat/staging script complete OR genuinely not required?",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT"
+   ],
+   "why": "not required: No doc 48 script is sited here."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour sufficiently authored?",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE DEACON, before he is found",
+    "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT"
+   ],
+   "why": "the Deacon, the rule-keeper has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
+  },
+  {
+   "id": "open-canon",
+   "question": "Unresolved canon decisions affecting this room?",
+   "answer": "NO",
+   "evidence": [],
+   "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
+  }
+ ],
+ "subjectsFound": 7,
+ "subjectsDeclaredByDocument": null,
+ "unresolvedCitations": [],
+ "dimensions": [
+  {
+   "id": "writing",
+   "question": "Writing",
+   "answer": "NO",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
+    "docs/109-fiddlers-gulch-lines.md::THE DEACON, before he is found",
+    "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+    "docs/109-fiddlers-gulch-lines.md::THE RULE-KEEPER",
+    "docs/49-wrong-answers.md::ROOM 52 — THE GROG TENT"
+   ],
+   "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
+  },
+  {
+   "id": "puzzle-behaviour",
+   "question": "Puzzle behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)",
+    "proofs/readiness/puzzles.json"
+   ],
+   "why": "the puzzles sited here, the items they need and issue, and the flags they set"
+  },
+  {
+   "id": "act-behaviour",
+   "question": "Act/state behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "why": "none, by doctrine: The grog tent is reached only on the trip, in Act II (doc 107). Doc 109 writes its states as the watch's three and the fiddle's two (before and after G5), and the Deacon's before and after the find; the room has no act variation."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE DEACON, before he is found",
+    "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT"
+   ],
+   "why": "the Deacon, the rule-keeper has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
+  },
+  {
+   "id": "staging-behaviour",
+   "question": "Staging behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT"
+   ],
+   "why": "not required: No doc 48 script is sited here."
+  },
+  {
+   "id": "visual-subjects",
+   "question": "Visual subject requirements",
+   "answer": "NO",
+   "evidence": [
+    "A renders/room-01-in-engine-1920x1080.png",
+    "B art/backgrounds/room-01-stage-road.png",
+    "C art/actors/thad-stand-front/stand-00.png"
+   ],
+   "why": "D and E: room-52-grog-tent has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+  },
+  {
+   "id": "geometry",
+   "question": "Geometry/placement",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-52/annotation.json",
+    "content/rooms/grog-tent.json",
+    "art/backgrounds/room-52-grog-tent.png"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | the room is not in the manifest | no shipping plate declared"
+  }
+ ],
+ "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
+ "buildableWithoutInvention": "NO",
+ "blocking": [
+  "look-listen: 1 subject(s) without both: THE FIND",
+  "repeat-variants: 1 subject(s) short of three: THE FIND (LOOK 0, LISTEN 0)"
+ ],
+ "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
+ "geometry": [
+  {
+   "id": "annotation",
+   "question": "Room annotation exists?",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-52/annotation.json"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+  },
+  {
+   "id": "compiled",
+   "question": "Room JSON in the manifest?",
+   "answer": "NO",
+   "evidence": [
+    "content/rooms/grog-tent.json"
+   ],
+   "why": "the room is not in the manifest"
+  },
+  {
+   "id": "plate",
+   "question": "Shipping plate at the canonical size?",
+   "answer": "NO",
+   "evidence": [
+    "art/backgrounds/room-52-grog-tent.png"
+   ],
+   "why": "no shipping plate declared"
+  }
+ ],
+ "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
+ "geometryReady": "NO",
+ "at": "2026-11-09T01:16:42.516Z"
+}

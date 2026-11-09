@@ -1,0 +1,17 @@
+{
+ "assetId": "room-45",
+ "subject": "room-45-washout",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-45-washout",
+ "promptFile": "reference/room-45/prompts/composition-master-01.txt",
+ "out": "art/staging/room-45/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-45/layout-1536x1024.png",
+  "art/backgrounds/room-01-stage-road.png",
+  "art/backgrounds/room-36-main-street-dawn.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

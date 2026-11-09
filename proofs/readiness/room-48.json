@@ -1,0 +1,221 @@
+{
+ "schema": 1,
+ "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
+ "room": 48,
+ "id": "room-48-mine-two-rocks",
+ "name": "THE MINE: THE TWO ROCKS",
+ "content": [
+  {
+   "id": "look-listen",
+   "question": "LOOK/LISTEN complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS",
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS"
+   ],
+   "why": "5 subject(s), each with a LOOK and a LISTEN"
+  },
+  {
+   "id": "repeat-variants",
+   "question": "Repeat-selection variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS",
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS"
+   ],
+   "why": "all 5 subject(s) carry three LOOK and three LISTEN variants"
+  },
+  {
+   "id": "act-variants",
+   "question": "Act/state variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "why": "none, by doctrine: The mine is walked only on the trip, in Act II, and only until the first crossing: after it THE OLD MINE leads straight from the washout to the ledge (doc 107, The mine; doc 108, THE WAY THROUGH). Doc 108 writes one state for it."
+  },
+  {
+   "id": "wrong-verbs",
+   "question": "Wrong-verb layer complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/49-wrong-answers.md::ROOM 48 — THE MINE: THE TWO ROCKS"
+   ],
+   "why": "3 authored refusal(s)"
+  },
+  {
+   "id": "dialogue",
+   "question": "Dialogue used by this room complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS"
+   ],
+   "why": "no character speaks in this room: Nobody is in the mine (doc 107, The places; the brief's table)."
+  },
+  {
+   "id": "puzzles",
+   "question": "Puzzle requirements complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)",
+    "proofs/readiness/puzzles.json"
+   ],
+   "why": "G2 are specified, and every piece of their content is written"
+  },
+  {
+   "id": "items",
+   "question": "Required items declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+   ],
+   "why": "the puzzle section names the documents and topics this room issues and needs"
+  },
+  {
+   "id": "flags",
+   "question": "Required flags/state declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+   ],
+   "why": "the puzzle section names the topic flags this room sets"
+  },
+  {
+   "id": "staging",
+   "question": "Beat/staging script complete OR genuinely not required?",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS"
+   ],
+   "why": "not required: No doc 48 script is sited here. The mine's ways and their lines are doc 108's: THE MINE · BACK WHERE HE STARTED and the rod at the line."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour sufficiently authored?",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS"
+   ],
+   "why": "no character is present to behave"
+  },
+  {
+   "id": "open-canon",
+   "question": "Unresolved canon decisions affecting this room?",
+   "answer": "NO",
+   "evidence": [],
+   "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
+  }
+ ],
+ "subjectsFound": 5,
+ "subjectsDeclaredByDocument": null,
+ "unresolvedCitations": [],
+ "dimensions": [
+  {
+   "id": "writing",
+   "question": "Writing",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS",
+    "docs/49-wrong-answers.md::ROOM 48 — THE MINE: THE TWO ROCKS"
+   ],
+   "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
+  },
+  {
+   "id": "puzzle-behaviour",
+   "question": "Puzzle behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)",
+    "proofs/readiness/puzzles.json"
+   ],
+   "why": "the puzzles sited here, the items they need and issue, and the flags they set"
+  },
+  {
+   "id": "act-behaviour",
+   "question": "Act/state behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "why": "none, by doctrine: The mine is walked only on the trip, in Act II, and only until the first crossing: after it THE OLD MINE leads straight from the washout to the ledge (doc 107, The mine; doc 108, THE WAY THROUGH). Doc 108 writes one state for it."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS"
+   ],
+   "why": "no character is present to behave"
+  },
+  {
+   "id": "staging-behaviour",
+   "question": "Staging behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS"
+   ],
+   "why": "not required: No doc 48 script is sited here. The mine's ways and their lines are doc 108's: THE MINE · BACK WHERE HE STARTED and the rod at the line."
+  },
+  {
+   "id": "visual-subjects",
+   "question": "Visual subject requirements",
+   "answer": "YES",
+   "evidence": [
+    "A renders/room-01-in-engine-1920x1080.png",
+    "B art/backgrounds/room-01-stage-road.png",
+    "C art/actors/thad-stand-front/stand-00.png",
+    "D art/backgrounds/room-34-under-prosperity.png",
+    "E reference/casting/room-01-casting-master.png"
+   ],
+   "why": "every baseline slot is satisfied: A, B, C, D, E"
+  },
+  {
+   "id": "geometry",
+   "question": "Geometry/placement",
+   "answer": "YES",
+   "evidence": [
+    "reference/room-48/annotation.json",
+    "content/rooms/mine-two-rocks.json",
+    "art/backgrounds/room-48-mine-two-rocks.png"
+   ],
+   "why": "annotation, room file and plate are all present at the canonical size"
+  }
+ ],
+ "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
+ "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
+ "geometry": [
+  {
+   "id": "annotation",
+   "question": "Room annotation exists?",
+   "answer": "YES",
+   "evidence": [
+    "reference/room-48/annotation.json"
+   ],
+   "why": "authored geometry is on disk"
+  },
+  {
+   "id": "compiled",
+   "question": "Room JSON in the manifest?",
+   "answer": "YES",
+   "evidence": [
+    "content/rooms/mine-two-rocks.json"
+   ],
+   "why": "content/rooms/mine-two-rocks.json is loaded by the engine"
+  },
+  {
+   "id": "plate",
+   "question": "Shipping plate at the canonical size?",
+   "answer": "YES",
+   "evidence": [
+    "art/backgrounds/room-48-mine-two-rocks.png"
+   ],
+   "why": "art/backgrounds/room-48-mine-two-rocks.png is 1920x864, PNG colour type 2"
+  }
+ ],
+ "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
+ "geometryReady": "YES",
+ "at": "2026-11-09T00:23:25.461Z"
+}

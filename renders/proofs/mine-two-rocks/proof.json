@@ -1,0 +1,432 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "mine_two_rocks",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "bc6daf7e900fb2f5b1715cc164fcf2a32391b474",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "M art/actors/room-45-grievance.png",
+  " M art/staging/ledger.json",
+  " M art/ui/item-icons.png",
+  " M content/acted-directions.json",
+  " M content/audio/sounds.json",
+  " M content/combinations.json",
+  " M content/flags/flags.json",
+  " M content/manifest.json",
+  " M content/ui/item-icons.json",
+  " M docs/95-acted-directions.md",
+  " M engine/core/GameState.ts",
+  " M engine/core/VerbSystem.ts",
+  " M engine/core/types.ts",
+  " M proofs/audio/consolation-audio-proof.html",
+  " M proofs/played-pending.json",
+  " M proofs/written-not-built.json",
+  " M reference/global-baseline.json",
+  " M renders/room-45-washout-with-thad.png",
+  " M tests/acted-directions.test.ts",
+  " M tests/item-icons-scale.test.ts",
+  " M tests/items.test.ts",
+  " M tools/art/interiors-render.py",
+  " M tools/art/item-icons-cut.py",
+  " M tools/check-flag-order.mjs",
+  " M tools/check-written-vs-built.mjs",
+  " M tools/compile-room.mjs",
+  " M tools/extract-content.mjs",
+  " M tools/extract-examine.mjs",
+  " M tools/gulch-graybox.py",
+  " M tools/render-music.mjs",
+  "?? art/backgrounds/room-46-mine-adit.png",
+  "?? art/backgrounds/room-47-mine-climb.png",
+  "?? art/backgrounds/room-48-mine-two-rocks.png",
+  "?? art/backgrounds/room-49-mine-line.png",
+  "?? art/backgrounds/room-50-ledge.png",
+  "?? audio/consolation-gulch-canvas.wav",
+  "?? audio/consolation-gulch.wav",
+  "?? audio/consolation-mine.wav",
+  "?? audio/sfx/ledge-bed.wav",
+  "?? audio/sfx/mine-bed.wav",
+  "?? audio/sfx/washout-bed.wav",
+  "?? content/ambient/washout-grievance.json",
+  "?? content/examine/room-46.json",
+  "?? content/examine/room-47.json",
+  "?? content/examine/room-48.json",
+  "?? content/examine/room-49.json",
+  "?? content/examine/room-50.json",
+  "?? content/fixtures/room-45.json",
+  "?? content/items/brass-rod.json",
+  "?? content/items/clarion.json",
+  "?? content/items/third-copy.json",
+  "?? content/rooms/ledge.json",
+  "?? content/rooms/mine-adit.json",
+  "?? content/rooms/mine-climb.json",
+  "?? content/rooms/mine-line.json",
+  "?? content/rooms/mine-two-rocks.json",
+  "?? content/rooms/washout.json",
+  "?? proofs/readiness/room-46.json",
+  "?? proofs/readiness/room-46.sources.json",
+  "?? proofs/readiness/room-47.json",
+  "?? proofs/readiness/room-47.sources.json",
+  "?? proofs/readiness/room-48.json",
+  "?? proofs/readiness/room-48.sources.json",
+  "?? proofs/readiness/room-49.json",
+  "?? proofs/readiness/room-49.sources.json",
+  "?? proofs/readiness/room-50.json",
+  "?? proofs/readiness/room-50.sources.json",
+  "?? proofs/room-46/",
+  "?? proofs/room-47/",
+  "?? proofs/room-48/",
+  "?? proofs/room-49/",
+  "?? proofs/room-50/",
+  "?? proofs/spec/ledge.json",
+  "?? proofs/spec/mine-adit.json",
+  "?? proofs/spec/mine-climb.json",
+  "?? proofs/spec/mine-line.json",
+  "?? proofs/spec/mine-two-rocks.json",
+  "?? proofs/spec/washout.json",
+  "?? reference/fiddlers-gulch/icons/",
+  "?? reference/room-45/annotation.json",
+  "?? reference/room-46/",
+  "?? reference/room-47/",
+  "?? reference/room-48/",
+  "?? reference/room-49/",
+  "?? reference/room-50/",
+  "?? renders/proofs/mine-adit/",
+  "?? renders/proofs/mine-climb/",
+  "?? renders/proofs/washout/",
+  "?? renders/room-46-graybox-with-thad.png",
+  "?? renders/room-46-graybox.png",
+  "?? renders/room-46-mine-adit-with-thad.png",
+  "?? renders/room-47-graybox-with-thad.png",
+  "?? renders/room-47-graybox.png",
+  "?? renders/room-47-mine-climb-with-thad.png",
+  "?? renders/room-48-graybox-with-thad.png",
+  "?? renders/room-48-graybox.png",
+  "?? renders/room-48-mine-two-rocks-with-thad.png",
+  "?? renders/room-49-graybox-with-thad.png",
+  "?? renders/room-49-graybox.png",
+  "?? renders/room-49-mine-line-with-thad.png",
+  "?? renders/room-50-graybox-with-thad.png",
+  "?? renders/room-50-graybox.png",
+  "?? renders/room-50-ledge-with-thad.png",
+  "?? tests/gulch-mine.test.ts",
+  "?? tools/art/gulch-icons-cut.py",
+  "?? tools/art/room49-mirror.py",
+  "?? tools/audio/render-gulch-sfx.py",
+  "?? tools/gauntlet/routes/gulch-mine-doors.json",
+  "?? tools/gauntlet/routes/washout-life.json"
+ ],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r48-a, then entered mine_two_rocks by control -- NOT proof that a player can reach it"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 691,
+    "xs": [
+     990,
+     768,
+     1213,
+     545,
+     1435,
+     323,
+     1658,
+     100,
+     1880
+    ],
+    "expect": 376,
+    "x": 990
+   },
+   "at": [
+    990,
+    691
+   ],
+   "reportedHeight": 376,
+   "expected": 376,
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "bounds": [
+    791,
+    315,
+    398,
+    415
+   ],
+   "order": 0,
+   "renderedHeight": 376,
+   "renderedBottom": 690,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     977,
+     751,
+     1202,
+     525,
+     1428,
+     299,
+     1654,
+     73,
+     1880
+    ],
+    "expect": 417,
+    "x": 977
+   },
+   "at": [
+    977,
+    857
+   ],
+   "reportedHeight": 417,
+   "expected": 417,
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "bounds": [
+    756,
+    440,
+    442,
+    460
+   ],
+   "order": 0,
+   "renderedHeight": 417,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "mine_two_rocks",
+   "clock": 10.126100000000001,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "clarion",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      770
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 394,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      -9,
+      376,
+      417,
+      435
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:mine_two_rocks",
+     "path": "art/backgrounds/room-48-mine-two-rocks.png",
+     "drawn": "art/backgrounds/room-48-mine-two-rocks.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2b72dbcdbf2539fa429f56929ba09ff79007fbc36befce5df652f04c98cd5e39"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(mine_two_rocks)"
+   ],
+   "capturedAt": "2026-11-09T00:17:51.870Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "bc9a49eba2f32d76851f92b8c1fd7a987bdb238ee51e3f0ef3d56d5b2d404843"
+  },
+  {
+   "panel": "A",
+   "room": "mine_two_rocks",
+   "clock": 11.0094,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "clarion",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      770
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 394,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:mine_two_rocks",
+     "path": "art/backgrounds/room-48-mine-two-rocks.png",
+     "drawn": "art/backgrounds/room-48-mine-two-rocks.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2b72dbcdbf2539fa429f56929ba09ff79007fbc36befce5df652f04c98cd5e39"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(mine_two_rocks)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-09T00:17:52.746Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "2a55c8d4dc349a3eee260859ebe3ea46f50fba147f6e92b8c66b2711373824a1"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-09T00:17:57.323Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 337532,
+  "panels": 4,
+  "scale": 0.5
+ }
+}

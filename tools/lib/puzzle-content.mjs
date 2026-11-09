@@ -23,8 +23,11 @@ import { resolveIssueRef } from './issueref.mjs';
  */
 
 const MANIFEST = 'proofs/readiness/puzzles.json';
-const ITEM_DOCS = ['docs/23-inventory-act1.md', 'docs/54-batch-c.md'];
-const NODE_DOCS = ['docs/04-dialogue-trees.md', 'docs/27-minor-trees.md'];
+const ITEM_DOCS = ['docs/23-inventory-act1.md', 'docs/54-batch-c.md', 'docs/109-fiddlers-gulch-lines.md'];
+// FIDDLER'S GULCH IS READ WHERE IT IS WRITTEN (reference/fiddlers-gulch/brief.md): doc 109's nodes, items and
+// pairs 25-26 are extracted from doc 109 directly, never copied into docs 03, 04 or 23.
+const NODE_DOCS = ['docs/04-dialogue-trees.md', 'docs/27-minor-trees.md', 'docs/109-fiddlers-gulch-lines.md'];
+const GULCH = 'docs/109-fiddlers-gulch-lines.md';
 
 function read(path) {
   return readFileSync(resolve(ROOT, path), 'utf8');
@@ -54,10 +57,11 @@ function variants(line) {
 function item(name) {
   for (const path of ITEM_DOCS) {
     const lines = read(path).split('\n');
-    const at = lines.findIndex((line) => line.trim() === `## ${name}`);
+    // `## NAME` (docs 23, 54), or doc 109's `**NAME** *(item)*`, whose block ends at the next heading or item.
+    const at = lines.findIndex((line) => line.trim() === `## ${name}` || line.trim() === `**${name}** *(item)*`);
     if (at < 0) continue;
     const body = [];
-    for (let i = at + 1; i < lines.length && !/^#{1,2}\s/.test(lines[i]); i += 1) body.push(lines[i]);
+    for (let i = at + 1; i < lines.length && !/^#{1,3}\s/.test(lines[i]) && !/^\*\*[^*]+\*\*\s*\*\(item\)\*/.test(lines[i].trim()); i += 1) body.push(lines[i]);
     const look = new Set(); const listen = new Set();
     for (const line of body) {
       const l = /\*\*LOOK\*\*(.*?)(?:\*\*LISTEN\*\*|$)/.exec(line);
@@ -106,6 +110,18 @@ function duel(pairs) {
   const missing = [];
   for (const pair of pairs) {
     let body;
+    if (typeof pair === 'number' && pair >= 25) {
+      // Pairs 25 and 26 are the Gulch's, and their wrong answers are written in doc 109 (G8).
+      const gulch = read(GULCH);
+      const from = gulch.indexOf('### Their wrong answers');
+      const at = from < 0 ? -1 : gulch.indexOf(`\n**${pair}.**`, from);
+      if (at < 0) { missing.push(`pair ${pair}: no section in ${GULCH}`); continue; }
+      const next = gulch.slice(at + 1).search(/\n(\*\*\d+\.\*\*|#)/);
+      body = next < 0 ? gulch.slice(at) : gulch.slice(at, at + 1 + next);
+      const count = answers(body);
+      if (count !== 3) missing.push(`pair ${pair}: ${count} wrong answer(s) with replies, needs 3`);
+      continue;
+    }
     if (pair === 1) body = part.slice(0, part.indexOf('## Wrong answers, pairs'));
     else if (pair === 'fifth') body = part.slice(part.indexOf('**Duel Three, the fifth exchange**'));
     else {

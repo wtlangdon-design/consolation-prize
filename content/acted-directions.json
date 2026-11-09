@@ -860,6 +860,13 @@
         "id": "B3-WHISTLE",
         "frame": 1
       }
+    },
+    {
+      "n": 80,
+      "class": "B",
+      "speaker": "thad",
+      "words": "He holds the rod out down the left passage. It trembles in his hands like a plucked string. He turns it to the right passage. It goes still.",
+      "where": "combinations (brass_rod on left_passage and right_passage, at the line, first)"
     }
   ]
 }

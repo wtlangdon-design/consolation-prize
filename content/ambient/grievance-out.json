@@ -8,6 +8,7 @@
  "y": 690,
  "zone": 2,
  "approachRadius": 0,
+ "barks": {},
  "scenery": true,
  "tree": "",
  "note": "GRIEVANCE OUT OF HER STALL (doc 54 B3: \"Then she walks out of her stall\"; errata 197). Draws nothing until the fork's act (doc 95 row 79), when her own figure goes empty and this one shows the half door open, the stall dark behind it, and her stepping out and walking off to the left. Composed by tools/art/grievance-out.py from room-15 attempt 6 and her canonical sheet. Scenery: the pointer passes through it, so GRIEVANCE is still clicked as she always was.",

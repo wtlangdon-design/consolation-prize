@@ -1169,6 +1169,253 @@
      "name": "THE SAMPLE"
     }
    ]
+  },
+  "G1": {
+   "rooms": [
+    16
+   ],
+   "audited": "2026-11-08",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::G1 · THE ROD, HIRED"
+    },
+    {
+     "kind": "node",
+     "id": "OZY_A1"
+    },
+    {
+     "kind": "item",
+     "name": "THE BRASS ROD"
+    }
+   ]
+  },
+  "G2": {
+   "rooms": [
+    45,
+    46,
+    47,
+    48,
+    49
+   ],
+   "audited": "2026-11-08",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/108-the-washout-and-the-mine.md::THE WASHOUT"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/108-the-washout-and-the-mine.md::THE MINE · ON FIRST ENTERING"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/108-the-washout-and-the-mine.md::THE MINE · BACK WHERE HE STARTED"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/108-the-washout-and-the-mine.md::THE MINE · THE ADIT"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/108-the-washout-and-the-mine.md::THE MINE · THE CLIMB"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/108-the-washout-and-the-mine.md::THE MINE · THE LINE",
+     "contains": "THE BRASS ROD"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/108-the-washout-and-the-mine.md::THE MINE · WRONG ANSWERS, ANYWHERE IN IT"
+    },
+    {
+     "kind": "item",
+     "name": "THE THIRD COPY"
+    }
+   ]
+  },
+  "G3": {
+   "rooms": [
+    51
+   ],
+   "audited": "2026-11-08",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+     "contains": "STOPPED BY THE LOOKOUT"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT",
+     "contains": "GIVE THE CLARION"
+    },
+    {
+     "kind": "node",
+     "id": "LOO_G1"
+    },
+    {
+     "kind": "item",
+     "name": "THE CLARION"
+    }
+   ]
+  },
+  "G4": {
+   "rooms": [
+    52
+   ],
+   "audited": "2026-11-08",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::THE WATCH"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::THE FIND"
+    },
+    {
+     "kind": "node",
+     "id": "DEA_G1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::TWO DECISIONS FOR G4"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/03-liars-assay.md::DUEL ONE — Deke Vessel (unwinnable by design)",
+     "contains": "Grubb! You came all this way."
+    }
+   ]
+  },
+  "G5": {
+   "rooms": [
+    52
+   ],
+   "audited": "2026-11-08",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::THE FIDDLE",
+     "contains": "USE THE TUNING FORK"
+    },
+    {
+     "kind": "node",
+     "id": "RUL_G1"
+    },
+    {
+     "kind": "item",
+     "name": "THE TUNING FORK"
+    }
+   ]
+  },
+  "G6": {
+   "rooms": [
+    52
+   ],
+   "audited": "2026-11-08",
+   "needs": [
+    {
+     "kind": "node",
+     "id": "VES_B1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+     "contains": "Option 6, in the Gulch"
+    }
+   ]
+  },
+  "G7": {
+   "rooms": [
+    53
+   ],
+   "audited": "2026-11-08",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/03-liars-assay.md::DUEL ONE — Deke Vessel (unwinnable by design)",
+     "contains": "Grandmother. Gravel. Yes."
+    },
+    {
+     "kind": "duel",
+     "pairs": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::DUEL ONE, ON THE BAR"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/00-errata.md::73 · THE LIAR'S ASSAY'S WRONG ANSWERS"
+    },
+    {
+     "kind": "node",
+     "id": "PAN_G1"
+    }
+   ]
+  },
+  "G8": {
+   "rooms": [
+    53,
+    54
+   ],
+   "audited": "2026-11-08",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::G8 · THE MESSAGES"
+    },
+    {
+     "kind": "node",
+     "id": "PAN_G1"
+    },
+    {
+     "kind": "node",
+     "id": "UPS_G1"
+    },
+    {
+     "kind": "duel",
+     "pairs": [
+      25,
+      26
+     ]
+    }
+   ]
+  },
+  "G9": {
+   "rooms": [
+    52,
+    45,
+    4
+   ],
+   "audited": "2026-11-08",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+     "contains": "Option 5, in the Gulch, after Duel One"
+    },
+    {
+     "kind": "node",
+     "id": "VES_B1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/109-fiddlers-gulch-lines.md::GOING HOME"
+    }
+   ]
   }
  }
 }

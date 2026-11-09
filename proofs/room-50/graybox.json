@@ -1,0 +1,152 @@
+{
+ "room": 50,
+ "note": "Ruling 22 steps 1-6 for THE LEDGE, written by tools/gulch-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 199).",
+ "what": "The mine's far mouth high on a ravine wall in daylight: a rock ledge; at the left the hole in the cliff the mine comes out of; a cairn of piled stones at the edge; far below, filling the middle of the view, the whole camp of Fiddler's Gulch -- tents, cabins, a river, smoke going straight up; at the right the ravine dropping away and a zigzag path going down it with a rope along the bad parts.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 690,
+   "height": 258
+  },
+  "near": {
+   "y": 858,
+   "height": 372
+  },
+  "from": "Room 5's exterior slope, as the washout"
+ },
+ "walkable": [
+  150,
+  690,
+  1700,
+  168
+ ],
+ "exits": [
+  {
+   "hotspot": "THE MINE",
+   "to": "washout",
+   "rect": [
+    50,
+    280,
+    280,
+    400
+   ]
+  }
+ ],
+ "marks": {
+  "arrival": {
+   "x": 330,
+   "y": 760,
+   "facing": "right"
+  },
+  "cairn": {
+   "x": 1200,
+   "y": 760,
+   "facing": "right"
+  },
+  "path": {
+   "x": 1700,
+   "y": 800,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE MINE",
+   "rect": [
+    50,
+    280,
+    280,
+    400
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CAIRN",
+   "rect": [
+    1260,
+    470,
+    150,
+    210
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE RAVINE",
+   "rect": [
+    1480,
+    300,
+    440,
+    300
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PATH DOWN",
+   "rect": [
+    1640,
+    560,
+    280,
+    304
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band; the cairn is at its far edge.",
+ "surfaces": [
+  {
+   "surface": "THE CAMP BELOW (far down)",
+   "p10": 86.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 61.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "the ledge, rock",
+   "p10": 100.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 75.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE MINE",
+   "p10": 54.0,
+   "p90": 54.0,
+   "darkAnchorMargin": 29.3,
+   "lightAnchorMargin": 67.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CAIRN",
+   "p10": 86.0,
+   "p90": 86.0,
+   "darkAnchorMargin": 61.3,
+   "lightAnchorMargin": 35.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE RAVINE",
+   "p10": 92.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 67.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE PATH DOWN",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

@@ -242,6 +242,12 @@ export class VerbSystem {
         effects: flagEffects(`with/${roomId}/${target.id}/${itemId}`, pair.set),
       };
     }
+    // AN ITEM'S LINES FOR A PLACE (doc 108, THE MINE · WRONG ANSWERS, ANYWHERE IN IT): after a pair, before the
+    // item's own pool -- the brass rod and the fork, anywhere in the mine's four rooms, said in turn across them.
+    const area = table?.areaPools?.find((one) => one.item === itemId && one.rooms.includes(roomId));
+    if (area?.lines.length) {
+      return { say: this.rotate(`area:${area.id}`, area.lines), dialogue: null, goto: null, effects: [] };
+    }
     const own = table?.itemPools[itemId];
     if (own?.length) {
       return { say: this.rotate(`item:${itemId}`, own), dialogue: null, goto: null, effects: [] };

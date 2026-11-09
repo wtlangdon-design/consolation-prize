@@ -1,0 +1,172 @@
+{
+ "room": 49,
+ "note": "Ruling 22 steps 1-6 for THE MINE: THE LINE, written by tools/gulch-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 199).",
+ "what": "A junction: two timbered passages that look exactly alike, in mirror image about the middle of the picture, and an ore cart on its side between them with MAY chalked on it.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 700,
+   "height": 393
+  },
+  "near": {
+   "y": 858,
+   "height": 434
+  },
+  "from": "Room 34's depth (the game's other mine): 0.26 a row on a near-flat floor"
+ },
+ "walkable": [
+  150,
+  700,
+  1700,
+  158
+ ],
+ "exits": [
+  {
+   "hotspot": "THE WAY BACK",
+   "to": "mine_two_rocks",
+   "rect": [
+    0,
+    330,
+    140,
+    534
+   ]
+  },
+  {
+   "hotspot": "THE LEFT PASSAGE",
+   "to": "mine_line",
+   "rect": [
+    540,
+    240,
+    300,
+    450
+   ]
+  },
+  {
+   "hotspot": "THE RIGHT PASSAGE",
+   "to": "ledge",
+   "rect": [
+    1080,
+    240,
+    300,
+    450
+   ]
+  }
+ ],
+ "marks": {
+  "arrival": {
+   "x": 300,
+   "y": 800,
+   "facing": "right"
+  },
+  "left": {
+   "x": 690,
+   "y": 720,
+   "facing": "up"
+  },
+  "right": {
+   "x": 1230,
+   "y": 720,
+   "facing": "up"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY BACK",
+   "rect": [
+    0,
+    330,
+    140,
+    534
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LEFT PASSAGE",
+   "rect": [
+    540,
+    240,
+    300,
+    450
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE RIGHT PASSAGE",
+   "rect": [
+    1080,
+    240,
+    300,
+    450
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE ORE CART",
+   "rect": [
+    870,
+    560,
+    180,
+    130
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band; the cart lies at its far edge.",
+ "surfaces": [
+  {
+   "surface": "rock roof and walls",
+   "p10": 50.0,
+   "p90": 72.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 49.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, rock and grit",
+   "p10": 90.0,
+   "p90": 90.0,
+   "darkAnchorMargin": 65.3,
+   "lightAnchorMargin": 31.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAY BACK",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 31.3,
+   "lightAnchorMargin": 65.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE LEFT PASSAGE",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE RIGHT PASSAGE",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE ORE CART",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 67.3,
+   "lightAnchorMargin": 29.9,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

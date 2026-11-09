@@ -433,6 +433,36 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 205: the animal section was rewritten to hold every visible animal, not only the horses, which is stronger; the horses' ranges are unchanged and errata 198's file still fails. Two things in it give way and are recorded here: an entry may carry `knownWrong` (grievance_out stepping out of her stall measures 1.067 against a mule's 1.10-1.35 and passes the suite while it is printed for Tyler; the test fails if she is fixed and the entry is left in), and off the walk band the man is the curve carried on in a straight line rather than clamped, as the church's behind-counter check already does. No misfire prompted either: the first is a finding Tyler has not ruled on, the second the geometry of a flat floor."
+  },
+  {
+   "check": "proofs/played-pending.json",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 200: G1 (the rod hire in Room 16) and the three Gulch items (the third copy, the brass rod, the Clarion) are written and their rooms are building, but the hand-overs that give them are part of the brief's last step, the changes in Consolation. They are listed pending with that reason, and tests/items.test.ts fails the moment one gains a source and stays listed, so the entries cannot outlive the work."
+  },
+  {
+   "check": "tests/item-icons-scale.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 200: the icon count held the number 26, and Fiddler's Gulch adds three items with icons. The count now compares the icon table with the manifest's real items in both directions, so a missing icon or a stray cell still fails; it is stricter than the number it replaces."
+  },
+  {
+   "check": "tools/check-written-vs-built.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 199, 200: docs 108 and 109, Fiddler's Gulch's writing, join the documents the check reads, so their lines are held to the ledger like every other source's. The diff reads as a loosening because the SOURCES list changed; nothing was excused. The lines for rooms not yet built (51 to 54, and the changes in Consolation) are listed under gulch-pending until they are."
+  },
+  {
+   "check": "proofs/played-pending.json",
+   "date": "2026-11-09",
+   "kind": "reviewed",
+   "why": "Three additions in 14 days (Room 7's D6/E0/F5, D4's first half, Fiddler's Gulch's G1 and three items). None was a misfire: each lists something written whose staging is genuinely not built yet, with its reason, and each comes out when that staging is built (tests/lessons.test.ts fails a pending puzzle that a test plays; tests/items.test.ts fails a pending item that gains a source). The list grows because rooms are being built in parts, which is what it is for. No tune or merge: loosening it would let a puzzle go unplayed silently, and it duplicates no other check. For the twice-monthly review: whether additions to this list should count as loosenings at all, when each carries a reason and a test that retires it."
+  },
+  {
+   "check": "tools/check-room-readiness.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 202: the Gulch's people answer a wrong verb in doc 49's room sections (Tyler: \"Write them (doc 49)\"), not in an Overrides block of the room's own document, and the behaviour question read only the Overrides block. It now also accepts the room's doc 49 section when that section answers a wrong verb on EVERY person the room declares, by name; one unnamed person is still a NO (proved by declaring the rule-keeper in Room 53). A room whose people have no authored refusal anywhere still answers NO."
   }
  ]
 }

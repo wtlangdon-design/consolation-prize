@@ -1158,6 +1158,11 @@ export interface CombinationsFile {
   /** Item id to its own rotating pool. Doc 24 tier 2. */
   itemPools: Record<string, string[]>;
   itemPoolNote?: string;
+  /**
+   * An item's lines for a place: after a pair, before the item's own pool, rotated in turn across every room the
+   * place has (doc 108: the brass rod and the fork, "anywhere in" the mine).
+   */
+  areaPools?: { id: string; item: string; rooms: string[]; lines: string[]; source?: string }[];
   /** Anything on anything unhandled. Doc 24 tier 3. */
   globalPool: string[];
 }

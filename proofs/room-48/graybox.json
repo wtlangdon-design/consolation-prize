@@ -1,0 +1,190 @@
+{
+ "room": 48,
+ "note": "Ruling 22 steps 1-6 for THE MINE: THE TWO ROCKS, written by tools/gulch-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 199).",
+ "what": "A chamber with two boulders: at the left one the size of a stagecoach, with a passage going round behind it; at the right a smaller one, with a passage beyond it. The two passages are the same kind of mouth, the same size and the same dark.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 700,
+   "height": 393
+  },
+  "near": {
+   "y": 858,
+   "height": 434
+  },
+  "from": "Room 34's depth (the game's other mine): 0.26 a row on a near-flat floor"
+ },
+ "walkable": [
+  150,
+  700,
+  1700,
+  158
+ ],
+ "exits": [
+  {
+   "hotspot": "THE WAY BACK",
+   "to": "mine_climb",
+   "rect": [
+    0,
+    330,
+    140,
+    534
+   ]
+  },
+  {
+   "hotspot": "THE WAY PAST THE BIG ROCK",
+   "to": "mine_line",
+   "rect": [
+    960,
+    330,
+    210,
+    360
+   ]
+  },
+  {
+   "hotspot": "THE WAY PAST THE OTHER ROCK",
+   "to": "mine_climb",
+   "rect": [
+    1620,
+    330,
+    210,
+    360
+   ]
+  }
+ ],
+ "marks": {
+  "arrival": {
+   "x": 300,
+   "y": 800,
+   "facing": "right"
+  },
+  "big": {
+   "x": 1065,
+   "y": 720,
+   "facing": "up"
+  },
+  "other": {
+   "x": 1725,
+   "y": 720,
+   "facing": "up"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY BACK",
+   "rect": [
+    0,
+    330,
+    140,
+    534
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WAY PAST THE BIG ROCK",
+   "rect": [
+    960,
+    330,
+    210,
+    360
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BIG ROCK",
+   "rect": [
+    330,
+    160,
+    640,
+    530
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE OTHER ROCK",
+   "rect": [
+    1300,
+    420,
+    290,
+    270
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WAY PAST THE OTHER ROCK",
+   "rect": [
+    1620,
+    330,
+    210,
+    360
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band; both rocks stand at its far edge.",
+ "surfaces": [
+  {
+   "surface": "rock roof and walls",
+   "p10": 50.0,
+   "p90": 98.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 23.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "floor, rock and grit",
+   "p10": 90.0,
+   "p90": 90.0,
+   "darkAnchorMargin": 65.3,
+   "lightAnchorMargin": 31.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAY BACK",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 31.3,
+   "lightAnchorMargin": 65.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAY PAST THE BIG ROCK",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BIG ROCK",
+   "p10": 98.0,
+   "p90": 98.0,
+   "darkAnchorMargin": 73.3,
+   "lightAnchorMargin": 23.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE OTHER ROCK",
+   "p10": 98.0,
+   "p90": 98.0,
+   "darkAnchorMargin": 73.3,
+   "lightAnchorMargin": 23.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE WAY PAST THE OTHER ROCK",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

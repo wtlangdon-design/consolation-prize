@@ -1,0 +1,457 @@
+{
+  "schema": 1,
+  "id": "mine_line",
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-49.json",
+      "reference/room-49/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        100,
+        650,
+        1780,
+        69
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        87,
+        719,
+        1793,
+        70
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        73,
+        789,
+        1807,
+        69
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      100,
+      650
+    ],
+    [
+      1880,
+      650
+    ],
+    [
+      1880,
+      858
+    ],
+    [
+      60,
+      858
+    ]
+  ],
+  "entrance": [
+    200,
+    760
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        200,
+        760
+      ],
+      "facing": "right",
+      "note": "In from the two rocks."
+    },
+    {
+      "from": "mine_two_rocks",
+      "at": [
+        200,
+        760
+      ],
+      "facing": "right",
+      "note": "Past the big rock."
+    },
+    {
+      "from": "mine_line",
+      "at": [
+        620,
+        690
+      ],
+      "facing": "front",
+      "note": "Doc 107: the wrong passage at the line goes round in a loop to the line again; he comes back out of it."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "ore_cart",
+      "name": "THE ORE CART",
+      "rect": [
+        855,
+        373,
+        330,
+        275
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An ore cart on its side, one wheel in the air.",
+            "repeat": [
+              "Empty. Whoever pushed it this far gave up at the same junction I'm standing at.",
+              "There's a name chalked on it: MAY. A woman or a month. Either way, she's gone."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The wheel ticking round when I touch it, slower, then stopped.",
+            "repeat": [
+              "Quiet. It's been waiting a long while for somebody to make up their mind.",
+              "A drip into its bed, where the rust has made a little cup."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "I tried to set it on its wheels. It went back on its side, where it's comfortable.",
+        "TALK_TO": "I asked May which way she went. She kept it to herself. I'd want the same, if I were May.",
+        "USE": "I could climb in and go somewhere. It's on its side, and I'm a grown man. Two good reasons."
+      },
+      "walkTo": {
+        "x": 1020,
+        "y": 784,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "way_back",
+      "name": "THE WAY BACK",
+      "rect": [
+        70,
+        120,
+        180,
+        480
+      ],
+      "colour": 0,
+      "to": "mine_two_rocks",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Back toward the two rocks.",
+            "repeat": [
+              "I could go back and apologize to the small rock. I won't, but I could.",
+              "Back to the rocks. The small one will be pleased to see me."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A trickle of grit, back toward the rocks.",
+            "repeat": [
+              "Quiet, back there, and getting no louder.",
+              "A drip, back there, keeping time."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 108: back toward the two rocks.",
+      "walkTo": {
+        "x": 170,
+        "y": 665,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "left_passage",
+      "name": "THE LEFT PASSAGE",
+      "rect": [
+        465,
+        145,
+        312,
+        450
+      ],
+      "colour": 0,
+      "to": "mine_line",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A passage into the dark, timbered, the width of a man and a half.",
+            "repeat": [
+              "Exactly like the other one. I've checked twice.",
+              "I counted the timbers. Seven. I'm not going to count the other side."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drip, somewhere down it.",
+            "repeat": [
+              "Still air. It isn't telling.",
+              "Still air, and a drip. Nothing to choose by."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 0
+          },
+          "say": "Ah. I've been here.",
+          "set": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 1"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "say": "This chamber again. It's growing on me.",
+          "set": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 2"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "say": "I know that rock. I've started naming the rocks.",
+          "set": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 3"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "say": "Back again. If anybody's surveying me, I'd like it noted that I'm thorough.",
+          "set": {
+            "MINE_BACK_AGAIN": 4
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 4"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": {
+              "atLeast": 4
+            }
+          },
+          "say": "Here.",
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 5"
+        }
+      ],
+      "note": "Doc 107: round in a loop to the line again.",
+      "walkTo": {
+        "x": 620,
+        "y": 655,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "right_passage",
+      "name": "THE RIGHT PASSAGE",
+      "rect": [
+        1214,
+        145,
+        312,
+        450
+      ],
+      "colour": 0,
+      "to": "ledge",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A passage into the dark, timbered, the same width as its neighbor.",
+            "repeat": [
+              "I've compared the two. They're the same passage, as far as I can tell, in two places.",
+              "I counted the timbers. I'd told myself I wouldn't. Seven."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drip, somewhere down it, at much the same pace.",
+            "repeat": [
+              "Still air. It isn't telling either.",
+              "Still air, and a drip. Nothing to choose by either."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "setOnTransit": {
+        "T_MINE_CROSSED": true
+      },
+      "note": "Doc 108: the way through; nothing on the plate shows it. Taking it is the first crossing (doc 107).",
+      "walkTo": {
+        "x": 1370,
+        "y": 655,
+        "facing": "back"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 100,
+          "y": 650
+        },
+        {
+          "x": 1880,
+          "y": 650
+        },
+        {
+          "x": 1880,
+          "y": 719
+        },
+        {
+          "x": 100,
+          "y": 719
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 389,
+        "nearY": 858,
+        "nearHeight": 430
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 87,
+          "y": 719
+        },
+        {
+          "x": 1880,
+          "y": 719
+        },
+        {
+          "x": 1880,
+          "y": 789
+        },
+        {
+          "x": 87,
+          "y": 789
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 389,
+        "nearY": 858,
+        "nearHeight": 430
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 73,
+          "y": 789
+        },
+        {
+          "x": 1880,
+          "y": 789
+        },
+        {
+          "x": 1880,
+          "y": 858
+        },
+        {
+          "x": 73,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 389,
+        "nearY": 858,
+        "nearHeight": 430
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "background": "art/backgrounds/room-49-mine-line.png",
+  "lamps": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-49/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "props": [
+    {
+      "id": "cart_chalk",
+      "sheet": "art/props/room-49-cart-may.png",
+      "x": 1040,
+      "y": 560,
+      "frame": [
+        0,
+        0,
+        36,
+        14
+      ],
+      "note": "THE ORE CART's chalk (doc 108's third LOOK): MAY, in the shipping face, on the cart's side (tools/art/gulch-lettering.py)."
+    }
+  ]
+}

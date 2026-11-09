@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "id": "mine_adit",
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-46.json",
+      "reference/room-46/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        160,
+        700,
+        1700,
+        53
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        147,
+        753,
+        1720,
+        52
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        133,
+        805,
+        1740,
+        53
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      160,
+      700
+    ],
+    [
+      1860,
+      700
+    ],
+    [
+      1880,
+      858
+    ],
+    [
+      120,
+      858
+    ]
+  ],
+  "entrance": [
+    300,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        300,
+        790
+      ],
+      "facing": "right",
+      "note": "In from the washout."
+    },
+    {
+      "from": "washout",
+      "at": [
+        300,
+        790
+      ],
+      "facing": "right",
+      "note": "In at the mouth."
+    },
+    {
+      "from": "mine_climb",
+      "at": [
+        1565,
+        720
+      ],
+      "facing": "front",
+      "note": "Back out of the right-hand opening -- by THE WAY BACK, or round from THE PASSAGE ON (doc 107's table)."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "stake",
+      "name": "THE STAKE",
+      "rect": [
+        1745,
+        490,
+        80,
+        230
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A surveyor's stake, gray with age, driven in by the right-hand opening.",
+            "repeat": [
+              "Somebody surveyed this, once. I can't think what. There's nothing in here a man would want a boundary round.",
+              "I gave it a push. It didn't move. Whoever put it here meant it."
+            ],
+            "then": [
+              "More or less by it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drip landing on its top, every few seconds.",
+            "repeat": [
+              "The drip has worn a little cup in the wood.",
+              "Quiet. It's held its position longer than I've been alive."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It's driven in to the knee. Taking it would mean digging, and I came here to walk.",
+        "TALK_TO": "I said good morning to it. It's been standing here so long, I felt it was owed."
+      },
+      "walkTo": {
+        "x": 1785,
+        "y": 856,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_washout",
+      "name": "THE WAY OUT",
+      "rect": [
+        0,
+        40,
+        220,
+        680
+      ],
+      "colour": 0,
+      "to": "washout",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Daylight, and the washout, and a mule who's glad I've gone.",
+            "repeat": [
+              "The way I came in. I know where it goes. That's a comfort, down here.",
+              "I can see Grievance's tail flicking, out in the bright. She hasn't followed me. She isn't going to."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Grievance, chewing, outside.",
+            "repeat": [
+              "Wind across the mouth of the mine.",
+              "A crow, outside, still laughing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I called out to Grievance that I was all right. She didn't ask."
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 108: daylight, the way he came in.",
+      "walkTo": {
+        "x": 200,
+        "y": 780,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "left_opening",
+      "name": "THE LEFT OPENING",
+      "rect": [
+        370,
+        150,
+        340,
+        470
+      ],
+      "colour": 0,
+      "to": "washout",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An opening in the rock, timbered, going down into the dark.",
+            "repeat": [
+              "The timbers are good. That tells me someone came back out.",
+              "I've stood in front of it long enough that it's starting to look like a decision."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drip, somewhere inside.",
+            "repeat": [
+              "Air, moving a little.",
+              "Air, and a drip. The same as the others, near enough."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 0
+          },
+          "say": "Ah. I've been here.",
+          "set": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 1"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "say": "This chamber again. It's growing on me.",
+          "set": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 2"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "say": "I know that rock. I've started naming the rocks.",
+          "set": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 3"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "say": "Back again. If anybody's surveying me, I'd like it noted that I'm thorough.",
+          "set": {
+            "MINE_BACK_AGAIN": 4
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 4"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": {
+              "atLeast": 4
+            }
+          },
+          "say": "Here.",
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 5"
+        }
+      ],
+      "note": "Doc 107: a wrong way at the adit leads back out to the washout, and BACK WHERE HE STARTED is said there.",
+      "walkTo": {
+        "x": 540,
+        "y": 705,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "middle_opening",
+      "name": "THE MIDDLE OPENING",
+      "rect": [
+        820,
+        140,
+        520,
+        500
+      ],
+      "colour": 0,
+      "to": "washout",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An opening straight ahead, the widest of the three. Wide isn't always a recommendation.",
+            "repeat": [
+              "Somebody's chalked an arrow beside it, pointing at the ground.",
+              "I followed the arrow. It points at the floor, and I'm already on it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Dripping, further off.",
+            "repeat": [
+              "A faint draft, cool on the face.",
+              "The draft again, and a drip somewhere beyond it."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 0
+          },
+          "say": "Ah. I've been here.",
+          "set": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 1"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "say": "This chamber again. It's growing on me.",
+          "set": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 2"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "say": "I know that rock. I've started naming the rocks.",
+          "set": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 3"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "say": "Back again. If anybody's surveying me, I'd like it noted that I'm thorough.",
+          "set": {
+            "MINE_BACK_AGAIN": 4
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 4"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": {
+              "atLeast": 4
+            }
+          },
+          "say": "Here.",
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 5"
+        }
+      ],
+      "note": "Doc 107: a wrong way at the adit leads back out to the washout.",
+      "walkTo": {
+        "x": 1045,
+        "y": 705,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "right_opening",
+      "name": "THE RIGHT OPENING",
+      "rect": [
+        1400,
+        340,
+        330,
+        310
+      ],
+      "colour": 0,
+      "to": "mine_climb",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An opening on the right, low enough that I'd have to stoop.",
+            "repeat": [
+              "I'd go in bent double, like a man looking for a dropped dollar. I've had the practice.",
+              "My back aches already, just from looking at how low it is."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water, somewhere along it.",
+            "repeat": [
+              "Moving air, not much of it.",
+              "Moving air, and a drip, like the others."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 108: the opening with the stake by it.",
+      "walkTo": {
+        "x": 1565,
+        "y": 705,
+        "facing": "back"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 160,
+          "y": 700
+        },
+        {
+          "x": 1860,
+          "y": 700
+        },
+        {
+          "x": 1860,
+          "y": 753
+        },
+        {
+          "x": 160,
+          "y": 753
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 381,
+        "nearY": 858,
+        "nearHeight": 422
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 147,
+          "y": 753
+        },
+        {
+          "x": 1867,
+          "y": 753
+        },
+        {
+          "x": 1867,
+          "y": 805
+        },
+        {
+          "x": 147,
+          "y": 805
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 381,
+        "nearY": 858,
+        "nearHeight": 422
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 133,
+          "y": 805
+        },
+        {
+          "x": 1873,
+          "y": 805
+        },
+        {
+          "x": 1873,
+          "y": 858
+        },
+        {
+          "x": 133,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 381,
+        "nearY": 858,
+        "nearHeight": 422
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "background": "art/backgrounds/room-46-mine-adit.png",
+  "lamps": [],
+  "onEnter": {
+    "set": {
+      "T_MINE_ENTERED": true
+    },
+    "sayOnce": "T_MINE_ENTERED",
+    "say": [
+      "It isn't as dark as I'd feared. The hill's been dug so often that the daylight gets in through the holes."
+    ]
+  },
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-46/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120
+}

@@ -78,16 +78,16 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 **LISTEN** 1 "A nail working loose." · 2 "The notice flapping at one corner." · 3 "Quiet. It's said its piece, firmly."
 
 ### THE PATH UP *(to the ledge)*
-**LOOK** 1 "The path back up the ravine to the ledge and the mine." · 2 "Up there is the way home, eventually, and a mule."
-**LISTEN** 1 "Grit coming down the path." · 2 "Wind on the ledge, high up."
+**LOOK** 1 "The path back up the ravine to the ledge and the mine." · 2 "Up there is the way home, eventually, and a mule." · 3 "The rope's worn bright on the bends, where everybody holds on hardest."
+**LISTEN** 1 "Grit coming down the path." · 2 "Wind on the ledge, high up." · 3 "The rope creaking, high up."
 
 ### THE GROG TENT *(the way in)*
-**LOOK** 1 "A big tent with the flap tied back and a sign: GROG. The only word anybody bothered to paint." · 2 "Men go in looking worried and come out poorer and less worried."
-**LISTEN** 1 "Glasses, low talk, and a man laughing a little too long." · 2 "A plank creaking under somebody's elbows."
+**LOOK** 1 "A big tent with the flap tied back and a sign: GROG. The only word anybody bothered to paint." · 2 "Men go in looking worried and come out poorer and less worried." · 3 "A man came out, looked at the sky, and went back in. It's that kind of tent."
+**LISTEN** 1 "Glasses, low talk, and a man laughing a little too long." · 2 "A plank creaking under somebody's elbows." · 3 "A cork, and somebody laughing at nothing."
 
 ### THE RIVER *(the way down)*
-**LOOK** 1 "Down to the river, where the men are standing in it." · 2 "The bank's churned to mud by a hundred pairs of rich boots."
-**LISTEN** 1 "Water over stones, and shovels." · 2 "Shovels, and a rocker, down the bank."
+**LOOK** 1 "Down to the river, where the men are standing in it." · 2 "The bank's churned to mud by a hundred pairs of rich boots." · 3 "From here every man in the river looks as if he's dropped something small."
+**LISTEN** 1 "Water over stones, and shovels." · 2 "Shovels, and a rocker, down the bank." · 3 "The rocker, and the river, going about their business."
 
 ---
 
@@ -139,8 +139,8 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 *After G5:* **THE FIDDLE** · USE THE TUNING FORK — "It's right. If I tune it again, he'll pay me again, and that would be taking advantage. I'm tempted."
 
 ### THE TENT FLAP *(the way out)*
-**LOOK** 1 "The flap, tied back, and the camp outside." · 2 "Daylight, and a hundred rich men who don't trust each other."
-**LISTEN** 1 "The river, out past the tents." · 2 "Wind snapping at the flap."
+**LOOK** 1 "The flap, tied back, and the camp outside." · 2 "Daylight, and a hundred rich men who don't trust each other." · 3 "A man ducked in under it as I looked, already holding out his pinch."
+**LISTEN** 1 "The river, out past the tents." · 2 "Wind snapping at the flap." · 3 "Canvas cracking in the wind, and shovels beyond."
 
 ---
 
@@ -165,12 +165,12 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 **LISTEN** 1 "Fast water over stones." · 2 "Teeth chattering, out in the river." · 3 "The river, loud, not caring who's rich."
 
 ### THE TENTS *(the way back)*
-**LOOK** 1 "Back up the bank to the tents." · 2 "Back to the tents, where it's dry and nobody trusts me any less."
-**LISTEN** 1 "The cook fire, faintly." · 2 "Canvas flapping, up the bank."
+**LOOK** 1 "Back up the bank to the tents." · 2 "Back to the tents, where it's dry and nobody trusts me any less." · 3 "Smoke from the cook fire, going straight up. Somebody's dinner, and nobody watching it."
+**LISTEN** 1 "The cook fire, faintly." · 2 "Canvas flapping, up the bank." · 3 "A bolt sliding home, up among the cabins."
 
 ### UPSTREAM *(the way on)*
-**LOOK** 1 "The river bends up the gulch, toward the best ground." · 2 "There's a man up there on his own, shouting at a stake."
-**LISTEN** 1 "Water coming down faster, from up the gulch." · 2 "A man upstream, shouting at nobody."
+**LOOK** 1 "The river bends up the gulch, toward the best ground." · 2 "There's a man up there on his own, shouting at a stake." · 3 "The gulch narrows up there. The ground gets better and the people get worse."
+**LISTEN** 1 "Water coming down faster, from up the gulch." · 2 "A man upstream, shouting at nobody." · 3 "Falling water, faint, a long way up."
 
 ---
 
@@ -194,8 +194,8 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 **LISTEN** 1 "Falling water, loud and close." · 2 "Water on rock, the same note over and over. A low D." · 3 "The D again. Somebody should tell it there are other notes."
 
 ### DOWNSTREAM *(the way back)*
-**LOOK** 1 "Back down the river to the bar and the panners." · 2 "Downstream, where the gold is merely good."
-**LISTEN** 1 "The rocker, faint, downstream." · 2 "The river going away from here, glad to."
+**LOOK** 1 "Back down the river to the bar and the panners." · 2 "Downstream, where the gold is merely good." · 3 "From up here the panners look small and busy, like men in a painting of a gold rush."
+**LISTEN** 1 "The rocker, faint, downstream." · 2 "The river going away from here, glad to." · 3 "Somebody downstream shouting 'MINE!' again. It's the camp's favorite word."
 
 ---
 

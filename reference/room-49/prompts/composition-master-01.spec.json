@@ -1,0 +1,17 @@
+{
+ "assetId": "room-49",
+ "subject": "room-49-mine-line",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-49-mine-line",
+ "promptFile": "reference/room-49/prompts/composition-master-01.txt",
+ "out": "art/staging/room-49/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-49/layout-1536x1024.png",
+  "art/backgrounds/room-34-under-prosperity.png",
+  "art/backgrounds/room-48-mine-two-rocks.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

@@ -869,6 +869,114 @@
    "gauntlet": "tools/gauntlet/routes/schoolhouse.json",
    "blockers": [],
    "note": "Room 41, built 2026-11-08 under doc 55 (errata 183). Acceptance is Tyler's, in the playthrough (Q185)."
+  },
+  {
+   "id": "room-45-washout",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-45.json",
+    "docs/108-the-washout-and-the-mine.md",
+    "docs/49-wrong-answers.md"
+   ],
+   "dependsOn": [
+    "room-15-livery"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-45-washout.json",
+   "proof": "renders/proofs/washout/proof.json",
+   "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
+   "blockers": [],
+   "note": "Room 45, built 2026-11-08 under doc 55 (errata 199, 200). Acceptance is Tyler's, in the playthrough (Q186)."
+  },
+  {
+   "id": "room-46-mine-adit",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-46.json",
+    "docs/108-the-washout-and-the-mine.md",
+    "docs/49-wrong-answers.md"
+   ],
+   "dependsOn": [
+    "room-45-washout"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-46-mine-adit.json",
+   "proof": "renders/proofs/mine-adit/proof.json",
+   "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
+   "blockers": [],
+   "note": "Room 46, built 2026-11-08 under doc 55 (errata 199, 200). Acceptance is Tyler's, in the playthrough (Q187)."
+  },
+  {
+   "id": "room-47-mine-climb",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-47.json",
+    "docs/108-the-washout-and-the-mine.md",
+    "docs/49-wrong-answers.md"
+   ],
+   "dependsOn": [
+    "room-45-washout"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-47-mine-climb.json",
+   "proof": "renders/proofs/mine-climb/proof.json",
+   "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
+   "blockers": [],
+   "note": "Room 47, built 2026-11-08 under doc 55 (errata 199, 200). Acceptance is Tyler's, in the playthrough (Q188)."
+  },
+  {
+   "id": "room-48-mine-two-rocks",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-48.json",
+    "docs/108-the-washout-and-the-mine.md",
+    "docs/49-wrong-answers.md"
+   ],
+   "dependsOn": [
+    "room-45-washout"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-48-mine-two-rocks.json",
+   "proof": "renders/proofs/mine-two-rocks/proof.json",
+   "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
+   "blockers": [],
+   "note": "Room 48, built 2026-11-08 under doc 55 (errata 199, 200). Acceptance is Tyler's, in the playthrough (Q189)."
+  },
+  {
+   "id": "room-49-mine-line",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-49.json",
+    "docs/108-the-washout-and-the-mine.md",
+    "docs/49-wrong-answers.md"
+   ],
+   "dependsOn": [
+    "room-45-washout"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-49-mine-line.json",
+   "proof": "renders/proofs/mine-line/proof.json",
+   "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
+   "blockers": [],
+   "note": "Room 49, built 2026-11-08 under doc 55 (errata 199, 200). Acceptance is Tyler's, in the playthrough (Q190)."
+  },
+  {
+   "id": "room-50-ledge",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-50.json",
+    "docs/109-fiddlers-gulch-lines.md",
+    "docs/49-wrong-answers.md"
+   ],
+   "dependsOn": [
+    "room-45-washout"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-50-ledge.json",
+   "proof": "renders/proofs/ledge/proof.json",
+   "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
+   "blockers": [],
+   "note": "Room 50, built 2026-11-08 under doc 55 (errata 199, 200). Acceptance is Tyler's, in the playthrough (Q191)."
   }
  ],
  "blockerNote": "BLOCKERS ARE QUALIFIED REFERENCES: path.md::Exact Heading. A bare Q id is no longer accepted, because docs/36-issue-list.md carries two Q-number series -- Q11 through Q21 and Q37 each name two different issues -- and a row blocked on \"Q16\" could not say which one. Historical numbering in the document stays as it is; the fix is on the reference side. tools/lib/issueref.mjs resolves a reference to exactly one heading or fails.",
