@@ -469,6 +469,63 @@
       }
     },
     {
+      "id": "to_office_closed",
+      "stateOf": "to_office",
+      "name": "THE DOOR TO THE OFFICE",
+      "rect": [
+        1755,
+        80,
+        165,
+        520
+      ],
+      "colour": 0,
+      "when": {
+        "T_ROOM_GRANTED": false
+      },
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Panelled, brass-handled, and it opens for you exactly when the Colonel finds it useful. I have watched men age in front of it.",
+            "repeat": [
+              "The handle is polished on the inside of the curve, where the Colonel's hand goes, and dull where a visitor would reach.",
+              "A pane of frosted glass at head height, through which nothing can be seen and everything is suggested."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Voices, shaped like laughter, sized like arithmetic.",
+            "repeat": [
+              "A laugh behind it, generous and long. Somebody is being given something.",
+              "Nothing. Then the latch, and the door opens exactly as I look away from it."
+            ]
+          }
+        ],
+        "WALK_TO": [
+          {
+            "say": "Not yet. I'd like a bed in this town before I call on the man who owns most of it."
+          }
+        ],
+        "USE": [
+          {
+            "say": "Not yet. I'd like a bed in this town before I call on the man who owns most of it."
+          }
+        ],
+        "OPEN": [
+          {
+            "say": "Not yet. I'd like a bed in this town before I call on the man who owns most of it."
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1715,
+        "y": 847,
+        "facing": "back"
+      },
+      "note": "Errata 91 E: THE DOOR TO THE OFFICE before it opens -- docs/57-puzzle-completion.md::## A10 ."
+    },
+    {
       "id": "reception_desk",
       "name": "THE RECEPTION DESK",
       "rect": [
@@ -635,7 +692,10 @@
       },
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20: the lobby's one way on, into Fanshawe's office (Room 11). Doc 05 and doc 54 write it; built as the exit with those lines (errata 84).",
+      "note": "Doc 20: the lobby's one way on, into Fanshawe's office (Room 11). Doc 05 and doc 54 write it; built as the exit with those lines (errata 84). Errata 220 (Tyler, 2026-11-09: \"1\"): closed until A2, so the hotel room can't be skipped and Act IV never opens in a room Thad never got; his own line answers (doc 57 A10).",
+      "when": {
+        "T_ROOM_GRANTED": true
+      },
       "walkTo": {
         "x": 1720,
         "y": 770,
@@ -676,12 +736,12 @@
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the one way back to Main Street. NO DOCUMENT WRITES THIS DOOR from inside the lobby (doc 14 writes Main Street's side). A stub exit, as Rooms 6, 8 and 9's are (doc 36 Q153).",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 10 (errata 189)",
       "walkTo": {
         "x": 230,
         "y": 770,
         "facing": "left"
-      },
-      "waysOut": "docs/106-the-ways-out.md, ROOM 10 (errata 189)"
+      }
     }
   ],
   "ambient": [

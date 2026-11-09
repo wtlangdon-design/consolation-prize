@@ -6013,3 +6013,14 @@ Lesson: `tests/openings-voiced.test.ts`. It reads every document a tree names as
 - **One thing the dead-end pass makes visible.** Three things spend the filing fee: Ozymandia (A7), Sump (A9) and the rod (G1). The Nugget piano pays it again on every visit. A test removes the repeat payments, and the check finds the dead end. That repeat payment is load-bearing.
 - **Time.** The check takes about a second inside `run-all`. The test file takes about six seconds.
 - Lesson: an empty graph is a failure, not a note. `check-puzzle-graph` now fails when no graph is declared, when the declared graph is missing a canonical puzzle, or when it is out of step with the content. `tests/puzzle-graph.test.mjs` puts each defect back into the real content and the check fails on it: an empty graph, a puzzle missing, a stale graph, a yield removed (the clerk never writing T_TUNES_PIANOS makes A2 unreachable), a gate on a value nothing writes, the fork taken at G1, the fee paid only once, and a stale known finding.
+
+# 220 · THE HOTEL ROOM CAN'T BE SKIPPED — TYLER, 2026-11-09 ("1")
+
+*Errata 219's traversal found that A2, the hotel room, was not needed for the win. Act IV opens in Room 19, Thad's hotel room (doc 57). So a player who never rented the room would wake in Act IV in a room he never got. Tyler was offered two fixes: (1) make the room required early, or (2) grant it silently at Act IV. He chose 1.*
+
+- **The office door waits for the room.** Until A2, the Company lobby's door to Fanshawe's office (Room 10 → 11) is not a way in. Thad answers it himself, in a line written into doc 57's A10 under Tyler's ruling: "Not yet. I'd like a bed in this town before I call on the man who owns most of it."
+  - It is built as errata 91 E's closed way, as the hotel stairs are before A2: the exit's `when` is `T_ROOM_GRANTED`, and a closed subject stands in its place until then.
+  - A10, the dinner, therefore needs A2, and so does Act II.
+  - The line assumes nothing about the swindle (the first-night test), and it is true whenever it can be read.
+- **The fixture `r10-a`** (the lobby after the swindle) now has the room, because it expects the office door open.
+- **The lesson** is `tests/room-required.test.mjs`. With A2's completing site barred, the win must be unreachable in the traversal's model. The old Room 10 fails it.
