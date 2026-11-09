@@ -1,90 +1,47 @@
-"""The dinner table, as Tyler asked for it after the second render (2026-11-08): "Thad is very awkwardly
-positioned at the table. Maybe you need the tablecloth to come all the way down and it can hide his legs
-completely? And the other guy's shoulder is partially missing behind the candle." No image operation.
+"""The dinner table in two layers: its top behind a seated man, its hanging cloth in front of him. No image
+operation.
 
-1. THE WALL BEHIND THE CANDLES, OUT OF THE PROP. room-11-dinner.png keeps the dinner plate's changed pixels
-   (tools/art/room11-props.py), and around the candles, the lamp and the bottle's neck that is the wall
-   lit by them: dark, wall-coloured pixels within 75 of the bare plate under them. Drawn in front of
-   Fanshawe, they cut his shoulders. Above the cloth's top they are cleared; the objects keep every pixel.
-2. THE CLOTH TO THE FLOOR, IN FRONT OF THAD. A second prop, room-11-dinner-drape.png: under the cloth's
-   own hanging edge, column by column, the cloth carried down to the floor in its own texture (the band
-   above the edge, repeated), shaded into folds and darkening toward a hem. It stands on the floor in
-   front of the chair (`y` 722), so the depth sort draws it in front of him seated and behind him
-   standing anywhere in the walk band; the table top stays behind him, so his forearms are on it.
+Seated at the table's end, Thad is drawn in front of the table top, so his forearms rest on it, and behind the
+cloth that hangs from its front edge, so his legs are under it (Tyler, 2026-11-08: "Maybe you need the tablecloth
+to come all the way down and it can hide his legs completely?"). Room-11 attempt 9's cloth hangs to the carpet
+(tools/art/room11-dinner-relay.py), so both layers are the one table's own pixels, split at the top's front edge:
 
-3. THE TABLE'S FRONT STRIP: the table's own pixels for the rows just above the cloth's front edge, so a seated
-   man's lap goes under the top rather than through it.
+- `dinner` (art/props/room-11-dinner.png): the rows above the front edge, standing at that edge;
+- `dinner_drape` (art/props/room-11-dinner-drape.png): from STRIP rows above the front edge to the carpet,
+  standing on the carpet. Over the table it is the table's own pixels, so nothing changes where nobody is; the
+  STRIP rows are where a seated man's lap lies, and they put it under the top, not through it (Tyler,
+  2026-11-08: "Close but thads one leg is popping up through the tablecloth").
 
-Writes both PNGs and prints the drape's frame.
+Reads the whole table that tools/art/room11-props.py writes to art/props/room-11-dinner.png, and rewrites it as
+the top. Run it after room11-props.py, every time. Prints both props' records.
 """
+import json
 import os
+
 import numpy as np
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PROP = os.path.join(ROOT, 'art/props/room-11-dinner.png')
-PLATE = os.path.join(ROOT, 'art/backgrounds/room-11-fanshawe-office.png')
-X0, Y0 = 824, 398                 # the prop's top-left on the plate (x 1095, y 643, 543 x 245, bottom-centred)
-FLOOR = 722                       # the desk's base meets the carpet
-TOP_ROWS = 92                     # above this row of the prop is above the cloth's top
-BOTTLE = (258, 302, 36)           # the bottle's columns, and the row its neck begins
+DRAPE = os.path.join(ROOT, 'art/props/room-11-dinner-drape.png')
+X, Y = 1087, 733                  # the whole table's record from room11-props.py: bottom-centre on the plate
+FRONT = 152                       # the top's front edge, in the whole table's rows
+STRIP = 15                        # rows above it the cloth layer also carries: where a seated man's lap lies
 
-p = np.asarray(Image.open(PROP).convert('RGBA')).copy()
-plate = np.asarray(Image.open(PLATE).convert('RGB')).astype(int)
-H, W = p.shape[:2]
-under = plate[Y0:Y0 + H, X0:X0 + W]
-d = np.abs(p[..., :3].astype(int) - under).sum(2)
-lum = 0.3 * p[..., 0] + 0.59 * p[..., 1] + 0.11 * p[..., 2]
-zone = np.zeros((H, W), bool)
-zone[:TOP_ROWS] = True
-zone[BOTTLE[2]:, BOTTLE[0]:BOTTLE[1]] = False
-wall = (p[..., 3] > 0) & zone & (d < 75) & (lum < 120)
-p[wall] = 0
-Image.fromarray(p).save(PROP)
 
-# THE DRAPE.
-lum = 0.3 * p[..., 0] + 0.59 * p[..., 1] + 0.11 * p[..., 2]
-rows = FLOOR - Y0
-drape = np.zeros((rows, W, 4), np.uint8)
-# The cloth's lower edge in each column, found from below: the lowest light pixel over the dark desk. Smoothed
-# across nine columns so a plate's rim or a dark fold cannot notch it.
-from scipy.ndimage import median_filter
-low = np.full(W, -1)
-for x in range(W):
-    light = np.where((p[TOP_ROWS:, x, 3] > 0) & (lum[TOP_ROWS:, x] > 120))[0]
-    if len(light):
-        low[x] = TOP_ROWS + light.max() + 1
-xs = np.where(low >= 0)[0]
-left, right = xs.min(), xs.max()
-edge = np.interp(np.arange(W), xs, low[xs])
-edge = median_filter(edge, size=9, mode='nearest').round().astype(int)
-# Its colour is taken from under that ragged edge; the drape itself hangs from ONE straight line, the table
-# top's front edge, so it reads as one cloth folded over the edge and down (Tyler: "all the way down").
-FRONT = 147
-colour_edge = edge.copy()
-# Its colour: the hanging cloth's own, the median of the light pixels just above the edge, flat, in folds.
-hang = np.array([p[max(TOP_ROWS, e - 14):e, x, :3][lum[max(TOP_ROWS, e - 14):e, x] > 110].reshape(-1, 3)
-                 for x, e in zip(range(W), colour_edge) if left <= x <= right and e > TOP_ROWS], dtype=object)
-base = np.median(np.vstack([h for h in hang if len(h)]), axis=0)
-BLOCK = 4
-for x in range(left, right + 1):
-    bx = (x - left) // BLOCK
-    fold = 0.88 + 0.12 * np.cos(2 * np.pi * bx * BLOCK / 40.0)
-    side = 0.85 if x - left < 8 or right - x < 8 else 1.0
-    for yy in range(FRONT, rows):
-        by = (yy // BLOCK) * BLOCK
-        depth = 1.0 - 0.16 * (by - FRONT) / max(1, rows - FRONT)
-        hem = 0.7 if yy >= rows - BLOCK else (1.1 if yy < FRONT + BLOCK else 1.0)
-        drape[yy, x, :3] = np.clip(base * fold * depth * hem * side, 0, 255)
-        drape[yy, x, 3] = 255
-# THE TABLE'S FRONT STRIP, IN FRONT OF HIM TOO (Tyler, 2026-11-08: "Close but thads one leg is popping up through
-# the tablecloth"). Seated, he is drawn in front of the table so his forearms rest on it, and his lap lies just above
-# the cloth's front edge: drawn over the top, it reads as a leg through the cloth. The drape carries the table's own
-# pixels for the STRIP rows above that edge, exactly as the table draws them, so nothing changes where he is not and
-# his lap goes under the top. His forearms lie above STRIP.
-STRIP = 132
-for yy in range(STRIP, FRONT):
-    keep = p[yy, :, 3] > 0
-    drape[yy, keep] = p[yy, keep]
-Image.fromarray(drape).save(os.path.join(ROOT, 'art/props/room-11-dinner-drape.png'))
-print({'x': X0 + W // 2, 'y': FLOOR, 'frame': [0, 0, W, rows], 'cleared': int(wall.sum())})
+def main():
+    whole = np.asarray(Image.open(PROP).convert('RGBA'))
+    h, w = whole.shape[:2]
+    if h <= FRONT:
+        raise SystemExit('art/props/room-11-dinner.png is already the top alone: run tools/art/room11-props.py first')
+    top0 = Y - h + 1
+    Image.fromarray(whole[:FRONT]).save(PROP)
+    Image.fromarray(whole[FRONT - STRIP:]).save(DRAPE)
+    print(json.dumps({
+        'dinner': {'sheet': 'art/props/room-11-dinner.png', 'x': X, 'y': top0 + FRONT - 1, 'frame': [0, 0, w, FRONT]},
+        'dinner_drape': {'sheet': 'art/props/room-11-dinner-drape.png', 'x': X, 'y': Y, 'frame': [0, 0, w, h - FRONT + STRIP]},
+    }))
+
+
+if __name__ == '__main__':
+    main()

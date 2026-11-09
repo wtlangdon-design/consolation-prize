@@ -395,36 +395,36 @@
   {
    "id": "dinner",
    "sheet": "art/props/room-11-dinner.png",
-   "x": 1095,
-   "y": 643,
+   "x": 1087,
+   "y": 550,
    "frame": [
     0,
     0,
-    543,
-    245
+    598,
+    152
    ],
    "when": {
     "T_BORDERS_MOTT": true,
     "T_DINED": false
    },
-   "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 operation 4 laid the desk; tools/art/room11-props.py keeps its changed pixels. Drawn while Thad holds THE INVITATION, until the dinner ends."
+   "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 attempt 9's table, its two places moved by hand to where the two men sit (tools/art/room11-dinner-relay.py; Tyler: \"the place settings are setup in the wrong places for their dinner\"); this is its top, above the cloth's front edge, drawn behind a seated Thad (tools/art/room11-dinner-drape.py). Drawn while Thad holds THE INVITATION, until the dinner ends."
   },
   {
    "id": "dinner_drape",
    "sheet": "art/props/room-11-dinner-drape.png",
-   "x": 1095,
-   "y": 722,
+   "x": 1087,
+   "y": 733,
    "frame": [
     0,
     0,
-    543,
-    324
+    598,
+    198
    ],
    "when": {
     "T_BORDERS_MOTT": true,
     "T_DINED": false
    },
-   "note": "The dinner's cloth to the floor (Tyler, 2026-11-08: \"Maybe you need the tablecloth to come all the way down and it can hide his legs completely?\"; errata 197). Its own prop standing on the carpet (y 722), so it is drawn in front of Thad seated at the table's end and behind him anywhere he walks; the table top (`dinner`) stays behind him. tools/art/room11-dinner-drape.py."
+   "note": "The same table's cloth, from just above its top's front edge to the carpet, standing on the carpet, so it is drawn in front of Thad seated and his legs are under it (tools/art/room11-dinner-drape.py). Same condition as the table."
   },
   {
    "id": "desk_bare",
