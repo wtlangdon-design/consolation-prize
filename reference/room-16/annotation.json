@@ -479,32 +479,32 @@
  ],
  "hotspotWalkTo": {
   "seance_table": {
-   "x": 985,
-   "y": 852,
-   "facing": "back"
-  },
-  "sitters": {
-   "x": 1000,
-   "y": 852,
-   "facing": "back"
-  },
-  "madame_ozymandia_presiding": {
-   "x": 980,
-   "y": 852,
-   "facing": "back"
+   "x": 440,
+   "y": 800,
+   "facing": "right"
   },
   "mr_frame_at_the_table": {
-   "x": 905,
-   "y": 852,
+   "x": 440,
+   "y": 800,
+   "facing": "right"
+  },
+  "sitters": {
+   "x": 1490,
+   "y": 800,
+   "facing": "left"
+  },
+  "madame_ozymandia_presiding": {
+   "x": 1490,
+   "y": 800,
    "facing": "left"
   },
   "lamp": {
-   "x": 960,
-   "y": 852,
-   "facing": "back"
+   "x": 1490,
+   "y": 800,
+   "facing": "left"
   }
  },
- "hotspotWalkToNote": "Errata 238: where Thad stands for the séance's subjects, on the floor left in front of the group (y 816-858, the gated obstacle below), between Frame's chair (to x 850) and the bald man's (from x 1178), so he never stands in front of a sitter.",
+ "hotspotWalkToNote": "Errata 238: where Thad stands for the séance's subjects: beside the group, never in front of it. In front of the table (y 816-858, all the floor the gated obstacle leaves there) he is 500 px tall and covered the table and the medium he was talking to (the lit proof's first panel D). So he stands at the table's left end, by Frame and the cloth (x 440, clear of the bonnet woman's chair from x 518), or at its right end by the stove (x 1490, clear of the bald man's chair to x 1399), at y 800, facing the table.",
  "obstaclesNote": "Errata 238: the séance group's floor, while the séance is on.",
  "props": [
   {

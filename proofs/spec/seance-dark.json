@@ -18,7 +18,7 @@
    },
    {
     "do": "waitFor",
-    "dialogue": "SEANCE",
+    "dialogue": true,
     "upTo": 120,
     "why": "THE SÉANCE heard, SEA_E1 open"
    },

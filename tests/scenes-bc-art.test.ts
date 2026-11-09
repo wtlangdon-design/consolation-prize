@@ -173,6 +173,12 @@ test('scene B art: the five subjects are over what is drawn, Frame speaks from h
     const box = members.find((one) => { const [x, y, w] = one.rect as [number, number, number, number]; return voice.x >= left + x && voice.x < left + x + w && voice.y >= top + y - 20; });
     assert.ok(box, `${speaker}'s words come from a sitter's place at the table, not from empty floor`);
   }
+  // He stands beside the group for its subjects, never in front of it, where he would cover the table and the medium.
+  const half = Math.floor(group!.sprite!.frames[0]![2] / 2);
+  for (const spot of subjects) {
+    assert.ok(spot.walkTo && (spot.walkTo.x < group!.x - half - 60 || spot.walkTo.x > group!.x + half + 60),
+      `${spot.id}: he stands at ${spot.walkTo?.x}, in front of the group`);
+  }
   // Nobody walks through the table: the floor while the séance is on stops in front of its chairs.
   const floor = state.room.walkBoxes!.filter((box) => box.enabledWhen?.T_SEANCE_ON === true);
   assert.ok(floor.length, 'a floor for the séance');

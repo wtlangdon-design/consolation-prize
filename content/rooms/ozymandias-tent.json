@@ -445,9 +445,9 @@
         "PULL": "Pulling it down would end the séance, and then I would have to explain the séance."
       },
       "walkTo": {
-        "x": 960,
-        "y": 852,
-        "facing": "back"
+        "x": 1490,
+        "y": 800,
+        "facing": "left"
       }
     },
     {
@@ -577,9 +577,9 @@
         "PICK_UP": "She would charge me for the lift."
       },
       "walkTo": {
-        "x": 980,
-        "y": 852,
-        "facing": "back"
+        "x": 1490,
+        "y": 800,
+        "facing": "left"
       }
     },
     {
@@ -714,9 +714,9 @@
         ]
       },
       "walkTo": {
-        "x": 905,
-        "y": 852,
-        "facing": "left"
+        "x": 440,
+        "y": 800,
+        "facing": "right"
       }
     },
     {
@@ -1035,9 +1035,9 @@
         "PICK_UP": "It has five people holding on to it. Six, if you count the dead."
       },
       "walkTo": {
-        "x": 985,
-        "y": 852,
-        "facing": "back"
+        "x": 440,
+        "y": 800,
+        "facing": "right"
       }
     },
     {
@@ -1130,9 +1130,9 @@
         "PICK_UP": "They are holding hands. They would come as a set."
       },
       "walkTo": {
-        "x": 1000,
-        "y": 852,
-        "facing": "back"
+        "x": 1490,
+        "y": 800,
+        "facing": "left"
       }
     }
   ],

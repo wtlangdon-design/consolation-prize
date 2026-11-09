@@ -18,7 +18,7 @@
    },
    {
     "do": "waitFor",
-    "dialogue": "OZYMANDIA",
+    "dialogue": true,
     "upTo": 30,
     "why": "OZY_E1 open"
    },
