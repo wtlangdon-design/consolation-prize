@@ -160,10 +160,12 @@ test('the panner: his tree and his barks are doc 109\'s', async () => {
   assert.ok(panner);
   const doc = section('### THE PANNER');
   assert.deepEqual(panner.barkTurns![0]!.lines, quotes(doc.split('\n').find((one) => one.startsWith('**Barks**'))!));
-  state.dialogue.start(panner.tree!);
   const opening = quotes(doc.split('\n').find((one) => one.startsWith('> **'))!);
   const tree = state.content.dialogue.get(panner.tree!)!;
   // What is SPOKEN, not the prompt the renderer draws nowhere (errata 218: this line was only ever the prompt).
+  // Read before the conversation starts, as the scene reads it: the first visit says it (errata 230).
   assert.deepEqual(state.dialogue.openingOf(tree.id).map((one) => one.line), opening, 'his opening, as the document writes it, is spoken');
+  state.dialogue.start(panner.tree!);
+  assert.deepEqual(state.dialogue.openingOf(tree.id), [], 'the second visit says it again (errata 230)');
   assert.ok(state.dialogue.presentOptions().some((one) => one.option.tag === 'COMIC'));
 });

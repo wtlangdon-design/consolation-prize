@@ -147,7 +147,8 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "openingOnce": "T_PANNER_GREETED"
     }
   }
 }

@@ -6235,3 +6235,13 @@ This entry covers the narration habits the feel review found on errata 221's tra
   - The truth gambit's long line stays long. It is the one counter allowed to be.
 
 Lesson: none -- a voice rewrite, not a defect fixed. The narration-template check (errata 226) now holds these habits on every build.
+
+# 230 · TWO GREETINGS SAID ONCE — the repeat check's first run, 2026-11-09 (Tyler: "Merge both")
+
+The repeat check (errata 226) found three things marked "awaiting a fix".
+
+- **Ozymandia** said "The rod has been expecting you." whole on all three visits (A7, G1, B6). It is now the first visit's (`T_OZY_GREETED`), and later visits open on her choices.
+- **The panner** said "If he sent you, tell him I've found nothing. Nothing at all." on both visits in G8. It is now the first visit's (`T_PANNER_GREETED`).
+- **"Have you ever been in the Liar's Assay?"** is asked of Frame, the livery man and Sheng. This is kept on purpose: a newcomer asks everyone the same question, and each answer differs. Its allowlist entry now says so.
+
+Lesson: the two allowlist entries are removed, so `tools/check-repeated-lines.mjs` fails if either greeting comes back. `tests/gulch-river.test.ts` reads the panner's opening before the conversation starts, as the scene does, and asserts that a second visit does not say it.
