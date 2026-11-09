@@ -37,7 +37,9 @@ test('every icon cell is drawn into its slot at a whole-number scale', () => {
   const icons = table.icons as Record<string, [number, number, number, number]>;
   // Every item the manifest loads has a cell, and nothing else does (26, then Fiddler's Gulch's three).
   const real = (manifest.items as string[]).map((path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8')))
-    .filter((item: { fixture?: boolean }) => !item.fixture).map((item: { id: string }) => item.id).sort();
+    // An item whose icon another session is to draw says so (errata 237: the estate sale's three), and has no cell yet.
+    .filter((item: { fixture?: boolean; iconPending?: string }) => !item.fixture && !item.iconPending)
+    .map((item: { id: string }) => item.id).sort();
   assert.deepEqual(Object.keys(icons).sort(), real, 'every item has an icon, and every icon is an item');
   for (const [id, [, , w, h]] of Object.entries(icons)) {
     const fit = wholeScale(w, h);

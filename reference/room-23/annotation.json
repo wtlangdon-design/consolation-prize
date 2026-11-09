@@ -134,11 +134,8 @@
    315
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE RACCOON is over the figure in the hole's mouth (content/ambient/raccoon.json), while he is there. CLAIM ONE'S BOUNDARY is the older stake up the slope, after A9. THE MUD is walked on by a bare click.",
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE RACCOON is over the figure in the hole's mouth (content/ambient/raccoon.json), while he is there. CLAIM ONE'S BOUNDARY is the older stake up the slope, after A9. THE MUD is walked on by a bare click. Errata 237: THE RACCOON is there again from E3.1 until the coat (hotspotWhenAny), over raccoon_back.",
  "hotspotWhen": {
-  "raccoon": {
-   "T_WARM_HOLE": false
-  },
   "claim_one_s_boundary": {
    "T_BORDERS_MOTT": true
   }
@@ -329,5 +326,95 @@
    "facing": "back"
   }
  },
- "hotspotWalkToNote": "hole: Left of the hole's centre, not under it: stood at its centre he covered the raccoon in its mouth, and doc 54 A5's 'one look of complete contempt' was played behind his head (errata 197). From here the raccoon's look down and left (his frame 2) is at Thad."
+ "hotspotWalkToNote": "hole: Left of the hole's centre, not under it: stood at its centre he covered the raccoon in its mouth, and doc 54 A5's 'one look of complete contempt' was played behind his head (errata 197). From here the raccoon's look down and left (his frame 2) is at Thad.",
+ "hotspotWhenAny": {
+  "raccoon": [
+   {
+    "T_WARM_HOLE": false
+   },
+   {
+    "ACT": 3,
+    "T_SOWERBY_PRICE": true,
+    "T_RACCOON_IN_COAT": false,
+    "T_SHENG_LOAN": false,
+    "T_FUNERAL_BOOKED": false
+   }
+  ]
+ },
+ "hotspotWhenAnyNote": "Errata 237 (doc 111, C): THE RACCOON is over the figure in the hole's mouth in Act I until the eviction (T_WARM_HOLE), and again from E3.1, back in the hole, until he is in Thad's coat (content/ambient/raccoon-back.json).",
+ "docBullets": [
+  {
+   "hotspot": "raccoon",
+   "verbs": [
+    "PICK_UP",
+    "USE"
+   ],
+   "ref": "docs/111-scenes-b-and-c.md::### C · The estate sale",
+   "head": "**THE RACCOON** · *in the hole",
+   "bullet": "- PICK UP, *or* USE",
+   "when": {
+    "T_RACCOON_WANTED": true,
+    "T_RACCOON_OUT": false
+   }
+  },
+  {
+   "hotspot": "hole",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/111-scenes-b-and-c.md::### C · The estate sale",
+   "head": "**THE RACCOON** · *in the hole",
+   "bullet": "- **THE HOLE** · USE, *before the hen*",
+   "when": {
+    "T_RACCOON_WANTED": true,
+    "T_RACCOON_OUT": false
+   }
+  },
+  {
+   "hotspot": "raccoon",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/111-scenes-b-and-c.md::### C · The estate sale",
+   "head": "**THE RACCOON** · *in the hole",
+   "bullet": "- PICK UP, *with the raccoon halfway out*",
+   "when": {
+    "T_RACCOON_OUT": true,
+    "T_RACCOON_IN_COAT": false
+   }
+  },
+  {
+   "hotspot": "raccoon",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/111-scenes-b-and-c.md::### C · The estate sale",
+   "head": "**THE RACCOON** · *in the hole",
+   "bullet": "- USE, *with the raccoon halfway out*",
+   "when": {
+    "T_RACCOON_OUT": true,
+    "T_RACCOON_IN_COAT": false
+   },
+   "set": {
+    "T_RACCOON_IN_COAT": true
+   },
+   "grants": [
+    "raccoon_in_coat"
+   ]
+  }
+ ],
+ "docBulletsNote": "Errata 237, doc 111 C, THE RACCOON in the hole once Pratt wants him (T_RACCOON_WANTED): a hand in the hole is refused, and so is the coat over the hole before the hen; with him halfway out (the hen at the hole, T_RACCOON_OUT, a pair in content/combinations.json) a hand is refused again, and USE drops the coat over him: THE RACCOON, IN MY COAT (T_RACCOON_IN_COAT). Read from doc 111 by tools/compile-room.mjs (docBullet). The fork and the hen are item pairs (tools/extract-content.mjs).",
+ "onEnterSay": {
+  "fromRef": "docs/111-scenes-b-and-c.md::### C · The estate sale",
+  "bold": "ARRIVING",
+  "sayWhen": {
+   "ACT": 3,
+   "T_SOWERBY_PRICE": true,
+   "T_RACCOON_IN_COAT": false,
+   "T_SHENG_LOAN": false,
+   "T_FUNERAL_BOOKED": false
+  },
+  "sayOnce": "T_RACCOON_BACK_SEEN",
+  "note": "Doc 111, ARRIVING: 'Prosperity, after E3.1, the raccoon back'. Said once (T_RACCOON_BACK_SEEN), on the first entry while he is back."
+ }
 }

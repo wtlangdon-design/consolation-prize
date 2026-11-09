@@ -1446,6 +1446,233 @@
           "say": "It's right. If I tune it again, he'll pay me again, and that would be taking advantage. I'm tempted."
         }
       ]
+    },
+    {
+      "item": "tuning_fork",
+      "room": "boot_hill",
+      "target": "grievance_at_the_gate",
+      "say": "She has heard it. She does not need to hear it twice.",
+      "note": "Doc 110 section 2, THE WRONG TRIES: the fork on Grievance at the gate is answered with B3's own line, which doc 110 calls \"the existing line\" (she has heard it). Read from doc 110 by tools/extract-content.mjs (errata 233)."
+    },
+    {
+      "item": "tuning_fork",
+      "room": "prosperity",
+      "target": "raccoon",
+      "otherwise": "pool",
+      "say": "He has heard a great deal of A in his time. None of it has moved him.",
+      "note": "Doc 111 (THE LINES, C; errata 237): the fork on the raccoon in the hole, once Pratt wants him; before that, the fork's own pool.",
+      "rules": [
+        {
+          "case": "in the hole, after T_RACCOON_WANTED",
+          "when": {
+            "T_RACCOON_WANTED": true,
+            "T_RACCOON_IN_COAT": false
+          },
+          "say": "He has heard a great deal of A in his time. None of it has moved him."
+        }
+      ]
+    },
+    {
+      "item": "hen",
+      "room": "prosperity",
+      "target": "hole",
+      "otherwise": "pool",
+      "say": "Thad sets the hen at the mouth of the hole. The hen considers the hole. The raccoon considers the hen. Half a raccoon comes out.",
+      "note": "Doc 111 (THE LINES, C; errata 237): the hen at the hole's mouth brings the raccoon halfway out (T_RACCOON_OUT). The hen stays with Thad.",
+      "rules": [
+        {
+          "case": "on THE HOLE",
+          "when": {
+            "T_RACCOON_WANTED": true,
+            "T_RACCOON_IN_COAT": false,
+            "T_RACCOON_OUT": false
+          },
+          "say": "Thad sets the hen at the mouth of the hole. The hen considers the hole. The raccoon considers the hen. Half a raccoon comes out.",
+          "direction": true,
+          "then": [
+            "Halfway. He is a careful animal."
+          ],
+          "set": {
+            "T_RACCOON_OUT": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "hen",
+      "room": "prosperity",
+      "target": "raccoon",
+      "otherwise": "pool",
+      "say": "He looks at the hen. The hen looks at him. Neither of them will settle this without my coat.",
+      "note": "Doc 111 (THE LINES, C; errata 237): the hen to the raccoon without the coat.",
+      "rules": [
+        {
+          "case": "with the raccoon halfway out",
+          "when": {
+            "T_RACCOON_WANTED": true,
+            "T_RACCOON_IN_COAT": false,
+            "T_RACCOON_OUT": true
+          },
+          "say": "He looks at the hen. The hen looks at him. Neither of them will settle this without my coat."
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "pratts_claim",
+      "target": "pratt",
+      "otherwise": "pool",
+      "say": "He opens the coat a little and looks in.",
+      "note": "Doc 111 (THE LINES, C; errata 237), THE SALE: the raccoon, in the coat, to Pratt. He counts out MR. PRATT'S TWO DOLLARS AND SIXTY CENTS and takes back the hen; the raccoon goes with him (T_RACCOON_SOLD).",
+      "rules": [
+        {
+          "case": "THE SALE",
+          "when": {
+            "T_RACCOON_SOLD": false
+          },
+          "holds": [
+            "hen"
+          ],
+          "say": "He opens the coat a little and looks in.",
+          "by": "pratt",
+          "direction": true,
+          "then": [
+            {
+              "speaker": "pratt",
+              "line": "Raccoon."
+            },
+            {
+              "speaker": "pratt",
+              "line": "He counts out the money, coin by coin.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
+              "line": "Two dollars and sixty cents."
+            },
+            {
+              "speaker": "pratt",
+              "line": "He holds out his other hand.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
+              "line": "Hen."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Thad gives back the hen. Pratt gives back the coat, empty.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
+              "line": "Keep the coat."
+            },
+            "He regards this as generous. Coming from Mr. Pratt, it is."
+          ],
+          "takes": [
+            "raccoon_in_coat",
+            "hen"
+          ],
+          "items": [
+            "pratt_money"
+          ],
+          "set": {
+            "T_RACCOON_SOLD": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "pratt_money",
+      "room": "undertaker",
+      "target": "undertaker",
+      "puzzle": "E3",
+      "say": "Pine. Handles. Plate. The hole. The Reverend's four words.",
+      "note": "Doc 111 (THE LINES, C; errata 237), THE UNDERTAKER: MR. PRATT'S TWO DOLLARS AND SIXTY CENTS on the undertaker, \"as Sheng's loan today, doc 57 E3.3: the undertaker's lines unchanged\" -- the loan's three cases, read from doc 57, with the new money spent.",
+      "rules": [
+        {
+          "case": "with T_SOWERBY_PRICE and T_COFFIN_SIZED",
+          "when": {
+            "T_SOWERBY_PRICE": true,
+            "T_COFFIN_SIZED": true,
+            "T_FUNERAL_BOOKED": false
+          },
+          "by": "undertaker",
+          "say": "Pine. Handles. Plate. The hole. The Reverend's four words.",
+          "then": [
+            {
+              "speaker": "undertaker",
+              "line": "Paid."
+            }
+          ],
+          "takes": [
+            "pratt_money"
+          ],
+          "set": {
+            "T_FUNERAL_BOOKED": true
+          },
+          "completes": "E3"
+        },
+        {
+          "case": "before the Reverend's figure",
+          "when": {
+            "T_SOWERBY_PRICE": false
+          },
+          "by": "undertaker",
+          "say": "The Reverend hasn't sent his figure. I don't bury on estimates."
+        },
+        {
+          "case": "before the sizing",
+          "when": {
+            "T_COFFIN_SIZED": false
+          },
+          "by": "undertaker",
+          "say": "Stand straight first. Sizing's free."
+        }
+      ]
+    },
+    {
+      "item": "hen",
+      "room": "pratts_claim",
+      "target": "pratt",
+      "say": "Hen's on loan.",
+      "note": "Doc 111 (THE LINES, C; errata 237), THE WRONG TRIES: PRATT · USE THE HEN.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "Hen's on loan.",
+          "by": "pratt"
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "undertaker",
+      "target": "undertaker",
+      "say": "I don't take livestock. Not live, anyway.",
+      "note": "Doc 111 (THE LINES, C; errata 237), THE WRONG TRIES: THE UNDERTAKER · USE THE RACCOON, IN MY COAT.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "I don't take livestock. Not live, anyway.",
+          "by": "undertaker"
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "laundry",
+      "target": "sheng",
+      "say": "I hold paper, Mr. Grubb. I do not hold raccoons. Both bite.",
+      "note": "Doc 111 (THE LINES, C; errata 237), THE WRONG TRIES: AH-LAM SHENG · USE THE RACCOON, IN MY COAT.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "I hold paper, Mr. Grubb. I do not hold raccoons. Both bite.",
+          "by": "sheng"
+        }
+      ]
     }
   ],
   "itemPools": {

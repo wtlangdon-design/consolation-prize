@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "pratt_money",
+  "name": "MR. PRATT'S TWO DOLLARS AND SIXTY CENTS",
+  "short": "TWO DOLLARS AND SIXTY CENTS",
+  "note": "Named by docs/111-scenes-b-and-c.md (THE SALE) and read by tools/extract-content.mjs (errata 237). Pratt's price for the raccoon, counted out at THE SALE; spent at the undertaker's exactly as SHENG'S LOAN was (doc 57 E3.3). Doc 111 writes it one LOOK and one LISTEN.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "Two dollars and sixty cents, counted out coin by coin. The exact cost of my funeral, paid for with a raccoon."
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Quiet. Mr. Pratt's money has never had much to say."
+      }
+    ]
+  },
+  "iconPending": "No icon is drawn for it yet: act3-estate-sale's brief asks for one (reference/act3-estate-sale/brief.md, \"an item icon or two\"); until it lands the panel draws its labelled box (Renderer.drawInventory)."
+}

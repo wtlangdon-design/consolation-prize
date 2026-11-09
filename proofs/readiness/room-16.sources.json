@@ -13,7 +13,9 @@
    "docs/09-examine-batch-2.md::ROOM 16 — MADAME OZYMANDIA'S TENT"
   ],
   "completions": [
-   "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT"
+   "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT",
+   "docs/111-scenes-b-and-c.md::B · In Ozymandia's tent",
+   "docs/111-scenes-b-and-c.md::B · The wrong tries, at the séance"
   ],
   "actVariantsNone": {
    "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",

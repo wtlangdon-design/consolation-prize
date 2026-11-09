@@ -91,6 +91,11 @@
       "colour": "#d0f070",
       "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
     },
+    "seance_frame": {
+      "colour": "#d0f070",
+      "sameAs": "frame",
+      "note": "Errata 237 (doc 111, B): Mr. Frame at the séance table, speaking from the tent's `voices` while his seated figure is pending art. The same man, so the same colour as at the Clarion."
+    },
     "sump": {
       "colour": "#c4c4c4",
       "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
@@ -132,6 +137,16 @@
       "colour": "#c8b4e8",
       "sameAs": "sowerby",
       "note": "Sowerby at the graveside: the same man, the same colour."
+    },
+    "procession_sowerby": {
+      "colour": "#c8b4e8",
+      "sameAs": "sowerby",
+      "note": "Sowerby at Boot Hill's gate, with the procession stalled (doc 110 section 2, errata 233): the same man, the same colour."
+    },
+    "procession_undertaker": {
+      "colour": "#a8a8e8",
+      "sameAs": "undertaker",
+      "note": "The undertaker at Grievance's head, at Boot Hill's gate (doc 110 section 2, errata 233): the same man, the same colour."
     },
     "barber": {
       "colour": "#e8a8a8",

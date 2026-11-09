@@ -64,7 +64,18 @@ const firstQuote = (text) => /"([^"]+)"/.exec(text)?.[1] ?? null;
 /** A numbered run, `1 "..." · 2 "..."`, in written order, keeping each number. */
 function run(text) {
   const out = [];
-  for (const piece of text.split('·')) {
+  // A "·" INSIDE A LINE IS THE LINE'S OWN (doc 111's sign: "...: SÉANCE TONIGHT · OBADIAH MOTT, IF AVAILABLE · $2."):
+  // only a "·" between quotes separates one numbered line from the next.
+  const pieces = [];
+  let piece = '';
+  let quoted = false;
+  for (const character of text) {
+    if (character === '"') quoted = !quoted;
+    if (character === '·' && !quoted) { pieces.push(piece); piece = ''; continue; }
+    piece += character;
+  }
+  pieces.push(piece);
+  for (const piece of pieces) {
     const match = /(\d+)\s+"([^"]+)"/.exec(piece);
     if (!match) continue;
     // A REPEAT WITH A BEAT IN IT is one line spoken whole, as a split first line is (errata 92): every quote in
@@ -98,13 +109,20 @@ function extract(room, declarations) {
   const order = [];
 
   const completions = (examine.completions ?? []).map((reference) => ({ reference, ...section(reference) }));
-  for (const one of completions) {
+  // AN ALIAS HOLDS FOR THE WRITING IT WAS DECLARED OVER, NOT FOR A SCENE WRITTEN AFTER IT. Doc 54 declares THE
+  // LANTERN, RED ≡ THE LAMP for the passes it merged (doc 05, the batch, doc 49); doc 111's séance writes a lamp of its
+  // own, THE LAMP over the table, a different thing in a different state. A completion listed after the last one that
+  // declares an alias names its subjects as written (`literal`).
+  let lastDeclaring = -1;
+  completions.forEach((one, index) => {
     for (const line of one.body.split('\n')) {
       const found = /^\*\*(.+?)\*\*\s*≡\s*\*\*(.+?)\*\*/.exec(line.trim());
-      if (found) alias.set(plain(found[2]), plain(found[1]));
+      if (found) { alias.set(plain(found[2]), plain(found[1])); lastDeclaring = index; }
     }
-  }
-  const named = (name) => alias.get(plain(name)) ?? plain(name);
+  });
+  completions.forEach((one, index) => { one.literal = lastDeclaring >= 0 && index > lastDeclaring; });
+  let literal = false;
+  const named = (name, asWritten = literal) => (asWritten ? plain(name) : alias.get(plain(name)) ?? plain(name));
   const slot = (name) => {
     const key = named(name);
     if (!subjects.has(key)) {
@@ -201,6 +219,9 @@ function extract(room, declarations) {
 
   /* completions: doc 25/26/54 shapes ---------------------------------------- */
   for (const one of completions) {
+    literal = one.literal;
+    // Every override this completion adds is named as it is (`literal`): marked once its lines are read, below.
+    one.overridesFrom = pendingOverrides.length;
     const lines = one.body.split('\n');
     const appendRun = (name, verb, text, qualifier, full = true, actTag = null) => {
       const key = verb === 'LOOK' ? 'LOOK_AT' : 'LISTEN_TO';
@@ -246,6 +267,43 @@ function extract(room, declarations) {
         }
         continue;
       }
+      // A BOLD NAME ON A LINE OF ITS OWN, its runs on the lines under it (doc 110, THE LINES: `**THE HEARSE**`, then
+      // `**LOOK** 1 "..." · 2 "..."` and `**LISTEN** 1 "..."`). Only when a run follows: a bold label with no run
+      // under it is something else's.
+      const bare = /^\*\*([A-Z][^*]+?)\*\*\s*$/.exec(line);
+      if (bare) {
+        const runs = lines.slice(at + 1, at + 3).map((row) => /^\*\*(LOOK|LISTEN)\*\*\s+(\d+\s+".*)$/.exec(row.trim()));
+        if (runs[0]) {
+          for (const said of runs) if (said) appendRun(plain(bare[1]), said[1], said[2], '');
+          continue;
+        }
+      }
+      // A WRONG TRY AS A BULLET (doc 110, THE WRONG TRIES: `- **THE HEARSE** · PUSH — "..."`), a verb on its own.
+      // A try with an item (`· USE THE TUNING FORK — the existing line: "..."`) is a combination, not an override,
+      // and is read by tools/extract-content.mjs.
+      const bullet = /^-\s+\*\*(.+?)\*\*\s*·\s*(PUSH|PULL|PICK UP|OPEN|CLOSE|USE|TALK TO)\s+—\s+"(.+)"\s*$/.exec(line);
+      if (bullet) {
+        pendingOverrides.push({ name: plain(bullet[1]), verb: bullet[2].replace(/ /g, '_'), line: bullet[3] });
+        continue;
+      }
+      // THE SAME BOLD NAME WITH ITS STATE NOTED AFTER IT (doc 111, THE LINES: `**THE SÉANCE SIGN** · *the Lane, the
+      // evening after E0b*`, then its runs). The note says when the subject is there, which the room's annotation
+      // gates; it is not part of the name. Only when a run follows, as above.
+      const noted = /^\*\*([A-Z][^*]+?)\*\*\s*·\s*\*[^*]+\*\s*$/.exec(line);
+      if (noted) {
+        const runs = lines.slice(at + 1, at + 3).map((row) => /^\*\*(LOOK|LISTEN)\*\*\s+(\d+\s+".*)$/.exec(row.trim()));
+        if (runs[0]) {
+          for (const said of runs) if (said) appendRun(plain(noted[1]), said[1], said[2], '');
+          continue;
+        }
+      }
+      // A WRONG TRY WITH A NOTE ON ITS VERB (doc 111: `- **MADAME OZYMANDIA, PRESIDING** · PULL *(the rod)* — "..."`):
+      // the note says what is pulled, and the verb is the subject's own.
+      const notedBullet = /^-\s+\*\*(.+?)\*\*\s*·\s*(PUSH|PULL|PICK UP|OPEN|CLOSE|USE|TALK TO)\s+\*\([^)]*\)\*\s+—\s+"(.+)"\s*$/.exec(line);
+      if (notedBullet) {
+        pendingOverrides.push({ name: plain(notedBullet[1]), verb: notedBullet[2].replace(/ /g, '_'), line: notedBullet[3] });
+        continue;
+      }
       // A continuation: **NAME** — LOOK n "..." | LISTEN n "...".
       // An act-tagged continuation carries `*(act: "3-4")*` after the name.
       const continuation = /^\*\*(.+?)\*\*\s*(?:\*\(act:\s*"?([^)"]+)"?\)\*)?\s*—\s*LOOK\s(.*)$/.exec(line);
@@ -282,6 +340,12 @@ function extract(room, declarations) {
     }
   }
 
+  const readTo = pendingOverrides.length;
+  completions.forEach((one, index) => {
+    const to = completions[index + 1]?.overridesFrom ?? readTo;
+    if (one.literal) for (const entry of pendingOverrides.slice(one.overridesFrom, to)) entry.literal = true;
+  });
+  literal = false;
   const unplaced = {};
   /* doc 49's wrong verbs ------------------------------------------------------ */
   const retire = declarations.retire.filter((one) => one.room === room).map((one) => one.name);
@@ -306,7 +370,7 @@ function extract(room, declarations) {
   // DOOR). One that finds none is a character's, an exit's, or another
   // room's object, and is kept apart rather than made into a subject.
   for (const one of pendingOverrides) {
-    const key = named(one.name);
+    const key = named(one.name, one.literal === true);
     const near = order.filter((name) => name.startsWith(`${key} `));
     const target = subjects.get(key) ?? (near.length === 1 ? subjects.get(near[0]) : null);
     if (target) target.overrides[one.verb] = one.line;

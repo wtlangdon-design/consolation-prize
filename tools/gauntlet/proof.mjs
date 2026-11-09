@@ -439,7 +439,10 @@ async function main() {
     console.error(`no room "${roomId}" in the manifest`);
     return 2;
   }
-  const specPath = `proofs/spec/${roomId.replace(/_/g, '-')}.json`;
+  // --spec <path>: another of the room's states, proved apart from its main one (errata 233: Boot Hill with the
+  // procession stalled at the gate, proofs/spec/boot-hill-stalled.json, into its own --out).
+  const specPath = process.argv.includes('--spec')
+    ? process.argv[process.argv.indexOf('--spec') + 1] : `proofs/spec/${roomId.replace(/_/g, '-')}.json`;
   if (!existsSync(resolve(ROOT, specPath))) {
     console.error(`\nno proof spec at ${specPath}.\n\n`
       + 'A proof needs to be told two things it cannot derive: how to GET to the room, and\n'

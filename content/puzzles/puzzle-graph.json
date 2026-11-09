@@ -745,6 +745,17 @@
       "o:SUMP/SUM_E1/sump1",
       "p:E1"
      ]
+    },
+    {
+     "site": "dialogue:SUMP:SUM_E1:sump1c",
+     "requires": [
+      "n:SUMP/SUM_E1",
+      "T_MOTT_SPOKE=true"
+     ],
+     "yields": [
+      "o:SUMP/SUM_E1/sump1c",
+      "p:E1"
+     ]
     }
    ]
   },
@@ -756,7 +767,16 @@
      "requires": [
       "n:SUMP/SUM_E1",
       "T_SECTION_NINETEEN=true",
-      "o:SUMP/SUM_E1/sump1"
+      {
+       "any": [
+        [
+         "o:SUMP/SUM_E1/sump1"
+        ],
+        [
+         "o:SUMP/SUM_E1/sump1c"
+        ]
+       ]
+      }
      ],
      "yields": [
       "o:SUMP/SUM_E1/sump2",
@@ -783,6 +803,21 @@
       "f:T_FUNERAL_BOOKED=true",
       "p:E3",
       "-i:loan"
+     ]
+    },
+    {
+     "site": "with:undertaker:undertaker:pratt_money#0",
+     "requires": [
+      "i:pratt_money",
+      "r:undertaker",
+      "T_SOWERBY_PRICE=true",
+      "T_COFFIN_SIZED=true",
+      "T_FUNERAL_BOOKED=false"
+     ],
+     "yields": [
+      "f:T_FUNERAL_BOOKED=true",
+      "p:E3",
+      "-i:pratt_money"
      ]
     }
    ]
@@ -834,6 +869,55 @@
      "yields": [
       "f:T_EXECUTOR_NAMED=true",
       "p:E6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E6b",
+   "completedBy": [
+    {
+     "site": "room:boot_hill:hearse:USE#1",
+     "requires": [
+      "r:boot_hill",
+      "T_PROCESSION_STALLED=true",
+      "T_HILL_PRAYER=true",
+      {
+       "any": [
+        [
+         "not T_HILL_PRAYER=false"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_RODE_UP=true",
+      "f:T_HILL_PRAYER=false",
+      "f:T_PROCESSION_STALLED=false",
+      "p:E6b",
+      "r:funeral"
+     ]
+    },
+    {
+     "site": "room:boot_hill:hearse:OPEN#1",
+     "requires": [
+      "r:boot_hill",
+      "T_PROCESSION_STALLED=true",
+      "T_HILL_PRAYER=true",
+      {
+       "any": [
+        [
+         "not T_HILL_PRAYER=false"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_RODE_UP=true",
+      "f:T_HILL_PRAYER=false",
+      "f:T_PROCESSION_STALLED=false",
+      "p:E6b",
+      "r:funeral"
      ]
     }
    ]

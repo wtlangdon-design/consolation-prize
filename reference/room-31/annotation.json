@@ -383,5 +383,22 @@
    "startsWith": "**THE COFFIN** · USE",
    "note": "Doc 94 (errata 127): not yet, and where to stand first."
   }
+ ],
+ "onEnterScenes": [
+  {
+   "fromRef": "docs/110-act-three-scenes.md::### THE LINES",
+   "bold": "ARRIVING AT THE GRAVE",
+   "when": {
+    "T_RODE_UP": true,
+    "T_RIDE_ARRIVED": false,
+    "T_LAID_IN": false
+   },
+   "after": {
+    "set": {
+     "T_RIDE_ARRIVED": true
+    }
+   },
+   "note": "Doc 110 section 2 (errata 233): the first entry after the ride, Thad already at the back with his hat low as the town arrives (doc 48 S2 beat 1, rewritten as staging). Said once; from here S2 plays as written."
+  }
  ]
 }

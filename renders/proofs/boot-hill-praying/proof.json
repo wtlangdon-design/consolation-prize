@@ -1,0 +1,695 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "boot_hill",
+ "roomWidth": 1920,
+ "branch": "mourners-face-hearse",
+ "commit": "9819b2ab3a6635765a28011dc600b2aca0bb750a",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r14-stall-b, then entered boot_hill by control -- NOT proof that a player can reach it",
+  "action 1 (wait): waited 30s",
+  "action 2 (verb): chose verb TALK_TO -- ",
+  "action 3 (click): clicked boot_hill/reverend_sowerby_at_the_gate at world 1310,700 -- mid-prayer",
+  "action 4 (waitFor): reached {\"says\":\"thad\"} in room boot_hill"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "floor_0",
+    "kind": "far",
+    "y": 561,
+    "xs": [
+     1787,
+     1763,
+     1810,
+     1740,
+     1833,
+     1716,
+     1857,
+     1693,
+     1880
+    ],
+    "expect": 285,
+    "x": 1787
+   },
+   "at": [
+    1787,
+    561
+   ],
+   "reportedHeight": 285,
+   "expected": 285,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    1636,
+    276,
+    302,
+    315
+   ],
+   "order": 0,
+   "renderedHeight": 306,
+   "renderedBottom": 561,
+   "file": "raw-captures-ignored/panel-c-floor_0-far.png"
+  },
+  {
+   "mark": {
+    "box": "floor_4_0",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     340,
+     305,
+     375,
+     270,
+     410,
+     235,
+     445,
+     200,
+     480
+    ],
+    "expect": 305,
+    "x": 340
+   },
+   "at": [
+    340,
+    857
+   ],
+   "reportedHeight": 305,
+   "expected": 305,
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "bounds": [
+    178,
+    552,
+    323,
+    337
+   ],
+   "order": 0,
+   "renderedHeight": 306,
+   "renderedBottom": 857,
+   "file": "raw-captures-ignored/panel-c-floor_4_0-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "procession_undertaker",
+   "feet": [
+    1800,
+    820
+   ],
+   "sheet": "art/actors/room-31-undertaker-master.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1736,
+    "y": 420,
+    "width": 129,
+    "height": 402
+   },
+   "seen": {
+    "x": 1754,
+    "y": 519,
+    "width": 89,
+    "height": 302,
+    "bottom": 820,
+    "right": 1842,
+    "changed": 13325
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "procession_sowerby",
+   "feet": [
+    1310,
+    855
+   ],
+   "sheet": "art/actors/room-31-sowerby-master.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1219,
+    "y": 541,
+    "width": 182,
+    "height": 316
+   },
+   "seen": {
+    "x": 1219,
+    "y": 541,
+    "width": 182,
+    "height": 315,
+    "bottom": 855,
+    "right": 1400,
+    "changed": 25166
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "procession_mourners",
+   "feet": [
+    335,
+    738
+   ],
+   "sheet": "art/actors/room-14-mourners-at-gate.png",
+   "clipPlane": null,
+   "box": {
+    "x": 114,
+    "y": 335,
+    "width": 443,
+    "height": 405
+   },
+   "seen": {
+    "x": 151,
+    "y": 417,
+    "width": 364,
+    "height": 323,
+    "bottom": 739,
+    "right": 514,
+    "changed": 74228
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "procession_hearse",
+   "feet": [
+    1215,
+    792
+   ],
+   "sheet": "art/actors/room-14-hearse-grievance.png",
+   "clipPlane": null,
+   "box": {
+    "x": 740,
+    "y": 405,
+    "width": 950,
+    "height": 389
+   },
+   "seen": {
+    "x": 740,
+    "y": 405,
+    "width": 950,
+    "height": 389,
+    "bottom": 793,
+    "right": 1689,
+    "changed": 160535
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "boot_hill",
+   "clock": 10.587,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_PROCESSION_STALLED",
+    "T_HILL_PRAYER",
+    "T_DECEASED",
+    "T_OBITUARY",
+    "T_COFFIN_SIZED",
+    "T_SOWERBY_PRICE",
+    "T_FUNERAL_BOOKED",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_FANSHAWE"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 3,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "HILL_PRAYER_SAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      330,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 300,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      171,
+      490,
+      318,
+      331
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    },
+    {
+     "key": "art/actors/room-14-hearse-grievance.png",
+     "path": "art/actors/room-14-hearse-grievance.png",
+     "drawn": "art/actors/room-14-hearse-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
+    },
+    {
+     "key": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "path": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "drawn": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d30055d9fc94c162408be9e96d48943942682fcef35d21c2ca65a11e69778e70"
+    },
+    {
+     "key": "art/actors/room-31-sowerby-master.png",
+     "path": "art/actors/room-31-sowerby-master.png",
+     "drawn": "art/actors/room-31-sowerby-master.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cbd09ef0e7d05e4842ab243ff53a422421b39f787f51f0e39036d2466eaf07bf"
+    },
+    {
+     "key": "art/actors/room-31-undertaker-master.png",
+     "path": "art/actors/room-31-undertaker-master.png",
+     "drawn": "art/actors/room-31-undertaker-master.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "64e4c5ee215f9e43abc08e34999717ba63d5f3115a3e40a0f32facfa19fa7d62"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(boot_hill)"
+   ],
+   "capturedAt": "2026-11-09T22:11:34.447Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "91bb8239d6616a10a6dee4cd2f44fcc6f01386248717d7ac90aac41be73bf9a5"
+  },
+  {
+   "panel": "A",
+   "room": "boot_hill",
+   "clock": 11.620299999999999,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_PROCESSION_STALLED",
+    "T_HILL_PRAYER",
+    "T_DECEASED",
+    "T_OBITUARY",
+    "T_COFFIN_SIZED",
+    "T_SOWERBY_PRICE",
+    "T_FUNERAL_BOOKED",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_FANSHAWE"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 3,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "HILL_PRAYER_SAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      330,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 300,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    },
+    {
+     "key": "art/actors/room-14-hearse-grievance.png",
+     "path": "art/actors/room-14-hearse-grievance.png",
+     "drawn": "art/actors/room-14-hearse-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
+    },
+    {
+     "key": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "path": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "drawn": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d30055d9fc94c162408be9e96d48943942682fcef35d21c2ca65a11e69778e70"
+    },
+    {
+     "key": "art/actors/room-31-sowerby-master.png",
+     "path": "art/actors/room-31-sowerby-master.png",
+     "drawn": "art/actors/room-31-sowerby-master.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cbd09ef0e7d05e4842ab243ff53a422421b39f787f51f0e39036d2466eaf07bf"
+    },
+    {
+     "key": "art/actors/room-31-undertaker-master.png",
+     "path": "art/actors/room-31-undertaker-master.png",
+     "drawn": "art/actors/room-31-undertaker-master.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "64e4c5ee215f9e43abc08e34999717ba63d5f3115a3e40a0f32facfa19fa7d62"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(boot_hill)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-09T22:11:35.543Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "58aae0a85c9568ff6724be8574e344e9b26158edc73ded3b469ed3d9da2f7592"
+  },
+  {
+   "panel": "D",
+   "room": "boot_hill",
+   "clock": 52.7853,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_PROCESSION_STALLED",
+    "T_HILL_PRAYER",
+    "T_DECEASED",
+    "T_OBITUARY",
+    "T_COFFIN_SIZED",
+    "T_SOWERBY_PRICE",
+    "T_FUNERAL_BOOKED",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_FANSHAWE"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 3,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "HILL_PRAYER_SAID": 2,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1180,
+      856
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 305,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      1018,
+      551,
+      323,
+      337
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": "thad",
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    },
+    {
+     "key": "art/actors/room-14-hearse-grievance.png",
+     "path": "art/actors/room-14-hearse-grievance.png",
+     "drawn": "art/actors/room-14-hearse-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
+    },
+    {
+     "key": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "path": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "drawn": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d30055d9fc94c162408be9e96d48943942682fcef35d21c2ca65a11e69778e70"
+    },
+    {
+     "key": "art/actors/room-31-sowerby-master.png",
+     "path": "art/actors/room-31-sowerby-master.png",
+     "drawn": "art/actors/room-31-sowerby-master.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cbd09ef0e7d05e4842ab243ff53a422421b39f787f51f0e39036d2466eaf07bf"
+    },
+    {
+     "key": "art/actors/room-31-undertaker-master.png",
+     "path": "art/actors/room-31-undertaker-master.png",
+     "drawn": "art/actors/room-31-undertaker-master.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "64e4c5ee215f9e43abc08e34999717ba63d5f3115a3e40a0f32facfa19fa7d62"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(boot_hill)",
+    "cast(false)",
+    "cast(true)",
+    "bystanders(false)",
+    "stand(1787,561)",
+    "cast(false)",
+    "cast(true)",
+    "stand(340,857)",
+    "cast(false)",
+    "cast(true)",
+    "bystanders(true)"
+   ],
+   "capturedAt": "2026-11-09T22:12:16.676Z",
+   "intent": "principal changed state: THE PRAYER (doc 110 section 2): Sowerby's barks while T_HILL_PRAYER holds, said on his speaking breaks, in turn (HILL_PRAYER_SAID counts them); then TALK TO him mid-prayer. Visible consequence: Thad, at Sowerby's side, saying he has never had a better chance at anything, the town's heads bowed.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "77fe60155c26759c6f0b73a0563aa3a0e02e2cf793dcbdbe168fc3ba2c31c854",
+   "changedBy": "counters"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-09T22:12:16.676Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 447824,
+  "panels": 5,
+  "scale": 0.5
+ }
+}

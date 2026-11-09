@@ -1,0 +1,114 @@
+{
+ "schema": 1,
+ "id": "procession_mourners",
+ "name": "THE MOURNERS",
+ "posture": "band",
+ "room": "boot_hill",
+ "when": {
+  "T_PROCESSION_STALLED": true
+ },
+ "note": "THE MOURNERS AT THE GATE (doc 110 section 2: \"Half the town, in black, at the gate\"), while the procession is stalled (errata 233). Room 31's seven (funeral_mourners' sheet), mirrored so they face the hearse to their right (Tyler, 2026-11-09: \"are the mourners all looking the wrong direction now?\"; tools/art/mirror-cells.py), drawn by figureHeight 350 -- Room 31's man where they stand there (y 664) -- so they are Room 14's size here. While the prayer runs they bow their heads and shut their eyes (spriteWhen; operation 2's sheet). Examined through THE MOURNERS.",
+ "x": 335,
+ "y": 738,
+ "zone": 1,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "The mourners are heard through their LISTEN lines.",
+ "sprite": {
+  "sheet": "art/actors/room-14-mourners-at-gate.png",
+  "frames": [
+   [
+    2,
+    2,
+    443,
+    403
+   ],
+   [
+    447,
+    2,
+    443,
+    403
+   ],
+   [
+    892,
+    2,
+    443,
+    403
+   ],
+   [
+    1337,
+    2,
+    443,
+    403
+   ],
+   [
+    1782,
+    2,
+    443,
+    403
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.4,
+  "breaks": [
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 0,
+  "frameNote": "0 watching the grave, hats held · 1 breath (derived) · 2-4 a different two or three of them shifting their weight.",
+  "provenance": "reference/cast-unify-28.spec.json",
+  "redrawn": "Errata 111 W (Tyler, 2026-11-06). Seven distinct mourners drawn on magenta by cast-unify 30 (reference/cast-unify-28.txt), every man holding his hat (doc 10), each measured and turned to look LEFT toward the grave, standing at his own spot on the hill at its depth curve inside THE MOURNERS hotspot, composed and relit into the night by tools/art/room31-mourners.py. The old group faced the camera.",
+  "figureHeight": 350,
+  "stature": 1.0
+ },
+ "spriteWhen": [
+  {
+   "when": {
+    "T_HILL_PRAYER": true
+   },
+   "note": "Doc 110 section 2, TALK TO REVEREND SOWERBY: \"The mourners bow their heads and shut their eyes.\" While the prayer runs they are bowed, eyes shut (reference/act3-hearse/handback.md, operation 2), and now and then the young man in spectacles at the left peeks. Registered on the group's legs to their rest frame, so the group does not shift (errata 233).",
+   "sprite": {
+    "sheet": "art/actors/room-14-mourners-bowed-at-gate.png",
+    "frames": [
+     [
+      2,
+      2,
+      443,
+      403
+     ],
+     [
+      447,
+      2,
+      443,
+      403
+     ]
+    ],
+    "breaks": [
+     [
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "breakEvery": 9,
+    "frameNote": "0 heads bowed, eyes shut · 1 the same, the young man in spectacles at the left peeking."
+   }
+  }
+ ]
+}

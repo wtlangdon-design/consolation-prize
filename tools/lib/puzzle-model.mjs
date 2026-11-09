@@ -244,7 +244,8 @@ class ModelBuilder {
 
     // Hotspots and exits (GameState.targets, resolvePure).
     for (const target of [...(room.exits ?? []), ...(room.hotspots ?? [])]) {
-      const base = [inRoom, ...conditionReqs(target.when), ...holdingReqs(target.holding)];
+      const base = [inRoom, ...conditionReqs(target.when), ...holdingReqs(target.holding),
+        target.whenAny?.length ? { any: target.whenAny.map(conditionReqs) } : null].filter(Boolean);
       const isExit = typeof target.to === 'string';
       if (isExit) this.buildTransit(room, target, base);
       for (const [verb, rules] of Object.entries(target.responses ?? {})) {
@@ -363,7 +364,8 @@ class ModelBuilder {
     if (!room) return null;
     const target = [...(room.exits ?? []), ...(room.hotspots ?? [])].find((one) => one.id === targetId);
     if (target) {
-      return { target, req: [tok(`r:${roomId}`), ...conditionReqs(target.when), ...holdingReqs(target.holding)] };
+      return { target, req: [tok(`r:${roomId}`), ...conditionReqs(target.when), ...holdingReqs(target.holding),
+        target.whenAny?.length ? { any: target.whenAny.map(conditionReqs) } : null].filter(Boolean) };
     }
     if ((room.ambient ?? []).includes(targetId)) return { target: null, req: this.presence(roomId, targetId) };
     return null;
@@ -432,7 +434,8 @@ class ModelBuilder {
           option.whenAny?.length ? { any: option.whenAny.map(conditionReqs) } : null,
           ...(option.holds ?? []).map((item) => tok(`i:${item}`)),
           ...(option.lacks ?? []).map((item) => tok(`-i:${item}`)),
-          ...(option.after ?? []).map((id) => tok(`o:${T}/${nodeId}/${id}`))];
+          ...(option.after ?? []).map((id) => tok(`o:${T}/${nodeId}/${id}`)),
+          option.afterAny?.length ? { any: option.afterAny.map((id) => [tok(`o:${T}/${nodeId}/${id}`)]) } : null];
         this.add(`dialogue:${T}:${nodeId}:${option.id}`, req, this.optionEffects(tree, nodeId, option, option.id),
           { once: Boolean(option.gives?.length || option.takes?.length) });
         if (option.afterUse === 'replace' && option.replaceWith) {

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "raccoon_in_coat",
+  "name": "THE RACCOON, IN MY COAT",
+  "short": "THE RACCOON, IN MY COAT",
+  "note": "EXTRACTED from docs/111-scenes-b-and-c.md (THE LINES, C) by tools/extract-content.mjs (errata 237). Do not edit: change doc 111 and re-run. Thad's coat over the raccoon at the hole's mouth (USE, with him halfway out); sold to Pratt at THE SALE. Doc 111 writes it one LOOK and one LISTEN.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "My coat, with a raccoon in it, wearing it better than I did."
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Grumbling, in a tone I recognize from the Registrar's queue."
+      }
+    ]
+  },
+  "iconPending": "No icon is drawn for it yet: act3-estate-sale's brief asks for one (reference/act3-estate-sale/brief.md, \"an item icon or two\"); until it lands the panel draws its labelled box (Renderer.drawInventory)."
+}

@@ -5,7 +5,14 @@
   "speaker": "ozymandia",
   "name": "MADAME OZYMANDIA",
   "note": "EXTRACTED from docs/04-dialogue-trees.md (MADAME OZYMANDIA) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a reply are hers, italic quotes Thad's. The universal exit line is doc 04 part one's pool.",
-  "entries": [],
+  "entries": [
+    {
+      "when": {
+        "T_SEANCE_ON": true
+      },
+      "node": "OZY_E1"
+    }
+  ],
   "start": "OZY_A1",
   "nodes": {
     "OZY_A1": {
@@ -259,6 +266,99 @@
         }
       ],
       "openingOnce": "T_OZY_GREETED"
+    },
+    "OZY_E1": {
+      "id": "OZY_E1",
+      "prompt": "The table is full, darling, and the spirits are particular.",
+      "opening": [
+        {
+          "speaker": "ozymandia",
+          "line": "The table is full, darling, and the spirits are particular."
+        }
+      ],
+      "options": [
+        {
+          "id": "ozymandia_e1_1",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Is there room for one more?",
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "At the table — two dollars — in advance —"
+            },
+            {
+              "speaker": "thad",
+              "line": "And if I haven't two dollars?"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Then the spirits will tell you all about it afterwards, darling. Through me. For two dollars."
+            }
+          ],
+          "repeat": "Two dollars, darling. The dead are not a charity. Neither am I."
+        },
+        {
+          "id": "ozymandia_e1_2",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Do the dead mind the light?",
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "Mind it? They cannot abide it, darling. Nobody has ever been reached in a well-lit room."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "She turns the lamp down to a bead.",
+              "direction": true
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "There. Now we are all equally invisible."
+            }
+          ],
+          "set": {
+            "T_SEANCE_DARK": true
+          }
+        },
+        {
+          "id": "ozymandia_e1_3",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Will Mott come?",
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "Everyone comes, darling. Eventually."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "…"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Some of them are slower than others."
+            }
+          ],
+          "repeat": "Patience. The dead keep their own hours."
+        },
+        {
+          "id": "ozymandia_e1_4",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "Does the rod work on ghosts?",
+          "say": "The rod works on everything, darling. That is its tragedy.",
+          "repeat": "On everything. Ask it about you, sometime. Two dollars."
+        },
+        {
+          "id": "ozymandia_e1x",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ]
     }
   }
 }

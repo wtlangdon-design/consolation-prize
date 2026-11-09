@@ -761,6 +761,56 @@
    "note": "Doc 57 E6: Sump accepts Hob as executor. Read by THE ARCHIVE DOOR's OPEN in Room 7 (doc 57 E9), which lets Thad into Room 8. A fixture or the ?flags= control sets it until E6's pieces are built."
   },
   {
+   "id": "T_PROCESSION_STALLED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter",
+    "room:boot_hill:hearse:USE",
+    "room:boot_hill:hearse:OPEN"
+   ],
+   "note": "Doc 110 section 2 (errata 233): the funeral procession is stopped at Boot Hill's gate, because Grievance will not pull an empty coffin. Until scene B (the seance) is built, set by the first entry to Boot Hill once the funeral can be reached (T_EXECUTOR_NAMED and T_OBITUARY, before T_FUNERAL_DONE and T_RODE_UP); cleared by the ride (E6b)."
+  },
+  {
+   "id": "T_HILL_PRAYER",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:reverend_sowerby_at_the_gate:TALK_TO",
+    "room:boot_hill:hearse:USE",
+    "room:boot_hill:hearse:OPEN"
+   ],
+   "note": "Doc 110 section 2: Sowerby's prayer for the hill is running, and the town has its eyes shut. He is paid by the foot and does not stop, so it runs until the climb: leaving and coming back finds it still running. Cleared by the ride."
+  },
+  {
+   "id": "HILL_PRAYER_SAID",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "engine:ambient:barkTurns procession_sowerby"
+   ],
+   "note": "Doc 110 section 2, THE PRAYER: how many of Sowerby's prayer lines have been said, so the prayer goes on in turn, and round again, across visits and saves."
+  },
+  {
+   "id": "T_RODE_UP",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:hearse:USE",
+    "room:boot_hill:hearse:OPEN"
+   ],
+   "note": "Doc 110 section 2: Thad has ridden up Boot Hill in his own coffin, mid-prayer (E6b). Opens the way to the funeral, which the stall refused."
+  },
+  {
+   "id": "T_RIDE_ARRIVED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:funeral:onEnter:scene"
+   ],
+   "note": "Doc 110 section 2, ARRIVING AT THE GRAVE: said once, on the first entry to Room 31 after the ride."
+  },
+  {
    "id": "T_SAME_HAND",
    "type": "boolean",
    "initial": false,
@@ -1064,9 +1114,103 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "combination:loan:undertaker:undertaker"
+    "combination:loan:undertaker:undertaker",
+    "combination:pratt_money:undertaker:undertaker"
    ],
-   "note": "Doc 57 E3: the loan spent at the undertaker's; Thad's own funeral is booked. WIN_C1 (E4) waits on it."
+   "note": "Doc 57 E3: the loan spent at the undertaker's; Thad's own funeral is booked. WIN_C1 (E4) waits on it. Errata 237 (doc 111, C): MR. PRATT'S TWO DOLLARS AND SIXTY CENTS, from the estate sale, is spent the same way."
+  },
+  {
+   "id": "T_SEANCE_ON",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:the_lane:onEnter",
+    "room:ozymandias_tent:onEnter",
+    "dialogue:SEANCE:SEA_E1:seance4"
+   ],
+   "note": "Doc 111, B, the séance (errata 237): the séance for Obadiah Mott is on in Ozymandia's tent, and its sign is out in the Lane. Set on the way into the Lane or the tent from the evening after Fanshawe's offer (ACT 3) until Mott has spoken; cleared by SEA_E1 option 4 (the séance over), and on the way in from Act IV for a player who never sat in. Gates the tent's séance subjects, OZY_E1 and the sign."
+  },
+  {
+   "id": "T_SEANCE_ARRIVED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:ozymandias_tent:onEnter"
+   ],
+   "note": "Doc 111, B, the séance (errata 237): ARRIVING has been said, on the first entry to the tent while the séance is on (the room's sayOnce)."
+  },
+  {
+   "id": "T_SEANCE_DARK",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:OZYMANDIA:OZY_E1:ozymandia_e1_2"
+   ],
+   "note": "Doc 111, B, the séance (errata 237): OZY_E1 option 2, 'Do the dead mind the light?': she turns the lamp down to a bead. Read by USE THE SÉANCE TABLE (refused while it is lit)."
+  },
+  {
+   "id": "T_UNDER_TABLE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:ozymandias_tent:seance_table:USE",
+    "dialogue:SEANCE:SEA_E1:seance4"
+   ],
+   "note": "Doc 111, B, the séance (errata 237): Thad is under the séance table's cloth (USE in the dark); THE SÉANCE is heard and SEA_E1 opens. Cleared when Mott has spoken. While it holds, USE THE SÉANCE TABLE opens SEA_E1 again, so the séance can always be finished."
+  },
+  {
+   "id": "T_MOTT_SPOKE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SEANCE:SEA_E1:seance4"
+   ],
+   "note": "Doc 111, B, the séance (errata 237): SEA_E1 option 4, 'I am Obadiah Mott, and I am dead.' Frame has it for the front page. Offers SUM_E1's row 1‴, which completes E1."
+  },
+  {
+   "id": "T_RACCOON_WANTED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PRATT:PRA_E3:pratt_e3_1"
+   ],
+   "note": "Doc 111, C, the estate sale (errata 237): PRA_E3 option 1, the effects of the late Mr. Grubb: Pratt will pay two dollars and sixty cents for the raccoon. Opens THE RACCOON's lines at the hole and the fork and the hen there."
+  },
+  {
+   "id": "T_RACCOON_BACK_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:prosperity:onEnter"
+   ],
+   "note": "Doc 111, C, the estate sale (errata 237): ARRIVING at Prosperity with the raccoon back in the hole has been said (the room's sayOnce)."
+  },
+  {
+   "id": "T_RACCOON_OUT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:hen:prosperity:hole"
+   ],
+   "note": "Doc 111, C, the estate sale (errata 237): the hen at the hole's mouth has brought the raccoon halfway out. Read by THE RACCOON's PICK UP and USE (the coat) and the hen on him."
+  },
+  {
+   "id": "T_RACCOON_IN_COAT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:prosperity:raccoon:USE"
+   ],
+   "note": "Doc 111, C, the estate sale (errata 237): Thad's coat is over the raccoon: THE RACCOON, IN MY COAT is in the inventory, and the raccoon is gone from the hole (raccoon_back, THE RACCOON's hotspot), which stays empty of raccoons for Act IV."
+  },
+  {
+   "id": "T_RACCOON_SOLD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:raccoon_in_coat:pratts_claim:pratt"
+   ],
+   "note": "Doc 111, C, the estate sale (errata 237): THE SALE: Pratt has the raccoon and Thad has MR. PRATT'S TWO DOLLARS AND SIXTY CENTS; the hen is back with Pratt. PRA_E3 stops being Pratt's opening."
   },
   {
    "id": "T_GRAVE_LOOKED",

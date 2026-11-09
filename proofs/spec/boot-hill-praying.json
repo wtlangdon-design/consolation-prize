@@ -1,0 +1,33 @@
+{
+ "schema": 1,
+ "room": "boot_hill",
+ "note": "ROOM 14 WITH SOWERBY'S PRAYER RUNNING (doc 110 section 2; errata 233), proved apart from the room's main spec (node tools/gauntlet/proof.mjs boot_hill --spec proofs/spec/boot-hill-praying.json --out renders/proofs/boot-hill-praying). It starts from fixture r14-stall-b, the blessing asked, and says so; the asking is played in tests/hearse.test.ts and in the stalled proof. The mourners stand bowed, eyes shut. The principal change is the prayer going on (its lines said on Sowerby's speaking breaks, counted) and TALK TO him mid-prayer.",
+ "fixture": "r14-stall-b",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "THE PRAYER (doc 110 section 2): Sowerby's barks while T_HILL_PRAYER holds, said on his speaking breaks, in turn (HILL_PRAYER_SAID counts them); then TALK TO him mid-prayer. Visible consequence: Thad, at Sowerby's side, saying he has never had a better chance at anything, the town's heads bowed.",
+  "flags": {},
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 30,
+    "why": "the prayer goes on, a line a speaking break"
+   },
+   {
+    "do": "verb",
+    "verb": "TALK_TO"
+   },
+   {
+    "do": "click",
+    "on": "reverend_sowerby_at_the_gate",
+    "why": "mid-prayer"
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 30,
+    "why": "his line, mid-prayer"
+   }
+  ]
+ }
+}

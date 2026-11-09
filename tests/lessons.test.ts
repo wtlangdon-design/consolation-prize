@@ -130,7 +130,8 @@ test('every item content can grant, require or yield is in the manifest and has 
   }
   const missing = [...referenced].filter(([id]) => !items.has(id)).map(([id, where]) => `${id} (${where})`);
   assert.deepEqual(missing, [], 'items content hands over that the game does not load -- add them to the manifest');
-  const noIcon = [...items.values()].filter((item) => !item.fixture && !icons[item.id]).map((item) => item.id);
+  // An icon another session is to draw (errata 237) says so, with the art it waits on (tools/check-item-names.mjs).
+  const noIcon = [...items.values()].filter((item) => !item.fixture && !icons[item.id] && !item.iconPending).map((item) => item.id);
   assert.deepEqual(noIcon, [], 'items with no icon -- draw one in tools/pixelart/item_icons.py');
 });
 

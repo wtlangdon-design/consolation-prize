@@ -325,6 +325,8 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 
 *Room 7.* SUM_E1 option 1 (doc 04): seven years is no obstacle; standing is. Mott has no kin on file and owes nobody → **E1**, blocked by design.
 
+*Errata 237: doc 111's séance (scene B) is now E1's way of completing, and every line of it is doc 111's, under THE LINES. The sign is out in the Lane and the séance is on in Room 16 from Act III until Mott has spoken (`T_SEANCE_ON`). OZY_E1 puts the lamp out (`T_SEANCE_DARK`); in the dark USE THE SÉANCE TABLE puts Thad under the cloth (`T_UNDER_TABLE`), THE SÉANCE is heard, and SEA_E1's fourth option has the dead man say he is dead (`T_MOTT_SPOKE`). At the Registrar's, SUM_E1's row 1‴ (doc 111) completes E1. Option 1 stays for a player who goes straight to Sump, and option 2 below follows either.*
+
 ## E2 · The loophole
 
 *Room 7.* SUM_E1 option 2: Section nineteen, said aloud, to its end → `T_NEED_TO_DIE`, `T_EXECUTOR_RULE` → **E2**.
@@ -335,6 +337,7 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 
 1. **SOW_C1** (doc 04), open once E2 is done: the counter runs; "He was present." closes it at fifty cents → `T_SOWERBY_PRICE`.
 2. **SHE_D1 option 2** (doc 04), open once E2 and D4 are done: SHENG'S LOAN, two dollars and sixty cents — Sheng knows the exact price before Thad does. This is doc 02's "Sheng's goodwill (D4)".
+   *Errata 237: doc 111's estate sale (scene C) replaces this step on a fresh path, and every line of it is doc 111's. After step 1, PRA_E3 at Pratt's claim (`T_RACCOON_WANTED`, then THE HEN on loan); the raccoon is back in Prosperity's hole, the hen brings him halfway out (`T_RACCOON_OUT`) and Thad's coat takes him (`T_RACCOON_IN_COAT`, THE RACCOON, IN MY COAT); THE SALE to Pratt gives MR. PRATT'S TWO DOLLARS AND SIXTY CENTS (`T_RACCOON_SOLD`), which step 3 takes with its own lines and gates. The loan row is kept only for a save already past it (doc 110 section 1), and is offered to nobody else.*
 3. **The undertaker.** UND_C1 (doc 04) is his Act III node; option 1 sizes the coffin → `T_COFFIN_SIZED`. Then:
 
 > **THE UNDERTAKER** · USE SHENG'S LOAN, *with `T_SOWERBY_PRICE` and `T_COFFIN_SIZED`* — **UNDERTAKER:** *(He counts it. It is exact.)* "Pine. Handles. Plate. The hole. The Reverend's four words." *(beat)* "Paid." → the loan is spent; `T_FUNERAL_BOOKED`, **E3**. Frame's notice goes up: FUNERAL THURSDAY: THE PIANO MAN.
@@ -366,6 +369,10 @@ Asking anyone else to be executor is answered by the interest rule:
 > **IGNATIUS FRAME** · USE THE EXECUTOR'S FORM — **FRAME:** "Executor! Of the piano man! Can I print that I am?" *(Thad takes the form back.)*
 > **NICKEL PRATT** · USE THE EXECUTOR'S FORM — **PRATT:** "Eleven dollars for the claim." *(Thad takes the form back.)*
 > **REVEREND SOWERBY** · USE THE EXECUTOR'S FORM — **SOWERBY:** "I am to be paid out of the estate, Mr. Grubb. It would be indecent. Also impossible."
+
+## E6b · The hearse
+
+*Room 14, then Room 31.* Doc 110 section 2, Scene A, is the design and every line of it, under THE LINES; nothing is restated here (errata 233). Once the funeral can be reached (`T_EXECUTOR_NAMED` and `T_OBITUARY`, before `T_FUNERAL_DONE`), the first entry to Boot Hill finds the procession stalled at the gate (`T_PROCESSION_STALLED`), and the way up to the funeral refuses. Grievance will not pull an empty coffin. TALK TO REVEREND SOWERBY asks him to bless the hill, and his prayer runs until the climb (`T_HILL_PRAYER`); while it runs, USE or OPEN THE HEARSE puts Thad in his own coffin, and Grievance sets off: `T_RODE_UP`, **E6b**, the ride over black, and Room 31, where ARRIVING AT THE GRAVE is said once. From there E7 plays as below.
 
 ## E7 · The coffin
 
@@ -506,8 +513,21 @@ Asking anyone else to be executor is answered by the interest rule:
 | `T_SOWERBY_PRICE` | SOW_C1 3 | the undertaker |
 | `T_COFFIN_SIZED` | UND_C1 1 | the undertaker |
 | `T_FUNERAL_BOOKED` | E3 | WIN_C1 |
+| `T_SEANCE_ON` | the Lane and Room 16, on the way in, in Act III until `T_MOTT_SPOKE` *(doc 111; errata 237)* | the séance, its sign, OZY_E1 |
+| `T_SEANCE_ARRIVED` | Room 16's ARRIVING, once *(doc 111)* | — |
+| `T_SEANCE_DARK` | OZY_E1 2 *(doc 111)* | THE SÉANCE TABLE · USE |
+| `T_UNDER_TABLE` | THE SÉANCE TABLE · USE, in the dark *(doc 111)* | SEA_E1, opened again from the table |
+| `T_MOTT_SPOKE` | SEA_E1 4 *(doc 111)* | SUM_E1 1‴ (E1) |
+| `T_RACCOON_WANTED` | PRA_E3 1 *(doc 111)* | THE RACCOON and THE HOLE at Prosperity, the fork and the hen there |
+| `T_RACCOON_BACK_SEEN` | Prosperity's ARRIVING, once *(doc 111)* | — |
+| `T_RACCOON_OUT` | THE HEN on THE HOLE *(doc 111)* | THE RACCOON · PICK UP, USE; THE HEN on him |
+| `T_RACCOON_IN_COAT` | THE RACCOON · USE, with him halfway out *(doc 111)* | the raccoon gone from the hole |
+| `T_RACCOON_SOLD` | THE SALE *(doc 111)* | PRA_E3's opening |
 | `T_DECEASED` | SUM_C1 1 | FRA_E1, Sump and the form |
 | `T_EXECUTOR_NAMED` | E6 | the archive door |
+| `T_PROCESSION_STALLED` | Boot Hill, the first entry after E6 *(doc 110; errata 233)* | the procession at the gate |
+| `T_HILL_PRAYER` | SOWERBY, AT THE GATE · TALK TO *(doc 110)* | THE HEARSE · USE, OPEN |
+| `T_RODE_UP` | E6b | the way up to the funeral |
 | `T_SAME_HAND` | E9 | HOB_C2's entry (with E9) |
 | `T_ASSAY_RUN` | WIN_F1 1 | F4's trigger, S6 |
 | `T_FANSHAWE_BEATEN` | F4 | S6 |

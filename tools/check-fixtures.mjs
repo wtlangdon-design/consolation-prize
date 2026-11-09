@@ -115,10 +115,13 @@ export function check() {
         const target = targets.find((one) => one.id === id);
         if (!target) { report.fail(`${where}: expects interactable "${id}", which ${fixture.room} does not have`); continue; }
         if (target.when && !gateOpen(target.when, fixture.flags)) report.fail(`${where}: expects "${id}" but its gate ${JSON.stringify(target.when)} is shut under these flags`);
+        // Doc 111: a subject there in either of two states (Interactable.whenAny).
+        if (target.whenAny?.length && !target.whenAny.some((one) => gateOpen(one, fixture.flags))) report.fail(`${where}: expects "${id}" but none of its gates ${JSON.stringify(target.whenAny)} is open under these flags`);
       }
       for (const id of expect.absent ?? []) {
         const target = targets.find((one) => one.id === id);
-        if (target && (!target.when || gateOpen(target.when, fixture.flags))) report.fail(`${where}: expects "${id}" absent but it is a target under these flags`);
+        if (target && (!target.when || gateOpen(target.when, fixture.flags))
+          && (!target.whenAny?.length || target.whenAny.some((one) => gateOpen(one, fixture.flags)))) report.fail(`${where}: expects "${id}" absent but it is a target under these flags`);
       }
       report.note(`${fixture.id}: ${Object.keys(fixture.flags ?? {}).length} flag(s), ${(fixture.inventory ?? []).length} item(s), ${(fixture.notBuilt ?? []).length} not-built note(s)`);
     }
