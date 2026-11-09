@@ -386,7 +386,7 @@ These sounds are required, but placing them in a room or inventing an action wou
 | 22 · Claims road | Wind down off the diggings; a bucket swinging; picks, distant | The town small and far: a door, a dog, the bell | — |
 | 23 · Prosperity | Wind along the top; water over stones next door | The raccoon breathing, while he is there | **No air from the hole** (rule 2) |
 | 25 · Pratt's claim | Water, even and polite; canvas easing | — | — |
-| 26 · Creek | Water over stone and through the riffles | — | — |
+| 26 · Creek | Water over stone and through the riffles. **Interim** (errata 206 F; Tyler, 2026-11-08: "The Creek sounds like being inside an airplane."): the water Tyler accepted at Prosperity, heard from the bank. A closer creek waits for a better water source | — | — |
 | 27 · Claim row | Wind across the shaft mouths, low; boards knocking out of time | Two men arguing, words unclear, while the boundary men are there; the road below, faint | — |
 | 28 · Laundry | Water at the boil, cloth turning; iron set down and taken up; wind | — | — |
 | 29 · High ridge | Wind with nothing to stop it; everything faint and mixed: the bell, picks, a dog | — | — |

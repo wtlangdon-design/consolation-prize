@@ -900,12 +900,17 @@ def bed_pratts_claim():
 
 
 def bed_creek():
-    """Row 26. Water over stone and through the riffles: the creek, nearest and
-    fullest of the waters. (The first one's grit ticking along the riffle bars
-    is gone with its grains: it was part of what read as foil.)"""
+    """Row 26. Water over stone and through the riffles -- AN INTERIM (errata 206
+    F). The first creek was "thin foil attached to a fan flapping about"; the
+    second, close and full-band (60 Hz to 7 kHz, dense), was "like being inside
+    an airplane" (Tyler, 2026-11-08). This is the water Tyler accepted at
+    Prosperity, the same material and settings, heard from the bank: brighter
+    than Prosperity's next-door water (rolled off at 2 kHz, not 1.4) and set
+    lower than a close creek would be. A closer creek waits for a better water
+    source."""
     bed = Loop(12.0, 4126)
-    w = water(bed, 60, 7000, burble=2.5, depth=0.5)
-    bed.add(w / np.std(w), 0.6)
+    w = water(bed, 150, 3000, burble=1.2)
+    bed.add(circ(w, lambda y: lowpass(y, 2000)) / (np.std(w) + 1e-12), 1.0)
     return bed.x
 
 

@@ -935,8 +935,8 @@
   },
   "creek": {
    "src": "audio/sfx/beds/creek.wav",
-   "gain": 0.146,
-   "why": "doc 45, Every room's bed (errata 203), row 26 (creek): water over stone and through the riffles. The water is errata 206 F's, remade after Tyler heard the first as \"thin foil attached to a fan flapping about\". Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "gain": 0.114,
+   "why": "doc 45, Every room's bed (errata 203), row 26 (creek): water over stone and through the riffles. AN INTERIM (errata 206 F): the remade close creek was \"like being inside an airplane\" (Tyler, 2026-11-08), so the creek plays the water Tyler accepted at Prosperity, heard from the bank, two decibels lower than a bed's default place. A closer creek waits for a better water source. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "claim_row": {
    "src": "audio/sfx/beds/claim-row.wav",
@@ -1090,7 +1090,8 @@
    "bakehouse": -10,
    "schoolhouse": -12,
    "barbers": -10,
-   "empty_storefront": -10
+   "empty_storefront": -10,
+   "creek": -10
   },
   "scene": 0,
   "featured": [

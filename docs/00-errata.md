@@ -5754,6 +5754,14 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 - **The lesson** is a row in doc 55 §8: don't synthesize creatures or voices for a bed; build continuous textures from slowly drifting noise; measure the envelope against a scrambled copy before the audition.
 - **The audition page** is the same URL. The six changed rooms are marked "Changed — listen again".
 
+**Tyler's second listen (2026-11-08): "The Creek sounds like being inside an airplane. Everything else sounds good."** Every other room is approved at its level: Pratt's, Prosperity's water next door, the laundry, the funeral without the owl, the bakehouse without the humming, and the Lane's new plane.
+
+- **The creek is an interim.** It was the remade water at its closest and fullest (60 Hz to 7 kHz, dense, steady), and that is the airplane. There is no third synthesis.
+- **Room 26 now plays the water Tyler accepted at Prosperity:** the same material and settings, heard from the bank. It is rolled off at 2 kHz (Prosperity's next-door water is rolled off at 1.4) and placed at −10, two decibels under a bed's default. The creek bed had no wind, and none is added.
+- **A closer creek waits for a better water source.** Doc 45's row 26 says so, and quotes Tyler.
+- **The audition page's creek** plays the shipped file, labelled "Interim: the accepted water, from the bank".
+- **Tyler's approval to merge** is his "Everything else sounds good."
+
 # 207 · THE FIVE FIGURES THE CHECKS CAUGHT, FIXED — TYLER, 2026-11-08 ("Fix all five")
 
 Errata 205's two checks found five figures wrong and recorded them without fixing them: Grievance stepping out of her stall, drawn too small, and four figures brighter than Thad in their rooms' night. Tyler: "Fix all five".
