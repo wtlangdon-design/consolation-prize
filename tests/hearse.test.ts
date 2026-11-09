@@ -30,6 +30,8 @@ import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import type { FlagWrites, SpokenLine } from '../engine/core/types.ts';
 import { HeadlessPlayer } from './lib/headless-player.ts';
+// @ts-expect-error -- a plain .mjs module with no declarations; it reads 8-bit RGBA PNGs.
+import { readPng } from '../tools/lib/png.mjs';
 
 // PLAYS: E6b
 
@@ -263,4 +265,41 @@ test('the hearse and its mule stand at the gate, and he walks round them, never 
   state.flags.set('T_PROCESSION_STALLED', false);
   const empty = new WalkBoxes(state.room.walkBoxes!, (when) => state.flags.test(when));
   assert.ok(empty.boxAt(hitch.x, hitch.y - 10), 'and the grass is floor again once it has gone');
+});
+
+/**
+ * THE GROUP FACES THE HEARSE (Tyler, 2026-11-09: "are the mourners all looking the wrong direction now?"; doc 55
+ * section 8). The funeral's group is drawn facing left, toward the grave. At the gate the hearse stands on their
+ * right, so here every cell is the funeral's cell mirrored, standing and bowed alike.
+ */
+test('at the gate the group turns toward the hearse on its right', async () => {
+  const content = await loadContent(fsReader);
+  const group = content.ambient.get('procession_mourners')!;
+  const hitch = content.ambient.get('procession_hearse');
+  const funeral = [...content.ambient.values()].find((one) => one.room !== group.room
+    && one.sprite?.sheet === 'art/actors/room-31-mourners-master.png');
+  assert.ok(funeral, 'the funeral still has its own group, facing the grave');
+  if (hitch) assert.ok(hitch.x > group.x, 'the hearse is on their right');
+  const pixels = (path: string) => readPng(readFileSync(resolve(ROOT, path))) as { width: number; pixels: Uint8Array };
+  const mirrored = (gate: string, source: string, frames: number[][]) => {
+    const a = pixels(gate);
+    const b = pixels(source);
+    for (const [x, y, w, h] of frames) {
+      for (let row = y!; row < y! + h!; row += 7) {
+        for (let col = 0; col < w!; col += 3) {
+          const at = (row * a.width + x! + col) * 4;
+          const from = (row * b.width + x! + (w! - 1 - col)) * 4;
+          for (let channel = 0; channel < 4; channel += 1) {
+            if (a.pixels[at + channel] !== b.pixels[from + channel]) return false;
+          }
+        }
+      }
+    }
+    return true;
+  };
+  assert.ok(mirrored(group.sprite!.sheet, 'art/actors/room-31-mourners-master.png', group.sprite!.frames),
+    'standing at the gate, they face the hearse, not the grave they face at the funeral');
+  const bowed = group.spriteWhen?.find((one) => one.when.T_HILL_PRAYER === true)?.sprite;
+  assert.ok(bowed && mirrored(bowed.sheet!, 'art/actors/room-14-mourners-bowed.png', bowed.frames!),
+    'and bowed for the prayer, the same way');
 });
