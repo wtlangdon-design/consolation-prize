@@ -537,10 +537,22 @@
    "why": "Errata 232: not loosened, changed with the design. The test that required leaving the office before the assay returned now requires that it returns in the same conversation, that her other questions stay until he leaves, and, as a new second test, that a save from before the change still gets it on the way back in."
   },
   {
-   "check": "tools/check-narration-templates.mjs",
+   "check": "content/checks/narration-allowlist.json",
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 233: three phrases on the allowlist -- \"ticking as it cools\", \"nothing from inside\" and \"back door\" -- each reached a fourth subject with doc 110's lines for THE HEARSE, which Tyler approved (\"Go\") and the builder may not rewrite. Genuinely looser: the three are now allowed under four subjects. Listed for the voice pass with the first run's entries, and named in the PR for Tyler."
+  },
+  {
+   "check": "tools/check-puzzle-graph.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 233: not a misfire, and not looser. Scene A adds E6b, the hearse, to the canonical list between E6 and E7, and the comment says 53 where it said 52. Every puzzle is still traversed from a fresh save and the win from every reachable state, with one more in the graph; the friction check matched the changed range lines."
+  },
+  {
+   "check": "tools/check-puzzle-graph.mjs",
+   "date": "2026-11-09",
+   "kind": "reviewed",
+   "why": "Errata 233, the review three loosenings asked for. Concluded: keep it as it is; nothing to tune or merge. None of the three made it more lenient: each grew the canonical list with the design (the Gulch to 52, errata 213; the traversal made real, errata 219; E6b to 53, errata 233), and the friction check reads any changed line with numbers in it as a loosening. Every run still traverses all canonical puzzles from a fresh save, the win from every reachable state and dead ends one loss at a time, and fails on an empty or stale graph. It catches what it is for (errata 219, 220). Not for retirement."
   }
  ]
 }
