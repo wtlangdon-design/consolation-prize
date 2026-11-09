@@ -5418,3 +5418,42 @@ Tyler: "The three horses on main street are now a little too front and center an
 - **Shown:**
   - `renders/room-02-main-street-horses.png`: night, with Thad walking past the horses and the pie woman in frame.
   - `renders/room-36-main-street-dawn-rail.png`: dawn, with Thad walking behind the empty rail.
+
+# 201 · THE HORSES TO THE RIGHT, AT A HORSE'S TRUE SIZE — TYLER, 2026-11-08
+
+Tyler, of `renders/room-02-main-street-horses.png`: "Brightness is good. Maybe move them a bit to the right so they're not overlapping the bulletin board at all? And maybe slightly bigger since it looks like maybe Thad is their height standing next to them? I just want everything to scale correctly."
+
+*Errata 198's horses, moved and measured. No image operation, and no line written or changed. The grade is untouched.*
+
+- **What was wrong with the scale.** Measured on the rest frame, against the room's man where the horses actually stand:
+  - **The anchor was the hay, not the hooves.** The engine puts a frame's last row on the figure's `y` and scales it by the man there. The horses' last row is the foot of the palomino's hay, 16 rows below their front hooves (row 395 of 413). So the group was measured at a point about 9 px in front of where it stands.
+  - **`figureHeight` and `stature` measured the wrong span.** Errata 187 took 393, ear tips to the foot of the hay, as 1.223 of a man. But the black's own height, ear tips (row 21) to front hooves (row 395), is 375 rows. Against the man at his hooves (165 at y 746), his ear tips came to **1.19** of a man and his withers to 0.88.
+  - That is a man's height and a bit. It is what Tyler saw: a riding horse's ear tips, head up, stand well above a man's head.
+  - The anchor's own error ran the other way (the man at the hay is about 2% taller than at the hooves). So the cause was the span the stature measured, not only the anchor.
+- **Fixed at the cause, not by hand.**
+  - **New engine field, `sprite.footRow`.** It names the frame row a figure stands on. The renderer puts that row on `y` and draws the rows below it underneath. A bark's head height and the staging checks use the same arithmetic (`drawnBelowFeet` in `engine/core/Ambient.ts`). Absent, every other figure stands on its last row as before.
+  - The horses declare `footRow` 396 and `figureHeight` 376, the black's ear tips to his hooves, and `stature` **1.25**, his ear tips over the man at his hooves.
+  - Their size still comes only from the room's depth curve (`tests/scale.test.ts`). The sprite was not rescaled by hand.
+  - **Re-snapped to the game's one level.** A man beside them is now 300 of the sheet's pixels, not 321, so `tests/one-level.test.mjs` asked for a finer grid (errata 112). The sheet was cut again from the generator's quarters by its own tool (`tools/art/hitching-post-cut.py`), not re-snapped from the snapped copy. Then `tools/art/one-level.py --only room-02-horses` snapped it at a block of 2.62. The snap moved the black's hooves to row 396, hence the foot row.
+  - Now the black's ears stand **1.25** of the man at his feet and his withers **0.92**, a little above a man's shoulder (Thad's is 0.82 of his height). The paint stands as tall.
+  - The group is drawn **385 × 227 instead of 367 × 216**, 5% larger.
+- **Moved right, from 1405,755 to 1470,746.**
+  - `y` is now the hooves, so 746 is the depth they already stood at. The foot of the hay still lands on 755.
+  - The nearest horse pixel is now 24 px from the notice board's drawn extent (x 1120–1256, y 480–642). Before, the black's head overlapped its right post.
+  - It is clear of every hotspot, exit, entrance, approach point, conversation stand and figure, measured on the drawn pixels of all four frames. There is one exception, in the next item.
+- **Thad's stand for the false fronts moved, 1580,620 to 1700,620.** This is the one thing errata 198 held that a move right could not keep.
+  - The space between the board and that stand is about 300 px. A full-sized group at this depth is about 380 px wide. At every place that clears the board, the horses would hide 15–55% of him there.
+  - The fronts run the whole street. He now looks at them from 120 px further on, past the paint's tail and clear of the trough (`hotspotWalkTo` in `reference/room-02/annotation.json`).
+  - Room 36 keeps 1580,620: the empty rail stands below him there.
+- **The obstacle and the dawn rail follow.**
+  - `hitching_post` is now [1282, 718, 349, 44] in both streets. It is errata 198's footprint in the frame's own rows and columns, laid on the group as it is now drawn. The ground behind stays walkable.
+  - `tools/art/hitching-rail-dawn.py` reads `footRow` and re-cut the empty rail at the new scale: 385 × 227, at 1470 with its base line on 755, pixel for pixel where the night rail stands.
+  - Rooms 2 and 36 are recompiled.
+  - `tests/scenery.test.ts` checks the rail's base line against the group's foot row.
+- **The lesson is a check: animals are held to the man beside them.** `content/scale-anchors.json` gains `animals`, and `tests/scale.test.ts` measures each one as the engine draws it.
+  - The horse's ear tips and hooves are read from the sheet's pixels, and its withers row is declared. Both are compared with the man at its hooves.
+  - For the black: withers 0.82–0.95 and ear tips 1.22–1.40.
+  - An `animal` was exempt from the standing man's 5% and nothing else held it. Put back errata 198's file and the test fails: "hitching_horses's ear tips are 1.188 of the man at its hooves; the ruling needs 1.22-1.4".
+- **Shown:**
+  - `renders/room-02-main-street-horses.png`: night, with Thad standing beside the black at the horses' own depth (1250,746), the board clear to their left.
+  - `renders/room-36-main-street-dawn-rail.png`: dawn, with Thad at the same spot beside the empty rail.

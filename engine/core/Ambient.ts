@@ -55,6 +55,17 @@ export interface Departing {
  * (AmbientFile.whenAny).
  * The one reading of it, so the scene, the tests and the probe cannot differ.
  */
+/**
+ * How far a figure's drawn frame reaches below its feet (`sprite.footRow`):
+ * the frame's rows under the foot row, at the size it is drawn. 0 for a figure
+ * standing on its frame's last row. The renderer and the staging checks place
+ * a frame with this, so they agree on where every pixel lands (errata 201).
+ */
+export function drawnBelowFeet(frameHeight: number, drawnHeight: number, footRow?: number): number {
+  if (footRow === undefined) return 0;
+  return Math.round(((frameHeight - 1 - footRow) * drawnHeight) / frameHeight);
+}
+
 export function ambientHere(npc: AmbientFile, roomId: string, test: (when?: Condition) => boolean): boolean {
   const placed = npc.placements?.[roomId]?.when;
   if (placed !== undefined) return test(placed);
