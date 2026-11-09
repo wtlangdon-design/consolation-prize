@@ -8,6 +8,13 @@
  "ambient": [
   "sign_painter"
  ],
+ "figureLight": {
+  "figures": [
+   "sign_painter"
+  ],
+  "brightness": 0.95,
+  "note": "Errata 235. Re-cut at his own height with a shorter ladder, the man on the ladder is more shirt and less ladder, and his rest frame measured 1.15 of Thad's luminance in the same first light (tools/check-figure-light.mjs; the limit 1.12). Dimmed a little to stand in the same dawn as Thad; nothing else in the room is graded."
+ },
  "interface": "none",
  "endsGame": true,
  "interfaceNote": "Doc 48 S7 beats 3 to 5 are control `none`: no panel here, from his arrival to the end (errata 128). The game ends in this room: once the letter has been read it holds as one page, fades, and the title returns (`endsGame`).",
