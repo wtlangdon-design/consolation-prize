@@ -583,6 +583,12 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 237: two phrases reach a fourth subject with doc 111's lines as Tyler approved them ('dead man', 'wind like'). The builder may not reword a line, so they wait for the voice pass, or for Tyler."
+  },
+  {
+   "check": "tests/lessons.test.ts",
+   "date": "2026-11-09",
+   "kind": "reviewed",
+   "why": "Errata 237, the review three loosenings in fourteen days ask for. They are in two different tests that share the file: 'drawn whole' twice (2026-11-05, a held rake's gaps; 2026-11-06, a master cut's keyed backdrop), each tuned then to stop misfiring on a real drawing and each still failing a keyed-out coat; and the item test once (here), which is not a misfire but art owed by another session (iconPending, noted every run, never with a cell). Concluded: no tune is needed and nothing is retired. The icon half duplicates tests/items.test.ts ('every item has an icon cell inside the sheet') and tools/check-item-names.mjs, which now read iconPending the same way; merging it into tests/items.test.ts is recommended for the twice-monthly review, not done here."
   }
  ]
 }
