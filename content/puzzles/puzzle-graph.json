@@ -1,0 +1,1163 @@
+{
+ "schema": 1,
+ "note": "DERIVED -- DO NOT EDIT. Written by tools/derive-puzzle-graph.mjs from the content the engine plays (tools/lib/puzzle-model.mjs). Per canonical puzzle (errata ruling 5; errata 213): every site that completes it, what that site reads and what it writes. tools/check-puzzle-graph.mjs traverses the whole site graph this is drawn from and fails if this file and the content disagree. Ids only.",
+ "win": [
+  "r:coach_stop_dawn"
+ ],
+ "puzzles": [
+  {
+   "id": "A1",
+   "completedBy": [
+    {
+     "site": "dialogue:UNDERTAKER:root:undertaker2",
+     "requires": [
+      "n:UNDERTAKER/root",
+      "o:UNDERTAKER/root/undertaker1"
+     ],
+     "yields": [
+      "o:UNDERTAKER/root/undertaker2",
+      "f:T_PIKE_DEAD=true",
+      "p:A1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "A2",
+   "completedBy": [
+    {
+     "site": "with:hotel_lobby:parlor_piano:tuning_fork#1",
+     "requires": [
+      "i:tuning_fork",
+      "r:hotel_lobby",
+      "T_TUNES_PIANOS=true",
+      {
+       "any": [
+        [
+         "not T_ROOM_GRANTED=true"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_ROOM_GRANTED=true",
+      "p:A2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "A3",
+   "completedBy": [
+    {
+     "site": "dialogue:DEKE_VESSEL:root:deke_vessel6",
+     "requires": [
+      "n:DEKE_VESSEL/root",
+      "o:DEKE_VESSEL/root/deke_vessel4"
+     ],
+     "yields": [
+      "o:DEKE_VESSEL/root/deke_vessel6",
+      "f:T_SWINDLED=true",
+      "p:A3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "A4",
+   "completedBy": [
+    {
+     "site": "dialogue:FANSHAWE:FAN_A1:fanshawe1",
+     "requires": [
+      "n:FANSHAWE/FAN_A1"
+     ],
+     "yields": [
+      "o:FANSHAWE/FAN_A1/fanshawe1",
+      "i:company_map",
+      "p:A4"
+     ]
+    },
+    {
+     "site": "dialogue:FANSHAWE:FAN_A1:fanshawe2",
+     "requires": [
+      "n:FANSHAWE/FAN_A1"
+     ],
+     "yields": [
+      "o:FANSHAWE/FAN_A1/fanshawe2",
+      "i:company_map",
+      "p:A4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "A5",
+   "completedBy": [
+    {
+     "site": "with:prosperity:hole:blanket#2",
+     "requires": [
+      "i:blanket",
+      "r:prosperity",
+      "T_WARM_HOLE=false",
+      {
+       "any": [
+        [
+         "not T_FUMES=true"
+        ]
+       ]
+      },
+      {
+       "any": [
+        [
+         "not T_WARM_HOLE=true"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_WARM_HOLE=true",
+      "p:A5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "A6",
+   "completedBy": [
+    {
+     "site": "with:claims_registrar:counter:deed#3",
+     "requires": [
+      "i:deed",
+      "r:claims_registrar",
+      "T_DEED_LODGED=false",
+      {
+       "any": [
+        [
+         "not T_FANSHAWE_BEATEN=true"
+        ],
+        [
+         "not T_FILED=false"
+        ],
+        [
+         "not T_F5_DEED=false"
+        ]
+       ]
+      },
+      {
+       "any": [
+        [
+         "not T_FANSHAWE_BEATEN=true"
+        ],
+        [
+         "not T_FILED=false"
+        ]
+       ]
+      },
+      {
+       "any": [
+        [
+         "not T_DEED_LODGED=false"
+        ],
+        [
+         "-i:survey"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_SURVEY_NEEDED=true",
+      "p:A6"
+     ]
+    },
+    {
+     "site": "dialogue:SUMP:SUM_A1:sump1",
+     "requires": [
+      "n:SUMP/SUM_A1",
+      "T_SWINDLED=true"
+     ],
+     "yields": [
+      "o:SUMP/SUM_A1/sump1",
+      "f:T_SURVEY_NEEDED=true",
+      "p:A6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "A7",
+   "completedBy": [
+    {
+     "site": "with:ozymandias_tent:ozymandia:company_map#0",
+     "requires": [
+      "i:company_map",
+      "r:ozymandias_tent",
+      "T_OZY_PAID=true",
+      "T_SURVEY_LODGED=false"
+     ],
+     "yields": [
+      "p:A7",
+      "i:survey"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "A8",
+   "completedBy": [
+    {
+     "site": "with:nugget:piano:tuning_fork#2",
+     "requires": [
+      "i:tuning_fork",
+      "r:nugget",
+      "T_NUGGET_PIANO_PAID=0",
+      {
+       "any": [
+        [
+         "not T_NUGGET_PIANO_TUNED=true"
+        ]
+       ]
+      },
+      {
+       "any": [
+        [
+         "-i:filing_fee"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_NUGGET_PIANO_TUNED=true",
+      "f:T_NUGGET_PIANO_PAID+",
+      "p:A8",
+      "i:filing_fee"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "A9",
+   "completedBy": [
+    {
+     "site": "with:claims_registrar:sump:filing_fee#0",
+     "requires": [
+      "i:filing_fee",
+      "r:claims_registrar",
+      "T_SURVEY_LODGED=true",
+      "T_BORDERS_MOTT=false"
+     ],
+     "yields": [
+      "f:T_BORDERS_MOTT=true",
+      "p:A9",
+      "i:invitation",
+      "i:third_copy",
+      "-i:filing_fee"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "A10",
+   "completedBy": [
+    {
+     "site": "dialogue:FANSHAWE:FAN_A2:fanshawe6",
+     "requires": [
+      "n:FANSHAWE/FAN_A2",
+      "o:FANSHAWE/FAN_A2/fanshawe2"
+     ],
+     "yields": [
+      "o:FANSHAWE/FAN_A2/fanshawe6",
+      "f:T_DINED=true",
+      "i:handkerchief",
+      "p:A10"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "B1",
+   "completedBy": [
+    {
+     "site": "dialogue:FRAME:FRA_B1:frame1",
+     "requires": [
+      "n:FRAME/FRA_B1"
+     ],
+     "yields": [
+      "o:FRAME/FRA_B1/frame1",
+      "f:T_VESSEL_LOCATION=true",
+      "i:clarion",
+      "p:B1"
+     ]
+    },
+    {
+     "site": "dialogue:FRAME:FRA_B1:frame2",
+     "requires": [
+      "n:FRAME/FRA_B1"
+     ],
+     "yields": [
+      "o:FRAME/FRA_B1/frame2",
+      "f:T_VESSEL_LOCATION=true",
+      "i:clarion",
+      "p:B1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "B2",
+   "completedBy": [
+    {
+     "site": "dialogue:LIVERY_MAN:LIV_A1:livery_man6",
+     "requires": [
+      "n:LIVERY_MAN/LIV_A1"
+     ],
+     "yields": [
+      "o:LIVERY_MAN/LIV_A1/livery_man6",
+      "f:T_GRIEVANCE_MOTT=true",
+      "p:B2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "B3",
+   "completedBy": [
+    {
+     "site": "with:livery:grievance:tuning_fork#2",
+     "requires": [
+      "i:tuning_fork",
+      "r:livery",
+      "T_HUM_HEARD=true",
+      "T_VESSEL_LOCATION=true",
+      {
+       "any": [
+        [
+         "not T_GULCH_TRIP=true"
+        ]
+       ]
+      },
+      {
+       "any": [
+        [
+         "not T_VESSEL_FOUND=true"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_GULCH_TRIP=true",
+      "p:B3",
+      "r:washout"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "B4",
+   "completedBy": [
+    {
+     "site": "dialogue:DEACON:VES_G1:ves_g1_6",
+     "requires": [
+      "n:DEACON/VES_G1",
+      "T_PLANK_SEAT=true"
+     ],
+     "yields": [
+      "o:DEACON/VES_G1/ves_g1_6",
+      "f:T_DUEL_ONE_CALLED=true",
+      "p:B4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "B5",
+   "completedBy": [
+    {
+     "site": "duel:duel_one:ends",
+     "requires": [
+      "d:duel_one"
+     ],
+     "yields": [
+      "f:ASSAY_PAIR_01=true",
+      "f:ASSAY_PAIR_02=true",
+      "f:ASSAY_PAIR_03=true",
+      "f:ASSAY_PAIR_04=true",
+      "f:T_DUEL_ONE_LOST=true",
+      "p:B5"
+     ]
+    },
+    {
+     "site": "duel:duel_one_bar:ends",
+     "requires": [
+      "d:duel_one_bar"
+     ],
+     "yields": [
+      "f:ASSAY_PAIR_01=true",
+      "f:ASSAY_PAIR_02=true",
+      "f:ASSAY_PAIR_03=true",
+      "f:ASSAY_PAIR_04=true",
+      "f:T_DUEL_ONE_LOST=true",
+      "f:T_DUEL_ONE_CALLED=false",
+      "p:B5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "B6",
+   "completedBy": [
+    {
+     "site": "duel:duel_two:won",
+     "requires": [
+      "d:duel_two",
+      {
+       "atLeast": 14,
+       "of": [
+        "ASSAY_PAIR_01=true",
+        "ASSAY_PAIR_02=true",
+        "ASSAY_PAIR_03=true",
+        "ASSAY_PAIR_04=true",
+        "ASSAY_PAIR_05=true",
+        "ASSAY_PAIR_06=true",
+        "ASSAY_PAIR_07=true",
+        "ASSAY_PAIR_08=true",
+        "ASSAY_PAIR_09=true",
+        "ASSAY_PAIR_10=true",
+        "ASSAY_PAIR_11=true",
+        "ASSAY_PAIR_12=true",
+        "ASSAY_PAIR_13=true",
+        "ASSAY_PAIR_14=true",
+        "ASSAY_PAIR_15=true",
+        "ASSAY_PAIR_16=true",
+        "ASSAY_PAIR_17=true",
+        "ASSAY_PAIR_18=true",
+        "ASSAY_PAIR_19=true",
+        "ASSAY_PAIR_20=true",
+        "ASSAY_PAIR_21=true",
+        "ASSAY_PAIR_25=true",
+        "ASSAY_PAIR_26=true"
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_DUEL_TWO_WON=true",
+      "i:document_a",
+      "i:watch",
+      "p:B6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C1",
+   "completedBy": [
+    {
+     "site": "dialogue:WINNIE:WIN_B1:winnie1",
+     "requires": [
+      "n:WINNIE/WIN_B1"
+     ],
+     "yields": [
+      "o:WINNIE/WIN_B1/winnie1",
+      "f:T_ASSAY_QUEUE=true",
+      "p:C1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "completedBy": [
+    {
+     "site": "dialogue:WINNIE:WIN_B1:winnie6",
+     "requires": [
+      "n:WINNIE/WIN_B1",
+      "T_ASSAY_QUEUE=true",
+      "o:WINNIE/WIN_B1/winnie2"
+     ],
+     "yields": [
+      "o:WINNIE/WIN_B1/winnie6",
+      "f:T_OFFICE_TOPIC=true",
+      "p:C2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C3",
+   "completedBy": [
+    {
+     "site": "dialogue:FRAME:FRA_A1:frame6",
+     "requires": [
+      "n:FRAME/FRA_A1",
+      "T_MEMORIAL_BOOKED=true"
+     ],
+     "yields": [
+      "o:FRAME/FRA_A1/frame6",
+      "f:T_FUNERAL_DAY=true",
+      "p:C3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C4",
+   "completedBy": [
+    {
+     "site": "room:fanshawe_office:stock_portrait_drawer:PICK_UP#0",
+     "requires": [
+      "r:fanshawe_office",
+      "T_FUNERAL_DAY=true",
+      "-p:C4"
+     ],
+     "yields": [
+      "f:T_MOTT_FACE_UNKNOWN=true",
+      "p:C4",
+      "i:photograph"
+     ]
+    },
+    {
+     "site": "room:fanshawe_office:stock_portrait_drawer:OPEN#0",
+     "requires": [
+      "r:fanshawe_office",
+      "T_FUNERAL_DAY=true",
+      "-p:C4"
+     ],
+     "yields": [
+      "f:T_MOTT_FACE_UNKNOWN=true",
+      "p:C4",
+      "i:photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C5",
+   "completedBy": [
+    {
+     "site": "with:assay_office:winnie:padded_log",
+     "requires": [
+      "i:padded_log",
+      "r:assay_office",
+      "T_QUEUE_PADDED=true",
+      "-p:C5"
+     ],
+     "yields": [
+      "p:C5",
+      "t:WINNIE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C6",
+   "completedBy": [
+    {
+     "site": "dialogue:WINNIE:entry#2:first",
+     "requires": [
+      "t:WINNIE",
+      "T_ASSAY_BACK=true",
+      {
+       "any": [
+        [
+         "not T_STRIKE_FOUND=true"
+        ]
+       ]
+      },
+      {
+       "any": [
+        [
+         "not T_FUNERAL_BOOKED=true"
+        ]
+       ]
+      },
+      "not T_ASSAY_RETURNED=true"
+     ],
+     "yields": [
+      "n:WINNIE/WIN_B4",
+      "f:T_ASSAY_RETURNED=true",
+      "i:document_b",
+      "p:C6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "D1",
+   "completedBy": [
+    {
+     "site": "dialogue:SUMP:SUM_B1:sump1b",
+     "requires": [
+      "n:SUMP/SUM_B1"
+     ],
+     "yields": [
+      "o:SUMP/SUM_B1/sump1b",
+      "f:T_NINETY_DAYS=true",
+      "p:D1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "D2",
+   "completedBy": [
+    {
+     "site": "dialogue:PRATT:PRA_B1:pratt6",
+     "requires": [
+      "n:PRATT/PRA_B1",
+      "T_NINETY_DAYS=true"
+     ],
+     "yields": [
+      "o:PRATT/PRA_B1/pratt6",
+      "p:D2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "D3",
+   "completedBy": [
+    {
+     "site": "dialogue:SHENG:SHE_D1:sheng1",
+     "requires": [
+      "n:SHENG/SHE_D1"
+     ],
+     "yields": [
+      "o:SHENG/SHE_D1/sheng1",
+      "f:T_SHENG_TASK=true",
+      "p:D3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "D4",
+   "completedBy": [
+    {
+     "site": "dialogue:SHENG:SHE_D1:sheng1a",
+     "requires": [
+      "n:SHENG/SHE_D1",
+      "T_SHENG_TASK=true",
+      "i:linen_money"
+     ],
+     "yields": [
+      "o:SHENG/SHE_D1/sheng1a",
+      "f:T_PRATT_TRAIL=true",
+      "p:D4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "D5",
+   "completedBy": [
+    {
+     "site": "dialogue:PRATT:PRA_B1:pratt7",
+     "requires": [
+      "n:PRATT/PRA_B1",
+      "T_PRATT_TRAIL=true"
+     ],
+     "yields": [
+      "o:PRATT/PRA_B1/pratt7",
+      "f:T_PRATT_TURNED=true",
+      "p:D5",
+      "n:PRATT/PRA_D6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "D6",
+   "completedBy": [
+    {
+     "site": "room:claims_registrar:onEnter:scene#0",
+     "requires": [
+      "r:claims_registrar",
+      "T_PRATT_SWEARS=true",
+      "T_ATTESTED=false"
+     ],
+     "yields": [
+      "f:T_ATTESTED=true",
+      "i:document_d",
+      "p:D6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E0",
+   "completedBy": [
+    {
+     "site": "dialogue:SUMP:SUM_B1:sump1c",
+     "requires": [
+      "n:SUMP/SUM_B1",
+      "i:document_a",
+      "i:document_b",
+      "i:document_d"
+     ],
+     "yields": [
+      "o:SUMP/SUM_B1/sump1c",
+      "f:T_CLAIM1_BLANK=true",
+      "i:document_c",
+      "p:E0"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E0b",
+   "completedBy": [
+    {
+     "site": "dialogue:FANSHAWE:FAN_C1:fanshawe1",
+     "requires": [
+      "n:FANSHAWE/FAN_C1"
+     ],
+     "yields": [
+      "o:FANSHAWE/FAN_C1/fanshawe1",
+      "f:T_EXCAVATION_CLAUSE=true",
+      "f:ACT=3",
+      "f:T_ACT_III_OPENING=true",
+      "p:E0b"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E1",
+   "completedBy": [
+    {
+     "site": "dialogue:SUMP:SUM_E1:sump1",
+     "requires": [
+      "n:SUMP/SUM_E1"
+     ],
+     "yields": [
+      "o:SUMP/SUM_E1/sump1",
+      "p:E1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E2",
+   "completedBy": [
+    {
+     "site": "dialogue:SUMP:SUM_E1:sump2",
+     "requires": [
+      "n:SUMP/SUM_E1",
+      "o:SUMP/SUM_E1/sump1"
+     ],
+     "yields": [
+      "o:SUMP/SUM_E1/sump2",
+      "f:T_NEED_TO_DIE=true",
+      "f:T_EXECUTOR_RULE=true",
+      "p:E2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E3",
+   "completedBy": [
+    {
+     "site": "with:undertaker:undertaker:loan#0",
+     "requires": [
+      "i:loan",
+      "r:undertaker",
+      "T_SOWERBY_PRICE=true",
+      "T_COFFIN_SIZED=true",
+      "T_FUNERAL_BOOKED=false"
+     ],
+     "yields": [
+      "f:T_FUNERAL_BOOKED=true",
+      "p:E3",
+      "-i:loan"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E4",
+   "completedBy": [
+    {
+     "site": "dialogue:WINNIE:WIN_C1:winnie4",
+     "requires": [
+      "n:WINNIE/WIN_C1"
+     ],
+     "yields": [
+      "o:WINNIE/WIN_C1/winnie4",
+      "f:T_DEATH_CERTIFIED=true",
+      "i:death_certificate",
+      "p:E4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E5",
+   "completedBy": [
+    {
+     "site": "dialogue:FRAME:FRA_E1:frame1",
+     "requires": [
+      "n:FRAME/FRA_E1"
+     ],
+     "yields": [
+      "o:FRAME/FRA_E1/frame1",
+      "f:T_OBITUARY=true",
+      "i:obituary",
+      "p:E5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E6",
+   "completedBy": [
+    {
+     "site": "with:claims_registrar:sump:executor_form#0",
+     "requires": [
+      "i:executor_form",
+      "r:claims_registrar",
+      "T_DECEASED=true"
+     ],
+     "yields": [
+      "f:T_EXECUTOR_NAMED=true",
+      "p:E6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E7",
+   "completedBy": [
+    {
+     "site": "room:funeral:coffin:USE#1",
+     "requires": [
+      "r:funeral",
+      "T_LAID_IN=false",
+      "T_GOOD_TURNOUT=true",
+      "T_LAID_IN=false",
+      {
+       "any": [
+        [
+         "not T_GOOD_TURNOUT=false"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "p:E7",
+      "r:coffin"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E8",
+   "completedBy": [
+    {
+     "site": "room:coffin:timeline#48",
+     "requires": [
+      "r:coffin"
+     ],
+     "yields": [
+      "p:E8",
+      "t:HOB"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E9",
+   "completedBy": [
+    {
+     "site": "room:archive:mott_file:LOOK_AT#0",
+     "requires": [
+      "r:archive",
+      "T_HOB_HANDWRITING=true"
+     ],
+     "yields": [
+      "f:T_SAME_HAND=true",
+      "p:E9"
+     ]
+    },
+    {
+     "site": "with:archive:mott_file:executor_form#0",
+     "requires": [
+      "i:executor_form",
+      "r:archive"
+     ],
+     "yields": [
+      "f:T_SAME_HAND=true",
+      "p:E9"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E10",
+   "completedBy": [
+    {
+     "site": "room:watchmans_shack:accost",
+     "requires": [
+      "r:watchmans_shack",
+      "T_SAME_HAND=true",
+      "T_HOB_IS_MOTT=false",
+      "T_SAME_HAND=true",
+      "-p:E10"
+     ],
+     "yields": [
+      "p:E10",
+      "t:HOB"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "F1",
+   "completedBy": [
+    {
+     "site": "room:prosperity:hole:LOOK_AT#1",
+     "requires": [
+      "r:prosperity",
+      "ACT=4",
+      "T_WARM_HOLE=true",
+      "T_DRAUGHT=false",
+      {
+       "any": [
+        [
+         "not T_FUMES=true"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_DRAUGHT=true",
+      "p:F1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "F2",
+   "completedBy": [
+    {
+     "site": "room:listening_chamber:listening:tap",
+     "requires": [
+      "r:listening_chamber"
+     ],
+     "yields": [
+      "f:T_VOID_FOUND=true",
+      "p:F2",
+      "f:T_IN_TUNE=true"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "F3",
+   "completedBy": [
+    {
+     "site": "with:listening_chamber:every_rock_surface:pickaxe#3",
+     "requires": [
+      "i:pickaxe",
+      "r:listening_chamber",
+      "T_IN_TUNE=true",
+      "T_BROKE_THROUGH=false",
+      "PICK_SWINGS=2",
+      {
+       "any": [
+        [
+         "not T_IN_TUNE=false"
+        ]
+       ]
+      },
+      {
+       "any": [
+        [
+         "not T_IN_TUNE=true"
+        ],
+        [
+         "not T_BROKE_THROUGH=false"
+        ],
+        [
+         "not PICK_SWINGS=0"
+        ]
+       ]
+      },
+      {
+       "any": [
+        [
+         "not T_IN_TUNE=true"
+        ],
+        [
+         "not T_BROKE_THROUGH=false"
+        ],
+        [
+         "not PICK_SWINGS=1"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_BROKE_THROUGH=true",
+      "f:T_STRIKE_FOUND=true",
+      "p:F3",
+      "i:sample",
+      "r:under_prosperity"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "F4",
+   "completedBy": [
+    {
+     "site": "duel:duel_three:won",
+     "requires": [
+      "d:duel_three"
+     ],
+     "yields": [
+      "f:T_FANSHAWE_BEATEN=true",
+      "p:F4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "F5",
+   "completedBy": [
+    {
+     "site": "dialogue:SUMP:SUM_F1:sump1",
+     "requires": [
+      "n:SUMP/SUM_F1"
+     ],
+     "yields": [
+      "o:SUMP/SUM_F1/sump1",
+      "f:T_FILED=true",
+      "p:F5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G1",
+   "completedBy": [
+    {
+     "site": "dialogue:OZYMANDIA:OZY_A1:ozymandia9",
+     "requires": [
+      "n:OZYMANDIA/OZY_A1",
+      "ACT={\"atLeast\":2}",
+      "i:filing_fee"
+     ],
+     "yields": [
+      "o:OZYMANDIA/OZY_A1/ozymandia9",
+      "f:T_ROD_HIRED=true",
+      "i:brass_rod",
+      "-i:filing_fee",
+      "p:G1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G2",
+   "completedBy": [
+    {
+     "site": "room:mine_line:right_passage:transit:writes",
+     "requires": [
+      "r:mine_line"
+     ],
+     "yields": [
+      "f:T_MINE_CROSSED=true",
+      "p:G2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G3",
+   "completedBy": [
+    {
+     "site": "with:gulch_tents:gulch_lookout:clarion#0",
+     "requires": [
+      "i:clarion",
+      "r:gulch_tents"
+     ],
+     "yields": [
+      "f:T_CAMP_TRUSTS=true",
+      "p:G3",
+      "-i:clarion"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G4",
+   "completedBy": [
+    {
+     "site": "room:grog_tent:watch:LOOK_AT#0",
+     "requires": [
+      "r:grog_tent",
+      "T_CAMP_TRUSTS=true",
+      "T_DEACON_FOUND=false"
+     ],
+     "yields": [
+      "f:T_DEACON_FOUND=true",
+      "p:G4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G5",
+   "completedBy": [
+    {
+     "site": "with:grog_tent:fiddle:tuning_fork#0",
+     "requires": [
+      "i:tuning_fork",
+      "r:grog_tent",
+      "T_PLANK_SEAT=false"
+     ],
+     "yields": [
+      "f:T_PLANK_SEAT=true",
+      "p:G5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G8",
+   "completedBy": [
+    {
+     "site": "dialogue:PANNER:PAN_G1:gulch_panner7",
+     "requires": [
+      "n:PANNER/PAN_G1",
+      "T_CAMP_TRUSTS=true",
+      "T_GULCH_MESSAGE_DOWN=true"
+     ],
+     "yields": [
+      "o:PANNER/PAN_G1/gulch_panner7",
+      "f:ASSAY_PAIR_26=true",
+      "p:G8"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G9",
+   "completedBy": [
+    {
+     "site": "dialogue:DEACON:VES_G1:ves_g1_5",
+     "requires": [
+      "n:DEACON/VES_G1",
+      "T_DUEL_ONE_LOST=true",
+      "T_VESSEL_FOUND=false"
+     ],
+     "yields": [
+      "o:DEACON/VES_G1/ves_g1_5",
+      "f:T_VESSEL_FOUND=true",
+      "p:G9"
+     ]
+    }
+   ]
+  }
+ ]
+}

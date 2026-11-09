@@ -1,0 +1,7 @@
+{
+ "schema": 1,
+ "note": "What tools/check-puzzle-graph.mjs's traversal has found and Tyler has not yet ruled on (errata 219). A finding is not fixed here: it is listed with what was found, the check reports it on every run and passes, and the check fails if a listed finding stops reproducing, so the list only holds what is true. `unreachable`: { puzzle, finding }. `unwrittenReads`: { site, flag, finding }. `deadEnds`: { site, finding }, the site whose loss strands the player. Empty on 2026-11-08: the traversal found none.",
+ "unreachable": [],
+ "unwrittenReads": [],
+ "deadEnds": []
+}
