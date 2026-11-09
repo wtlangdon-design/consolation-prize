@@ -27,12 +27,18 @@ function copyDataDirs(): Plugin {
   return {
     name: 'consolation-copy-data-dirs',
     apply: 'build',
-    closeBundle() {
+    async closeBundle() {
+      // ART/STAGING IS NOT SHIPPED WHOLE (errata 236). It is every generation the art was made from, 1.3 GB,
+      // and a Pages deploy over 1 GB times out. Only what the game's content names is copied
+      // (tools/lib/runtime-staging.mjs).
+      // @ts-expect-error -- a plain .mjs module with no declarations.
+      const { runtimeStagingPaths } = await import('./tools/lib/runtime-staging.mjs');
       for (const dir of DATA_DIRS) {
         if (existsSync(dir)) {
-          cpSync(dir, `dist/${dir}`, { recursive: true });
+          cpSync(dir, `dist/${dir}`, { recursive: true, filter: (src: string) => !src.replace(/\\/g, '/').startsWith('art/staging') });
         }
       }
+      for (const path of runtimeStagingPaths(process.cwd()) as string[]) cpSync(path, `dist/${path}`, { recursive: true });
     },
   };
 }

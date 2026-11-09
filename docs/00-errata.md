@@ -6364,3 +6364,13 @@ Lesson:
 - It now also puts back Sowerby as a 1:1 sheet at the gate (1.04) and Sheng at 0.96. Both passed errata 234's 5%, and both fail here.
 - Reverting Sheng's stature fails it: "0.958x; held to 0.97-1.03".
 - `tests/one-level.test.mjs` checks every re-snapped sheet at its true height.
+
+# 236 · THE SITE FITS IN A PAGES DEPLOY — Tyler, 2026-11-09 (a deploy timeout, reported to him)
+
+The deploy for the merged fixes timed out (run 42693542314): "Uploaded artifact size of 1629805012 bytes exceeds the allowed size of 1 GB". Earlier deploys that day had passed and failed in turn. The build copied `art/` whole, and `art/staging/` holds every generation the art was made from: 1.3 GB.
+
+- **Fixed.** The build copies `art/` without `art/staging/`, then adds back the staged files the game's content names (`tools/lib/runtime-staging.mjs`, 57 files, 7 MB). These are Room 5's floorboard, the miners' walk frames, and Main Street's and the Nugget's candidate rooms. Build records and provenance notes are not followed. The built site is 443 MB.
+- **Held.** The Pages workflow fails a build over 900 MB before it uploads, so an oversized site stops the build with a clear message instead of timing out at deploy.
+- **Not changed.** `?candidate=` overrides that point at other staged files still work on a local server. On the live site they find nothing, as they should.
+
+Lesson: `tests/runtime-staging.test.mjs` checks three things. The game's own staged files are found. The shipped total stays under 900 MB. The build filters `art/staging`. With the filter removed, the third test fails. The workflow's size gate backs this up in CI.
