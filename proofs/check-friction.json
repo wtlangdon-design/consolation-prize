@@ -547,6 +547,36 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 235: TIGHTENED, not loosened -- the tolerance went from 5% to 3% (Tyler, 2026-11-09, '3 - you decide'), and the put-back defects gained Sowerby at the gate and Sheng at 0.96; the friction check reads any changed number in a check as a loosening. The one exception added is Ozymandia's ruled range (0.93-0.99, Tyler's '2 - yes' to her re-snap at stature 0.96) in content/scale-anchors.json, beside Pratt's ruled range."
+  },
+  {
+   "check": "content/checks/narration-allowlist.json",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 233: three phrases on the allowlist -- \"ticking as it cools\", \"nothing from inside\" and \"back door\" -- each reached a fourth subject with doc 110's lines for THE HEARSE, which Tyler approved (\"Go\") and the builder may not rewrite. Genuinely looser: the three are now allowed under four subjects. Listed for the voice pass with the first run's entries, and named in the PR for Tyler."
+  },
+  {
+   "check": "tools/check-puzzle-graph.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 233: not a misfire, and not looser. Scene A adds E6b, the hearse, to the canonical list between E6 and E7, and the comment says 53 where it said 52. Every puzzle is still traversed from a fresh save and the win from every reachable state, with one more in the graph; the friction check matched the changed range lines."
+  },
+  {
+   "check": "tools/check-puzzle-graph.mjs",
+   "date": "2026-11-09",
+   "kind": "reviewed",
+   "why": "Errata 233, the review three loosenings asked for. Concluded: keep it as it is; nothing to tune or merge. None of the three made it more lenient: each grew the canonical list with the design (the Gulch to 52, errata 213; the traversal made real, errata 219; E6b to 53, errata 233), and the friction check reads any changed line with numbers in it as a loosening. Every run still traverses all canonical puzzles from a fresh save, the win from every reachable state and dead ends one loss at a time, and fails on an empty or stale graph. It catches what it is for (errata 219, 220). Not for retirement."
+  },
+  {
+   "check": "tests/staging-clear.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 233: not looser in what it holds, made state-aware. The animal-on-the-floor test read every walk box at once; Room 14 now has a floor built for two states (WalkBox.enabledWhen), so the floor of the state the hitch is not in would have stood under it. It now reads the floor that can be there with the animal (coexist with its when), so the hitch is held to the floor carved round it. Proved: with the gated obstacle removed, this test fails."
+  },
+  {
+   "check": "tools/check-walk-boxes.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 233: not looser, made state-aware. Room 14 is the first room whose floor is built for two states (with the hitch at the gate and without; WalkBox.enabledWhen), and the two floors are never joined, so asking every box to be reachable from the first one misfired on the second floor. Each state's floor (its own boxes and every always-enabled one) is now held whole on its own, as strictly as one floor was."
   }
  ]
 }

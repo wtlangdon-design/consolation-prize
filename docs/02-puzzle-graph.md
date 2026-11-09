@@ -1,7 +1,7 @@
 # THE LAST CLAIM IN CONSOLATION
 ## Puzzle Dependency Graph — v1
 
-*Companion to Bible v2. 52 puzzles: 45, and Fiddler's Gulch's seven (errata 213; the tables below are the count of record) · 4 acts · ~40 items · no dead ends.*
+*Companion to Bible v2. 53 puzzles: 45, Fiddler's Gulch's seven (errata 213) and E6b, the hearse (errata 233; the tables below are the count of record) · 4 acts · ~40 items · no dead ends.*
 
 ---
 
@@ -57,7 +57,7 @@ Document C requires **A**, **B**, and **D**. Three independent trials. Any order
 
 ## FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)
 
-*Structural rows only (reference/fiddlers-gulch/brief.md). The design is doc 107, the lines are docs 108 and 109, and nothing here restates them. G6 and G7 are B4 and B5, fought in the Gulch now that the trip is built (errata 213), and keep the ids B4 and B5: B3 above ends at the washout, and `T_VESSEL_FOUND` is G9's. The count is 52: the 45 above and G1 to G5, G8 and G9 (`tools/check-puzzle-graph.mjs`).*
+*Structural rows only (reference/fiddlers-gulch/brief.md). The design is doc 107, the lines are docs 108 and 109, and nothing here restates them. G6 and G7 are B4 and B5, fought in the Gulch now that the trip is built (errata 213), and keep the ids B4 and B5: B3 above ends at the washout, and `T_VESSEL_FOUND` is G9's. The count is 53: the 45 above, G1 to G5, G8 and G9, and E6b (`tools/check-puzzle-graph.mjs`; errata 233).*
 
 | # | Puzzle | Where | Requires | Yields | Lines |
 |---|---|---|---|---|---|
@@ -118,6 +118,7 @@ Document C requires **A**, **B**, and **D**. Three independent trials. Any order
 | **E4** | The certificate | Winnie must sign a death certificate she knows to be false. She refuses. Then she agrees — and the scene is the relationship, not the paperwork | E3, Topic C5 | Death certificate bearing his own name |
 | **E5** | The obituary | Frame prints it. He misspells the name one final time, and it is the best one | E4 | Obituary. Thad is legally dead |
 | **E6** | Appoint the executor | The executor must be someone with no interest in the claim. Every candidate has an interest. The answer is Hob, because nobody has ever thought about Hob | E5 | **First real conversation with Hob** |
+| **E6b** | The hearse | Grievance will not pull an empty coffin up Boot Hill, and the whole town is watching. Thad asks Sowerby to bless the hill; while the town's eyes are shut, he climbs into his own coffin | E6 | The ride up. The design and the lines are doc 110 section 2 (errata 233) |
 | **E7** | **THE COFFIN** | It goes wrong. Nailed in, lowered, dirt. No music. No verb panel. No narration. No jokes. Two to three minutes | E6 | **THE DARK BEAT.** The only sequence where the player may believe the game has broken |
 | **E8** | Hob digs him out | Hob knows things a night watchman could not know. He says two of them and stops | E7 | Topics: three Mott facts |
 | **E9** | The archive | Claim 1's filing is written in a hand Thad has seen before — on the watchman's timesheet | E8, executor status | **HOB IS MOTT** |

@@ -839,6 +839,55 @@
    ]
   },
   {
+   "id": "E6b",
+   "completedBy": [
+    {
+     "site": "room:boot_hill:hearse:USE#1",
+     "requires": [
+      "r:boot_hill",
+      "T_PROCESSION_STALLED=true",
+      "T_HILL_PRAYER=true",
+      {
+       "any": [
+        [
+         "not T_HILL_PRAYER=false"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_RODE_UP=true",
+      "f:T_HILL_PRAYER=false",
+      "f:T_PROCESSION_STALLED=false",
+      "p:E6b",
+      "r:funeral"
+     ]
+    },
+    {
+     "site": "room:boot_hill:hearse:OPEN#1",
+     "requires": [
+      "r:boot_hill",
+      "T_PROCESSION_STALLED=true",
+      "T_HILL_PRAYER=true",
+      {
+       "any": [
+        [
+         "not T_HILL_PRAYER=false"
+        ]
+       ]
+      }
+     ],
+     "yields": [
+      "f:T_RODE_UP=true",
+      "f:T_HILL_PRAYER=false",
+      "f:T_PROCESSION_STALLED=false",
+      "p:E6b",
+      "r:funeral"
+     ]
+    }
+   ]
+  },
+  {
    "id": "E7",
    "completedBy": [
     {

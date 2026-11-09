@@ -367,6 +367,10 @@ Asking anyone else to be executor is answered by the interest rule:
 > **NICKEL PRATT** · USE THE EXECUTOR'S FORM — **PRATT:** "Eleven dollars for the claim." *(Thad takes the form back.)*
 > **REVEREND SOWERBY** · USE THE EXECUTOR'S FORM — **SOWERBY:** "I am to be paid out of the estate, Mr. Grubb. It would be indecent. Also impossible."
 
+## E6b · The hearse
+
+*Room 14, then Room 31.* Doc 110 section 2, Scene A, is the design and every line of it, under THE LINES; nothing is restated here (errata 233). Once the funeral can be reached (`T_EXECUTOR_NAMED` and `T_OBITUARY`, before `T_FUNERAL_DONE`), the first entry to Boot Hill finds the procession stalled at the gate (`T_PROCESSION_STALLED`), and the way up to the funeral refuses. Grievance will not pull an empty coffin. TALK TO REVEREND SOWERBY asks him to bless the hill, and his prayer runs until the climb (`T_HILL_PRAYER`); while it runs, USE or OPEN THE HEARSE puts Thad in his own coffin, and Grievance sets off: `T_RODE_UP`, **E6b**, the ride over black, and Room 31, where ARRIVING AT THE GRAVE is said once. From there E7 plays as below.
+
 ## E7 · The coffin
 
 *Room 31, then Room 32. Doc 48 S2 beats 1–3 stand; beat 4 is replaced. Doc 04's graveside note governs: Thad is in the box for Sowerby's eleven minutes and cannot hear them.*
@@ -508,6 +512,9 @@ Asking anyone else to be executor is answered by the interest rule:
 | `T_FUNERAL_BOOKED` | E3 | WIN_C1 |
 | `T_DECEASED` | SUM_C1 1 | FRA_E1, Sump and the form |
 | `T_EXECUTOR_NAMED` | E6 | the archive door |
+| `T_PROCESSION_STALLED` | Boot Hill, the first entry after E6 *(doc 110; errata 233)* | the procession at the gate |
+| `T_HILL_PRAYER` | SOWERBY, AT THE GATE · TALK TO *(doc 110)* | THE HEARSE · USE, OPEN |
+| `T_RODE_UP` | E6b | the way up to the funeral |
 | `T_SAME_HAND` | E9 | HOB_C2's entry (with E9) |
 | `T_ASSAY_RUN` | WIN_F1 1 | F4's trigger, S6 |
 | `T_FANSHAWE_BEATEN` | F4 | S6 |

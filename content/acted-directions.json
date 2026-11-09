@@ -1125,6 +1125,20 @@
       "speaker": "winnie",
       "words": "She runs it at the window. It does not take long.",
       "where": "dialogue/winnie WIN_B2 option 1"
+    },
+    {
+      "n": 107,
+      "class": "C",
+      "speaker": "procession_undertaker",
+      "words": "low",
+      "where": "rooms/boot_hill undertaker TALK TO (the stalled procession)"
+    },
+    {
+      "n": 108,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up.",
+      "where": "rooms/boot_hill hearse USE, OPEN (the ride up)"
     }
   ]
 }

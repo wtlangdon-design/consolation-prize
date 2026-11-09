@@ -78,20 +78,27 @@ export function check() {
 
     // Every box reachable from every other. A room whose floor is in two
     // disconnected halves is a room the player can walk into and not out of.
-    const first = boxes[0];
-    const seen = new Set([first.id]);
-    const queue = [first.id];
-    while (queue.length > 0) {
-      for (const next of byId.get(queue.shift()).neighbours) {
-        if (!seen.has(next) && byId.has(next)) {
-          seen.add(next);
-          queue.push(next);
+    // A FLOOR BUILT FOR TWO STATES (errata 233: Boot Hill with and without the hitch at the gate) is two floors,
+    // each enabled in its own state (WalkBox.enabledWhen): each is held whole on its own, with every box enabled
+    // in every state.
+    const states = [...new Set(boxes.filter((box) => box.enabledWhen).map((box) => JSON.stringify(box.enabledWhen)))];
+    for (const state of states.length ? states : [null]) {
+      const floor = boxes.filter((box) => !box.enabledWhen || JSON.stringify(box.enabledWhen) === state);
+      const first = floor[0];
+      const seen = new Set([first.id]);
+      const queue = [first.id];
+      while (queue.length > 0) {
+        for (const next of byId.get(queue.shift()).neighbours) {
+          if (!seen.has(next) && byId.has(next)) {
+            seen.add(next);
+            queue.push(next);
+          }
         }
       }
-    }
-    for (const box of boxes) {
-      if (!seen.has(box.id)) {
-        report.fail(`${data.id}/${box.id} is not reachable from ${first.id}`);
+      for (const box of floor) {
+        if (!seen.has(box.id)) {
+          report.fail(`${data.id}/${box.id} is not reachable from ${first.id}${state ? ` while ${state}` : ''}`);
+        }
       }
     }
 

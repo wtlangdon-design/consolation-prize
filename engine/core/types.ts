@@ -684,7 +684,15 @@ export interface AmbientFile {
    * first set whose `when` holds answers, with its lines in order and round again; `counter`, a declared number flag
    * per set, keeps the place so a save does too. Used instead of `barks`, which such a person leaves `{}`.
    */
-  barkTurns?: { counter: string; when?: Condition; lines: string[]; source?: string }[];
+  barkTurns?: {
+    counter: string; when?: Condition; lines: string[]; source?: string;
+    /**
+     * SAID ON HIS SPEAKING BREAKS, NOT ON APPROACH (doc 110, THE PRAYER: "Sowerby's barks while `T_HILL_PRAYER`
+     * holds, in turn, then round again"; errata 233). A man at his prayer is not waiting to be walked up to: each
+     * speaking break (`sprite.breaksThatSpeak`) says the next line, round again, on the same counter.
+     */
+    onBreaks?: boolean;
+  }[];
   /**
    * The occlusion plane that masks this figure, when it stands where no walk
    * box is. Room 5's Winnie stands BEHIND the counter: no box exists there

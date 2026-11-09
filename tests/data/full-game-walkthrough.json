@@ -1706,6 +1706,65 @@
    }
   },
   {
+   "id": "E6b.1",
+   "puzzle": "E6b",
+   "do": "go",
+   "room": "boot_hill",
+   "expect": {
+    "room": "boot_hill",
+    "flags": {
+     "T_PROCESSION_STALLED": true
+    },
+    "present": [
+     "procession_undertaker",
+     "procession_sowerby",
+     "procession_mourners"
+    ],
+    "targets": [
+     "hearse",
+     "to_funeral_closed"
+    ]
+   }
+  },
+  {
+   "id": "E6b.2",
+   "puzzle": "E6b",
+   "do": "verb",
+   "verb": "TALK_TO",
+   "on": "undertaker"
+  },
+  {
+   "id": "E6b.3",
+   "puzzle": "E6b",
+   "do": "verb",
+   "verb": "TALK_TO",
+   "on": "reverend_sowerby_at_the_gate",
+   "expect": {
+    "flags": {
+     "T_HILL_PRAYER": true
+    }
+   }
+  },
+  {
+   "id": "E6b.4",
+   "puzzle": "E6b",
+   "do": "verb",
+   "verb": "USE",
+   "on": "hearse",
+   "expect": {
+    "puzzles": [
+     "E6b"
+    ],
+    "room": "funeral",
+    "flags": {
+     "T_RODE_UP": true,
+     "T_HILL_PRAYER": false,
+     "T_PROCESSION_STALLED": false,
+     "T_RIDE_ARRIVED": true
+    }
+   }
+  },
+  {
    "id": "E7.1",
    "puzzle": "E7",
    "do": "go",

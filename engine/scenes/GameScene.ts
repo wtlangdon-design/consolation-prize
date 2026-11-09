@@ -4057,7 +4057,8 @@ export class GameScene extends Phaser.Scene {
       const token = spokenBreakKey(npc.id, playing);
       if (this.spokenBreak === token) continue;
       this.spokenBreak = token;
-      const line = this.ambient.barkFor(npc);
+      // His reputation's bark, or the next of his turns (doc 110's prayer, errata 233).
+      const line = this.ambient.breakLine(npc);
       if (line) this.showBark(npc.id, line, npc.x, this.barkFoot(npc));
     }
   }
