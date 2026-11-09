@@ -5933,3 +5933,11 @@ The brief's last step. Every line is extracted from docs 108 and 109; docs 02, 0
 - **A closer creek waits for a better water source.** Doc 45's row 26 says so, and quotes Tyler.
 - **The audition page's creek** plays the shipped file, labelled "Interim: the accepted water, from the bank".
 - **Tyler's approval to merge** is his "Everything else sounds good."
+
+# 216 · THE LOOKOUT'S CATCH-ALL, MADE FAIR — TYLER, 2026-11-08 ("Go")
+
+*Tyler asked whether anything else needed checking before he plays, and said go to two audits: the Gulch as built, and a fairness audit of its seven new puzzles to doc 94's standard. The fairness audit found G1, G2, G4, G5, G6, G7, G8 and G9 fair: each tells the player what it needs before it is needed, or is optional and can be walked. It found one fault in G3, and Tyler said to fix it.*
+
+- **The fault.** The lookout is won by giving him the Clarion. Giving him anything else except the deed was answered "He wants proof I own nothing. Handing him things isn't helping." That tells the player to stop giving him things, which is the verb that solves.
+- **The fix**, in doc 109, written under the Gulch's writing exception (errata 191 and 194): "That proves I own something. He wants it in writing that I don't." It says what he wants, as doc 94's lines do, and never names the paper or the action. It was re-extracted into `content/combinations.json`'s target pool.
+- **The lesson** is `tests/target-pool-honest.test.mjs`. It fails if a target's catch-all line says the verb is no use while an item in its `except` list solves on that target. The old line makes it fail.
