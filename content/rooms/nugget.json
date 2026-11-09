@@ -1641,7 +1641,8 @@
   "figureLight": {
     "figures": [
       "thad",
-      "deke_vessel"
+      "deke_vessel",
+      "fiddler"
     ],
     "light": [
       1,
@@ -1654,9 +1655,13 @@
         "brightness": 0.9,
         "contrast": 1.15,
         "saturate": 1
+      },
+      "fiddler": {
+        "brightness": 0.95,
+        "saturate": 1
       }
     },
-    "note": "Tyler, 2026-11-01: Thad and Deke 'look different from the rest of the characters in the room... the other characters all seem to have more detail and are a little darker.' The bar men and card players were drawn for this room and carry its lamplight; Thad is drawn in even, neutral light so he can go in every room, and Deke's shadows are shallower than his neighbours'. Measured on the sprites against the six patrons (mean luminance 47, darkest tenth 12): Thad 58/17, Deke 53/26. This grade (variant B of three shown to Tyler) lights both with a warm multiply [1, 0.9, 0.78] -- gentle enough to keep Thad's coat blue -- taking Thad to about 47/14; Deke also gets more contrast, because his darks never reached the room's, landing at about 33/8. Tyler, 2026-11-01: \"B but Deke ever so slightly brighter\" -- his brightness 0.85 to 0.9.",
+    "note": "Tyler, 2026-11-01: Thad and Deke 'look different from the rest of the characters in the room... the other characters all seem to have more detail and are a little darker.' The bar men and card players were drawn for this room and carry its lamplight; Thad is drawn in even, neutral light so he can go in every room, and Deke's shadows are shallower than his neighbours'. Measured on the sprites against the six patrons (mean luminance 47, darkest tenth 12): Thad 58/17, Deke 53/26. This grade (variant B of three shown to Tyler) lights both with a warm multiply [1, 0.9, 0.78] -- gentle enough to keep Thad's coat blue -- taking Thad to about 47/14; Deke also gets more contrast, because his darks never reached the room's, landing at about 33/8. Tyler, 2026-11-01: \"B but Deke ever so slightly brighter\" -- his brightness 0.85 to 0.9. Errata 207 (Tyler, 2026-11-08: \"Fix all five\"): the fiddler is graded too. tools/check-figure-light.mjs (errata 205) measured him at 1.60 of Thad where he stands, just over the stove pool's limit of 1.56: his white shirt sleeves in his generation's own light, beside a graded Thad. He takes the room's warm light with his own brightness 0.95 and his colour as drawn (saturate 1.0), which takes him to 1.40, in the family of the Nugget's other men (1.24-1.34) (beside him: renders/fixed-fiddler-beside-thad.png).",
     "saturate": 1.05
   },
   "props": [
