@@ -50,6 +50,18 @@
     2,
     201,
     502
+   ],
+   [
+    2,
+    506,
+    231,
+    502
+   ],
+   [
+    235,
+    506,
+    281,
+    502
    ]
   ],
   "rate": 0.3,
@@ -83,7 +95,7 @@
   ],
   "breakEvery": 5,
   "talkFrame": 2,
-  "frameNote": "0 rest, his notebook at his side · 1 breath (derived) · 2 talking, a hand out · 3 taking a quote in his notebook, the pencil from behind his ear · 4 leaning in. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "frameNote": "0 rest, his notebook at his side · 1 breath (derived) · 2 talking, a hand out · 3 taking a quote in his notebook, the pencil from behind his ear · 4 leaning in · 5 the Clarion lifted from his side, his notebook under the other arm · 6 the Clarion thrust out to his left, at Thad (doc 95 row 98; cast-unify 87, errata 214). Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
   "provenance": "reference/cast-unify-16.spec.json",
   "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 18 (reference/cast-unify-16.txt), full figure, holding his own thing in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet. Its own file: the sheet it replaces is written by an earlier cut.",
   "figureHeight": 502,

@@ -1,0 +1,7 @@
+Image 1 is a TEMPLATE: Frame, a wiry newspaper printer-editor in my pixel-art adventure game, EXACTLY as he is drawn in the game, three times in a row on magenta. He stands full length: rolled shirt sleeves, a dark ink-stained apron, his small brown notebook in his hand at his side. Image 2 is his whole current sheet, for his face, hair and clothes only.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other two as the SAME man, KEEPING HIS FIGURE -- the same height, the same head size, the same shoulder width and leg length, his feet on the same line and in the same place -- and changing only his arms, hands and the tilt of his head. In both, his small brown notebook is tucked under the arm on the RIGHT side of the picture, and in the hand on the LEFT side of the picture he holds a freshly printed newspaper, folded in half: a pale cream sheet with a few grey lines of print.
+2. the folded newspaper held up in front of his chest, his elbow bent, his head tilted toward the LEFT side of the picture, eager;
+3. the same arm thrust out straight toward the LEFT side of the picture at chest height, pushing the folded newspaper out at someone standing there, his body leaning a little that way, an eager grin.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No glow, no blur, no shadows, no ground, no text, no numbers, no border.
