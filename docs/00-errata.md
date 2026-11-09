@@ -6063,6 +6063,30 @@ Lesson: `tests/openings-voiced.test.ts`. It reads every document a tree names as
 - **Not changed.** She still shouts once at every calling-out break, at the line for the current reputation. Whether she should shout that often is a question of taste, and it is Tyler's.
 - Lesson: `tests/break-speaks-once.test.ts` plays the scene's rule at 60 fps across forty cycles, and every break is said exactly once. With the wall-clock key, the same sweep says some breaks twice, and the scene's source is checked for the key it uses.
 
+# 223 · EVERY ARRIVAL WAITS FOR ITS ROOM, AND SAYS SO — TYLER, 2026-11-09
+
+*Errata 221 left one thing for Tyler: fast travel can outrun the fetch. A map walk skipped by a click, or an exit taken the moment a room appears, can arrive before the next room has loaded, and the room is drawn in pieces. Only NEW GAME, the fades and the cut-aways held black until the room was whole (errata 157, 158). Asked whether every arrival should hold black until the room is ready, he said: **"Yes, and is it possible to have it say "Loading..." On the screen if it's waiting for it to load a room?"***
+
+- **Every arrival holds.** An exit, the map, a `goto`, an act's opening, a hand-on and a load all come through `enterRoomPerformance`, and it now asks `ArrivalHold` (`engine/core/ArrivalHold.ts`) whether the room is whole (`GameScene.roomWhole`, errata 157's `planRoom` test).
+  - **A room that is already whole is not held at all.** That is the usual case, because the rooms next door are fetched before he gets there (errata 221). No frame is added and nothing is drawn differently.
+  - **A room that is not whole is held black** from its first frame until it is whole, or until errata 157's limit (`roomReadyLimitSeconds`, 12 s), so a stalled load never strands him. The black then goes at once, as the cut it replaces did.
+  - **The room does not run while it is held.** Nothing is said, walked, timed or played in the dark: the scene draws the black and returns before the room's clocks. When the room is shown, a line begun on arrival keeps its whole reading hold, an exit's beat keeps its pause, a timeline starts from that frame, and an accost is timed from the moment the room is seen.
+  - **Nothing can be clicked in the hold**, as in a fade, and no cut-away starts in it. The menu key waits too.
+  - NEW GAME, a fade and a cut-away still hold for themselves; an arrival inside one of them is not held twice.
+- **"Loading…"** (`content/ui/ui.json`, `loading.label`, with the single ellipsis character, which the face covers).
+  - It is drawn centred in the play area, where "Click to begin" stands (errata 155), in the shipping face at GLYPH_SCALE 6, in the speech ink.
+  - It is drawn over any black that is waiting on its room: an arrival's hold, NEW GAME's, a fade's and a cut-away's. It comes up once the wait has lasted `loading.afterSeconds` (0.5), so an ordinary arrival never flashes it. It goes on the frame the room is whole.
+  - It is drawn over the map too, which is arrived on like any room.
+- **The probe** reports `holding` and `loading`. `fading` now includes the hold, because in both the screen is not the player's.
+- **Seen in the running game.** `tools/gauntlet/loading-hold-proof.mjs` holds back the Claims Road's plate and cabin for 2.5 s, opens the map from Main Street, clicks the Claims Road and clicks again to skip the walk, which is errata 221's case. Every frame the probe reports is sampled. Then it goes back to Main Street by the map's whole walk, with nothing held back. Its record is `renders/proofs/loading-hold/`.
+  - **With this errata:** the Claims Road is never seen while a picture of it is missing. "Loading…" comes up at the threshold and is gone when the room is whole. The ordinary arrival has no held, black or worded frame.
+  - **On the build before it:** the same run fails three ways. The Claims Road is seen in pieces on 28 of 38 sampled frames, with Thad standing in a graybox. The arrival is never held. The words never come up.
+- Lesson: `tests/arrival-hold.test.ts`.
+  - **An arrival on a room still loading is not seen until it is whole.** It plays the scene's frame rule at 60 fps over a map place whose pictures arrive one by one, and over a load that never finishes, which is let go at the limit. It also reads GameScene: every call that changes the room is followed by the arrival, the arrival asks the hold whether the room is whole, and a held frame returns before the room's lines, scenes, timeline and cut-aways.
+  - **"Loading…" comes up only after the threshold, never on an arrival already loaded.** It checks no words before 0.5 s, words after it, none once the room is whole, none on a shorter wait and none over a fade on a whole room. It also checks that the words are ui.json's, that the face draws every glyph, that the Renderer draws them over full black on a room and on the map, and that no engine file spells them.
+  - A third test is a guard, not a lesson: every exit in the game, arrived on with its room fetched next door, is never held, blacked or worded.
+  - With GameScene and the Renderer as they were before this errata, both lessons fail. With the hold made never to hold, the first fails. With the threshold taken out, the second fails.
+
 # 224 · SECTION NINETEEN IS HEARD BEFORE IT IS CITED, SUMP EXPLAINS ONCE, AND THE PIE WOMAN'S TIMER IS HELD — TYLER, 2026-11-09
 
 The feel review of errata 221's transcript, and Tyler's answers on it: "6 - yes" (Thad should cite section nineteen only after he has heard it), "3. - maybe she yells it on a longer timer? Like every minute?", and "Proceed with all the necessary fixes."
@@ -6193,3 +6217,21 @@ Four were real, and are fixed:
 - **The last duel had no stakes on screen.** Fanshawe's challenge now ends: "Lose, and nobody in town believes a word you file." (doc 03).
 
 Lesson: `tests/gifts-shown.test.mjs` requires every dialogue option that gives an item to show the handover in a performed direction, or to be listed with the reason its words already hand the thing over (three are listed). The map as it was fails it. The fee and the stakes are matters of taste, recorded as a row in doc 55 §8.
+
+# 229 · THE VOICE PASS ON THE MAIN PATH — TYLER, 2026-11-09 ("Proceed with all the necessary fixes")
+
+This entry covers the narration habits the feel review found on errata 221's transcript. The lines are rewritten to doc 59 under errata 100's dialogue pass, in the documents. No puzzle, flag or fact changes.
+
+- **Repeated shapes.**
+  - "The first X in Y" came four times. Two of them were Thad's, and they are reworded:
+    - the parlor piano's "first honest work" is now the "most honest work" (docs 24, 57). This frees Winnie's "first honest transaction at this window in nine years" to stand alone;
+    - the Colonel's empty office is now "I have never seen this room without somebody being generous in it" (doc 54).
+  - The survey line at the counter is no longer the twin of the fee line after it ("…which I am told is…", twice running). It now reads: "He has read it without expression. In this office, that is the highest mark." (doc 57).
+- **A joke that explained itself.** Ozymandia's "That was the filing fee. It is now a divining fee." loses its explanation, "Money out here changes careers faster than men do." (doc 57).
+- **One idea a line.** The arrival below Prosperity was one paragraph holding four ideas. It is now three lines, said in turn (doc 57 F1; the pair's rule carries `then`).
+- **Counters land; they don't argue.** Pair 23's counter is split in two sentences (doc 03).
+- **Kept.**
+  - "Four minutes" runs from the piano tunings to the coffin to the packing. It escalates rather than repeats, so it stays.
+  - The truth gambit's long line stays long. It is the one counter allowed to be.
+
+Lesson: none -- a voice rewrite, not a defect fixed. The narration-template check (errata 226) now holds these habits on every build.
