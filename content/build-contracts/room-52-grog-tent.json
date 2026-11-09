@@ -17,7 +17,7 @@
    "status": "PASS",
    "evidence": [
     "proofs/readiness/room-52.json",
-    "docs/00-errata.md::207 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52)"
+    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52)"
    ],
    "note": "One picture, daylight (errata 190); G4, G5 and G9 change what is said and two props over the plate, not the picture."
   },
@@ -25,7 +25,7 @@
    "status": "PASS",
    "evidence": [
     "proofs/room-52/graybox.json",
-    "docs/00-errata.md::207 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52)"
+    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52)"
    ],
    "note": "Every subject is plate; the lettering, the empty peg and the empty nail are props."
   },
@@ -35,7 +35,7 @@
     "art/staging/ledger.json",
     "renders/room-52-grog-tent-with-thad.png",
     "renders/room-52-deacon-vs-deke.png",
-    "docs/00-errata.md::207 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52)"
+    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52)"
    ],
    "note": "The rule-keeper from room-52 operation 3, cut at the room's man; the Deacon is Vessel's accepted frames, the mustache band from gulch-vessel operation 2."
   },

@@ -17,7 +17,7 @@
    "status": "PASS",
    "evidence": [
     "proofs/readiness/room-53.json",
-    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53)"
+    "docs/00-errata.md::209 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53)"
    ],
    "note": "One picture, daylight (errata 190); Duel One called puts Vessel and the rule-keeper on the bar (placements), and the bar's LOOK changes after it."
   },
@@ -25,7 +25,7 @@
    "status": "PASS",
    "evidence": [
     "proofs/room-53/graybox.json",
-    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53)"
+    "docs/00-errata.md::209 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53)"
    ],
    "note": "Every subject is plate; the men in the river and at the long tom are painted, with no lines; the water over a man is two clip planes."
   },
@@ -34,7 +34,7 @@
    "evidence": [
     "art/staging/ledger.json",
     "renders/room-53-river-with-thad.png",
-    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53)"
+    "docs/00-errata.md::209 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53)"
    ],
    "note": "The panner from room-53 operation 3, cut at the room's man where he stands and measured against Thad (texture 4.75 against 4.67)."
   },

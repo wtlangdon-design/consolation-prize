@@ -17,7 +17,7 @@
    "status": "PASS",
    "evidence": [
     "proofs/readiness/room-54.json",
-    "docs/00-errata.md::209 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54)"
+    "docs/00-errata.md::210 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54)"
    ],
    "note": "One picture, daylight (errata 190); G8 changes what is said, not the picture."
   },
@@ -25,7 +25,7 @@
    "status": "PASS",
    "evidence": [
     "proofs/room-54/graybox.json",
-    "docs/00-errata.md::209 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54)"
+    "docs/00-errata.md::210 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54)"
    ],
    "note": "Every subject is plate; the NOT YET board is a prop."
   },
@@ -34,7 +34,7 @@
    "evidence": [
     "art/staging/ledger.json",
     "renders/room-54-upstream-with-thad.png",
-    "docs/00-errata.md::209 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54)"
+    "docs/00-errata.md::210 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54)"
    ],
    "note": "The man upstream from room-54 operation 3, cut at the room's man where he stands and measured against Thad (texture 5.8 against 5.8)."
   },
