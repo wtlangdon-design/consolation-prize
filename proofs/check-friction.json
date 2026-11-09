@@ -387,6 +387,12 @@
    "why": "Errata 183, Room 42: doc 105 writes the jar's second LOOK as two quotes with a beat between them, and the extractor now speaks them as one line (the punchline was being dropped). The check looked for that joined line in the docs as one run of text and could not find it, so it also reads the docs with each *(beat)* between two quotes taken out. A line still has to appear in the docs word for word, in order; nothing it guards is weakened. tests/room-42.test.ts holds the joined line."
   },
   {
+   "check": "tests/scenery.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 198: Tyler moved the hitching horses back from 1545,850 to 1405,755. The test restated their old place as numbers (the points under the hooves, the ground behind them, the pointer over them), so moving the figure broke it. It now reads the place from content/ambient/hitching-horses.json and asks the same questions there: the ground under the hooves is not walkable, the ground behind is, and the pointer over them finds the mud. Nothing it guards is weakened."
+  },
+  {
    "check": "tests/staging-clear.test.ts",
    "date": "2026-11-08",
    "kind": "loosened",
@@ -421,12 +427,6 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 197: `grievance_out` carries a movementException quoting Tyler (\"Yes, one more op\"). It draws nothing at rest; it is Grievance out of her stall, shown only in doc 95 row 79's act, while her own figure, grievance.json, carries her movement and is held by the test as before."
-  },
-  {
-   "check": "tests/scenery.test.ts",
-   "date": "2026-11-08",
-   "kind": "loosened",
-   "why": "Errata 198: Tyler moved the hitching horses back from 1545,850 to 1405,755. The test restated their old place as numbers (the points under the hooves, the ground behind them, the pointer over them), so moving the figure broke it. It now reads the place from content/ambient/hitching-horses.json and asks the same questions there: the ground under the hooves is not walkable, the ground behind is, and the pointer over them finds the mud. Nothing it guards is weakened."
   }
  ]
 }
