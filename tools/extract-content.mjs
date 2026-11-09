@@ -36,8 +36,32 @@ function read(relative) {
 const CHECKING = process.argv.includes('--check');
 const stale = [];
 
+/**
+ * QUIET EXITS (errata 225): doc 04's `## Quiet exits` table, by tree and node. While its gate holds, the node's
+ * universal exit says the quiet line instead of the pool's next joke (DialogueNode.quietExit).
+ */
+let quietExitTable = null;
+function quietExits(tree) {
+  if (!quietExitTable) {
+    const d04 = readFileSync(resolve(ROOT, 'docs/04-dialogue-trees.md'), 'utf8');
+    const start = d04.indexOf('## Quiet exits');
+    if (start < 0) throw new Error('doc 04: no ## Quiet exits section');
+    const section = d04.slice(start, d04.indexOf('\n---', start));
+    quietExitTable = [...section.matchAll(/^\| ([A-Z]+) \| `([A-Z0-9_]+)` \| (always|`([A-Z0-9_]+)`) \| "(.+)" \|$/gm)]
+      .map((m) => ({ tree: m[1], node: m[2], flag: m[4], text: m[5] }));
+    if (!quietExitTable.length) throw new Error('doc 04: ## Quiet exits has no rows');
+  }
+  for (const row of quietExitTable.filter((one) => one.tree === tree.id)) {
+    const node = tree.nodes[row.node];
+    if (!node) throw new Error(`doc 04 quiet exit: ${row.tree} has no node ${row.node}`);
+    if (!(node.options ?? []).some((option) => option.universal)) throw new Error(`doc 04 quiet exit: ${row.node} has no universal exit`);
+    node.quietExit = { ...(row.flag ? { when: { [row.flag]: true } } : {}), text: row.text };
+  }
+  return tree;
+}
+
 function write(relative, data, indent = 2) {
-  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = performDirections(data);
+  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = quietExits(performDirections(data));
   const path = resolve(ROOT, relative);
   const wanted = `${JSON.stringify(data, null, indent)}\n`;
   if (CHECKING) {
@@ -3763,6 +3787,14 @@ function frameTree() {
       ...(opening.length ? { opening } : {}), options };
   }
   if (!nodes.FRA_A1) throw new Error('doc 04: FRA_A1 was not extracted');
+  // HE KNOWS HIM THE SECOND TIME (errata 225). FRA_A1's "You're new!" played on every visit through three acts. The
+  // first visit is the exchange; every visit after says doc 04's return line instead.
+  {
+    const a1 = doc.slice(doc.indexOf('## Root: `FRA_A1`'));
+    const again = /^> \*\*FRAME\*\* \*\(every visit after the first[^\n]*?\)\*: "(.+)"$/m.exec(a1.slice(0, a1.indexOf('| # |')));
+    if (!again) throw new Error('doc 04: FRA_A1 has no return-visit line');
+    Object.assign(nodes.FRA_A1, { openingOnce: 'T_FRAME_MET', returnOpening: [{ speaker: SPEAKER, line: again[1] }] });
+  }
   // DOC 109, B1 · THE CLARION: after FRA_B1's destination line, whichever story, Frame presses this week's paper on him.
   {
     const clarion = consolationScene('### B1 · THE CLARION', { FRAME: SPEAKER });

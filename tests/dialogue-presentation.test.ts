@@ -53,7 +53,9 @@ test('the choice interface draws the options and never the node prompt', async (
     }
     // The greeting, where the node has one, is spoken -- and its last line is
     // exactly what the prompt duplicates, which is why the prompt stays data.
-    const opening = state.dialogue.openingOf(treeId);
+    // The node's own first-visit opening: a return visit says its return line instead (errata 225), and the
+    // prompt still duplicates only the first.
+    const opening = node.opening ?? [];
     if (opening.length && node.prompt) assert.equal(opening.at(-1)?.line, node.prompt, `${treeId}: the prompt is the opening's last line, already spoken`);
     state.dialogue.end();
     void tree;
