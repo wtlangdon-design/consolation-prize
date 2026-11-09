@@ -6114,6 +6114,27 @@ These come from the feel review of errata 221's playthrough. Tyler answered on 2
     - no opening that calls the player new can be said twice.
   - With the runner's change removed, three of these fail.
 
+# 227 · THE EXAMINE TRANSCRIPT — the feel review, 2026-11-09
+
+*The feel review judged the comedy from errata 221's transcript. That walkthrough almost never says LOOK AT or LISTEN TO, and the examine layer is most of the script. So the joke mix was measured on half of it. This is tooling: it reads the game and changes nothing in it.*
+
+- **What is built.** `tools/examine-transcript.mjs` plays `tests/data/full-game-walkthrough.json` headless, with the player `tests/full-game.test.ts` uses.
+  - It probes on the first arrival in each room. It probes again on a later arrival in a new act, or where the answers have changed.
+  - Each probe resolves LOOK AT and LISTEN TO on every hotspot and exit, and on every person a click can reach.
+  - Answers come from the engine's own resolver (`GameState.resolveInteraction`), so act variants, flag and puzzle gates, and repeat variants are as play gives them. A first selection's `then` lines are included.
+  - People resolve as `GameScene` resolves them: the room's lines for that person, then the person's examine layer, then the people pool. A figure wholly under a hotspot is examined through that hotspot (`AmbientLayer.personAt`). Room 33's rock answers LISTEN with a tap and no line (`GameScene.listenAt`).
+- **A probe changes nothing.** Resolving a verb advances the line cursors (`VerbSystem.resolve`), so the probe saves them, along with the selected verb, the held item and the people latch, and restores them after every resolution.
+  - `tests/examine-transcript.test.mjs` compares the state snapshot before and after a probe at several points in the walkthrough. It shows that a real LOOK does move the snapshot, and that the probed run breaks exactly where the plain run does.
+- **Where it is.** `renders/playthrough/examine.md` and `renders/playthrough/examine.json`, beside the transcript, with a summary at the top.
+  - First run: 42 rooms visited, 86 room arrivals written down, 1,061 hotspots, exits and people.
+  - 2,099 responses have a line, 23 have none, and 1,073 lines are distinct.
+- **Nothing is marked.** Every line is written the same way, in the room's own order. No effect of a response is recorded: no flag set, no puzzle completed and no conversation opened. So the three load-bearing LISTEN lines cannot be told from the rest (design invariant 3).
+- **What it shows, for whoever reads it.** These are reported, not changed.
+  - The 23 responses with no line are the Lane's three stub doors in each of their three arrivals, PIKE'S NEIGHBOR, THE GAP and the rock's LISTEN. The game has no LOOK AT or LISTEN TO pool.
+  - Named figures with no lines of their own (Main Street's map seller, pie woman and man leaving tomorrow, among others) answer with the people pool's single line.
+- How to run it: doc 55 §8.
+- Lesson: none -- tooling, no defect fixed.
+
 # 228 · THE GAPS THE TRANSCRIPT FOUND, CHECKED IN THE GAME — TYLER, 2026-11-09 ("Proceed with all the necessary fixes")
 
 The feel review listed ten places on the main path where a first-time player might not follow. Each was checked against the content, not just the transcript. Six were not real gaps:
