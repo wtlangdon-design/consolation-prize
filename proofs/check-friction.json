@@ -613,6 +613,24 @@
    "date": "2026-11-09",
    "kind": "reviewed",
    "why": "Errata 237, the review three loosenings in fourteen days ask for. They are in two different tests that share the file: 'drawn whole' twice (2026-11-05, a held rake's gaps; 2026-11-06, a master cut's keyed backdrop), each tuned then to stop misfiring on a real drawing and each still failing a keyed-out coat; and the item test once (here), which is not a misfire but art owed by another session (iconPending, noted every run, never with a cell). Concluded: no tune is needed and nothing is retired. The icon half duplicates tests/items.test.ts ('every item has an icon cell inside the sheet') and tools/check-item-names.mjs, which now read iconPending the same way; merging it into tests/items.test.ts is recommended for the twice-monthly review, not done here."
+  },
+  {
+   "check": "tests/movement.test.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 238: it misfired on a group drawn as one cut-out. The séance is six people round one table in one sheet (reference/act3-seance/handback.md); the grey-haired woman's glance changes a third of her and 3.8% of the table, and the dark sheet's turn, the bald man's head jerked up, 13% of him and 1.9% of the table, so the whole-figure 10% read the table as never acting. A figure may now declare sprite.members, each sitter's box, and an action is measured against the person who makes it. In the same change it is tightened: every spriteWhen sheet is now checked as its own case (the dark séance, the raccoon halfway out, Fanshawe turned, the mourners bowed), which it never read before; all pass."
+  },
+  {
+   "check": "tests/movement.test.mjs",
+   "date": "2026-11-09",
+   "kind": "reviewed",
+   "why": "Errata 238, the review the third loosening in fourteen days asks for (2026-11-06, the scheduler self-test's art; 2026-11-08, Grievance's movementException; today, groups). Concluded: TUNE, done here -- the members measure is the tune for the one shape it kept misfiring on, a single cut-out of several people, and it is opt-in by a declaration a reader can check against the picture. The 10% threshold and the 10 s and 30 s schedule are unchanged; nothing is retired. The variant cases it gained make it stricter than before."
+  },
+  {
+   "check": "tests/scenes-bc.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 238: not loosened, changed with the art. It reached OZY_E1 by TALK TO on Ozymandia's standing figure; while the séance is on she is drawn seated at its head instead, so TALK TO goes through MADAME OZYMANDIA, PRESIDING, and her standing figure is talked to again after re-entering. The subjects' wrong-try loop skips a TALK TO that opens a tree (the presiding medium's), which it played separately above. Every assertion it made still holds."
   }
  ]
 }
