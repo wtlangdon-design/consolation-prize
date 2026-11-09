@@ -508,6 +508,165 @@
     "B4": "complete",
     "B5": "complete"
    }
+  },
+  {
+   "id": "r53-a",
+   "label": "R53-A Act II, at the river after G3 and the find, before the challenge",
+   "room": "gulch_river",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_SWINDLED": true,
+    "ACT": 2,
+    "T_GRIEVANCE_MOTT": true,
+    "T_HUM_HEARD": true,
+    "T_VESSEL_LOCATION": true,
+    "T_BORDERS_MOTT": true,
+    "T_VESSEL_FOUND": false,
+    "T_MINE_CROSSED": true,
+    "T_CAMP_TRUSTS": true,
+    "T_DEACON_FOUND": true,
+    "T_PLANK_SEAT": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "derivedFrom": [
+    "content/fixtures/room-15.json r15-b (the Act II state B3 ends: the hum heard, Vessel's whereabouts known)",
+    "docs/107-fiddlers-gulch.md::The chain (B3 -> G2; A9's third copy and G1's rod into G2; B1's Clarion edition into G3)",
+    "docs/109-fiddlers-gulch-lines.md::THE CHANGES IN CONSOLATION (THE THIRD COPY, THE BRASS ROD, THE CLARION)",
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS (STOPPED BY THE LOOKOUT; the lookout, before G3)",
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT (THE WATCH, THE FIND, THE FIDDLE; DEKE VESSEL, found)",
+    "docs/109-fiddlers-gulch-lines.md::THE RIVER (THE BAR; THE PANNER; DUEL ONE, ON THE BAR)"
+   ],
+   "notBuilt": [
+    "B3's ride to the washout (it switches over when the trip is whole)",
+    "the writers of THE THIRD COPY (A9), THE BRASS ROD (G1) and THE CLARION (B1): the changes in Consolation, the brief's last step"
+   ],
+   "note": "The camp trusts him (G3) and Vessel is found (G4, G5); nothing is called on the bar yet. The panner in the water, the bar empty."
+  },
+  {
+   "id": "r53-b",
+   "label": "R53-B Act II, at the river with Duel One called on the bar (G6, B4)",
+   "room": "gulch_river",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_SWINDLED": true,
+    "ACT": 2,
+    "T_GRIEVANCE_MOTT": true,
+    "T_HUM_HEARD": true,
+    "T_VESSEL_LOCATION": true,
+    "T_BORDERS_MOTT": true,
+    "T_VESSEL_FOUND": false,
+    "T_MINE_CROSSED": true,
+    "T_CAMP_TRUSTS": true,
+    "T_DEACON_FOUND": true,
+    "T_PLANK_SEAT": true,
+    "T_DUEL_ONE_CALLED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "derivedFrom": [
+    "content/fixtures/room-15.json r15-b (the Act II state B3 ends: the hum heard, Vessel's whereabouts known)",
+    "docs/107-fiddlers-gulch.md::The chain (B3 -> G2; A9's third copy and G1's rod into G2; B1's Clarion edition into G3)",
+    "docs/109-fiddlers-gulch-lines.md::THE CHANGES IN CONSOLATION (THE THIRD COPY, THE BRASS ROD, THE CLARION)",
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS (STOPPED BY THE LOOKOUT; the lookout, before G3)",
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT (THE WATCH, THE FIND, THE FIDDLE; DEKE VESSEL, found)",
+    "docs/109-fiddlers-gulch-lines.md::THE RIVER (THE BAR; THE PANNER; DUEL ONE, ON THE BAR)"
+   ],
+   "notBuilt": [
+    "B3's ride to the washout (it switches over when the trip is whole)",
+    "the writers of THE THIRD COPY (A9), THE BRASS ROD (G1) and THE CLARION (B1): the changes in Consolation, the brief's last step"
+   ],
+   "note": "Vessel has challenged him to the bar (VES_G1 option 6, B4): he and the rule-keeper are on the bar, and coming down to the river walks Thad out to face him.",
+   "puzzles": {
+    "B4": "complete"
+   }
+  },
+  {
+   "id": "r53-c",
+   "label": "R53-C Act II, at the river after Duel One on the bar (B4, B5), before G9",
+   "room": "gulch_river",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_SWINDLED": true,
+    "ACT": 2,
+    "T_GRIEVANCE_MOTT": true,
+    "T_HUM_HEARD": true,
+    "T_VESSEL_LOCATION": true,
+    "T_BORDERS_MOTT": true,
+    "T_VESSEL_FOUND": false,
+    "T_MINE_CROSSED": true,
+    "T_CAMP_TRUSTS": true,
+    "T_DEACON_FOUND": true,
+    "T_PLANK_SEAT": true,
+    "T_DUEL_ONE_LOST": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "derivedFrom": [
+    "content/fixtures/room-15.json r15-b (the Act II state B3 ends: the hum heard, Vessel's whereabouts known)",
+    "docs/107-fiddlers-gulch.md::The chain (B3 -> G2; A9's third copy and G1's rod into G2; B1's Clarion edition into G3)",
+    "docs/109-fiddlers-gulch-lines.md::THE CHANGES IN CONSOLATION (THE THIRD COPY, THE BRASS ROD, THE CLARION)",
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS (STOPPED BY THE LOOKOUT; the lookout, before G3)",
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT (THE WATCH, THE FIND, THE FIDDLE; DEKE VESSEL, found)",
+    "docs/109-fiddlers-gulch-lines.md::THE RIVER (THE BAR; THE PANNER; DUEL ONE, ON THE BAR)"
+   ],
+   "notBuilt": [
+    "B3's ride to the washout (it switches over when the trip is whole)",
+    "the writers of THE THIRD COPY (A9), THE BRASS ROD (G1) and THE CLARION (B1): the changes in Consolation, the brief's last step"
+   ],
+   "note": "Duel One lost on the bar: the bar's LOOK is the one after it; Vessel and the rule-keeper are back in the tent.",
+   "puzzles": {
+    "B4": "complete",
+    "B5": "complete"
+   }
   }
  ]
 }

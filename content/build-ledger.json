@@ -1013,6 +1013,25 @@
    "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
    "blockers": [],
    "note": "Room 52, built 2026-11-09 under doc 55 (errata 202, 207). Acceptance is Tyler's, in the playthrough (Q193)."
+  },
+  {
+   "id": "room-53-river",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-53.json",
+    "docs/109-fiddlers-gulch-lines.md",
+    "docs/49-wrong-answers.md",
+    "docs/03-liars-assay.md"
+   ],
+   "dependsOn": [
+    "room-52-grog-tent"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-53-river.json",
+   "proof": "renders/proofs/gulch-river/proof.json",
+   "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
+   "blockers": [],
+   "note": "Room 53, built 2026-11-09 under doc 55 (errata 202, 208). Acceptance is Tyler's, in the playthrough (Q194)."
   }
  ],
  "blockerNote": "BLOCKERS ARE QUALIFIED REFERENCES: path.md::Exact Heading. A bare Q id is no longer accepted, because docs/36-issue-list.md carries two Q-number series -- Q11 through Q21 and Q37 each name two different issues -- and a row blocked on \"Q16\" could not say which one. Historical numbering in the document stays as it is; the fix is on the reference side. tools/lib/issueref.mjs resolves a reference to exactly one heading or fails.",

@@ -1799,6 +1799,7 @@ const GULCH_PEOPLE = [
   { heading: 'THE LOOKOUT', node: 'LOO_G1', speaker: 'gulch_lookout', label: 'LOOKOUT', file: 'gulch-lookout', id: 'LOOKOUT' },
   { heading: 'THE RULE-KEEPER', node: 'RUL_G1', speaker: 'gulch_rule_keeper', label: 'RULE-KEEPER', file: 'gulch-rule-keeper', id: 'RULE_KEEPER' },
   { heading: 'THE DEACON, before he is found', node: 'DEA_G1', speaker: 'gulch_deacon', label: 'THE DEACON', file: 'gulch-deacon', id: 'DEACON', noBarks: true },
+  { heading: 'THE PANNER', node: 'PAN_G1', speaker: 'gulch_panner', label: 'PANNER', file: 'gulch-panner', id: 'PANNER' },
 ];
 function gulchSide(text, where) {
   // At the end of a response, or at the start of an opening line (`*(before G3)* "..."`).
@@ -1824,7 +1825,8 @@ function gulchSpoken(text, speaker) {
  * vesselActTwo(), with doc 109's Gulch differences, as a node of the Deacon's own tree, VES_G1, opened once he is found
  * (G4). Its opening was said at THE FIND, so it has none. Options 1, 2 and 4 are doc 04's. Option 3, the replay, is
  * offered only here and only before G9; 3 and 6 wait for the seat (G5) and answer doc 109's line before it. Option 6
- * adds doc 109's point down the bank and its line, then B4 and Duel One. Option 5, after Duel One, is G9.
+ * adds doc 109's point down the bank and its line, then B4; it and the replay call Duel One to the bar
+ * (`T_DUEL_ONE_CALLED`), where it is fought. Option 5, after Duel One, is G9.
  */
 function gulchVessel(speaker) {
   const doc = read('docs/109-fiddlers-gulch-lines.md');
@@ -1860,11 +1862,15 @@ function gulchVessel(speaker) {
     options.push({ ...one, id: one.id.replace('ves_b1', 'ves_g1') });
   }
   const three = byN(3);
-  const threeHere = { ...three, id: 'ves_g1_3', when: { T_DUEL_ONE_LOST: true, T_VESSEL_FOUND: false, T_PLANK_SEAT: true } };
+  // THE DUEL IS ON THE BAR (doc 109, DUEL ONE, ON THE BAR): the replay and the challenge call it there -- Vessel goes
+  // down the bank and the conversation ends -- and it is fought when Thad comes down to the river (Room 53's accost).
+  const toTheBar = (option) => { const out = { ...option, set: { ...(option.set ?? {}), T_DUEL_ONE_CALLED: true }, ends: true };
+    delete out.duel; return out; };
+  const threeHere = toTheBar({ ...three, id: 'ves_g1_3', when: { T_DUEL_ONE_LOST: true, T_VESSEL_FOUND: false, T_PLANK_SEAT: true } });
   options.splice(2, 0, waiting({ ...threeHere, when: { T_DUEL_ONE_LOST: true, T_VESSEL_FOUND: false } }), threeHere);
   const sixDoc = byN(6);
-  const sixHere = { ...sixDoc, id: 'ves_g1_6', when: { ...(sixDoc.when ?? {}), T_PLANK_SEAT: true },
-    exchange: [...remap(sixDoc.exchange ?? [{ speaker, line: sixDoc.say }]), ...pointed] };
+  const sixHere = toTheBar({ ...sixDoc, id: 'ves_g1_6', when: { ...(sixDoc.when ?? {}), T_PLANK_SEAT: true },
+    exchange: [...remap(sixDoc.exchange ?? [{ speaker, line: sixDoc.say }]), ...pointed] });
   delete sixHere.say;
   options.push(waiting({ ...sixDoc, id: 'ves_g1_6' }), sixHere);
   const five = byN(5);
@@ -4626,8 +4632,62 @@ function assay() {
         mocks: { pool: jeers, counter: 'T_DUEL_TWO_LOSSES' },
       },
       duel_three: duelThree,
+      duel_one_bar: gulchBarDuel({
+        puzzle: 'B5', opponent: 'deke_vessel', sequence: [1, 2, 3, 4, 1],
+        notebook: { 1: notebook, 2: others[0], 3: others[1], 4: others[2] }, learns: [1, 2, 3, 4],
+        loss: [...duelOneLoss, { speaker: 'deke_vessel', line: mockery[plant] }],
+      }),
     },
   });
+}
+
+/**
+ * DUEL ONE, ON THE BAR (doc 109, ## DUEL ONE, ON THE BAR · G7 (B5); reference/fiddlers-gulch/brief.md, 7): doc 03's
+ * Duel One -- Vessel's pairs 1, 2, 3, 4 and 1 again, Thad's notebook lines and the loss dialogue, all extracted from
+ * doc 03 as duel_one's are -- fought on the bar in Room 53. What doc 109 changes: the rule-keeper recites the bar's
+ * rules in place of Sowerby's handbill (the `> **RULE-KEEPER:**` lines before "*After each exchange"); he scores with
+ * pebbles (the pencil is his, and a point sounds doc 45's R53-PEBBLE); the panner mutters each counter; and after the
+ * loss dialogue the rule-keeper's line (the `> **RULE-KEEPER:**` lines after it). Vessel is the Deacon's figure here,
+ * `gulch_deacon`. Vessel calls it on the bar (an accost), and it clears the call, `T_DUEL_ONE_CALLED`.
+ */
+function gulchBarDuel(one) {
+  const doc = read('docs/109-fiddlers-gulch-lines.md');
+  const at = doc.indexOf('\n## DUEL ONE, ON THE BAR');
+  if (at < 0) throw new Error('doc 109: no "## DUEL ONE, ON THE BAR"');
+  const body = doc.slice(at + 1, doc.indexOf('\n---', at + 1));
+  const split = body.indexOf('*After each exchange');
+  if (split < 0) throw new Error('doc 109: DUEL ONE, ON THE BAR no longer says what happens after each exchange');
+  if (!/moves a pebble/.test(body.slice(split, split + 200))) throw new Error('doc 109: the bar is no longer scored with pebbles');
+  const said = (part) => [...part.matchAll(/^> \*\*RULE-KEEPER:\*\* (.+)$/gm)]
+    .flatMap((m) => gulchSpoken(m[1], 'gulch_rule_keeper'));
+  const opening = said(body.slice(0, split));
+  const after = said(body.slice(split));
+  if (opening.filter((line) => !line.direction).length < 6 || after.length !== 1) {
+    throw new Error(`doc 109: the bar's rules read ${opening.length} lines and the close ${after.length}`);
+  }
+  const here = (lines) => lines.map((line) => ({ ...line, speaker: line.speaker === 'deke_vessel' ? 'gulch_deacon' : line.speaker }));
+  return {
+    puzzle: one.puzzle,
+    opponent: 'gulch_deacon',
+    opening,
+    openingRuling: 'doc 109, DUEL ONE, ON THE BAR: "the rule-keeper recites the rules in place of Sowerby\'s handbill".',
+    sequence: one.sequence,
+    sequenceRuling: 'doc 109: "Vessel\'s pairs 1, 2, 3, 4 and 1 again" (errata 73 D).',
+    notebook: one.notebook,
+    learns: one.learns,
+    sets: { T_DUEL_ONE_LOST: true, T_DUEL_ONE_CALLED: false },
+    loss: [...here(one.loss), ...after],
+    lossRuling: 'doc 109: doc 03\'s loss dialogue, extracted from there; then "After the loss dialogue", the rule-keeper\'s line.',
+    offersMuttered: true,
+    winnable: false,
+    calledByOpponent: true,
+    bystander: 'gulch_panner',
+    pencil: 'gulch_rule_keeper',
+    markCue: 'R53-PEBBLE',
+    stagingRuling: 'doc 109: "he scores with pebbles from his bag; the panner, in the river beside the bar, is the voice that '
+      + 'mutters each counter" (doc 45 R53-PEBBLE). Duel One is fought here instead of in Room 4 once the trip is whole '
+      + '(the brief, 7); until then duel_one is the Nugget\'s.',
+  };
 }
 
 /**

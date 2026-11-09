@@ -65,7 +65,8 @@
   "content/rooms/mine-line.json",
   "content/rooms/ledge.json",
   "content/rooms/gulch-tents.json",
-  "content/rooms/grog-tent.json"
+  "content/rooms/grog-tent.json",
+  "content/rooms/gulch-river.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -102,7 +103,8 @@
   "content/dialogue/amb-boarding-women.json",
   "content/dialogue/gulch-lookout.json",
   "content/dialogue/gulch-rule-keeper.json",
-  "content/dialogue/gulch-deacon.json"
+  "content/dialogue/gulch-deacon.json",
+  "content/dialogue/gulch-panner.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -254,7 +256,8 @@
   "content/ambient/washout-grievance.json",
   "content/ambient/gulch-lookout.json",
   "content/ambient/gulch-rule-keeper.json",
-  "content/ambient/gulch-deacon.json"
+  "content/ambient/gulch-deacon.json",
+  "content/ambient/gulch-panner.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",
@@ -729,6 +732,11 @@
     "src": "audio/consolation-gulch-canvas.wav",
     "gain": 0.6,
     "why": "Doc 45 R52-M (errata 195): R50-54-M carried into the tent, through canvas -- the same jaw harp and harmonica, filtered and lower."
+   },
+   "gulch_river": {
+    "src": "audio/consolation-gulch.wav",
+    "gain": 0.6,
+    "why": "Doc 45 R50-54-M (errata 195): the ledge's mix, carried down the bank to the river at the same gain."
    }
   },
   "tunedFlag": "T_IN_TUNE",
@@ -742,6 +750,11 @@
     "src": "audio/the-final-duel.wav",
     "gain": 0.6,
     "why": "doc 45 U-FINAL-DUEL: THE ASSAY + THE COMPANY (errata 109's arrangement)."
+   },
+   "duel_one_bar": {
+    "src": "audio/the-assay-registrar.wav",
+    "gain": 0.7,
+    "why": "Doc 45 R53-DUEL: THE ASSAY, unaccompanied jaw harp, as the registrar's mix -- the rough Assay has no piano. The registrar's own file, reused (doc 45, Delivery)."
    }
   }
  },

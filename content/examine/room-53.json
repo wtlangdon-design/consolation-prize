@@ -1,0 +1,107 @@
+{
+  "room": 53,
+  "name": "THE RIVER",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/109-fiddlers-gulch-lines.md::THE RIVER",
+    "docs/109-fiddlers-gulch-lines.md::THE RIVER",
+    "docs/109-fiddlers-gulch-lines.md::THE PANNER",
+    "docs/49-wrong-answers.md::ROOM 53 — THE RIVER"
+  ],
+  "subjects": [
+    {
+      "name": "THE BAR",
+      "LOOK_AT": [
+        "A gravel bar in the middle of the river, dry and flat: the bar.",
+        "The camp holds its Assay out there. A man has to wade to lose.",
+        "A ring of stones and a stump to stand on. It's a courtroom, if you squint."
+      ],
+      "LISTEN_TO": [
+        "Water going round it on both sides.",
+        "Gravel shifting under the current.",
+        "The river arguing with the bar, as it always does."
+      ]
+    },
+    {
+      "name": "THE LONG TOM",
+      "LOOK_AT": [
+        "A long wooden trough with water running down it, and riffles to catch the gold.",
+        "Two men feed it gravel and a third guards it with a shovel.",
+        "There's color in the riffles. Real gold, in a box, in the open. I've never been so close."
+      ],
+      "LISTEN_TO": [
+        "Water and gravel rattling down it.",
+        "A shovel scraping, and a man counting shovelfuls.",
+        "The rattle stops, and three men lean in, breathing."
+      ],
+      "overrides": {
+        "PICK_UP": "There's gold in it, in plain sight, and a man with a shovel in plainer sight."
+      }
+    },
+    {
+      "name": "THE ROCKER",
+      "LOOK_AT": [
+        "A rocker: a box on curved feet, rocked like a cradle, full of mud.",
+        "A man in a good hat is rocking it, scowling, as if the gold had insulted him.",
+        "He's rocked it so long the feet have worn hollows in the bank."
+      ],
+      "LISTEN_TO": [
+        "Chunk. Chunk. Chunk.",
+        "Water sloshing, and gravel sliding.",
+        "The man rocking it, swearing in time."
+      ],
+      "overrides": {
+        "USE": "I offered to rock it a while. He held on tighter, as if I'd asked to hold his wallet."
+      }
+    },
+    {
+      "name": "THE WATER",
+      "LOOK_AT": [
+        "A cold, fast river, with rich men standing in it to the knee.",
+        "The water's brown with everybody's digging. Downstream it's somebody else's problem.",
+        "I put a hand in. I took it out again. They stand in this all day."
+      ],
+      "LISTEN_TO": [
+        "Fast water over stones.",
+        "Teeth chattering, out in the river.",
+        "The river, loud, not caring who's rich."
+      ],
+      "overrides": {
+        "TALK_TO": "I told the river it had made a lot of men rich. It went on past, not interested."
+      }
+    },
+    {
+      "name": "THE TENTS",
+      "LOOK_AT": [
+        "Back up the bank to the tents.",
+        "Back to the tents, where it's dry and nobody trusts me any less.",
+        "Smoke from the cook fire, going straight up. Somebody's dinner, and nobody watching it."
+      ],
+      "LISTEN_TO": [
+        "The cook fire, faintly.",
+        "Canvas flapping, up the bank.",
+        "A bolt sliding home, up among the cabins."
+      ]
+    },
+    {
+      "name": "UPSTREAM",
+      "LOOK_AT": [
+        "The river bends up the gulch, toward the best ground.",
+        "There's a man up there on his own, shouting at a stake.",
+        "The gulch narrows up there. The ground gets better and the people get worse."
+      ],
+      "LISTEN_TO": [
+        "Water coming down faster, from up the gulch.",
+        "A man upstream, shouting at nobody.",
+        "Falling water, faint, a long way up."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "THE PANNER": {
+      "PICK_UP": "I'm not lifting a man out of the river. He'd climb straight back in. It's where the money is.",
+      "PUSH": "He's in the river to his knees. One push would finish the job, and ruin the coat.",
+      "USE": "I asked for a go with his pan. He turned his back on me and panned faster."
+    }
+  }
+}

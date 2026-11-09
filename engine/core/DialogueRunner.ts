@@ -41,6 +41,8 @@ export interface PerformedLine {
   direction?: boolean;
   rest?: number;
   mark?: boolean;
+  /** The cue the mark sounds, where its duel scores some other way (AssayLine.markCue). */
+  markCue?: string;
   quiet?: boolean;
   cue?: string;
 }

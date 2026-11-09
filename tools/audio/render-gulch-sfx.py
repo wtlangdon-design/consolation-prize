@@ -13,6 +13,8 @@ room ones, with tools/audio/render-room-sfx.py's own helpers.
     grog-bed.wav      R52-A: low talk, glasses set down, the plank creaking (loops)
     grog-fork.wav     R52-FORK: the fork, exact A440 (the approved r33-fork.wav, so it is the fork Tyler has heard), then
                       the pegs turning one at a time
+    river-bed.wav     R53-A: fast water over stones, the rocker's slow knock, gravel down the long tom (loops)
+    bar-pebble.wav    R53-PEBBLE: one pebble set down on gravel, after each exchange of Duel One on the bar
     grog-fiddle.wav   R52-FIDDLE: a fiddle played very badly and very happily, a few seconds, no theme: a bowed
                       string that wanders flat and sharp, slides, and scrapes. No tune is written; the pitches are
                       the open strings, missed. It is an instrument, so it plays on the music bus.
@@ -247,9 +249,44 @@ def grog_fiddle():
     return finish(out, 0.6)
 
 
+def river_bed():
+    """R53-A: the river loud and close (fast water over stones: the approved trickle, opened up and brighter), the
+    rocker's slow knock from up the bank (a dull wooden thud, every two seconds and a little, never on a clock), and
+    gravel rattling down the long tom across the water. Unpitched, all of it."""
+    rnd = np.random.default_rng(5301)
+    water = trickle(rnd, SECONDS)
+    fast = 0.9 * highpass(water, 250) + 0.35 * bandpass(noise(rnd, n_of(SECONDS)), 1200, 6000)
+    x = 0.55 * fast
+    t = rnd.uniform(0.3, 1.5)
+    while t < SECONDS - 0.5:                     # the rocker: a box on curved feet, chunk
+        m = n_of(0.12)
+        place(x, lowpass(noise(rnd, m), 500) * env(m, 0.002, 0.08), t, rnd.uniform(0.3, 0.42))
+        t += rnd.uniform(1.9, 2.6)
+    t = rnd.uniform(2.0, 4.0)
+    while t < SECONDS - 1.5:                     # a shovelful down the long tom: gravel rattling along wood, far
+        m = n_of(1.1)
+        rattle = bandpass(noise(rnd, m), 900, 4200) * env(m, 0.05, 0.7)
+        place(x, lowpass(rattle, 3000), t, rnd.uniform(0.12, 0.2))
+        t += rnd.uniform(4.0, 8.0)
+    return finish(loop_seam(x), 0.55, loop=True)
+
+
+def bar_pebble():
+    """R53-PEBBLE: one pebble set down on gravel -- a short click with the grit of the gravel under it, cold, a natural
+    tail. A transient, never a tone (errata 102)."""
+    rnd = np.random.default_rng(5302)
+    n = n_of(0.25)
+    out = np.zeros(n)
+    click = n_of(0.012)
+    place(out, bandpass(noise(rnd, click), 1800, 7000) * env(click, 0.0005, 0.008), 0.0, 1.0)
+    grit = n_of(0.12)
+    place(out, bandpass(noise(rnd, grit), 600, 3000) * env(grit, 0.002, 0.09), 0.006, 0.35)
+    return finish(out, 0.5)
+
+
 if __name__ == '__main__':
     for name, make in (('washout-bed.wav', washout_bed), ('mine-bed.wav', mine_bed), ('ledge-bed.wav', ledge_bed),
                        ('tents-bed.wav', tents_bed), ('grog-bed.wav', grog_bed), ('grog-fork.wav', grog_fork),
-                       ('grog-fiddle.wav', grog_fiddle)):
+                       ('grog-fiddle.wav', grog_fiddle), ('river-bed.wav', river_bed), ('bar-pebble.wav', bar_pebble)):
         save(name, make())
         print('wrote audio/sfx/' + name)

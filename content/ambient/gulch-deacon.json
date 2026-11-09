@@ -20,7 +20,8 @@
  "approachRadius": 60,
  "tree": "DEACON",
  "when": {
-  "T_VESSEL_FOUND": false
+  "T_VESSEL_FOUND": false,
+  "T_DUEL_ONE_CALLED": false
  },
  "walkTo": {
   "x": 1120,
@@ -107,5 +108,29 @@
   "figureHeight": 385,
   "stature": 1,
   "figureHeightNote": "The room's man at his feet (soles y 714), behind the plank: cut and snapped there by tools/art/interiors-people.py."
+ },
+ "speaksAs": "deke_vessel",
+ "speaksAsNote": "Doc 03's Duel One answers some wrong answers in Vessel's own name (`deke_vessel`): on the bar, his figure here speaks them (doc 109: the pairs and the loss are doc 03's, extracted from there).",
+ "leaves": {
+  "fade": 0.8,
+  "note": "Down the bank to the bar when he calls Duel One there (doc 109: \"The local way's out on the bar, son. Bring your boots.\"): gone from behind the plank as the conversation ends."
+ },
+ "placements": {
+  "gulch_river": {
+   "x": 1480,
+   "y": 600,
+   "zone": 1,
+   "when": {
+    "T_DUEL_ONE_CALLED": true
+   },
+   "posture": "standing",
+   "clipPlane": 0,
+   "walkTo": {
+    "x": 1170,
+    "y": 550,
+    "facing": "right"
+   },
+   "note": "Doc 109, DUEL ONE, ON THE BAR: Vessel on the bar, across the ring of stones from where Thad stands to face him (his walkTo, on the bar in front of the ring, near Vessel's own depth so the two read as two men facing each other), while the duel is called."
+  }
  }
 }

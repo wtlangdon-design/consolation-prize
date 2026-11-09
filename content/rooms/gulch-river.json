@@ -1,0 +1,931 @@
+{
+  "schema": 1,
+  "id": "gulch_river",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "size": [
+    1920,
+    864
+  ],
+  "background": "art/backgrounds/room-53-river.png",
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-53.json",
+      "reference/room-53/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "floor_0",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        450,
+        300,
+        330,
+        80
+      ]
+    },
+    {
+      "id": "floor_1",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        450,
+        380,
+        330,
+        79
+      ]
+    },
+    {
+      "id": "floor_2",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        450,
+        459,
+        395,
+        80
+      ]
+    },
+    {
+      "id": "floor_3",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        450,
+        539,
+        395,
+        80
+      ]
+    },
+    {
+      "id": "floor_4",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        450,
+        619,
+        395,
+        80
+      ]
+    },
+    {
+      "id": "floor_5",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        90,
+        699,
+        775,
+        79
+      ]
+    },
+    {
+      "id": "floor_6",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        90,
+        778,
+        775,
+        80
+      ]
+    },
+    {
+      "id": "ford",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        845,
+        485,
+        195,
+        20
+      ]
+    },
+    {
+      "id": "bar_0",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        1040,
+        480,
+        120,
+        40
+      ]
+    },
+    {
+      "id": "bar_1",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        1100,
+        520,
+        500,
+        40
+      ]
+    },
+    {
+      "id": "bar_2",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        1230,
+        560,
+        470,
+        50
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      450,
+      300
+    ],
+    [
+      780,
+      300
+    ],
+    [
+      780,
+      400
+    ],
+    [
+      845,
+      400
+    ],
+    [
+      845,
+      630
+    ],
+    [
+      865,
+      630
+    ],
+    [
+      865,
+      858
+    ],
+    [
+      90,
+      858
+    ],
+    [
+      90,
+      630
+    ],
+    [
+      450,
+      630
+    ]
+  ],
+  "entrance": [
+    150,
+    760
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        150,
+        760
+      ],
+      "facing": "right",
+      "note": "Down the bank from the tents."
+    },
+    {
+      "from": "gulch_tents",
+      "at": [
+        150,
+        760
+      ],
+      "facing": "right",
+      "note": "Down the bank from the tents (doc 109, THE RIVER, the way down)."
+    },
+    {
+      "from": "upstream",
+      "at": [
+        740,
+        320
+      ],
+      "facing": "front",
+      "note": "Back down the river from upstream (doc 109, DOWNSTREAM, the way back)."
+    }
+  ],
+  "ambient": [
+    "gulch_deacon",
+    "gulch_panner",
+    "gulch_rule_keeper"
+  ],
+  "hotspots": [
+    {
+      "id": "rocker",
+      "name": "THE ROCKER",
+      "rect": [
+        120,
+        230,
+        330,
+        400
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A rocker: a box on curved feet, rocked like a cradle, full of mud.",
+            "repeat": [
+              "A man in a good hat is rocking it, scowling, as if the gold had insulted him.",
+              "He's rocked it so long the feet have worn hollows in the bank."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Chunk. Chunk. Chunk.",
+            "repeat": [
+              "Water sloshing, and gravel sliding.",
+              "The man rocking it, swearing in time."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I offered to rock it a while. He held on tighter, as if I'd asked to hold his wallet."
+      },
+      "walkTo": {
+        "x": 470,
+        "y": 640,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "long_tom",
+      "name": "THE LONG TOM",
+      "rect": [
+        1380,
+        60,
+        420,
+        350
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A long wooden trough with water running down it, and riffles to catch the gold.",
+            "repeat": [
+              "Two men feed it gravel and a third guards it with a shovel.",
+              "There's color in the riffles. Real gold, in a box, in the open. I've never been so close."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water and gravel rattling down it.",
+            "repeat": [
+              "A shovel scraping, and a man counting shovelfuls.",
+              "The rattle stops, and three men lean in, breathing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "There's gold in it, in plain sight, and a man with a shovel in plainer sight."
+      },
+      "walkTo": {
+        "x": 1600,
+        "y": 555,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "bar",
+      "name": "THE BAR",
+      "rect": [
+        1000,
+        360,
+        790,
+        300
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "T_DUEL_ONE_LOST": true
+            },
+            "say": "The bar. I lost five times on it, in front of men standing in a river.",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE RIVER · *After Duel One:* **LOOK**"
+          },
+          {
+            "say": "A gravel bar in the middle of the river, dry and flat: the bar.",
+            "repeat": [
+              "The camp holds its Assay out there. A man has to wade to lose.",
+              "A ring of stones and a stump to stand on. It's a courtroom, if you squint."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water going round it on both sides.",
+            "repeat": [
+              "Gravel shifting under the current.",
+              "The river arguing with the bar, as it always does."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1170,
+        "y": 550,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "water",
+      "name": "THE WATER",
+      "rect": [
+        860,
+        150,
+        1060,
+        714
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A cold, fast river, with rich men standing in it to the knee.",
+            "repeat": [
+              "The water's brown with everybody's digging. Downstream it's somebody else's problem.",
+              "I put a hand in. I took it out again. They stand in this all day."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Fast water over stones.",
+            "repeat": [
+              "Teeth chattering, out in the river.",
+              "The river, loud, not caring who's rich."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I told the river it had made a lot of men rich. It went on past, not interested."
+      },
+      "walkTo": {
+        "x": 840,
+        "y": 640,
+        "facing": "right"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_tents",
+      "name": "THE TENTS",
+      "rect": [
+        0,
+        250,
+        120,
+        614
+      ],
+      "colour": 0,
+      "to": "gulch_tents",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Back up the bank to the tents.",
+            "repeat": [
+              "Back to the tents, where it's dry and nobody trusts me any less.",
+              "Smoke from the cook fire, going straight up. Somebody's dinner, and nobody watching it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The cook fire, faintly.",
+            "repeat": [
+              "Canvas flapping, up the bank.",
+              "A bolt sliding home, up among the cabins."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 109: back up the bank to the tents.",
+      "walkTo": {
+        "x": 100,
+        "y": 760,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "to_upstream",
+      "name": "UPSTREAM",
+      "rect": [
+        950,
+        40,
+        450,
+        240
+      ],
+      "colour": 0,
+      "to": "upstream",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The river bends up the gulch, toward the best ground.",
+            "repeat": [
+              "There's a man up there on his own, shouting at a stake.",
+              "The gulch narrows up there. The ground gets better and the people get worse."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water coming down faster, from up the gulch.",
+            "repeat": [
+              "A man upstream, shouting at nobody.",
+              "Falling water, faint, a long way up."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 109: the river bends up the gulch, toward the best ground (Room 54).",
+      "walkTo": {
+        "x": 760,
+        "y": 310,
+        "facing": "back"
+      }
+    }
+  ],
+  "peopleResponses": {
+    "gulch_panner": {
+      "PICK_UP": [
+        {
+          "say": "I'm not lifting a man out of the river. He'd climb straight back in. It's where the money is."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "He's in the river to his knees. One push would finish the job, and ruin the coat."
+        }
+      ],
+      "USE": [
+        {
+          "say": "I asked for a go with his pan. He turned his back on me and panned faster."
+        }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "A man in the river to his knees, in a good coat, panning like he's angry at it.",
+          "repeat": [
+            "His coat cost more than my claim. The sleeves are wet to the elbow.",
+            "Every few swirls he looks upstream, as if the gold might be going there instead."
+          ]
+        }
+      ],
+      "LISTEN_TO": [
+        {
+          "say": "Gravel swirling in his pan.",
+          "repeat": [
+            "His teeth chattering, expensively.",
+            "Muttering about upstream."
+          ]
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "floor_0",
+      "points": [
+        {
+          "x": 450,
+          "y": 300
+        },
+        {
+          "x": 780,
+          "y": 300
+        },
+        {
+          "x": 780,
+          "y": 380
+        },
+        {
+          "x": 450,
+          "y": 380
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "floor_1"
+      ]
+    },
+    {
+      "id": "floor_1",
+      "points": [
+        {
+          "x": 450,
+          "y": 380
+        },
+        {
+          "x": 780,
+          "y": 380
+        },
+        {
+          "x": 780,
+          "y": 459
+        },
+        {
+          "x": 450,
+          "y": 459
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "floor_0",
+        "floor_2"
+      ]
+    },
+    {
+      "id": "floor_2",
+      "points": [
+        {
+          "x": 450,
+          "y": 459
+        },
+        {
+          "x": 845,
+          "y": 459
+        },
+        {
+          "x": 845,
+          "y": 539
+        },
+        {
+          "x": 450,
+          "y": 539
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "floor_1",
+        "floor_3",
+        "ford"
+      ]
+    },
+    {
+      "id": "floor_3",
+      "points": [
+        {
+          "x": 450,
+          "y": 539
+        },
+        {
+          "x": 845,
+          "y": 539
+        },
+        {
+          "x": 845,
+          "y": 619
+        },
+        {
+          "x": 450,
+          "y": 619
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "floor_2",
+        "floor_4"
+      ]
+    },
+    {
+      "id": "floor_4",
+      "points": [
+        {
+          "x": 450,
+          "y": 619
+        },
+        {
+          "x": 845,
+          "y": 619
+        },
+        {
+          "x": 845,
+          "y": 699
+        },
+        {
+          "x": 450,
+          "y": 699
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "floor_3",
+        "floor_5"
+      ]
+    },
+    {
+      "id": "floor_5",
+      "points": [
+        {
+          "x": 90,
+          "y": 699
+        },
+        {
+          "x": 865,
+          "y": 699
+        },
+        {
+          "x": 865,
+          "y": 778
+        },
+        {
+          "x": 90,
+          "y": 778
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "floor_4",
+        "floor_6"
+      ]
+    },
+    {
+      "id": "floor_6",
+      "points": [
+        {
+          "x": 90,
+          "y": 778
+        },
+        {
+          "x": 865,
+          "y": 778
+        },
+        {
+          "x": 865,
+          "y": 858
+        },
+        {
+          "x": 90,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "floor_5"
+      ]
+    },
+    {
+      "id": "ford",
+      "points": [
+        {
+          "x": 845,
+          "y": 485
+        },
+        {
+          "x": 1040,
+          "y": 485
+        },
+        {
+          "x": 1040,
+          "y": 505
+        },
+        {
+          "x": 845,
+          "y": 505
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 1,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "floor_2",
+        "bar_0"
+      ]
+    },
+    {
+      "id": "bar_0",
+      "points": [
+        {
+          "x": 1040,
+          "y": 480
+        },
+        {
+          "x": 1160,
+          "y": 480
+        },
+        {
+          "x": 1160,
+          "y": 520
+        },
+        {
+          "x": 1040,
+          "y": 520
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "ford",
+        "bar_1"
+      ]
+    },
+    {
+      "id": "bar_1",
+      "points": [
+        {
+          "x": 1100,
+          "y": 520
+        },
+        {
+          "x": 1600,
+          "y": 520
+        },
+        {
+          "x": 1600,
+          "y": 560
+        },
+        {
+          "x": 1100,
+          "y": 560
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "bar_0",
+        "bar_2"
+      ]
+    },
+    {
+      "id": "bar_2",
+      "points": [
+        {
+          "x": 1230,
+          "y": 560
+        },
+        {
+          "x": 1700,
+          "y": 560
+        },
+        {
+          "x": 1700,
+          "y": 610
+        },
+        {
+          "x": 1230,
+          "y": 610
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 300,
+        "farHeight": 110,
+        "nearY": 858,
+        "nearHeight": 490
+      },
+      "neighbours": [
+        "bar_1"
+      ]
+    }
+  ],
+  "lamps": [],
+  "props": [],
+  "onEnter": {
+    "accost": {
+      "npc": "gulch_deacon",
+      "when": {
+        "T_DUEL_ONE_CALLED": true
+      },
+      "afterSeconds": 1,
+      "duel": "duel_one_bar",
+      "approach": true,
+      "note": "Doc 109, DUEL ONE, ON THE BAR: Vessel called it on the bar in the grog tent (VES_G1 options 3 and 6, `T_DUEL_ONE_CALLED`); coming down to the river, Thad walks out to his place on the bar and the rule-keeper recites the rules. The duel clears the call."
+    }
+  },
+  "occlusionPlanes": [
+    {
+      "level": 1,
+      "mask": "art/masks/room-53-plane-1.png",
+      "note": "The ford's water, at the knee."
+    },
+    {
+      "level": 2,
+      "mask": "art/masks/room-53-plane-2.png",
+      "note": "The channel right of the bar, at the panner's knee."
+    }
+  ],
+  "occlusionProofs": [
+    {
+      "at": [
+        960,
+        500
+      ],
+      "expect": 1,
+      "box": "ford",
+      "note": "Mid-ford: the near channel's water covers him from the knee down (plane 1); the bank and the bar either side are dry."
+    }
+  ],
+  "occlusionBands": [
+    "bar_0",
+    "bar_1",
+    "bar_2",
+    "floor_0",
+    "floor_1",
+    "floor_2",
+    "floor_3",
+    "floor_4",
+    "floor_5",
+    "floor_6",
+    "ford"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-53/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

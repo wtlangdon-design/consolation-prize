@@ -638,6 +638,9 @@ export interface AmbientFile {
      * with Bill "and has no bark at all" (errata 110).
      */
     barks?: Record<string, string>;
+    /** Where he sits IN THIS ROOM (see `seat`): Room 53's stump, Room 52's keg (tests/lessons.test.ts). */
+    seat?: AmbientFile['seat'];
+    note?: string;
   }>;
   barks: Record<string, string>;
   /**

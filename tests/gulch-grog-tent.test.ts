@@ -144,13 +144,15 @@ test('VES_G1: the seat first, then the challenge to the bar (G6, which is B4); a
   const seated = await inState('r52-b');
   seated.dialogue.start(keeperOf(seated).tree);
   const challenge = seated.dialogue.presentOptions().map((one) => one.option).find((one) => one.id === 'ves_g1_6')!;
-  assert.equal(challenge.duel, 'duel_one', 'the local way, on the bar');
   assert.deepEqual(challenge.puzzle, { B4: 'complete' });
-  // G6 played: the challenge chosen is B4 done, here, and Duel One starts from it (the G-id is B4's until the trip's
-  // close makes the Gulch's ids canonical).
+  assert.equal(challenge.duel, undefined, 'the local way is out on the bar: no duel is fought in the tent');
+  // G6 played: the challenge chosen is B4 done, here (the G-id is B4's until the trip's close makes the Gulch's ids
+  // canonical), and it calls Duel One to the bar, where he and the rule-keeper go (tests/gulch-river.test.ts plays it).
   seated.dialogue.select(challenge.id);
-  assert.equal(seated.dialogue.duelSounding, 'duel_one', 'choosing it starts Duel One');
   assert.ok(seated.puzzleComplete('B4'), 'the challenge is B4, done in the grog tent');
+  assert.equal(seated.flags.get('T_DUEL_ONE_CALLED'), true, 'it calls Duel One to the bar');
+  assert.equal(seated.flags.test(keeperOf(seated).when!), false, 'and he goes down the bank, out of the tent');
+  assert.equal(seated.flags.test(sitterOf(seated).when!), false, 'and the rule-keeper with him');
   const after = await inState('r52-c');
   after.dialogue.start(keeperOf(after).tree);
   const rematch = after.dialogue.presentOptions().map((one) => one.option).find((one) => one.id === 'ves_g1_5')!;

@@ -42253,6 +42253,134 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-09T03:10:19.340Z"
+  },
+  {
+   "attempt": 3,
+   "role": "canonical-design",
+   "assetId": "room-53",
+   "subject": "room-53-panner",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/room-53/composition-master-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-53/prompts/panner-01.txt",
+   "promptHash": "abf443beca86c96271e22ef1384f07c19506457846255b6cd992c4ae29d4691f",
+   "references": [
+    {
+     "path": "art/staging/room-53/panner/template.png",
+     "hash": "014827af6c60507dbbcb3ac61332404e070fe426ca01d1b632150396327c6ae3",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-53/panner/face.png",
+     "hash": "4c1a78bbec23ec5d05cc5618a9d3ca8e29adcef3c143f41e35c239864462b4dc",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-53/panner/thad-in-room.png",
+     "hash": "4c4c3836601fcbf84de650354b5251365b41d73cc5e1b2ed4c1fb53a029d15a7",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-51-tents.png",
+     "hash": "7f5b411fbe2f31e8e828c55b8069fd44ecc8e5a2299c13a59eaf7374abe39934",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-53-river",
+    "purpose": "room-art",
+    "visualType": "exterior-day",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-51-tents)",
+      "path": "art/backgrounds/room-51-tents.png",
+      "hash": "7f5b411fbe2f31e8e828c55b8069fd44ecc8e5a2299c13a59eaf7374abe39934",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "014827af6c60507dbbcb3ac61332404e070fe426ca01d1b632150396327c6ae3",
+   "sourcePath": "art/staging/room-53/panner/template.png",
+   "out": "art/staging/room-53/panner/sheet-01.png",
+   "outputHash": "da91fcea0da60a90522f3822698aeb826bcafded4c38bd0bf7674bd3169222dc",
+   "bytes": 1404914,
+   "usage": {
+    "input_tokens": 10955,
+    "input_tokens_details": {
+     "image_tokens": 10416,
+     "text_tokens": 539
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 11298
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T03:21:32.114Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T03:21:32.122Z"
   }
  ],
  "promotions": [

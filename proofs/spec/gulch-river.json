@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "gulch_river",
+ "note": "ROOM 53's PROOF SPEC, from fixture r53-a (in the camp's trust, Vessel found, nothing called on the bar).",
+ "fixture": "r53-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "The river has one painted state (daylight, errata 190). What changes is who stands on the bar: Vessel and the rule-keeper while Duel One is called (placements), and the bar's LOOK after it; held by tests/gulch-river.test.ts."
+ }
+}

@@ -332,9 +332,10 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "engine:assay:duel_one"
+    "engine:assay:duel_one",
+    "engine:assay:duel_one_bar"
    ],
-   "note": "B5. Written by the duel runner when Duel One ends (it always ends lost, by design). Gates VES_B1 option 5, the rematch (errata 73 H)."
+   "note": "B5. Written by the duel runner when Duel One ends (it always ends lost, by design). Gates VES_B1 option 5, the rematch (errata 73 H). Duel One on the bar in the Gulch writes it too (doc 109, duel_one_bar)."
   },
   {
    "id": "T_DUEL_TWO_LOSSES",
@@ -1702,6 +1703,26 @@
     "engine:ambient:barkTurns gulch_rule_keeper"
    ],
    "note": "Doc 109, THE RULE-KEEPER's barks: said one a visit, in turn (barkTurns), the same with the glass or the fiddle."
+  },
+  {
+   "id": "T_DUEL_ONE_CALLED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:DEACON:VES_G1:ves_g1_3",
+    "dialogue:DEACON:VES_G1:ves_g1_6",
+    "engine:assay:duel_one_bar"
+   ],
+   "note": "Doc 109, DUEL ONE, ON THE BAR: Vessel has called Duel One on the bar (VES_G1 option 6, the challenge, B4; or option 3, the replay). While it holds, he and the rule-keeper are on the bar in Room 53, not in the grog tent, and coming down to the river starts the duel (the room's accost). The duel clears it."
+  },
+  {
+   "id": "PANNER_BARKS",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "engine:ambient:barkTurns gulch_panner"
+   ],
+   "note": "Doc 109, THE PANNER's barks: said one a visit, in turn (barkTurns), the same in every reputation state."
   }
  ]
 }

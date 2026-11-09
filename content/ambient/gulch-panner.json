@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "id": "gulch_panner",
+ "name": "THE PANNER",
+ "posture": "standing",
+ "note": "Doc 109, THE PANNER: 'Knee-deep in the river, in a good coat. Sure the man upstream has found something bigger. He is the voice that mutters the counters in Duel One.' He stands in the channel right of the bar, beside it (room-53 operation 3), drawn whole: his feet are on the river bed and the water hides him from the knees down (clipPlane 2). His tree and barks are doc 109's, extracted; doc 49's ROOM 53 answers a wrong verb on him (errata 202). Barks in turn, the same in every reputation state: the Gulch has not heard of Thad (doc 107).",
+ "room": "gulch_river",
+ "x": 1790,
+ "y": 690,
+ "zone": 2,
+ "approachRadius": 60,
+ "tree": "PANNER",
+ "clipPlane": 2,
+ "walkTo": {
+  "x": 1660,
+  "y": 600,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: at the bar's right end, on the gravel, the channel between them; Thad does not wade to him (doc 55 section 8: beside them, nobody hidden).",
+ "barks": {},
+ "sprite": {
+  "note": "Frames 0-1 are the idle: panning, frowning into the pan, and its breath. Frame 2 is the pan tilted mid-swirl; frame 3 a look back over his shoulder, up the river. Frame 4 is his hand closed on something against his chest (PAN_G1 option 2: 'He closes his hand.'). Frame 5 is talking, a finger raised.",
+  "sheet": "art/actors/room-53-panner.png",
+  "frames": [
+   [
+    2,
+    2,
+    160,
+    380
+   ],
+   [
+    164,
+    2,
+    160,
+    380
+   ],
+   [
+    326,
+    2,
+    160,
+    380
+   ],
+   [
+    488,
+    2,
+    160,
+    380
+   ],
+   [
+    650,
+    2,
+    160,
+    380
+   ],
+   [
+    812,
+    2,
+    160,
+    380
+   ]
+  ],
+  "rate": 0.45,
+  "phase": 0.2,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 9,
+  "talkFrame": 5,
+  "provenance": "art/staging/room-53/panner/panner.json",
+  "frameNote": "0 rest, panning · 1 breath · 2 the swirl · 3 a look upstream · 4 his hand closed against his chest · 5 talking, a finger raised.",
+  "figureHeight": 377,
+  "stature": 1,
+  "figureHeightNote": "The room's man at his feet (soles y 690, on the river bed): cut and snapped there by tools/art/interiors-people.py (errata 112's one level). The engine draws him at the room's man there, so he stands at the curve; the water is the room's, a clip plane, not his."
+ },
+ "barksNote": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (### THE PANNER) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run. Said on approach, one a visit, in turn, the same in every reputation state.",
+ "barkTurns": [
+  {
+   "counter": "PANNER_BARKS",
+   "lines": [
+    "Don't stand there. You're in my light.",
+    "He's found something. I know he has.",
+    "Cold? It's not cold. It's rich."
+   ],
+   "source": "docs/109-fiddlers-gulch-lines.md::### THE PANNER"
+  }
+ ]
+}

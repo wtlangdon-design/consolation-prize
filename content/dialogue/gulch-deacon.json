@@ -130,12 +130,15 @@
           "text": "Teach me to lie like that.",
           "afterUse": "remove",
           "say": "Can't teach it. Can demonstrate it.",
-          "duel": "duel_one",
           "when": {
             "T_DUEL_ONE_LOST": true,
             "T_VESSEL_FOUND": false,
             "T_PLANK_SEAT": true
-          }
+          },
+          "set": {
+            "T_DUEL_ONE_CALLED": true
+          },
+          "ends": true
         },
         {
           "id": "ves_g1_4",
@@ -185,13 +188,16 @@
               "line": "The local way's out on the bar, son. Bring your boots."
             }
           ],
-          "duel": "duel_one",
           "puzzle": {
             "B4": "complete"
           },
           "when": {
             "T_PLANK_SEAT": true
-          }
+          },
+          "set": {
+            "T_DUEL_ONE_CALLED": true
+          },
+          "ends": true
         },
         {
           "id": "ves_g1_5",

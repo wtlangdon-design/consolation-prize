@@ -1,0 +1,193 @@
+{
+ "schema": 1,
+ "id": "room-53-river",
+ "room": "gulch_river",
+ "docRoom": 53,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 53 of Fiddler's Gulch (reference/fiddlers-gulch/brief.md; errata 202, 208; doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/107-fiddlers-gulch.md",
+  "docs/108-the-washout-and-the-mine.md",
+  "docs/109-fiddlers-gulch-lines.md",
+  "docs/49-wrong-answers.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-53.json",
+    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53)"
+   ],
+   "note": "One picture, daylight (errata 190); Duel One called puts Vessel and the rule-keeper on the bar (placements), and the bar's LOOK changes after it."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-53/graybox.json",
+    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53)"
+   ],
+   "note": "Every subject is plate; the men in the river and at the long tom are painted, with no lines; the water over a man is two clip planes."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-53-river-with-thad.png",
+    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53)"
+   ],
+   "note": "The panner from room-53 operation 3, cut at the room's man where he stands and measured against Thad (texture 4.75 against 4.67)."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "content/ambient/gulch-panner.json",
+    "tests/movement.test.mjs"
+   ],
+   "note": "The panner pans, swirls and looks upstream (errata 77)."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-53-duel-one-on-the-bar.png",
+    "tests/gulch-river.test.ts",
+    "tests/lessons.test.ts"
+   ],
+   "note": "The panner and Thad in the ford are under water to the knee; the rule-keeper's lap is on the stump's top."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-53/annotation.json",
+    "art/staging/room-53/plate-01/frame.json"
+   ],
+   "note": "Daylight, errata 190."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-river.test.ts",
+    "docs/109-fiddlers-gulch-lines.md"
+   ],
+   "note": "G7 is not a puzzle to solve: it is called by Vessel (VES_G1 option 6, \"The local way's out on the bar, son.\") and fought on arrival; the bar is in view from the bank."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-53.json",
+    "content/rooms/gulch-river.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-53: 3 of 4 (master; plate; the panner)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/gulch-river.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-53/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/gulch-river/proof.json"
+   ],
+   "note": "No principal change: who stands on the bar is placements, held by the test; the ford's plane has its occlusion mark."
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-river.test.ts"
+   ],
+   "note": "Duel One called in the tent and fought on the bar; the bar's LOOK after it; the panner's tree and barks."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-river.test.ts",
+    "tests/movement.test.mjs"
+   ],
+   "note": "His barks in turn, one a visit; his idle and actions."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-53/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-53-river.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-53/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "the panner",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-53-panner.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-53/panner/panner.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q194 · Room 53, the river: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 208; reference/fiddlers-gulch/brief.md); BUILT, room-53 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate, the panner and the duel on the bar -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q194 · Room 53, the river: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 208; reference/fiddlers-gulch/brief.md); BUILT, room-53 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

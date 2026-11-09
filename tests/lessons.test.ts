@@ -402,6 +402,45 @@ test('a seated figure that declares its seat draws its lap on it', () => {
   assert.deepEqual(misses, []);
 });
 
+// AND IN ANOTHER ROOM, ON ANOTHER SEAT (Room 53: the rule-keeper on the bar's stump during Duel One, doc 109). A placement
+// that sits declares its seat there; the figure is drawn at that room's man where he is, with his foot row on his y,
+// so his lap is measured as the engine draws it. The stump is taller to a man than the keg, so his boots hang above
+// the gravel (a foot row below the frame); drawn at chair height, he would sit partway down it, as he did the barrel.
+test('a seated placement in another room draws its lap on that room\'s seat', async () => {
+  const content = await loadContent(fsReader);
+  const misses: string[] = [];
+  let seen = 0;
+  for (const npc of content.ambient.values()) {
+    for (const [roomId, placed] of Object.entries(npc.placements ?? {})) {
+      if ((placed.posture ?? npc.posture) !== 'seated' || !placed.seat) continue;
+      seen += 1;
+      const sprite = placed.sprite ?? npc.sprite!;
+      const sheet = readPng(readFileSync(resolve(ROOT, sprite.sheet)));
+      const [fx, fy, fw, fh] = sprite.frames[0] as [number, number, number, number];
+      const widths: number[] = [];
+      for (let y = 0; y < fh; y += 1) {
+        let w = 0;
+        for (let x = 0; x < fw; x += 1) if (sheet.pixels[((fy + y) * sheet.width + fx + x) * 4 + 3]! > 128) w += 1;
+        widths.push(w);
+      }
+      const rows = widths.map((w, y) => [w, y] as const).filter(([w]) => w > 0);
+      const top = rows[0]![1];
+      const bottom = rows.at(-1)![1];
+      const lower = rows.filter(([, y]) => y > top + (bottom - top) * 0.4);
+      const widest = Math.max(...lower.map(([w]) => w));
+      const lap = Math.max(...lower.filter(([w]) => w >= widest * 0.85).map(([, y]) => y));
+      const room = content.rooms.get(roomId)!;
+      const box = new WalkBoxes(room.walkBoxes!).boxAt(placed.x, placed.y) ?? room.walkBoxes![0]!;
+      const man = heightIn(box, placed.y);
+      const k = (man * (sprite.stature ?? 1)) / sprite.figureHeight!;
+      const drawn = placed.y + (lap - (sprite.footRow ?? fh - 1)) * k;
+      if (Math.abs(drawn - placed.seat.y) > 12) misses.push(`${npc.id} in ${roomId}: lap drawn at y ${Math.round(drawn)}, seat top at y ${placed.seat.y}`);
+    }
+  }
+  assert.ok(seen > 0, 'no seated placement declares its seat: the check reads nothing');
+  assert.deepEqual(misses, []);
+});
+
 /* ---- A prop in front of a figure paints only its objects over him ---------- */
 
 // Errata 197 (Tyler, of the dinner: "the other guy's shoulder is partially missing behind the candle"). A prop

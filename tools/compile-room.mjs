@@ -2009,6 +2009,22 @@ for (const [id, entry] of examineEntries) {
       }));
     }),
   ];
+  // AUTHORED BOXES, WHERE THE FLOOR IS NOT ONE SPAN A BAND (doc 109, THE RIVER: a gravel bar mid-stream, reached by a
+  // ford across the near channel). A band is one span, so a floor in two pieces joined by a strip at one depth cannot
+  // be sliced into bands; the pieces the bands cannot hold are declared as rects (`walkBoxesExtra`), each with its own
+  // plane from the same `occlusion.clipPlane` table by its id, and joined to the bands by the geometry below, as every
+  // box is. Room 53's ford is one of them: level, so the water at his knees is one band of rows (plane 1).
+  for (const extra of ann.walkBoxesExtra ?? []) {
+    const [x, y, w, h] = extra.rect;
+    built.walkBoxes.push({
+      id: extra.id,
+      points: [{ x, y }, { x: x + w, y }, { x: x + w, y: y + h }, { x, y: y + h }],
+      surface: extra.surface ?? 'mud',
+      clipPlane: authoredPlane(extra.id),
+      scaleMode: scale,
+      neighbours: [],
+    });
+  }
   // NEIGHBOURS ARE DERIVED FROM THE GEOMETRY, NOT LISTED BY HAND.
   //
   // Carving broke the hand-written lists twice over: the lip named a mud_far
@@ -2124,6 +2140,10 @@ for (const [id, entry] of examineEntries) {
     if (!carve(rect).length) return [];
     return [{ id, zone, surface: 'mud', rect }];
   });
+  for (const extra of ann.walkBoxesExtra ?? []) {
+    const zone = Math.min(2, Math.max(0, Math.floor(((B - (extra.rect[1] + extra.rect[3] / 2)) * 3) / Math.max(1, B - T))));
+    built.walkable.push({ id: extra.id, zone, surface: extra.surface ?? 'mud', rect: extra.rect });
+  }
   built.walkableOutline = ann.walkable;
   // ENTRANCES, PLURAL, WHICH IS WHAT THE ENGINE READS. The compiler wrote a
   // bare `entrance: [x, y]` and GameState.entranceInto looks for a list of

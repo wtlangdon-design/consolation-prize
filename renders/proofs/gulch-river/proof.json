@@ -1,0 +1,489 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "gulch_river",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "a233c140b22f2152a62909c1c42204eb599287d6",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "M art/staging/ledger.json",
+  " M content/acted-directions.json",
+  " M content/ambient/gulch-deacon.json",
+  " M content/ambient/gulch-rule-keeper.json",
+  " M content/assay/assay.json",
+  " M content/audio/sounds.json",
+  " M content/dialogue/gulch-deacon.json",
+  " M content/fixtures/room-45.json",
+  " M content/flags/flags.json",
+  " M content/manifest.json",
+  " M content/ui/speech-colours.json",
+  " M docs/95-acted-directions.md",
+  " M engine/core/Assay.ts",
+  " M engine/core/DialoguePerformance.ts",
+  " M engine/core/DialogueRunner.ts",
+  " M engine/core/types.ts",
+  " M engine/scenes/GameScene.ts",
+  " M tests/gulch-grog-tent.test.ts",
+  " M tests/lessons.test.ts",
+  " M tools/art/interiors-people.py",
+  " M tools/audio/render-gulch-sfx.py",
+  " M tools/compile-room.mjs",
+  " M tools/extract-content.mjs",
+  " M tools/extract-examine.mjs",
+  "?? art/actors/room-53-panner.png",
+  "?? art/masks/room-53-plane-1.png",
+  "?? art/masks/room-53-plane-2.png",
+  "?? audio/sfx/bar-pebble.wav",
+  "?? audio/sfx/river-bed.wav",
+  "?? content/ambient/gulch-panner.json",
+  "?? content/dialogue/gulch-panner.json",
+  "?? content/examine/room-53.json",
+  "?? content/rooms/gulch-river.json",
+  "?? proofs/spec/gulch-river.json",
+  "?? reference/room-53/annotation.json",
+  "?? reference/room-53/prompts/panner-01.spec.json",
+  "?? reference/room-53/prompts/panner-01.txt",
+  "?? renders/proofs/gulch-river/",
+  "?? renders/room-53-water-planes.png",
+  "?? tests/gulch-river.test.ts",
+  "?? tools/art/room53-water-mask.py"
+ ],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r53-a, then entered gulch_river by control -- NOT proof that a player can reach it"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "floor_0",
+    "kind": "far",
+    "y": 301,
+    "xs": [
+     615,
+     574,
+     656,
+     533,
+     698,
+     491,
+     739,
+     450,
+     780
+    ],
+    "expect": 111,
+    "x": 615
+   },
+   "at": [
+    615,
+    301
+   ],
+   "reportedHeight": 111,
+   "expected": 111,
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "bounds": [
+    556,
+    190,
+    118,
+    123
+   ],
+   "order": 0,
+   "renderedHeight": 112,
+   "renderedBottom": 301,
+   "file": "raw-captures-ignored/panel-c-floor_0-far.png"
+  },
+  {
+   "mark": {
+    "box": "floor_6",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     478,
+     381,
+     574,
+     284,
+     671,
+     187,
+     768,
+     90,
+     865
+    ],
+    "expect": 489,
+    "x": 478
+   },
+   "at": [
+    478,
+    857
+   ],
+   "reportedHeight": 489,
+   "expected": 489,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    219,
+    368,
+    518,
+    540
+   ],
+   "order": 0,
+   "renderedHeight": 489,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-floor_6-near.png"
+  }
+ ],
+ "occlusion": [
+  {
+   "mark": {
+    "box": "ford",
+    "level": 1,
+    "mask": "art/masks/room-53-plane-1.png",
+    "y": 500,
+    "xs": [
+     960
+    ],
+    "note": "Mid-ford: the near channel's water covers him from the knee down (plane 1); the bank and the bar either side are dry.",
+    "x": 960
+   },
+   "clipLevel": 1,
+   "mask": "art/masks/room-53-plane-1.png",
+   "reportedBounds": [
+    829,
+    254,
+    261,
+    272
+   ],
+   "renderedSilhouette": {
+    "x": 931,
+    "y": 254,
+    "width": 41,
+    "height": 167,
+    "bottom": 420,
+    "right": 971,
+    "changed": 5719
+   },
+   "cutShare": 0.16474368336497736,
+   "file": "raw-captures-ignored/panel-c-occlusion-ford.png"
+  }
+ ],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "gulch_panner",
+   "feet": [
+    1790,
+    690
+   ],
+   "sheet": "art/actors/room-53-panner.png",
+   "clipPlane": 2,
+   "box": {
+    "x": 1710,
+    "y": 310,
+    "width": 160,
+    "height": 382
+   },
+   "seen": {
+    "x": 1728,
+    "y": 315,
+    "width": 115,
+    "height": 274,
+    "bottom": 588,
+    "right": 1842,
+    "changed": 20765
+   },
+   "props": [],
+   "maskedAbove": 588
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "gulch_river",
+   "clock": 9.3312,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_MINE_CROSSED",
+    "T_CAMP_TRUSTS",
+    "T_DEACON_FOUND",
+    "T_PLANK_SEAT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      150,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 423,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      -74,
+      337,
+      448,
+      467
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:gulch_river",
+     "path": "art/backgrounds/room-53-river.png",
+     "drawn": "art/backgrounds/room-53-river.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2bfe982481132a957ad4990cb0ca08152b32966dcf587b14d81e452326ceae76"
+    },
+    {
+     "key": "art/masks/room-53-plane-1.png",
+     "path": "art/masks/room-53-plane-1.png",
+     "drawn": "art/masks/room-53-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3f25ec1acb8044b6072f29733f531606e097f009e72164393070df5a8ca9fac9"
+    },
+    {
+     "key": "art/masks/room-53-plane-2.png",
+     "path": "art/masks/room-53-plane-2.png",
+     "drawn": "art/masks/room-53-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "033fd8addb980b877b9c8ba42c60909a2716761c731d6ea7c08ab70ca987bb08"
+    },
+    {
+     "key": "art/actors/room-53-panner.png",
+     "path": "art/actors/room-53-panner.png",
+     "drawn": "art/actors/room-53-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "052fdaa8007e4bba1eabc58ce97545498a4a1b452608bcc77780e4a739c4866a"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(gulch_river)"
+   ],
+   "capturedAt": "2026-11-09T03:35:30.071Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "cdf910e4b474f4bd6724f55d37e427824d378b37f6c20285376746ef6e056c39"
+  },
+  {
+   "panel": "A",
+   "room": "gulch_river",
+   "clock": 10.5145,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_MINE_CROSSED",
+    "T_CAMP_TRUSTS",
+    "T_DEACON_FOUND",
+    "T_PLANK_SEAT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      150,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 423,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:gulch_river",
+     "path": "art/backgrounds/room-53-river.png",
+     "drawn": "art/backgrounds/room-53-river.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2bfe982481132a957ad4990cb0ca08152b32966dcf587b14d81e452326ceae76"
+    },
+    {
+     "key": "art/masks/room-53-plane-1.png",
+     "path": "art/masks/room-53-plane-1.png",
+     "drawn": "art/masks/room-53-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3f25ec1acb8044b6072f29733f531606e097f009e72164393070df5a8ca9fac9"
+    },
+    {
+     "key": "art/masks/room-53-plane-2.png",
+     "path": "art/masks/room-53-plane-2.png",
+     "drawn": "art/masks/room-53-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "033fd8addb980b877b9c8ba42c60909a2716761c731d6ea7c08ab70ca987bb08"
+    },
+    {
+     "key": "art/actors/room-53-panner.png",
+     "path": "art/actors/room-53-panner.png",
+     "drawn": "art/actors/room-53-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "052fdaa8007e4bba1eabc58ce97545498a4a1b452608bcc77780e4a739c4866a"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(gulch_river)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-09T03:35:31.093Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "a00c7c14bea07c9cef0ec4c808e60a04f4a7378ae84b5c91274bbba5a3fb5a7f"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-09T03:35:37.798Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 635434,
+  "panels": 5,
+  "scale": 0.5
+ }
+}

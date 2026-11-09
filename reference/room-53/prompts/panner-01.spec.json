@@ -1,0 +1,16 @@
+{
+ "assetId": "room-53",
+ "subject": "room-53-panner",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-53-river",
+ "promptFile": "reference/room-53/prompts/panner-01.txt",
+ "out": "art/staging/room-53/panner/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-53/panner/template.png",
+  "art/staging/room-53/panner/face.png",
+  "art/staging/room-53/panner/thad-in-room.png"
+ ],
+ "derivedFrom": "art/staging/room-53/composition-master-01.png"
+}

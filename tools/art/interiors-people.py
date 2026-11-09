@@ -101,6 +101,17 @@ PEOPLE = {
         'feet': (1202, 714), 'stature': 1.0, 'posture': 'behind-counter', 'curve': ((714, 385), (830, 470)),
         'plate': 'art/backgrounds/room-52-grog-tent.png', 'thadAt': (1000, 800), 'roomCrop': (600, 0, 1800, 864),
     },
+    # The river (Room 53). The panner, knee-deep in the channel right of the bar (room-53 operation 3), drawn whole and
+    # standing: his feet are on the river bed at y 690 and the water hides him from the knees down (a clip plane), as it
+    # does Thad in the ford. His face from the room's master. The curve is the master's own: Thad 366 tall at y 676 in
+    # the plate, Room 5's 0.68 slope.
+    (53, 'panner'): {
+        'master': 'art/staging/room-53/composition-master-01.png', 'faceBox': (793, 573, 853, 633),
+        'drawn': 5, 'names': ['rest', 'breath', 'swirl', 'upstream', 'fist', 'talk'],
+        'feet': (1790, 690), 'stature': 1.0, 'posture': 'standing',
+        'curve': ((676, 366), (858, 490)),
+        'plate': 'art/backgrounds/room-53-river.png', 'thadAt': (1560, 610), 'roomCrop': (1000, 150, 1920, 864),
+    },
     # Grievance at the washout is her livery generation's whole-mule sheet (room-15 operation 4), five poses facing us;
     # it fits the day's light, so no operation is spent.
     # Her ear tips stand 1.2 of the man at her hooves (errata 205's mule: 1.10-1.35; she is 1.19 over the livery door).

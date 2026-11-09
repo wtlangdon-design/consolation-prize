@@ -522,6 +522,16 @@
     "release": 1.5
    },
    "room": "grog_tent"
+  },
+  "R53-PEBBLE": {
+   "why": "doc 45 R53-PEBBLE: the rule-keeper moves a pebble from one pile to the other after each exchange of Duel One on the bar -- one pebble set down on gravel, cold, its natural tail (doc 109; tools/audio/render-gulch-sfx.py). In place of the judges' pencil, heard over the jaw harp at a featured cue's level.",
+   "play": [
+    {
+     "src": "audio/sfx/bar-pebble.wav",
+     "gain": 0.87
+    }
+   ],
+   "room": "gulch_river"
   }
  },
  "verbs": [
@@ -778,6 +788,7 @@
    "ledge": "dirt",
    "gulch_tents": "dirt",
    "grog_tent": "dirt",
+   "gulch_river": "mud",
    "mine_adit": "dirt",
    "mine_climb": "dirt",
    "mine_two_rocks": "dirt",
@@ -851,6 +862,11 @@
    "src": "audio/sfx/grog-bed.wav",
    "gain": 1.0,
    "why": "doc 45 R52-A: low talk, glasses set down, the plank creaking (tools/audio/render-gulch-sfx.py)."
+  },
+  "gulch_river": {
+   "src": "audio/sfx/river-bed.wav",
+   "gain": 0.215,
+   "why": "doc 45 R53-A: fast water over stones, the rocker's slow knock, gravel down the long tom (tools/audio/render-gulch-sfx.py)."
   }
  },
  "lines": [
