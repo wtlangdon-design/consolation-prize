@@ -269,6 +269,7 @@
  "title": "content/ui/title.json",
  "actCards": "content/act-cards.json",
  "cutaways": "content/cutaways.json",
+ "saveMigrations": "content/save-migrations.json",
  "combinations": "content/combinations.json",
  "itemIcons": "content/ui/item-icons.json",
  "actors": [

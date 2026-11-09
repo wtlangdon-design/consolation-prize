@@ -1090,6 +1090,20 @@
       "speaker": "thad",
       "words": "Thad climbs on. Grievance considers it, then turns for home.",
       "where": "rooms/washout departure (the ride home)"
+    },
+    {
+      "n": 102,
+      "class": "C",
+      "speaker": "pie_woman",
+      "words": "The pie woman looks at his coat, then his boots, and prices him.",
+      "where": "dialogue/amb-pie-woman root opening"
+    },
+    {
+      "n": 103,
+      "class": "C",
+      "speaker": "map_seller",
+      "words": "The map seller brightens considerably.",
+      "where": "dialogue/amb-map-seller root opening"
     }
   ]
 }

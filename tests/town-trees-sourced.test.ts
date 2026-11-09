@@ -21,14 +21,14 @@ const doc04 = normal(readFileSync(resolve(ROOT, 'docs/04-dialogue-trees.md'), 'u
 
 type Option = { text?: string; tag?: string; say?: string; repeat?: string | string[];
   exchange?: { line: string; direction?: boolean }[] };
-type Tree = { nodes: Record<string, { prompt?: string; options: Option[] }> };
+type Tree = { nodes: Record<string, { prompt?: string; opening?: { line: string }[]; options: Option[] }> };
 
 test('every line of every townsperson\'s tree is written in doc 07', () => {
   const missing: string[] = [];
   for (const file of readdirSync(resolve(ROOT, 'content/dialogue')).filter((name) => name.startsWith('amb-'))) {
     const tree = JSON.parse(readFileSync(resolve(ROOT, 'content/dialogue', file), 'utf8')) as Tree;
     for (const node of Object.values(tree.nodes)) {
-      const lines: string[] = node.prompt ? [node.prompt] : [];
+      const lines: string[] = [...(node.prompt ? [node.prompt] : []), ...(node.opening ?? []).map((one) => one.line)];
       for (const option of node.options) {
         if (option.tag === 'EXIT') {
           if (option.text && !doc04.includes(normal(option.text))) missing.push(`${file}: exit "${option.text}"`);

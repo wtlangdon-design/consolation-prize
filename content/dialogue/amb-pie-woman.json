@@ -7,7 +7,15 @@
   "nodes": {
     "root": {
       "id": "root",
-      "prompt": "The pie woman looks at his coat, then his boots, and prices him.",
+      "noPrompt": true,
+      "exceptionReason": "Doc 07's opening is a stage line, performed as a direction, not held over the options.",
+      "opening": [
+        {
+          "speaker": "pie_woman",
+          "line": "The pie woman looks at his coat, then his boots, and prices him.",
+          "direction": true
+        }
+      ],
       "options": [
         {
           "id": "pie_woman1",

@@ -147,7 +147,9 @@ test('his tree opens on the side of G3 the player is on, with the options that s
     const entry = (tree.entries ?? []).find((one) => state.flags.test(one.when));
     const node = tree.nodes[entry?.node ?? tree.start]!;
     const openings = [...doc109.matchAll(/^> \*\*LOOKOUT:\*\* \*\((before|after) G3\)\* "([^"]+)"/gm)];
-    assert.equal(node.prompt, openings.find((m) => (m[1] === 'after') === trusted)![2]);
+    // What is SPOKEN, not the prompt the renderer draws nowhere (errata 218: this line was only ever the prompt).
+    assert.deepEqual(state.dialogue.openingOf(tree.id).map((one) => one.line),
+      [openings.find((m) => (m[1] === 'after') === trusted)![2]], 'his opening is spoken, the side of G3 the player is on');
     const offered = node.options.filter((one) => state.flags.test(one.when)).map((one) => one.text);
     assert.equal(offered.includes(quotes(lineStarting('| 5 |'))[0]!), trusted, 'You trust me now? -- after G3 only');
     assert.equal(offered.includes(quotes(lineStarting('| 1 |'))[0]!), !trusted, "I'm not a claim jumper -- before G3 only");

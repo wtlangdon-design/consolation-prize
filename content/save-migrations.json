@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "note": "Errata 218: what loading a save written under an earlier save version rewrites, so a game saved before a design change can still be finished. Applied by engine/core/SaveMigration.ts on load, rule by rule, in order; a save at the current version (engine/core/SaveManager.ts SAVE_VERSION) and a playtest fixture are never touched. Routing only: ids, no lines.",
+  "migrations": [
+    {
+      "from": 2,
+      "to": 3,
+      "source": "docs/00-errata.md::218 (errata 213: B1's Clarion, B3 ends at the washout, T_VESSEL_FOUND is G9's)",
+      "note": "Fiddler's Gulch changed B1 and B3 under saves at version 2. The ride first, so a save it sends back before B3 is then given the Clarion the trip needs.",
+      "rules": [
+        {
+          "id": "old-b3-ride-before-the-trip",
+          "note": "Saved after B3 as it was (the ride put Thad in the Nugget and wrote T_VESSEL_FOUND) and before B4: the Gulch never visited, Duel One never called or fought. Room 4's VES_B1 no longer offers B4 or B5 and the livery refuses B3 again, so B6 could never be reached. B3 is withdrawn and Vessel is not yet found, so the fork on Grievance rides to the washout as B3 now does; his Room 4 greeting, heard as it was, is owed again after the trip.",
+          "when": {
+            "T_VESSEL_FOUND": true,
+            "T_GULCH_TRIP": false,
+            "T_DUEL_ONE_CALLED": false,
+            "T_DUEL_ONE_LOST": false
+          },
+          "puzzles": { "B4": "incomplete" },
+          "set": {
+            "T_VESSEL_FOUND": false,
+            "T_VESSEL_GREETED": false
+          },
+          "withdraws": ["B3"],
+          "closesDialogue": true
+        },
+        {
+          "id": "old-b1-without-g3-paper",
+          "note": "Saved after B1 as it was (Frame's story paid with the destination and no Clarion) and before the trip's G3: Frame's options are spent, so the Clarion G3 gives the lookout could never be had, and the trip could not be finished. It is given now, as B1 now gives it.",
+          "when": {
+            "T_VESSEL_LOCATION": true,
+            "T_CAMP_TRUSTS": false,
+            "T_VESSEL_FOUND": false
+          },
+          "lacks": ["clarion"],
+          "gives": ["clarion"]
+        }
+      ]
+    }
+  ]
+}

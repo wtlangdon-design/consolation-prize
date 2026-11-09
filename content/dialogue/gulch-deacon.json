@@ -18,6 +18,12 @@
     "DEA_G1": {
       "id": "DEA_G1",
       "prompt": "What'll it be, son? We take dust.",
+      "opening": [
+        {
+          "speaker": "gulch_deacon",
+          "line": "What'll it be, son? We take dust."
+        }
+      ],
       "options": [
         {
           "id": "gulch_deacon1",

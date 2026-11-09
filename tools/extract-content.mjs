@@ -2030,13 +2030,14 @@ function gulchPeople() {
     }
     options.push(...gulchMessages(person));
     options.push({ id: `${person.speaker}x`, tag: 'EXIT', text: POOL[index % POOL.length], universal: true, ends: true });
-    // The prompt is the opening's last line; an opening that ends on a direction (RUL_G1: *(Nobody asked.)*) plays
-    // whole, and the options follow it with no line held over them.
+    // THE OPENING IS CARRIED WHOLE AND SPOKEN, as Frame's and Sump's are: the engine voices `opening` and nothing
+    // else, so a line kept only in `prompt` was never heard (errata 218: four of the five openings, one line each,
+    // and the last line of any longer one). The prompt is its last line, the caption; an opening that ends on a
+    // direction (RUL_G1: *(Nobody asked.)*) has no line held over the options.
     const node = (id, side) => (side.lines.at(-1)?.direction
       ? { id, noPrompt: true, exceptionReason: 'Doc 109 ends the opening on a direction, which is performed, not held over the options.',
         opening: side.lines, options }
-      : { id, ...(side.lines.length ? { prompt: side.lines.at(-1).line } : { noPrompt: true }),
-        ...(side.lines.length > 1 ? { opening: side.lines.slice(0, -1) } : {}), options });
+      : { id, ...(side.lines.length ? { prompt: side.lines.at(-1).line, opening: side.lines } : { noPrompt: true }), options });
     const nodes = {};
     const entries = [];
     opening.forEach((side, n) => {
@@ -5321,7 +5322,8 @@ function ozymandiaTree() {
       + 'The universal exit line is doc 04 part one\'s pool.',
     entries: [],
     start: 'OZY_A1',
-    nodes: { OZY_A1: { id: 'OZY_A1', prompt, options } },
+    // Her opening is spoken (errata 218): the engine voices `opening`, and a line kept only in `prompt` was never heard.
+    nodes: { OZY_A1: { id: 'OZY_A1', prompt, opening: [{ speaker: SPEAKER, line: prompt }], options } },
   });
 }
 
@@ -6046,8 +6048,11 @@ function townTrees() {
         + (opening ? 'The opening is doc 07\'s stage line. ' : 'Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). ')
         + 'The exit is doc 04 part one\'s pool, rotated in play (errata 110, 167).',
       start: 'root',
+      // The stage line is performed as the conversation opens, as a direction over the character (as RUL_G1's
+      // *(Nobody asked.)* is), not kept as a `prompt` the renderer draws nowhere (errata 218).
       nodes: { root: opening
-        ? { id: 'root', prompt: plain(opening), options }
+        ? { id: 'root', noPrompt: true, exceptionReason: 'Doc 07\'s opening is a stage line, performed as a direction, not held over the options.',
+          opening: [{ speaker: spec.speaker, line: plain(opening), direction: true }], options }
         : { id: 'root', noPrompt: true, exceptionReason: 'Doc 07 writes the micro-tree as options only; the greeting is the bark.', options } },
     }));
   }

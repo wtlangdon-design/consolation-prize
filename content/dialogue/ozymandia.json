@@ -11,6 +11,12 @@
     "OZY_A1": {
       "id": "OZY_A1",
       "prompt": "The rod has been expecting you.",
+      "opening": [
+        {
+          "speaker": "ozymandia",
+          "line": "The rod has been expecting you."
+        }
+      ],
       "options": [
         {
           "id": "ozymandia1",
