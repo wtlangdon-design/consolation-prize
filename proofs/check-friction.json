@@ -499,6 +499,12 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 219: not loosened. Only its scope comment and one note changed -- the 'ordering-aware half deferred to the puzzle graph (Phase 5)' note now names check-puzzle-graph.mjs, which does that half since errata 219. No gate, threshold or failure changed; the friction check matched the number in the note."
+  },
+  {
+   "check": "tests/load-by-room.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 221: a real widening, made on purpose. The bound 'a room asks for no more plates than itself and its neighbours' counted only exit rooms as neighbours, so it would have failed the fix: a room's own gotos and its item pairs' gotos are now next door (BootAssets.gotoRooms), because the full playthrough found the Washout drawn without its signpost after the ride. The bound now counts exits and gotos, and nothing else; it still fails a room that asks for the whole game or for plates it never hands on to. The same pull request adds two tests that are stricter than before (every map place and every goto target is asked for whole before arrival)."
   }
  ]
 }
