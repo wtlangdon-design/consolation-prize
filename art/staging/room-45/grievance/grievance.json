@@ -1,0 +1,59 @@
+{
+ "sheet": "art/actors/room-45-grievance.png",
+ "frames": [
+  [
+   2,
+   2,
+   107,
+   278
+  ],
+  [
+   111,
+   2,
+   107,
+   278
+  ],
+  [
+   220,
+   2,
+   107,
+   278
+  ],
+  [
+   329,
+   2,
+   107,
+   278
+  ],
+  [
+   438,
+   2,
+   107,
+   278
+  ],
+  [
+   547,
+   2,
+   107,
+   278
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "still",
+  "ears",
+  "head-left",
+  "snort"
+ ],
+ "figureHeight": 278,
+ "stature": 0.83,
+ "posture": "animal",
+ "man": 334.7,
+ "feet": [
+  480,
+  803
+ ],
+ "note": "Room 45: the room's man where they stand (soles at y 803) is 334.7; drawn at 0.83 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
+ "source": "room-45 (art/staging/room-15/grievance-01/sheet.png)"
+}
