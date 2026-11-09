@@ -136,9 +136,13 @@ def no_brighter(src, small, factor, item):
     """A box average can never be brighter than the brightest drawn pixel it read.
     Fails the cut if one is -- the double un-premultiply this cutter once had."""
     drawn = src[..., 3] > 0
+    # EACH AXIS'S OWN SCALE, not the fit factor: the reduction rounds the width and height, so an object's real scale
+    # is its source size over its reduced size, and reading the footprint by `factor` drifted off the pixels BOX
+    # averaged -- forty pixels into the Gulch's rolled Clarion it read the outline beside them (Fiddler's Gulch).
+    sy, sx = src.shape[0] / small.shape[0], src.shape[1] / small.shape[1]
     for yy, xx in zip(*np.where(small[..., 3] > 0)):
-        y0, x0 = max(0, int(yy * factor) - 1), max(0, int(xx * factor) - 1)
-        y1, x1 = int(np.ceil((yy + 1) * factor)) + 1, int(np.ceil((xx + 1) * factor)) + 1
+        y0, x0 = max(0, int(yy * sy) - 1), max(0, int(xx * sx) - 1)
+        y1, x1 = int(np.ceil((yy + 1) * sy)) + 1, int(np.ceil((xx + 1) * sx)) + 1
         foot = drawn[y0:y1, x0:x1]
         if not foot.any():
             continue

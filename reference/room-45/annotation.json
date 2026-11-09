@@ -1,0 +1,285 @@
+{
+ "room": "washout",
+ "plate": "art/backgrounds/room-45-washout.png",
+ "plateNote": "Read on the promoted plate (art/backgrounds/room-45-washout.png, room-45 operation 2, derived and promoted by tools/art/interiors-plate.mjs; frame.json beside the candidate). Every rect below was read off that picture.",
+ "plateShipping": "art/backgrounds/room-45-washout.png",
+ "plateShippingHash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   120,
+   760
+  ],
+  [
+   700,
+   720
+  ],
+  [
+   1000,
+   790
+  ],
+  [
+   1420,
+   800
+  ],
+  [
+   1560,
+   720
+  ],
+  [
+   1650,
+   650
+  ],
+  [
+   1800,
+   650
+  ],
+  [
+   1720,
+   760
+  ],
+  [
+   1600,
+   858
+  ],
+  [
+   120,
+   858
+  ]
+ ],
+ "walkableNote": "THE ROAD, from the road back at the left to the mine's mouth at the right: under the slide's toe and between the boulders, up the rails to the mouth.",
+ "scaling": {
+  "far": {
+   "y": 690,
+   "height": 258
+  },
+  "near": {
+   "y": 858,
+   "height": 372
+  },
+  "note": "ROOM 45'S DEPTH, FROM THE MASTER: Thad was painted 375 tall with his feet at the frame's foot (y 858 after the crop at row 140), the claims road's man; along Room 5's exterior slope (0.68 a row) that is 258 at the band's far edge. Grievance, 278 at y 803, is 0.83 of the man there."
+ },
+ "entrance": [
+  300,
+  800
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "Off Grievance, at the road's end (doc 108: the ride, over black)."
+  },
+  {
+   "from": "livery",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "B3's ride (doc 108, THE RIDE), once the trip is reached from Consolation."
+  },
+  {
+   "from": "mine_adit",
+   "at": [
+    1720,
+    690
+   ],
+   "facing": "left",
+   "note": "Out of the old mine."
+  },
+  {
+   "from": "ledge",
+   "at": [
+    1720,
+    690
+   ],
+   "facing": "left",
+   "note": "Through the mine from the ledge, the way known (doc 107)."
+  }
+ ],
+ "hotspots": {
+  "signpost": [
+   855,
+   465,
+   180,
+   300
+  ],
+  "grievance": [
+   430,
+   520,
+   110,
+   290
+  ],
+  "road_back": [
+   0,
+   380,
+   330,
+   484
+  ],
+  "slide": [
+   1030,
+   20,
+   560,
+   780
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE SLIDE takes in the fallen pine. GRIEVANCE is her figure on the grass. THE OLD MINE is the way in.",
+ "people": {},
+ "exitSubjects": {
+  "THE OLD MINE": {
+   "id": "to_mine_adit",
+   "to": "mine_adit",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 108: the way in, until the first crossing.",
+   "when": {
+    "T_MINE_CROSSED": false
+   }
+  },
+  "THE OLD MINE#through": {
+   "id": "to_ledge",
+   "to": "ledge",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 107: after the first crossing the washout and the ledge join directly; doc 108's THE WAY THROUGH is said on the first such walk.",
+   "when": {
+    "T_MINE_CROSSED": true
+   },
+   "stateOf": "to_mine_adit",
+   "transitScene": [
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE WASHOUT",
+     "bold": "THE WAY THROUGH",
+     "when": {
+      "T_WAY_THROUGH_SAID": false
+     },
+     "set": {
+      "T_WAY_THROUGH_SAID": true
+     }
+    }
+   ]
+  }
+ },
+ "exits": {
+  "to_mine_adit": [
+   1590,
+   320,
+   300,
+   340
+  ],
+  "to_ledge": [
+   1590,
+   320,
+   300,
+   340
+  ]
+ },
+ "exitWalkTo": {
+  "to_mine_adit": {
+   "x": 1720,
+   "y": 680,
+   "facing": "right"
+  },
+  "to_ledge": {
+   "x": 1720,
+   "y": 680,
+   "facing": "right"
+  }
+ },
+ "obstacles": [
+  {
+   "id": "grievance",
+   "rect": [
+    425,
+    770,
+    120,
+    45
+   ],
+   "keepsGroundAbove": true,
+   "note": "She stands on the washout's floor at 480,803, and the bands ran straight through her (tests/staging-clear.test.ts, 'nobody walks through an animal'). The rect is her footprint, the bottom of her own hotspot rect: he walks round her, in front or behind, as Main Street's dog."
+  }
+ ],
+ "lamps": [],
+ "defaultVerbs": {
+  "signpost": "LOOK_AT",
+  "grievance": "LOOK_AT",
+  "road_back": "LOOK_AT",
+  "slide": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object is looked at on a bare click; every way walks.",
+ "occlusion": {
+  "note": "Nothing stands nearer the camera than the walk band.",
+  "clipPlane": {
+   "floor_0": 0,
+   "floor_1": 0,
+   "floor_2": 0,
+   "floor_3": 0,
+   "floor_4": 0,
+   "floor_5": 0,
+   "floor_6": 0,
+   "floor_7": 0,
+   "floor_8": 0,
+   "floor_9": 0,
+   "floor_10": 0,
+   "floor_11": 0
+  },
+  "planes": []
+ },
+ "hotspotWalkTo": {
+  "grievance": {
+   "x": 650,
+   "y": 815,
+   "facing": "left"
+  }
+ },
+ "onEnterSay": {
+  "fromRef": "docs/108-the-washout-and-the-mine.md::## THE WASHOUT",
+  "bold": "ON FIRST ARRIVAL",
+  "sayOnce": "T_WASHOUT_SEEN"
+ },
+ "onEnterSet": {
+  "T_WASHOUT_SEEN": true
+ },
+ "verbRules": [
+  {
+   "hotspot": "grievance",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/108-the-washout-and-the-mine.md::## THE WASHOUT",
+   "startsWith": "**TALK TO**"
+  },
+  {
+   "hotspot": "grievance",
+   "verbs": [
+    "USE"
+   ],
+   "when": {
+    "T_VESSEL_FOUND": false
+   },
+   "ref": "docs/108-the-washout-and-the-mine.md::## THE WASHOUT",
+   "startsWith": "**USE** *(to ride home"
+  }
+ ],
+ "props": [
+  {
+   "id": "signpost_lettering",
+   "sheet": "art/props/room-45-signpost.png",
+   "x": 940,
+   "y": 554,
+   "frame": [
+    0,
+    0,
+    108,
+    44
+   ],
+   "note": "THE SIGNPOST's words in the shipping face, from its first LOOK (doc 108), with the 3 scratched out as its third LOOK says (tools/art/gulch-lettering.py): the generator draws the plank blank."
+  }
+ ]
+}

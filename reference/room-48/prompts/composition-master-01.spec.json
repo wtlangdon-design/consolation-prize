@@ -1,0 +1,17 @@
+{
+ "assetId": "room-48",
+ "subject": "room-48-mine-two-rocks",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-48-mine-two-rocks",
+ "promptFile": "reference/room-48/prompts/composition-master-01.txt",
+ "out": "art/staging/room-48/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-48/layout-1536x1024.png",
+  "art/backgrounds/room-34-under-prosperity.png",
+  "art/backgrounds/room-47-mine-climb.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

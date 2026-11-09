@@ -1560,6 +1560,74 @@
     "dialogue:* universal exit (engine/core/DialogueRunner.ts)"
    ],
    "note": "Errata 167: how many of doc 04's universal exits Thad has taken. Every universal exit shows the pool's line at this count, so the four goodbyes come round in turn rather than one node always saying the same one. Saved with the rest, so a loaded game goes on to the next goodbye. Gates nothing."
+  },
+  {
+   "id": "T_WASHOUT_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:washout:onEnter"
+   ],
+   "note": "Doc 108: the washout's ON FIRST ARRIVAL line, said once; set as it plays."
+  },
+  {
+   "id": "T_MINE_ENTERED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:mine_adit:onEnter"
+   ],
+   "note": "Doc 108: THE MINE · ON FIRST ENTERING, said once at the adit; set as it plays."
+  },
+  {
+   "id": "T_MINE_CROSSED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:mine_line:right_passage:transit"
+   ],
+   "note": "Doc 107: the first crossing of the mine. Set taking the line's right passage to the ledge; from then the washout's THE OLD MINE goes straight to the ledge."
+  },
+  {
+   "id": "T_WAY_THROUGH_SAID",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:washout:to_ledge:transit"
+   ],
+   "note": "Doc 108: THE WAY THROUGH is said on the first walk straight through to the ledge, and not again."
+  },
+  {
+   "id": "MINE_BACK_AGAIN",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "room:mine_adit:left_opening:transit",
+    "room:mine_adit:middle_opening:transit",
+    "room:mine_climb:passage_on:transit",
+    "room:mine_two_rocks:way_past_other_rock:transit",
+    "room:mine_line:left_passage:transit"
+   ],
+   "note": "Doc 108, THE MINE · BACK WHERE HE STARTED: how many of its five lines have been said, one each time a wrong way brings him out where he has been; after the fifth, the fifth again. Counted in a flag so a save keeps its place (the brief)."
+  },
+  {
+   "id": "ROD_AT_LINE",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "combination:brass_rod:mine_line:left_passage",
+    "combination:brass_rod:mine_line:right_passage"
+   ],
+   "note": "Doc 108: THE BRASS ROD · USE, at the line -- its three variants in turn on either passage; after the third, the third again."
+  },
+  {
+   "id": "T_LEDGE_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:ledge:onEnter"
+   ],
+   "note": "Doc 109: the ledge's ON FIRST ARRIVAL line, said once; set as it plays."
   }
  ]
 }

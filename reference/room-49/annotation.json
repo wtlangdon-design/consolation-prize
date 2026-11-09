@@ -1,0 +1,231 @@
+{
+ "room": "mine_line",
+ "plate": "art/backgrounds/room-49-mine-line.png",
+ "plateNote": "Read on the promoted plate (art/backgrounds/room-49-mine-line.png, room-49 operation 2, derived and promoted by tools/art/interiors-plate.mjs; frame.json beside the candidate). Every rect below was read off that picture.",
+ "plateShipping": "art/backgrounds/room-49-mine-line.png",
+ "plateShippingHash": "26c16d22b0b1950b7a49f201764614842628b1cccb05b07aac9117c704cb8d87",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   100,
+   650
+  ],
+  [
+   1880,
+   650
+  ],
+  [
+   1880,
+   858
+  ],
+  [
+   60,
+   858
+  ]
+ ],
+ "walkableNote": "THE JUNCTION'S FLOOR, in front of both passages and the cart.",
+ "scaling": {
+  "far": {
+   "y": 700,
+   "height": 389
+  },
+  "near": {
+   "y": 858,
+   "height": 430
+  },
+  "note": "ROOM 49'S DEPTH, FROM THE MASTER: Thad was painted about 393 tall with his feet at y 715; along Room 34's slope (0.26 a row) that is 389 at y 700 and 430 at the band's near edge."
+ },
+ "entrance": [
+  200,
+  760
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    200,
+    760
+   ],
+   "facing": "right",
+   "note": "In from the two rocks."
+  },
+  {
+   "from": "mine_two_rocks",
+   "at": [
+    200,
+    760
+   ],
+   "facing": "right",
+   "note": "Past the big rock."
+  },
+  {
+   "from": "mine_line",
+   "at": [
+    620,
+    690
+   ],
+   "facing": "front",
+   "note": "Doc 107: the wrong passage at the line goes round in a loop to the line again; he comes back out of it."
+  }
+ ],
+ "hotspots": {
+  "ore_cart": [
+   855,
+   373,
+   330,
+   275
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees. THE ORE CART lies between the passages; the two passages are mirror images (tools/art/room49-mirror.py).",
+ "people": {},
+ "exitSubjects": {
+  "THE WAY BACK": {
+   "id": "way_back",
+   "to": "mine_two_rocks",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 108: back toward the two rocks."
+  },
+  "THE LEFT PASSAGE": {
+   "id": "left_passage",
+   "to": "mine_line",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 107: round in a loop to the line again.",
+   "transitScene": [
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 1,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 0
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 1
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 2,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 1
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 2
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 3,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 2
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 3
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 4,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 3
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 4
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 5,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": {
+       "atLeast": 4
+      }
+     }
+    }
+   ]
+  },
+  "THE RIGHT PASSAGE": {
+   "id": "right_passage",
+   "to": "ledge",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 108: the way through; nothing on the plate shows it. Taking it is the first crossing (doc 107).",
+   "setOnTransit": {
+    "T_MINE_CROSSED": true
+   }
+  }
+ },
+ "exits": {
+  "way_back": [
+   70,
+   120,
+   180,
+   480
+  ],
+  "left_passage": [
+   465,
+   145,
+   312,
+   450
+  ],
+  "right_passage": [
+   1214,
+   145,
+   312,
+   450
+  ]
+ },
+ "exitWalkTo": {
+  "way_back": {
+   "x": 170,
+   "y": 665,
+   "facing": "left"
+  },
+  "left_passage": {
+   "x": 620,
+   "y": 655,
+   "facing": "back"
+  },
+  "right_passage": {
+   "x": 1370,
+   "y": 655,
+   "facing": "back"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "ore_cart": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object is looked at on a bare click; every way walks.",
+ "occlusion": {
+  "note": "Nothing stands nearer the camera than the walk band.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "props": [
+  {
+   "id": "cart_chalk",
+   "sheet": "art/props/room-49-cart-may.png",
+   "x": 1040,
+   "y": 560,
+   "frame": [
+    0,
+    0,
+    36,
+    14
+   ],
+   "note": "THE ORE CART's chalk (doc 108's third LOOK): MAY, in the shipping face, on the cart's side (tools/art/gulch-lettering.py)."
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a rock chamber just inside an old mine, in daylight, with three timbered openings in the far wall, a chalk arrow, a survey stake, and the bright mouth of the mine at the left. A man in a blue coat is standing on the floor.
+
+Make exactly one change: remove the man. Paint what is behind him: the rock floor, the grit, the foot of the left opening's timbers and the rock wall. Match the rest exactly: the same pixel-art style and pixel grid, the same colours, the same daylight.
+
+Change nothing else: the three openings and their timbers, the chalk arrow, the stake, the mine's mouth with the hillside outside, the rock roof and its cracks, and the floor stay exactly as they are. The grey above and below the picture may stay grey. No people, no text, no border.

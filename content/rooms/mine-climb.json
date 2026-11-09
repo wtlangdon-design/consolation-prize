@@ -1,0 +1,498 @@
+{
+  "schema": 1,
+  "id": "mine_climb",
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-47.json",
+      "reference/room-47/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        160,
+        690,
+        1700,
+        56
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        147,
+        746,
+        1720,
+        56
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        133,
+        802,
+        1740,
+        56
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      160,
+      690
+    ],
+    [
+      1860,
+      690
+    ],
+    [
+      1880,
+      858
+    ],
+    [
+      120,
+      858
+    ]
+  ],
+  "entrance": [
+    360,
+    760
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        360,
+        760
+      ],
+      "facing": "right",
+      "note": "In from the adit."
+    },
+    {
+      "from": "mine_adit",
+      "at": [
+        360,
+        760
+      ],
+      "facing": "right",
+      "note": "Through the adit's right-hand opening."
+    },
+    {
+      "from": "mine_two_rocks",
+      "at": [
+        585,
+        720
+      ],
+      "facing": "front",
+      "note": "Back down the passage up -- by THE WAY BACK, or round from THE WAY PAST THE OTHER ROCK."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "props",
+      "name": "THE PROPS",
+      "rect": [
+        660,
+        40,
+        90,
+        620
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Pit props holding up the roof.",
+            "repeat": [
+              "I counted the props. I wish I hadn't. I'd have liked a round number.",
+              "I tapped one, to see. It's fine. I'm not tapping another."
+            ],
+            "then": [
+              "Somebody's carved initials in one, and a date, and lower down, SORRY."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A creak overhead, then nothing.",
+            "repeat": [
+              "Wood settling. It's been settling for years, and it's very nearly comfortable.",
+              "Quiet. I'm holding my breath, and I think the props are too."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "No. Not even a little. Not even to see.",
+        "TALK_TO": "I thanked them. They hold up a hill all day for nothing, and nobody ever says."
+      },
+      "walkTo": {
+        "x": 705,
+        "y": 810,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "shaft_of_light",
+      "name": "THE SHAFT OF LIGHT",
+      "rect": [
+        880,
+        0,
+        170,
+        680
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Daylight, coming down a shaft in the roof in one straight bar.",
+            "repeat": [
+              "There's a disc of sky at the top, the size of a dollar. I know exactly what a dollar looks like. I had four.",
+              "A pine needle came down it while I watched, and took its time."
+            ],
+            "then": [
+              "The dust in it looks like it's somewhere better."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind over the top, like breath across a bottle. An F, near enough.",
+            "repeat": [
+              "Birds, far up. Up there it's an ordinary day.",
+              "The F again, a hair flat. I can't fix it from down here."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I stood in it for a minute. It's warm. I'd forgotten the sun was still going on, up there."
+      },
+      "walkTo": {
+        "x": 965,
+        "y": 810,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "way_back",
+      "name": "THE WAY BACK",
+      "rect": [
+        250,
+        110,
+        220,
+        500
+      ],
+      "colour": 0,
+      "to": "mine_adit",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Back the way I came, toward the three openings.",
+            "repeat": [
+              "I could go back. I'd only have to come forward again.",
+              "Back there the floor was flat and I knew where I was. I've given that up for now."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The drip on the stake, faint, behind me.",
+            "repeat": [
+              "Quiet, back there.",
+              "A drip, back by the openings."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 108: back toward the three openings.",
+      "walkTo": {
+        "x": 360,
+        "y": 700,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "passage_up",
+      "name": "THE PASSAGE UP",
+      "rect": [
+        500,
+        220,
+        170,
+        420
+      ],
+      "colour": 0,
+      "to": "mine_two_rocks",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A passage climbing steeply, with steps cut in it by somebody who hated steps.",
+            "repeat": [
+              "It goes up at an angle a mule would refuse. Grievance was right to stay.",
+              "Every step's a different height. Whoever cut them was in a temper, or a hurry, or both."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Grit trickling down the steps.",
+            "repeat": [
+              "Still air, up there.",
+              "A drip, somewhere up there. Much like down here."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 108: the passage that rises.",
+      "walkTo": {
+        "x": 585,
+        "y": 695,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "passage_on",
+      "name": "THE PASSAGE ON",
+      "rect": [
+        1320,
+        250,
+        290,
+        420
+      ],
+      "colour": 0,
+      "to": "mine_adit",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A level passage going on into the hill. Easy walking, which makes me suspicious.",
+            "repeat": [
+              "Rails along the floor, rusted to the color of the dark.",
+              "Somebody laid rails along it, and never came back for them."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drip, steady, somewhere along.",
+            "repeat": [
+              "Still air, along there.",
+              "A drip along there too. Every passage has one."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 0
+          },
+          "say": "Ah. I've been here.",
+          "set": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 1"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "say": "This chamber again. It's growing on me.",
+          "set": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 2"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "say": "I know that rock. I've started naming the rocks.",
+          "set": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 3"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "say": "Back again. If anybody's surveying me, I'd like it noted that I'm thorough.",
+          "set": {
+            "MINE_BACK_AGAIN": 4
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 4"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": {
+              "atLeast": 4
+            }
+          },
+          "say": "Here.",
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 5"
+        }
+      ],
+      "note": "Doc 107: a wrong way at the climb leads back to the adit.",
+      "walkTo": {
+        "x": 1460,
+        "y": 700,
+        "facing": "back"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 160,
+          "y": 690
+        },
+        {
+          "x": 1860,
+          "y": 690
+        },
+        {
+          "x": 1860,
+          "y": 746
+        },
+        {
+          "x": 160,
+          "y": 746
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 357,
+        "nearY": 858,
+        "nearHeight": 398
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 147,
+          "y": 746
+        },
+        {
+          "x": 1867,
+          "y": 746
+        },
+        {
+          "x": 1867,
+          "y": 802
+        },
+        {
+          "x": 147,
+          "y": 802
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 357,
+        "nearY": 858,
+        "nearHeight": 398
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 133,
+          "y": 802
+        },
+        {
+          "x": 1873,
+          "y": 802
+        },
+        {
+          "x": 1873,
+          "y": 858
+        },
+        {
+          "x": 133,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 357,
+        "nearY": 858,
+        "nearHeight": 398
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "background": "art/backgrounds/room-47-mine-climb.png",
+  "lamps": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-47/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "props": [
+    {
+      "id": "props_carving",
+      "sheet": "art/props/room-47-props-carving.png",
+      "x": 710,
+      "y": 590,
+      "frame": [
+        0,
+        0,
+        60,
+        46
+      ],
+      "note": "THE PROPS' carving (doc 108's first LOOK): SORRY in the shipping face, low on the left prop, and above it the initials and the date that line names but never spells, carved too rough to read (tools/art/gulch-lettering.py)."
+    }
+  ]
+}

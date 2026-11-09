@@ -1,0 +1,84 @@
+{
+  "room": 46,
+  "name": "THE MINE: THE ADIT",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE ADIT",
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE ADIT",
+    "docs/49-wrong-answers.md::ROOM 46 — THE MINE: THE ADIT"
+  ],
+  "subjects": [
+    {
+      "name": "THE STAKE",
+      "LOOK_AT": [
+        "A surveyor's stake, gray with age, driven in by the right-hand opening. More or less by it.",
+        "Somebody surveyed this, once. I can't think what. There's nothing in here a man would want a boundary round.",
+        "I gave it a push. It didn't move. Whoever put it here meant it."
+      ],
+      "LISTEN_TO": [
+        "A drip landing on its top, every few seconds.",
+        "The drip has worn a little cup in the wood.",
+        "Quiet. It's held its position longer than I've been alive."
+      ],
+      "overrides": {
+        "PICK_UP": "It's driven in to the knee. Taking it would mean digging, and I came here to walk.",
+        "TALK_TO": "I said good morning to it. It's been standing here so long, I felt it was owed."
+      }
+    },
+    {
+      "name": "THE LEFT OPENING",
+      "LOOK_AT": [
+        "An opening in the rock, timbered, going down into the dark.",
+        "The timbers are good. That tells me someone came back out.",
+        "I've stood in front of it long enough that it's starting to look like a decision."
+      ],
+      "LISTEN_TO": [
+        "A drip, somewhere inside.",
+        "Air, moving a little.",
+        "Air, and a drip. The same as the others, near enough."
+      ]
+    },
+    {
+      "name": "THE MIDDLE OPENING",
+      "LOOK_AT": [
+        "An opening straight ahead, the widest of the three. Wide isn't always a recommendation.",
+        "Somebody's chalked an arrow beside it, pointing at the ground.",
+        "I followed the arrow. It points at the floor, and I'm already on it."
+      ],
+      "LISTEN_TO": [
+        "Dripping, further off.",
+        "A faint draft, cool on the face.",
+        "The draft again, and a drip somewhere beyond it."
+      ]
+    },
+    {
+      "name": "THE RIGHT OPENING",
+      "LOOK_AT": [
+        "An opening on the right, low enough that I'd have to stoop.",
+        "I'd go in bent double, like a man looking for a dropped dollar. I've had the practice.",
+        "My back aches already, just from looking at how low it is."
+      ],
+      "LISTEN_TO": [
+        "Water, somewhere along it.",
+        "Moving air, not much of it.",
+        "Moving air, and a drip, like the others."
+      ]
+    },
+    {
+      "name": "THE WAY OUT",
+      "LOOK_AT": [
+        "Daylight, and the washout, and a mule who's glad I've gone.",
+        "The way I came in. I know where it goes. That's a comfort, down here.",
+        "I can see Grievance's tail flicking, out in the bright. She hasn't followed me. She isn't going to."
+      ],
+      "LISTEN_TO": [
+        "Grievance, chewing, outside.",
+        "Wind across the mouth of the mine.",
+        "A crow, outside, still laughing."
+      ],
+      "overrides": {
+        "TALK_TO": "I called out to Grievance that I was all right. She didn't ask."
+      }
+    }
+  ]
+}

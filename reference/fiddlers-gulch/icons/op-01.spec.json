@@ -1,0 +1,13 @@
+{
+ "assetId": "gulch-reserve",
+ "subject": "gulch-item-icons",
+ "role": "other",
+ "promptFile": "reference/fiddlers-gulch/icons/prompt-01.txt",
+ "out": "art/staging/gulch-icons/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/item-icons/icons-after.png",
+  "reference/item-icons/style-reference.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-08 (gulch-reserve cap 2, errata 195: \"Art budget approved\"); the brief: every new item needs an icon, drawn by the existing icon route, from gulch-reserve."
+}

@@ -1,0 +1,1960 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "washout",
+ "commit": "bc6daf7e900fb2f5b1715cc164fcf2a32391b474",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r45-a",
+ "warped": false,
+ "lifeRoute": "gulch-mine-doors",
+ "durationSeconds": 69.49,
+ "events": [
+  {
+   "t": 2.43,
+   "line": "started from fixture r45-a, no entry route"
+  },
+  {
+   "t": 5.49,
+   "line": "in washout; life route: 41 action(s)"
+  },
+  {
+   "t": 6,
+   "line": "capture 00-washout: room washout, says null, options 0, control null"
+  },
+  {
+   "t": 6.25,
+   "line": "action 1 (click): clicked washout/to_mine_adit at world 1740,490 -- THE OLD MINE"
+  },
+  {
+   "t": 7.29,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     562,
+     791
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 8.26,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     819,
+     782
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 9.29,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1085,
+     774
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 10.28,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1333,
+     765
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 11.26,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1576,
+     757
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 12.26,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     680
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.46,
+   "line": "action 1 (waitFor): reached {\"room\":\"mine_adit\"} in room mine_adit"
+  },
+  {
+   "t": 12.53,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room mine_adit"
+  },
+  {
+   "t": 13.02,
+   "line": "capture 01-adit: room mine_adit, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 14.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 15.06,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 16.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.05,
+   "line": "action 1 (wait): waited 5s"
+  },
+  {
+   "t": 18.25,
+   "line": "action 1 (click): clicked mine_adit/left_opening at world 540,385 -- a wrong way"
+  },
+  {
+   "t": 19.27,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     540,
+     705
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 19.39,
+   "line": "action 1 (waitFor): reached {\"room\":\"washout\"} in room washout"
+  },
+  {
+   "t": 19.48,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room washout"
+  },
+  {
+   "t": 20,
+   "line": "capture 02-back-at-the-washout: room washout, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 21.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 23.01,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 24.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 25.01,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 25.03,
+   "line": "action 1 (wait): waited 5s"
+  },
+  {
+   "t": 25.2,
+   "line": "action 1 (click): clicked washout/to_mine_adit at world 1740,490 -- "
+  },
+  {
+   "t": 25.72,
+   "line": "action 1 (waitFor): reached {\"room\":\"mine_adit\"} in room mine_adit"
+  },
+  {
+   "t": 26.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 27.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 27.77,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 27.97,
+   "line": "action 1 (click): clicked mine_adit/right_opening at world 1565,495 -- the opening with the stake by it"
+  },
+  {
+   "t": 28.99,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     615,
+     781
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 29.98,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     939,
+     771
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 31.01,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1271,
+     762
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 32.01,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1565,
+     742
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 32.23,
+   "line": "action 1 (waitFor): reached {\"room\":\"mine_climb\"} in room mine_climb"
+  },
+  {
+   "t": 33.24,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     360,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.24,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     360,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.27,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 34.75,
+   "line": "capture 03-climb: room mine_climb, says null, options 0, control null"
+  },
+  {
+   "t": 35.01,
+   "line": "action 1 (click): clicked mine_climb/passage_up at world 585,430 -- the passage that rises"
+  },
+  {
+   "t": 36.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     585,
+     695
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 36.17,
+   "line": "action 1 (waitFor): reached {\"room\":\"mine_two_rocks\"} in room mine_two_rocks"
+  },
+  {
+   "t": 37.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 38.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 38.21,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 38.74,
+   "line": "capture 04-two-rocks: room mine_two_rocks, says null, options 0, control null"
+  },
+  {
+   "t": 39.01,
+   "line": "action 1 (click): clicked mine_two_rocks/way_past_big_rock at world 1030,430 -- past the larger rock"
+  },
+  {
+   "t": 40.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     507,
+     761
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 41.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     823,
+     752
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 42.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 42.03,
+   "line": "action 1 (waitFor): reached {\"room\":\"mine_line\"} in room mine_line"
+  },
+  {
+   "t": 43.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 44.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 44.07,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 44.59,
+   "line": "capture 05-line: room mine_line, says null, options 0, control null"
+  },
+  {
+   "t": 44.81,
+   "line": "action 1 (click): clicked mine_line/right_passage at world 1370,370 -- the way through (the rod would go still here)"
+  },
+  {
+   "t": 45.84,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     515,
+     749
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 46.83,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     838,
+     738
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 47.83,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1159,
+     726
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 48.85,
+   "line": "action 1 (waitFor): reached {\"room\":\"ledge\"} in room ledge"
+  },
+  {
+   "t": 48.85,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     230,
+     440
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 48.93,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room ledge"
+  },
+  {
+   "t": 49.48,
+   "line": "capture 06-ledge: room ledge, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 50.5,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     230,
+     440
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 51.52,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     230,
+     440
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 52.52,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     230,
+     440
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 53.53,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     230,
+     440
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 54.52,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     230,
+     440
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 55.52,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 55.54,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     230,
+     440
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 55.75,
+   "line": "action 1 (click): clicked ledge/to_washout at world 205,225 -- THE MINE, the way back, known now"
+  },
+  {
+   "t": 56.05,
+   "line": "action 1 (waitFor): reached {\"room\":\"washout\"} in room washout"
+  },
+  {
+   "t": 57.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 58.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 58.09,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 58.59,
+   "line": "capture 07-washout-again: room washout, says null, options 0, control null"
+  },
+  {
+   "t": 58.83,
+   "line": "action 1 (click): clicked washout/to_ledge at world 1740,490 -- THE OLD MINE, straight through"
+  },
+  {
+   "t": 59.34,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room washout"
+  },
+  {
+   "t": 59.9,
+   "line": "capture 08-the-way-through: room washout, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 60.91,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     680
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 61.92,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     680
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 62.91,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1720,
+     680
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 63.59,
+   "line": "action 1 (waitFor): reached {\"room\":\"ledge\"} in room ledge"
+  },
+  {
+   "t": 64.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     230,
+     440
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 65.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     230,
+     440
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 65.63,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 66.12,
+   "line": "capture 09-ledge-again: room ledge, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-washout",
+   "why": null,
+   "t": 5.99,
+   "file": "renders/proofs/washout/doors/raw-captures-ignored/00-washout.png",
+   "hash": "a66e1044c70721d09578c5b2efcc6941ed9748b1afd008edb170b414ac6d1bbc",
+   "room": "washout",
+   "clock": 5.7988,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 333,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      123,
+      467,
+      353,
+      368
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-adit",
+   "why": null,
+   "t": 13.01,
+   "file": "renders/proofs/washout/doors/raw-captures-ignored/01-adit.png",
+   "hash": "4357882d1434ded354afd4b29a955af0532fadc821ead3677c0e9afaec02077c",
+   "room": "mine_adit",
+   "clock": 12.6985,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_MINE_ENTERED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 404,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      86,
+      386,
+      428,
+      446
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mine_adit",
+     "path": "art/backgrounds/room-46-mine-adit.png",
+     "drawn": "art/backgrounds/room-46-mine-adit.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "08a5b5e8a889209ccb4a001e496a0383a4e66907a503e7285454289a3e5239ca"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-back-at-the-washout",
+   "why": null,
+   "t": 19.99,
+   "file": "renders/proofs/washout/doors/raw-captures-ignored/02-back-at-the-washout.png",
+   "hash": "ee6f9dd122dce56307aedb4e85e684bfb3c59ebd12e2da57e051aef0b8a10937",
+   "room": "washout",
+   "clock": 19.798299999999998,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_WASHOUT_SEEN",
+    "T_MINE_ENTERED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 1,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1720,
+      690
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 258,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-04.png",
+     "bounds": [
+      1583,
+      432,
+      274,
+      285
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-climb",
+   "why": null,
+   "t": 34.74,
+   "file": "renders/proofs/washout/doors/raw-captures-ignored/03-climb.png",
+   "hash": "348beb7a140bc344ef1c6a065dd6986de655e5858182c422f4a329e6117970e7",
+   "room": "mine_climb",
+   "clock": 34.4477,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_WASHOUT_SEEN",
+    "T_MINE_ENTERED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 1,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      360,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 373,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      162,
+      387,
+      395,
+      412
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mine_climb",
+     "path": "art/backgrounds/room-47-mine-climb.png",
+     "drawn": "art/backgrounds/room-47-mine-climb.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "30c65db4dc99f58df55d568d505e16c7a3eafbc027f6bea9a45dd1b3ad0ef2a4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-two-rocks",
+   "why": null,
+   "t": 38.74,
+   "file": "renders/proofs/washout/doors/raw-captures-ignored/04-two-rocks.png",
+   "hash": "d60d0b9b69945aa9c799472ec388ceea5f8bc5bdd77f27c4dfa9ffb25846f4d1",
+   "room": "mine_two_rocks",
+   "clock": 38.547599999999996,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_WASHOUT_SEEN",
+    "T_MINE_ENTERED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 1,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      770
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 394,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      -9,
+      376,
+      417,
+      435
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mine_two_rocks",
+     "path": "art/backgrounds/room-48-mine-two-rocks.png",
+     "drawn": "art/backgrounds/room-48-mine-two-rocks.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2b72dbcdbf2539fa429f56929ba09ff79007fbc36befce5df652f04c98cd5e39"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-line",
+   "why": null,
+   "t": 44.58,
+   "file": "renders/proofs/washout/doors/raw-captures-ignored/05-line.png",
+   "hash": "0678d271279e2353a7ff2769423dff16363a537fa0be2aa3db5d8e59b3a30f16",
+   "room": "mine_line",
+   "clock": 44.397400000000005,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_WASHOUT_SEEN",
+    "T_MINE_ENTERED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 1,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 405,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      -15,
+      355,
+      429,
+      447
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mine_line",
+     "path": "art/backgrounds/room-49-mine-line.png",
+     "drawn": "art/backgrounds/room-49-mine-line.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "26c16d22b0b1950b7a49f201764614842628b1cccb05b07aac9117c704cb8d87"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-ledge",
+   "why": null,
+   "t": 49.47,
+   "file": "renders/proofs/washout/doors/raw-captures-ignored/06-ledge.png",
+   "hash": "9063f28d6b2447df2284dbd0b4a5d518ecef7c515e6cfb3bc40d3438d26c8d9e",
+   "room": "ledge",
+   "clock": 49.097199999999994,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_WASHOUT_SEEN",
+    "T_MINE_ENTERED",
+    "T_MINE_CROSSED",
+    "T_LEDGE_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 1,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      230,
+      440
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 248,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-02.png",
+     "bounds": [
+      89,
+      192,
+      281,
+      274
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:ledge",
+     "path": "art/backgrounds/room-50-ledge.png",
+     "drawn": "art/backgrounds/room-50-ledge.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cdf0c2b089559f1597ed7a69aea9b8195d470bd7bffb487d8c046d67b13b8372"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-washout-again",
+   "why": null,
+   "t": 58.59,
+   "file": "renders/proofs/washout/doors/raw-captures-ignored/07-washout-again.png",
+   "hash": "70afe988703edc4a748831258138a86d32af19a7f97d55d6a43d87ae69cd3694",
+   "room": "washout",
+   "clock": 58.2468,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_WASHOUT_SEEN",
+    "T_MINE_ENTERED",
+    "T_MINE_CROSSED",
+    "T_LEDGE_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 1,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1720,
+      690
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 258,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-05.png",
+     "bounds": [
+      1583,
+      432,
+      274,
+      285
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-the-way-through",
+   "why": null,
+   "t": 59.89,
+   "file": "renders/proofs/washout/doors/raw-captures-ignored/08-the-way-through.png",
+   "hash": "e088fc0dc1a0cbcbf6b9325d5eb0ca2241373d71df38d2fa192f69a182af032e",
+   "room": "washout",
+   "clock": 59.6967,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_WASHOUT_SEEN",
+    "T_MINE_ENTERED",
+    "T_MINE_CROSSED",
+    "T_WAY_THROUGH_SAID",
+    "T_LEDGE_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 1,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1720,
+      680
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 258,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      1583,
+      422,
+      273,
+      285
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-ledge-again",
+   "why": null,
+   "t": 66.11,
+   "file": "renders/proofs/washout/doors/raw-captures-ignored/09-ledge-again.png",
+   "hash": "71c87648ca5922b0f7b08cd1ac92dddd13444440b0d2c5e90f0a1ffbed626611",
+   "room": "ledge",
+   "clock": 65.77980000000001,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_WASHOUT_SEEN",
+    "T_MINE_ENTERED",
+    "T_MINE_CROSSED",
+    "T_WAY_THROUGH_SAID",
+    "T_LEDGE_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 1,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      230,
+      440
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 248,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-01.png",
+     "bounds": [
+      89,
+      192,
+      281,
+      274
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:ledge",
+     "path": "art/backgrounds/room-50-ledge.png",
+     "drawn": "art/backgrounds/room-50-ledge.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cdf0c2b089559f1597ed7a69aea9b8195d470bd7bffb487d8c046d67b13b8372"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 69.49s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-09T00:25:04.270Z"
+}

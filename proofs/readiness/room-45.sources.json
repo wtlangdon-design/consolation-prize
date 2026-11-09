@@ -1,0 +1,46 @@
+{
+ "schema": 1,
+ "room": 45,
+ "id": "room-45-washout",
+ "name": "THE WASHOUT",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-11-08 for reference/fiddlers-gulch/brief.md (errata 190-191, 194, 195, 199) from docs 107, 108, 49 and 02.",
+ "examine": {
+  "primary": "docs/108-the-washout-and-the-mine.md::THE WASHOUT",
+  "batch": [],
+  "merged": [],
+  "completions": [
+   "docs/108-the-washout-and-the-mine.md::THE WASHOUT"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "The washout is reached only by B3's ride and left by the ride home (doc 107, The chain): it is open only during the trip, in Act II, between B3 and the ride home after G9. Doc 108 writes one state for it, and THE OLD MINE's change after the first crossing is written as THE WAY THROUGH."
+  }
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 45 — THE WASHOUT",
+ "dialogue": {
+  "characters": [],
+  "trees": [],
+  "none": {
+   "source": "docs/108-the-washout-and-the-mine.md::THE WASHOUT",
+   "why": "Nobody speaks here. Grievance is a mule: TALK TO her is answered by Thad's own lines, written under GRIEVANCE."
+  }
+ },
+ "puzzles": {
+  "ids": [
+   "B3",
+   "G2"
+  ],
+  "source": [
+   "docs/02-puzzle-graph.md::TRIAL ONE — Affidavit of Original Sale (Document A)",
+   "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+  ]
+ },
+ "staging": {
+  "required": false,
+  "why": "No doc 48 script is sited here. The rides there and home are over black, written in doc 108 (THE RIDE) and doc 109 (GOING HOME)."
+ },
+ "connectivity": "docs/107-fiddlers-gulch.md::The mine",
+ "exits": "docs/108-the-washout-and-the-mine.md::THE WASHOUT",
+ "roomFile": "content/rooms/washout.json",
+ "plate": "art/backgrounds/room-45-washout.png"
+}

@@ -1,0 +1,16 @@
+Image 1 is the layout for one place in my pixel-art adventure game: grey blocks for a chamber and the things in it, and the hero (the man in the long coat) standing on the floor. Paint this place as a finished game background with the hero in it, keeping the camera, the layout and every block where image 1 puts it. Paint ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched.
+
+THE PLACE: just inside an old abandoned gold mine in the frontier West, 1850s, in the DAYTIME. A rough rock chamber cut into the hill, with old timbers. It is lit by daylight: from the mine's mouth at the left edge, and through a few cracks and old holes in the rock roof, so the chamber is dim but clearly readable, in cool grey-brown daylight. The same mine as image 2 (painted by lantern at night; here it is day), and the same day outside as image 3.
+- At the far LEFT edge: the mine's mouth, the way out, bright with daylight from outside.
+- In the far wall, three openings into the dark, each framed with two old timber posts and a beam, all three lit exactly the same and equally dark inside:
+  - LEFT: an ordinary opening going down into the dark.
+  - MIDDLE: the widest of the three. On the rock just to its right, a small white chalk arrow drawn on the stone, pointing DOWN at the ground.
+  - RIGHT: a low opening, half the height of the others; a man would have to stoop to go in.
+- Driven into the floor just right of the right-hand opening: one old grey wooden survey stake, weathered, standing upright, about knee height.
+- The floor: rock and grit, readable, not black.
+
+THE PERSON: the hero from image 4, standing where image 1 puts him, at exactly that size. Nobody else.
+
+THE LOOK: the same pixel-art style as images 2 and 5, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero, flat, soft shading, very little texture, simple shapes. Daylight, not lantern light: no lamp, no fire, no glow. Nothing in the picture makes one opening look more inviting than another: no light falls into any of them, no track or mark leads to any of them.
+
+RULES: no readable text, letters or numbers anywhere. No border, no frame around the picture, no caption.

@@ -5464,6 +5464,56 @@ Tyler: "The three horses on main street are now a little too front and center an
   - `renders/room-02-main-street-horses.png`: night, with Thad walking past the horses and the pie woman in frame.
   - `renders/room-36-main-street-dawn-rail.png`: dawn, with Thad walking behind the empty rail.
 
+# 199 · FIDDLER'S GULCH: THE WRONG VERBS, AND A THIRD LINE FOR EVERY WAY — TYLER, 2026-11-08 ("Write them (doc 49)"; "Write a third for each")
+
+*Asked by the builder before Room 45, because the readiness gate stopped on both.*
+
+- **The wrong-verb layer.** Every built room carries a doc 49 section of authored refusals, and the gate requires one. Docs 108 and 109 wrote none for Rooms 45 to 54.
+  - Doc 49 now has ten sections, ROOM 45 to ROOM 54: 39 refusals, from three a room in the mine to seven at the washout.
+  - Doc 49's doctrine holds. Nothing punishes. Nothing hints. Nothing in the mine favors one way over another. No refusal is written for a verb that solves a puzzle (USE THE TUNING FORK on the fiddle, GIVE THE CLARION, USE GRIEVANCE), or on a subject whose state changes (the watch, the fiddle, Vessel).
+- **A third LOOK and LISTEN for twenty ways.** Doc 05 asks three variants of every hotspot, and doc 106 gave the town's ways three. Docs 108 and 109 gave twenty of the Gulch's ways two:
+  - the mine's openings, passages and ways back (13);
+  - the tents' three ways;
+  - the grog tent's flap;
+  - the river's two ways;
+  - upstream's way down.
+
+  Each now has a third LOOK and a third LISTEN (40 lines), written into docs 108 and 109 where they stand. Doc 108's rule holds: two passages that are a choice sound alike, and their third LISTENs say so in the same words.
+- **The tenth writing exception** (CLAUDE.md) covers exactly these: doc 49's ROOM 45 to ROOM 54 sections and the twenty ways' third lines. It covers nothing else.
+
+# 200 · FIDDLER'S GULCH BUILT, PART ONE: THE WASHOUT, THE MINE AND THE LEDGE (ROOMS 45-50) — THE BUILDER, 2026-11-08 (reference/fiddlers-gulch/brief.md)
+
+*The brief's steps 1 to 3, built under doc 55. Every room answered BUILDABLE WITHOUT INVENTION: YES once errata 199's writing was in.*
+
+- **The rooms.** Each room has: a graybox through the legibility gate in daylight (`tools/gulch-graybox.py`); a master and a plate (two of its four operations); an annotation; a compiled room; a fixture (r45-a to r50-a); a four-panel proof; and doc 36 Q186-Q191. Washout 45, adit 46, climb 47, two rocks 48, line 49, ledge 50.
+- **Grievance** at the washout is her livery generation's whole-mule sheet (room-15 operation 4), which fits the day. No operation was spent on her.
+- **Lettering** (`tools/art/gulch-lettering.py`, in the shipping face, read from the lines):
+  - the signpost's FIDDLER'S GULCH 3 MI, the 3 struck out;
+  - the prop's SORRY, with the initials and the date it names carved too rough to read, because the lines never spell them;
+  - the cart's MAY.
+- **The mine shows no way.**
+  - Room 48's master put a hole of sky over the right passage; the plate took it out.
+  - Room 49's two passages are made mirror images in code (`tools/art/room49-mirror.py`).
+  - One music stem, one bed and one gain serve all four rooms. No way, junction or rod use makes a sound (doc 45; `tests/gulch-mine.test.ts`).
+- **What the engine and tools gained:**
+  - An item used on a way is a question about the item, not a walk.
+  - An item can have lines for a place: doc 108's rod and fork "anywhere in" the mine, in turn, after a pair and before the item's pool.
+  - A way can lead somewhere else in a second state (`exitSubjects` "NAME#2" with `stateOf`). THE OLD MINE goes to the ledge after the first crossing (`T_MINE_CROSSED`), and THE WAY THROUGH is said once.
+  - A door's beat can be read from a numbered list or a bold line. BACK WHERE HE STARTED is said on arrival through a wrong way, counted (`MINE_BACK_AGAIN`) so a save keeps its place.
+  - The flag check counts a way's writes and reads.
+  - The puzzle audit and the item tests read doc 109 where it is written.
+- **Sound** (doc 45, "Rooms 45-54"):
+  - three stems from the music renderer: the mine's harmonica, the Gulch's D minor, and the Gulch through canvas;
+  - three beds from `tools/audio/render-gulch-sfx.py`;
+  - the washout's THADDEUS is Room 1's stem without its piano.
+- **Items.** THE THIRD COPY, THE BRASS ROD and THE CLARION are extracted from doc 109. Their icons are one `gulch-reserve` operation, cut by `tools/art/gulch-icons-cut.py`. Cutting them found a fault in the icon cutter's own guard: it read the source by the fit factor, not each axis's real scale. The guard is corrected, not loosened.
+- **Told to Tyler before doing it, as deviations from the brief's order:**
+  - **B3 still rides to the Nugget.** It switches to the washout in the PR that completes washout to G9 to home. Switched now, it would strand Thad in the Gulch before G9 exists (invariant 6). The rooms are reached by fixture until then.
+  - **THE PATH DOWN** from the ledge is a hotspot with its lines until Room 51 is built.
+  - **The three items' hand-overs** (A9, G1, B1) are the brief's last step. Until then they are listed in `proofs/played-pending.json`, and the item test fails the day one is handed over and still listed.
+
+Lesson: `tests/gulch-mine.test.ts` holds the mine's rules. It fails if the four mine rooms differ in music or bed, if any of their ways or the rod carries a cue, if a wrong way stops costing one screen and its counted line, or if the rod at the line stops telling in turn. It was proved by giving one mine room another gain. `tools/check-flag-order.mjs` now fails a gate that only a way writes, if nothing writes it. The washout's life proof crashed as Thad walked near Grievance, who was written with no `barks`. `tests/lessons.test.ts` now requires every figure to declare its barks, `{}` for one who says nothing; it was proved by deleting hers. The engine also reads barks safely.
+
 # 201 · THE HORSES TO THE RIGHT, AT A HORSE'S TRUE SIZE — TYLER, 2026-11-08
 
 Tyler, of `renders/room-02-main-street-horses.png`: "Brightness is good. Maybe move them a bit to the right so they're not overlapping the bulletin board at all? And maybe slightly bigger since it looks like maybe Thad is their height standing next to them? I just want everything to scale correctly."
@@ -5502,6 +5552,20 @@ Tyler, of `renders/room-02-main-street-horses.png`: "Brightness is good. Maybe m
 - **Shown:**
   - `renders/room-02-main-street-horses.png`: night, with Thad standing beside the black at the horses' own depth (1250,746), the board clear to their left.
   - `renders/room-36-main-street-dawn-rail.png`: dawn, with Thad at the same spot beside the empty rail.
+
+# 202 · FIDDLER'S GULCH: A WRONG VERB ON EACH OF ITS PEOPLE — TYLER, 2026-11-09 ("Write them (doc 49)")
+
+*Rooms 51 to 54 failed the readiness gate on character behaviour. Every earlier room with a person has lines for a wrong verb used on them (the bell-ringer's PICK UP, PUSH and USE, doc 97). Docs 108 and 109 give the Gulch's people their trees, barks and the lookout's GIVE lines, and nothing for PUSH THE PANNER. The builder asked; Tyler: "Write them (doc 49)".*
+
+- **Fifteen lines, three a person (PICK UP, PUSH, USE), in doc 49's ROOM 51 to ROOM 54 sections, one voice, under doc 59:**
+  - the lookout (Room 51), true before G3 and after;
+  - the Deacon (Room 52), true before THE FIND and after it, when his name reads DEKE VESSEL;
+  - the rule-keeper (Room 52), true before G5 and after;
+  - the panner (Room 53);
+  - the man upstream (Room 54).
+- **Nothing else is written.** No puzzle, flag, tree or bark changes.
+- **The gate reads them where they are.** `tools/check-room-readiness.mjs` accepts a room's people as behaving when the room's doc 49 section answers a wrong verb on every person the room declares, by name, as well as the Overrides block it already read. One unnamed person is still a NO; proved by declaring the rule-keeper in Room 53, which answers NO.
+- CLAUDE.md records it as the eleventh exception.
 
 # 203 · EVERY ROOM'S BED, PLANNED — TYLER, 2026-11-08 ("Proceed")
 

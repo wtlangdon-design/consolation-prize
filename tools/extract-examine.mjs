@@ -34,7 +34,7 @@ import { resolveIssueRef } from './lib/issueref.mjs';
  */
 
 const CHECKING = process.argv.includes('--check');
-const ROOMS = [4, ...Array.from({ length: 31 }, (_, i) => i + 6), 37, 38, 39, 40, 41, 42, 43, 44].filter((n) => n !== 7 && n !== 24);
+const ROOMS = [4, ...Array.from({ length: 31 }, (_, i) => i + 6), 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50].filter((n) => n !== 7 && n !== 24);
 //: Room 24 (the hole) is written as one section with Room 23 ("ROOM 23 & 24")
 //: and is extracted once, as room-23.json.
 //: Rooms 5 and 7 ship already, extracted by extract-content.mjs from doc 25
@@ -227,8 +227,10 @@ function extract(room, declarations) {
       // ### NAME, then **LOOK** and **LISTEN** runs.
       const block = /^###\s+(.+)$/.exec(line);
       if (block) {
-        const name = block[1];
-        if (/\*\(inventory\)\*/.test(name)) continue; // items, not room subjects
+        if (/\*\(inventory\)\*/.test(block[1])) continue; // items, not room subjects
+        // A NOTE AFTER THE NAME is not the name (doc 108-109: `### THE OLD MINE *(the way in)*`): a way is named as
+        // its hover label reads.
+        const name = block[1].replace(/\s*\*\([^)]*\)\*\s*$/, '');
         for (const row of lines.slice(at + 1, at + 4)) {
           const said = /^\*\*(LOOK|LISTEN)((?: Acts? [^*]+)?)\*\*(.*)$/.exec(row.trim());
           if (said) appendRun(plain(name), said[1], said[3], said[2]);

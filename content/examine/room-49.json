@@ -1,0 +1,69 @@
+{
+  "room": 49,
+  "name": "THE MINE: THE LINE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE LINE",
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE LINE",
+    "docs/49-wrong-answers.md::ROOM 49 — THE MINE: THE LINE"
+  ],
+  "subjects": [
+    {
+      "name": "THE ORE CART",
+      "LOOK_AT": [
+        "An ore cart on its side, one wheel in the air.",
+        "Empty. Whoever pushed it this far gave up at the same junction I'm standing at.",
+        "There's a name chalked on it: MAY. A woman or a month. Either way, she's gone."
+      ],
+      "LISTEN_TO": [
+        "The wheel ticking round when I touch it, slower, then stopped.",
+        "Quiet. It's been waiting a long while for somebody to make up their mind.",
+        "A drip into its bed, where the rust has made a little cup."
+      ],
+      "overrides": {
+        "PUSH": "I tried to set it on its wheels. It went back on its side, where it's comfortable.",
+        "TALK_TO": "I asked May which way she went. She kept it to herself. I'd want the same, if I were May.",
+        "USE": "I could climb in and go somewhere. It's on its side, and I'm a grown man. Two good reasons."
+      }
+    },
+    {
+      "name": "THE LEFT PASSAGE",
+      "LOOK_AT": [
+        "A passage into the dark, timbered, the width of a man and a half.",
+        "Exactly like the other one. I've checked twice.",
+        "I counted the timbers. Seven. I'm not going to count the other side."
+      ],
+      "LISTEN_TO": [
+        "A drip, somewhere down it.",
+        "Still air. It isn't telling.",
+        "Still air, and a drip. Nothing to choose by."
+      ]
+    },
+    {
+      "name": "THE RIGHT PASSAGE",
+      "LOOK_AT": [
+        "A passage into the dark, timbered, the same width as its neighbor.",
+        "I've compared the two. They're the same passage, as far as I can tell, in two places.",
+        "I counted the timbers. I'd told myself I wouldn't. Seven."
+      ],
+      "LISTEN_TO": [
+        "A drip, somewhere down it, at much the same pace.",
+        "Still air. It isn't telling either.",
+        "Still air, and a drip. Nothing to choose by either."
+      ]
+    },
+    {
+      "name": "THE WAY BACK",
+      "LOOK_AT": [
+        "Back toward the two rocks.",
+        "I could go back and apologize to the small rock. I won't, but I could.",
+        "Back to the rocks. The small one will be pleased to see me."
+      ],
+      "LISTEN_TO": [
+        "A trickle of grit, back toward the rocks.",
+        "Quiet, back there, and getting no louder.",
+        "A drip, back there, keeping time."
+      ]
+    }
+  ]
+}

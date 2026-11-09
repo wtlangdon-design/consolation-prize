@@ -1,0 +1,89 @@
+{
+  "room": 50,
+  "name": "THE LEDGE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/109-fiddlers-gulch-lines.md::THE LEDGE",
+    "docs/109-fiddlers-gulch-lines.md::THE LEDGE",
+    "docs/49-wrong-answers.md::ROOM 50 — THE LEDGE"
+  ],
+  "subjects": [
+    {
+      "name": "THE CAMP BELOW",
+      "LOOK_AT": [
+        "Fiddler's Gulch: tents, cabins, a river, and smoke going straight up. It looks rich from here.",
+        "Every man down there is standing in water or guarding something. Some are doing both.",
+        "I've come two days to stand on a ledge and look at other men's gold. It's like a shop window."
+      ],
+      "LISTEN_TO": [
+        "Water, and shovels, and nobody talking.",
+        "A rocker going, slow, like a tired clock.",
+        "Somebody shouting 'MINE!' at somebody else, faintly."
+      ],
+      "overrides": {
+        "TALK_TO": "I shouted 'Hello!' down. A hundred men looked up, and one of them pointed a pan at me."
+      }
+    },
+    {
+      "name": "THE CAIRN",
+      "LOOK_AT": [
+        "A heap of stones on the edge, piled on purpose.",
+        "A marker. For what, it doesn't say. Up here a man marks anything he might own later.",
+        "I added a stone. It seemed polite."
+      ],
+      "LISTEN_TO": [
+        "Wind in the gaps between the stones.",
+        "A stone settling, then quiet.",
+        "Quiet. It isn't saying what it's for."
+      ],
+      "overrides": {
+        "PUSH": "Somebody built it carefully. I'm not going to be the man who undid it, on my first day."
+      }
+    },
+    {
+      "name": "THE RAVINE",
+      "LOOK_AT": [
+        "The ravine wall, straight down. The path is the only sensible way down, and it isn't very.",
+        "I can see why nobody comes here. A hill has to fall on the road first.",
+        "A long way down. I've decided against finding out how long."
+      ],
+      "LISTEN_TO": [
+        "The river, a long way below.",
+        "A pebble I kicked, still going.",
+        "Wind coming up the wall, cold."
+      ],
+      "overrides": {
+        "USE": "No. There's a path. I'll take the path."
+      }
+    },
+    {
+      "name": "THE MINE",
+      "LOOK_AT": [
+        "The mine's far end, a hole in the cliff. It's the only door this town has.",
+        "Back through it are the slide, the road, and Grievance, eating.",
+        "From this side it's just a hole. You'd never know it had opinions about rocks."
+      ],
+      "LISTEN_TO": [
+        "Cool air, breathing out.",
+        "A drip, far back in the hill.",
+        "The hill breathing, slow."
+      ]
+    },
+    {
+      "name": "THE PATH DOWN",
+      "LOOK_AT": [
+        "A path down the ravine wall, in zigzags, with a rope along the bad parts.",
+        "Somebody put the rope in. Somebody else, I think, needed it.",
+        "Every turn of it is in view of the camp. They'll see me coming for a quarter of an hour."
+      ],
+      "LISTEN_TO": [
+        "Grit trickling down the zigzags.",
+        "The rope creaking against its pegs.",
+        "At the bottom, a man, waiting. I can hear him not moving."
+      ],
+      "overrides": {
+        "PULL": "I tested the rope. It held. I'd like that noted somewhere official."
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+Image 1 is the layout for one place in my pixel-art adventure game: grey blocks for a chamber and the things in it, and the hero (the man in the long coat) standing on the floor. Paint this place as a finished game background with the hero in it, keeping the camera, the layout and every block where image 1 puts it. Paint ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched.
+
+THE PLACE: deeper inside the same old abandoned gold mine as image 3, 1850s, in the DAYTIME, lit dimly by daylight through cracks in the rock roof: a rock chamber with two boulders in it.
+- At the far LEFT edge: a dim rock passage, the way back.
+- LEFT of middle: one HUGE boulder, the size of a stagecoach, rounded and grey-brown, sitting on the floor and filling much of the chamber.
+- Just RIGHT of the huge boulder, behind it: the dark mouth of a passage going on, framed with two old timber posts and a beam.
+- RIGHT: a second boulder, plainly SMALLER, about as tall as a man's chest.
+- At the far RIGHT, beyond the smaller boulder: the dark mouth of another passage going on, framed exactly like the first one.
+- The two passage mouths are the SAME size, the SAME shape, the SAME timbers, lit exactly alike and equally dark inside.
+- The floor: rock and grit, readable, not black.
+
+THE PERSON: the hero from image 4, standing where image 1 puts him, at exactly that size. Nobody else.
+
+THE LOOK: the same pixel-art style as images 2 and 5, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero, flat, soft shading, very little texture, simple shapes. Daylight, not lantern light: no lamp, no fire, no glow. Nothing makes one passage look more inviting than the other: no light falls into either, no track or mark leads to either.
+
+RULES: no readable text, letters or numbers anywhere. No border, no frame around the picture, no caption.

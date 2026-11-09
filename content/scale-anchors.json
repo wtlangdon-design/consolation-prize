@@ -128,6 +128,25 @@
    }
   },
   {
+   "figure": "washout_grievance",
+   "animal": "Grievance waiting at the washout on the patch of grass, facing us, in the rest frame",
+   "frame": 0,
+   "columns": [
+    0,
+    153
+   ],
+   "feet": "hooves",
+   "top": "ear tips",
+   "height": [
+    1.1,
+    1.35
+   ],
+   "basis": "A mule of 13-15.2 hands (1.32-1.57 m at the withers; most of the West's pack and harness mules) beside a man of about 1.72 m: withers 0.77-0.91 of him. Her head carried naturally, the poll stands about 0.3 m over the withers and the long ears another 0.3 m, so the ear tips are 1.9-2.3 m: 1.10-1.35 of him.",
+   "ruling": "A mule beside a man: her ear tips a head and more above his.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "Room 45 (errata 200): her livery generation's whole-mule sheet, cut at 1.2 of the man at her hooves (y 803). The frame is only her."
+  },
+  {
    "figure": "funeral_grievance",
    "animal": "Grievance in the hearse harness, head lowered, in the rest frame",
    "frame": 0,

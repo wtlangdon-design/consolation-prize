@@ -357,6 +357,105 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE MUD** · PICK_UP — "I took a little, in a twist of paper. The one honest thing in the territory. A man should keep a sample of what saved him."
 **THE HILLS** · TALK_TO — "I told them they could rest now. Presumptuous, possibly. But somebody ought to say it, and the piano man had the morning free."
 
+## ROOM 45 — THE WASHOUT
+
+*Rooms 45 to 54, errata 199 (Tyler, 2026-11-08, told docs 108 and 109 wrote no wrong-verb layer for Fiddler's Gulch: "Write them (doc 49)"). One voice, under doc 59 and docs 108–109's rules: nothing hints, nothing in the mine favors a way, and every line is true whenever its room can be read.*
+
+**THE SLIDE** · PUSH — "I shoved it. A stone came down and stopped at my boot, like a reply."
+**THE SLIDE** · PICK_UP — "One stone at a time, I'd have the road clear by spring. Vessel would have spent everything by then."
+**THE SIGNPOST** · PULL — "It's set deep. Whoever put it up meant it. Then the hill disagreed."
+**THE SIGNPOST** · TALK_TO — "I asked it which way now. It pointed into the slide again. It's committed."
+**THE ROAD BACK** · TALK_TO — "I told the road I'd be back. Roads hear that from everybody, and believe nobody."
+**GRIEVANCE** · PUSH — "I pushed her, gently, to see if she'd come. She moved one hoof, onto better grass."
+**THE OLD MINE** · OPEN — "It's open. A hole doesn't have much else to offer."
+
+## ROOM 46 — THE MINE: THE ADIT
+
+**THE STAKE** · PICK_UP — "It's driven in to the knee. Taking it would mean digging, and I came here to walk."
+**THE STAKE** · TALK_TO — "I said good morning to it. It's been standing here so long, I felt it was owed."
+**THE WAY OUT** · TALK_TO — "I called out to Grievance that I was all right. She didn't ask."
+
+## ROOM 47 — THE MINE: THE CLIMB
+
+**THE PROPS** · PULL — "No. Not even a little. Not even to see."
+**THE PROPS** · TALK_TO — "I thanked them. They hold up a hill all day for nothing, and nobody ever says."
+**THE SHAFT OF LIGHT** · USE — "I stood in it for a minute. It's warm. I'd forgotten the sun was still going on, up there."
+
+## ROOM 48 — THE MINE: THE TWO ROCKS
+
+**THE BIG ROCK** · TALK_TO — "I asked it to move, politely. It's been asked before, by better men, with dynamite."
+**THE OTHER ROCK** · PICK_UP — "I tried. It's the small one, and it still beat me. I won't be telling the big one."
+**THE OTHER ROCK** · TALK_TO — "I told it I liked it best. I whispered, so the big one wouldn't hear."
+
+## ROOM 49 — THE MINE: THE LINE
+
+**THE ORE CART** · PUSH — "I tried to set it on its wheels. It went back on its side, where it's comfortable."
+**THE ORE CART** · TALK_TO — "I asked May which way she went. She kept it to herself. I'd want the same, if I were May."
+**THE ORE CART** · USE — "I could climb in and go somewhere. It's on its side, and I'm a grown man. Two good reasons."
+
+## ROOM 50 — THE LEDGE
+
+**THE RAVINE** · USE — "No. There's a path. I'll take the path."
+**THE CAIRN** · PUSH — "Somebody built it carefully. I'm not going to be the man who undid it, on my first day."
+**THE CAMP BELOW** · TALK_TO — "I shouted 'Hello!' down. A hundred men looked up, and one of them pointed a pan at me."
+**THE PATH DOWN** · PULL — "I tested the rope. It held. I'd like that noted somewhere official."
+
+## ROOM 51 — THE TENTS
+
+**THE COOK FIRE** · USE — "I warmed my hands at it. Nobody stopped me. It's the friendliest thing in camp."
+**THE WASHING LINE** · OPEN — "Every pocket's padlocked. I tried one, to see. A man across the way stood up."
+**THE CABINS** · OPEN — "I tried a latch. Three bolts answered from inside, one after another, like a choir."
+**THE TENTS** · OPEN — "I lifted a flap. Somebody inside said 'No', very calmly, and I put it down."
+**THE NOTICE** · PULL — "Taking down a notice against strangers would make me the stranger it means."
+**THE NOTICE** · TALK_TO — "I told it I wasn't a jumper. It went on saying FIRMLY."
+
+*The lookout (doc 109) at the foot of the path. These answer a wrong verb on him, before G3 and after it (errata 202); his tree, barks and GIVE lines are doc 109's.*
+
+**THE LOOKOUT** · PICK_UP — "I'm not going to lift a man who already thinks I'm here to take things."
+**THE LOOKOUT** · PUSH — "I gave him a friendly nudge. He raised the pan an inch, and I took my hand back."
+**THE LOOKOUT** · USE — "He's already in use. He's guarding a path, and he's doing it with his whole body."
+
+## ROOM 52 — THE GROG TENT
+
+**THE PLANK** · PICK_UP — "It's the bar. You don't pick up a man's bar. Not here, and not with him watching."
+**THE BARRELS** · OPEN — "I reached for a tap. The keeper cleared his throat in a way that cost a pinch."
+**THE BOTTLES** · PICK_UP — "The prices are by the pinch, and I haven't got one. I put it back, carefully, while he watched."
+**THE TENT FLAP** · CLOSE — "I untied it. The whole tent looked at me. I tied it back."
+
+*The Deacon behind the plank and the rule-keeper on his barrel (doc 109). These answer a wrong verb on them (errata 202). The Deacon's three hold before THE FIND and after it, when his name reads DEKE VESSEL; the rule-keeper's hold before G5 and after. Their trees and barks are doc 109's.*
+
+**THE DEACON** · PICK_UP — "Not a man behind his own bar. That's how you end up underneath it."
+**THE DEACON** · PUSH — "I leaned across the plank at him. He leaned back the same distance, smiling, like we'd done this before."
+**THE DEACON** · USE — "He's working. Every man in here is using him, a pinch at a time."
+**THE RULE-KEEPER** · PICK_UP — "Him and the barrel both? Not without a mule, and the mule's at the washout."
+**THE RULE-KEEPER** · PUSH — "Push a man off his barrel and he'd make a rule about it. Then he'd get it wrong, against me."
+**THE RULE-KEEPER** · USE — "He's the camp's rule book. I'd look something up, but the answer changes every time."
+
+## ROOM 53 — THE RIVER
+
+**THE ROCKER** · USE — "I offered to rock it a while. He held on tighter, as if I'd asked to hold his wallet."
+**THE LONG TOM** · PICK_UP — "There's gold in it, in plain sight, and a man with a shovel in plainer sight."
+**THE WATER** · TALK_TO — "I told the river it had made a lot of men rich. It went on past, not interested."
+
+*The panner, knee-deep in the river (doc 109). These answer a wrong verb on him (errata 202); his tree and barks are doc 109's.*
+
+**THE PANNER** · PICK_UP — "I'm not lifting a man out of the river. He'd climb straight back in. It's where the money is."
+**THE PANNER** · PUSH — "He's in the river to his knees. One push would finish the job, and ruin the coat."
+**THE PANNER** · USE — "I asked for a go with his pan. He turned his back on me and panned faster."
+
+## ROOM 54 — UPSTREAM
+
+**THE STAKES** · PULL — "Pull one and I'm on somebody's side. Pull both and I'm on everybody's list."
+**THE BEST GROUND** · PICK_UP — "Gold, lying there. I reached. A shovel came down between my hand and it, gently."
+**THE SLUICE** · USE — "I'd finish it for them. NOT YET, says the board. I don't know whose 'yet' it is."
+**THE FALLS** · TALK_TO — "I sang it an E, to give it ideas. It stayed on D."
+
+*The man upstream, on the best ground (doc 109). These answer a wrong verb on him (errata 202); his tree and barks are doc 109's.*
+
+**THE MAN UPSTREAM** · PICK_UP — "If I lift him off that gravel, the other man wins it. I'd never hear the end of it from either."
+**THE MAN UPSTREAM** · PUSH — "One step his way and the shovel came up, flat, like a door shutting. I'm on the right side of it."
+**THE MAN UPSTREAM** · USE — "Use him for what? He does one thing, standing on gravel, and he does it without me."
+
 ---
 
 ## Accounting

@@ -1,0 +1,224 @@
+{
+ "schema": 1,
+ "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
+ "room": 51,
+ "id": "room-51-tents",
+ "name": "THE TENTS",
+ "content": [
+  {
+   "id": "look-listen",
+   "question": "LOOK/LISTEN complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+    "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT"
+   ],
+   "why": "8 subject(s), each with a LOOK and a LISTEN"
+  },
+  {
+   "id": "repeat-variants",
+   "question": "Repeat-selection variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+    "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT"
+   ],
+   "why": "all 8 subject(s) carry three LOOK and three LISTEN variants"
+  },
+  {
+   "id": "act-variants",
+   "question": "Act/state variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "why": "none, by doctrine: The tents are reached only on the trip, in Act II, down the path from the ledge (doc 107). Doc 109 writes one state for the room; the lookout's change at G3 is written as his before and after."
+  },
+  {
+   "id": "wrong-verbs",
+   "question": "Wrong-verb layer complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/49-wrong-answers.md::ROOM 51 — THE TENTS"
+   ],
+   "why": "9 authored refusal(s)"
+  },
+  {
+   "id": "dialogue",
+   "question": "Dialogue used by this room complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT"
+   ],
+   "why": "1 node(s) resolve for the lookout"
+  },
+  {
+   "id": "puzzles",
+   "question": "Puzzle requirements complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)",
+    "proofs/readiness/puzzles.json"
+   ],
+   "why": "G3 are specified, and every piece of their content is written"
+  },
+  {
+   "id": "items",
+   "question": "Required items declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+   ],
+   "why": "the puzzle section names the documents and topics this room issues and needs"
+  },
+  {
+   "id": "flags",
+   "question": "Required flags/state declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+   ],
+   "why": "the puzzle section names the topic flags this room sets"
+  },
+  {
+   "id": "staging",
+   "question": "Beat/staging script complete OR genuinely not required?",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1"
+   ],
+   "why": "not required: No doc 48 script is sited here. G3's hand-over is written whole under THE LOOKOUT (GIVE THE CLARION), with its directions."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour sufficiently authored?",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT",
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1"
+   ],
+   "why": "the lookout has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
+  },
+  {
+   "id": "open-canon",
+   "question": "Unresolved canon decisions affecting this room?",
+   "answer": "NO",
+   "evidence": [],
+   "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
+  }
+ ],
+ "subjectsFound": 8,
+ "subjectsDeclaredByDocument": null,
+ "unresolvedCitations": [],
+ "dimensions": [
+  {
+   "id": "writing",
+   "question": "Writing",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+    "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT",
+    "docs/49-wrong-answers.md::ROOM 51 — THE TENTS"
+   ],
+   "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
+  },
+  {
+   "id": "puzzle-behaviour",
+   "question": "Puzzle behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)",
+    "proofs/readiness/puzzles.json"
+   ],
+   "why": "the puzzles sited here, the items they need and issue, and the flags they set"
+  },
+  {
+   "id": "act-behaviour",
+   "question": "Act/state behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "why": "none, by doctrine: The tents are reached only on the trip, in Act II, down the path from the ledge (doc 107). Doc 109 writes one state for the room; the lookout's change at G3 is written as his before and after."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT",
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1"
+   ],
+   "why": "the lookout has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
+  },
+  {
+   "id": "staging-behaviour",
+   "question": "Staging behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1"
+   ],
+   "why": "not required: No doc 48 script is sited here. G3's hand-over is written whole under THE LOOKOUT (GIVE THE CLARION), with its directions."
+  },
+  {
+   "id": "visual-subjects",
+   "question": "Visual subject requirements",
+   "answer": "NO",
+   "evidence": [
+    "A renders/room-01-in-engine-1920x1080.png",
+    "B art/backgrounds/room-01-stage-road.png",
+    "C art/actors/thad-stand-front/stand-00.png"
+   ],
+   "why": "D and E: room-51-tents has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+  },
+  {
+   "id": "geometry",
+   "question": "Geometry/placement",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-51/annotation.json",
+    "content/rooms/gulch-tents.json",
+    "art/backgrounds/room-51-tents.png"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | the room is not in the manifest | no shipping plate declared"
+  }
+ ],
+ "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
+ "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
+ "geometry": [
+  {
+   "id": "annotation",
+   "question": "Room annotation exists?",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-51/annotation.json"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+  },
+  {
+   "id": "compiled",
+   "question": "Room JSON in the manifest?",
+   "answer": "NO",
+   "evidence": [
+    "content/rooms/gulch-tents.json"
+   ],
+   "why": "the room is not in the manifest"
+  },
+  {
+   "id": "plate",
+   "question": "Shipping plate at the canonical size?",
+   "answer": "NO",
+   "evidence": [
+    "art/backgrounds/room-51-tents.png"
+   ],
+   "why": "no shipping plate declared"
+  }
+ ],
+ "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
+ "geometryReady": "NO",
+ "at": "2026-11-09T01:16:42.391Z"
+}

@@ -1,0 +1,19 @@
+Image 1 is the layout for one place in my pixel-art adventure game: grey blocks for the land and the things on it, the hero (the man in the long coat) standing on the road, and a mule as a plain dark grey shape. Paint this place as a finished game background with the hero and the mule in it, keeping the camera, the layout and every block where image 1 puts it. Paint ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched.
+
+THE PLACE: a mountain road in the frontier West, 1850s, on a clear DAY, where the road gives out: a landslide has come down across it. Daylight, a pale blue sky with a little cloud, clear dry light, the hills brown and green with scattered pines. The same game as image 2 (a road into the hills, painted at night) and image 3 (the same game's town in daylight).
+- The ground where the hero stands: a dirt wagon road with two ruts, dry and dusty, readable, not dark.
+- At the far left and coming in from the bottom-left corner: the road going back down the valley the way it came, falling away into the distance.
+- Left of the middle, where the dark grey shape is: a brown mule standing on the one small patch of green grass at the edge of the slide, facing us, ears up, waiting.
+- In the middle, where the road ends: a wooden signpost on one post with one plank arm pointing to the right, straight into the slide. The plank is blank: no letters on it.
+- Middle to right: THE SLIDE. Half a hillside has slid down across the road: a big heap of mud, earth and broken boulders, recent and raw, burying the road completely. Lying across the top of it, a whole pine tree, fallen, its roots up in the air with earth still in them.
+- At the right, cut into the hillside of the ridge: the timbered mouth of an old mine, two upright posts and a beam across the top, dark inside, and a pair of rusted rails running out of it a short way and stopping at the edge of the slide.
+- Behind everything: the ridge and the hills, and the sky.
+
+THE PEOPLE:
+- The hero from image 4, standing where image 1 puts him, at exactly that size.
+- The mule, where the dark grey shape is, at that size. Drawn exactly as coarsely as the hero.
+Nobody else.
+
+THE LOOK: the same pixel-art style as images 2 and 3, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero, flat, soft shading, very little texture, simple shapes. Daylight, warm and clear, as in image 3; not night. The road where the hero stands is a middle tone, not white and not dark.
+
+RULES: no readable text, letters or numbers anywhere: the signpost's arm is blank. No border, no frame around the picture, no caption.

@@ -1,0 +1,44 @@
+{
+ "schema": 1,
+ "room": 50,
+ "id": "room-50-ledge",
+ "name": "THE LEDGE",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-11-08 for reference/fiddlers-gulch/brief.md (errata 190, 194, 195, 199) from docs 107, 109, 49 and 02.",
+ "examine": {
+  "primary": "docs/109-fiddlers-gulch-lines.md::THE LEDGE",
+  "batch": [],
+  "merged": [],
+  "completions": [
+   "docs/109-fiddlers-gulch-lines.md::THE LEDGE"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "The ledge is reached only on the trip, in Act II, from the mine's far end and from the camp below (doc 107). Doc 109 writes one state for it, true on every visit."
+  }
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 50 — THE LEDGE",
+ "dialogue": {
+  "characters": [],
+  "trees": [],
+  "none": {
+   "source": "docs/109-fiddlers-gulch-lines.md::THE LEDGE",
+   "why": "Nobody stands on the ledge (doc 107, the brief's table); the man at the foot of the path is in Room 51."
+  }
+ },
+ "puzzles": {
+  "ids": [
+   "G2"
+  ],
+  "source": [
+   "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+  ]
+ },
+ "staging": {
+  "required": false,
+  "why": "No doc 48 script is sited here. The arrival line is doc 109's ON FIRST ARRIVAL."
+ },
+ "connectivity": "docs/107-fiddlers-gulch.md::The mine",
+ "exits": "docs/109-fiddlers-gulch-lines.md::THE LEDGE",
+ "roomFile": "content/rooms/ledge.json",
+ "plate": "art/backgrounds/room-50-ledge.png"
+}

@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "washout",
+ "note": "ROOM 45's PROOF SPEC. The trip is reached only by B3's changed ride, which switches over when the trip is whole, so the proof starts from fixture r45-a and says so. One visual state, daylight (errata 190); Grievance waits on her grass; the only change is that after the first crossing THE OLD MINE leads straight to the ledge, which is a way's destination, not a picture.",
+ "fixture": "r45-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "The washout has one visual state (daylight, errata 190) and nothing in it changes to the eye: Grievance waits there for as long as Thad is gone (doc 108). The first crossing changes where THE OLD MINE leads (doc 107), not the picture; tests/gulch-mine.test.ts plays it."
+ }
+}

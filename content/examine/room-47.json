@@ -1,0 +1,84 @@
+{
+  "room": 47,
+  "name": "THE MINE: THE CLIMB",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE CLIMB",
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE CLIMB",
+    "docs/49-wrong-answers.md::ROOM 47 — THE MINE: THE CLIMB"
+  ],
+  "subjects": [
+    {
+      "name": "THE PROPS",
+      "LOOK_AT": [
+        "Pit props holding up the roof. Somebody's carved initials in one, and a date, and lower down, SORRY.",
+        "I counted the props. I wish I hadn't. I'd have liked a round number.",
+        "I tapped one, to see. It's fine. I'm not tapping another."
+      ],
+      "LISTEN_TO": [
+        "A creak overhead, then nothing.",
+        "Wood settling. It's been settling for years, and it's very nearly comfortable.",
+        "Quiet. I'm holding my breath, and I think the props are too."
+      ],
+      "overrides": {
+        "PULL": "No. Not even a little. Not even to see.",
+        "TALK_TO": "I thanked them. They hold up a hill all day for nothing, and nobody ever says."
+      }
+    },
+    {
+      "name": "THE SHAFT OF LIGHT",
+      "LOOK_AT": [
+        "Daylight, coming down a shaft in the roof in one straight bar. The dust in it looks like it's somewhere better.",
+        "There's a disc of sky at the top, the size of a dollar. I know exactly what a dollar looks like. I had four.",
+        "A pine needle came down it while I watched, and took its time."
+      ],
+      "LISTEN_TO": [
+        "Wind over the top, like breath across a bottle. An F, near enough.",
+        "Birds, far up. Up there it's an ordinary day.",
+        "The F again, a hair flat. I can't fix it from down here."
+      ],
+      "overrides": {
+        "USE": "I stood in it for a minute. It's warm. I'd forgotten the sun was still going on, up there."
+      }
+    },
+    {
+      "name": "THE PASSAGE UP",
+      "LOOK_AT": [
+        "A passage climbing steeply, with steps cut in it by somebody who hated steps.",
+        "It goes up at an angle a mule would refuse. Grievance was right to stay.",
+        "Every step's a different height. Whoever cut them was in a temper, or a hurry, or both."
+      ],
+      "LISTEN_TO": [
+        "Grit trickling down the steps.",
+        "Still air, up there.",
+        "A drip, somewhere up there. Much like down here."
+      ]
+    },
+    {
+      "name": "THE PASSAGE ON",
+      "LOOK_AT": [
+        "A level passage going on into the hill. Easy walking, which makes me suspicious.",
+        "Rails along the floor, rusted to the color of the dark.",
+        "Somebody laid rails along it, and never came back for them."
+      ],
+      "LISTEN_TO": [
+        "A drip, steady, somewhere along.",
+        "Still air, along there.",
+        "A drip along there too. Every passage has one."
+      ]
+    },
+    {
+      "name": "THE WAY BACK",
+      "LOOK_AT": [
+        "Back the way I came, toward the three openings.",
+        "I could go back. I'd only have to come forward again.",
+        "Back there the floor was flat and I knew where I was. I've given that up for now."
+      ],
+      "LISTEN_TO": [
+        "The drip on the stake, faint, behind me.",
+        "Quiet, back there.",
+        "A drip, back by the openings."
+      ]
+    }
+  ]
+}

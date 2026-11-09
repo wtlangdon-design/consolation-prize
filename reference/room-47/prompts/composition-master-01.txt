@@ -1,0 +1,15 @@
+Image 1 is the layout for one place in my pixel-art adventure game: grey blocks for a chamber and the things in it, and the hero (the man in the long coat) standing on the floor. Paint this place as a finished game background with the hero in it, keeping the camera, the layout and every block where image 1 puts it. Paint ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched.
+
+THE PLACE: deeper inside the same old abandoned gold mine as image 3 (the mine's first chamber), 1850s, in the DAYTIME: a rough rock chamber where the way forks. The same mine as image 2, but lit by daylight, not a lantern.
+- At the far LEFT edge: a dim rock passage, the way back to the first chamber.
+- LEFT of middle: a passage climbing STEEPLY up and away into the rock, with rough steps cut into its floor.
+- RIGHT of middle: a level passage going straight on into the hill, with a pair of old rusted rails on its floor running into it.
+- Holding up the roof: two thick old timber pit props, upright, with a beam across. On the left one, low down, a few small rough carved scratches in the wood, too small to read.
+- In the MIDDLE, between the two passages: an old round shaft in the rock roof, with a small disc of bright sky at its top, letting down ONE straight bar of daylight onto the middle of the floor, with dust floating in it. The bar falls on the floor between the passages, not into either of them.
+- The floor: rock and grit, readable, not black.
+
+THE PERSON: the hero from image 4, standing where image 1 puts him, at exactly that size. Nobody else.
+
+THE LOOK: the same pixel-art style as images 2 and 5, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero, flat, soft shading, very little texture, simple shapes. Daylight, not lantern light: no lamp, no fire, no glow. The two passages are lit exactly alike and equally dark inside; nothing makes one look more inviting than the other.
+
+RULES: no readable text, letters or numbers anywhere. No border, no frame around the picture, no caption.

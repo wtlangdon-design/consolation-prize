@@ -1,0 +1,180 @@
+{
+ "schema": 1,
+ "id": "room-46-mine-adit",
+ "room": "mine_adit",
+ "docRoom": 46,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 46 of Fiddler's Gulch (reference/fiddlers-gulch/brief.md; errata 199, 200; doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/107-fiddlers-gulch.md",
+  "docs/108-the-washout-and-the-mine.md",
+  "docs/109-fiddlers-gulch-lines.md",
+  "docs/49-wrong-answers.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-46.json",
+    "docs/00-errata.md::200 · FIDDLER'S GULCH BUILT, PART ONE: THE WASHOUT, THE MINE AND THE LEDGE (ROOMS 45-50)"
+   ],
+   "note": "One picture, daylight (errata 190), reached only on the trip."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-46/graybox.json",
+    "docs/00-errata.md::200 · FIDDLER'S GULCH BUILT, PART ONE: THE WASHOUT, THE MINE AND THE LEDGE (ROOMS 45-50)"
+   ],
+   "note": "Every subject is plate; lettering is a prop in the game's face."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-46-mine-adit-with-thad.png",
+    "docs/00-errata.md::200 · FIDDLER'S GULCH BUILT, PART ONE: THE WASHOUT, THE MINE AND THE LEDGE (ROOMS 45-50)"
+   ],
+   "note": "nobody; the three openings and the stake are plate"
+  },
+  "roomLife": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/107-fiddlers-gulch.md::The places"
+   ],
+   "note": "Nobody is in the mine or on the ledge (doc 107); nothing in them may move or cycle to show a way (the brief; invariant 9)."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-46-mine-adit-with-thad.png"
+   ],
+   "note": "Nothing is held or touched in the picture; the hero stands on the floor."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-46/annotation.json",
+    "art/staging/room-46/plate-01/frame.json"
+   ],
+   "note": "Daylight down old shafts and cracks (doc 108), even over every way; no lamp."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-mine.test.ts",
+    "docs/108-the-washout-and-the-mine.md"
+   ],
+   "note": "G2: the stake, the rising passage and the big rock are visible because the survey names them; the line's two passages are mirror images; nothing is found by ear."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-46.json",
+    "content/rooms/mine-adit.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-46: 2 of 4 operations (master, people-free plate)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/mine-adit.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-46/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/mine-adit/proof.json"
+   ],
+   "note": "No principal change: one visual state."
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-mine.test.ts",
+    "renders/proofs/washout/doors/life.json"
+   ],
+   "note": "The mine walked: a wrong way back, the survey's way through to the ledge, and back through as one passage."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  },
+  "lifeProof": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/107-fiddlers-gulch.md::The places"
+   ],
+   "note": "Nothing lives here to prove; the gameplay route walks it."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-46/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-46-mine-adit.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-46/plate-01/frame.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q187 · Room 46, the mine's adit: built, awaiting Tyler's playthrough"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q187 · Room 46, the mine's adit: built, awaiting Tyler's playthrough"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

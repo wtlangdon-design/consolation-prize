@@ -552,8 +552,14 @@ function ask(room, sources, note) {
   // statement about where Winnie is and what she permits). A tool cannot
   // judge sufficiency, so it asks whether both sources exist and says which.
   const overrides = sources.exits ? section(sources.exits) : { ok: false, why: 'none declared' };
-  const behaviour = trees.length > 0 && unresolved.length === 0 && overrides.ok
-    && /##\s*Overrides/m.test(overrides.body);
+  // Or, where a room's wrong verbs are doc 49's (Fiddler's Gulch, errata 202), that section answers a wrong verb
+  // on EVERY person the room declares, by name: "**THE LOOKOUT** · PUSH — ...". One unnamed person is a NO.
+  const wrongSection = sources.wrongVerbs ? section(sources.wrongVerbs) : { ok: false, body: '' };
+  const named = (who) => who.replace(/^the /i, '').toUpperCase();
+  const refusedEach = wrongSection.ok && (sources.dialogue?.characters ?? []).length > 0
+    && (sources.dialogue.characters).every((who) => wrongSection.body.includes(`**THE ${named(who)}** · `));
+  const behaviour = trees.length > 0 && unresolved.length === 0 && ((overrides.ok
+    && /##\s*Overrides/m.test(overrides.body)) || refusedEach);
   if (silent) {
     add('character-behaviour', 'Character behaviour sufficiently authored?', 'YES',
       [sources.dialogue.none.source], 'no character is present to behave');

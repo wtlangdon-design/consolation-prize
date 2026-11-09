@@ -72,6 +72,15 @@ PEOPLE = {
         'sheet': 'art/staging/room-37/women/sheet-a.png', 'drawn': 3, 'names': ['rest', 'breath', 'hair', 'talk'],
         'feet': (1679, 650), 'stature': 0.97, 'posture': 'standing', 'curve': ((660, 452), (855, 587)),
     },
+    # Fiddler's Gulch (reference/fiddlers-gulch/brief.md). Grievance at the washout is her livery generation's
+    # whole-mule sheet (room-15 operation 4), five poses facing us; it fits the day's light, so no operation is spent.
+    # Her ear tips stand 1.2 of the man at her hooves (errata 205's mule: 1.10-1.35; she is 1.19 over the livery door).
+    # She was first cut at 0.83 -- the composition master's size, shorter than Thad -- and errata 205's check caught it.
+    (45, 'grievance'): {
+        'sheet': 'art/staging/room-15/grievance-01/sheet.png', 'drawn': 5,
+        'names': ['rest', 'breath', 'still', 'ears', 'head-left', 'snort'],
+        'feet': (480, 803), 'stature': 1.2, 'posture': 'animal', 'curve': ((690, 258), (858, 372)),
+    },
     (37, 'woman-b'): {
         'sheet': 'art/staging/room-37/women/sheet-b.png', 'drawn': 3, 'names': ['rest', 'breath', 'arms', 'talk'],
         'feet': (1801, 660), 'stature': 0.97, 'posture': 'standing', 'curve': ((660, 452), (855, 587)),

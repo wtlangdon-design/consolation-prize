@@ -745,7 +745,13 @@
    "boarding_house_parlour": "plank",
    "bakehouse": "plank",
    "empty_storefront": "plank",
-   "schoolhouse": "plank"
+   "schoolhouse": "plank",
+   "washout": "dirt",
+   "ledge": "dirt",
+   "mine_adit": "dirt",
+   "mine_climb": "dirt",
+   "mine_two_rocks": "dirt",
+   "mine_line": "dirt"
   }
  },
  "ambience": {
@@ -775,6 +781,36 @@
    "src": "audio/sfx/press-cycle.wav",
    "gain": 0.45,
    "why": "doc 45 R09-PRESS: the press in its operating state -- the room's own LISTEN hears it running every time (\"It knocks on the return stroke.\")"
+  },
+  "washout": {
+   "src": "audio/sfx/washout-bed.wav",
+   "gain": 0.35,
+   "why": "doc 45 R45-A: wind over the slide; a trickle working through it; now and then a stone ticking down (tools/audio/render-gulch-sfx.py)."
+  },
+  "mine_adit": {
+   "src": "audio/sfx/mine-bed.wav",
+   "gain": 0.35,
+   "why": "doc 45 R46-49-A: drips at random intervals, cool moving air. IDENTICAL in all four mine rooms, at one level, carried across them (doc 107: nothing in the mine hints by sound; tests/gulch-mine.test.ts)."
+  },
+  "mine_climb": {
+   "src": "audio/sfx/mine-bed.wav",
+   "gain": 0.35,
+   "why": "doc 45 R46-49-A: drips at random intervals, cool moving air. IDENTICAL in all four mine rooms, at one level, carried across them (doc 107: nothing in the mine hints by sound; tests/gulch-mine.test.ts)."
+  },
+  "mine_two_rocks": {
+   "src": "audio/sfx/mine-bed.wav",
+   "gain": 0.35,
+   "why": "doc 45 R46-49-A: drips at random intervals, cool moving air. IDENTICAL in all four mine rooms, at one level, carried across them (doc 107: nothing in the mine hints by sound; tests/gulch-mine.test.ts)."
+  },
+  "mine_line": {
+   "src": "audio/sfx/mine-bed.wav",
+   "gain": 0.35,
+   "why": "doc 45 R46-49-A: drips at random intervals, cool moving air. IDENTICAL in all four mine rooms, at one level, carried across them (doc 107: nothing in the mine hints by sound; tests/gulch-mine.test.ts)."
+  },
+  "ledge": {
+   "src": "audio/sfx/ledge-bed.wav",
+   "gain": 0.22,
+   "why": "doc 45 R50-A: wind high on the cliff; far below, water and shovels (tools/audio/render-gulch-sfx.py)."
   }
  },
  "lines": [
