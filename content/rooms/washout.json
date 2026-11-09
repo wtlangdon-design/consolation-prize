@@ -490,14 +490,48 @@
       },
       "neighbours": [
         "floor_0",
-        "floor_2"
+        "floor_2_1"
       ]
     },
     {
-      "id": "floor_2",
+      "id": "floor_2_0",
       "points": [
         {
           "x": 207,
+          "y": 754
+        },
+        {
+          "x": 425,
+          "y": 754
+        },
+        {
+          "x": 425,
+          "y": 806
+        },
+        {
+          "x": 207,
+          "y": 806
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 372
+      },
+      "neighbours": [
+        "floor_2_2",
+        "floor_3_0"
+      ]
+    },
+    {
+      "id": "floor_2_1",
+      "points": [
+        {
+          "x": 545,
           "y": 754
         },
         {
@@ -509,7 +543,7 @@
           "y": 806
         },
         {
-          "x": 207,
+          "x": 545,
           "y": 806
         }
       ],
@@ -524,22 +558,57 @@
       },
       "neighbours": [
         "floor_1",
-        "floor_3"
+        "floor_2_2",
+        "floor_3_1"
       ]
     },
     {
-      "id": "floor_3",
+      "id": "floor_2_2",
+      "points": [
+        {
+          "x": 425,
+          "y": 754
+        },
+        {
+          "x": 545,
+          "y": 754
+        },
+        {
+          "x": 545,
+          "y": 770
+        },
+        {
+          "x": 425,
+          "y": 770
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 372
+      },
+      "neighbours": [
+        "floor_2_0",
+        "floor_2_1"
+      ]
+    },
+    {
+      "id": "floor_3_0",
       "points": [
         {
           "x": 120,
           "y": 806
         },
         {
-          "x": 1602,
+          "x": 425,
           "y": 806
         },
         {
-          "x": 1602,
+          "x": 425,
           "y": 858
         },
         {
@@ -557,7 +626,76 @@
         "nearHeight": 372
       },
       "neighbours": [
-        "floor_2"
+        "floor_2_0",
+        "floor_3_2"
+      ]
+    },
+    {
+      "id": "floor_3_1",
+      "points": [
+        {
+          "x": 545,
+          "y": 806
+        },
+        {
+          "x": 1602,
+          "y": 806
+        },
+        {
+          "x": 1602,
+          "y": 858
+        },
+        {
+          "x": 545,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 372
+      },
+      "neighbours": [
+        "floor_2_1",
+        "floor_3_2"
+      ]
+    },
+    {
+      "id": "floor_3_2",
+      "points": [
+        {
+          "x": 425,
+          "y": 815
+        },
+        {
+          "x": 545,
+          "y": 815
+        },
+        {
+          "x": 545,
+          "y": 858
+        },
+        {
+          "x": 425,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 372
+      },
+      "neighbours": [
+        "floor_3_0",
+        "floor_3_1"
       ]
     }
   ],

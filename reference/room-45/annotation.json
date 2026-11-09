@@ -192,7 +192,19 @@
    "facing": "right"
   }
  },
- "obstacles": [],
+ "obstacles": [
+  {
+   "id": "grievance",
+   "rect": [
+    425,
+    770,
+    120,
+    45
+   ],
+   "keepsGroundAbove": true,
+   "note": "She stands on the washout's floor at 480,803, and the bands ran straight through her (tests/staging-clear.test.ts, 'nobody walks through an animal'). The rect is her footprint, the bottom of her own hotspot rect: he walks round her, in front or behind, as Main Street's dog."
+  }
+ ],
  "lamps": [],
  "defaultVerbs": {
   "signpost": "LOOK_AT",

@@ -1,0 +1,1524 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "washout",
+ "commit": "bc6daf7e900fb2f5b1715cc164fcf2a32391b474",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r45-a",
+ "warped": false,
+ "lifeRoute": "washout-life",
+ "durationSeconds": 58.57,
+ "events": [
+  {
+   "t": 3.02,
+   "line": "started from fixture r45-a, no entry route"
+  },
+  {
+   "t": 6.07,
+   "line": "in washout; life route: 25 action(s)"
+  },
+  {
+   "t": 6.59,
+   "line": "capture 01-arrived: room washout, says null, options 0, control null"
+  },
+  {
+   "t": 7.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 8.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 13.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 14.61,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 14.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 15.17,
+   "line": "capture 02-grievance-waits: room washout, says null, options 0, control null"
+  },
+  {
+   "t": 16.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 19.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 20.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 21.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.2,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 22.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.76,
+   "line": "capture 03-grievance-later: room washout, says null, options 0, control null"
+  },
+  {
+   "t": 22.93,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 23.18,
+   "line": "action 1 (click): clicked washout/slide at world 1310,410 -- THE SLIDE"
+  },
+  {
+   "t": 24.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     560,
+     802
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 25.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     835,
+     803
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 26.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1101,
+     805
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 27.22,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1310,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 27.48,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room washout"
+  },
+  {
+   "t": 28.06,
+   "line": "capture 04-look-slide: room washout, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 29.07,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1310,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.07,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1310,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 31.08,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1310,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 32.07,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1310,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 33.09,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1310,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.09,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1310,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.11,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 34.22,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 34.45,
+   "line": "action 1 (click): clicked washout/signpost at world 945,615 -- THE SIGNPOST"
+  },
+  {
+   "t": 34.55,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room washout"
+  },
+  {
+   "t": 35.07,
+   "line": "capture 05-listen-signpost: room washout, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 36.12,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     945,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 37.11,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     945,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 38.1,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     945,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 39.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     945,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 40.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     945,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 41.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     945,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 41.13,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 41.2,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 41.42,
+   "line": "action 1 (click): clicked washout/grievance at world 485,665 -- doc 108: TALK TO Grievance, at her stand beside her"
+  },
+  {
+   "t": 42.45,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     663,
+     817
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 42.63,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room washout"
+  },
+  {
+   "t": 43.13,
+   "line": "capture 06-talk-grievance: room washout, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 44.14,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 45.15,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 46.16,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 47.17,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 48.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 49.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 49.17,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 49.27,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 49.48,
+   "line": "action 1 (click): clicked washout/grievance at world 485,665 -- doc 108: USE, before Vessel has agreed to the rematch"
+  },
+  {
+   "t": 49.56,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room washout"
+  },
+  {
+   "t": 50.07,
+   "line": "capture 07-use-grievance: room washout, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 51.08,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 52.1,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 53.1,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 54.1,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 55.09,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 56.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     650,
+     815
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 56.1,
+   "line": "action 1 (wait): waited 6s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "off Grievance at the road's end",
+   "t": 6.58,
+   "file": "renders/proofs/washout/life/raw-captures-ignored/01-arrived.png",
+   "hash": "a66e1044c70721d09578c5b2efcc6941ed9748b1afd008edb170b414ac6d1bbc",
+   "room": "washout",
+   "clock": 6.2631000000000006,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 333,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      123,
+      467,
+      353,
+      368
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-grievance-waits",
+   "why": null,
+   "t": 15.16,
+   "file": "renders/proofs/washout/life/raw-captures-ignored/02-grievance-waits.png",
+   "hash": "28c172eafa188444ff28b3e2ea3c5cca06fbc11c9e243aea600a5cf235d7f464",
+   "room": "washout",
+   "clock": 14.9627,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 333,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      123,
+      467,
+      353,
+      368
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-grievance-later",
+   "why": null,
+   "t": 22.75,
+   "file": "renders/proofs/washout/life/raw-captures-ignored/03-grievance-later.png",
+   "hash": "d7dae0aeb1cc145068c601c395133fc91793309e0adba108f94844210ca7750b",
+   "room": "washout",
+   "clock": 22.5458,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 333,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      123,
+      467,
+      353,
+      368
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-look-slide",
+   "why": null,
+   "t": 28.05,
+   "file": "renders/proofs/washout/life/raw-captures-ignored/04-look-slide.png",
+   "hash": "4b8265fd65ad80f23446bf9d2637a6d158b100650be979380bce63edb2967d81",
+   "room": "washout",
+   "clock": 27.8289,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1310,
+      855
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 370,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      1103,
+      485,
+      414,
+      408
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-listen-signpost",
+   "why": null,
+   "t": 35.07,
+   "file": "renders/proofs/washout/life/raw-captures-ignored/05-listen-signpost.png",
+   "hash": "359a1286e0dc4bbb8ef783f6d4bea56780b6afd926a11de14c16259c65e0b625",
+   "room": "washout",
+   "clock": 34.7286,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1185,
+      855
+     ],
+     "facing": "left",
+     "clip": "walk",
+     "height": 370,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-left/walk-05.png",
+     "bounds": [
+      988,
+      485,
+      373,
+      397
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-talk-grievance",
+   "why": null,
+   "t": 43.12,
+   "file": "renders/proofs/washout/life/raw-captures-ignored/06-talk-grievance.png",
+   "hash": "b6041f49119673b825e97fc2237af2fc3ed1fc36cc93e540bdb224cb15353b44",
+   "room": "washout",
+   "clock": 42.945,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      650,
+      815
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 343,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-05.png",
+     "bounds": [
+      468,
+      472,
+      364,
+      379
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-use-grievance",
+   "why": null,
+   "t": 50.06,
+   "file": "renders/proofs/washout/life/raw-captures-ignored/07-use-grievance.png",
+   "hash": "cf4ad79d92a5b32e2adf4f77ef018f164e03df17ee975a96fdfa47902ab9ceb5",
+   "room": "washout",
+   "clock": 49.744699999999995,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      650,
+      815
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 343,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-04.png",
+     "bounds": [
+      468,
+      472,
+      364,
+      379
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:washout",
+     "path": "art/backgrounds/room-45-washout.png",
+     "drawn": "art/backgrounds/room-45-washout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ca3b4f49aca4295cdc8e97fc78a532e6200c8261dcc14b53f3a232707397cd26"
+    },
+    {
+     "key": "art/actors/room-45-grievance.png",
+     "path": "art/actors/room-45-grievance.png",
+     "drawn": "art/actors/room-45-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 58.57s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-09T00:23:54.058Z"
+}
