@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
 import { LIMIT, measureCast } from '../tools/check-figure-light.mjs';
@@ -46,3 +47,38 @@ test("the map seller is lit by the office lantern, and passes only because he st
   const dark = find(measureCast({ rooms: { main_street: { lamps: [] } } }).measured, 'map_seller', 'main_street');
   assert.ok(dark.flagged, `with no lamp the map seller (${dark.ratio.toFixed(2)}) would be over the night's limit ${LIMIT}`);
 });
+
+/**
+ * ERRATA 205'S FOUR, GRADED (errata 207; Tyler, 2026-11-08: "Fix all five").
+ * The check found four figures brighter than Thad where they stand and listed
+ * them as known; each is now graded into its room by the room's `figureLight`
+ * and the list is empty. Each must pass with some room to spare, and each,
+ * with its grade taken away, must be flagged again: the check, not a list,
+ * holds them now.
+ */
+const GRADED = [
+  { figure: 'bakehouse_boy', room: 'bakehouse' },
+  { figure: 'sheng', room: 'laundry' },
+  { figure: 'boundary_b', room: 'claim_row' },
+  { figure: 'fiddler', room: 'nugget' },
+];
+const readJson = (path) => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
+const roomFile = (id) => readJson('content/manifest.json').rooms.map(readJson).find((one) => one.id === id);
+/** The room's figureLight without this figure: none at all if it named only him. */
+const withoutGrade = (room, figure) => {
+  const light = room.figureLight;
+  const rest = (light?.figures ?? []).filter((id) => id !== figure);
+  return { figureLight: rest.length ? { ...light, figures: rest } : undefined };
+};
+
+for (const { figure, room } of GRADED) {
+  test(`${figure} is graded into the ${room}'s night, and would be too bright without it`, () => {
+    const file = roomFile(room);
+    assert.ok(file?.figureLight?.figures.includes(figure), `the ${room}'s figureLight names ${figure}`);
+    const graded = find(measureCast().measured, figure, room);
+    assert.ok(graded && !graded.flagged, `graded, ${figure} measures ${graded?.ratio.toFixed(2)} of Thad there, over the limit ${graded?.limit.toFixed(2)}`);
+    assert.ok(graded.ratio <= graded.limit * 0.97, `${figure} passes by a hair (${graded.ratio.toFixed(3)} against ${graded.limit.toFixed(3)}): leave some margin`);
+    const bare = find(measureCast({ rooms: { [room]: withoutGrade(file, figure) } }).measured, figure, room);
+    assert.ok(bare.flagged, `without its grade ${figure} measures ${bare.ratio.toFixed(2)}, under the limit ${bare.limit.toFixed(2)}: the check would not hold it`);
+  });
+}

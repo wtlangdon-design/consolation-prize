@@ -5599,3 +5599,56 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 
 - The bell ringer (1.11) and the sign painter at the coach stop (1.10) are just under the limit.
 - **Shown:** `renders/figure-light-bakehouse-boy-beside-thad.png` and `renders/figure-light-sheng-beside-thad.png`, each figure beside Thad at his feet, at game size.
+
+# 207 · THE FIVE FIGURES THE CHECKS CAUGHT, FIXED — TYLER, 2026-11-08 ("Fix all five")
+
+Errata 205's two checks found five figures wrong and recorded them without fixing them: Grievance stepping out of her stall, drawn too small, and four figures brighter than Thad in their rooms' night. Tyler: "Fix all five".
+
+*No image operation was spent, and no line was written or changed. Both known lists are now empty, so each check holds all five.*
+
+## 207 A · Grievance stepping out, at a mule's size
+
+- **She is re-cut by her own tool, `tools/art/grievance-out.py`, sized by the man at her hooves.**
+  - Before, each pose was drawn at her stall size (the front pose 372 tall). But stepping out, her hooves are at y 676, where the room's man is 349, against 303 at the stall floor. So she shrank as she came toward us.
+  - Now each pose is scaled so her ear tips stand 1.21 of the room's man where its hooves are pasted. The man is read from the livery's own depth curve. The strides keep their 0.97 of the front pose, because her head is carried a little lower as she walks.
+  - Each pose is pasted bottom-centred on its hooves, so the scale is about her hooves.
+  - She is about 1.13 times larger, in the same canvas, at the same anchor, with the same door and dark doorway. Her colours and her frames' motion are unchanged.
+  - Then she was snapped to the cast's one level (`tools/art/one-level.py --only room-15-grievance-out`, block 3.41).
+- **Her ear tips went from 1.067 to 1.211 of the man at her hooves.** The range is 1.10–1.35. Over the door she is 1.197, so she no longer shrinks as she comes forward.
+- **Her blacks carried the key, and the larger cut showed it.**
+  - The near-black of her mane, hooves and outline came out of the magenta key slightly magenta, (8,0,8). That is invisible, but it is the signature `tools/check-residual-key.mjs` looks for.
+  - At her old size it was 391 interior pixels, just under the check's tolerance of 400. Drawn larger, it was 475.
+  - The tool now takes such a dark pixel's blue down to its green, which leaves a warm black. After the snap, 29 remain.
+- **`content/scale-anchors.json`:** her `knownWrong` entry is gone. Her columns are updated to her new width (463–554).
+- **New in `tests/scale.test.ts`:** an entry can declare `atLeastAs`, which names the same animal further back. Grievance stepping out declares `atLeastAs: "grievance"`, so she can never again be smaller against a man than she is over her door. The range alone would let her fall to 1.10.
+  - Put back the old sheet, and the test fails on the range: "grievance_out's ear tips are 1.067 of the man at its hooves; the ruling needs 1.1-1.35".
+  - Cut her at 1.15 of the man, and the new assertion fails: "grievance_out's ear tips are 1.150 … smaller than grievance's 1.197: it shrinks as it comes nearer".
+
+## 207 B · Four figures graded into their night
+
+- **Each is graded by its room's `figureLight` (errata 198), in `reference/<room>/annotation.json`, which names only that figure.** The bakehouse, the laundry and the claim row had no grade, and the Nugget's now names the fiddler as well.
+  - Thad and every other figure are drawn exactly as before.
+  - Each room is recompiled.
+  - Each grade was judged by eye beside Thad. It is a light in the room's colour first, then a modest darkening, so that white cloth reads as cloth in that light and not as grey.
+
+| Figure | Room | Grade | Against Thad there, before → after | Limit |
+|---|---|---|---|---|
+| bakehouse_boy | Bakehouse | warm light [1.0, 0.9, 0.76], brightness 0.72 | 1.62 → 1.07 | 1.12 |
+| sheng | Laundry | warm light [1.0, 0.93, 0.84], brightness 0.74 | 1.54 → 1.07 | 1.12 |
+| boundary_b | Claim row | cool light [0.9, 0.92, 1.0], brightness 0.95, saturate 0.85 | 1.18 → 1.03 | 1.12 |
+| fiddler | Nugget | the room's warm light; his own brightness 0.95, saturate 1.0 | 1.60 → 1.40 | 1.56 |
+
+- **The boy's apron** now reads cream in the bakehouse's lamplight rather than white.
+- **Sheng's sheet** reads as linen in the laundry's light. The stove is not declared as a lamp: its fire is a small glow in the firebox, well to his left, and on the plate it does not light the sheet.
+- **boundary_b** gets the claim row's cool night, as the Main Street horses did. boundary_a beside him is 0.96.
+- **The fiddler** sits at 1.40, among the Nugget's other men (1.24–1.34).
+- **`reference/figure-light-known.json` is empty and says so.** The check now fails on any of the four if its grade is lost.
+  - **New in `tests/figure-light.test.mjs`:** each of the four must be named by its room's grade and pass with at least 3% to spare. With the grade taken away, each must be flagged again.
+
+- **Shown, each beside Thad at game size:**
+  - `renders/fixed-grievance-out-beside-thad.png`: Thad stands at her hooves' depth, y 676.
+  - `renders/fixed-bakehouse-boy-beside-thad.png`
+  - `renders/fixed-sheng-beside-thad.png`
+  - `renders/fixed-boundary-b-beside-thad.png`
+  - `renders/fixed-fiddler-beside-thad.png`
+- **The lesson is the two checks themselves.** With their known lists empty, errata 205's checks now hold all five: a regression in any one fails the suite.

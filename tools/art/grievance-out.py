@@ -11,8 +11,17 @@ composes the four frames of `grievance_out`, a figure that draws nothing until t
 
 Every frame is one canvas over the stall front, bottom-centred on the figure's (x, y). The open door and
 the dark doorway are drawn in each of 1-3 over the plate's closed door; her own figure shows its empty
-frame meanwhile (frame 5 of room-15-grievance.png, added here). Scaled as tools/art/room15-figures.py
-scales her: her front pose is her full height, 360 behind the door, 372 a step in front of it.
+frame meanwhile (frame 5 of room-15-grievance.png, added here).
+
+HER SIZE IS THE MAN AT HER HOOVES (errata 207; errata 205 A's check caught it). She was first scaled
+as she is in the stall (her front pose 372 tall), but stepping out her hooves are 68 px nearer than
+the stall floor, where the room's man is 349 against 303, so against a man she shrank as she came
+toward us: ear tips 1.067 of him, against 1.197 over the door. Now each pose is scaled so her ear
+tips stand EARS_OVER_MAN of the room's man where its hooves are pasted, read from the room's own
+depth curve: never less than she is in the stall. Each pose is pasted bottom-centred on its hooves,
+so the scale is about her hooves. The strides keep their 0.97 of the front pose (her head carried
+a little lower as she walks). After this, the sheet is snapped to the cast's one level:
+  python3 tools/art/one-level.py --only room-15-grievance-out
 
 Writes art/actors/room-15-grievance-out.png and appends the empty frame to room-15-grievance.png.
 """
@@ -26,7 +35,17 @@ S = os.path.join(ROOT, 'art/staging/room-15')
 PLATE = os.path.join(ROOT, 'art/backgrounds/room-15-livery.png')
 L, R, T, B = 620, 1300, 230, 690               # the canvas, in room pixels; anchor (960, 690)
 DOOR = (1050, 428, 1205, 607)                   # the half door's box on the plate (x0, y0, x1, y1)
-HEIGHT = 372
+EARS_OVER_MAN = 1.21                            # her ear tips over the man at her hooves (1.197 in her stall)
+STRIDE = 0.97                                   # a stride's height, of the front pose's
+HOOVES = {'front': (1128, 676), 'walk1': (1000, 680), 'walk2': (880, 684)}   # each pose's hooves, room x, y
+
+
+def man_at(y):
+    """The room's man at floor y, by the livery's depth curve carried on in a line (tests/scale.test.ts manAt)."""
+    room = json.load(open(os.path.join(ROOT, 'content/rooms/livery.json')))
+    c = room['walkBoxes'][0]['scaleMode']
+    assert c['kind'] == 'curve' and not c.get('samples'), 'the livery curve is a straight line'
+    return c['farHeight'] + (y - c['farY']) * (c['nearHeight'] - c['farHeight']) / (c['nearY'] - c['farY'])
 
 
 def pieces(path, count, speck=60):
@@ -61,6 +80,14 @@ def scale(p, s):
     for k in (0, 2):
         out[..., k] = np.where(cast, np.minimum(c[..., k], c[..., 1] + 24), out[..., k])
     out[..., 1] = np.where(out[..., 3] > 0, np.maximum(out[..., 1].astype(int), (c[..., 0] + c[..., 2]) // 2 - 28), out[..., 1]).clip(0, 255)
+    # HER BLACKS CARRY THE KEY (errata 207). The near-black of her mane, hooves and outline came out of
+    # the magenta key a little magenta, (8,0,8): red and blue equal, green below. Invisible, but it is
+    # tools/check-residual-key.mjs's signature, and drawn 1.13x larger for errata 207 it crossed the
+    # check's tolerance (391 pixels before, 475 after). A dark pixel bluer than its green takes its
+    # blue down to its green: a warm black, as a brown mule's darks are.
+    c = out[..., :3].astype(int)
+    keyed = (out[..., 3] > 0) & (c.max(-1) < 40) & (c[..., 2] > c[..., 1]) & (np.abs(c[..., 0] - c[..., 2]) <= 1)
+    out[..., 2] = np.where(keyed, out[..., 1], out[..., 2])
     out[out[..., 3] == 0] = 0
     return out
 
@@ -81,8 +108,8 @@ def paste(canvas, p, x, bottom):
 
 front = pieces(f'{S}/grievance-01/sheet.png', 5)[0]
 door, walk1, walk2 = pieces(f'{S}/grievance-out-01/sheet.png', 3)
-front = scale(front, HEIGHT / front.shape[0])
-walks = [scale(w, HEIGHT * 0.97 / w.shape[0]) for w in (walk1, walk2)]
+front = scale(front, round(EARS_OVER_MAN * man_at(HOOVES['front'][1])) / front.shape[0])
+walks = [scale(w, round(EARS_OVER_MAN * STRIDE * man_at(HOOVES[k][1])) / w.shape[0]) for w, k in ((walk1, 'walk1'), (walk2, 'walk2'))]
 gain = lum(front) / lum(walks[0])                  # the side-on strides to her own front's value
 for w in walks:
     w[..., :3] = np.clip(w[..., :3].astype(float) * gain, 0, 255).astype(np.uint8)
@@ -106,9 +133,9 @@ def base():
 
 
 frames = [np.zeros((B - T, R - L, 4), np.uint8)]
-f1 = base(); paste(f1, front, 1128, 676); frames.append(f1)
-f2 = base(); paste(f2, walks[0], 1000, 680); frames.append(f2)
-f3 = base(); paste(f3, walks[1], 880, 684); frames.append(f3)
+f1 = base(); paste(f1, front, *HOOVES['front']); frames.append(f1)
+f2 = base(); paste(f2, walks[0], *HOOVES['walk1']); frames.append(f2)
+f3 = base(); paste(f3, walks[1], *HOOVES['walk2']); frames.append(f3)
 W, H = R - L, B - T
 sheet = np.zeros((H + 4, (W + 2) * len(frames) + 2, 4), np.uint8)
 rects = []
