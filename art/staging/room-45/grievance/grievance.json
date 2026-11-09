@@ -4,38 +4,38 @@
   [
    2,
    2,
-   107,
-   278
+   154,
+   402
   ],
   [
-   111,
+   158,
    2,
-   107,
-   278
+   154,
+   402
   ],
   [
-   220,
+   314,
    2,
-   107,
-   278
+   154,
+   402
   ],
   [
-   329,
+   470,
    2,
-   107,
-   278
+   154,
+   402
   ],
   [
-   438,
+   626,
    2,
-   107,
-   278
+   154,
+   402
   ],
   [
-   547,
+   782,
    2,
-   107,
-   278
+   154,
+   402
   ]
  ],
  "frameNames": [
@@ -46,14 +46,14 @@
   "head-left",
   "snort"
  ],
- "figureHeight": 278,
- "stature": 0.83,
+ "figureHeight": 402,
+ "stature": 1.2,
  "posture": "animal",
  "man": 334.7,
  "feet": [
   480,
   803
  ],
- "note": "Room 45: the room's man where they stand (soles at y 803) is 334.7; drawn at 0.83 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
+ "note": "Room 45: the room's man where they stand (soles at y 803) is 334.7; drawn at 1.2 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
  "source": "room-45 (art/staging/room-15/grievance-01/sheet.png)"
 }

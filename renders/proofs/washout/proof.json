@@ -3,19 +3,18 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "washout",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "271ea14e35ba49a17f2c2a78d3781564fcb1f22c",
+ "branch": "HEAD",
+ "commit": "3a637d4ff5cbac79e523739caf16d010ad14be23",
  "workingTreeClean": false,
  "dirtyAllowed": true,
  "uncommitted": [
-  "M content/rooms/washout.json",
-  " M reference/room-45/annotation.json",
-  "?? renders/proofs/ledge/",
-  "?? renders/proofs/mine-adit/",
-  "?? renders/proofs/mine-climb/",
-  "?? renders/proofs/mine-line/",
-  "?? renders/proofs/mine-two-rocks/",
-  "?? renders/proofs/washout/"
+  "M art/actors/room-45-grievance.png",
+  " M art/staging/room-45/grievance/grievance.json",
+  " M content/ambient/washout-grievance.json",
+  " M content/scale-anchors.json",
+  " M proofs/check-friction.json",
+  " M tools/art/interiors-people.py",
+  "?? node_modules"
  ],
  "visualState": null,
  "candidates": [],
@@ -49,7 +48,7 @@
    ],
    "reportedHeight": 258,
    "expected": 258,
-   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
     1569,
     393,
@@ -86,7 +85,7 @@
    ],
    "reportedHeight": 371,
    "expected": 371,
-   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
    "bounds": [
     76,
     486,
@@ -111,19 +110,19 @@
    "sheet": "art/actors/room-45-grievance.png",
    "clipPlane": null,
    "box": {
-    "x": 427,
-    "y": 525,
-    "width": 107,
-    "height": 280
+    "x": 403,
+    "y": 401,
+    "width": 154,
+    "height": 404
    },
    "seen": {
-    "x": 462,
-    "y": 526,
-    "width": 72,
-    "height": 278,
+    "x": 453,
+    "y": 402,
+    "width": 104,
+    "height": 402,
     "bottom": 803,
-    "right": 533,
-    "changed": 12763
+    "right": 556,
+    "changed": 26823
    },
    "props": []
   }
@@ -132,7 +131,7 @@
   {
    "panel": "B",
    "room": "washout",
-   "clock": 9.629299999999999,
+   "clock": 9.8377,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -193,7 +192,7 @@
      "height": 333,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       123,
       467,
@@ -222,7 +221,7 @@
      "drawn": "art/actors/room-45-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+     "hash": "c4a78cff1d0b0973448d707d4b1590a73b8f59a6dde53fd3d44525f78b0f313b"
     }
    ],
    "stubs": [],
@@ -230,15 +229,15 @@
    "controlWrites": [
     "enter(washout)"
    ],
-   "capturedAt": "2026-11-09T00:30:23.516Z",
+   "capturedAt": "2026-11-09T03:14:32.372Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "d24e797d1c2735666dad645be9da5e16968eee0f5914e8e52a705c5f92dcf122"
+   "hash": "2f43b0d847ac8a032d22856e05e70c205390ce47fb89dbe5b9be8a66ea5e44e0"
   },
   {
    "panel": "A",
    "room": "washout",
-   "clock": 10.529200000000001,
+   "clock": 10.771,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -323,7 +322,7 @@
      "drawn": "art/actors/room-45-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "63838b0ae2685e074dc26141ab7431e7327bb7fde401466a6d16fced7dbe74b3"
+     "hash": "c4a78cff1d0b0973448d707d4b1590a73b8f59a6dde53fd3d44525f78b0f313b"
     }
    ],
    "stubs": [],
@@ -332,7 +331,7 @@
     "enter(washout)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T00:30:24.406Z",
+   "capturedAt": "2026-11-09T03:14:33.302Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "2b2d16a8054c2420f363fe5263d9b2d085809b5c4e9903e29a309725635836f6"
@@ -365,11 +364,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T00:30:28.863Z",
+ "at": "2026-11-09T03:14:37.965Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 499374,
+  "bytes": 511190,
   "panels": 4,
   "scale": 0.5
  }

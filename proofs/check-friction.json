@@ -429,6 +429,12 @@
    "why": "Errata 197: `grievance_out` carries a movementException quoting Tyler (\"Yes, one more op\"). It draws nothing at rest; it is Grievance out of her stall, shown only in doc 95 row 79's act, while her own figure, grievance.json, carries her movement and is held by the test as before."
   },
   {
+   "check": "tests/scale.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 205: the animal section was rewritten to hold every visible animal, not only the horses, which is stronger; the horses' ranges are unchanged and errata 198's file still fails. Two things in it give way and are recorded here: an entry may carry `knownWrong` (grievance_out stepping out of her stall measures 1.067 against a mule's 1.10-1.35 and passes the suite while it is printed for Tyler; the test fails if she is fixed and the entry is left in), and off the walk band the man is the curve carried on in a straight line rather than clamped, as the church's behind-counter check already does. No misfire prompted either: the first is a finding Tyler has not ruled on, the second the geometry of a flat floor."
+  },
+  {
    "check": "proofs/played-pending.json",
    "date": "2026-11-08",
    "kind": "loosened",
@@ -456,10 +462,7 @@
    "check": "tools/check-room-readiness.mjs",
    "date": "2026-11-09",
    "kind": "loosened",
-   "why": "Errata 202: the Gulch's people answer a wrong verb in doc 49's room sections (Tyler: \"Write them (doc 49)\"), not in an Overrides block of the room's own document, and the behaviour question read only the Overrides block. It now also accepts the room's doc 49 section when that section answers a wrong verb on EVERY person the room declares, by name; one unnamed person is still a NO (proved by declaring the rule-keeper in Room 53). A room whose people have no authored refusal anywhere still answers NO.",
-   "check": "tests/scale.test.ts",
-   "date": "2026-11-08",
-   "kind": "loosened",
-   "why": "Errata 205: the animal section was rewritten to hold every visible animal, not only the horses, which is stronger; the horses' ranges are unchanged and errata 198's file still fails. Two things in it give way and are recorded here: an entry may carry `knownWrong` (grievance_out stepping out of her stall measures 1.067 against a mule's 1.10-1.35 and passes the suite while it is printed for Tyler; the test fails if she is fixed and the entry is left in), and off the walk band the man is the curve carried on in a straight line rather than clamped, as the church's behind-counter check already does. No misfire prompted either: the first is a finding Tyler has not ruled on, the second the geometry of a flat floor."  }
+   "why": "Errata 202: the Gulch's people answer a wrong verb in doc 49's room sections (Tyler: \"Write them (doc 49)\"), not in an Overrides block of the room's own document, and the behaviour question read only the Overrides block. It now also accepts the room's doc 49 section when that section answers a wrong verb on EVERY person the room declares, by name; one unnamed person is still a NO (proved by declaring the rule-keeper in Room 53). A room whose people have no authored refusal anywhere still answers NO."
+  }
  ]
 }

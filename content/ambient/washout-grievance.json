@@ -17,38 +17,38 @@
    [
     2,
     2,
-    107,
-    278
+    154,
+    402
    ],
    [
-    111,
+    158,
     2,
-    107,
-    278
+    154,
+    402
    ],
    [
-    220,
+    314,
     2,
-    107,
-    278
+    154,
+    402
    ],
    [
-    329,
+    470,
     2,
-    107,
-    278
+    154,
+    402
    ],
    [
-    438,
+    626,
     2,
-    107,
-    278
+    154,
+    402
    ],
    [
-    547,
+    782,
     2,
-    107,
-    278
+    154,
+    402
    ]
   ],
   "rate": 0.22,
@@ -79,9 +79,9 @@
   ],
   "breakEvery": 7,
   "frameNote": "0 rest · 1 breath (derived) · 2 still · 3 ears round · 4 her head turned to look left, at the mine · 5 a snort. A break every `breakEvery` seconds (errata 77).",
-  "figureHeight": 278,
-  "stature": 0.83,
-  "figureHeightNote": "The washout's man at her feet (y 803) is 334.7; she is cut at 0.83 of him, as the composition master drew her, and snapped to one level (errata 112).",
+  "figureHeight": 402,
+  "stature": 1.2,
+  "figureHeightNote": "The washout's man at her feet (y 803) is 334.7; her ear tips stand 1.2 of him (errata 205's mule beside a man: 1.10-1.35; she is 1.19 over the livery door), snapped to one level (errata 112). She was first cut at 0.83, the composition master's size, shorter than Thad; errata 205's check caught it.",
   "provenance": "art/staging/room-45/grievance/grievance.json"
  }
 }
