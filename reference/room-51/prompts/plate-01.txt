@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a gold camp at the bottom of a ravine in daylight, with two log cabins, a big tent with its flap tied back, a second tent, a washing line with shirts between them, a cook fire, a tree stump with a paper notice, a river at the bottom left and a roped zigzag path up the ravine wall at the right. Two men are standing on the ground: a man in a blue coat in the middle, and a man in a hat holding a gold pan at the right, at the foot of the path.
+
+Make exactly two changes:
+1. Remove both men. Paint what is behind them: the trodden earth, the stones, the dry grass, the foot of the path and the rocks beside it. Match the rest exactly.
+2. On each shirt hanging on the washing line, paint one small brass padlock on the shirt's breast pocket, a few pixels, clearly a padlock.
+
+Change nothing else: the cabins, the tents, the boards (still blank), the notice (still blank), the fire, the kettle, the pan, the smoke, the stump, the river, the path and its rope and pegs, the ravine walls and the sky stay exactly as they are. The same pixel-art style and pixel grid, the same colours, the same daylight. No people, no text, no border.

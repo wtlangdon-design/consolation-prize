@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a gold camp at the bottom of a ravine in daylight, with cabins, tents, a cook fire, a stump with a notice, a roped path up the right, and at the bottom left a rocky bank going down to a river, of which only a small corner of water shows.
+
+Make exactly one change, in the bottom-left quarter only: the bank drops down to the river, and MORE OF THE RIVER SHOWS below it, a fast shallow stream of grey-blue water running across the bottom-left corner, about a quarter of the picture's width. Standing in the water, small with distance because they are below and further away: TWO MINERS, knee-deep, each bent over a gold pan, in good shirts and hats. They are small: each about a sixth of the height of the big tent.
+
+Change nothing else: the cabins, the tents and their blank boards, the washing line and its shirts, the fire, the stump and its blank notice, the path, the rocks at the right, the ravine walls and the ground stay exactly as they are. The same pixel-art style and pixel grid, the same colours, the same daylight. No text, no border.

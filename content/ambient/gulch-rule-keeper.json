@@ -1,0 +1,134 @@
+{
+ "schema": 1,
+ "id": "gulch_rule_keeper",
+ "name": "THE RULE-KEEPER",
+ "posture": "seated",
+ "seat": {
+  "y": 626,
+  "note": "The top of the keg he sits on, read off the plate (room-52 operation 4). His lap must be drawn on it (tests/lessons.test.ts); Tyler, 2026-11-09: \"sitting halfway down the barrel\"."
+ },
+ "note": "Doc 109, THE RULE-KEEPER: 'On a barrel in the grog tent. Keeps the camp's Assay, from memory, and gets it wrong.' He sits on the third barrel at the plank's end, a squat keg (room-52 operation 4 cut it down: Tyler, 2026-11-09, \"sitting halfway down the barrel\"), his lap on its top and his boots just off the floor (room-52 operation 3). His tree and barks are doc 109's, extracted; doc 49's ROOM 52 answers a wrong verb on him (errata 202). Barks in turn, the same in every reputation state. He plays the fiddle in its two moments, G5's scene and 'Play me something' (doc 95, acted), in his playing frames (the brief: 'a playing pose for the fiddle, after G5'); while he does, the peg is empty. After G9 he keeps the plank from his barrel (doc 109).",
+ "room": "grog_tent",
+ "x": 672,
+ "y": 731,
+ "zone": 2,
+ "approachRadius": 60,
+ "tree": "RULE_KEEPER",
+ "walkTo": {
+  "x": 880,
+  "y": 800,
+  "facing": "left"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: in front of the plank's left barrel, beside the rule-keeper and clear of him and of the Deacon's stand.",
+ "barks": {},
+ "sprite": {
+  "note": "Frames 0-1 are the idle: the glass on his knee, the pebble bag on the other, and its breath. Frame 2 drinks; frame 3 shakes the pebble bag by his ear; frame 4 talks, a finger up for a rule. Frames 5-6 play the fiddle, the bow one way and the other: only when a direction says he plays (doc 95).",
+  "sheet": "art/actors/room-52-rule-keeper.png",
+  "frames": [
+   [
+    2,
+    2,
+    239,
+    346
+   ],
+   [
+    243,
+    2,
+    239,
+    346
+   ],
+   [
+    484,
+    2,
+    239,
+    346
+   ],
+   [
+    725,
+    2,
+    239,
+    346
+   ],
+   [
+    966,
+    2,
+    239,
+    346
+   ],
+   [
+    1207,
+    2,
+    239,
+    346
+   ],
+   [
+    1448,
+    2,
+    239,
+    346
+   ]
+  ],
+  "rate": 0.4,
+  "phase": 0.15,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 11,
+  "talkFrame": 4,
+  "provenance": "art/staging/room-52/rule-keeper/rule-keeper.json",
+  "frameNote": "0 rest, glass and pebble bag · 1 breath · 2 drinking · 3 the pebble bag at his ear · 4 a rule, finger up · 5 playing, the bow one way · 6 the other.",
+  "figureHeight": 338,
+  "stature": 0.85,
+  "figureHeightNote": "Seated at 0.85 of the room's man at his feet (soles y 731, just off the floor), so that his lap sits on the keg's top at y 626: cut and snapped there by tools/art/interiors-people.py.",
+  "props": [
+   {
+    "sheet": "art/props/room-52-peg.png",
+    "x": 540,
+    "y": 430,
+    "frames": [
+     [
+      0,
+      0,
+      91,
+      248
+     ],
+     [
+      93,
+      0,
+      91,
+      248
+     ]
+    ],
+    "byFrame": {
+     "5": 1,
+     "6": 1
+    },
+    "note": "THE FIDDLE on its peg, drawn at the peg (tools/art/room52-empty-peg.py): frame 0, the plate's own fiddle; frame 1, the peg empty, while he is on a playing frame, so there is one fiddle and it is under his chin."
+   }
+  ]
+ },
+ "barkTurns": [
+  {
+   "counter": "RULE_KEEPER_BARKS",
+   "lines": [
+    "Gold on the plank.",
+    "Rule four: the judge is me.",
+    "There's a rule about that. I'll think of it."
+   ],
+   "source": "docs/109-fiddlers-gulch-lines.md::### THE RULE-KEEPER"
+  }
+ ],
+ "barksNote": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (### THE RULE-KEEPER) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run. Said on approach, one a visit, in turn, the same in every reputation state."
+}

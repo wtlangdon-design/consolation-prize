@@ -977,6 +977,42 @@
    "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
    "blockers": [],
    "note": "Room 50, built 2026-11-08 under doc 55 (errata 199, 200). Acceptance is Tyler's, in the playthrough (Q191)."
+  },
+  {
+   "id": "room-51-tents",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-51.json",
+    "docs/109-fiddlers-gulch-lines.md",
+    "docs/49-wrong-answers.md"
+   ],
+   "dependsOn": [
+    "room-50-ledge"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-51-tents.json",
+   "proof": "renders/proofs/gulch-tents/proof.json",
+   "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
+   "blockers": [],
+   "note": "Room 51, built 2026-11-09 under doc 55 (errata 202, 206). Acceptance is Tyler's, in the playthrough (Q192)."
+  },
+  {
+   "id": "room-52-grog-tent",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-52.json",
+    "docs/109-fiddlers-gulch-lines.md",
+    "docs/49-wrong-answers.md"
+   ],
+   "dependsOn": [
+    "room-51-tents"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-52-grog-tent.json",
+   "proof": "renders/proofs/grog-tent/proof.json",
+   "gauntlet": "tools/gauntlet/routes/gulch-mine-doors.json",
+   "blockers": [],
+   "note": "Room 52, built 2026-11-09 under doc 55 (errata 202, 207). Acceptance is Tyler's, in the playthrough (Q193)."
   }
  ],
  "blockerNote": "BLOCKERS ARE QUALIFIED REFERENCES: path.md::Exact Heading. A bare Q id is no longer accepted, because docs/36-issue-list.md carries two Q-number series -- Q11 through Q21 and Q37 each name two different issues -- and a row blocked on \"Q16\" could not say which one. Historical numbering in the document stays as it is; the fix is on the reference side. tools/lib/issueref.mjs resolves a reference to exactly one heading or fails.",

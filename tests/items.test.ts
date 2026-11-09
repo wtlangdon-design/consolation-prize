@@ -66,7 +66,14 @@ for (const block of doc109.split(/^(?=\*\*[^*]+\*\* \*\(item\)\*)/m).slice(1)) {
 const pendingSource = (JSON.parse(readFileSync(resolve(ROOT, 'proofs/played-pending.json'), 'utf8')).items ?? {}) as Record<string, string>;
 const doc23Rows = [...doc23.matchAll(/^\| ([a-z_]+) \| (.+?) \| (.+?) \|$/gm)]
   .filter((row) => row[1] !== 'Item').map(([, , full, display]) => ({ full: full!, display: display! }));
-const sectionOf = (id: string) => doc23Sections.get(content.items.get(id)?.short ?? '');
+// A Gulch item's fate is doc 109's own words where it is handed on: "THE CLARION leaves inventory" (G3).
+const sectionOf = (id: string) => {
+  const short = content.items.get(id)?.short ?? '';
+  const runs = doc109Sections.get(short);
+  return doc23Sections.get(short) ?? (runs
+    ? { acquired: doc109.includes(`${short} leaves inventory`) ? 'Given to (doc 109: leaves inventory)' : '', runs }
+    : undefined);
+};
 
 /** Every way content hands an item over, by item id. */
 function sources(): Map<string, { where: string; once: boolean }[]> {

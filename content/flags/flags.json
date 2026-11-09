@@ -322,9 +322,10 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "combination:tuning_fork:livery:grievance"
+    "combination:tuning_fork:livery:grievance",
+    "dialogue:DEACON:VES_G1:ves_g1_5"
    ],
-   "note": "Errata 73 B: from B3's completion (the fork on Grievance, Room 15), Vessel is in Room 4. Gates his Act II root (VES_B1) and his and the judges' presence in the back room."
+   "note": "Errata 73 B: from B3's completion (the fork on Grievance, Room 15), Vessel is in Room 4. Gates his Act II root (VES_B1) and his and the judges' presence in the back room. Doc 107 G9 writes it too: the rematch agreed in the grog tent (VES_G1 option 5). B3's write moves to G9 when the trip is whole (the brief)."
   },
   {
    "id": "T_DUEL_ONE_LOST",
@@ -1628,6 +1629,79 @@
     "room:ledge:onEnter"
    ],
    "note": "Doc 109: the ledge's ON FIRST ARRIVAL line, said once; set as it plays."
+  },
+  {
+   "id": "T_CAMP_TRUSTS",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:clarion:gulch_tents:gulch_lookout"
+   ],
+   "note": "Doc 107 G3, the camp's trust: the lookout has read the Clarion and Thad owns nothing. From then the way on to the river and the grog tent is open, and the lookout's tree, barks and options are his after-G3 ones (doc 109)."
+  },
+  {
+   "id": "LOOKOUT_STOPS",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "room:gulch_tents:to_grog_tent:transit",
+    "room:gulch_tents:to_river:transit"
+   ],
+   "note": "Doc 109, STOPPED BY THE LOOKOUT: how many of its three lines have been said, one a time, in order, then the third again. Counted so a save keeps its place."
+  },
+  {
+   "id": "LOOKOUT_BARKS_BEFORE_G3",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "engine:ambient:barkTurns gulch_lookout"
+   ],
+   "note": "Doc 109, THE LOOKOUT's barks before G3: said one a visit, in turn (barkTurns)."
+  },
+  {
+   "id": "LOOKOUT_BARKS_AFTER_G3",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "engine:ambient:barkTurns gulch_lookout"
+   ],
+   "note": "Doc 109, THE LOOKOUT's barks after G3: said one a visit, in turn (barkTurns)."
+  },
+  {
+   "id": "T_DEACON_FOUND",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:grog_tent:watch:LOOK_AT"
+   ],
+   "note": "Doc 107 G4: Vessel found by the watch. The watch's first LOOK is THE FIND (doc 109); from then the Deacon's hover reads DEKE VESSEL and TALK TO opens VES_G1, doc 04's VES_B1 with doc 109's Gulch differences."
+  },
+  {
+   "id": "T_PLANK_SEAT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:tuning_fork:grog_tent:fiddle"
+   ],
+   "note": "Doc 107 G5: the fiddle tuned and a pinch of dust paid -- a seat at the plank. Options 3 and 6 of VES_G1 wait for it; the rule-keeper plays from then (doc 109)."
+  },
+  {
+   "id": "T_GROG_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:grog_tent:onEnter"
+   ],
+   "note": "Doc 109, THE GROG TENT: ON FIRST ENTERING is said once."
+  },
+  {
+   "id": "RULE_KEEPER_BARKS",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "engine:ambient:barkTurns gulch_rule_keeper"
+   ],
+   "note": "Doc 109, THE RULE-KEEPER's barks: said one a visit, in turn (barkTurns), the same with the glass or the fiddle."
   }
  ]
 }

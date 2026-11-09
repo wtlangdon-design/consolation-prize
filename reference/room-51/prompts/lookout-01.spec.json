@@ -1,0 +1,16 @@
+{
+ "assetId": "room-51",
+ "subject": "room-51-lookout",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-51-tents",
+ "promptFile": "reference/room-51/prompts/lookout-01.txt",
+ "out": "art/staging/room-51/lookout/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-51/lookout/template.png",
+  "art/staging/room-51/lookout/face.png",
+  "art/staging/room-51/lookout/thad-in-room.png"
+ ],
+ "derivedFrom": "art/staging/room-51/composition-master-01.png"
+}

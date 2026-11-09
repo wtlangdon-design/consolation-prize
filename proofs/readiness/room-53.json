@@ -52,7 +52,7 @@
    "evidence": [
     "docs/109-fiddlers-gulch-lines.md::THE PANNER"
    ],
-   "why": "1 node(s) resolve for the panner, the rule-keeper"
+   "why": "1 node(s) resolve for the panner"
   },
   {
    "id": "puzzles",
@@ -94,12 +94,12 @@
   {
    "id": "character-behaviour",
    "question": "Character behaviour sufficiently authored?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/109-fiddlers-gulch-lines.md::THE PANNER",
     "docs/109-fiddlers-gulch-lines.md::THE RIVER"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "the panner has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "open-canon",
@@ -146,12 +146,12 @@
   {
    "id": "character-behaviour",
    "question": "Character behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/109-fiddlers-gulch-lines.md::THE PANNER",
     "docs/109-fiddlers-gulch-lines.md::THE RIVER"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "the panner has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "staging-behaviour",
@@ -165,13 +165,15 @@
   {
    "id": "visual-subjects",
    "question": "Visual subject requirements",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "A renders/room-01-in-engine-1920x1080.png",
     "B art/backgrounds/room-01-stage-road.png",
-    "C art/actors/thad-stand-front/stand-00.png"
+    "C art/actors/thad-stand-front/stand-00.png",
+    "D art/backgrounds/room-51-tents.png",
+    "E reference/casting/room-01-casting-master.png"
    ],
-   "why": "D and E: room-53-river has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+   "why": "every baseline slot is satisfied: A, B, C, D, E"
   },
   {
    "id": "geometry",
@@ -186,10 +188,8 @@
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
- "buildableWithoutInvention": "NO",
- "blocking": [
-  "character-behaviour: either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
- ],
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
   {
@@ -222,5 +222,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-09T01:16:51.279Z"
+ "at": "2026-11-09T03:08:32.311Z"
 }

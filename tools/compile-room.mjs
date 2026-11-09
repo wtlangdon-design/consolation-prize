@@ -1148,6 +1148,81 @@ function sceneLine(spec) {
   };
 }
 
+// A SCENE A SUBJECT'S VERB PLAYS (doc 109, ### THE FIND: "G4. LOOK AT THE WATCH, the first time."). The annotation's
+// `scenes` names the hotspot, the verb, the condition and the block (`path::### HEADING`); the scene leads with the
+// subject's own first line for that verb, then the block's `> **NAME:**` lines in order (quotes by the annotation's
+// speakers, italic brackets as directions, *(beat)* dropped), and where a line of the block names `extracted.marker`,
+// the lines the extraction already wrote at `extracted.file` / `extracted.path` (doc 03's Duel One opening, said here).
+// With `subjectFrom`, the subject's ordinary rule for that verb then starts at that line: the first was the scene's.
+function sceneBlock(spec, hotspot) {
+  const [path, heading] = spec.ref.split('::');
+  const text = read(path);
+  const at = text.indexOf(`\n${heading}\n`);
+  if (at < 0) fail(`scenes: ${path} has no "${heading}"`);
+  const rest = text.slice(at + heading.length + 2);
+  const body = rest.slice(0, (/^#{2,3} |^---$/m.exec(rest) ?? { index: rest.length }).index);
+  const lines = [];
+  for (const raw of body.split('\n').filter((one) => one.startsWith('> '))) {
+    if (spec.extracted && raw.includes(spec.extracted.marker)) {
+      let from = JSON.parse(read(spec.extracted.file));
+      for (const key of spec.extracted.path.split('.')) from = from?.[key];
+      if (!Array.isArray(from) || !from.length) fail(`scenes: ${spec.extracted.file} has nothing at ${spec.extracted.path}`);
+      for (const one of from) lines.push({ speaker: spec.extracted.speakers?.[one.speaker] ?? one.speaker, line: one.line });
+      continue;
+    }
+    const who = /^> \*\*([A-Z' -]+):\*\* (.+)$/.exec(raw);
+    if (!who) fail(`scenes: ${spec.ref} has a line this reader does not know: ${raw}`);
+    const speaker = spec.speakers?.[who[1]];
+    if (!speaker) fail(`scenes: "${who[1]}" speaks in ${spec.ref} and the annotation's speakers do not name them`);
+    for (const m of who[2].matchAll(/"([^"]+)"|\*\(([^)]+)\)\*/g)) {
+      if (m[1]) lines.push({ speaker, line: m[1] });
+      else if (!/^beat$/i.test(m[2].trim())) lines.push({ speaker, line: m[2].trim(), direction: true });
+    }
+  }
+  const own = hotspot.responses[spec.verb]?.find((rule) => !rule.when);
+  if (!own) fail(`scenes: ${hotspot.id} has no ${spec.verb} line to lead the scene with`);
+  // The subject's first line whole: a long first line is carried as `say` and the rest of it as `then`.
+  const lead = own.say;
+  const leadRest = own.then ?? [];
+  if (spec.subjectFrom) {
+    const all = [own.say, ...(own.repeat ?? [])];
+    own.say = all[spec.subjectFrom];
+    own.repeat = all.slice(spec.subjectFrom + 1);
+    if (!own.repeat.length) delete own.repeat;
+    delete own.then;
+    // The chain's first lines were said by the scene: the chain is still whole (check-written-content counts them).
+    own.chainFrom = spec.subjectFrom;
+  }
+  return {
+    ...(spec.when ? { when: spec.when } : {}), say: lead,
+    then: [...leadRest, ...lines.map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one))],
+    ...(spec.set ? { set: spec.set } : {}), ...(spec.completes ? { completes: spec.completes } : {}),
+    sceneLine: spec.ref,
+  };
+}
+// A LINE FOR A STATE, WRITTEN INSIDE A LONGER LINE (doc 109: `**PICK UP** — *before the find:* "..." · *after:* "..."`;
+// `*After G5:* **LOOK** "..." · **LISTEN** "..."`; `**THE NAIL** *(after G9...)* — **LOOK** "..."`). The annotation's
+// `docRules` names the section, the document line by how it starts, the label the quote follows, and the condition;
+// the quote is placed ahead of the hotspot's ordinary rules for that verb. Read from the document, never typed here.
+for (const spec of ann.docRules ?? []) {
+  const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
+  if (!hotspot) fail(`docRules: no hotspot "${spec.hotspot}" in this room`);
+  const body = sectionBody(spec.ref, 'docRules');
+  const line = body.split('\n').find((one) => one.startsWith(spec.startsWith));
+  if (!line) fail(`docRules: ${spec.ref} has no line starting ${spec.startsWith}`);
+  const at = line.indexOf(spec.label);
+  if (at < 0) fail(`docRules: "${spec.label}" is not in ${spec.ref}'s line ${spec.startsWith}`);
+  const said = /"([^"]+)"/.exec(line.slice(at + spec.label.length))?.[1];
+  if (!said) fail(`docRules: no quote after "${spec.label}" in ${spec.ref}`);
+  (hotspot.responses[spec.verb] ??= []).unshift({ ...(spec.when ? { when: spec.when } : {}), say: said,
+    sceneLine: `${spec.ref} · ${spec.startsWith} ${spec.label}` });
+}
+for (const spec of ann.scenes ?? []) {
+  const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
+  if (!hotspot) fail(`scenes: no hotspot "${spec.hotspot}" in this room`);
+  (hotspot.responses[spec.verb] ??= []).unshift(sceneBlock(spec, hotspot));
+}
+
 // The annotation's scene lines, each placed ahead of its subject's ordinary
 // lines for that verb: the first rule whose condition holds answers.
 for (const spec of ann.sceneLines ?? []) {
@@ -1294,6 +1369,17 @@ for (const [id, verbs] of Object.entries(ann.overrideWhen ?? {})) {
   }
   if (hotspot.overrides && !Object.keys(hotspot.overrides).length) delete hotspot.overrides;
 }
+// A SUBJECT'S OTHER NAME IN A LATER STATE, WRITTEN AS A BOLD SUBJECT OF ITS SECTION (doc 109: `**THE NAIL** *(after G9,
+// when the watch has gone with Vessel)*` under THE WATCH). `hotspotNames` gives the condition and the name, and the name
+// must stand in bold in the cited section, so it is read, never invented.
+for (const [id, list] of Object.entries(ann.hotspotNames ?? {})) {
+  const hotspot = built.hotspots.find((one) => one.id === id);
+  if (!hotspot) fail(`hotspotNames: no hotspot "${id}" in this room`);
+  hotspot.names = list.map((one) => {
+    if (!sectionBody(one.ref, 'hotspotNames').includes(`**${one.name}**`)) fail(`hotspotNames: ${one.ref} writes no **${one.name}**`);
+    return { when: one.when, name: one.name };
+  });
+}
 // WHAT A SUBJECT IS CALLED, BY STATE (errata 96 E): `namesFrom` reads a tree's
 // naming options (`displayName`) and the counter they set.
 for (const spec of ann.namesFrom ?? []) {
@@ -1388,7 +1474,11 @@ function transitBeat(spec) {
   if (at < 0) fail(`transitScene: ${path} has no section "${heading}"`);
   const rest = text.slice(at + heading.length);
   const body = rest.slice(0, (/\n## |\n---\n/.exec(rest) ?? { index: rest.length }).index);
-  const [first, ...more] = beatQuotes(spec, body, 'transitScene');
+  // ONE OF A NUMBERED RUN (doc 109, STOPPED BY THE LOOKOUT: `**LOOKOUT:** 1 "..." · 2 "..." · 3 "..."`, said one a
+  // time, in order): `pick` is the run's number, and only that line is the beat.
+  const quotes = beatQuotes(spec, body, 'transitScene');
+  if (spec.pick !== undefined && !quotes[spec.pick - 1]) fail(`transitScene: ${spec.ref} has no line ${spec.pick}`);
+  const [first, ...more] = spec.pick !== undefined ? [quotes[spec.pick - 1]] : quotes;
   const by = spec.speaker && spec.speaker !== 'thad' ? spec.speaker : null;
   // LINES THAT FOLLOW FROM AN EXTRACTED FILE (doc 48 S7 beat 4: "The letter,
   // Act IV, over black"): the field of the file the extraction wrote, each line
@@ -1422,7 +1512,7 @@ function transitBeat(spec) {
     // HIS PICTURE WHILE HE SAYS IT (doc 48 S1 beat 4, "holding the deed wrong side up"): a clip of his,
     // one frame per line in order (errata 197).
     ...(spec.holds ? { holds: spec.holds } : {}),
-    sceneLine: `${spec.ref} · ${spec.bullet ?? spec.bold ?? (spec.item !== undefined ? `item ${spec.item}` : `beat ${spec.row}`)}` };
+    sceneLine: `${spec.ref} · ${spec.bullet ?? (spec.bold && spec.pick !== undefined ? `${spec.bold} ${spec.pick}` : spec.bold) ?? (spec.item !== undefined ? `item ${spec.item}` : `beat ${spec.row}`)}` };
 }
 
 // THE QUOTED WORDS OF ONE BEAT, read three ways: a bold bullet (`- **Beat 4**
@@ -1460,7 +1550,11 @@ function beatQuotes(spec, body, what) {
 function sectionBody(ref, what) {
   const [path, heading] = ref.split('::');
   const text = read(path);
-  const at = text.indexOf(heading);
+  // A HEADING AT THE START OF A LINE, AND THE WHOLE OF IT (doc 109: "## THE GROG TENT" is also inside Room 51's
+  // "### THE GROG TENT *(the way in)*", which comes first); the plain first match only where no line starts with it.
+  const esc = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const whole = new RegExp(`(^|\\n)${esc}(?=\\n| \\*|$)`).exec(text);
+  const at = whole ? whole.index + whole[1].length : text.indexOf(heading);
   if (at < 0) fail(`${what}: ${path} has no section "${heading}"`);
   const rest = text.slice(at + heading.length);
   return rest.slice(0, (/\n## |\n---\n/.exec(rest) ?? { index: rest.length }).index);
@@ -1610,6 +1704,29 @@ if (MERGED) {
     }
   }
   if (Object.keys(people).length) built.peopleResponses = people;
+}
+// A PERSON'S OWN LOOK AND LISTEN (doc 109, THE PEOPLE: `### THE LOOKOUT` then `**LOOK** 1 "..." · 2 "..." · 3 "..."`):
+// the annotation's `peopleExamine` names the section by the ambient id that draws the person, and the three lines are
+// the first answer and its repeats, the third holding. Read from the document, never typed here.
+// An entry may also be a list of `{ ref, when, verbs }`: the Deacon's LOOK is DEKE VESSEL's once he is found (doc 109,
+// "*LISTEN as before he was found.*"), so the later one is listed first, for LOOK only, with its condition.
+const examineEntries = Object.entries(ann.peopleExamine ?? {})
+  .flatMap(([id, value]) => (Array.isArray(value) ? value : [{ ref: value }]).map((one) => [id, one]));
+for (const [id, entry] of examineEntries) {
+  const ref = entry.ref;
+  const [path, heading] = ref.split('::');
+  const text = read(path);
+  const at = text.indexOf(`\n${heading}\n`);
+  if (at < 0) fail(`peopleExamine: ${path} has no "${heading}"`);
+  const rest = text.slice(at + heading.length + 2);
+  const body = rest.slice(0, (/^#{2,3} |^---$/m.exec(rest) ?? { index: rest.length }).index);
+  for (const [verb, label] of [['LOOK_AT', 'LOOK'], ['LISTEN_TO', 'LISTEN']].filter(([v]) => !entry.verbs || entry.verbs.includes(v))) {
+    const run = new RegExp(`^\\*\\*${label}\\*\\* (.+)$`, 'm').exec(body);
+    if (!run) fail(`peopleExamine: ${ref} has no **${label}** run`);
+    const lines = [...run[1].matchAll(/\d "([^"]+)"/g)].map((m) => m[1]);
+    if (lines.length !== 3) fail(`peopleExamine: ${ref} ${label} has ${lines.length} lines, not 3`);
+    (((built.peopleResponses ??= {})[id] ??= {})[verb] ??= []).push({ ...(entry.when ? { when: entry.when } : {}), say: lines[0], repeat: lines.slice(1) });
+  }
 }
 // THE FLOOR, THE APPROACH POINTS, AND WHY THE HEIGHTS ARE THE CANON ONES.
 //
@@ -2086,12 +2203,7 @@ if (MERGED) {
     const { fromRef, bold, ...rest } = ann.onEnterSay;
     let said = rest.say;
     if (fromRef) {
-      const [path, heading] = fromRef.split('::');
-      const text = read(path);
-      const at = text.indexOf(heading);
-      if (at < 0) fail(`onEnterSay: ${path} has no section "${heading}"`);
-      const after = text.slice(at + heading.length);
-      const body = after.slice(0, (/\n## |\n---\n/.exec(after) ?? { index: after.length }).index);
+      const body = sectionBody(fromRef, 'onEnterSay');
       // An indented quote is a bullet's (doc 57 C3's Room 14 line); it counts.
       // A line that ends in what it writes (doc 57 E8: `> "Out. ..." → T_FUNERAL_DONE`) counts.
       // Doc 108's forms (errata 199): `**ON FIRST ARRIVAL** — "..."`, named by `bold`, or a section that is one bare

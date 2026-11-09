@@ -463,6 +463,18 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 202: the Gulch's people answer a wrong verb in doc 49's room sections (Tyler: \"Write them (doc 49)\"), not in an Overrides block of the room's own document, and the behaviour question read only the Overrides block. It now also accepts the room's doc 49 section when that section answers a wrong verb on EVERY person the room declares, by name; one unnamed person is still a NO (proved by declaring the rule-keeper in Room 53). A room whose people have no authored refusal anywhere still answers NO."
+  },
+  {
+   "check": "tests/items.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Fiddler's Gulch's items are doc 109's (reference/fiddlers-gulch/brief.md: extracted from doc 109, never copied into doc 23), and the test read every item's section and fate only from doc 23, so the Clarion's G3 hand-over and the Gulch items had no section. It now also reads doc 109's `**NAME** *(item)*` sections, word for word as doc 23's, and an item's fate from doc 109's own \"leaves inventory\". An item in neither document is still a failure; nothing about doc 23's items changed."
+  },
+  {
+   "check": "tools/check-written-content.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Doc 109's THE WATCH: its first LOOK is THE FIND, said once by a room scene (G4), and the watch's own rule goes on from its second LOOK. The variant count saw a chain one short of three and called it thin. It now counts the lines the scene said (`chainFrom`) as the chain's own; a rule with no scene still needs three variants, and chainFrom is set only by compile-room's `scenes`."
   }
  ]
 }

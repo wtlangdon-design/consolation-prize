@@ -5663,3 +5663,45 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 
 - The bell ringer (1.11) and the sign painter at the coach stop (1.10) are just under the limit.
 - **Shown:** `renders/figure-light-bakehouse-boy-beside-thad.png` and `renders/figure-light-sheng-beside-thad.png`, each figure beside Thad at his feet, at game size.
+
+# 206 · FIDDLER'S GULCH BUILT, PART TWO: THE TENTS AND THE LOOKOUT (ROOM 51) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
+
+*Room 51 built under doc 55, in the brief's order. Every line is doc 109's or doc 49's (errata 199, 202), extracted.*
+
+- **The room.** The foot of the ravine path: cabins with bolted doors, the grog tent with its flap tied back, the guyed tent, shirts with padlocked pockets, the cook fire, the stump and its notice, the river down the bank, the path up. Daylight (errata 190).
+  - room-51: 4 of 4 operations. The master; the plate without the men, with a padlock on each shirt's pocket (doc 109's LOOK names them); a second plate pass that widens the river at the lower left with two men panning in it, because doc 109's THE RIVER says "From here every man in the river looks as if he's dropped something small"; and the lookout's pose sheet, painted over the in-game Thad.
+  - The lettering is the shipping face, read from the extracted LOOK lines (`tools/art/gulch-lettering.py`): GROG over the flap, KNOCK on the tent, and the notice, CLAIM JUMPERS WILL BE SPOKEN TO., underlined twice, with FIRMLY under it in a red pencil and a less tidy line, "in another hand".
+  - The canvas was blocked as weathered tan, a middle value, at the legibility gate: white canvas behind his head lost Thad's face.
+  - The floor is stepped on the band edges the compiler slices it into. Its first, sloped outline was rasterised into inscribed bands that left the arrival at the path's foot outside every band, where Thad was drawn 263 tall against the curve's 309 (the ledge's lesson, again).
+- **The lookout** (`content/ambient/gulch-lookout.json`): the gold pan across his chest like a shield, new boots and hat, cut at the room's man where he stands and measured in Thad's range (texture 5.8, 1.08 of Thad's). Four drawn poses: rest, a look back over his shoulder, the pan raised to his chin, a palm out. Thad talks to him from beside him, clear of the notice.
+- **G3 and the block** (the brief, "What the engine needs" 4):
+  - Before G3, the grog tent and the river are refused with STOPPED BY THE LOOKOUT, his three lines one at a time in order and then the third again, counted in `LOOKOUT_STOPS`; the path up is never stopped.
+  - GIVE THE CLARION is G3: his direction, the exchange, the Clarion out of inventory, `T_CAMP_TRUSTS`. GIVE THE DEED is his "A deed! Jumper."; anything else is Thad's line (a new `targetPools` tier, after a pair and before the item's pool).
+  - His tree LOO_G1 is extracted from doc 109 by a reader for all five Gulch trees (`gulchPeople()`): an option's *(before G3)* or *(after G3)* gates it, the opening has a node a side, the exit is doc 04's pool.
+  - His barks are said one a visit, in turn and round again, the same in every reputation state (`barkTurns`, one counter a side): the Gulch has not heard of Thad (doc 107).
+  - His LOOK and LISTEN are doc 109's, read into `peopleResponses` (`peopleExamine`); doc 49's three lines answer a wrong verb on him.
+- **The ledge's PATH DOWN is now the way down**, with an arrival at its top from the tents.
+- **Sound:** CONSOLATION in the minor carried from the ledge (R50-54-M); the R51-A bed, a cook fire, canvas, and now and then a bolt, rendered by `tools/audio/render-gulch-sfx.py`, shaped noise with no pitch.
+- **Deviation, recorded:** the grog tent and the river lead to Rooms 52 and 53, built next on this branch and shipped in the same pull request, so no way on main leads nowhere.
+- Lesson: `tests/gulch-tents.test.ts` fails if the lookout stops stopping him, or stops on the path up; if G3 stops taking the Clarion or opening the ways; if his barks stop going in turn or start following the town's opinion; or if a Gulch room's person has no wrong-verb line the gate can find.
+
+# 207 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
+
+*Room 52 built under doc 55, in the brief's order. Every line is doc 109's, doc 49's or doc 04's and doc 03's as doc 109 directs, extracted.*
+
+- **The room.** Canvas over a frame, daylight through it (errata 190): the plank on two barrels with GOLD ON THE PLANK on its brass, the bottles on the shelf with their prices chalked under them, the watch on its nail, the fiddle on its peg, and the rule-keeper's keg. The flap back to the tents.
+  - room-52: 4 of 4 operations. The master; the plate without the men; the rule-keeper's pose sheet, painted over the in-game Thad; and the third barrel cut down to a keg, because a seated man drawn at a chair's height sat halfway down a barrel half a man tall (Tyler, 2026-11-09: "It looks like the one guy is sitting halfway down the barrel randomly").
+  - The lettering is the shipping face, read from the extracted LOOK lines (`tools/art/gulch-lettering.py`): WHISKEY and FLOUR on the barrels, the chalk under the bottles, and the brass plate. The plate is drawn whole as a prop, sized to the words and covering the painted one: the painted plate was 75 px between its screws, under its own blurred letters, and the words at the face's size are 104 px (Tyler: "The writing on the plaque is really poorly put on there").
+- **The rule-keeper** (`content/ambient/gulch-rule-keeper.json`): seated on the keg, his lap on its top (`seat.y`), seven drawn poses; he takes the fiddle down and plays it in two of them, the peg shown empty while he does (a prop with `byFrame`). His barks go in turn, one a visit (`barkTurns`).
+- **The Deacon** (`content/ambient/gulch-deacon.json`) is Vessel, and doc 109 says so: **Vessel's own accepted frames, the mustache taken off, and nothing else changed** (Tyler: "can you overlay Deke on Deacon to make sure they're exactly the same minus the mustache?").
+  - gulch-vessel operation 1 drew a new man; beside Vessel he was another man, and is unused.
+  - A shave in code (cheek colour, a pale stripe, a drawn mouth) read as a muzzle at game size (Tyler: "Is that how you're planning on leaving him? With mouth?").
+  - gulch-vessel operation 2 had the model shave Vessel's own sheet. From it only the mustache band of each frame is taken, registered, colour-matched and blended, and its own mouth deepened so it survives the room's snap (Tyler: "he still needs a bit more of a mouth"). `renders/room-52-deacon-vs-deke.png` shows Vessel, the Deacon, and the band as the only pixels that differ (`tools/art/room52-deacon-from-deke.py`).
+  - Before the find he is THE DEACON; from it, DEKE VESSEL (`names`). He leaves the tent at G9, with the watch.
+- **G4, THE FIND:** the watch's first LOOK is the find (a room `scenes` entry): the watch's own line, the find's, and doc 03's Duel One opening said here, `T_DEACON_FOUND`; his tree becomes VES_G1. After G9 the watch is THE NAIL, its LOOK and LISTEN doc 109's, the nail drawn empty over the plate.
+- **G5:** the tuning fork on the fiddle is the seat, `T_PLANK_SEAT`; Thad strikes the fork (an acted direction in his wrench frames, with its sound) and the rule-keeper plays (his frames, with the fiddle's).
+- **VES_G1** (`gulchVessel()`): doc 04's VES_B1 with doc 109's Gulch differences -- the seat first (options 3 and 6 answer with it until G5), the challenge to the bar (B4, Duel One), and after Duel One the rematch agreed, `T_VESSEL_FOUND`. The G9 puzzle id is not yet canonical and is wired at the trip's close.
+- **Sound:** the grog tent's music (errata 195); the R52 bed of canvas and glass, the fork's ring and the fiddle, rendered by `tools/audio/render-gulch-sfx.py`, shaped, with the fiddle ducked under its line.
+- **Deviation, recorded:** the tent's flap leads back to the tents only; the river (Room 53) is built next on this branch, in the same pull request.
+- Lesson: `tests/gulch-grog-tent.test.ts` fails if THE FIND, the watch's three states, G5's seat and the rule-keeper's playing frames with the peg empty, or VES_G1's three Gulch differences stop doing what doc 109 says; `tests/lessons.test.ts` fails a figure with no barks declared and a seated figure whose lap is not on its seat; doc 55 §8 carries the Deacon's face, the plate's lettering and the mouth after the snap.
+

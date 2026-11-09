@@ -187,6 +187,122 @@ ROOMS = {
         'occlusionNote': 'Nothing stands nearer the camera than the walk band; the cairn is at its far edge.',
         'lightSources': ['sky'],
     },
+    51: {
+        'id': 'gulch_tents', 'name': 'THE TENTS', 'tool': 'tools/gulch-graybox.py', 'errata': '202',
+        'what': "The foot of the ravine path in Fiddler's Gulch, in daylight: canvas tents, every one pegged twice and "
+                'guyed, one with a KNOCK sign; log cabins with stick-and-mud chimneys and bolted doors; shirts on a '
+                'line between two tents with padlocked pockets; a cook fire with a kettle and a pan; a stump with a '
+                'notice nailed to it; at the back left the big grog tent with its flap tied back; at the far left the '
+                'bank going down to the river; at the right the ravine wall and the zigzag path up, roped. The lookout '
+                'stands at the foot of the path.',
+        'depth': slope(640, 300, why="Room 5's exterior slope, as the washout and the ledge"),
+        'surfaces': [
+            ('sky, daylight', (0, 0, 1920, 130), 205),
+            ('the ravine walls', (0, 90, 1920, 340), 96),
+            ('camp ground, trodden', (0, 420, 1920, 444), 100),
+        ],
+        'objects': [
+            ('THE RIVER (the bank down)', (0, 520, 200, 344), 92, 'behind'),
+            ('THE CABINS', (200, 300, 330, 260), 60, 'behind'),
+            ('THE GROG TENT (the way in)', (540, 290, 420, 290), 96, 'behind'),
+            ('THE TENTS', (980, 330, 300, 230), 90, 'behind'),
+            ('THE WASHING LINE', (1280, 380, 260, 110), 84, 'behind'),
+            ('THE COOK FIRE', (900, 600, 170, 110), 70, 'behind'),
+            ('THE NOTICE (on its stump)', (1370, 560, 90, 150), 80, 'behind'),
+            ('THE PATH UP (to the ledge)', (1600, 150, 320, 560), 92, 'behind'),
+        ],
+        'lamp': None,
+        'marks': {'arrival': (1720, 790, 'left'), 'lookout': (1500, 770, 'left'), 'grog': (750, 680, 'left'),
+                  'river': (150, 800, 'left'), 'fire': (980, 760, 'left')},
+        'walk': (100, 660, 1760, 198),
+        'exits': [('THE PATH UP (to the ledge)', 'ledge'), ('THE GROG TENT (the way in)', 'grog_tent'), ('THE RIVER (the bank down)', 'gulch_river')],
+        'layoutThad': (1200, 800),
+        'figures': [(1720, 790, False), (1500, 770, True), (750, 690, False), (150, 800, False), (980, 780, False)],
+        'occlusionNote': 'Nothing stands nearer the camera than the walk band: the fire, the notice and the tents are '
+                         'all behind it, so no plane is needed. The canvas is blocked as weathered tan, a middle '
+                         'value, not white: white canvas behind his head lost his face (the gate, first pass).',
+        'lightSources': ['sky'],
+    },
+    52: {
+        'id': 'grog_tent', 'name': 'THE GROG TENT', 'tool': 'tools/gulch-graybox.py', 'errata': '207',
+        'what': "Inside a big canvas tent in daylight, the light coming warm through the canvas: at the left the flap tied "
+                'back on the camp; a plank across two barrels for a bar, a brass plate on it; behind it a rough shelf of '
+                'bottles; a pocket watch hanging on a nail in the ridgepole above the keeper; a fiddle on a peg on the '
+                'tent pole near the plank\'s end; the rule-keeper on a third barrel at that end; the Deacon behind the '
+                'plank.',
+        'depth': {'far': (640, 340), 'near': (858, 430), 'from': "An interior's flatter slope (0.41 a row), as the "
+                  "barber's: Thad about as tall as the keeper behind his plank"},
+        'surfaces': [
+            ('canvas roof and walls, daylight through them', (0, 0, 1920, 640), 96),
+            ('earth floor, trodden', (0, 620, 1920, 244), 86),
+        ],
+        'objects': [
+            ('THE TENT FLAP (the way out)', (20, 120, 240, 640), 100, 'behind'),
+            ('THE TENT FLAP (the camp outside)', (60, 200, 160, 440), 200, 'behind'),
+            ('THE RIDGEPOLE', (0, 50, 1920, 40), 58, 'behind'),
+            ('THE WATCH', (1095, 90, 50, 80), 150, 'behind'),
+            ('THE BOTTLES (on their shelf)', (880, 300, 560, 70), 80, 'behind'),
+            ('THE DEACON (behind the plank)', (1060, 270, 130, 230), 62, 'behind'),
+            ('THE PLANK', (760, 470, 740, 34), 66, 'behind'),
+            ('THE BARRELS', (790, 504, 120, 136), 58, 'behind'),
+            ('THE BARRELS (the second)', (1360, 504, 120, 136), 58, 'behind'),
+            ('THE TENT POLE', (560, 60, 34, 580), 60, 'behind'),
+            ('THE FIDDLE', (520, 300, 60, 150), 74, 'behind'),
+            ('THE RULE-KEEPER (on his barrel)', (610, 430, 150, 250), 62, 'behind'),
+        ],
+        'lamp': None,
+        'marks': {'arrival': (300, 760, 'right'), 'deacon': (1120, 700, 'back'), 'rulekeeper': (860, 740, 'left'),
+                  'fiddle': (640, 760, 'back')},
+        'walk': (220, 660, 1500, 198),
+        'exits': [('THE TENT FLAP (the way out)', 'gulch_tents')],
+        'layoutThad': (1000, 760),
+        'figures': [(300, 760, False), (1120, 700, False), (860, 740, False), (1400, 820, False), (680, 680, True)],
+        'occlusionNote': 'The plank and its barrels stand at the back edge of the walk band, in front of the Deacon: '
+                         'he is cut at the plank top (the brief), and Thad, in front of the plank, is never behind it.',
+        'lightSources': ['THE TENT FLAP'],  # the open flap is the tent's doorway of daylight
+    },
+    53: {
+        'id': 'gulch_river', 'name': 'THE RIVER', 'tool': 'tools/gulch-graybox.py', 'errata': '208',
+        'what': "The river below Fiddler's Gulch's camp, in daylight: a cold fast river coming down from the gulch at the "
+                'back right, where it bends out of sight upstream, and running out across the front of the frame; the '
+                'near bank on the left, churned to mud, going up at the far left to the tents; on it a rocker, a box on '
+                'curved feet, rocked by a man in a good hat; on the far bank at the right a long tom, a long wooden '
+                'trough with water running down it, two men feeding it gravel and a third guarding it with a shovel; '
+                'men standing knee-deep in the river with pans; mid-stream a dry flat gravel bar with a ring of stones '
+                'on it and a stump; the panner knee-deep in the water at the front, beside the bar.',
+        'depth': slope(640, 300, why="Room 5's exterior slope, as the washout, the ledge and the tents"),
+        'surfaces': [
+            ('sky, daylight', (0, 0, 1920, 120), 205),
+            ('the gulch walls', (0, 80, 1920, 340), 96),
+            ('the near bank, churned mud', (0, 400, 1920, 464), 100),
+        ],
+        'objects': [
+            ('THE TENTS (the way back)', (0, 300, 140, 420), 92, 'behind'),
+            ('UPSTREAM (the way on)', (1440, 140, 300, 330), 102, 'behind'),
+            ('THE WATER (upstream)', (1480, 300, 240, 220), 106, 'behind'),
+            ('THE WATER', (960, 520, 760, 215), 106, 'behind'),
+            ('THE WATER (at the front)', (880, 735, 1040, 129), 106, 'behind'),
+            ('THE LONG TOM (on the far bank)', (1720, 400, 200, 335), 74, 'behind'),
+            ('THE ROCKER', (380, 540, 170, 110), 70, 'behind'),
+            ('THE BAR', (1180, 620, 420, 120), 104, 'behind'),
+            ('THE BAR (the stump)', (1330, 590, 60, 70), 70, 'behind'),
+        ],
+        'lamp': None,
+        'marks': {'arrival': (200, 640, 'right'), 'panner': (1060, 800, 'left'), 'bar': (1220, 720, 'right'),
+                  'vessel': (1500, 720, 'left'), 'stump': (1360, 700, 'front'), 'upstream': (1420, 500, 'right')},
+        'walk': (140, 470, 1440, 388),
+        'exits': [('THE TENTS (the way back)', 'gulch_tents'), ('UPSTREAM (the way on)', 'upstream')],
+        'layoutThad': (700, 780),
+        'figures': [(200, 640, False), (1060, 800, True), (1220, 720, False), (1500, 720, True), (700, 820, False),
+                    (1420, 500, False)],
+        'valueNote': 'The water is a middle value, brown with the digging (doc 109, THE WATER, its second LOOK); the bar '
+                     'is gravel at a middle value, told from the water by its edge and texture, not by being light: '
+                     'light water or a pale bar behind his face was weak at the gate (first pass).',
+        'occlusionNote': 'The water stands in front of anyone in it: the panner, knee-deep at the front, and Thad on '
+                         'the ford to the bar, which is level, so the water at his knees is one band of rows and a '
+                         'mask can hold it. On the bank and on the bar nothing is in front of him.',
+        'lightSources': ['sky'],
+    },
 }
 
 if __name__ == '__main__':

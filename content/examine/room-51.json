@@ -1,0 +1,140 @@
+{
+  "room": 51,
+  "name": "THE TENTS",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+    "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT",
+    "docs/49-wrong-answers.md::ROOM 51 — THE TENTS"
+  ],
+  "subjects": [
+    {
+      "name": "THE COOK FIRE",
+      "LOOK_AT": [
+        "A cook fire with a kettle on it and somebody's dinner in a pan. Nobody's watching it. Everybody's watching me.",
+        "Beans, with something better than beans in them. They eat well here. They can afford to.",
+        "I'm not going to steal a man's dinner. I've thought it through, and I'm not."
+      ],
+      "LISTEN_TO": [
+        "Beans, ticking in the pan.",
+        "The kettle working up to something.",
+        "Fat spitting. The best sound in two days."
+      ],
+      "overrides": {
+        "USE": "I warmed my hands at it. Nobody stopped me. It's the friendliest thing in camp."
+      }
+    },
+    {
+      "name": "THE WASHING LINE",
+      "LOOK_AT": [
+        "Shirts on a line between two tents. Every one has a padlock on the pocket.",
+        "Good shirts, too. Store-bought. Washed by somebody else, I'd bet.",
+        "One shirt has a padlock and no buttons. A man has his priorities."
+      ],
+      "LISTEN_TO": [
+        "Shirts flapping.",
+        "A padlock knocking against a peg.",
+        "Washing, drying, with nothing to add."
+      ],
+      "overrides": {
+        "OPEN": "Every pocket's padlocked. I tried one, to see. A man across the way stood up."
+      }
+    },
+    {
+      "name": "THE CABINS",
+      "LOOK_AT": [
+        "Log cabins with chimneys of sticks and mud. The doors have more bolts than the walls have logs.",
+        "One cabin has three locks and no window. Whoever's inside has done well.",
+        "I knocked on one, to be friendly. A bolt went across inside. Then a second."
+      ],
+      "LISTEN_TO": [
+        "A bolt sliding home.",
+        "Inside one, a man counting under his breath.",
+        "Counting again. He's lost his place and started over."
+      ],
+      "overrides": {
+        "OPEN": "I tried a latch. Three bolts answered from inside, one after another, like a choir."
+      }
+    },
+    {
+      "name": "THE TENTS",
+      "LOOK_AT": [
+        "Canvas tents, every one pegged down twice and guyed like a ship.",
+        "One tent has a sign on it: KNOCK. You can't knock on a tent. That's the idea.",
+        "In Consolation the tents are full of hope. These are full of gold, and it's made them twitchy."
+      ],
+      "LISTEN_TO": [
+        "Canvas breathing in the wind.",
+        "Behind one flap, coins being stacked, carefully.",
+        "Somebody snoring lightly, like a man ready to wake."
+      ],
+      "overrides": {
+        "OPEN": "I lifted a flap. Somebody inside said 'No', very calmly, and I put it down."
+      }
+    },
+    {
+      "name": "THE NOTICE",
+      "LOOK_AT": [
+        "A notice nailed to a stump: CLAIM JUMPERS WILL BE SPOKEN TO. Underlined twice.",
+        "Underneath, in another hand: FIRMLY.",
+        "It's the most threatening thing I've read since Mr. Sump's forms."
+      ],
+      "LISTEN_TO": [
+        "A nail working loose.",
+        "The notice flapping at one corner.",
+        "Quiet. It's said its piece, firmly."
+      ],
+      "overrides": {
+        "PULL": "Taking down a notice against strangers would make me the stranger it means.",
+        "TALK_TO": "I told it I wasn't a jumper. It went on saying FIRMLY."
+      }
+    },
+    {
+      "name": "THE PATH UP",
+      "LOOK_AT": [
+        "The path back up the ravine to the ledge and the mine.",
+        "Up there is the way home, eventually, and a mule.",
+        "The rope's worn bright on the bends, where everybody holds on hardest."
+      ],
+      "LISTEN_TO": [
+        "Grit coming down the path.",
+        "Wind on the ledge, high up.",
+        "The rope creaking, high up."
+      ]
+    },
+    {
+      "name": "THE GROG TENT",
+      "LOOK_AT": [
+        "A big tent with the flap tied back and a sign: GROG. The only word anybody bothered to paint.",
+        "Men go in looking worried and come out poorer and less worried.",
+        "A man came out, looked at the sky, and went back in. It's that kind of tent."
+      ],
+      "LISTEN_TO": [
+        "Glasses, low talk, and a man laughing a little too long.",
+        "A plank creaking under somebody's elbows.",
+        "A cork, and somebody laughing at nothing."
+      ]
+    },
+    {
+      "name": "THE RIVER",
+      "LOOK_AT": [
+        "Down to the river, where the men are standing in it.",
+        "The bank's churned to mud by a hundred pairs of rich boots.",
+        "From here every man in the river looks as if he's dropped something small."
+      ],
+      "LISTEN_TO": [
+        "Water over stones, and shovels.",
+        "Shovels, and a rocker, down the bank.",
+        "The rocker, and the river, going about their business."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "THE LOOKOUT": {
+      "PICK_UP": "I'm not going to lift a man who already thinks I'm here to take things.",
+      "PUSH": "I gave him a friendly nudge. He raised the pan an inch, and I took my hand back.",
+      "USE": "He's already in use. He's guarding a path, and he's doing it with his whole body."
+    }
+  }
+}

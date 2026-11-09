@@ -1,0 +1,238 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "DEACON",
+  "speaker": "gulch_deacon",
+  "name": "THE DEACON",
+  "note": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (### THE DEACON, before he is found) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run. An option gated *(before Gn)* or *(after Gn)* reads GULCH_GATES; the way out is doc 04 part one's pool.",
+  "entries": [
+    {
+      "when": {
+        "T_DEACON_FOUND": true
+      },
+      "node": "VES_G1"
+    }
+  ],
+  "start": "DEA_G1",
+  "nodes": {
+    "DEA_G1": {
+      "id": "DEA_G1",
+      "prompt": "What'll it be, son? We take dust.",
+      "options": [
+        {
+          "id": "gulch_deacon1",
+          "tag": "TOPIC",
+          "text": "Do I know you?",
+          "afterUse": "retain",
+          "say": "Everybody knows the Deacon, son. Small camp.",
+          "repeat": "You'd remember me, son. I'm very memorable."
+        },
+        {
+          "id": "gulch_deacon2",
+          "tag": "TOPIC",
+          "text": "I'm looking for Deke Vessel.",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "gulch_deacon",
+              "line": "Are you, now."
+            },
+            {
+              "speaker": "gulch_deacon",
+              "line": "He polishes a glass.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_deacon",
+              "line": "Well, I hope you find him. Lovely man."
+            }
+          ],
+          "repeat": "Keep looking, son. He's closer than you'd think."
+        },
+        {
+          "id": "gulch_deacon3",
+          "tag": "TOPIC",
+          "text": "Why do they call you the Deacon?",
+          "afterUse": "retain",
+          "say": "My mother did. I've kept it. A man should keep something.",
+          "repeat": "Mother's choice. I've never once changed it."
+        },
+        {
+          "id": "gulch_deacon4",
+          "tag": "TOPIC",
+          "text": "Can I have a drink?",
+          "afterUse": "retain",
+          "say": "Gold on the plank, son. House rules. I wrote them.",
+          "repeat": "Dust first. The plank's very particular."
+        },
+        {
+          "id": "gulch_deacon5",
+          "tag": "COMIC",
+          "text": "What happened to your lip?",
+          "afterUse": "retain",
+          "say": "Shaved it, son. For the heat. And a man starting over likes to see his own face.",
+          "repeat": "It's coming back thicker. They do."
+        },
+        {
+          "id": "gulch_deaconx",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "VES_G1": {
+      "id": "VES_G1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 109: the opening, doc 03's Duel One opening, was said at THE FIND; TALK TO after it opens the list.",
+      "options": [
+        {
+          "id": "ves_g1_1",
+          "tag": "PROGRESS",
+          "text": "You sold me a worthless claim.",
+          "afterUse": "remove",
+          "say": "I sold you a claim. Worth is your department. Mine's volume."
+        },
+        {
+          "id": "ves_g1_2",
+          "tag": "TOPIC",
+          "text": "I want my four dollars back.",
+          "afterUse": "counted-repeat",
+          "say": "They're working, son. Money works out here.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "They've been promoted."
+            },
+            {
+              "selection": 3,
+              "say": "They're in hospitality now."
+            }
+          ]
+        },
+        {
+          "id": "ves_g1_3_seat",
+          "tag": "ASSAY",
+          "text": "Teach me to lie like that.",
+          "afterUse": "retain",
+          "when": {
+            "T_DUEL_ONE_LOST": true,
+            "T_VESSEL_FOUND": false,
+            "T_PLANK_SEAT": false
+          },
+          "say": "Gold on the plank first, son. Then we can talk about paper.",
+          "repeat": "Plank first. I don't make the rules. Well. I did, but I keep them."
+        },
+        {
+          "id": "ves_g1_3",
+          "tag": "ASSAY",
+          "text": "Teach me to lie like that.",
+          "afterUse": "remove",
+          "say": "Can't teach it. Can demonstrate it.",
+          "duel": "duel_one",
+          "when": {
+            "T_DUEL_ONE_LOST": true,
+            "T_VESSEL_FOUND": false,
+            "T_PLANK_SEAT": true
+          }
+        },
+        {
+          "id": "ves_g1_4",
+          "tag": "COMIC",
+          "text": "You'll answer for this someday.",
+          "afterUse": "retain",
+          "say": "I answer for it constantly. Nobody accepts the answer.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still answering, son. I've got the answer down very nice by now."
+            }
+          ]
+        },
+        {
+          "id": "ves_g1_6_seat",
+          "tag": "PROGRESS",
+          "text": "I need you to sign an affidavit.",
+          "afterUse": "retain",
+          "when": {
+            "T_PLANK_SEAT": false
+          },
+          "say": "Gold on the plank first, son. Then we can talk about paper.",
+          "repeat": "Plank first. I don't make the rules. Well. I did, but I keep them."
+        },
+        {
+          "id": "ves_g1_6",
+          "tag": "PROGRESS",
+          "text": "I need you to sign an affidavit.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "gulch_deacon",
+              "line": "Sign a paper saying I sold you mud under false pretenses? Son, that's a confession with a stamp on it."
+            },
+            {
+              "speaker": "gulch_deacon",
+              "line": "Tell you what. We'll settle it the local way."
+            },
+            {
+              "speaker": "gulch_deacon",
+              "line": "He points down the bank, at the bar.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_deacon",
+              "line": "The local way's out on the bar, son. Bring your boots."
+            }
+          ],
+          "duel": "duel_one",
+          "puzzle": {
+            "B4": "complete"
+          },
+          "when": {
+            "T_PLANK_SEAT": true
+          }
+        },
+        {
+          "id": "ves_g1_5",
+          "tag": "ASSAY",
+          "text": "I'd like a rematch.",
+          "afterUse": "remove",
+          "when": {
+            "T_DUEL_ONE_LOST": true,
+            "T_VESSEL_FOUND": false
+          },
+          "exchange": [
+            {
+              "speaker": "gulch_deacon",
+              "line": "Not here, son. Beat me on that bar and you'd have nothing. That bar can't witness a signature."
+            },
+            {
+              "speaker": "gulch_deacon",
+              "line": "Beat me in the Nugget's back room, with judges and a pencil, and I'll sign whatever you like."
+            },
+            {
+              "speaker": "thad",
+              "line": "You'd come back to Consolation?"
+            },
+            {
+              "speaker": "gulch_deacon",
+              "line": "Losing a man in front of strangers is business. Beating him in front of his own town is art. I'll take the coach."
+            }
+          ],
+          "set": {
+            "T_VESSEL_FOUND": true
+          },
+          "ends": true
+        },
+        {
+          "id": "ves_g1_x",
+          "tag": "EXIT",
+          "text": "Thank you. This has been clarifying.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

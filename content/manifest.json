@@ -63,7 +63,9 @@
   "content/rooms/mine-climb.json",
   "content/rooms/mine-two-rocks.json",
   "content/rooms/mine-line.json",
-  "content/rooms/ledge.json"
+  "content/rooms/ledge.json",
+  "content/rooms/gulch-tents.json",
+  "content/rooms/grog-tent.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -97,7 +99,10 @@
   "content/dialogue/amb-dogs-owner.json",
   "content/dialogue/amb-barber.json",
   "content/dialogue/amb-photographer.json",
-  "content/dialogue/amb-boarding-women.json"
+  "content/dialogue/amb-boarding-women.json",
+  "content/dialogue/gulch-lookout.json",
+  "content/dialogue/gulch-rule-keeper.json",
+  "content/dialogue/gulch-deacon.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -246,7 +251,10 @@
   "content/ambient/boarding-a.json",
   "content/ambient/boarding-b.json",
   "content/ambient/bakehouse-boy.json",
-  "content/ambient/washout-grievance.json"
+  "content/ambient/washout-grievance.json",
+  "content/ambient/gulch-lookout.json",
+  "content/ambient/gulch-rule-keeper.json",
+  "content/ambient/gulch-deacon.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",
@@ -711,6 +719,16 @@
     "src": "audio/consolation-gulch.wav",
     "gain": 0.6,
     "why": "Doc 45 R50-54-M (errata 195): CONSOLATION in the minor, jaw harp and harmonica. No piano, because the camp has none; no fiddle, because nobody in Fiddler's Gulch plays one."
+   },
+   "gulch_tents": {
+    "src": "audio/consolation-gulch.wav",
+    "gain": 0.6,
+    "why": "Doc 45 R50-54-M (errata 195): the ledge's mix, carried down the path into the camp at the same gain."
+   },
+   "grog_tent": {
+    "src": "audio/consolation-gulch-canvas.wav",
+    "gain": 0.6,
+    "why": "Doc 45 R52-M (errata 195): R50-54-M carried into the tent, through canvas -- the same jaw harp and harmonica, filtered and lower."
    }
   },
   "tunedFlag": "T_IN_TUNE",

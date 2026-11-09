@@ -148,6 +148,19 @@
     "boarding_b": {
       "colour": "#e0b0d8",
       "note": "The builder's choice for errata 183 (Room 37): A in the green of her dress, B in the plum of hers, clear of Thad's and of each other; Tyler rules on them in the playthrough."
+    },
+    "gulch_lookout": {
+      "colour": "#78c8e0",
+      "note": "The builder's choice for errata 206 (Room 51): the steel blue of the pan he holds like a shield, clear of Thad's and of everyone he can share a room with; Tyler rules on it in the playthrough."
+    },
+    "gulch_deacon": {
+      "colour": "#f2c85a",
+      "sameAs": "deke_vessel",
+      "note": "The Deacon is Vessel (doc 109): the same man, the same colour."
+    },
+    "gulch_rule_keeper": {
+      "colour": "#f0d090",
+      "note": "The builder's choice for errata 207 (Room 52): the straw of the grog tent's canvas light, clear of Thad's, of Vessel's gold beside him and of everyone he can share a room with; Tyler rules on it in the playthrough."
     }
   },
   "everySpeaker": "Errata 169: every id that speaks -- a tree's speaker, a speaker in an exchange, a townsperson with barks -- has an entry here. The fallback ink sits a few units from Thad's, so an uncoloured speaker reads as Thad (Tyler, 2026-11-07: \"Are the map guy and Thad supposed to have the same color of text?\"). tools/check-speech-colours.mjs fails on any that has none. A figure who is another character in another place says so with sameAs and takes that character's colour."

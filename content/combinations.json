@@ -1300,6 +1300,115 @@
           "say": "A third time, the same answer. It has more patience than I do."
         }
       ]
+    },
+    {
+      "item": "clarion",
+      "room": "gulch_tents",
+      "target": "gulch_lookout",
+      "puzzle": "G3",
+      "say": "He reads page one twice, moving his lips at the good part. Then he looks at Thad with something like envy.",
+      "note": "Doc 109, THE LOOKOUT · GIVE THE CLARION (G3): the Clarion says his claim is worth nothing, whichever story Frame printed (B1), and a man who owns nothing is no threat. It leaves inventory.",
+      "rules": [
+        {
+          "case": "GIVE THE CLARION",
+          "say": "He reads page one twice, moving his lips at the good part. Then he looks at Thad with something like envy.",
+          "by": "gulch_lookout",
+          "direction": true,
+          "then": [
+            {
+              "speaker": "gulch_lookout",
+              "line": "You own nothing."
+            },
+            {
+              "speaker": "thad",
+              "line": "Nothing worth jumping."
+            },
+            {
+              "speaker": "gulch_lookout",
+              "line": "…Come down, then. You'll be the only man in this camp who sleeps."
+            },
+            {
+              "speaker": "gulch_lookout",
+              "line": "He folds the paper into his shirt, over his heart, like a deed.",
+              "direction": true
+            }
+          ],
+          "takes": [
+            "clarion"
+          ],
+          "set": {
+            "T_CAMP_TRUSTS": true
+          },
+          "completes": "G3"
+        }
+      ]
+    },
+    {
+      "item": "deed",
+      "room": "gulch_tents",
+      "target": "gulch_lookout",
+      "say": "A deed! Jumper.",
+      "note": "Doc 109, THE LOOKOUT · GIVE THE DEED.",
+      "rules": [
+        {
+          "case": "GIVE THE DEED",
+          "say": "A deed! Jumper.",
+          "by": "gulch_lookout"
+        }
+      ]
+    },
+    {
+      "item": "tuning_fork",
+      "room": "grog_tent",
+      "target": "fiddle",
+      "puzzle": "G5",
+      "say": "It's right. If I tune it again, he'll pay me again, and that would be taking advantage. I'm tempted.",
+      "note": "Doc 109, THE FIDDLE · USE THE TUNING FORK (G5): Thad tunes it as he tunes the Nugget's piano, and is paid a pinch of dust: a seat at the plank. After it, Thad's line.",
+      "rules": [
+        {
+          "case": "G5",
+          "when": {
+            "T_PLANK_SEAT": false
+          },
+          "say": "Thad strikes the fork on the plank, holds it to the fiddle's body, and turns the pegs one at a time. The rule-keeper puts his glass down.",
+          "direction": true,
+          "then": [
+            {
+              "speaker": "thad",
+              "line": "There. Four strings, on speaking terms again."
+            },
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "That fiddle hasn't been right since we struck."
+            },
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "He tips a pinch of dust onto the plank in front of Thad.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "That's your seat paid."
+            },
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "He takes the fiddle down and plays it, very badly and very happily.",
+              "direction": true
+            }
+          ],
+          "set": {
+            "T_PLANK_SEAT": true
+          },
+          "completes": "G5"
+        },
+        {
+          "case": "after G5",
+          "when": {
+            "T_PLANK_SEAT": true
+          },
+          "say": "It's right. If I tune it again, he'll pay me again, and that would be taking advantage. I'm tempted."
+        }
+      ]
     }
   ],
   "itemPools": {
@@ -1376,6 +1485,21 @@
         "Not down here. A mine has no business being in tune."
       ],
       "source": "docs/108-the-washout-and-the-mine.md::THE MINE · WRONG ANSWERS, ANYWHERE IN IT"
+    }
+  ],
+  "targetPools": [
+    {
+      "room": "gulch_tents",
+      "target": "gulch_lookout",
+      "verb": "USE",
+      "lines": [
+        "He wants proof I own nothing. Handing him things isn't helping."
+      ],
+      "except": [
+        "clarion",
+        "deed"
+      ],
+      "source": "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT"
     }
   ]
 }

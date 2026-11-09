@@ -36,6 +36,11 @@ export type FlagAdds = Record<string, number>;
 
 /** One branch of a verb response. The first branch whose `when` holds is used. */
 export interface ResponseRule {
+  /**
+   * HOW MANY OF THE CHAIN'S LINES A SCENE SAID FIRST (doc 109, THE WATCH: its first LOOK is THE FIND). This rule goes on
+   * from there; the chain is whole (tools/check-written-content.mjs counts them).
+   */
+  chainFrom?: number;
   when?: Condition;
   /**
    * Move this object to a named state. Doc 22 item 9: a state change drives
@@ -471,6 +476,12 @@ export interface AmbientFile {
    */
   posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter' | 'child';
   /**
+   * WHERE A SEATED FIGURE SITS: the plate row of the top of his seat, which is the plate's (a barrel, a keg, a stump),
+   * never his. His lap is drawn on it (tests/lessons.test.ts). Room 52's rule-keeper was drawn at a chair's height on a
+   * barrel half a man tall, and sat halfway down it (Tyler, 2026-11-09).
+   */
+  seat?: { y: number; note?: string };
+  /**
    * SCENERY, NOT A PERSON (errata 187): a figure drawn and moving but answering
    * nothing yet -- the pointer passes through it to the hotspot or ground under
    * it, as if it were painted into the plate. Main Street's hitching horses,
@@ -659,6 +670,13 @@ export interface AmbientFile {
    * gates the whole run.
    */
   barkRun?: { counter: string; when?: Condition; lines: { speaker: string; line: string }[][] };
+  /**
+   * BARKS SAID IN TURN, ONE A VISIT, THE SAME IN EVERY REPUTATION STATE (doc 109, Fiddler's Gulch: "Each person's
+   * barks are said on approach, one a visit, in turn"; the news from Consolation has not reached the Gulch). The
+   * first set whose `when` holds answers, with its lines in order and round again; `counter`, a declared number flag
+   * per set, keeps the place so a save does too. Used instead of `barks`, which such a person leaves `{}`.
+   */
+  barkTurns?: { counter: string; when?: Condition; lines: string[]; source?: string }[];
   /**
    * The occlusion plane that masks this figure, when it stands where no walk
    * box is. Room 5's Winnie stands BEHIND the counter: no box exists there
@@ -1163,6 +1181,12 @@ export interface CombinationsFile {
    * place has (doc 108: the brass rod and the fork, "anywhere in" the mine).
    */
   areaPools?: { id: string; item: string; rooms: string[]; lines: string[]; source?: string }[];
+  /**
+   * ANY OTHER ITEM, TO ONE PERSON OR THING (doc 109: THE LOOKOUT · GIVE anything else -- "He wants proof I own
+   * nothing. Handing him things isn't helping."). After a pair, before the item's own pool; `except` is the items
+   * whose pairs answer for themselves. Said in turn when there is more than one line.
+   */
+  targetPools?: { room: string; target: string; verb?: string; lines: string[]; except?: string[]; source?: string }[];
   /** Anything on anything unhandled. Doc 24 tier 3. */
   globalPool: string[];
 }

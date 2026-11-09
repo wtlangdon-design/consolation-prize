@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: inside a canvas grog tent in daylight, with the flap tied back at the left on the camp outside, a tent pole with a fiddle on a peg, a pocket watch hanging from the ridgepole, a shelf of bottles, and a plank bar across two barrels with a third barrel at its left end. Three men are in it: a man in a blue coat standing in the middle of the floor, a big man in a hat sitting on the third barrel, and a man in a brown coat standing behind the plank.
+
+Make exactly one change: remove all three men. Paint what is behind them: the earth floor; the third barrel, whole and empty, standing upright where the big man sat; and behind the plank the canvas wall, the shelf posts and the floor, seen through the gap under the plank between the two barrels.
+
+Change nothing else: the flap and the camp outside, the tent pole, the fiddle and its bow, the ridgepole and the watch on its nail, the shelf and every bottle, the plank and its blank brass plate, and the barrels stay exactly as they are. The same pixel-art style and pixel grid, the same colours, the same daylight. No people, no text, no border.

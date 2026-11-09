@@ -1,0 +1,14 @@
+{
+ "assetId": "gulch-vessel",
+ "subject": "room-52-deacon",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-52-grog-tent",
+ "promptFile": "reference/room-52/prompts/deacon-shave-01.txt",
+ "out": "art/staging/room-52/deacon-shave/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-52/deacon-shave/base-1536x1024.png"
+ ],
+ "derivedFrom": "art/actors/deke-vessel.png"
+}

@@ -72,8 +72,37 @@ PEOPLE = {
         'sheet': 'art/staging/room-37/women/sheet-a.png', 'drawn': 3, 'names': ['rest', 'breath', 'hair', 'talk'],
         'feet': (1679, 650), 'stature': 0.97, 'posture': 'standing', 'curve': ((660, 452), (855, 587)),
     },
-    # Fiddler's Gulch (reference/fiddlers-gulch/brief.md). Grievance at the washout is her livery generation's
-    # whole-mule sheet (room-15 operation 4), five poses facing us; it fits the day's light, so no operation is spent.
+    # Fiddler's Gulch (reference/fiddlers-gulch/brief.md).
+    # The lookout at the foot of the path (Room 51), painted over the in-game Thad from room-51 operation 4; his face
+    # from the room's master. The curve is the master's own: Thad 347 tall at y 676 in the plate, Room 5's 0.68 slope.
+    (51, 'lookout'): {
+        'master': 'art/staging/room-51/composition-master-01.png', 'faceBox': (1222, 478, 1282, 535),
+        'drawn': 4, 'names': ['rest', 'breath', 'glance', 'shield', 'talk'],
+        'feet': (1560, 640), 'stature': 1.0, 'posture': 'standing',
+        'curve': ((625, 312), (858, 471)),
+        'plate': 'art/backgrounds/room-51-tents.png', 'thadAt': (1250, 700), 'roomCrop': (860, 150, 1920, 860),
+    },
+    # The grog tent (Room 52). The rule-keeper sits (room-52 operation 3): the template is the standing Thad, for his
+    # proportions, and the pose is the master's own seated figure (`poseBox`, written as pose.png); his seat is never
+    # drawn, so the plate's keg here and the bar's stump in Room 53 both hold him. He perches on the keg (room-52
+    # operation 4 cut it down from a barrel; Tyler, 2026-11-09: "sitting halfway down the barrel"): his lap on its top at
+    # y 626, his boots just off the floor at y 731, 0.85 of the room's man there. The Deacon is Vessel (gulch-vessel operation 1): the clean-shaven face the master gave him, his
+    # clothes from his accepted figure (the spec's fourth image), standing behind the plank.
+    (52, 'rule-keeper'): {
+        'master': 'art/staging/room-52/composition-master-01.png', 'faceBox': (510, 415, 600, 485),
+        'poseBox': (460, 400, 650, 750),
+        'drawn': 6, 'names': ['rest', 'breath', 'drink', 'pebbles', 'talk', 'play-a', 'play-b'],
+        'feet': (672, 731), 'stature': 0.85, 'posture': 'seated', 'curve': ((714, 385), (830, 470)),
+        'plate': 'art/backgrounds/room-52-grog-tent.png', 'thadAt': (1000, 800), 'roomCrop': (300, 60, 1500, 864),
+    },
+    (52, 'deacon'): {
+        'master': 'art/staging/room-52/composition-master-01.png', 'faceBox': (935, 393, 1000, 462),
+        'drawn': 4, 'names': ['rest', 'breath', 'polish-a', 'polish-b', 'talk'],
+        'feet': (1202, 714), 'stature': 1.0, 'posture': 'behind-counter', 'curve': ((714, 385), (830, 470)),
+        'plate': 'art/backgrounds/room-52-grog-tent.png', 'thadAt': (1000, 800), 'roomCrop': (600, 0, 1800, 864),
+    },
+    # Grievance at the washout is her livery generation's whole-mule sheet (room-15 operation 4), five poses facing us;
+    # it fits the day's light, so no operation is spent.
     # Her ear tips stand 1.2 of the man at her hooves (errata 205's mule: 1.10-1.35; she is 1.19 over the livery door).
     # She was first cut at 0.83 -- the composition master's size, shorter than Thad -- and errata 205's check caught it.
     (45, 'grievance'): {
@@ -102,11 +131,17 @@ def thad():
     return t.crop(t.getbbox())
 
 
+def seated():
+    """The in-game Thad sitting, facing right: the template for a person who sits (the rule-keeper on his barrel)."""
+    t = Image.open(os.path.join(ROOT, 'art/actors/thad-seated-right/seated-00.png')).convert('RGBA')
+    return t.crop(t.getbbox())
+
+
 def refs(n, who):
     p = PEOPLE[(n, who)]
     d = stage(n, who)
     os.makedirs(d, exist_ok=True)
-    template([child() if p.get('child') else thad()] * p['drawn'], p.get('gaps')).save(os.path.join(d, 'template.png'))
+    template([child() if p.get('child') else seated() if p.get('seated') else thad()] * p['drawn'], p.get('gaps')).save(os.path.join(d, 'template.png'))
     boxes = p['faceBox'] if isinstance(p['faceBox'], list) else [p['faceBox']]
     faces = [face(None, sheet=os.path.join(ROOT, p['master']), box=b) for b in boxes]
     if len(faces) == 1:
@@ -116,6 +151,8 @@ def refs(n, who):
         for i, one in enumerate(faces):
             both.paste(one, (1024 * i, 0))
         both.resize((768 * len(faces), 768), Image.NEAREST).save(os.path.join(d, 'face.png'))
+    if p.get('poseBox'):
+        Image.open(os.path.join(ROOT, p['master'])).convert('RGB').crop(p['poseBox']).save(os.path.join(d, 'pose.png'))
     plate = Image.open(os.path.join(ROOT, p['plate'])).convert('RGBA')
     t = thad()
     h = round(man_at(p['curve'], p['thadAt'][1]))

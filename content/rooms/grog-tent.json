@@ -1,0 +1,712 @@
+{
+  "schema": 1,
+  "id": "grog_tent",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-52.json",
+      "reference/room-52/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        60,
+        770,
+        1820,
+        29
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        60,
+        799,
+        1820,
+        30
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        60,
+        829,
+        1820,
+        29
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      60,
+      770
+    ],
+    [
+      1880,
+      770
+    ],
+    [
+      1880,
+      858
+    ],
+    [
+      60,
+      858
+    ]
+  ],
+  "entrance": [
+    300,
+    800
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        300,
+        800
+      ],
+      "facing": "right",
+      "note": "In through the flap from the tents."
+    },
+    {
+      "from": "gulch_tents",
+      "at": [
+        300,
+        800
+      ],
+      "facing": "right",
+      "note": "In through the flap from the tents (doc 109, THE GROG TENT, the way in)."
+    }
+  ],
+  "ambient": [
+    "gulch_deacon",
+    "gulch_rule_keeper"
+  ],
+  "hotspots": [
+    {
+      "id": "watch",
+      "name": "THE WATCH",
+      "rect": [
+        1100,
+        40,
+        80,
+        100
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "T_CAMP_TRUSTS": true,
+              "T_DEACON_FOUND": false
+            },
+            "say": "A pocket watch on a nail in the ridgepole, so the whole camp can see the time.",
+            "then": [
+              "It's my father's watch.",
+              "That's my father's watch.",
+              {
+                "speaker": "thad",
+                "line": "He turns, slowly, to the man behind the plank. The man behind the plank is beaming.",
+                "direction": true
+              },
+              {
+                "speaker": "gulch_deacon",
+                "line": "Grubb! You came all this way. Was the claim not to your liking?"
+              },
+              "The claim contains a raccoon and an opinion.",
+              {
+                "speaker": "gulch_deacon",
+                "line": "It contained a raccoon when I sold it. You bought the whole thing."
+              },
+              "You shaved.",
+              {
+                "speaker": "gulch_deacon",
+                "line": "For the heat, son. You'd never have known me."
+              },
+              {
+                "speaker": "gulch_deacon",
+                "line": "You didn't."
+              }
+            ],
+            "set": {
+              "T_DEACON_FOUND": true
+            },
+            "completes": "G4",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::### THE FIND"
+          },
+          {
+            "when": {
+              "T_VESSEL_FOUND": true
+            },
+            "say": "An empty nail. Vessel took the watch with him. Tomorrow the camp will be on time, and won't know why.",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT · **THE NAIL** **LOOK**"
+          },
+          {
+            "say": "My father's watch, keeping time for a camp full of strangers. Eleven minutes fast, as ever.",
+            "repeat": [
+              "Every man here is eleven minutes early to everything, and none of them knows why. I know why."
+            ],
+            "chainFrom": 1
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "when": {
+              "T_VESSEL_FOUND": true
+            },
+            "say": "No ticking. The tent sounds a little lost.",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT · **THE NAIL** **LISTEN**"
+          },
+          {
+            "say": "Ticking, high up on the pole.",
+            "repeat": [
+              "Ticking. It's the only thing in the camp in a hurry.",
+              "Ticking, steady, above all the talk."
+            ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_DEACON_FOUND": true,
+              "T_VESSEL_FOUND": false
+            },
+            "say": "Vessel says it's the camp's now. The camp says it's Vessel's. Nobody says it's mine.",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT · **PICK UP** — *before the find:* *after:*"
+          },
+          {
+            "when": {
+              "T_DEACON_FOUND": false
+            },
+            "say": "It's on a nail above the keeper's head, and the keeper is watching me look at it.",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT · **PICK UP** — *before the find:* *before the find:*"
+          }
+        ]
+      },
+      "names": [
+        {
+          "when": {
+            "T_VESSEL_FOUND": true
+          },
+          "name": "THE NAIL"
+        }
+      ],
+      "walkTo": {
+        "x": 1140,
+        "y": 800,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "fiddle",
+      "name": "THE FIDDLE",
+      "rect": [
+        495,
+        180,
+        95,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "T_PLANK_SEAT": true
+            },
+            "say": "In tune. Nobody here can play it, but now they can't play it properly.",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT · *After G5:* **LOOK** **LOOK**"
+          },
+          {
+            "say": "A fiddle on a peg, with the bow tucked in the strings.",
+            "repeat": [
+              "The pegs have slipped, all four. The strings hang like a wet line.",
+              "I could put it right in a minute. Nobody's asked. Nobody here asks for anything they can't buy."
+            ],
+            "then": [
+              "Fiddler's Gulch, and nobody plays it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "when": {
+              "T_PLANK_SEAT": true
+            },
+            "say": "Quiet, and in tune. It's the best-kept thing in the camp now.",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT · *After G5:* **LOOK** **LISTEN**"
+          },
+          {
+            "say": "A string buzzing when the plank shakes. It's flat. They're all flat.",
+            "repeat": [
+              "The E, sagging a good half-tone. It hurts a little.",
+              "Quiet, until someone leans on the plank. Then it moans."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 560,
+        "y": 800,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "barrels",
+      "name": "THE BARRELS",
+      "rect": [
+        1425,
+        575,
+        175,
+        190
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Two barrels holding up the plank, and a third holding up the rule-keeper.",
+            "repeat": [
+              "WHISKEY, says one. FLOUR, says the other. They've both got whiskey in.",
+              "I tapped one. Full. I tapped the other. Also full. A rich camp drinks from both ends."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Liquid shifting inside.",
+            "repeat": [
+              "A slow drip from a tap, into a cup kept under it.",
+              "A gurgle, low down. The flour is very wet."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "I reached for a tap. The keeper cleared his throat in a way that cost a pinch."
+      },
+      "walkTo": {
+        "x": 1500,
+        "y": 800,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "plank",
+      "name": "THE PLANK",
+      "rect": [
+        780,
+        505,
+        845,
+        75
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A plank across two barrels: the bar. Elbows have polished it to a shine.",
+            "repeat": [
+              "A brass plate is screwed to it: GOLD ON THE PLANK. Even the furniture has rules.",
+              "I put my elbow on it. The keeper looked at my elbow until I took it off."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Glasses set down, one at a time.",
+            "repeat": [
+              "The plank creaking as a man leans.",
+              "A coin spinning on the wood, then lying still."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It's the bar. You don't pick up a man's bar. Not here, and not with him watching."
+      },
+      "walkTo": {
+        "x": 1100,
+        "y": 800,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "bottles",
+      "name": "THE BOTTLES",
+      "rect": [
+        920,
+        230,
+        650,
+        160
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Bottles along a shelf, with labels that promise France.",
+            "repeat": [
+              "One says COGNAC. It was filled from the WHISKEY barrel. I watched.",
+              "The prices are chalked on the shelf, by the pinch. A pinch of what isn't in question."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Glass clinking when the tent moves.",
+            "repeat": [
+              "A bottle being uncorked by a man in no hurry.",
+              "Clink. Then a sigh from whoever paid."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "The prices are by the pinch, and I haven't got one. I put it back, carefully, while he watched."
+      },
+      "walkTo": {
+        "x": 1300,
+        "y": 800,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_tents",
+      "name": "THE TENT FLAP",
+      "rect": [
+        0,
+        100,
+        340,
+        680
+      ],
+      "colour": 0,
+      "to": "gulch_tents",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The flap, tied back, and the camp outside.",
+            "repeat": [
+              "Daylight, and a hundred rich men who don't trust each other.",
+              "A man ducked in under it as I looked, already holding out his pinch."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The river, out past the tents.",
+            "repeat": [
+              "Wind snapping at the flap.",
+              "Canvas cracking in the wind, and shovels beyond."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "CLOSE": "I untied it. The whole tent looked at me. I tied it back."
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 109: the flap, tied back, and the camp outside.",
+      "walkTo": {
+        "x": 250,
+        "y": 800,
+        "facing": "left"
+      }
+    }
+  ],
+  "peopleResponses": {
+    "gulch_deacon": {
+      "PICK_UP": [
+        {
+          "say": "Not a man behind his own bar. That's how you end up underneath it."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "I leaned across the plank at him. He leaned back the same distance, smiling, like we'd done this before."
+        }
+      ],
+      "USE": [
+        {
+          "say": "He's working. Every man in here is using him, a pinch at a time."
+        }
+      ],
+      "LOOK_AT": [
+        {
+          "when": {
+            "T_DEACON_FOUND": true
+          },
+          "say": "Deke Vessel, without his mustache. I'd have known the mustache anywhere. That was the trouble.",
+          "repeat": [
+            "He's selling whiskey to men who can pay for it, and he's never looked happier.",
+            "He winked at me just now, fondly. I'm a good memory to him."
+          ]
+        },
+        {
+          "say": "The man behind the plank: clean-shaven, sunburnt, and very pleased with himself.",
+          "repeat": [
+            "There's a pale stripe across his top lip, as if something used to live there.",
+            "He seems to know me. He hasn't said so. He hasn't said he doesn't, either."
+          ]
+        }
+      ],
+      "LISTEN_TO": [
+        {
+          "say": "Whistling, between customers.",
+          "repeat": [
+            "Coins dropping into a box under the plank.",
+            "Chuckling. Possibly at me."
+          ]
+        }
+      ]
+    },
+    "gulch_rule_keeper": {
+      "PICK_UP": [
+        {
+          "say": "Him and the barrel both? Not without a mule, and the mule's at the washout."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "Push a man off his barrel and he'd make a rule about it. Then he'd get it wrong, against me."
+        }
+      ],
+      "USE": [
+        {
+          "say": "He's the camp's rule book. I'd look something up, but the answer changes every time."
+        }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "A big man on a barrel with a glass and a bag of pebbles. He keeps the camp's rules, from memory.",
+          "repeat": [
+            "He's sure of every rule and wrong about most of them, and nobody's ever checked.",
+            "He wears a gold watch-chain with no watch on it. He tells the time by looking at the pole."
+          ]
+        }
+      ],
+      "LISTEN_TO": [
+        {
+          "say": "Pebbles clicking in the bag.",
+          "repeat": [
+            "Muttering the rules under his breath, in a new order.",
+            "A long swallow, then a satisfied 'ah'."
+          ]
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 60,
+          "y": 770
+        },
+        {
+          "x": 1880,
+          "y": 770
+        },
+        {
+          "x": 1880,
+          "y": 799
+        },
+        {
+          "x": 60,
+          "y": 799
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 768,
+        "farHeight": 425,
+        "nearY": 858,
+        "nearHeight": 491
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 60,
+          "y": 799
+        },
+        {
+          "x": 1880,
+          "y": 799
+        },
+        {
+          "x": 1880,
+          "y": 829
+        },
+        {
+          "x": 60,
+          "y": 829
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 768,
+        "farHeight": 425,
+        "nearY": 858,
+        "nearHeight": 491
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 60,
+          "y": 829
+        },
+        {
+          "x": 1880,
+          "y": 829
+        },
+        {
+          "x": 1880,
+          "y": 858
+        },
+        {
+          "x": 60,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 768,
+        "farHeight": 425,
+        "nearY": 858,
+        "nearHeight": 491
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "background": "art/backgrounds/room-52-grog-tent.png",
+  "lamps": [],
+  "props": [
+    {
+      "id": "plate_lettering",
+      "sheet": "art/props/room-52-plate.png",
+      "x": 1204,
+      "y": 575,
+      "frame": [
+        0,
+        0,
+        134,
+        42
+      ],
+      "note": "THE PLANK's brass plate, GOLD ON THE PLANK, as its second LOOK reads it: the plate drawn whole over the painted one, sized to the words (tools/art/gulch-lettering.py)."
+    },
+    {
+      "id": "barrel_whiskey",
+      "sheet": "art/props/room-52-barrel-whiskey.png",
+      "x": 881,
+      "y": 668,
+      "frame": [
+        0,
+        0,
+        84,
+        14
+      ],
+      "note": "THE BARRELS: WHISKEY, as its second LOOK reads it (tools/art/gulch-lettering.py)."
+    },
+    {
+      "id": "barrel_flour",
+      "sheet": "art/props/room-52-barrel-flour.png",
+      "x": 1512,
+      "y": 668,
+      "frame": [
+        0,
+        0,
+        60,
+        14
+      ],
+      "note": "THE BARRELS: FLOUR, as its second LOOK reads it (tools/art/gulch-lettering.py)."
+    },
+    {
+      "id": "shelf_chalk",
+      "sheet": "art/props/room-52-chalk.png",
+      "x": 1205,
+      "y": 386,
+      "frame": [
+        0,
+        0,
+        560,
+        10
+      ],
+      "note": "THE BOTTLES' prices chalked on the shelf, too small to read (tools/art/gulch-lettering.py)."
+    },
+    {
+      "id": "nail_empty",
+      "sheet": "art/props/room-52-nail-empty.png",
+      "x": 1140,
+      "y": 136,
+      "frame": [
+        0,
+        0,
+        68,
+        136
+      ],
+      "when": {
+        "T_VESSEL_FOUND": true
+      },
+      "note": "THE NAIL: after G9 the watch has gone with Vessel (tools/art/room52-empty-nail.py)."
+    }
+  ],
+  "onEnter": {
+    "set": {
+      "T_GROG_SEEN": true
+    },
+    "sayOnce": "T_GROG_SEEN",
+    "say": [
+      "A grog tent, with a plank for a bar. The man behind it looks at me as if he's been expecting me."
+    ]
+  },
+  "occlusionPlanes": [
+    {
+      "level": 1,
+      "mask": "art/masks/room-52-plane-1.png",
+      "note": "The plank and its two barrels, in front of the Deacon behind the bar; open between the barrels, where his legs show."
+    }
+  ],
+  "occlusionProofs": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-52/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

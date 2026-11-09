@@ -1,0 +1,392 @@
+{
+ "room": "grog_tent",
+ "plate": "art/backgrounds/room-52-grog-tent.png",
+ "plateNote": "Read on the promoted plate (art/backgrounds/room-52-grog-tent.png, room-52 operation 4 over operation 2 -- the third barrel cut down to a keg -- derived and promoted by tools/art/interiors-plate.mjs at y 140; frame.json beside the candidate). Every rect below was read off that picture.",
+ "plateShipping": "art/backgrounds/room-52-grog-tent.png",
+ "plateShippingHash": "578e5cf880a900e814dec329b0b410b96d4d480e2b8754ae062cc7f1de0f6909",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   60,
+   770
+  ],
+  [
+   1880,
+   770
+  ],
+  [
+   1880,
+   858
+  ],
+  [
+   60,
+   858
+  ]
+ ],
+ "walkableNote": "THE FLOOR IN FRONT OF THE BAR: a strip from the flap to the far wall, in front of the plank's barrels and the rule-keeper's. Behind the plank is the keeper's; Thad stands where a customer stands.",
+ "scaling": {
+  "far": {
+   "y": 768,
+   "height": 425
+  },
+  "near": {
+   "y": 858,
+   "height": 491
+  },
+  "note": "ROOM 52'S DEPTH, FROM THE MASTER: the Deacon was painted 385 tall (in plate pixels) with his feet at y 714 behind the plank, and Thad 0.733 a row larger toward the front; along that slope a man is 425 at the floor's back edge and 491 at the front of the frame. The rule-keeper sits at 0.77 of the man at his feet."
+ },
+ "entrance": [
+  300,
+  800
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "In through the flap from the tents."
+  },
+  {
+   "from": "gulch_tents",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "In through the flap from the tents (doc 109, THE GROG TENT, the way in)."
+  }
+ ],
+ "hotspots": {
+  "plank": [
+   780,
+   505,
+   845,
+   75
+  ],
+  "barrels": [
+   1425,
+   575,
+   175,
+   190
+  ],
+  "bottles": [
+   920,
+   230,
+   650,
+   160
+  ],
+  "watch": [
+   1100,
+   40,
+   80,
+   100
+  ],
+  "fiddle": [
+   495,
+   180,
+   95,
+   250
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees, smallest first. THE BARRELS is the bar's right barrel, clear of the Deacon behind the plank and of the rule-keeper on the third. THE WATCH is THE NAIL after G9.",
+ "people": {
+  "THE DEACON": [
+   "gulch_deacon"
+  ],
+  "THE RULE-KEEPER": [
+   "gulch_rule_keeper"
+  ]
+ },
+ "peopleExamine": {
+  "gulch_deacon": [
+   {
+    "ref": "docs/109-fiddlers-gulch-lines.md::### DEKE VESSEL, found",
+    "when": {
+     "T_DEACON_FOUND": true
+    },
+    "verbs": [
+     "LOOK_AT"
+    ]
+   },
+   {
+    "ref": "docs/109-fiddlers-gulch-lines.md::### THE DEACON, before he is found"
+   }
+  ],
+  "gulch_rule_keeper": "docs/109-fiddlers-gulch-lines.md::### THE RULE-KEEPER"
+ },
+ "exitSubjects": {
+  "THE TENT FLAP": {
+   "id": "to_tents",
+   "to": "gulch_tents",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 109: the flap, tied back, and the camp outside."
+  }
+ },
+ "exits": {
+  "to_tents": [
+   0,
+   100,
+   340,
+   680
+  ]
+ },
+ "exitWalkTo": {
+  "to_tents": {
+   "x": 250,
+   "y": 800,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "plank": "LOOK_AT",
+  "barrels": "LOOK_AT",
+  "bottles": "LOOK_AT",
+  "watch": "LOOK_AT",
+  "fiddle": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object is looked at on a bare click; every way walks.",
+ "occlusion": {
+  "note": "ONE PLANE: the plank and the two barrels under it, in front of the Deacon (his clipPlane 1); Thad never crosses it, so every band he can stand in is plane 0. The mask is tools/art/room52-plank-mask.py's, read off the plate.",
+  "clipPlane": {
+   "floor_0": 0,
+   "floor_1": 0,
+   "floor_2": 0,
+   "floor_3": 0,
+   "floor_4": 0,
+   "floor_5": 0,
+   "floor_6": 0,
+   "floor_7": 0,
+   "floor_8": 0,
+   "floor_9": 0,
+   "floor_10": 0,
+   "floor_11": 0,
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": [
+   {
+    "level": 1,
+    "mask": "art/masks/room-52-plane-1.png",
+    "note": "The plank and its two barrels, in front of the Deacon behind the bar; open between the barrels, where his legs show."
+   }
+  ],
+  "proofPoints": []
+ },
+ "hotspotWalkTo": {
+  "plank": {
+   "x": 1100,
+   "y": 800,
+   "facing": "back"
+  },
+  "barrels": {
+   "x": 1500,
+   "y": 800,
+   "facing": "back"
+  },
+  "bottles": {
+   "x": 1300,
+   "y": 800,
+   "facing": "back"
+  },
+  "watch": {
+   "x": 1140,
+   "y": 800,
+   "facing": "back"
+  },
+  "fiddle": {
+   "x": 560,
+   "y": 800,
+   "facing": "back"
+  }
+ },
+ "hotspotNames": {
+  "watch": [
+   {
+    "when": {
+     "T_VESSEL_FOUND": true
+    },
+    "name": "THE NAIL",
+    "ref": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT"
+   }
+  ]
+ },
+ "docRules": [
+  {
+   "hotspot": "watch",
+   "verb": "PICK_UP",
+   "ref": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT",
+   "startsWith": "**PICK UP** — *before the find:*",
+   "label": "*before the find:*",
+   "when": {
+    "T_DEACON_FOUND": false
+   }
+  },
+  {
+   "hotspot": "watch",
+   "verb": "PICK_UP",
+   "ref": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT",
+   "startsWith": "**PICK UP** — *before the find:*",
+   "label": "*after:*",
+   "when": {
+    "T_DEACON_FOUND": true,
+    "T_VESSEL_FOUND": false
+   }
+  },
+  {
+   "hotspot": "watch",
+   "verb": "LOOK_AT",
+   "ref": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT",
+   "startsWith": "**THE NAIL**",
+   "label": "**LOOK**",
+   "when": {
+    "T_VESSEL_FOUND": true
+   }
+  },
+  {
+   "hotspot": "watch",
+   "verb": "LISTEN_TO",
+   "ref": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT",
+   "startsWith": "**THE NAIL**",
+   "label": "**LISTEN**",
+   "when": {
+    "T_VESSEL_FOUND": true
+   }
+  },
+  {
+   "hotspot": "fiddle",
+   "verb": "LOOK_AT",
+   "ref": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT",
+   "startsWith": "*After G5:* **LOOK**",
+   "label": "**LOOK**",
+   "when": {
+    "T_PLANK_SEAT": true
+   }
+  },
+  {
+   "hotspot": "fiddle",
+   "verb": "LISTEN_TO",
+   "ref": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT",
+   "startsWith": "*After G5:* **LOOK**",
+   "label": "**LISTEN**",
+   "when": {
+    "T_PLANK_SEAT": true
+   }
+  }
+ ],
+ "scenes": [
+  {
+   "hotspot": "watch",
+   "verb": "LOOK_AT",
+   "when": {
+    "T_CAMP_TRUSTS": true,
+    "T_DEACON_FOUND": false
+   },
+   "ref": "docs/109-fiddlers-gulch-lines.md::### THE FIND",
+   "speakers": {
+    "THAD": "thad",
+    "VESSEL": "gulch_deacon"
+   },
+   "extracted": {
+    "marker": "Doc 03's Duel One opening plays here",
+    "file": "content/dialogue/deke-vessel.json",
+    "path": "nodes.VES_B1.opening",
+    "speakers": {
+     "deke_vessel": "gulch_deacon"
+    }
+   },
+   "set": {
+    "T_DEACON_FOUND": true
+   },
+   "completes": "G4",
+   "subjectFrom": 1
+  }
+ ],
+ "onEnterSay": {
+  "fromRef": "docs/109-fiddlers-gulch-lines.md::## THE GROG TENT",
+  "bold": "ON FIRST ENTERING",
+  "sayOnce": "T_GROG_SEEN"
+ },
+ "onEnterSet": {
+  "T_GROG_SEEN": true
+ },
+ "props": [
+  {
+   "id": "plate_lettering",
+   "sheet": "art/props/room-52-plate.png",
+   "x": 1204,
+   "y": 575,
+   "frame": [
+    0,
+    0,
+    134,
+    42
+   ],
+   "note": "THE PLANK's brass plate, GOLD ON THE PLANK, as its second LOOK reads it: the plate drawn whole over the painted one, sized to the words (tools/art/gulch-lettering.py)."
+  },
+  {
+   "id": "barrel_whiskey",
+   "sheet": "art/props/room-52-barrel-whiskey.png",
+   "x": 881,
+   "y": 668,
+   "frame": [
+    0,
+    0,
+    84,
+    14
+   ],
+   "note": "THE BARRELS: WHISKEY, as its second LOOK reads it (tools/art/gulch-lettering.py)."
+  },
+  {
+   "id": "barrel_flour",
+   "sheet": "art/props/room-52-barrel-flour.png",
+   "x": 1512,
+   "y": 668,
+   "frame": [
+    0,
+    0,
+    60,
+    14
+   ],
+   "note": "THE BARRELS: FLOUR, as its second LOOK reads it (tools/art/gulch-lettering.py)."
+  },
+  {
+   "id": "shelf_chalk",
+   "sheet": "art/props/room-52-chalk.png",
+   "x": 1205,
+   "y": 386,
+   "frame": [
+    0,
+    0,
+    560,
+    10
+   ],
+   "note": "THE BOTTLES' prices chalked on the shelf, too small to read (tools/art/gulch-lettering.py)."
+  },
+  {
+   "id": "nail_empty",
+   "sheet": "art/props/room-52-nail-empty.png",
+   "x": 1140,
+   "y": 136,
+   "frame": [
+    0,
+    0,
+    68,
+    136
+   ],
+   "when": {
+    "T_VESSEL_FOUND": true
+   },
+   "note": "THE NAIL: after G9 the watch has gone with Vessel (tools/art/room52-empty-nail.py)."
+  }
+ ]
+}

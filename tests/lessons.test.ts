@@ -367,6 +367,41 @@ test('every ambient figure declares its barks, an empty set for one who says not
   assert.deepEqual(missing, [], 'figures with no barks object -- give one that says nothing `"barks": {}`');
 });
 
+/* ---- A seated figure sits on his seat ------------------------------------ */
+
+// Room 52 (Tyler, 2026-11-09: "the one guy is sitting halfway down the barrel"). The rule-keeper's sheet sits at a
+// chair's height, feet on the floor, and the plate's barrel stood half a man tall: his lap landed halfway down it. A
+// seated figure that declares the top of its seat (`seat.y`, a plate row) draws its lap there: the lowest row of the
+// widest band of his lower body, in his rest frame, scaled as the engine draws him.
+test('a seated figure that declares its seat draws its lap on it', () => {
+  const manifest = JSON.parse(readFileSync(resolve(ROOT, 'content/manifest.json'), 'utf8'));
+  const misses: string[] = [];
+  let seen = 0;
+  for (const path of manifest.ambient as string[]) {
+    const npc = JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
+    if (npc.posture !== 'seated' || !npc.seat) continue;
+    seen += 1;
+    const sheet = readPng(readFileSync(resolve(ROOT, npc.sprite.sheet)));
+    const [fx, fy, fw, fh] = npc.sprite.frames[0] as [number, number, number, number];
+    const widths: number[] = [];
+    for (let y = 0; y < fh; y += 1) {
+      let w = 0;
+      for (let x = 0; x < fw; x += 1) if (sheet.pixels[((fy + y) * sheet.width + fx + x) * 4 + 3]! > 128) w += 1;
+      widths.push(w);
+    }
+    const rows = widths.map((w, y) => [w, y] as const).filter(([w]) => w > 0);
+    const top = rows[0]![1];
+    const bottom = rows.at(-1)![1];
+    const lower = rows.filter(([, y]) => y > top + (bottom - top) * 0.4);
+    const widest = Math.max(...lower.map(([w]) => w));
+    const lap = Math.max(...lower.filter(([w]) => w >= widest * 0.85).map(([, y]) => y));
+    const drawn = npc.y - (bottom - lap) * (npc.sprite.figureHeight / (bottom - top + 1));
+    if (Math.abs(drawn - npc.seat.y) > 12) misses.push(`${npc.id}: lap drawn at y ${Math.round(drawn)}, seat top at y ${npc.seat.y}`);
+  }
+  assert.ok(seen > 0, 'no seated figure declares its seat: the check reads nothing');
+  assert.deepEqual(misses, []);
+});
+
 /* ---- A prop in front of a figure paints only its objects over him ---------- */
 
 // Errata 197 (Tyler, of the dinner: "the other guy's shoulder is partially missing behind the candle"). A prop

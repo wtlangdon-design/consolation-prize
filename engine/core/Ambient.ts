@@ -356,8 +356,20 @@ export class AmbientLayer {
       }
       const run = this.nextOfRun(npc);
       if (run) return run;
+      const turn = this.nextOfTurns(npc);
+      if (turn) return turn;
     }
     return null;
+  }
+
+  /** The next of this person's barks in turn (AmbientFile.barkTurns), one a visit, round again; null if said this visit. */
+  private nextOfTurns(npc: AmbientFile): FiredBark | null {
+    const set = npc.barkTurns?.find((one) => this.state.flags.test(one.when));
+    if (!set?.lines.length || this.ranThisVisit.has(npc.id)) return null;
+    const said = this.state.flags.getNumber(set.counter);
+    this.ranThisVisit.add(npc.id);
+    this.state.flags.set(set.counter, said + 1);
+    return { npc, line: set.lines[said % set.lines.length]! };
   }
 
   /** The next line of this man's run (AmbientFile.barkRun), counted as said; null if none is owed this visit. */

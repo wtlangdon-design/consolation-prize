@@ -1,0 +1,499 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "grog_tent",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "4367753cc68dd86ae3ff461a0447bc991590594b",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "M art/actors/room-52-deacon.png",
+  " M art/props/room-52-plate.png",
+  " M content/build-contracts/room-51-tents.json",
+  " M content/build-ledger.json",
+  " M content/rooms/grog-tent.json",
+  " M content/ui/speech-colours.json",
+  " M docs/00-errata.md",
+  " M docs/36-issue-list.md",
+  " M docs/55-full-game-build.md",
+  " M docs/95-acted-directions.md",
+  " M proofs/room-52/graybox.json",
+  " M reference/room-52/annotation.json",
+  " M renders/room-52-deacon-vs-deke.png",
+  " M tests/gulch-grog-tent.test.ts",
+  " M tools/art/gulch-lettering.py",
+  " M tools/art/room52-deacon-from-deke.py"
+ ],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r52-a, then entered grog_tent by control -- NOT proof that a player can reach it"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 771,
+    "xs": [
+     970,
+     743,
+     1198,
+     515,
+     1425,
+     288,
+     1653,
+     60,
+     1880
+    ],
+    "expect": 427,
+    "x": 970
+   },
+   "at": [
+    970,
+    771
+   ],
+   "reportedHeight": 427,
+   "expected": 427,
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "bounds": [
+    744,
+    344,
+    452,
+    471
+   ],
+   "order": 0,
+   "renderedHeight": 427,
+   "renderedBottom": 770,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     970,
+     743,
+     1198,
+     515,
+     1425,
+     288,
+     1653,
+     60,
+     1880
+    ],
+    "expect": 490,
+    "x": 970
+   },
+   "at": [
+    970,
+    857
+   ],
+   "reportedHeight": 490,
+   "expected": 490,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    710,
+    367,
+    519,
+    541
+   ],
+   "order": 0,
+   "renderedHeight": 490,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "gulch_rule_keeper",
+   "feet": [
+    672,
+    731
+   ],
+   "sheet": "art/actors/room-52-rule-keeper.png",
+   "clipPlane": null,
+   "box": {
+    "x": 553,
+    "y": 385,
+    "width": 239,
+    "height": 348
+   },
+   "seen": {
+    "x": 553,
+    "y": 385,
+    "width": 208,
+    "height": 347,
+    "bottom": 731,
+    "right": 760,
+    "changed": 43770
+   },
+   "props": [
+    {
+     "sheet": "art/props/room-52-peg.png",
+     "at": [
+      540,
+      430
+     ],
+     "box": {
+      "x": 495,
+      "y": 183,
+      "width": 91,
+      "height": 250
+     },
+     "seen": {
+      "x": 501,
+      "y": 188,
+      "width": 85,
+      "height": 242,
+      "bottom": 429,
+      "right": 585,
+      "changed": 1975
+     },
+     "expected": null
+    }
+   ]
+  },
+  {
+   "kind": "ambient",
+   "id": "gulch_deacon",
+   "feet": [
+    1202,
+    714
+   ],
+   "sheet": "art/actors/room-52-deacon.png",
+   "clipPlane": 1,
+   "box": {
+    "x": 1095,
+    "y": 328,
+    "width": 214,
+    "height": 388
+   },
+   "seen": {
+    "x": 1121,
+    "y": 328,
+    "width": 184,
+    "height": 386,
+    "bottom": 713,
+    "right": 1304,
+    "changed": 30826
+   },
+   "props": [],
+   "contact": {
+    "expected": [
+     704,
+     720
+    ],
+    "lowestDrawnRow": 713
+   }
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "grog_tent",
+   "clock": 9.3639,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_MINE_CROSSED",
+    "T_CAMP_TRUSTS",
+    "T_GROG_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 448,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      63,
+      352,
+      474,
+      495
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:grog_tent",
+     "path": "art/backgrounds/room-52-grog-tent.png",
+     "drawn": "art/backgrounds/room-52-grog-tent.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "578e5cf880a900e814dec329b0b410b96d4d480e2b8754ae062cc7f1de0f6909"
+    },
+    {
+     "key": "art/masks/room-52-plane-1.png",
+     "path": "art/masks/room-52-plane-1.png",
+     "drawn": "art/masks/room-52-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c69b3a82e89df117ff9d7b0a581298c173f6d093ee25bdd1a74dfd8245e1b364"
+    },
+    {
+     "key": "art/actors/room-52-deacon.png",
+     "path": "art/actors/room-52-deacon.png",
+     "drawn": "art/actors/room-52-deacon.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "05887bab961249adcb5d3415831a8869ff38ff374f6cd0e237ef6dcdd4417382"
+    },
+    {
+     "key": "art/actors/room-52-rule-keeper.png",
+     "path": "art/actors/room-52-rule-keeper.png",
+     "drawn": "art/actors/room-52-rule-keeper.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3e317b2f8841e66d817fd5972be84337e0fe2360b86edd11b50e9f39f0eded4b"
+    },
+    {
+     "key": "art/props/room-52-peg.png",
+     "path": "art/props/room-52-peg.png",
+     "drawn": "art/props/room-52-peg.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e158b34289b1e335686e457b160b8e9c9e01b092ebac21cb34e0fdecf105a32f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(grog_tent)"
+   ],
+   "capturedAt": "2026-11-09T02:57:23.627Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "aabb60db6c532dee47f8f459d4e9273a78b278721e28c65d94dd08a8759cf995"
+  },
+  {
+   "panel": "A",
+   "room": "grog_tent",
+   "clock": 10.1138,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_MINE_CROSSED",
+    "T_CAMP_TRUSTS",
+    "T_GROG_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 448,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:grog_tent",
+     "path": "art/backgrounds/room-52-grog-tent.png",
+     "drawn": "art/backgrounds/room-52-grog-tent.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "578e5cf880a900e814dec329b0b410b96d4d480e2b8754ae062cc7f1de0f6909"
+    },
+    {
+     "key": "art/masks/room-52-plane-1.png",
+     "path": "art/masks/room-52-plane-1.png",
+     "drawn": "art/masks/room-52-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c69b3a82e89df117ff9d7b0a581298c173f6d093ee25bdd1a74dfd8245e1b364"
+    },
+    {
+     "key": "art/actors/room-52-deacon.png",
+     "path": "art/actors/room-52-deacon.png",
+     "drawn": "art/actors/room-52-deacon.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "05887bab961249adcb5d3415831a8869ff38ff374f6cd0e237ef6dcdd4417382"
+    },
+    {
+     "key": "art/actors/room-52-rule-keeper.png",
+     "path": "art/actors/room-52-rule-keeper.png",
+     "drawn": "art/actors/room-52-rule-keeper.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3e317b2f8841e66d817fd5972be84337e0fe2360b86edd11b50e9f39f0eded4b"
+    },
+    {
+     "key": "art/props/room-52-peg.png",
+     "path": "art/props/room-52-peg.png",
+     "drawn": "art/props/room-52-peg.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e158b34289b1e335686e457b160b8e9c9e01b092ebac21cb34e0fdecf105a32f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(grog_tent)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-09T02:57:24.498Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "15c01949255f8eb333c510e6fca12c235c1aceb153a6297c61735742ea6baabf"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-09T02:57:29.070Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 290438,
+  "panels": 4,
+  "scale": 0.5
+ }
+}

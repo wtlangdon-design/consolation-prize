@@ -1,0 +1,15 @@
+{
+ "assetId": "room-53",
+ "subject": "room-53-river",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-53-river",
+ "promptFile": "reference/room-53/prompts/composition-master-01.txt",
+ "out": "art/staging/room-53/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-53/layout-1536x1024.png",
+  "art/backgrounds/room-51-tents.png",
+  "art/actors/thad-stand-front/stand-00.png"
+ ]
+}
