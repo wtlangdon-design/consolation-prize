@@ -1,0 +1,12 @@
+Image 1 is a TEMPLATE on magenta: the hero of my pixel-art adventure game, Thad, EXACTLY as he is drawn in the game, four times in a row along the top; below them, an empty magenta strip. Image 2 is the raccoon as he is drawn in the game (dark grey-black, black mask, ringed tail). Image 3 is Thad at night on the hill where the raccoon lives, for the light and the style. Image 4 is the game's existing item icons, for the icon style.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other three as the SAME man, KEEPING HIS FIGURE -- the same height, the same head and face, the same hair, the same trousers and boots, his feet on the same line -- but in his SHIRTSLEEVES: his long blue-grey coat is OFF, and he is holding it bundled up in both arms against his chest, with the RACCOON from Image 2 inside it. The raccoon's masked face and one paw stick out of the top of the bundle; the bundle bulges and strains. The coat is losing.
+2. standing, both arms wrapped round the bulging bundle, braced;
+3. the bundle lurching hard to the LEFT, pulling his arms and shoulders with it, his feet still planted;
+4. the raccoon's paw swiping out of the top of the bundle, Thad leaning his head back away from it.
+
+IN THE EMPTY STRIP BELOW, two item icons for the game's inventory, side by side, each a small object on its own with clear magenta round it, in the style of Image 4 (soft-shaded, dark outline, readable on a dark panel), each about three times as wide as Thad's head and two thirds as tall as it is wide:
+- LEFT: the blue-grey coat bundled up, a raccoon's masked face poking out of the top;
+- RIGHT: a plain brown hen, side-on, facing right.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Thad in Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) everywhere else, nothing touching. No shadows, no ground, no text, no numbers, no border.

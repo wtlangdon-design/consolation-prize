@@ -1,0 +1,22 @@
+{
+  "sheet": "art/ui/item-icons-act3-estate.png",
+  "cell": [
+    60,
+    40
+  ],
+  "icons": {
+    "raccoon_in_coat": [
+      0,
+      0,
+      60,
+      40
+    ],
+    "hen": [
+      60,
+      0,
+      60,
+      40
+    ]
+  },
+  "note": "Scene C's two icons (reference/act3-estate-sale/brief.md), act3-estate-sale operation 2, cut by tools/art/act3-coat-cut.py with tools/art/item-icons-cut.py's own reduction. The ids are this tool's names; the main session names the items and moves the cells into the shipping sheet."
+}

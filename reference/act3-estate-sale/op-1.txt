@@ -1,0 +1,17 @@
+Image 1 is a blank magenta canvas. Image 2 is the raccoon in my pixel-art adventure game, exactly as he is drawn (sitting, then walking): a dark grey-black raccoon with a black mask and a ringed tail, drawn in big chunky pixels. Image 3 is the hero Thad at night on the hill where the raccoon lives, for the light and the style.
+
+On the magenta canvas, draw two rows of cut-out figures, each figure separated by clear magenta, nothing touching, no ground under any of them.
+
+TOP ROW, three times: A PLAIN BROWN HEN, standing, side-on, facing RIGHT. An ordinary farmyard hen, speckled brown, a small red comb, yellow legs, with firm views. Drawn large, filling most of the row's height.
+1. standing, head up, as she is;
+2. her head cocked, one eye turned up suspiciously;
+3. pecking: her head down to the ground line, beak at the ground.
+Her feet on the same line in all three.
+
+BOTTOM ROW, three times: THE SAME RACCOON as Image 2, the same face, mask, ears, colours and chunky pixels, HALFWAY OUT OF A HOLE: only his head, shoulders and two front paws, as if he is emerging from a hole in the ground. Nothing below his chest -- the bottom of each figure is a straight cut across his chest, where the hole hides the rest. His forepaws rest on that edge. He is looking toward the LEFT of the picture, at something there, with deep suspicion.
+1. looking left, suspicious;
+2. sniffing toward the left: his nose pushed out, head forward;
+3. ducked back down by half: only his eyes, ears and the top of his head above the edge, still looking left.
+The straight bottom edge in the same place in all three.
+
+Night light, cool and dim, as Image 3. The same size of square pixel, the same soft, flat shading, low texture and dark outline as the raccoon in Image 2 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) everywhere else. No shadows, no ground, no hole drawn, no text, no numbers, no border.

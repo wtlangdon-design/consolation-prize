@@ -1,0 +1,16 @@
+Image 1 is a TEMPLATE on magenta: three rows, and at the right end of each row the hero of my pixel-art adventure game, Thad, EXACTLY as he is drawn in the game, standing. He is the RULER for size. Leave him exactly as he is in every row. Image 2 is Thad in the fortune-teller's tent at night, for the light and the style. Image 3 is two characters as they are drawn in the game, to match exactly: Mr. Frame, the wiry newspaper editor in rolled shirt sleeves and an ink-stained apron with his notebook (left two figures), and Madame Ozymandia, the fortune-teller in a dark jacket and grey head-wrap, here holding her brass rod (right two figures).
+
+In each of the three rows, to the LEFT of Thad, draw the SAME séance, as one cut-out group standing on the row's ground line, with clear magenta between it and Thad:
+- A ROUND TABLE under a dark wine-red cloth that falls all the way to the ground on every side. Nothing can be seen beneath the table: the cloth reaches the ground.
+- On the table, only ONE lit candle in a brass holder and ONE small brass hand bell.
+- MADAME OZYMANDIA seated at the head of the table, at the back in the middle, facing us: eyes closed, more scarves than usual wound about her, her brass rod lying across her open palms.
+- FOUR TOWNSPEOPLE in their good dark coats seated round the table, two on each side, turned in toward it, HOLDING HANDS with each other round the table: a woman in a bonnet, a bald man, a young man, an older woman.
+- MR. FRAME seated in the front chair nearest us, at the front left, turned three-quarters toward us, his notebook on his knee and his pencil in his hand -- not holding hands.
+- No empty chair anywhere. Seated people are about two thirds of Thad's height to the top of the head.
+
+The three rows differ ONLY in this:
+1. everyone still, waiting;
+2. the woman in the bonnet glancing round sideways at her neighbour;
+3. Frame tapping his pencil on his notebook, his hand raised a little.
+
+Warm lamplight from above on the faces and the tabletop, the rest of the cloth dark. The same size of square pixel, the same soft, flat shading, low texture and dark outline as Thad -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) everywhere else, nothing touching. No floor, no shadows on the ground, no text, no numbers, no border.
