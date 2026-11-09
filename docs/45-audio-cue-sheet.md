@@ -391,12 +391,12 @@ These sounds are required, but placing them in a room or inventing an action wou
 | 28 · Laundry | Water at the boil, cloth turning; iron set down and taken up; wind | — | — |
 | 29 · High ridge | Wind with nothing to stop it; everything faint and mixed: the bell, picks, a dog | — | — |
 | 30 · Mott's site | Wind in the workings, hollow; gravel trickling; mesh buzzing in gusts | The bell, very thin, on the wind | THE STRIKE, which is score (doc 28) |
-| 31 · The funeral | Wind through the grass | An owl, rarely; the mourners shuffling and a cough, while they are there | — |
+| 31 · The funeral | Wind through the grass | The mourners shuffling and a cough, while they are there | **No owl** (errata 206 F; Tyler, 2026-11-08: "The owl at the funeral sounds nothing like an owl. It sounds like something being raked on the ground maybe?"). The sky's LISTEN still hears one; a bed may say less than LISTEN, never more |
 | 35 · Company vault | The mechanism breathing; tin ticking | — | — |
 | 36 · Main Street at dawn | Wind behind the false fronts; the road quiet | — | **No picks.** Its LISTEN: "for the first time since I stepped off the coach: no picks" |
 | 37 · Boarding-house parlour | A good fire ticking | Boots overhead, taken off carefully, rarely | — |
 | 38 · Photographer's studio | The Lane through the glass, faint; canvas stirring | — | — |
-| 39 · Bakehouse | The oven working; dough being kneaded | The boy humming in time with the kneading, while he is there; a cart being loaded in the yard | — |
+| 39 · Bakehouse | The oven working; dough being kneaded | A cart being loaded in the yard | **No humming** (errata 206 F; Tyler, 2026-11-08: "The boy humming at the bakery sounds like someone dying or in a mental institution."). His LISTEN still hears it; a bed may say less than LISTEN, never more |
 | 40 · Empty storefront | The street going past, faint | — | — |
 | 41 · Schoolhouse | Hammering from town, far off | — | — |
 | 42 · Barber's | The Lane, faint; leather creaking as it settles | — | — |

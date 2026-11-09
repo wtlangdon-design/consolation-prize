@@ -12,7 +12,7 @@ room's sound shares its material with what he heard rather than inventing a
 second one. Only what no approved file holds is synthesized here: water,
 distant picks and hammering, canvas, fire, an oven, coppers at the boil, a
 plane on wood, straw, a vault's mechanism, small bells, breathing, a cat, a
-cough, an owl, and two voices too far off to have words.
+cough, a far dog, and two voices too far off to have words.
 
 THE LESSONS THESE KEEP (errata 102, 106; doc 55 section 8):
 
@@ -25,9 +25,11 @@ THE LESSONS THESE KEEP (errata 102, 106; doc 55 section 8):
     rule 4 for beds is the same: no pitch. The only pitched sound in any bed is
     the approved flat bell, far off, where doc 45 names it (rule 4: the fork and
     the flat bell are the two pitched sounds outside the score).
-  * Voices only distant and wordless. The two men arguing, the mourners'
-    cough and the boy's humming are voices; all three are low-passed past any
-    word, and the humming wanders with no note to hold.
+  * Voices only distant and wordless. The two men arguing and the mourners'
+    cough are voices; both are low-passed past any word. Synthesized creatures
+    and voices are where this fails (errata 206 F: Tyler heard the owl as
+    something raked on the ground and the boy's humming as someone dying), so
+    the owl and the humming are cut, and no new one is added.
   * Loops are built to loop. Every continuous texture is generated exactly one
     loop long in the frequency domain (its end runs into its start); every
     event is placed on a circle, so one that rings past the end sounds again at
@@ -377,24 +379,55 @@ def hammering(bed, bursts, cut, gain):
             bed.at(far(blow, cut), at + k * rnd.uniform(0.42, 0.55), gain * rnd.uniform(0.7, 1.0))
 
 
-def water(bed, lo, hi, density, grain=(0.012, 0.045), body=0.6):
-    """Water over stones: a broad wash, and through it a great many short
-    grains of noise -- water breaking on stone. Each grain is a wide band, a
-    third of an octave or more, so nothing in it holds a pitch (errata 102:
-    the mud step's chirps were heard as bubbles)."""
+def wander(bed, fastest):
+    """A slow, aimless drift, one loop long: random components at every whole
+    number of cycles in the loop up to `fastest` Hz, each its own size and
+    phase, so no rate in it repeats (TYLER, 2026-11-08, of the first creek: "thin
+    foil attached to a fan flapping about" -- a fan is a regular rate). Unit
+    standard deviation."""
+    k = np.arange(bed.n) / bed.n
+    out = np.zeros(bed.n)
+    for c in range(1, max(2, int(fastest * bed.seconds)) + 1):
+        out += bed.rnd.normal(0, 1) / np.sqrt(c) * np.sin(2 * np.pi * c * k + bed.rnd.uniform(0, 6.28))
+    return out / (np.std(out) + 1e-12)
+
+
+# The bands a brook is built from: (lowest Hz, highest Hz, share). Pink to
+# brown noise, darker in the low bands, each band drifting on its own.
+BROOK_BANDS = [(60, 220, 1.0), (180, 450, 0.9), (380, 800, 0.75), (700, 1400, 0.55),
+               (1200, 2400, 0.38), (2000, 4000, 0.22), (3500, 7000, 0.1)]
+
+
+def water(bed, lo, hi, burble=2.0, depth=0.45, burble_band=(180, 700)):
+    """Running water, remade (errata 206 F). The first one was a wash with a
+    hundred short noise grains a second through it, and Tyler heard foil on a
+    fan. This is the way a brook is heard from a few yards off: several bands
+    of dark, pink-to-brown noise, each one's level drifting slowly and
+    independently of the others (which moves the brook's brightness about, the
+    filter's cutoff wandering without a filter being swept), and under it now
+    and then a soft, low burble an octave wide. No grain, no flutter, nothing
+    faster than about two drifts a second, nothing periodic."""
     rnd = bed.rnd
-    wash = bed.noise(lo, hi, tilt=-3.0) * body
-    out = wash * bed.swell([2, 5], [0.12, 0.06])
-    count = int(density * bed.seconds)
+    out = np.zeros(bed.n)
+    for a, b, share in BROOK_BANDS:
+        a, b = max(a, lo), min(b, hi)
+        if b <= a * 1.2:
+            continue
+        band = bed.noise(a, b, tilt=-4.5)
+        level = np.exp(depth * wander(bed, 1.6) - depth * depth / 2)
+        out += share * band * level
+    out /= np.std(out) + 1e-12
+    count = int(burble * bed.seconds)
     for _ in range(count):
-        dur = rnd.uniform(*grain)
-        centre = np.exp(rnd.uniform(np.log(lo * 1.5), np.log(hi * 0.8)))
-        g = bandpass(rnd.normal(0, 1, n_of(dur)), centre * 0.7, centre * 1.45, order=1) * hann(n_of(dur))
+        dur = rnd.uniform(0.08, 0.2)
+        n = n_of(dur)
+        centre = np.exp(rnd.uniform(np.log(burble_band[0]), np.log(burble_band[1])))
+        g = bandpass(rnd.normal(0, 1, n), centre / 1.45, centre * 1.45, order=1) * hann(n) ** 2
         i = int(rnd.integers(0, bed.n))
-        m = min(len(g), bed.n - i)
-        out[i:i + m] += g[:m] * rnd.uniform(0.3, 1.0) * 2.2
-        if m < len(g):
-            out[:len(g) - m] += g[m:] * 0.5
+        m = min(n, bed.n - i)
+        out[i:i + m] += g[:m] / (np.std(g) + 1e-12) * rnd.uniform(0.15, 0.35)
+        if m < n:
+            out[:n - m] += g[m:] / (np.std(g) + 1e-12) * 0.25
     return out
 
 
@@ -485,16 +518,53 @@ def breathing(bed, period, lo, hi, gain, huff=True):
 
 
 def stroke_plane(rnd, seconds):
-    """A plane drawn along a board: a long, grainy hiss of a shaving coming off,
-    its grain the blade catching and letting go -- noise, no tone."""
+    """A carpenter's hand plane drawn the length of a coffin board, remade
+    (errata 206 F; Tyler of the first: "it sounds nothing like it"). The first
+    was a hiss chopped by a fast random flutter and clipped, which is a crackle,
+    not a plane. A stroke is one long, even, dry shhhhk:
+
+      the bite   -- the sole set down (a soft wooden tok) and the iron catching
+                    the grain: a short dry rasp, the stick-slip of a creak
+                    (render-everyday-sfx.py's), bright, in the first tenth of
+                    a second
+      the cut    -- wood friction: broad noise, its body in the board (300-900
+                    Hz) and its edge in the shaving curling off (1.5-4 kHz),
+                    rising in, held almost level, falling as the plane runs
+                    off the end. Its level drifts by a decibel or so, slowly:
+                    no flutter, nothing periodic
+      the lift   -- the plane taken off the end, and quiet
+    """
     n = n_of(seconds)
-    grain = np.abs(lowpass(rnd.normal(0, 1, n), 60, order=2)) * 6
-    hiss = bandpass(rnd.normal(0, 1, n), 900, 5500, order=1) * np.clip(grain, 0, 2)
-    shape = np.minimum(1, np.arange(n) / n_of(0.06)) * np.minimum(1, (n - np.arange(n)) / n_of(0.12))
-    knock = formant_noise(rnd, 0.06, [(300, 1.0, 1.0, 0.01)])
-    out = hiss * shape
-    out[:len(knock)] += 0.4 * knock
-    return out
+    k = np.arange(n) / RATE
+    body = bandpass(rnd.normal(0, 1, n), 300, 900, order=1)
+    edge = bandpass(rnd.normal(0, 1, n), 1400, 4200, order=1)
+    air = highpass(rnd.normal(0, 1, n), 4200) * 0.25
+    cut = 0.55 * body / np.std(body) + 1.0 * edge / np.std(edge) + air
+    drift = lowpass(rnd.normal(0, 1, n), 4, order=2)
+    cut *= np.exp(0.12 * drift / (np.std(drift) + 1e-12))
+    rise, fall = n_of(0.07), n_of(0.14)
+    shape = np.ones(n)
+    shape[:rise] = np.sin(np.linspace(0, np.pi / 2, rise)) ** 2
+    shape[-fall:] = np.cos(np.linspace(0, np.pi / 2, fall)) ** 2
+    shape *= 1.0 - 0.18 * k / seconds          # the cut eases as the stroke runs on
+    out = cut * shape
+    bite_n = n_of(0.12)
+    pulses = np.zeros(bite_n)
+    phase = 0.0
+    rates = np.linspace(rnd.uniform(140, 180), rnd.uniform(220, 260), bite_n)
+    for i in range(bite_n):
+        phase += rates[i] / RATE
+        if phase >= 1:
+            phase -= 1 + rnd.uniform(-0.25, 0.25) * 0.3
+            pulses[i] = rnd.uniform(0.5, 1.0)
+    rasp = bandpass(pulses, 900, 3800) * np.sin(np.linspace(0, np.pi, bite_n)) ** 0.8
+    out[:bite_n] += 2.0 * rasp * np.std(out) / (np.std(rasp) + 1e-12)
+    tok = formant_noise(rnd, 0.05, [(260, 1.0, 1.0, 0.009), (900, 1.0, 0.4, 0.004)])
+    lead = n_of(0.03)
+    whole = np.zeros(lead + n)
+    whole[:len(tok)] += 0.5 * tok / (np.max(np.abs(tok)) + 1e-12) * np.max(np.abs(out))
+    whole[lead:] += out
+    return whole
 
 
 def cough(rnd):
@@ -519,28 +589,6 @@ def shuffle(rnd):
     k = n_of(rnd.uniform(0.35, 0.6))
     s = bandpass(rnd.normal(0, 1, k), 250, 2500) * np.sin(np.linspace(0, np.pi, k)) ** 1.2
     return s * 0.5 + np.concatenate([pick(rnd, DIRT)[:k] * 0.6, np.zeros(max(0, k - len(DIRT[0])))])[:k]
-
-
-def owl(rnd):
-    """An owl up the hill, asking one long question: breath through a narrow
-    band, the way the approved wind finds a gap between boards -- noise, not a
-    tone -- falling a little, twice, far off."""
-    x = np.zeros(n_of(2.4))
-    at = 0.0
-    for dur, g in ((0.32, 0.7), (0.75, 1.0)):
-        n = n_of(dur)
-        centre = np.linspace(410, 370, n)
-        src = rnd.normal(0, 1, n)
-        hoot = np.zeros(n)
-        block = 512
-        for i in range(0, n, block):
-            c = centre[i]
-            seg = bandpass(src[max(0, i - 2048):i + block], c * 0.95, c * 1.05, order=2)
-            hoot[i:i + block] = seg[-min(block, n - i):]
-        hoot *= np.sin(np.linspace(0, np.pi, n)) ** 0.8
-        x[n_of(at):n_of(at) + n] += g * hoot
-        at += dur + 0.18
-    return far(x, 1200, ((0.15, 0.3), (0.38, 0.15), (0.7, 0.08)))
 
 
 def dog_far(rnd):
@@ -837,7 +885,7 @@ def bed_prosperity():
     breathing, which would sit in its mouth, is not wired (invariant 3)."""
     bed = Loop(11.5, 4123)
     bed.add(wind_tiled(bed), 1.0)
-    w = water(bed, 200, 3000, 60)
+    w = water(bed, 150, 3000, burble=1.2)
     bed.add(circ(w, lambda y: lowpass(y, 1400)) / (np.std(w) + 1e-12), 0.25)
     return bed.x
 
@@ -845,23 +893,19 @@ def bed_prosperity():
 def bed_pratts_claim():
     """Row 25. Water, even and polite; canvas easing."""
     bed = Loop(12.0, 4125)
-    w = water(bed, 180, 2600, 90, grain=(0.02, 0.05), body=1.0)
+    w = water(bed, 120, 2600, burble=1.0, depth=0.25)
     bed.add(w / np.std(w), 0.4)
     canvas(bed, 0.25, 2, cut=500)
     return bed.x
 
 
 def bed_creek():
-    """Row 26. Water over stone and through the riffles: the creek, and grit
-    ticking along the riffle bars."""
+    """Row 26. Water over stone and through the riffles: the creek, nearest and
+    fullest of the waters. (The first one's grit ticking along the riffle bars
+    is gone with its grains: it was part of what read as foil.)"""
     bed = Loop(12.0, 4126)
-    rnd = bed.rnd
-    w = water(bed, 150, 4000, 140)
+    w = water(bed, 60, 7000, burble=2.5, depth=0.5)
     bed.add(w / np.std(w), 0.6)
-    for _ in range(40):
-        n = n_of(0.01)
-        grit = bandpass(rnd.normal(0, 1, n), 2500, 7000, order=1) * env(n, 0.0002, 0.002)
-        bed.at(grit, rnd.uniform(0, bed.seconds), rnd.uniform(0.05, 0.15))
     return bed.x
 
 
@@ -899,7 +943,7 @@ def bed_laundry():
     wind. The coppers are the room's own working noise (rule 2)."""
     bed = Loop(11.5, 4128)
     rnd = bed.rnd
-    boil = water(bed, 120, 1400, 120, grain=(0.006, 0.02), body=1.2)
+    boil = water(bed, 60, 1400, burble=5.0, depth=0.35, burble_band=(120, 450))
     bed.add(boil / np.std(boil), 0.4)
     for at in bed.times(3, 0.3):
         n = n_of(1.2)
@@ -955,12 +999,13 @@ def bed_motts_site():
 
 
 def bed_funeral():
-    """Row 31. Wind through the grass; an owl, rarely (once in the loop)."""
+    """Row 31. Wind through the grass. The owl is cut (errata 206 F; Tyler:
+    "sounds nothing like an owl. It sounds like something being raked on the
+    ground"): the sky's LISTEN still hears it, and a bed may say less than
+    LISTEN, never more."""
     bed = Loop(23.0, 4131)
-    rnd = bed.rnd
     bed.add(wind_tiled(bed, cut=1500), 0.7)
     bed.add(bed.noise(2200, 7000, tilt=-2) * gusts(bed, (3, 8), (0.55, 0.25)), 0.16)
-    bed.at(owl(rnd), 14.0, 0.35)
     return bed.x
 
 
@@ -1043,25 +1088,6 @@ def bed_bakehouse():
     return bed.x
 
 
-def layer_boy_humming():
-    """Row 39's layer. The boy humming in time with the kneading, while he is
-    there: a wordless voice with its mouth shut, under his breath, its pitch
-    wandering with no note held (the tune is wrong; the time is the dough's).
-    One murmured phrase to each push of the dough, on the bed's 1.25 s."""
-    bed = Loop(10.0, 4140)
-    rnd = bed.rnd
-    for k in range(8):
-        dur = rnd.uniform(0.55, 0.8)
-        base = rnd.uniform(190, 240)
-        f0 = base * np.exp(np.cumsum(rnd.normal(0, 0.03, 12)))
-        voiced = glottal(rnd, f0, dur, jitter=0.03)
-        hum = vowel(rnd, voiced, 'u')
-        hum = lowpass(hum, 650) * np.sin(np.linspace(0, np.pi, len(hum))) ** 1.2
-        breath = bandpass(rnd.normal(0, 1, len(hum)), 300, 1500, order=1) * np.sin(np.linspace(0, np.pi, len(hum))) * 0.3
-        bed.at(hum + breath * np.std(hum), k * 1.25 + 0.1, 1.0)
-    return bed.x
-
-
 def bed_schoolhouse():
     """Row 41. Hammering from town, far off."""
     bed = Loop(12.0, 4141)
@@ -1114,10 +1140,13 @@ def bed_the_lane():
     bed.add(circ(wind_tiled(bed), lambda y: lowpass(y, 500)), 0.3)
     bed.add(town_murmur(bed, 700), 0.18)
     walker(bed, 8.0, 5, DIRT, 800, 0.2, pace=0.55)
-    at = 0.8
-    for k in range(3):
-        bed.at(wall(stroke_plane(rnd, rnd.uniform(0.7, 0.95)), 2400), at, 0.4)
-        at += rnd.uniform(1.6, 2.1)
+    # The undertaker at his board, through his door: a stroke, the plane
+    # carried back, the next; and once in the loop he stops, and starts again.
+    at = 0.6
+    for k in range(6):
+        stroke = stroke_plane(rnd, rnd.uniform(0.6, 0.9))
+        bed.at(wall(stroke, 2800), at, 0.12)
+        at += len(stroke) / RATE + (rnd.uniform(2.2, 2.8) if k == 2 else rnd.uniform(0.55, 0.85))
     bed.at(far(jingle(rnd), 3000), 7.2, 0.15)
     bed.at(lowpass(TEAM_HALTED[n_of(2.0):n_of(4.5)], 700), 9.0, 0.18)
     return bed.x
@@ -1157,7 +1186,6 @@ BEDS = {
     'parlour.wav': bed_parlour,
     'photographers-studio.wav': bed_photographers_studio,
     'bakehouse.wav': bed_bakehouse,
-    'boy-humming.wav': layer_boy_humming,
     'schoolhouse.wav': bed_schoolhouse,
     'barbers.wav': bed_barbers,
     'lower-street.wav': bed_lower_street,

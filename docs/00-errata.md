@@ -5610,22 +5610,22 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 
 - **Every room in doc 45's table has its bed.** That is 35 rows and 36 rooms, because row 1 covers the stage road and the coach stop at dawn. Each bed is an `ambience` entry in `content/audio/sounds.json`, and its `why` cites its row.
 - **The four silent rooms have none.** They are the undertaker's, the coffin, the listening chamber and under Prosperity.
-- **38 new files, in `audio/sfx/beds/`:** 32 beds and 6 figure layers. `tools/audio/render-room-beds.py` renders them, after the other two renderers. It is seeded, so every render is byte for byte the same.
+- **37 new files, in `audio/sfx/beds/`:** 32 beds and 5 figure layers (a sixth, the boy's humming, was cut in 206 F). `tools/audio/render-room-beds.py` renders them, after the other two renderers. It is seeded, so every render is byte for byte the same.
   - The assay office and the empty storefront share one file, "the street, muffled", with the storefront set 2 dB further off.
   - Main Street at dawn uses the approved `wind.wav` itself. Its row is "wind behind the false fronts", which is what that file is.
 - **Approved materials are reused wherever one exists.** That covers the false fronts' wind, the Nugget's talk (low-passed into the town's murmur), the team standing and moving (horses, carts), the boardwalk, plank and dirt steps, the creaking board, the town sign, the leather, the latch, the batwing hinge, the stamp, Sump's clock, the distant flat bell, the distant laugh, and the voice machine from `render-room-sfx.py`.
-- **Synthesized only where nothing approved exists:** water, distant picks and hammering, canvas, fire, the oven, coppers at the boil, a plane on wood, straw, the vault's mechanism, small bells, breathing, a cat, a cough, an owl, a far dog, and two voices too far off for words.
+- **Synthesized only where nothing approved exists:** water, distant picks and hammering, canvas, fire, the oven, coppers at the boil, a plane on wood, straw, the vault's mechanism, small bells, breathing, a cat, a cough, a far dog, and two voices too far off for words. (An owl was synthesized too, and cut in 206 F.)
 - **The lessons are kept, and measured:**
   - Everything is shaped noise. The only resonators are the tent's small bells: high, inharmonic and gone in under a tenth of a second, built the way the Nugget's approved glass is.
   - The only pitched sound in any bed is the approved flat bell, far off, where doc 45 names it (rules 2 and 4).
   - The strongest spectral peak in any bed is 13 times its neighborhood. Approved files reach 6 (the Registrar's bed) to 18 (Room 32's knock). The 13 is the Nugget's approved glass, heard through the back room's wall.
-  - Every loop is built to loop: textures are exactly one loop long, events wrap round the circle, and filters run in over the loop's own end. Measured at each seam, the jump from where the last two samples point to the first sample falls within the file's own spread at random points (37 of 38 at or under the 96th percentile). The exception is the vault, whose fast ticking runs through its seam as it runs through the rest.
+  - Every loop is built to loop: textures are exactly one loop long, events wrap round the circle, and filters run in over the loop's own end. Measured at each seam, the jump from where the last two samples point to the first sample falls within the file's own spread at random points (all but one at or under the 96th percentile). The exception is the vault, whose fast ticking runs through its seam as it runs through the rest.
 - **Figure layers use `whenPresent`:**
   - Grievance breathing, while she is in her stall;
   - the cat purring;
   - the two boundary men arguing;
   - the mourners shuffling, with a cough;
-  - the boy humming in time with the kneading.
+  - (the boy humming in time with the kneading was the sixth; 206 F cuts it).
   - The Company lobby's "voices shaped like laughter, through the Colonel's door" is a way out, not a figure, so it is a layer with no condition.
 - **Row 1's layer is already in the game.** It is the team shifting and the dry axle while the coach is there. The coach is a mover, not a figure, and while it stands its team breathes on O-02-S2's bed (the approved `team-halted.wav`) until O-06B-S takes it away. The axle is R01-COACH-2. A second team would double it.
 - **Row 4's "never":** nothing during a duel but the duel's own cues. `engine/core/Ambience.ts` stops a bed marked `duringDuel: 'silent'` for as long as a duel sounds, and the back room's bed is so marked. No other bed changes with anything but a figure (rule 3).
@@ -5644,7 +5644,7 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
   - Where a room's own music is quiet, the bed is given a lower place so it stays under that music (rule 5). The archive and the schoolhouse are at −12. The far-off and through-the-wall rooms are at −10: the records room, Fanshawe's office, Thad's room, the parlour, the studio, the bakehouse, the storefront and the barber's.
   - The figure layers sit between 10 and 14 under. The synthesized voices are the quietest, as errata 106 sets the Nugget's crowd.
   - `tools/check-sound-levels.mjs` measures all 175 sounds and passes.
-- **The format is the project's own for sound effects,** mono 16-bit WAV, at 22,050 Hz rather than 44,100. Every bed is muffled, distant or low, and the output stage already rolls off at 11 kHz, which is that rate's ceiling. The 38 files total **22.2 MB**, about half what they would be at 44,100 Hz.
+- **The format is the project's own for sound effects,** mono 16-bit WAV, at 22,050 Hz rather than 44,100. Every bed is muffled, distant or low, and the output stage already rolls off at 11 kHz, which is that rate's ceiling. The 37 files total **21.7 MB** (22.2 MB before 206 F), about half what they would be at 44,100 Hz.
 
 ## 206 D · The check
 
@@ -5664,4 +5664,28 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
   - Each of the 36 rooms plays its music as the game plays it (file, gain and layers) with its new bed under it, looping.
   - Every bed and every figure layer has a gain slider, starting at the shipped value.
   - "Copy my levels" gives him the changed gains to paste back.
-- **Least sure, by measurement:** the synthesized voices and creatures (the two men, the boy's humming, the cough, the owl, the far dog, the cat), the first running water in the game (the creek and Pratt's sluice), and the tent's small bells. The page marks each of these "listen closely".
+- **Least sure, by measurement:** the synthesized voices and creatures (the two men, the boy's humming, the cough, the owl, the far dog, the cat), the first running water in the game (the creek and Pratt's sluice), and the tent's small bells. The page marked each of these "listen closely". Tyler's verdict is 206 F.
+
+## 206 F · Tyler's audition — 2026-11-08
+
+**"The Creek doesn't sound like water. It sounds like thin foil attached to a fan flapping about. The owl at the funeral sounds nothing like an owl. It sounds like something being raked on the ground maybe? The boy humming at the bakery sounds like someone dying or in a mental institution. The Lane -- the undertakers plane?? ... Regardless it sounds nothing like it."** He raised nothing else, so every other room is accepted at its level.
+
+- **Cut: the owl (Room 31) and the boy's humming (Room 39).** Synthesized creatures and voices are what fails here, as errata 102 found. The sky's LISTEN and the boy's LISTEN still hear them. A bed may say less than LISTEN, never more.
+  - Doc 45's rows 31 and 39 now drop them and cite Tyler.
+  - `boy-humming.wav` is deleted.
+  - No new synthesized creature or voice is added. The ones Tyler did not object to stay: the claim row's two men, the funeral's cough, the far dog and the cat.
+- **Remade: the running water.** That is the creek (26), Pratt's sluice (25), Prosperity's water next door (23), and the laundry's coppers (28), which were built from the same material.
+  - Nothing Tyler approved reads as water, so it is new again.
+  - **The first** was a wash with a hundred short noise grains a second through it. Its 1–4 kHz envelope moved 4.5 times faster than a phase-scrambled copy of the same spectrum, with a strong regular rate at 10 Hz. That is the fan.
+  - **Now** it is seven bands of dark, pink-to-brown noise. Each band's level drifts on its own, made from random components no faster than 1.6 Hz with no rate repeated, so the brook's brightness wanders without a filter being swept. Under it is a sparse, soft burble an octave wide. The creek's grit ticks are gone with the grains.
+  - **Measured:** fast envelope 1.00–1.18 times scrambled noise in every band, against the approved wind's 0.82–1.07. The strongest rate in any of them is the slow drift at 2 Hz, which is meant.
+- **Remade: the undertaker's plane on the Lane (44).**
+  - **The first** was a hiss chopped by a fast random flutter and clipped. That is a crackle: 71 times noise mid-stroke.
+  - **Now** each stroke is a long, even, dry cut of 0.6–0.9 s. The sole is set down with a soft wooden tok, and the iron bites with a short stick-slip rasp (the approved creak's method). Then comes broad friction noise, its body at 300–900 Hz and its edge at 1.5–4 kHz, rising, held, and falling as the plane runs off the board, drifting by a decibel. A pause follows, while the plane is carried back.
+  - There are six strokes in the loop, with one longer stop: "The plane stops, and starts again".
+  - It is heard through his door, 8.5 dB under the rest of the Lane. Above 1.5 kHz, it is the only thing there.
+  - **Measured:** mid-stroke flutter 1.16 times noise; spectral centroid 1.8 kHz.
+  - It has no approved counterpart to compare against: no approved sound is wood friction. So this is the one remade sound to listen to most closely. If it still misses, it is cut, as the owl was.
+- **Levels.** The six changed beds are re-measured to the same places, and `tools/check-sound-levels.mjs` passes on all 174 sounds.
+- **The lesson** is a row in doc 55 §8: don't synthesize creatures or voices for a bed; build continuous textures from slowly drifting noise; measure the envelope against a scrambled copy before the audition.
+- **The audition page** is the same URL. The six changed rooms are marked "Changed — listen again".
