@@ -9,6 +9,7 @@ import { personLines } from '../core/PersonLines.ts';
 import { planNear, planRoom } from '../core/BootAssets.ts';
 import { MapWalk, homeLocation, mapPath, placePoint } from '../core/MapWalk.ts';
 import { Music } from '../core/Music.ts';
+import { ambienceFor } from '../core/Ambience.ts';
 import { RoomActors } from '../core/RoomActors.ts';
 import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
@@ -4105,9 +4106,7 @@ export class GameScene extends Phaser.Scene {
     const bed = this.state.room.music === 'suspend' ? undefined
       : this.state.content.sounds?.ambience[this.state.room.id];
     const here = new Set(this.ambient.present.map((each) => each.id));
-    const layers = (bed?.layers ?? []).filter((layer) => !layer.whenPresent || here.has(layer.whenPresent))
-      .map((layer) => ({ src: layer.src, gain: layer.gain }));
-    this.ambience.play(bed ? { src: bed.src, gain: bed.gain, layers } : null);
+    this.ambience.play(ambienceFor(bed, here, this.state.dialogue.duelSounding));
   }
 
   /**

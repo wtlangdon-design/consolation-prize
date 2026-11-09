@@ -2464,8 +2464,24 @@ export interface SoundsFile {
    * Room id to the background it carries (doc 45's `-A` beds). Never detuned:
    * it is not the score. A layer with `whenPresent` plays only while that
    * character is in the room (R02-A: the dog's breathing, while the dog is there).
+   * `duringDuel: 'silent'` stops the whole bed while an Assay duel is sounding
+   * (doc 45, Every room's bed, row 4: the back room hears nothing in a duel but
+   * the duel's own cues). See engine/core/Ambience.ts.
    */
-  ambience: Record<string, SoundRef & { why?: string; layers?: (SoundRef & { whenPresent?: string })[] }>;
+  ambience: Record<string, AmbienceBed>;
+  /**
+   * ERRATA 204: doc 45's bed plan as room ids, held to the doc by
+   * tools/check-room-beds.mjs. The engine never reads it.
+   */
+  bedPlan?: { rows: Record<string, string[]>; silent: Record<string, string>;
+    hole: { room: string; targets: string[]; below: string } };
+}
+
+/** A room's background (doc 45's `-A` beds; errata 105, 204). */
+export interface AmbienceBed extends SoundRef {
+  why?: string;
+  layers?: (SoundRef & { whenPresent?: string })[];
+  duringDuel?: 'silent';
 }
 
 /** A loop under a room's bed (RoomMusic.layers). */
