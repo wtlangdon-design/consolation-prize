@@ -54,6 +54,17 @@ Rotating pool available at every node:
 > "I am going to leave now, in a dignified manner." *(Thad walks into the doorframe.)* *(Every time. It is never acknowledged.)*
 > "Thank you. This has been clarifying." *(Available only when it has not been.)*
 
+## Quiet exits
+
+*Errata 225 (Tyler, 2026-11-09). The feel review found the comic goodbyes landing straight after the game's four most serious moments, where they read as wallpaper. Asked whether to trim them after the emotional scenes: "yes". Rule 5 above holds everywhere else. At these four, while the gate holds, the universal exit is this line instead of the pool's next joke, and the pool waits.*
+
+| Tree | Node | While | Thad says |
+|---|---|---|---|
+| WINNIE | `WIN_C1` | `T_DEATH_CERTIFIED` | "Thank you, Miss Ledger." |
+| HOB | `HOB_C1` | always | "I'll be quiet now." |
+| HOB | `HOB_C2` | always | "Thank you for telling me." |
+| WINNIE | `WIN_F1` | `T_ASSAY_RUN` | "I'll see you at the Registrar's." |
+
 ---
 
 # PART TWO — THE TREES
@@ -454,6 +465,8 @@ He digs Thad out and speaks in complete sentences for the first time, and the ef
 > **FRAME:** "You're new! Say something quotable."
 > **THAD:** "I'd rather not."
 > **FRAME:** *(writing)* "'I'd… rather… not,' says mystery man."
+
+> **FRAME** *(every visit after the first; errata 225, Tyler, 2026-11-09: "proceed")*: "Mystery man! Say something quotable. I'll fix it later."
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|

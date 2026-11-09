@@ -1,6 +1,6 @@
 # The Last Claim in Consolation -- examine transcript
 
-Played headless by `node --experimental-strip-types tools/examine-transcript.mjs` at commit 27c5a03a, through the walkthrough in `tests/data/full-game-walkthrough.json` (errata 227).
+Played headless by `node --experimental-strip-types tools/examine-transcript.mjs` at commit 4ee75f90, through the walkthrough in `tests/data/full-game-walkthrough.json` (errata 227).
 On each arrival in a room -- the first, and every later one in a new act or where the answers have changed -- every hotspot, exit and person there, with what LOOK AT and LISTEN TO would say at that moment. Resolved by the engine and committed nowhere. A repeat variant shows only where the run had already asked; a first selection's follow-on lines are joined with " / ". "—" is no line. Every line is written the same way, in the room's own order.
 
 - Rooms visited: 42

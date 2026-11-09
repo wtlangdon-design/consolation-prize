@@ -6077,6 +6077,43 @@ The feel review of errata 221's transcript, and Tyler's answers on it: "6 - yes"
   - `tests/room-07.test.ts` checks that the citation is not offered before the question is heard, that the question is offered in Act III instead, and that the documents are explained once. Both fail with the fixes removed.
   - `tests/pie-shout-timer.test.ts` runs her sprite through the break arithmetic for ten minutes and fails on any gap under a minute. A 15-second cycle fails it.
 
+# 225 · QUIET EXITS, FRAME KNOWS HIM, SHORTER NOTES, "HE DIDN'T SAY YES" — TYLER, 2026-11-09
+
+These come from the feel review of errata 221's playthrough. Tyler answered on 2026-11-09: "4 - yes" (trim the comic goodbyes after the emotional scenes) and "5 - proceed" (Frame's return greeting). Then, on the plan made from the review, he said: "Proceed with all the necessary fixes."
+
+- **Quiet exits** (doc 04, `## Quiet exits`).
+  - The rotating comic goodbyes came straight after the game's four most serious moments:
+    - Winnie signing the death certificate;
+    - the coffin with Hob;
+    - Hob's confession;
+    - Winnie's "a number I believed".
+  - At those four nodes, once the moment has happened, the universal exit says one quiet line instead:
+    - "Thank you, Miss Ledger."
+    - "I'll be quiet now."
+    - "Thank you for telling me."
+    - "I'll see you at the Registrar's."
+  - The pool waits, so the next ordinary goodbye is the one that would have come (`DialogueNode.quietExit`).
+  - Rule 5 holds everywhere else.
+- **Frame knows him the second time.** FRA_A1's "You're new!" exchange played on all three of the playthrough's visits, across three acts.
+  - The exchange is now the first visit's only (`openingOnce`, `T_FRAME_MET`).
+  - Every visit after opens on doc 04's return line (`DialogueNode.returnOpening`).
+  - He still asks for a quote every time, as his voice rule says.
+- **Shorter notes.** The notebook echo ran four times in Duel One and twice more in the Gulch, all the same three-beat length.
+  - Each note is now shorter than the last (doc 03).
+  - The Gulch's second note is shortened the same way (doc 109).
+  - The pairs they teach are unchanged.
+- **"He didn't say yes."** Part Three's cut-away opened on "He said no.", but the player may only have walked out.
+  - Its first two lines are reworded so they hold either way (doc 96).
+- **Lessons.**
+  - `tests/quiet-exits.test.ts` checks that:
+    - each quiet exit is said once its moment has happened, and is never a pool line;
+    - before the moment, the pool's line is said;
+    - a quiet goodbye does not use up a comic one.
+  - `tests/return-greeting.test.ts` checks that:
+    - the first visit is the meeting, and later visits say the return line;
+    - no opening that calls the player new can be said twice.
+  - With the runner's change removed, three of these fail.
+
 # 227 · THE EXAMINE TRANSCRIPT — the feel review, 2026-11-09
 
 *The feel review judged the comedy from errata 221's transcript. That walkthrough almost never says LOOK AT or LISTEN TO, and the examine layer is most of the script. So the joke mix was measured on half of it. This is tooling: it reads the game and changes nothing in it.*
