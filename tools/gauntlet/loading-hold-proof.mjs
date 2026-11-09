@@ -152,9 +152,14 @@ try {
   if (!heldBack.length) failures.push(`nothing of ${slow.room} was held back: the slow case was not exercised`);
   const inPieces = arrived.filter((one) => one.black < 1 && !one.whole);
   if (inPieces.length) failures.push(`${slow.room} seen in pieces on ${inPieces.length} frame(s)`);
-  const heldFrom = arrived.find((one) => one.holding)?.t;
+  // THE HOLD BEGAN between the last sample before it and the first inside it: a software-rendered page
+  // samples a few times a second, so the threshold is judged from the earlier of the two. That never
+  // fails an honest word; an early one gets past it only by less than one sample's gap, which is recorded.
+  // The exact threshold is tests/arrival-hold.test.ts's, at 60 fps.
+  const firstHeld = slowSamples.findIndex((one) => one.holding);
+  const heldFrom = firstHeld > 0 ? slowSamples[firstHeld - 1].t : slowSamples[firstHeld]?.t;
   if (heldFrom === undefined) failures.push(`the arrival on ${slow.room} was never held`);
-  const early = arrived.filter((one) => one.loading && heldFrom !== undefined && one.t - heldFrom < AFTER * 1000 - 20);
+  const early = arrived.filter((one) => one.loading && heldFrom !== undefined && one.t - heldFrom < AFTER * 1000);
   if (early.length) failures.push(`"${ui.loading.label}" up ${Math.round(early[0].t - heldFrom)} ms into the hold, before the threshold`);
   const wordsFrom = arrived.find((one) => one.loading)?.t;
   if (wordsFrom === undefined) failures.push(`"${ui.loading.label}" never came up over a ${HOLD_MS} ms wait`);
@@ -186,7 +191,8 @@ try {
       frames: arrived.length, framesInPieces: inPieces.length,
       wordsAfterMs: wordsFrom !== undefined && heldFrom !== undefined ? Math.round(wordsFrom - heldFrom) : null,
       wholeAfterMs: wholeAt !== undefined && heldFrom !== undefined ? Math.round(wholeAt - heldFrom) : null,
-      shownAfterMs: shownAt !== undefined && heldFrom !== undefined ? Math.round(shownAt - heldFrom) : null },
+      shownAfterMs: shownAt !== undefined && heldFrom !== undefined ? Math.round(shownAt - heldFrom) : null,
+      sampleGapMs: firstHeld > 0 ? Math.round(slowSamples[firstHeld].t - slowSamples[firstHeld - 1].t) : null },
     ordinary: { location: ordinary.id, room: ordinary.room, frames: ordinarySamples.length, framesHeldBlackOrWorded: touched.length },
     thresholdSeconds: AFTER,
     panels, failures,
