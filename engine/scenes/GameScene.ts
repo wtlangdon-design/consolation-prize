@@ -606,8 +606,8 @@ export class GameScene extends Phaser.Scene {
    */
   private readonly nearAsked = new Set<string>();
 
-  private loadNear(): void {
-    const near = planNear(this.state.content, this.state.roomId);
+  private loadNear(heading: string | null = null): void {
+    const near = planNear(this.state.content, this.state.roomId, heading);
     const keep = new Set(near.map((asset) => asset.key));
     for (const key of [...this.nearAsked]) {
       if (keep.has(key) || !this.textures.exists(key)) continue;
@@ -2485,6 +2485,9 @@ export class GameScene extends Phaser.Scene {
     if (map.mapToken && home && home.id !== location.id && this.state.content.rooms.has(location.room)) {
       const walk = new MapWalk(mapPath(map, home, location), map.mapToken);
       if (walk.seconds > 0) {
+        // THE PLACE IS FETCHED WHILE HE WALKS THERE: the map has no exits, so
+        // nothing on it is next door (BootAssets.planNear, `heading`).
+        this.loadNear(location.room);
         this.mapWalk = { walk, startedAt: this.time.now / 1000, location };
         this.markDirty();
         return;

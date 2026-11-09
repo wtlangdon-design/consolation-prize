@@ -51,7 +51,28 @@ export function recorderInit() {
         return original.apply(this, args);
       };
     };
+    // AN ACTED DIRECTION (doc 95; errata 131 B, 141) is played, not printed: the
+    // speech channel gets nothing. A reader is told what was acted, marked so.
+    let lastActed = null;
+    const acted = (self, speaker, line) => {
+      const key = `${speaker}\u0000${line}`;
+      if (!line || key === lastActed) return;
+      lastActed = key;
+      log.push({ kind: 'acted', t: performance.now(), speaker: speaker ?? null, text: line, ...where(self) });
+    };
+    const advance = proto.advanceSay;
+    if (typeof advance === 'function') {
+      proto.advanceSay = function advanced(...args) {
+        const next = this.pendingSay?.[0];
+        const out = advance.apply(this, args);
+        try { if (next?.direction && (this.sayLines?.length ?? 0) === 0) acted(this, next.speaker, next.line); } catch { /* recording only */ }
+        return out;
+      };
+    }
     wrap('setSay', (self, said, speaker, direction, echo) => {
+      if (said === '' && self.performance?.current?.silent) { acted(self, speaker, self.performance.current.line); return; }
+      // A HELD SILENCE (a `quiet` beat with no line: "Silence on Main Street. Long.").
+      if (said === '') { log.push({ kind: 'silence', t: performance.now(), speaker: speaker ?? null, ...where(self) }); lastSay = null; return; }
       if (said === null || said === undefined) { lastSay = null; return; }
       const key = `${speaker}\u0000${said}`;
       if (key === lastSay) return;
@@ -190,7 +211,7 @@ export function transcriptMarkdown(log, { started, commit }) {
   const out = [];
   out.push('# The Last Claim in Consolation -- playthrough transcript', '');
   out.push(`Played in the real build (Chromium, dev server) by \`npm run gauntlet:full -- --record\`, ${started}, at commit ${commit}.`);
-  out.push('Every line the screen showed, in play order. `>` marks the player\'s action; option menus list every row offered, `[x]` the one picked, `(asked)` a row already chosen before. Directions are in parentheses as the game shows them; barks and written sounds are marked.', '');
+  out.push('Every line the screen showed, in play order. `>` marks the player\'s action; option menus list every row offered, `[x]` the one picked, `(asked)` a row already chosen before. Directions are in parentheses as the game shows them; a direction marked *[acted, no words on screen]* is played by the figures and never printed (doc 95), and *[a silence is held]* is a written pause. Barks (remarks thrown in passing) and written sounds are marked.', '');
   let act = null; let room = null;
   for (const one of log) {
     if (one.act !== undefined && one.act !== null && one.act !== act && one.kind !== 'step') {
@@ -209,6 +230,12 @@ export function transcriptMarkdown(log, { started, commit }) {
         out.push(one.direction ? `${speaker ? `${speaker}: ` : ''}*${one.text}*` : `**${speaker || '(caption)'}:** ${one.text}`);
         break;
       }
+      case 'acted': {
+        const words = one.text.trim().startsWith('(') ? one.text.trim() : `(${one.text.trim()})`;
+        out.push(`*[acted, no words on screen]* ${who(one.speaker) ? `${who(one.speaker)}: ` : ''}*${words}*`);
+        break;
+      }
+      case 'silence': out.push(`*[a silence is held${one.speaker ? ` (${who(one.speaker)})` : ''}]*`); break;
       case 'bark': out.push(`*(bark)* **${who(one.speaker)}:** ${one.text}`); break;
       case 'caption': out.push(`*(sound)* ${one.text}`); break;
       case 'notice': out.push(`*(notice)* ${one.text}`); break;

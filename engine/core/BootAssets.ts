@@ -332,11 +332,45 @@ export function planRoom(bundle: ContentBundle, roomId: string): BootAsset[] {
   return [...out.values()];
 }
 
-export function planNear(bundle: ContentBundle, roomId: string): BootAsset[] {
+/**
+ * THE ROOMS A ROOM HANDS ON TO WITHOUT AN EXIT: a `goto` in its own file (the
+ * funeral into the coffin, the registrar's filing into the dawn) or in an item
+ * pair used in it (the fork on Grievance, the ride to the Gulch). Read from
+ * the data, as `castOf` is. They are next door as surely as an exit's room is,
+ * and were never asked for until the player was already standing in them: the
+ * full playthrough in the real build (2026-11-09) drew the Washout without its
+ * signpost on arrival.
+ */
+export function gotoRooms(bundle: ContentBundle, roomId: string): string[] {
+  const here = bundle.rooms.get(roomId);
+  if (!here) return [];
+  const text = JSON.stringify(here)
+    + JSON.stringify((bundle.combinations?.pairs ?? []).filter((pair) => pair.room === roomId));
+  const out = new Set<string>();
+  for (const match of text.matchAll(/"goto":"([^"]+)"/g)) {
+    const to = match[1]!;
+    if (to !== roomId && bundle.rooms.has(to)) out.add(to);
+  }
+  return [...out];
+}
+
+/**
+ * `heading`: a room the player has already chosen and is on his way to -- the
+ * town map's place, clicked, while the map's Thad walks the roads there
+ * (errata 163). The map has no exits, so nothing on it was next door, and every
+ * room reached by the map was first asked for on arrival and drawn in pieces
+ * (the full playthrough, 2026-11-09: the Claims Road's cabin, Prosperity's
+ * stake, Pratt's sign). The walk is seconds long; the room is fetched during it.
+ */
+export function planNear(bundle: ContentBundle, roomId: string, heading: string | null = null): BootAsset[] {
   const out = new Map<string, BootAsset>();
   const add = (asset: BootAsset) => { if (!out.has(asset.key)) out.set(asset.key, asset); };
   const here = bundle.rooms.get(roomId);
-  const neighbours = [...new Set((here?.exits ?? []).map((exit) => exit.to))]
+  const neighbours = [...new Set([
+    ...(heading ? [heading] : []),
+    ...(here?.exits ?? []).map((exit) => exit.to),
+    ...gotoRooms(bundle, roomId),
+  ])]
     .filter((id) => id !== roomId)
     .map((id) => bundle.rooms.get(id))
     .filter((room): room is RoomFile => room !== undefined);
