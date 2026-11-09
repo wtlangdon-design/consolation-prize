@@ -671,11 +671,11 @@
           "y": 675
         },
         {
-          "x": 1226,
+          "x": 1282,
           "y": 675
         },
         {
-          "x": 1226,
+          "x": 1282,
           "y": 767
         },
         {
@@ -702,7 +702,7 @@
       "id": "mud_mid_1",
       "points": [
         {
-          "x": 1558,
+          "x": 1631,
           "y": 675
         },
         {
@@ -714,7 +714,7 @@
           "y": 767
         },
         {
-          "x": 1558,
+          "x": 1631,
           "y": 767
         }
       ],
@@ -740,19 +740,19 @@
       "id": "mud_mid_2",
       "points": [
         {
-          "x": 1226,
+          "x": 1282,
           "y": 762
         },
         {
-          "x": 1558,
+          "x": 1631,
           "y": 762
         },
         {
-          "x": 1558,
+          "x": 1631,
           "y": 767
         },
         {
-          "x": 1226,
+          "x": 1282,
           "y": 767
         }
       ],
@@ -773,20 +773,20 @@
       "id": "mud_mid_3",
       "points": [
         {
-          "x": 1226,
+          "x": 1282,
           "y": 675
         },
         {
-          "x": 1558,
+          "x": 1631,
           "y": 675
         },
         {
-          "x": 1558,
-          "y": 720
+          "x": 1631,
+          "y": 718
         },
         {
-          "x": 1226,
-          "y": 720
+          "x": 1282,
+          "y": 718
         }
       ],
       "surface": "mud",
@@ -950,15 +950,15 @@
     {
       "id": "hitching_rail",
       "sheet": "art/props/room-36-hitching-rail-dawn.png",
-      "x": 1405,
+      "x": 1470,
       "y": 755,
       "frame": [
         0,
         0,
-        367,
-        216
+        385,
+        227
       ],
-      "note": "Errata 187. Tyler, 2026-11-08: \"At dawn I think the horses should all be gone. Just the hitching post is there.\" Room 2's hitching rail, empty: cut from the night group's rest frame, at the engine's own scale for it, graded as the night draws it and then under the dawn's light (tools/art/hitching-rail-dawn.py). Its obstacle stays. Errata 198 moved the night group back to 1405,755, and the empty rail with it, re-cut at the scale the room's curve gives there."
+      "note": "Errata 187. Tyler, 2026-11-08: \"At dawn I think the horses should all be gone. Just the hitching post is there.\" Room 2's hitching rail, empty: cut from the night group's rest frame, at the engine's own scale for it, graded as the night draws it and then under the dawn's light (tools/art/hitching-rail-dawn.py). Its obstacle stays. Errata 198 moved the night group back to 1405,755, and the empty rail with it, re-cut at the scale the room's curve gives there. Errata 199 moved the night group right to 1470 and drew it at a horse's true size, its hooves on 746; the empty rail follows, re-cut at the new scale (385 x 227), its base line on 755, the foot of the night frame below the hooves."
     }
   ],
   "occlusionPlanes": [],

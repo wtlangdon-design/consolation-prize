@@ -10,8 +10,10 @@ horses' bridles are left behind; the wraps on the rail stay). It is scaled by
 exactly the factor the engine draws the night group at -- the room's man at
 its feet times its stature, over its figureHeight, nearest-neighbour as the
 engine draws -- so the empty rail stands where the night rail stood, pixel for
-pixel. Then it is relit by the dawn plate's ratio to the night's over the
-ground it stands on, as tools/art/room36-dawn.py lights the street.
+pixel (its base line is the frame's foot, below the horses' hooves when the
+group declares a foot row: errata 199). Then it is relit by the dawn plate's
+ratio to the night's over the ground it stands on, as tools/art/room36-dawn.py
+lights the street.
 
 The night rail is the rail AS THE NIGHT DRAWS IT (errata 198): Room 2's
 `figureLight` grades the horses into the street's night -- brightness,
@@ -89,9 +91,13 @@ def main():
     scale = man_at('main_street_dawn', npc['x'], npc['y']) * sprite['stature'] / sprite['figureHeight']
     size = (round(w * scale), round(h * scale))
     rail = Image.fromarray(rest, 'RGBA').resize(size, Image.NEAREST)
+    # The group's feet are its foot row, on its y (errata 199); the frame reaches below them by the rows under it,
+    # as the engine draws it (engine/core/Ambient.ts drawnBelowFeet). The prop's base line is the frame's foot.
+    foot = sprite.get('footRow', h - 1)
+    base = npc['y'] + round((h - 1 - foot) * size[1] / h)
     # Relight: the dawn plate over the night plate, on the ground the rail stands on.
     left = round(npc['x'] - size[0] / 2)
-    ground = (slice(npc['y'] - size[1], min(858, npc['y'] + 8)), slice(left, left + size[0]))
+    ground = (slice(base - size[1], min(858, base + 8)), slice(left, left + size[0]))
     night = np.asarray(Image.open(os.path.join(ROOT, NIGHT)).convert('RGB')).astype(float)[ground].reshape(-1, 3)
     dawn = np.asarray(Image.open(os.path.join(ROOT, DAWN)).convert('RGB')).astype(float)[ground].reshape(-1, 3)
     lit = night.sum(1) > 60
@@ -100,7 +106,7 @@ def main():
     px[..., :3] = np.clip(night_grade(px[..., :3], npc['id']) * ratio, 0, 255)
     os.makedirs(os.path.join(ROOT, os.path.dirname(OUT)), exist_ok=True)
     Image.fromarray(px.round().astype(np.uint8), 'RGBA').save(os.path.join(ROOT, OUT))
-    prop = {'id': 'hitching_rail', 'sheet': OUT, 'x': npc['x'], 'y': npc['y'], 'frame': [0, 0, size[0], size[1]]}
+    prop = {'id': 'hitching_rail', 'sheet': OUT, 'x': npc['x'], 'y': base, 'frame': [0, 0, size[0], size[1]]}
     print(OUT, size, 'scale', round(scale, 4), 'ratio', ratio.round(3))
     print(json.dumps(prop))
 

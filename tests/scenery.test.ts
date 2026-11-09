@@ -12,7 +12,7 @@ import { resolve } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { AmbientLayer } from '../engine/core/Ambient.ts';
+import { AmbientLayer, drawnBelowFeet } from '../engine/core/Ambient.ts';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
@@ -30,8 +30,11 @@ test('main_street_dawn: the horses are gone, and the rail stands empty', async (
   assert.equal(layer.present.find((npc) => npc.id === 'hitching_horses'), undefined, 'no horses at dawn');
   const rail = (state.room.props ?? []).find((prop) => prop.id === 'hitching_rail');
   assert.ok(rail, 'the rail is a prop at dawn');
-  assert.deepEqual([rail.x, rail.y], [content.ambient.get('hitching_horses')!.x, content.ambient.get('hitching_horses')!.y],
-    'where the night rail stands');
+  // The night group stands on its hooves (sprite.footRow, errata 199) and its frame reaches below them to the
+  // foot of the hay: the prop's base line is that foot, drawn at the rail's own height.
+  const horses = content.ambient.get('hitching_horses')!;
+  const below = drawnBelowFeet(horses.sprite!.frames[0]![3], rail.frame[3], horses.sprite!.footRow);
+  assert.deepEqual([rail.x, rail.y], [horses.x, horses.y + below], 'where the night rail stands');
 });
 
 for (const room of ['main_street']) {

@@ -35,5 +35,29 @@
    "ruling": "At the bar's near end a standing man is 345 (Tyler, 2026-10-31, picked from 330/345/360/375): taller than the man seated on the stool beside him (300 floor to hat), not towering over the bar.",
    "by": "Tyler, 2026-10-31"
   }
+ ],
+ "animals": [
+  {
+   "figure": "hitching_horses",
+   "horse": "the black with the blaze, head up, in the rest frame",
+   "frame": 0,
+   "columns": [
+    48,
+    160
+   ],
+   "withersRow": 118,
+   "withers": [
+    0.82,
+    0.95
+   ],
+   "ears": [
+    1.22,
+    1.4
+   ],
+   "ruling": "A full-sized riding horse beside a man: withers at his shoulder or a little above, ear tips clearly above his head.",
+   "by": "Tyler, 2026-11-08",
+   "quote": "And maybe slightly bigger since it looks like maybe Thad is their height standing next to them? I just want everything to scale correctly.",
+   "note": "Errata 199. Measured against the room's man WHERE THE HORSE STANDS, at its front hooves, not at the frame's foot. The ear tips and hooves are read from the sheet (the top and bottom opaque rows of `columns`: the black's head, chest and front legs); the withers row is declared, where the crest of the neck meets the front of the saddle. Thad's shoulder is 0.82 of his height, the bottom of the withers range. Errata 198's size had the black's ears at 1.19 of the man at its hooves (Thad's height, as Tyler saw) and fails here."
+  }
  ]
 }
