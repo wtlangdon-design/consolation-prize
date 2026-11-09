@@ -73,11 +73,9 @@
   "frameNote": "0 watching · 1 breath (derived) · 2-4 a different few of them leaning to each other.",
   "provenance": "reference/cast-unify-27.spec.json",
   "redrawn": "Errata 111 T (Tyler, 2026-11-06: 'all the characters in this scene are still a mess'). Eleven distinct townspeople drawn on magenta by cast-unify 29 (reference/cast-unify-27.txt), lean and in the cast's hand; each placed at his own spot on the street at the street's own scale and composed into this band by tools/art/room02-duel-town.py, drawn 1:1.",
-  "figureHeight": 193,
+  "figureHeight": 197,
   "stature": 1,
-  "figureHeightNote": "ERRATA 234. A group, drawn so its tallest grown man -- the barman with the towel, whose soles are 25 rows above the group's foot -- is near Thad's height where he stands (content/scale-anchors.json `figures`). As a 1:1 sheet he was 1.07 of Thad. 197 would make him 1.00; 193 is as far as the data can take the group while its sheet keeps its snap to one level (errata 112 G; `levelMan`, within 5%): 1.02 of Thad.",
-  "levelMan": 185,
-  "levelManNote": "ERRATA 234: the man the sheet was snapped to one level at (Main Street's man at the group's foot, 185), kept while it is drawn at 193. Its art pixels are 0.96 of the level's (tests/one-level.test.mjs)."
+  "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). A group, drawn so its tallest grown man -- the barman with the towel, 25 rows behind the group's foot -- is Thad's height where he stands (content/scale-anchors.json `figures`), the sheet re-snapped to one level there from its pre-snap drawing (tools/art/one-level.py; Tyler, 2026-11-09, \"2 - yes\"). Was a 1:1 sheet (1.07 of Thad), then 193 as far as the old snap allowed (1.02)."
  },
  "stirsOn": [
   "F4-ERUPTS"

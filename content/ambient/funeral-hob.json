@@ -129,8 +129,10 @@
   "frameNote": "0 watching, lantern and hat · 1 breath (derived) · 2 head bowed · 3 a glance down to the left · 4 the hat to his chest.",
   "provenance": "reference/hob-b-02.spec.json",
   "figureHeight": 400,
-  "stature": 1.04,
-  "statureNote": "Tall (the master drew him a head over the mourners, 368 where the curve's man is 334); held to 1.04, inside the 5% a standing man is allowed (tests/scale.test.ts), so he is drawn 6% under the master.",
+  "stature": 1.02,
+  "statureNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Stature 1.02: still a little over Thad, as the master drew him, but inside the 3% (was 1.04: 1.038 of Thad).",
+  "levelMan": 384.615385,
+  "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs).",
   "redrawn": "Errata 112 (one Hob, one level): drawn by cast-unify 38 from the redrawn Hob's own standing frame -- his face, coat and lantern -- bareheaded with his hat in his left hand (doc 05); relit into the funeral's night."
  }
 }

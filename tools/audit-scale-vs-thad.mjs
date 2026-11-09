@@ -54,7 +54,7 @@ import { readPng } from './lib/png.mjs';
  * holds the numbers.
  */
 export const HEAD_WINDOW = 0.075;
-export const TOLERANCE = 0.05;
+export const TOLERANCE = 0.03;
 export const HAIR_OVER_EYES = 0.9;
 
 const read = (path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));

@@ -71,10 +71,12 @@
   "breakEvery": 6,
   "frameNote": "0 thumbs in his waistcoat, turned to Thad · 1 breath (derived) · 2 a hand held out · 3 the watch · 4 tipping his hat.",
   "provenance": "reference/cast-unify-26.spec.json",
-  "figureHeight": 352,
+  "figureHeight": 364,
   "stature": 1,
   "redrawn": "Errata 111 T (Tyler, 2026-11-06: no table at Duel Three; the gathering composed as one picture). Drawn standing on magenta from the locked cast master by cast-unify operation 28 (reference/cast-unify-26.txt), turned toward the duel, cut with its own pixels and a clean edge; placed where the painted composition (cast-unify 27, art/staging/cast-unify/batch-25/edit-porch.png) stood him, feet on the boards or the street, drawn at the street's man there.",
-  "figureHeightNote": "Crown to sole, his top hat excluded (tools/art/figure-height.py --hat)."
+  "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Crown to sole under his top hat, read from his eyes and chin: 364. Was 352 (tools/art/figure-height.py --hat, which counted his collar as the brim): 1.03 of Thad.",
+  "levelMan": 352,
+  "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs)."
  },
  "walkTo": {
   "x": 3000,
