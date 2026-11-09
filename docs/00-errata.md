@@ -6024,3 +6024,33 @@ Lesson: `tests/openings-voiced.test.ts`. It reads every document a tree names as
   - The line assumes nothing about the swindle (the first-night test), and it is true whenever it can be read.
 - **The fixture `r10-a`** (the lobby after the swindle) now has the room, because it expects the office door open.
 - **The lesson** is `tests/room-required.test.mjs`. With A2's completing site barred, the win must be unreachable in the traversal's model. The old Room 10 fails it.
+
+# 221 · THE FULL PLAYTHROUGH IN THE REAL BUILD — TYLER, 2026-11-09 ("do a full play through of the whole game again now, making sure there are no errors and it shares the feel and vibe of MI")
+
+*Played unattended overnight in Chromium against the dev build, from NEW GAME to THE END: the 165 steps of `tests/data/full-game-walkthrough.json`, by real input, through `npm run gauntlet:full`. This record covers the errors. The feel is for a reviewer, who reads what the run kept.*
+
+- **What it kept.** Errata 151's run gains `--record <dir> --transcript <file>` (`tools/gauntlet/playthrough.mjs`). It reads only; it writes nothing into the game.
+  - A frame at every step, and one at every option list.
+  - The words the screen showed, in play order: lines, directions, acted directions (played, never printed, doc 95), held silences, barks, written sounds, act cards and the letter. Each carries the room, the act and the step that produced it. Every option menu is listed whole, with the row picked marked.
+  - Every string drawn off its canvas or with a character the face lacks.
+  - The watch's records (doc 44 part two), drained per step.
+  - The frame rate, once a second.
+  - `tools/gauntlet/playthrough-sheets.py` makes one contact sheet per act. Every frame is whole, at a quarter scale.
+- **Where it is.** `renders/playthrough/transcript.md`, and `renders/playthrough/act-1.webp` to `act-4.webp`. The raw frames are not committed.
+- **What it found.**
+  - Both runs reached THE END on the title, with 0 breaks.
+  - There was no console error, page error or failed request, no text off-screen and no missing glyph, no fallback figure, no black frame, and no panel in the coffin.
+  - **One defect: a room reached without an exit was drawn in pieces.**
+    - Loading goes by room (`BootAssets.planNear`). Each room fetches itself and the rooms its exits lead to.
+    - The town map has no exits, so a place reached by the map was first asked for on arrival. Its props drew nothing until they came in. The run caught this at the Claims Road's cabin, Prosperity's stake and Pratt's sign.
+    - A `goto` is not an exit either. The ride on Grievance reached the Washout without its signpost.
+    - **Fixed.** A place clicked on the map is fetched while the map's Thad walks there (`planNear`'s `heading`, errata 163's walk). The rooms a room's own file or its item pairs `goto` count as next door (`gotoRooms`).
+    - The second run had no arrival without its pictures.
+  - **Not defects.** Two `graybox:not-loaded` records remain: the Nugget's barrel after the Clarion cut-away, and Fanshawe's desk in his cut-away. Both are drawn while the cut-away holds the screen black until the room is whole (errata 157, 158). The player never sees them.
+- **Left for Tyler.**
+  - **Fast travel can still outrun the fetch.** A map walk skipped by a click, or an exit taken the moment a room appears, can arrive before the next room has loaded. Run 1 saw this at the funeral, reached from Boot Hill straight after the map. Only NEW GAME, the fades and the cut-aways hold black until the room is whole. Holding every arrival the same way would change how ordinary travel looks, so that is Tyler's call, not a fix.
+  - **Frame rate.** This machine renders WebGL in software on 2 cores. The run measured a median of about 15 fps everywhere, and 13 to 15 fps idle on the title and stage road. This says nothing about a Chromebook. Measured against itself, the Nugget is the heaviest room: 8.6 fps on average, against about 15 elsewhere.
+- Lesson: `tests/load-by-room.test.ts` gains two tests.
+  - Every place on the town map is asked for whole once it is the way he is heading, and the map click asks for it before the walk starts.
+  - Every room a `goto` hands on to (in a room file or in an item pair) is asked for before the goto.
+  - With the fix removed, both fail.
