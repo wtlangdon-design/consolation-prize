@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "boot_hill",
  "roomWidth": 1920,
- "branch": "scene-a-build",
- "commit": "40786f61ecf33e85d7395257e0c76a9d2c432b57",
+ "branch": "mourners-face-hearse",
+ "commit": "9819b2ab3a6635765a28011dc600b2aca0bb750a",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -81,7 +81,7 @@
    ],
    "reportedHeight": 305,
    "expected": 305,
-   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
     178,
     552,
@@ -155,7 +155,7 @@
     335,
     738
    ],
-   "sheet": "art/actors/room-31-mourners-master.png",
+   "sheet": "art/actors/room-14-mourners-at-gate.png",
    "clipPlane": null,
    "box": {
     "x": 114,
@@ -164,13 +164,13 @@
     "height": 405
    },
    "seen": {
-    "x": 155,
+    "x": 151,
     "y": 417,
     "width": 364,
     "height": 323,
     "bottom": 739,
-    "right": 518,
-    "changed": 74188
+    "right": 514,
+    "changed": 74228
    },
    "props": []
   },
@@ -205,7 +205,7 @@
   {
    "panel": "B",
    "room": "boot_hill",
-   "clock": 10.8285,
+   "clock": 10.587,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -317,12 +317,12 @@
      "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
     },
     {
-     "key": "art/actors/room-14-mourners-bowed.png",
-     "path": "art/actors/room-14-mourners-bowed.png",
-     "drawn": "art/actors/room-14-mourners-bowed.png",
+     "key": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "path": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "drawn": "art/actors/room-14-mourners-bowed-at-gate.png",
      "candidate": false,
      "loaded": true,
-     "hash": "b3fb2dd31a2a6f66362bc706bd0d1cb02567943a8fbe76effc95c8923bc0d73a"
+     "hash": "d30055d9fc94c162408be9e96d48943942682fcef35d21c2ca65a11e69778e70"
     },
     {
      "key": "art/actors/room-31-sowerby-master.png",
@@ -346,15 +346,15 @@
    "controlWrites": [
     "enter(boot_hill)"
    ],
-   "capturedAt": "2026-11-09T20:45:08.807Z",
+   "capturedAt": "2026-11-09T22:11:34.447Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "74a52507fa7b5d8ddf0d7828ef4a7a67e4de1acefa449acad91cc11a9fe97b2c"
+   "hash": "91bb8239d6616a10a6dee4cd2f44fcc6f01386248717d7ac90aac41be73bf9a5"
   },
   {
    "panel": "A",
    "room": "boot_hill",
-   "clock": 11.8785,
+   "clock": 11.620299999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -461,12 +461,12 @@
      "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
     },
     {
-     "key": "art/actors/room-14-mourners-bowed.png",
-     "path": "art/actors/room-14-mourners-bowed.png",
-     "drawn": "art/actors/room-14-mourners-bowed.png",
+     "key": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "path": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "drawn": "art/actors/room-14-mourners-bowed-at-gate.png",
      "candidate": false,
      "loaded": true,
-     "hash": "b3fb2dd31a2a6f66362bc706bd0d1cb02567943a8fbe76effc95c8923bc0d73a"
+     "hash": "d30055d9fc94c162408be9e96d48943942682fcef35d21c2ca65a11e69778e70"
     },
     {
      "key": "art/actors/room-31-sowerby-master.png",
@@ -491,7 +491,7 @@
     "enter(boot_hill)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T20:45:09.854Z",
+   "capturedAt": "2026-11-09T22:11:35.543Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "58aae0a85c9568ff6724be8574e344e9b26158edc73ded3b469ed3d9da2f7592"
@@ -499,7 +499,7 @@
   {
    "panel": "D",
    "room": "boot_hill",
-   "clock": 52.8934,
+   "clock": 52.7853,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -611,12 +611,12 @@
      "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
     },
     {
-     "key": "art/actors/room-14-mourners-bowed.png",
-     "path": "art/actors/room-14-mourners-bowed.png",
-     "drawn": "art/actors/room-14-mourners-bowed.png",
+     "key": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "path": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "drawn": "art/actors/room-14-mourners-bowed-at-gate.png",
      "candidate": false,
      "loaded": true,
-     "hash": "b3fb2dd31a2a6f66362bc706bd0d1cb02567943a8fbe76effc95c8923bc0d73a"
+     "hash": "d30055d9fc94c162408be9e96d48943942682fcef35d21c2ca65a11e69778e70"
     },
     {
      "key": "art/actors/room-31-sowerby-master.png",
@@ -650,10 +650,10 @@
     "cast(true)",
     "bystanders(true)"
    ],
-   "capturedAt": "2026-11-09T20:45:50.863Z",
+   "capturedAt": "2026-11-09T22:12:16.676Z",
    "intent": "principal changed state: THE PRAYER (doc 110 section 2): Sowerby's barks while T_HILL_PRAYER holds, said on his speaking breaks, in turn (HILL_PRAYER_SAID counts them); then TALK TO him mid-prayer. Visible consequence: Thad, at Sowerby's side, saying he has never had a better chance at anything, the town's heads bowed.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "c7345431ecfda0f7a4dacb407b01c277fb0a849548f9c16558d7dfefbb487030",
+   "hash": "77fe60155c26759c6f0b73a0563aa3a0e02e2cf793dcbdbe168fc3ba2c31c854",
    "changedBy": "counters"
   }
  ],
@@ -684,11 +684,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T20:45:50.863Z",
+ "at": "2026-11-09T22:12:16.676Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 447440,
+  "bytes": 447824,
   "panels": 5,
   "scale": 0.5
  }
