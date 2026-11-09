@@ -129,8 +129,8 @@ To be written:
 #### B · In the Lane
 
 **THE SÉANCE SIGN** · *the Lane, the evening after E0b*
-**LOOK** 1 "Chalked on a board at Madame Ozymandia's: SÉANCE TONIGHT · OBADIAH MOTT, IF AVAILABLE · $2." · 2 "'If available.' She has covered herself, which is more than Mott ever did." · 3 "The two dollars is written larger than the dead man."
-**LISTEN** 1 "The board knocks against the tent pole in the wind, like something wanting in." · 2 "Chalk squeaking. She has gone back to underline the price." · 3 "Nothing. Signs in this town have learned to wait."
+**LOOK** 1 "Chalked on a board at Madame Ozymandia's: SÉANCE TONIGHT · OBADIAH MOTT, IF AVAILABLE · $2." · 2 "'If available.' She has covered herself, which is more than Mott ever did." · 3 "The two dollars is written larger than Mott's name."
+**LISTEN** 1 "The board knocks against the tent pole, as if something wanted in." · 2 "Chalk squeaking. She has gone back to underline the price." · 3 "Nothing. Signs in this town have learned to wait."
 
 #### B · In Ozymandia's tent
 
@@ -191,7 +191,7 @@ To be written:
 | 4 | "I am Obadiah Mott, and I am dead." | `[PROGRESS · remove]` | **FRAME:** "QUOTABLE!" *(He writes.)* "'I AM DEAD,' says Mott. Front page. Within the hour." — **OZYMANDIA:** *(She looks down at the cloth for a long moment.)* "…Two dollars, whoever you are." | sets `T_MOTT_SPOKE` |
 
 **LEAVING THE TABLE** · *after `T_MOTT_SPOKE`*
-> *(The lamp comes up. Thad stays where he is until the last pair of boots has gone.)* "I have now been a dead man once. It is mostly waiting under furniture."
+> *(The lamp comes up. Thad stays where he is until the last pair of boots has gone.)* "I have now been dead once. It is mostly waiting under furniture."
 
 #### B · At the Registrar's
 
@@ -258,6 +258,8 @@ To be written:
 - **THE HEN** · LISTEN — "A low, continuous remark, like a woman counting change."
 - **THE RACCOON, IN MY COAT** · LOOK — "My coat, with a raccoon in it, wearing it better than I did."
 - **THE RACCOON, IN MY COAT** · LISTEN — "Grumbling, in a tone I recognize from the Registrar's queue."
+- **MR. PRATT'S TWO DOLLARS AND SIXTY CENTS** · LOOK — "Two dollars and sixty cents, counted out coin by coin. The exact cost of my funeral, paid for with a raccoon."
+- **MR. PRATT'S TWO DOLLARS AND SIXTY CENTS** · LISTEN — "Quiet. Mr. Pratt's money has never had much to say."
 
 ---
 

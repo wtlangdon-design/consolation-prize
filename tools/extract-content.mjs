@@ -6589,9 +6589,10 @@ function estateSaleItems() {
     // words, which are Pratt's at THE SALE ("Two dollars and sixty cents."): nothing new is written. For Tyler to confirm.
     schema: 1, id: 'pratt_money', name: "MR. PRATT'S TWO DOLLARS AND SIXTY CENTS", short: 'TWO DOLLARS AND SIXTY CENTS',
     note: 'Named by docs/111-scenes-b-and-c.md (THE SALE) and read by tools/extract-content.mjs (errata 237). Pratt\'s price for the '
-      + 'raccoon, counted out at THE SALE; spent at the undertaker\'s exactly as SHENG\'S LOAN was (doc 57 E3.3). Doc 111 writes no LOOK '
-      + 'or LISTEN for it: reported to Tyler, and marked `linesPending` until it does.',
-    linesPending: true,
+      + 'raccoon, counted out at THE SALE; spent at the undertaker\'s exactly as SHENG\'S LOAN was (doc 57 E3.3). Doc 111 writes it one '
+      + 'LOOK and one LISTEN.',
+    responses: { LOOK_AT: [{ say: said("MR. PRATT'S TWO DOLLARS AND SIXTY CENTS", 'LOOK') }],
+      LISTEN_TO: [{ say: said("MR. PRATT'S TWO DOLLARS AND SIXTY CENTS", 'LISTEN') }] },
     iconPending: ICON,
   }));
   return out;

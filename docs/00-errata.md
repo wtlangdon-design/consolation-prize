@@ -6418,12 +6418,12 @@ Doc 111 designs Act III's scenes B and C and writes every line of both under THE
 - **The walkthrough** (`tests/data/full-game-walkthrough.json`) now plays B and C in place of the petition and the loan: 175 steps. The repeat check and the narration check pass on it.
 - **Saves.** No migration, so `SAVE_VERSION` is unchanged. A save holding the loan pays with it as before. A save in Act III that has not taken the loan goes the estate sale's way.
 - **For Tyler.**
-  - **Missing from doc 111:** MR. PRATT'S TWO DOLLARS AND SIXTY CENTS has no LOOK or LISTEN, so it is `linesPending`.
+  - **The money's LOOK and LISTEN** were missing from doc 111 when it was built; the scene's writer added them to THE LINES in the same pull request, so it is not `linesPending`.
   - **Its name does not fit the sentence line** (108% of it). Its short name is the name's own last words, TWO DOLLARS AND SIXTY CENTS, which Pratt says at THE SALE. Nothing new is written, but the choice is yours.
   - **Built as decided, with no new words:**
     - The séance ends at Act IV for a player who never sat in.
     - OZY_E1 is her node for the whole séance, in the dark as well as lit, so TALK TO never reaches her ordinary tree mid-séance.
     - SUM_E1 option 1 is still offered after the séance (either one completes E1).
-  - **Two phrases** of Thad's reach a fourth subject with doc 111's lines ("dead man", "wind like"). They are on the narration allowlist for the voice pass, because the builder may not reword them.
+  - **Two phrases** of Thad's reached a fourth subject with doc 111's first lines. The scene's writer reworded the three lines in doc 111 in the same pull request (the sign's LOOK 3 and LISTEN 1, and the line on leaving the table), so nothing is added to the narration allowlist.
 
 Lesson: none -- the first build of approved scenes. `tests/scenes-bc.test.ts` plays both from fixtures (`r16-seance-a`, `r16-seance-b`, `r25-sale-a`, `r23-sale-a`), including the wrong orders (the hen before the offer, the table while lit, the raccoon to the undertaker and to Sheng) and a save mid-séance and mid-sale.

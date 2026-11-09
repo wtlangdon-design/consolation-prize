@@ -579,12 +579,6 @@
    "why": "Errata 237: not loosened, changed with the design. 'The loan: in Act III the paper opens again' asserted the loan is offered in Act III; doc 110 section 1 and doc 111 C say it is offered to nobody on a fresh path. The test now asserts the opposite: his root opens, the row is not offered, and the row and its pair at the undertaker's are kept for a save past it."
   },
   {
-   "check": "content/checks/narration-allowlist.json",
-   "date": "2026-11-09",
-   "kind": "loosened",
-   "why": "Errata 237: two phrases reach a fourth subject with doc 111's lines as Tyler approved them ('dead man', 'wind like'). The builder may not reword a line, so they wait for the voice pass, or for Tyler."
-  },
-  {
    "check": "tests/lessons.test.ts",
    "date": "2026-11-09",
    "kind": "reviewed",

@@ -32,7 +32,7 @@ The raccoon already exists (`art/actors/room-23-raccoon.png`); match it. Pratt a
 - **Thad in his shirtsleeves, holding his own coat bundled in both arms, with the raccoon inside it.** The raccoon's masked face and one paw stick out of the top; the bundle bulges. This is the physical joke of the scene: the coat is losing.
 - Draw it against Thad's existing figures. **Attach a frame of Thad in Room 23**, and match his face, hat, trousers and boots; only the coat is off and in his arms.
 - **Frames:** rest, a breath, the bundle lurching left, the raccoon's paw swiping out.
-- **Plus two item icons, 60×40 art pixels each, matching `art/ui/item-icons.png`** (see `reference/item-icons/brief.md`): the coat, bundled, a raccoon's face out of the top. And one for the hen.
+- **Plus three item icons, 60×40 art pixels each, matching `art/ui/item-icons.png`** (see `reference/item-icons/brief.md`): the coat, bundled, a raccoon's face out of the top; one for the hen; and MR. PRATT'S TWO DOLLARS AND SIXTY CENTS, a few coins, which must not be pixel-identical to Sheng's loan icon (`check-item-names` fails two identical cells): Pratt's coins are clean and stacked square.
 
 ## Reserve
 
