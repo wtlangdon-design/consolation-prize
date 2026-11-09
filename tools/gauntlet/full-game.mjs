@@ -43,6 +43,7 @@ import { FlagStore } from '../../engine/core/FlagStore.ts';
 import { browser } from '../lib/chromium.mjs';
 import { ROOT, readJson, roomWidth } from '../lib/content.mjs';
 import { readPng } from '../lib/png.mjs';
+import { drain, mark, markMenu, recorderInit, stepWords, transcriptMarkdown } from './playthrough.mjs';
 import { serve } from './proof.mjs';
 import {
   chooseOption, clickScreen, clickWorld, pastTitle, probe, targetRect, verbRect,
@@ -60,6 +61,24 @@ const FROM = arg('--from');
 const CHECKPOINTS = resolve(OUT, 'checkpoints');
 const RESUME_FROM = resolve(arg('--checkpoints') ?? CHECKPOINTS);
 const SAVE_KEY = 'consolation.save.v1';
+// THE PLAYTHROUGH RECORD (tools/gauntlet/playthrough.mjs): `--record <dir>` keeps a
+// frame at every step and every option list, the words shown, text drawn off its
+// canvas, and the frame rate. The frames go to <dir> (raw captures: never committed);
+// `--transcript <file>` is where the readable transcript is written.
+const RECORD = arg('--record') ? resolve(arg('--record')) : null;
+const TRANSCRIPT = arg('--transcript') ? resolve(arg('--transcript')) : null;
+let shotIndex = 0;
+const frames = [];
+/** A frame for the record, named in play order. */
+async function recordFrame(page, name, p) {
+  if (!RECORD) return;
+  const url = await page.evaluate(() => window.__gauntlet?.snapshot() ?? null);
+  if (!url) return;
+  shotIndex += 1;
+  const file = resolve(RECORD, `${String(shotIndex).padStart(4, '0')}-${name}.png`);
+  writeFileSync(file, Buffer.from(url.split(',')[1], 'base64'));
+  frames.push({ file, name, room: p?.room ?? null, act: p?.counters?.ACT ?? null });
+}
 
 
 const NATIVE = { width: 1920, height: 1080 };
@@ -398,6 +417,7 @@ async function leave(page) {
     return option && (option.tag === 'EXIT' || option.ends === true);
   });
   if (!exit) throw new StepError(`no EXIT row at ${tree}/${p.dialogueAt.node} (offered: ${offered.join(', ')})`);
+  if (RECORD) await markMenu(page, exit);
   await chooseOption(page, exit);
   await waitQuiet(page, { done: (q) => !q.dialogueAt?.tree || q.dialogueAt.tree !== tree || q.options > 0, upTo: 90 });
 }
@@ -409,6 +429,10 @@ async function choose(page, ids) {
     const offered = await offeredIds(page);
     if (!offered.includes(id)) {
       throw new StepError(`"${id}" is not offered at ${p.dialogueAt.tree}/${p.dialogueAt.node} (offered: ${offered.join(', ')})`);
+    }
+    if (RECORD) {
+      await markMenu(page, id);
+      if (ids.indexOf(id) === 0) await recordFrame(page, `menu-${p.dialogueAt.tree}`, p);
     }
     await chooseOption(page, id);
     await page.waitForTimeout(200);
@@ -510,6 +534,7 @@ async function duel(page) {
     if (!p.duel) return;
     const offered = await offeredIds(page);
     if (!offered.length) throw new StepError('a duel offered no counters');
+    if (RECORD) await markMenu(page, offered.includes('right') ? 'right' : offered[0]);
     await chooseOption(page, offered.includes('right') ? 'right' : offered[0]);
     await page.waitForTimeout(250);
   }
@@ -548,6 +573,13 @@ async function main() {
   const server = await serve();
   const chrome = await browser();
   const page = await chrome.newPage({ viewport: NATIVE });
+  if (RECORD) { mkdirSync(RECORD, { recursive: true }); await page.addInitScript(recorderInit); }
+  const recorded = { log: [], text: [], fps: [] };
+  const take = async () => {
+    if (!RECORD) return;
+    const got = await drain(page).catch(() => ({ log: [], text: [], fps: [] }));
+    recorded.log.push(...got.log); recorded.text.push(...got.text); recorded.fps.push(...got.fps);
+  };
   const network = [];
   const consoleErrors = [];
   page.on('response', (response) => { if (response.status() >= 400) network.push(`${response.status()} ${response.url()}`); });
@@ -602,12 +634,18 @@ async function main() {
     } else {
       await pastTitle(page, 90);
     }
+    if (RECORD) await page.evaluate(() => window.__gauntlet?.arm({}));
     let act = null;
     let seenNetwork = 0; let seenConsole = 0;
     for (const step of steps) {
       const began = Date.now();
       const log = [];
       let problem = null;
+      if (RECORD) {
+        const before = await probe(page);
+        await mark(page, { kind: 'step', id: step.id, puzzle: step.puzzle ?? null, words: stepWords(step, before?.room ?? null),
+          room: before?.room ?? null, act: before?.counters?.ACT ?? null });
+      }
       try {
         switch (step.do) {
           case 'opening': break;
@@ -643,6 +681,13 @@ async function main() {
       }
       if (missing.length) problem = problem ? `${problem}; ${missing.join('; ')}` : missing.join('; ');
       const seconds = Number(((Date.now() - began) / 1000).toFixed(1));
+      if (RECORD) {
+        await recordFrame(page, step.id, p);
+        await take();
+        // What the watch saw during the step (doc 44 part two), drained per step.
+        const seen = await page.evaluate(() => { const v = window.__gauntlet?.violations(); window.__gauntlet?.reset(); return v; }).catch(() => null);
+        for (const one of seen?.violations ?? []) oddity(step.id, p.room, `watch ${one.kind}: ${one.who} -- ${one.detail}`);
+      }
       const entry = { id: step.id, puzzle: step.puzzle ?? null, do: step.do, room: p.room, seconds, log, problem };
       report.steps.push(entry);
       console.log(`${problem ? 'BREAK' : 'ok   '} ${step.id.padEnd(12)} ${String(seconds).padStart(6)}s  ${p.room}${problem ? `  -- ${problem}` : ''}`);
@@ -683,12 +728,21 @@ async function main() {
       await page.waitForTimeout(1500);
       await shot('the-end');
       const last = await probe(page);
+      if (RECORD) { await recordFrame(page, 'the-end', last); await mark(page, { kind: 'end', text: last?.theEnd ? 'THE END (the title returns)' : 'the title returns' }); }
       report.theEnd = { title: last?.title === true, theEnd: last?.theEnd === true, timedOut: end.timedOut === true };
       if (!last?.title) report.breaks.push({ step: 'THE END', room: last?.room, problem: 'the title never came back after the close', shot: resolve(OUT, 'the-end.png') });
       else if (!last.theEnd) report.oddities.push({ step: 'THE END', room: last.room, what: 'the title came back without THE END' });
       console.log(`THE END: title ${last?.title}, theEnd ${last?.theEnd}`);
     }
   } finally {
+    if (RECORD) {
+      await take().catch(() => {});
+      report.frames = frames;
+      report.text = recorded.text;
+      report.fps = recorded.fps;
+      writeFileSync(resolve(RECORD, 'transcript.json'), `${JSON.stringify(recorded.log, null, 1)}\n`);
+      if (TRANSCRIPT) writeFileSync(TRANSCRIPT, transcriptMarkdown(recorded.log, { started: report.started.slice(0, 10), commit: process.env.PLAYTHROUGH_COMMIT ?? 'unknown' }));
+    }
     report.seconds = Math.round((Date.now() - t0) / 1000);
     report.network = network;
     report.console = consoleErrors;
