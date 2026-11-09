@@ -289,5 +289,46 @@
  },
  "onEnterSet": {
   "T_MINE_ENTERED": true
- }
+ },
+ "props": [
+  {
+   "id": "lantern_left_opening",
+   "sheet": "art/props/mine-lantern-46.png",
+   "x": 448,
+   "y": 488,
+   "frame": [
+    0,
+    0,
+    33,
+    88
+   ],
+   "note": "An old lantern, unlit, on the post by left_opening (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  },
+  {
+   "id": "lantern_middle_opening",
+   "sheet": "art/props/mine-lantern-46.png",
+   "x": 898,
+   "y": 488,
+   "frame": [
+    0,
+    0,
+    33,
+    88
+   ],
+   "note": "An old lantern, unlit, on the post by middle_opening (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  },
+  {
+   "id": "lantern_right_opening",
+   "sheet": "art/props/mine-lantern-46.png",
+   "x": 1478,
+   "y": 488,
+   "frame": [
+    0,
+    0,
+    33,
+    88
+   ],
+   "note": "An old lantern, unlit, on the post by right_opening (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  }
+ ]
 }

@@ -42744,6 +42744,123 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-09T03:47:57.262Z"
+  },
+  {
+   "attempt": 3,
+   "role": "canonical-design",
+   "assetId": "room-46",
+   "subject": "mine-lantern",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-46/prompts/lantern-01.txt",
+   "promptHash": "61b3f6545def062a52156bf74113a94623b41b53df4984add717336aa78e43e2",
+   "references": [
+    {
+     "path": "art/backgrounds/room-46-mine-adit.png",
+     "hash": "08a5b5e8a889209ccb4a001e496a0383a4e66907a503e7285454289a3e5239ca",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-34-under-prosperity.png",
+     "hash": "8ce696757d9a181118f636f6b773a507a0c17c7362c5eac1d4e268c42a203a97",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-46-mine-adit",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-34-under-prosperity)",
+      "path": "art/backgrounds/room-34-under-prosperity.png",
+      "hash": "8ce696757d9a181118f636f6b773a507a0c17c7362c5eac1d4e268c42a203a97",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "08a5b5e8a889209ccb4a001e496a0383a4e66907a503e7285454289a3e5239ca",
+   "sourcePath": "art/backgrounds/room-46-mine-adit.png",
+   "out": "art/staging/room-46/lantern/source.png",
+   "outputHash": "ef0c9b4ea9375b1a101bf432f74a1cc7dc2dd6fa7e208404dbf15c47874eafe1",
+   "bytes": 923533,
+   "usage": {
+    "input_tokens": 8823,
+    "input_tokens_details": {
+     "image_tokens": 8564,
+     "text_tokens": 259
+    },
+    "output_tokens": 273,
+    "output_tokens_details": {
+     "image_tokens": 273,
+     "text_tokens": 0
+    },
+    "total_tokens": 9096
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T04:03:32.472Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T04:03:32.482Z"
   }
  ],
  "promotions": [

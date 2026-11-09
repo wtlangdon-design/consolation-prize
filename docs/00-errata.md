@@ -5740,3 +5740,12 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 - **Sound:** the Gulch's mix carried up the river; R54-A, the little falls close and thin water over gravel, noise with no pitch, "whatever Thad hears in them" (doc 45).
 - Lesson: `tests/gulch-upstream.test.ts` fails if a message is offered before G3 or before it is given, if carrying them stops teaching pairs 25 and 26, if the pairs stop being doc 109's or leave Duel Two's pool, or if the pool's fourteen moves.
 
+# 210 · THE MINE'S LANTERNS, UNLIT, AS SCENERY — TYLER, 2026-11-09 ("Maybe lanterns can be setup throughout the caves to make it look a little more 'of the era'?"; asked how, "Unlit, as scenery")
+
+*Doc 108 lights the mine by daylight through old shafts, and no line names a lantern. Tyler was shown three ways (lit, unlit as scenery, or with lines) and chose unlit, as scenery.*
+
+- **One lantern, every way.** room-46 operation 3 drew one old miner's lantern, unlit, hanging by its bail from a nail. `tools/art/mine-lanterns.py` hangs it on the inner face of a post at every way on in Rooms 46 to 49, at the same size and the same height in each room, and flipped only where the room itself is mirrored (Room 49's passages; Room 47's two props either side of the shaft). The plates are not repainted, so Room 49's mirrored passages stay identical.
+- **Scenery.** No hotspot, no line, no light: the mine is still lit by its shafts (doc 108), and the lanterns are dead.
+- **Placed by sight.** On the post's brown, at a sixth of a man, the lantern read as a smudge; it hangs against the passage's dark, at a quarter. In Room 46 the right opening is the shortest, so the room's three hang lower together, under its beam.
+- Lesson: `tests/gulch-mine.test.ts` fails if a way on in a mine room has no lantern, or if a room's lanterns differ in size, height or drawing (proved by taking Room 49's right passage's away).
+

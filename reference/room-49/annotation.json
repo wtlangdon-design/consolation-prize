@@ -226,6 +226,32 @@
     14
    ],
    "note": "THE ORE CART's chalk (doc 108's third LOOK): MAY, in the shipping face, on the cart's side (tools/art/gulch-lettering.py)."
+  },
+  {
+   "id": "lantern_left_passage",
+   "sheet": "art/props/mine-lantern-49.png",
+   "x": 532,
+   "y": 371,
+   "frame": [
+    0,
+    0,
+    33,
+    87
+   ],
+   "note": "An old lantern, unlit, on the post by left_passage (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  },
+  {
+   "id": "lantern_right_passage",
+   "sheet": "art/props/mine-lantern-49-flip.png",
+   "x": 1458,
+   "y": 371,
+   "frame": [
+    0,
+    0,
+    33,
+    87
+   ],
+   "note": "An old lantern, unlit, on the post by right_passage (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
   }
  ]
 }

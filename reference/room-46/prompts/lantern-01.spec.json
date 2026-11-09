@@ -1,0 +1,13 @@
+{
+ "assetId": "room-46",
+ "subject": "mine-lantern",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-46-mine-adit",
+ "promptFile": "reference/room-46/prompts/lantern-01.txt",
+ "out": "art/staging/room-46/lantern/source.png",
+ "size": "1024x1024",
+ "images": [
+  "art/backgrounds/room-46-mine-adit.png"
+ ]
+}

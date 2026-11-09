@@ -216,5 +216,46 @@
    "mud_near": 0
   },
   "planes": []
- }
+ },
+ "props": [
+  {
+   "id": "lantern_way_back",
+   "sheet": "art/props/mine-lantern-48.png",
+   "x": 92,
+   "y": 399,
+   "frame": [
+    0,
+    0,
+    32,
+    85
+   ],
+   "note": "An old lantern, unlit, on the post by way_back (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  },
+  {
+   "id": "lantern_way_past_big_rock",
+   "sheet": "art/props/mine-lantern-48.png",
+   "x": 947,
+   "y": 399,
+   "frame": [
+    0,
+    0,
+    32,
+    85
+   ],
+   "note": "An old lantern, unlit, on the post by way_past_big_rock (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  },
+  {
+   "id": "lantern_way_past_other_rock",
+   "sheet": "art/props/mine-lantern-48.png",
+   "x": 1687,
+   "y": 399,
+   "frame": [
+    0,
+    0,
+    32,
+    85
+   ],
+   "note": "An old lantern, unlit, on the post by way_past_other_rock (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  }
+ ]
 }

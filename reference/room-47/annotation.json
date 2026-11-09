@@ -230,6 +230,32 @@
     46
    ],
    "note": "THE PROPS' carving (doc 108's first LOOK): SORRY in the shipping face, low on the left prop, and above it the initials and the date that line names but never spells, carved too rough to read (tools/art/gulch-lettering.py)."
+  },
+  {
+   "id": "lantern_passage_up",
+   "sheet": "art/props/mine-lantern-47.png",
+   "x": 752,
+   "y": 437,
+   "frame": [
+    0,
+    0,
+    31,
+    83
+   ],
+   "note": "An old lantern, unlit, on the post by passage_up (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  },
+  {
+   "id": "lantern_passage_on",
+   "sheet": "art/props/mine-lantern-47-flip.png",
+   "x": 1188,
+   "y": 437,
+   "frame": [
+    0,
+    0,
+    31,
+    83
+   ],
+   "note": "An old lantern, unlit, on the post by passage_on (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
   }
  ]
 }
