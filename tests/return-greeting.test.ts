@@ -36,8 +36,8 @@ test('the first visit says the meeting, every later visit the return line', asyn
 
 test('no opening that calls the player new can be said twice', async () => {
   const content = await loadContent(fsReader);
-  const repeats = [...content.dialogue.values()].flatMap((tree) => Object.values(tree.nodes)
-    .filter((node) => (node.opening ?? []).some((one) => /\byou're new\b/i.test(one.line)) && !node.openingOnce)
-    .map((node) => `${tree.id}/${node.id}`));
+  const repeats = [...content.dialogue.values()].flatMap((tree) => Object.entries(tree.nodes)
+    .filter(([, node]) => (node.opening ?? []).some((one) => /\byou're new\b/i.test(one.line)) && !node.openingOnce)
+    .map(([nodeId]) => `${tree.id}/${nodeId}`));
   assert.deepEqual(repeats, []);
 });
