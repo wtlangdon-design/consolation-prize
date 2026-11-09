@@ -1,5 +1,5 @@
 """
-EVERY ROOM'S BED (doc 45, "Every room's bed"; errata 203; reference/room-beds/brief.md).
+EVERY ROOM'S BED (doc 45, "Every room's bed"; errata 203, 206; reference/room-beds/brief.md).
 
     python3 tools/audio/render-room-beds.py
 

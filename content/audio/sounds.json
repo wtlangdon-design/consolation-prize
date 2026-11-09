@@ -779,38 +779,38 @@
   "stage_road": {
    "src": "audio/sfx/beds/stage-road.wav",
    "gain": 0.155,
-   "why": "doc 45, Every room's bed (errata 203), row 1 (stage road): night wind; a town far off, mostly gone in for the night. The row's layer -- the team shifting and the dry axle, while the coach is there -- is the opening's already: the coach is a mover, not a figure, and while it stands its team breathes on O-02-S2's bed (the approved team-halted.wav) until O-06B-S takes it away; the axle is R01-COACH-2. A second team here would double it. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 1 (stage road): night wind; a town far off, mostly gone in for the night. The row's layer -- the team shifting and the dry axle, while the coach is there -- is the opening's already: the coach is a mover, not a figure, and while it stands its team breathes on O-02-S2's bed (the approved team-halted.wav) until O-06B-S takes it away; the axle is R01-COACH-2. A second team here would double it. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "coach_stop_dawn": {
    "src": "audio/sfx/beds/stage-road.wav",
    "gain": 0.155,
-   "why": "doc 45, Every room's bed (errata 203), row 1 (and the coach stop at dawn): the same night wind and far town, the same file as the stage road. Never, at dawn, anything that sounds like picks: there are none in it. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 1 (and the coach stop at dawn): the same night wind and far town, the same file as the stage road. Never, at dawn, anything that sounds like picks: there are none in it. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "nugget_back": {
    "src": "audio/sfx/beds/nugget-back.wav",
    "gain": 0.207,
-   "why": "doc 45, Every room's bed (errata 203), row 4 (Nugget back room): wind on painted glass, dulled; the Nugget beyond the wall. Never anything during a duel but the duel's own cues: `duringDuel` silences it for as long as a duel is sounding. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
+   "why": "doc 45, Every room's bed (errata 203), row 4 (Nugget back room): wind on painted glass, dulled; the Nugget beyond the wall. Never anything during a duel but the duel's own cues: `duringDuel` silences it for as long as a duel is sounding. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
    "duringDuel": "silent"
   },
   "assay_office": {
    "src": "audio/sfx/beds/street-muffled.wav",
    "gain": 0.274,
-   "why": "doc 45, Every room's bed (errata 203), row 5 (assay office): the street, muffled. Never anything from the floor: the loose board is one hotspot's line, and nothing in this bed is under it. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 5 (assay office): the street, muffled. Never anything from the floor: the loose board is one hotspot's line, and nothing in this bed is under it. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "assay_records": {
    "src": "audio/sfx/beds/assay-records.wav",
    "gain": 0.184,
-   "why": "doc 45, Every room's bed (errata 203), row 6 (records room): picks, far off; the front office through the door. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 6 (records room): picks, far off; the front office through the door. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "archive": {
    "src": "audio/sfx/beds/archive.wav",
    "gain": 0.225,
-   "why": "doc 45, Every room's bed (errata 203), row 8 (archive): the building settling; Main Street, muffled; a stamp through the door, now and then (the way out to the registrar's: rule 2's exception, checked against invariant 3's lines -- it is not the timesheet's). No paper in it: the timesheet's LISTEN is paper. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 8 (archive): the building settling; Main Street, muffled; a stamp through the door, now and then (the way out to the registrar's: rule 2's exception, checked against invariant 3's lines -- it is not the timesheet's). No paper in it: the timesheet's LISTEN is paper. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "company_lobby": {
    "src": "audio/sfx/beds/street-muffled.wav",
    "gain": 0.274,
-   "why": "doc 45, Every room's bed (errata 203), row 10 (Company lobby): the street, muffled (the assay office's file), and the layer: voices shaped like laughter through the Colonel's door (a way out). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
+   "why": "doc 45, Every room's bed (errata 203), row 10 (Company lobby): the street, muffled (the assay office's file), and the layer: voices shaped like laughter through the Colonel's door (a way out). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
    "layers": [
     {
      "src": "audio/sfx/beds/colonel-voices.wav",
@@ -821,22 +821,22 @@
   "fanshawe_office": {
    "src": "audio/sfx/beds/fanshawe-office.wav",
    "gain": 0.205,
-   "why": "doc 45, Every room's bed (errata 203), row 11 (Fanshawe's office): Main Street with the edges taken off; the lobby, faint, through the door (a way out). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 11 (Fanshawe's office): Main Street with the edges taken off; the lobby, faint, through the door (a way out). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "mercantile": {
    "src": "audio/sfx/beds/mercantile.wav",
    "gain": 0.307,
-   "why": "doc 45, Every room's bed (errata 203), row 12 (mercantile): the doors still swinging -- the approved batwing hinge -- and the street beyond them. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 12 (mercantile): the doors still swinging -- the approved batwing hinge -- and the street beyond them. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "boot_hill": {
    "src": "audio/sfx/beds/boot-hill.wav",
    "gain": 0.157,
-   "why": "doc 45, Every room's bed (errata 203), row 14 (Boot Hill): wind in the rails and the grass; a little of the town, carried up the hill. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 14 (Boot Hill): wind in the rails and the grass; a little of the town, carried up the hill. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "livery": {
    "src": "audio/sfx/beds/livery.wav",
    "gain": 0.17,
-   "why": "doc 45, Every room's bed (errata 203), row 15 (livery): straw settling; warm boards creaking; wind through the gap. Layer: Grievance breathing, while she is in her stall (a figure). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
+   "why": "doc 45, Every room's bed (errata 203), row 15 (livery): straw settling; warm boards creaking; wind through the gap. Layer: Grievance breathing, while she is in her stall (a figure). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
    "layers": [
     {
      "src": "audio/sfx/beds/grievance-breathing.wav",
@@ -848,27 +848,27 @@
   "ozymandias_tent": {
    "src": "audio/sfx/beds/tent.wav",
    "gain": 0.411,
-   "why": "doc 45, Every room's bed (errata 203), row 16 (Ozymandia's tent): canvas breathing; the pot at a murmur; the street arriving in pieces. Never a hum: the tent's hum is one hotspot's line, and it stays there. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 16 (Ozymandia's tent): canvas breathing; the pot at a murmur; the street arriving in pieces. Never a hum: the tent's hum is one hotspot's line, and it stays there. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "church": {
    "src": "audio/sfx/beds/church.wav",
    "gain": 0.161,
-   "why": "doc 45, Every room's bed (errata 203), row 17 (church): wind thinned by the glass; wood easing. Never the bell, except when the rope is pulled (R17-BELL, unchanged). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 17 (church): wind thinned by the glass; wood easing. Never the bell, except when the rope is pulled (R17-BELL, unchanged). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "hotel_lobby": {
    "src": "audio/sfx/beds/hotel-lobby.wav",
    "gain": 0.381,
-   "why": "doc 45, Every room's bed (errata 203), row 18 (hotel lobby): the street, muffled; boots on the boardwalk; a cart going by, rarely (once in eighteen seconds). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 18 (hotel lobby): the street, muffled; boots on the boardwalk; a cart going by, rarely (once in eighteen seconds). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "thads_room": {
    "src": "audio/sfx/beds/thads-room.wav",
    "gain": 0.284,
-   "why": "doc 45, Every room's bed (errata 203), row 19 (Thad's room): the town through the wall; a man passing in the hall, rarely (once in eighteen seconds; the way out to the hall). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 19 (Thad's room): the town through the wall; a man passing in the hall, rarely (once in eighteen seconds; the way out to the hall). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "back_alley": {
    "src": "audio/sfx/beds/back-alley.wav",
    "gain": 0.188,
-   "why": "doc 45, Every room's bed (errata 203), row 20 (back alley): a drip above, a ripple below; washing snapping in the wind; the street through two walls. Layer: the cat purring, while the cat is there (a figure). Never anything from the shack. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
+   "why": "doc 45, Every room's bed (errata 203), row 20 (back alley): a drip above, a ripple below; washing snapping in the wind; the street through two walls. Layer: the cat purring, while the cat is there (a figure). Never anything from the shack. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
    "layers": [
     {
      "src": "audio/sfx/beds/cat-purring.wav",
@@ -880,32 +880,32 @@
   "watchmans_shack": {
    "src": "audio/sfx/beds/watchmans-shack.wav",
    "gain": 0.199,
-   "why": "doc 45, Every room's bed (errata 203), row 21 (watchman's shack): the street, all of it; the alley outside. Never anything of the watchman's. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 21 (watchman's shack): the street, all of it; the alley outside. Never anything of the watchman's. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "claims_road": {
    "src": "audio/sfx/beds/claims-road.wav",
    "gain": 0.159,
-   "why": "doc 45, Every room's bed (errata 203), row 22 (claims road): wind down off the diggings; a bucket swinging; picks, distant; the town small and far: a door, a dog, the bell (the approved flat bell, far off, once in twenty-three seconds). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 22 (claims road): wind down off the diggings; a bucket swinging; picks, distant; the town small and far: a door, a dog, the bell (the approved flat bell, far off, once in twenty-three seconds). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "prosperity": {
    "src": "audio/sfx/beds/prosperity.wav",
    "gain": 0.153,
-   "why": "doc 45, Every room's bed (errata 203), row 23 (Prosperity): wind along the top; water over stones next door. Never air from the hole (rule 2): nothing in this bed comes from it. The row's layer, the raccoon breathing while he is there, is NOT wired, under invariant 3: the raccoon sits in the hole's mouth, so his breath would be a sound at the hole -- moving air, at the one place on the claim whose LISTEN matters, audible while that line can be read. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 23 (Prosperity): wind along the top; water over stones next door. Never air from the hole (rule 2): nothing in this bed comes from it. The row's layer, the raccoon breathing while he is there, is NOT wired, under invariant 3: the raccoon sits in the hole's mouth, so his breath would be a sound at the hole -- moving air, at the one place on the claim whose LISTEN matters, audible while that line can be read. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "pratts_claim": {
    "src": "audio/sfx/beds/pratts-claim.wav",
    "gain": 0.13,
-   "why": "doc 45, Every room's bed (errata 203), row 25 (Pratt's claim): water, even and polite; canvas easing. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 25 (Pratt's claim): water, even and polite; canvas easing. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "creek": {
    "src": "audio/sfx/beds/creek.wav",
    "gain": 0.151,
-   "why": "doc 45, Every room's bed (errata 203), row 26 (creek): water over stone and through the riffles. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 26 (creek): water over stone and through the riffles. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "claim_row": {
    "src": "audio/sfx/beds/claim-row.wav",
    "gain": 0.151,
-   "why": "doc 45, Every room's bed (errata 203), row 27 (claim row): wind across the shaft mouths, low; boards knocking out of time; the road below, faint. Layer: two men arguing, words unclear, while the boundary men are there (a figure). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
+   "why": "doc 45, Every room's bed (errata 203), row 27 (claim row): wind across the shaft mouths, low; boards knocking out of time; the road below, faint. Layer: two men arguing, words unclear, while the boundary men are there (a figure). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
    "layers": [
     {
      "src": "audio/sfx/beds/boundary-men.wav",
@@ -917,22 +917,22 @@
   "laundry": {
    "src": "audio/sfx/beds/laundry.wav",
    "gain": 0.124,
-   "why": "doc 45, Every room's bed (errata 203), row 28 (laundry): water at the boil, cloth turning; iron set down and taken up; wind. The coppers and the irons are the room's own working noise (rule 2's exception, checked against invariant 3's lines). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 28 (laundry): water at the boil, cloth turning; iron set down and taken up; wind. The coppers and the irons are the room's own working noise (rule 2's exception, checked against invariant 3's lines). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "high_ridge": {
    "src": "audio/sfx/beds/high-ridge.wav",
    "gain": 0.159,
-   "why": "doc 45, Every room's bed (errata 203), row 29 (high ridge): wind with nothing to stop it; everything faint and mixed: the bell, picks, a dog. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 29 (high ridge): wind with nothing to stop it; everything faint and mixed: the bell, picks, a dog. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "motts_site": {
    "src": "audio/sfx/beds/motts-site.wav",
    "gain": 0.164,
-   "why": "doc 45, Every room's bed (errata 203), row 30 (Mott's site): wind in the workings, hollow; gravel trickling; mesh buzzing in gusts; the bell, very thin, on the wind. Never THE STRIKE, which is score. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 30 (Mott's site): wind in the workings, hollow; gravel trickling; mesh buzzing in gusts; the bell, very thin, on the wind. Never THE STRIKE, which is score. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "funeral": {
    "src": "audio/sfx/beds/funeral.wav",
    "gain": 0.17,
-   "why": "doc 45, Every room's bed (errata 203), row 31 (the funeral): wind through the grass; an owl, rarely (once in twenty-three seconds). Layer: the mourners shuffling and a cough, while they are there (a figure). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
+   "why": "doc 45, Every room's bed (errata 203), row 31 (the funeral): wind through the grass; an owl, rarely (once in twenty-three seconds). Layer: the mourners shuffling and a cough, while they are there (a figure). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
    "layers": [
     {
      "src": "audio/sfx/beds/mourners.wav",
@@ -944,27 +944,27 @@
   "company_vault": {
    "src": "audio/sfx/beds/company-vault.wav",
    "gain": 0.131,
-   "why": "doc 45, Every room's bed (errata 203), row 35 (Company vault): the mechanism breathing (the room's own working noise); tin ticking. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 35 (Company vault): the mechanism breathing (the room's own working noise); tin ticking. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "main_street_dawn": {
    "src": "audio/sfx/wind.wav",
    "gain": 0.41,
-   "why": "doc 45, Every room's bed (errata 203), row 36 (Main Street at dawn): wind behind the false fronts -- the approved Main Street wind itself -- and the road quiet. Never picks: its LISTEN is 'for the first time since I stepped off the coach: no picks'. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 36 (Main Street at dawn): wind behind the false fronts -- the approved Main Street wind itself -- and the road quiet. Never picks: its LISTEN is 'for the first time since I stepped off the coach: no picks'. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "boarding_house_parlour": {
    "src": "audio/sfx/beds/parlour.wav",
    "gain": 0.158,
-   "why": "doc 45, Every room's bed (errata 203), row 37 (boarding-house parlour): a good fire ticking (the room's own working noise); boots overhead, taken off carefully, rarely (once in eighteen seconds). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 37 (boarding-house parlour): a good fire ticking (the room's own working noise); boots overhead, taken off carefully, rarely (once in eighteen seconds). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "photographers_studio": {
    "src": "audio/sfx/beds/photographers-studio.wav",
    "gain": 0.18,
-   "why": "doc 45, Every room's bed (errata 203), row 38 (photographer's studio): the Lane through the glass, faint; canvas stirring. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 38 (photographer's studio): the Lane through the glass, faint; canvas stirring. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "bakehouse": {
    "src": "audio/sfx/beds/bakehouse.wav",
    "gain": 0.087,
-   "why": "doc 45, Every room's bed (errata 203), row 39 (bakehouse): the oven working (the room's own working noise); dough being kneaded; a cart being loaded in the yard (the way out to the yard). Layer: the boy humming in time with the kneading, while he is there (a figure). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
+   "why": "doc 45, Every room's bed (errata 203), row 39 (bakehouse): the oven working (the room's own working noise); dough being kneaded; a cart being loaded in the yard (the way out to the yard). Layer: the boy humming in time with the kneading, while he is there (a figure). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it.",
    "layers": [
     {
      "src": "audio/sfx/beds/boy-humming.wav",
@@ -976,27 +976,27 @@
   "empty_storefront": {
    "src": "audio/sfx/beds/street-muffled.wav",
    "gain": 0.218,
-   "why": "doc 45, Every room's bed (errata 203), row 40 (empty storefront): the street going past, faint -- the assay office's muffled street, two decibels further off. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 40 (empty storefront): the street going past, faint -- the assay office's muffled street, two decibels further off. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "schoolhouse": {
    "src": "audio/sfx/beds/schoolhouse.wav",
    "gain": 0.092,
-   "why": "doc 45, Every room's bed (errata 203), row 41 (schoolhouse): hammering from town, far off. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 41 (schoolhouse): hammering from town, far off. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "barbers": {
    "src": "audio/sfx/beds/barbers.wav",
    "gain": 0.191,
-   "why": "doc 45, Every room's bed (errata 203), row 42 (barber's): the Lane, faint; leather creaking as it settles. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 42 (barber's): the Lane, faint; leather creaking as it settles. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "lower_street": {
    "src": "audio/sfx/beds/lower-street.wav",
    "gain": 0.164,
-   "why": "doc 45, Every room's bed (errata 203), row 43 (Lower Street): Main Street a little way off, mostly the Nugget; wind from the diggings; a loose board knocking; horses shifting at the livery; small bells from the tent flap at the far end, rarely (once in twenty-three seconds). Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 43 (Lower Street): Main Street a little way off, mostly the Nugget; wind from the diggings; a loose board knocking; horses shifting at the livery; small bells from the tent flap at the far end, rarely (once in twenty-three seconds). Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "the_lane": {
    "src": "audio/sfx/beds/the-lane.wav",
    "gain": 0.178,
-   "why": "doc 45, Every room's bed (errata 203), row 44 (the Lane): Main Street through the gap, Lower Street at the other end, and a hush between; a plane on wood from the undertaker's, bells on the tent's hem in the draft, a mule, faint, from the livery. Never anything from inside the undertaker's but the plane. Built by errata 204 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 44 (the Lane): Main Street through the gap, Lower Street at the other end, and a hush between; a plane on wood from the undertaker's, bells on the tent's hem in the draft, a mule, faint, from the livery. Never anything from inside the undertaker's but the plane. Built by errata 206 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   }
  },
  "lines": [
@@ -1087,14 +1087,14 @@
    "overNext": 6,
    "note": "Doc 48 S6 beat 3: \"It is the loudest sound in the game.\" The one named exception to errata 106's places: its own place is set over its ducked room like any cue's, and tools/check-sound-levels.mjs also holds that, against the music, it is at least `overNext` dB louder than any other sound in the game. Nothing else may be named here."
   },
-  "ambienceNote": "ERRATA 204: a bed sits at ambienceDefault unless its room's music is quiet, when it is given a lower place so it stays under that music (doc 45 rule 5): the archive's and the schoolhouse's at -12, the far-off and through-the-wall rooms at -10. Every gain is set from measurement; Tyler's audition is pending, and his rulings replace them."
+  "ambienceNote": "ERRATA 206: a bed sits at ambienceDefault unless its room's music is quiet, when it is given a lower place so it stays under that music (doc 45 rule 5): the archive's and the schoolhouse's at -12, the far-off and through-the-wall rooms at -10. Every gain is set from measurement; Tyler's audition is pending, and his rulings replace them."
  },
  "roomGain": {
   "coffin": 0.32,
   "listening_chamber": 0.17
  },
  "bedPlan": {
-  "about": "ERRATA 204: doc 45's \"Every room's bed\" table, row by row, as the rooms it names; and the four rooms rule 6 gives no bed. tools/check-room-beds.mjs reads the table's row numbers and rule 6's out of doc 45 itself and fails if these disagree with it, if a planned room has no `ambience` entry, if a silent room has one, if any bed or layer carries a key a puzzle state could drive, or if anything at Prosperity is tied to the hole. Ids only: the words are doc 45's.",
+  "about": "ERRATA 206: doc 45's \"Every room's bed\" table, row by row, as the rooms it names; and the four rooms rule 6 gives no bed. tools/check-room-beds.mjs reads the table's row numbers and rule 6's out of doc 45 itself and fails if these disagree with it, if a planned room has no `ambience` entry, if a silent room has one, if any bed or layer carries a key a puzzle state could drive, or if anything at Prosperity is tied to the hole. Ids only: the words are doc 45's.",
   "rows": {
    "1": [
     "stage_road",

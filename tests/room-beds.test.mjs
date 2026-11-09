@@ -1,5 +1,5 @@
 /**
- * EVERY ROOM'S BED, AS DOC 45 PLANS IT (errata 203, 204).
+ * EVERY ROOM'S BED, AS DOC 45 PLANS IT (errata 203, 206).
  *
  * tools/check-room-beds.mjs holds the plan; this proves it fails on each kind
  * of violation, put back into the real data: a planned room without its bed, a

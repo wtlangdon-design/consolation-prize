@@ -2470,14 +2470,14 @@ export interface SoundsFile {
    */
   ambience: Record<string, AmbienceBed>;
   /**
-   * ERRATA 204: doc 45's bed plan as room ids, held to the doc by
+   * ERRATA 206: doc 45's bed plan as room ids, held to the doc by
    * tools/check-room-beds.mjs. The engine never reads it.
    */
   bedPlan?: { rows: Record<string, string[]>; silent: Record<string, string>;
     hole: { room: string; targets: string[]; below: string } };
 }
 
-/** A room's background (doc 45's `-A` beds; errata 105, 204). */
+/** A room's background (doc 45's `-A` beds; errata 105, 206). */
 export interface AmbienceBed extends SoundRef {
   why?: string;
   layers?: (SoundRef & { whenPresent?: string })[];
