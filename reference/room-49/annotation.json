@@ -1,9 +1,9 @@
 {
  "room": "mine_line",
  "plate": "art/backgrounds/room-49-mine-line.png",
- "plateNote": "Read on the promoted plate (art/backgrounds/room-49-mine-line.png, room-49 operation 2, derived and promoted by tools/art/interiors-plate.mjs; frame.json beside the candidate). Every rect below was read off that picture.",
+ "plateNote": "Read on the promoted plate (art/backgrounds/room-49-mine-line.png, room-49 operation 2, derived and promoted by tools/art/interiors-plate.mjs; frame.json beside the candidate). Every rect below was read off that picture. The walls repainted as broken rock by room-49 operation 3 (plate-02), every timber, opening and stone left where it was (Tyler, 2026-11-09: the walls looked \"like dragon scales instead of rocks\"); promoted at the same y 170, Room 49's passages mirrored again (tools/art/room49-mirror.py plate-02).",
  "plateShipping": "art/backgrounds/room-49-mine-line.png",
- "plateShippingHash": "26c16d22b0b1950b7a49f201764614842628b1cccb05b07aac9117c704cb8d87",
+ "plateShippingHash": "4aea66066e6f40b2cc28c72ef6eaf58176f38591f6f2c6a9b6a64bc462dbee25",
  "plateSize": [
   1920,
   864

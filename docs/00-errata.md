@@ -5749,3 +5749,9 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 - **Placed by sight.** On the post's brown, at a sixth of a man, the lantern read as a smudge; it hangs against the passage's dark, at a quarter. In Room 46 the right opening is the shortest, so the room's three hang lower together, under its beam.
 - Lesson: `tests/gulch-mine.test.ts` fails if a way on in a mine room has no lantern, or if a room's lanterns differ in size, height or drawing (proved by taking Room 49's right passage's away).
 
+# 211 · THE MINE'S WALLS, BROKEN ROCK — TYLER, 2026-11-09 ("The insides of the caves kind of look like dragon scales instead of rocks")
+
+- **The walls repainted.** The generator had drawn the mine's rock as rows of rounded, overlapping, same-sized lozenges. Each of the four mine plates was edited once to repaint only its walls and roof as rough, broken, irregular rock -- angular slabs, cracks at odd angles, no repeating shape -- with every timber, opening, boulder, the cart, the stake, the rails and the shaft of light left where it was: room-46 operation 4, room-47, room-48 and room-49 operation 3. Each was promoted at its old crop row, and measured against the old plate: within a pixel in 46, 47 and 48; Room 49's edit drifted three, and its passages were mirrored again from it (`tools/art/room49-mirror.py plate-02`), so they stay identical. The lanterns (errata 210) still hang on their posts.
+- **Budget.** room-46 4 of 4; rooms 47 to 49, 3 of 4.
+- Lesson: doc 55 §8 -- a generated rock face drawn as a repeating pattern of like shapes reads as a hide or a wall of scales, not rock.
+

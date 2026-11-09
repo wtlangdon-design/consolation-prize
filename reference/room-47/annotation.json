@@ -1,9 +1,9 @@
 {
  "room": "mine_climb",
  "plate": "art/backgrounds/room-47-mine-climb.png",
- "plateNote": "Read on the promoted plate (art/backgrounds/room-47-mine-climb.png, room-47 operation 2, derived and promoted by tools/art/interiors-plate.mjs; frame.json beside the candidate). Every rect below was read off that picture.",
+ "plateNote": "Read on the promoted plate (art/backgrounds/room-47-mine-climb.png, room-47 operation 2, derived and promoted by tools/art/interiors-plate.mjs; frame.json beside the candidate). Every rect below was read off that picture. The walls repainted as broken rock by room-47 operation 3 (plate-02), every timber, opening and stone left where it was (Tyler, 2026-11-09: the walls looked \"like dragon scales instead of rocks\"); promoted at the same y 130.",
  "plateShipping": "art/backgrounds/room-47-mine-climb.png",
- "plateShippingHash": "30c65db4dc99f58df55d568d505e16c7a3eafbc027f6bea9a45dd1b3ad0ef2a4",
+ "plateShippingHash": "eca673fac2d01d923b43794a3489be3ca446e29a06e91d2718bd6dcbf0238089",
  "plateSize": [
   1920,
   864
