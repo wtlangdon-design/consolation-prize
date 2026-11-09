@@ -263,7 +263,17 @@
    "id": "to_office",
    "to": "fanshawe_office",
    "defaultVerb": "WALK_TO",
-   "note": "Doc 20: the lobby's one way on, into Fanshawe's office (Room 11). Doc 05 and doc 54 write it; built as the exit with those lines (errata 84)."
+   "note": "Doc 20: the lobby's one way on, into Fanshawe's office (Room 11). Doc 05 and doc 54 write it; built as the exit with those lines (errata 84). Errata 220 (Tyler, 2026-11-09: \"1\"): closed until A2, so the hotel room can't be skipped and Act IV never opens in a room Thad never got; his own line answers (doc 57 A10).",
+   "when": {
+    "T_ROOM_GRANTED": true
+   },
+   "closed": {
+    "when": {
+     "T_ROOM_GRANTED": false
+    },
+    "fromRef": "docs/57-puzzle-completion.md::## A10 ",
+    "line": "> **THE DOOR TO THE OFFICE**"
+   }
   }
  }
 }
