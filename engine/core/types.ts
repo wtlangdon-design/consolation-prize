@@ -746,6 +746,14 @@ export interface AmbientFile {
      */
     footRow?: number;
     /**
+     * THE MAN THIS SHEET WAS SNAPPED TO ONE LEVEL AT (errata 112 G), when it is
+     * now drawn at another (errata 234: redrawn at Thad's height by its data,
+     * its pixels not re-snapped). Read by tests/one-level.test.mjs only, which
+     * checks the sheet's grid at this man and holds the drift to 5%; the engine
+     * never reads it.
+     */
+    levelMan?: number;
+    /**
      * Idle BREAKS: separate one-off actions, each leaving the idle, doing one
      * thing, and returning to it.
      *

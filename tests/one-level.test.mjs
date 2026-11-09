@@ -94,6 +94,7 @@ function offGridTies(png, [x0, y0, w, h], b, eps) {
 }
 
 const jobs = new Map();
+const relevelled = [];
 for (const path of manifest.ambient) {
   const npc = read(path);
   const places = [[npc.room, npc.x, npc.y, npc.sprite]];
@@ -111,9 +112,13 @@ for (const path of manifest.ambient) {
     const man = sprite.figureHeight ? sprite.figureHeight / (sprite.stature || 1)
       : sprite.depthY !== undefined ? manAtDepth(room, sprite.depthY) : manAt(room, x, y);
     if (man <= 0) continue;
+    // SNAPPED AT ONE MAN, DRAWN AT ANOTHER (errata 234): `levelMan` is the man the sheet's grid was
+    // snapped at, when errata 234 redrew the figure at Thad's height without re-snapping its pixels.
+    // The grid is checked where it is; how far its art pixels then sit off the level is held below.
+    if (sprite.levelMan) relevelled.push({ who: npc.id, room, man, levelMan: sprite.levelMan });
     for (const frame of sprite.frames) {
       const key = `${sprite.sheet}|${frame.join(',')}`;
-      if (!jobs.has(key)) jobs.set(key, { who: npc.id, sheet: sprite.sheet, frame, b: man / N });
+      if (!jobs.has(key)) jobs.set(key, { who: npc.id, sheet: sprite.sheet, frame, b: (sprite.levelMan ?? man) / N });
     }
   }
 }
@@ -143,4 +148,18 @@ test('every figure is drawn at one level: a man is 115 art pixels tall', () => {
   }
   assert.ok(measured > 300, `only ${measured} frames measured`);
   assert.deepEqual(misses, [], `${misses.length} frame(s) drawn finer than one level; run tools/art/one-level.py:\n${misses.slice(0, 20).join('\n')}`);
+});
+
+/**
+ * A SHEET REDRAWN AT THAD'S HEIGHT WITHOUT A NEW SNAP (errata 234). Its art
+ * pixels are drawn at the man it is now scaled by over the man it was snapped
+ * at: within LEVEL_DRIFT of the level, a difference of a tenth of a screen
+ * pixel per art pixel that no eye can see. Past it, the sheet is re-snapped
+ * (tools/art/one-level.py) and `levelMan` goes.
+ */
+const LEVEL_DRIFT = 0.05;
+test('a sheet drawn at a new height without a new snap stays within 5% of the level', () => {
+  const far = relevelled.filter((one) => Math.abs(one.man / one.levelMan - 1) > LEVEL_DRIFT)
+    .map((one) => `${one.who} in ${one.room}: snapped at a man of ${one.levelMan}, drawn at ${one.man.toFixed(1)} (${(one.man / one.levelMan).toFixed(3)})`);
+  assert.deepEqual(far, [], 'run tools/art/one-level.py on these and drop their `levelMan`');
 });
