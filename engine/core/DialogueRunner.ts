@@ -304,6 +304,16 @@ export class DialogueRunner {
    */
   exitPool: readonly string[] = [];
 
+  /**
+   * A QUIET EXIT (errata 225; Tyler, 2026-11-09: trim the comic goodbyes after the emotional scenes, "yes"). Where
+   * the open node declares one and its gate holds, the universal exit says that line instead of the pool's next
+   * joke, and the pool does not move on: the rotation resumes where it was at the next ordinary goodbye.
+   */
+  private quietExit(): string | null {
+    const quiet = this.currentNode?.quietExit;
+    return quiet && this.flags.test(quiet.when) ? quiet.text : null;
+  }
+
   private exitWording(): string | null {
     if (!this.exitPool.length || !this.flags.isDefined(EXIT_TURN)) return null;
     return this.exitPool[this.flags.getNumber(EXIT_TURN) % this.exitPool.length] ?? null;
@@ -395,7 +405,7 @@ export class DialogueRunner {
     const node = tree.nodes[entry?.node ?? tree.start];
     // AN OPENING PLAYED ONCE (doc 57 B4: "The first TALK TO plays..."): its
     // flag records that it has been heard, and `start` sets it.
-    if (node?.openingOnce && this.flags.get(node.openingOnce) === true) return [];
+    if (node?.openingOnce && this.flags.get(node.openingOnce) === true) return node.returnOpening ?? [];
     return node?.opening ?? [];
   }
 
@@ -565,7 +575,7 @@ export class DialogueRunner {
 
   /** The option's wording right now: its `rephrase` text once that milestone is reached. */
   private wordingOf(option: DialogueOption): string {
-    if (option.universal) return this.exitWording() ?? option.text;
+    if (option.universal) return this.quietExit() ?? this.exitWording() ?? option.text;
     if (option.afterUse === 'rephrase' && option.rephrase && this.milestoneReached(option.rephrase.after)) {
       return option.rephrase.text;
     }
@@ -733,7 +743,7 @@ export class DialogueRunner {
       ...flagEffects(prefix, option.set, option.add),
       ...(openingOnceAdd ? flagEffects(`${prefix}#opening`, openingOnceAdd) : []),
       ...(closingAdd ? flagEffects(`${prefix}#closing`, undefined, closingAdd) : []),
-      ...(option.universal && this.exitWording() !== null ? flagEffects(`${prefix}#exit`, undefined, { [EXIT_TURN]: 1 }) : []),
+      ...(option.universal && this.quietExit() === null && this.exitWording() !== null ? flagEffects(`${prefix}#exit`, undefined, { [EXIT_TURN]: 1 }) : []),
       // PUZZLE PROGRESS A ROW WRITES (doc 53): reserved with the rest, landed
       // after the exchange drains.
       ...Object.entries(option.puzzle ?? {}).map(([puzzle, status]) => ({

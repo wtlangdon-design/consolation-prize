@@ -43,12 +43,12 @@ Nickel Pratt on his own claim, after Thad has caught him pulling up Prosperity's
 
 ## 3 · FANSHAWE'S OFFICE — Part Three opens (after E0b)
 
-The Colonel, alone among his eleven chairs, after Thad has turned down the offer. Warm, pleased, and not raising his voice; he never does. "Most of them" is as near as the game comes, here, to the men in Winnie's second ledger who stopped coming to the window.
+The Colonel, alone among his eleven chairs, after Thad has left without taking the offer. *(Errata 225: the first line said he said no. The player may have said no, or may only have walked out; the line now holds either way.)* Warm, pleased, and not raising his voice; he never does. "Most of them" is as near as the game comes, here, to the men in Winnie's second ledger who stopped coming to the window.
 
 | # | Speaker | Line |
 |---|---|---|
-| 1 | FANSHAWE | "He said no." |
-| 2 | FANSHAWE | "They do, at first. It's the coat. A man in a good coat still thinks he's in Providence." |
+| 1 | FANSHAWE | "He didn't say yes." |
+| 2 | FANSHAWE | "They don't, at first. It's the coat. A man in a good coat still thinks he's in Providence." |
 | 3 | FANSHAWE | "Eleven chairs. Every one of them sat in by a man who said no." |
 | 4 | FANSHAWE | "Most of them are still looking." |
 | 5 | FANSHAWE | "Good. Let him look." |

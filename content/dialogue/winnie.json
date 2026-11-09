@@ -781,7 +781,13 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "quietExit": {
+        "when": {
+          "T_DEATH_CERTIFIED": true
+        },
+        "text": "Thank you, Miss Ledger."
+      }
     },
     "WIN_F1": {
       "id": "WIN_F1",
@@ -861,7 +867,13 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "quietExit": {
+        "when": {
+          "T_ASSAY_RUN": true
+        },
+        "text": "I'll see you at the Registrar's."
+      }
     }
   }
 }

@@ -314,11 +314,11 @@ Vessel opens with pair 1. Thad has no counters. He loses five straight exchanges
 
 > **THAD:** "Malnourished. Bishop. Yes."
 
-*The other three, as he hears them (errata 75):*
+*The other three, as he hears them (errata 75). Each note is shorter than the last (errata 225: the same three-beat echo four times running read as a metronome by the fourth; he gets quicker at it instead):*
 
 > **THAD:** "Grandmother. Gravel. Yes."
-> **THAD:** "Everyone. Shirts. Concern. Yes."
-> **THAD:** "In Sacramento. Not from. Yes."
+> **THAD:** "Shirts. Yes."
+> **THAD:** "Yes."
 
 *Before the first exchange, Reverend Sowerby reads the handbill's five rules aloud, all of them, with feeling (errata 75). The judges sit in the dark beyond the lamp; Sowerby holds the pencil.*
 
