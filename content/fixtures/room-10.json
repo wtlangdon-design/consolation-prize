@@ -19,7 +19,8 @@
     "T_SEEN_MAIN_STREET": true,
     "T_CASE_DOWN": true,
     "T_CASE_TAKEN": true,
-    "T_SWINDLED": true
+    "T_SWINDLED": true,
+    "T_ROOM_GRANTED": true
    },
    "inventory": [
     "tuning_fork",

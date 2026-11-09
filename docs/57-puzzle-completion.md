@@ -142,6 +142,10 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 *Room 11, at night. Doc 48 S1 with FAN_A2 (doc 04) and errata 68 B (only option 6 advances).*
 
 - **Trigger:** entering Room 11 holding THE INVITATION, until `T_DINED`. S1 beat 1 plays.
+- **Not before the room** *(errata 220, Tyler: "1")*: until A2, the lobby's door to the office is not a way in, and Thad answers it himself:
+
+> **THE DOOR TO THE OFFICE** · walk through, *before A2* — "Not yet. I'd like a bed in this town before I call on the man who owns most of it."
+
 - **Leaving the table** by the universal exit before option 6: **FANSHAWE:** "Already? Then come back when you're hungry. The table will keep." *(S1 starts again on the next entry.)*
 - **Beat 3, after option 6 settles:** *(Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.)* **FANSHAWE:** "Keep it. I have dozens." *(Thad pockets it, absently.)* → THE HANDKERCHIEF; `T_DINED`; Room 11's own handkerchief hotspot is not drawn from now on.
 - **Beat 4** plays at the office door as Thad leaves, Fanshawe already turned back to his wine — the doorway is the porch: "A very fine dinner." *(beat)* "I believe I own something." Then the act card, **PART TWO — THREE PIECES OF PAPER**, and `ACT` = 2.
