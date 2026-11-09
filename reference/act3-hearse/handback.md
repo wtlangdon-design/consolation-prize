@@ -13,8 +13,10 @@ and dropped the plume. A masked edit does not hold this generator to the mask. L
 cut-out was tried and set aside: her ears stand clear of the plume in frames 0 and 1 but are mostly behind it in 2
 and 3, so a stretch would make them change length between poses.
 
-**So her ears stay short (1.01 of a man against the anchors' 1.10-1.35).** Wiring her with a scale anchor needs that
-recorded as an exception (and in `proofs/check-friction.json` if a check is loosened for it).
+**So her ears stay short (1.01 of a man against the anchors' 1.10-1.35), and Tyler accepted them** (2026-11-09: "accept
+the short ears"). When she is wired with a scale anchor, record the ears as an exception quoting that ruling (and in
+`proofs/check-friction.json` if a check is loosened for it). Her withers, which the brief sets, are in range. The ribbon
+is not drawn; Tyler's acceptance covers the art as delivered.
 
 ## Operation 1 · `art/actors/room-14-hearse-grievance.png`
 
