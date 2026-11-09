@@ -1558,11 +1558,19 @@ function combinations() {
       if (!m) throw new Error(`doc 57 F1: no pickaxe case "${label}"`);
       return quoted(m[1].split('→')[0])[0];
     };
+    // The rest of a case's lines, said after the first with a beat between (errata 229: the arrival below was one
+    // paragraph holding four ideas; doc 59 §8).
+    const rest = (label) => {
+      const m = new RegExp(`^> \\*\\*THE HOLE\\*\\* · USE THE PICKAXE, \\*${label}\\* — (.+)$`, 'm').exec(f1);
+      return quoted(m[1].split('→')[0]).slice(1);
+    };
+    const afterRest = rest('after F1');
     rebuilt.push({
       item: 'pickaxe', room: 'prosperity', target: 'hole', puzzle: 'F1', say: pick('after F1'),
       note: 'Doc 57 F1: the pickaxe on the hole, after the draught is understood: three days, forty feet. "Room 34 opens below the hole": the line is read and he is in Room 34, and the hole is the way down from then on (T_DUG_DOWN, errata 99 H).',
       rules: [
-        { case: 'after F1', when: { T_DRAUGHT: true }, say: pick('after F1'), set: { T_DUG_DOWN: true }, goto: 'under_prosperity' },
+        { case: 'after F1', when: { T_DRAUGHT: true }, say: pick('after F1'), ...(afterRest.length ? { then: afterRest } : {}),
+          set: { T_DUG_DOWN: true }, goto: 'under_prosperity' },
         { case: 'before F1', when: { T_DRAUGHT: false }, say: pick('before F1') },
       ],
     });

@@ -8,7 +8,7 @@
       "room": "hotel_lobby",
       "target": "parlor_piano",
       "puzzle": "A2",
-      "say": "Four minutes. It is the first honest work done in this building in some time.",
+      "say": "Four minutes. It is the most honest work done in this building in some time.",
       "targetPending": "Doc 02 A2. Room 18 is not built.",
       "rules": [
         {
@@ -23,7 +23,7 @@
           "when": {
             "T_TUNES_PIANOS": true
           },
-          "say": "Four minutes. It is the first honest work done in this building in some time.",
+          "say": "Four minutes. It is the most honest work done in this building in some time.",
           "then": [
             {
               "speaker": "hotel_clerk",
@@ -412,7 +412,7 @@
       "room": "claims_registrar",
       "target": "counter",
       "puzzle": "A9",
-      "say": "The survey, on the correct form. He has read it without expression, which I am told is the highest mark this office gives.",
+      "say": "The survey, on the correct form. He has read it without expression. In this office, that is the highest mark.",
       "note": "Doc 57 A9 (not doc 24): the survey on the counter, after the deed and before it.",
       "rules": [
         {
@@ -430,7 +430,7 @@
           "when": {
             "T_DEED_LODGED": true
           },
-          "say": "The survey, on the correct form. He has read it without expression, which I am told is the highest mark this office gives.",
+          "say": "The survey, on the correct form. He has read it without expression. In this office, that is the highest mark.",
           "takes": [
             "survey"
           ],
@@ -499,7 +499,7 @@
       "room": "ozymandias_tent",
       "target": "ozymandia",
       "puzzle": "A7",
-      "say": "That was the filing fee. It is now a divining fee. Money out here changes careers faster than men do.",
+      "say": "That was the filing fee. It is now a divining fee.",
       "note": "Doc 57 A7, step 3: the filing fee becomes a divining fee, once she has named her price (OZY_A1 option 1).",
       "rules": [
         {
@@ -508,7 +508,7 @@
             "T_OZY_ASKED": true,
             "T_OZY_PAID": false
           },
-          "say": "That was the filing fee. It is now a divining fee. Money out here changes careers faster than men do.",
+          "say": "That was the filing fee. It is now a divining fee.",
           "then": [
             {
               "speaker": "ozymandia",
@@ -788,7 +788,7 @@
       "room": "prosperity",
       "target": "hole",
       "puzzle": "F1",
-      "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement. I have borrowed the lamp from my room, and I will return it, which is the second time I have promised that to something in this territory. The draught got warmer the whole way down.",
+      "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement.",
       "note": "Doc 57 F1: the pickaxe on the hole, after the draught is understood: three days, forty feet. \"Room 34 opens below the hole\": the line is read and he is in Room 34, and the hole is the way down from then on (T_DUG_DOWN, errata 99 H).",
       "rules": [
         {
@@ -796,7 +796,11 @@
           "when": {
             "T_DRAUGHT": true
           },
-          "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement. I have borrowed the lamp from my room, and I will return it, which is the second time I have promised that to something in this territory. The draught got warmer the whole way down.",
+          "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement.",
+          "then": [
+            "I have borrowed the lamp from my room. That is the second thing in this territory I have promised to give back.",
+            "The draught got warmer the whole way down."
+          ],
           "set": {
             "T_DUG_DOWN": true
           },

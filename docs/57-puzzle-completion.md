@@ -59,7 +59,7 @@ Built as doc 17 v3 and doc 27 have it: the stage driver sends Thad to the undert
 3. USE THE TUNING FORK on the piano.
 
 > **THE PARLOR PIANO** · USE THE TUNING FORK, *before `T_TUNES_PIANOS`* — "Tuning a hotel's piano without being asked is how a man ends up in the street, holding a fork and an explanation."
-> **THE PARLOR PIANO** · USE THE TUNING FORK, *after `T_TUNES_PIANOS`* — doc 24's line ("Four minutes. It is the first honest work done in this building in some time."), then **CLERK:** "Top of the stairs, second door. The key sticks. You have to want it." → **A2**. *(The room is the reward; there is no key item. Room 19 opens.)*
+> **THE PARLOR PIANO** · USE THE TUNING FORK, *after `T_TUNES_PIANOS`* — doc 24's line ("Four minutes. It is the most honest work done in this building in some time."), then **CLERK:** "Top of the stairs, second door. The key sticks. You have to want it." → **A2**. *(The room is the reward; there is no key item. Room 19 opens.)*
 > **THE PARLOR PIANO** · USE THE TUNING FORK, *after A2* — "In tune. I keep checking. It keeps being."
 > **THE STAIRS** · USE or walk up, *before A2* — **CLERK:** "The stairs come with a room, sir. They are not sold separately."
 
@@ -103,7 +103,7 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 2. OZY_A1 option 1 (doc 04) — two dollars, in advance.
 3. Pay her. Show her the ground.
 
-> **MADAME OZYMANDIA** · USE THE FILING FEE, *after OZY_A1 option 1* — "That was the filing fee. It is now a divining fee. Money out here changes careers faster than men do." **OZYMANDIA:** *(She takes it without looking at it.)* "The earth thanks you. I shall pass it on." *(beat)* "Now. Show me the ground." — "It is two miles away and up a hill." — "Then show me a picture of it." → the fee is spent; `T_OZY_PAID`.
+> **MADAME OZYMANDIA** · USE THE FILING FEE, *after OZY_A1 option 1* — "That was the filing fee. It is now a divining fee." **OZYMANDIA:** *(She takes it without looking at it.)* "The earth thanks you. I shall pass it on." *(beat)* "Now. Show me the ground." — "It is two miles away and up a hill." — "Then show me a picture of it." → the fee is spent; `T_OZY_PAID`.
 > **MADAME OZYMANDIA** · USE THE FILING FEE, *before OZY_A1 option 1* — **OZYMANDIA:** "Put that away, darling. The rod has not yet told me what you owe." *(errata 189)*
 > **MADAME OZYMANDIA** · USE THE COMPANY MAP, *after `T_OZY_PAID`* — *(She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move. She takes a Form 12-C from a stack of them and writes in purple ink.)* **OZYMANDIA:** "The earth has spoken. The earth was brief." — "You keep Form 12-C?" — "The earth prefers them." *(She hands back the map.)* → THE SURVEY, **A7**.
 > **MADAME OZYMANDIA** · USE THE COMPANY MAP, *not yet paid* — **OZYMANDIA:** "The earth will read your map — two dollars — the earth reads *everything* — in advance —"
@@ -126,7 +126,7 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 *Room 7. SUM_A1 option 1″ tells the order: the deed, the survey, the fee.* Each is a USE; the last one triggers the read-back.
 
 > **THE COUNTER** · USE THE DEED, *with THE SURVEY* — doc 24's line ("Filed. Mr Sump has written a number in a book, and the number is mine.")
-> **THE COUNTER** · USE THE SURVEY, *after the deed* — "The survey, on the correct form. He has read it without expression, which I am told is the highest mark this office gives." *(The survey is lodged; it leaves inventory.)*
+> **THE COUNTER** · USE THE SURVEY, *after the deed* — "The survey, on the correct form. He has read it without expression. In this office, that is the highest mark." *(The survey is lodged; it leaves inventory.)*
 > **THE COUNTER** · USE THE SURVEY, *before the deed* — **SUMP:** "The deed first. The order is in the statute."
 > **REGISTRAR SUMP** · USE THE FILING FEE, *before the deed and the survey* — **SUMP:** "The money last, Mr. Grubb, so that nobody can say he paid for the paper."
 > **REGISTRAR SUMP** · USE THE FILING FEE, *after both* — doc 24's line ("Two dollars, for a number in a book. He has taken it without looking at me, which I am told is the correct procedure."), then **the read-back**:
@@ -414,7 +414,7 @@ Asking anyone else to be executor is answered by the interest rule:
 *Rooms 23/24.*
 
 > **THE HOLE** · LOOK, *Act IV* — "The hole is warm. It has been warm since the day I bought it: warm air, out of solid rock, all autumn." *(beat)* "Air does not come out of rock. It comes through it." → `T_DRAUGHT`, **F1**.
-> **THE HOLE** · USE THE PICKAXE, *after F1* — "Three days. Forty feet. The head came off once, forwards, which I took as encouragement. I have borrowed the lamp from my room, and I will return it, which is the second time I have promised that to something in this territory. The draught got warmer the whole way down." → Room 34 opens below the hole.
+> **THE HOLE** · USE THE PICKAXE, *after F1* — "Three days. Forty feet. The head came off once, forwards, which I took as encouragement." "I have borrowed the lamp from my room. That is the second thing in this territory I have promised to give back." "The draught got warmer the whole way down." → Room 34 opens below the hole.
 > **THE HOLE** · USE THE PICKAXE, *before F1* — "Dig where? I have been digging at this town for weeks and it has not moved."
 
 **Room 34 to Room 33** is THE GAP, where the tunnel broke into a hollow:
