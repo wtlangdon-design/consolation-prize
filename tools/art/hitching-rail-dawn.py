@@ -13,6 +13,12 @@ engine draws -- so the empty rail stands where the night rail stood, pixel for
 pixel. Then it is relit by the dawn plate's ratio to the night's over the
 ground it stands on, as tools/art/room36-dawn.py lights the street.
 
+The night rail is the rail AS THE NIGHT DRAWS IT (errata 198): Room 2's
+`figureLight` grades the horses into the street's night -- brightness,
+contrast, saturation, then the light's colour as a multiply, in that order,
+as Renderer.drawTinted does -- so the rail is graded the same way first, and
+the dawn ratio is laid on that. Change the night's grade and this follows it.
+
 Writes art/props/room-36-hitching-rail-dawn.png and prints the prop entry
 Room 36's annotation carries.
 
@@ -28,6 +34,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 NPC = 'content/ambient/hitching-horses.json'
 NIGHT = 'art/backgrounds/room-02-main-street.png'
+NIGHT_ANNOTATION = 'reference/room-02/annotation.json'
 DAWN = 'art/backgrounds/room-36-main-street-dawn.png'
 OUT = 'art/props/room-36-hitching-rail-dawn.png'
 # In the rest frame's own rows and columns.
@@ -46,6 +53,30 @@ import('{ROOT}/engine/core/WalkBoxes.ts').then(({{WalkBoxes, heightIn}}) => {{
     return float(out)
 
 
+def night_grade(rgb, npc_id):
+    """Room 2's figureLight on this figure, as the engine draws it: the canvas
+    filter's brightness, contrast and saturate (the CSS filter functions, on
+    0-1 sRGB values), then the light's colour as a multiply. None named: as drawn."""
+    light = json.load(open(os.path.join(ROOT, NIGHT_ANNOTATION))).get('figureLight')
+    if not light or npc_id not in light['figures']:
+        return rgb
+    grade = {**light, **light.get('perFigure', {}).get(npc_id, {})}
+    p = rgb / 255.0
+    if 'brightness' in grade:
+        p = np.clip(p * grade['brightness'], 0, 1)
+    if 'contrast' in grade:
+        p = np.clip((p - 0.5) * grade['contrast'] + 0.5, 0, 1)
+    if 'saturate' in grade:
+        s = grade['saturate']
+        matrix = np.array([
+            [0.2126 + 0.7874 * s, 0.7152 - 0.7152 * s, 0.0722 - 0.0722 * s],
+            [0.2126 - 0.2126 * s, 0.7152 + 0.2848 * s, 0.0722 - 0.0722 * s],
+            [0.2126 - 0.2126 * s, 0.7152 - 0.7152 * s, 0.0722 + 0.9278 * s]])
+        p = np.clip(p @ matrix.T, 0, 1)
+    p = p * np.clip(np.array(grade.get('light', [1, 1, 1]), dtype=float), 0, 1)
+    return p * 255.0
+
+
 def main():
     npc = json.load(open(os.path.join(ROOT, NPC)))
     sprite = npc['sprite']
@@ -60,13 +91,13 @@ def main():
     rail = Image.fromarray(rest, 'RGBA').resize(size, Image.NEAREST)
     # Relight: the dawn plate over the night plate, on the ground the rail stands on.
     left = round(npc['x'] - size[0] / 2)
-    ground = (slice(npc['y'] - size[1], 858), slice(left, left + size[0]))
+    ground = (slice(npc['y'] - size[1], min(858, npc['y'] + 8)), slice(left, left + size[0]))
     night = np.asarray(Image.open(os.path.join(ROOT, NIGHT)).convert('RGB')).astype(float)[ground].reshape(-1, 3)
     dawn = np.asarray(Image.open(os.path.join(ROOT, DAWN)).convert('RGB')).astype(float)[ground].reshape(-1, 3)
     lit = night.sum(1) > 60
     ratio = np.median(dawn[lit] / np.maximum(night[lit], 1), axis=0)
     px = np.asarray(rail).astype(float)
-    px[..., :3] = np.clip(px[..., :3] * ratio, 0, 255)
+    px[..., :3] = np.clip(night_grade(px[..., :3], npc['id']) * ratio, 0, 255)
     os.makedirs(os.path.join(ROOT, os.path.dirname(OUT)), exist_ok=True)
     Image.fromarray(px.round().astype(np.uint8), 'RGBA').save(os.path.join(ROOT, OUT))
     prop = {'id': 'hitching_rail', 'sheet': OUT, 'x': npc['x'], 'y': npc['y'], 'frame': [0, 0, size[0], size[1]]}

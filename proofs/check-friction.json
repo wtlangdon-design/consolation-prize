@@ -387,6 +387,12 @@
    "why": "Errata 183, Room 42: doc 105 writes the jar's second LOOK as two quotes with a beat between them, and the extractor now speaks them as one line (the punchline was being dropped). The check looked for that joined line in the docs as one run of text and could not find it, so it also reads the docs with each *(beat)* between two quotes taken out. A line still has to appear in the docs word for word, in order; nothing it guards is weakened. tests/room-42.test.ts holds the joined line."
   },
   {
+   "check": "tests/scenery.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 198: Tyler moved the hitching horses back from 1545,850 to 1405,755. The test restated their old place as numbers (the points under the hooves, the ground behind them, the pointer over them), so moving the figure broke it. It now reads the place from content/ambient/hitching-horses.json and asks the same questions there: the ground under the hooves is not walkable, the ground behind is, and the pointer over them finds the mud. Nothing it guards is weakened."
+  },
+  {
    "check": "proofs/played-pending.json",
    "date": "2026-11-08",
    "kind": "loosened",
@@ -403,6 +409,12 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 199, 200: docs 108 and 109, Fiddler's Gulch's writing, join the documents the check reads, so their lines are held to the ledger like every other source's. The diff reads as a loosening because the SOURCES list changed; nothing was excused. The lines for rooms not yet built (51 to 54, and the changes in Consolation) are listed under gulch-pending until they are."
+  },
+  {
+   "check": "proofs/played-pending.json",
+   "date": "2026-11-09",
+   "kind": "reviewed",
+   "why": "Three additions in 14 days (Room 7's D6/E0/F5, D4's first half, Fiddler's Gulch's G1 and three items). None was a misfire: each lists something written whose staging is genuinely not built yet, with its reason, and each comes out when that staging is built (tests/lessons.test.ts fails a pending puzzle that a test plays; tests/items.test.ts fails a pending item that gains a source). The list grows because rooms are being built in parts, which is what it is for. No tune or merge: loosening it would let a puzzle go unplayed silently, and it duplicates no other check. For the twice-monthly review: whether additions to this list should count as loosenings at all, when each carries a reason and a test that retires it."
   }
  ]
 }

@@ -5375,6 +5375,50 @@ Lesson: a person's TALK TO is only staged like a tree's if a test walks it (the 
   - Three new stems are needed. Everything else reuses existing files. Nothing is rendered until the rooms are built.
 - **The builder's brief is `reference/fiddlers-gulch/brief.md`.** It covers the ten rooms, the figures, what the engine needs, and the order of the build. It also asks for a check that fails if the mine's four rooms differ in sound.
 
+# 196 · THE LINES THE MOVE MADE UNTRUE — TYLER, 2026-11-08 ("Yes")
+
+*Errata 193 moved four townspeople off Main Street. The builder found that five lines had become untrue, and Tyler approved rewording them. They are rewritten in their documents and re-extracted.*
+
+- **The claim row's path, LISTEN 1** (doc 08):
+  - was: "Nothing. Nobody comes up here."
+  - now: "Nobody walks it now but me, and the two who argue at the near end."
+
+  LISTEN 2, "My own boots on it, and nobody else's.", stays: the boundary men stand, they don't walk.
+- **The boundary men's Pike answer** (doc 07 §2–3). From the claim row the Lane is back in town:
+  - "Down the lane." is now "In town. On the Lane.";
+  - its repeat is now "Undertaker. On the Lane. And don't ask him about the pine."
+- **The message boy's Pike answer** (doc 07 §5). He stands in the Lane, so "Undertaker. Down the lane. No rush." is now "Undertaker. Right there. No rush."
+- **Main Street on the funeral day** (doc 57 C3). Only the pie woman leaves the street now, so "The street is half empty." is now "The street's quieter than usual." The rest of the line stands.
+- **Not changed:**
+  - The claim row's markers still answer LISTEN with silence, which is true.
+  - The letter-writer's and the boundary men's figures overlap the edges of a doorway's and two posts' click areas, and both stay clickable.
+- **The lesson** is a row in doc 55 §8. When a figure moves rooms, read its own lines for where they assume it stands. Read every line in the new room and the old one for who they assume is there.
+
+# 198 · THE HORSES MOVED BACK AND DIMMED FOR THE NIGHT — TYLER, 2026-11-08
+
+Tyler: "The three horses on main street are now a little too front and center and seem to be lit a little too bright. Can you move them back a bit, make them a bit smaller since they're moving away from the front of the screen, and make sure they're a bit dimmer for the night?"
+
+*Errata 187's hitching rail and its three horses, moved and relit. No image operation, and no line written or changed.*
+
+- **Moved back, from 1545,850 to 1405,755** (`content/ambient/hitching-horses.json`, the only place a figure's place is written).
+  - That is 95 px deeper, out of the bottom of the frame and into the middle ground of the street. It is not as far back as the boardwalk.
+  - It is also 140 px left. At 1545 the group would stand in front of Thad's stand for the false fronts (1580,620) and hide 36% of him there. At 1405 it covers none of him, and no other approach point, exit, figure or conversation stand either. It is clear of the notice board and the trough. Main Street has room now that errata 193 moved four townspeople off it.
+- **Smaller by the room's own depth curve, not by hand.** `stature` stays 1.223, and `figureHeight` stays 393.
+  - The man of the curve at their feet goes from 203 to 168.
+  - The group is now drawn 367 × 216 instead of 443 × 261, which is 17% smaller.
+- **Dimmer, by the mechanism the project already has: a `figureLight` on Main Street** (`reference/room-02/annotation.json`), which names the horses and nobody else. Thad and the cast are drawn exactly as before.
+  - The grade is brightness 0.85, saturate 0.75, and a cool light of [0.88, 0.90, 1.00].
+  - Measured in the running game against the sprite, the horses' mean luminance goes from 69 to 53 (−23%), the bright end (90th percentile) from 135 to 103, and the saturation from 0.58 to 0.43.
+  - That puts them in the same night as the street's figures, and no brighter: Thad's sheet measures 59 / 100 / 0.32, the pie woman's 63 / 81 / 0.42.
+  - They stand in the dark mud between the Company's windows and the Nugget, outside every lamp's `movers` field, so no lamp tints them.
+  - A nudge is a number in that annotation (doc 55 §8, "Light and colour").
+- **The obstacle moved with them in both streets.** `hitching_post` is now [1226, 720, 332, 42]. It is errata 187's footprint taken about the feet and scaled by the curve's ratio between the two places. The ground behind them stays walkable (`keepsGroundAbove`). Rooms 2 and 36 are recompiled.
+- **The dawn rail moved to the same ground and was re-cut by its own tool at the new scale.** `tools/art/hitching-rail-dawn.py` now starts from the rail as the night draws it: Room 2's grade first, applied exactly as the engine applies it (the model matches the engine's drawn pixels to within half a level), then the dawn's light. So the empty rail at dawn is dimmer by the same measure, and it will follow any later change to the night grade. Room 36's prop is now 367 × 216 at 1405,755.
+- **`tests/scenery.test.ts` reads the horses' place** from their file instead of restating 1545,850.
+- **Shown:**
+  - `renders/room-02-main-street-horses.png`: night, with Thad walking past the horses and the pie woman in frame.
+  - `renders/room-36-main-street-dawn-rail.png`: dawn, with Thad walking behind the empty rail.
+
 # 199 · FIDDLER'S GULCH: THE WRONG VERBS, AND A THIRD LINE FOR EVERY WAY — TYLER, 2026-11-08 ("Write them (doc 49)"; "Write a third for each")
 
 *Asked by the builder before Room 45, because the readiness gate stopped on both.*
