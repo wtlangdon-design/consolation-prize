@@ -1118,6 +1118,13 @@
       "speaker": "fanshawe",
       "words": "Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.",
       "where": "dialogue/fanshawe FAN_A2 option 6"
+    },
+    {
+      "n": 106,
+      "class": "C",
+      "speaker": "winnie",
+      "words": "She runs it at the window. It does not take long.",
+      "where": "dialogue/winnie WIN_B2 option 1"
     }
   ]
 }

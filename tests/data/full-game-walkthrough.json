@@ -1229,15 +1229,19 @@
    ],
    "leave": true,
    "expect": {
-    "puzzlesPending": [
+    "puzzles": [
      "C6"
+    ],
+    "carrying": [
+     "document_b"
     ],
     "flags": {
      "T_ASSAY_ASKED": true,
      "T_NO_MOTT_GOLD": true,
      "T_SECOND_LEDGER": true
     }
-   }
+   },
+   "note": "Errata 232: she runs the assay at the window; Document B is in hand before he leaves."
   },
   {
    "id": "C6.1",
@@ -1250,11 +1254,7 @@
    "puzzle": "C6",
    "do": "go",
    "room": "assay_office",
-   "expect": {
-    "flags": {
-     "T_ASSAY_BACK": true
-    }
-   }
+   "note": "Errata 232: Document B is already in hand; he comes back for the sparring."
   },
   {
    "id": "C6.3",
@@ -1262,13 +1262,7 @@
    "do": "talk",
    "npc": "winnie",
    "expect": {
-    "node": "WIN_B4",
-    "puzzles": [
-     "C6"
-    ],
-    "carrying": [
-     "document_b"
-    ]
+    "node": "WIN_B4"
    }
   },
   {

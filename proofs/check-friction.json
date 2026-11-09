@@ -523,6 +523,18 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 226: the list is new, and is seeded with what the check's first run found on main, so the check passes the day it lands. 139 phrases at four or more subjects, awaiting the voice pass. Not a misfire: the list is the finding, made visible."
+  },
+  {
+   "check": "tests/c5.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 232: not loosened, changed with the design. Tyler approved running the assay on the spot, so the test that held C6 'pending' after the asking now holds it 'complete' and Document B in hand. It is as strict as before, against the new rule; the friction check matched the numbers on the changed lines."
+  },
+  {
+   "check": "tests/c6.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 232: not loosened, changed with the design. The test that required leaving the office before the assay returned now requires that it returns in the same conversation, that her other questions stay until he leaves, and, as a new second test, that a save from before the change still gets it on the way back in."
   }
  ]
 }

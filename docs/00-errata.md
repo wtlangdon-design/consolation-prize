@@ -6245,3 +6245,22 @@ The repeat check (errata 226) found three things marked "awaiting a fix".
 - **"Have you ever been in the Liar's Assay?"** is asked of Frame, the livery man and Sheng. This is kept on purpose: a newcomer asks everyone the same question, and each answer differs. Its allowlist entry now says so.
 
 Lesson: the two allowlist entries are removed, so `tools/check-repeated-lines.mjs` fails if either greeting comes back. `tests/gulch-river.test.ts` reads the panner's opening before the conversation starts, as the scene does, and asserts that a second visit does not say it.
+
+# 232 · WINNIE RUNS THE ASSAY ON THE SPOT — TYLER, 2026-11-09 (approving "Consolation: fewer counters, more scenes": "I approve all of your decisions")
+
+The plan's rule: no step exists only to make the player leave a room and come back. Document B was one.
+
+- **Before:** asking Winnie to run the assay (WIN_B2 option 1) left C6 pending. Thad had to leave the office and come back before the next TALK TO opened WIN_B4, which returned the assay and issued Document B.
+- **Now:** she runs it at the window ("She runs it at the window. It does not take long.", doc 95 row 106). WIN_B4's opening is said straight after her reply, and C6 and Document B come with it.
+  - WIN_B2 stays her node until he leaves the office, as before, so "Now can I ask about Mott gold?" and the second ledger can still be asked.
+  - After he leaves, TALK TO opens WIN_B4 on its options and the sparring, with the opening already said.
+  - A save from before the change, with the assay asked and not returned, gets it on the way back in, as it did.
+- **Not done: the second Act II trim** (Sowerby sending Pike's funeral notice himself). Looked at closely, the second trip to Frame is where "I've added refreshments. It doubles the turnout." lands, which is one of Act II's better jokes. Cutting it would save one short trip and lose a scene, so it is left for Tyler to rule on again with that in view.
+
+Lesson:
+- `tests/c6.test.ts` checks three things:
+  - the assay and Document B come in the same conversation;
+  - Winnie's other questions are still there until he leaves;
+  - the old save path still works.
+- `tests/c5.test.ts` holds C6 complete after the asking.
+- Both fail with the extractor's change removed.

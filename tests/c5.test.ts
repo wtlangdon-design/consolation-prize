@@ -83,9 +83,9 @@ test('WIN_B2\'s rows move the world as doc 04 says, through W1, and the states s
   assert.deepEqual(rows, ['winnie1', 'winnie2', 'winnie3', 'winnie4', 'winniex'], 'authored order');
   assert.equal(state.puzzleProgress().C6, undefined, 'C6 is nothing yet');
   state.dialogue.select('winnie1');
-  assert.equal(state.puzzleProgress().C6, 'pending', 'the assay is granted: C6 pending, not complete');
-  assert.equal(state.puzzleComplete('C6'), false);
-  assert.ok(!state.carried.includes('document_b'), 'no Document B');
+  // Errata 232: she runs it at the window -- C6 and Document B at once.
+  assert.equal(state.puzzleComplete('C6'), true, 'the assay is run on the spot: C6 complete');
+  assert.ok(state.carried.includes('document_b'), 'Document B is issued');
   state.dialogue.select('winnie2');
   assert.equal(state.flags.get('T_NO_MOTT_GOLD'), true);
   const carriedBefore = [...state.carried];
@@ -116,7 +116,7 @@ test('WIN_B2\'s rows move the world as doc 04 says, through W1, and the states s
   assert.deepEqual(state.dialogue.progressSnapshot()[tree], { 'WIN_B1:winnie1': 1, 'WIN_B2:winnie1': 1, 'WIN_B2:winnie2': 1, 'WIN_B2:winnie3': 1, 'WIN_B2:winnie4': 1 });
 });
 
-test('removed rows, the pending puzzle and the topics survive re-entry, save and load', async () => {
+test('removed rows, the finished assay and the topics survive re-entry, save and load', async () => {
   const { content, storage, state, tree } = await setup('r5-c-post');
   state.dialogue.start(tree);
   state.dialogue.select('winnie1'); state.dialogue.select('winnie3');
@@ -128,7 +128,7 @@ test('removed rows, the pending puzzle and the topics survive re-entry, save and
   const loaded = new GameState(content, storage);
   assert.ok(loaded.load());
   assert.equal(loaded.puzzleProgress().C5, 'complete');
-  assert.equal(loaded.puzzleProgress().C6, 'pending');
+  assert.equal(loaded.puzzleProgress().C6, 'complete', 'errata 232: run on the spot');
   assert.equal(loaded.flags.get('T_SECOND_LEDGER'), true);
   loaded.dialogue.start(tree);
   assert.equal(loaded.dialogue.positionSnapshot().node, 'WIN_B2', 'still WIN_B2 while C5 is the current state');

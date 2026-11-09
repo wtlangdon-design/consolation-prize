@@ -77,8 +77,20 @@ function greetOnce(tree) {
   return tree;
 }
 
+/** Errata 232: WIN_B2's first row says WIN_B4's opening after its own reply -- the assay, run at the window. */
+function assayAtOnce(tree) {
+  if (tree.id !== 'WINNIE') return tree;
+  const row = tree.nodes.WIN_B2?.options?.find((option) => option.id === 'winnie1');
+  const opening = tree.nodes.WIN_B4?.opening;
+  if (!row || !opening?.length) throw new Error('errata 232: WIN_B2 option 1 or WIN_B4\'s opening is missing');
+  row.exchange = [...(row.exchange ?? (row.say ? [{ speaker: tree.speaker ?? 'winnie', line: row.say }] : [])), ...opening];
+  delete row.say;
+  row.puzzle = { ...row.puzzle, C6: 'complete' };
+  return tree;
+}
+
 function write(relative, data, indent = 2) {
-  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = greetOnce(quietExits(performDirections(data)));
+  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = assayAtOnce(greetOnce(quietExits(performDirections(data))));
   const path = resolve(ROOT, relative);
   const wanted = `${JSON.stringify(data, null, indent)}\n`;
   if (CHECKING) {
@@ -3926,7 +3938,14 @@ function winnieTree() {
   // C1 AND C2 ARE THE TOPICS ARRIVING. Doc 57: "C1 · WIN_B1 option 1 ->
   // T_ASSAY_QUEUE. Complete as written." and "C2 · WIN_B1 option 2 ... and
   // option 6 ... -> T_OFFICE_TOPIC, C2" -- option 6 is the row that writes it.
-  const PUZZLE_WRITE = { 'WIN_B2:1': { C6: 'pending' }, 'WIN_B1:1': { C1: 'complete' }, 'WIN_B1:6': { C2: 'complete' } };
+  const PUZZLE_WRITE = { 'WIN_B2:1': { C6: 'complete' }, 'WIN_B1:1': { C1: 'complete' }, 'WIN_B1:6': { C2: 'complete' } };
+  // THE ASSAY, ON THE SPOT (errata 232). WIN_B2 option 1 used to leave C6 pending until Thad had left the office and
+  // come back -- a step that existed only to make him leave. She runs it at the window: the row goes to WIN_B4,
+  // whose opening is said after the reply (errata 181), hands over Document B and writes what the old return did.
+  // The row stays in WIN_B2, and WIN_B2 stays her node until he leaves the office, as before, so its other
+  // questions are still there to ask; after that WIN_B4 opens on its options, its opening already said
+  // (assayAtOnce, after the directions are performed).
+  const AT_ONCE = { 'WIN_B2:1': { gives: ['document_b'], set: { T_ASSAY_RETURNED: true } } };
   const unplayed = [];
   const nodes = {};
   let poolIndex = 0;
@@ -4062,6 +4081,8 @@ function winnieTree() {
       const puzzleWrite = PUZZLE_WRITE[`${id}:${number}`];
       if (puzzleWrite) option.puzzle = puzzleWrite;
       if (ASKED[`${id}:${number}`]) option.set = { ...option.set, ...ASKED[`${id}:${number}`] };
+      const atOnce = AT_ONCE[`${id}:${number}`];
+      if (atOnce) Object.assign(option, { gives: atOnce.gives, set: { ...option.set, ...atOnce.set } });
       const signing = SIGNING[`${id}:${number}`];
       if (signing) {
         if (!then.length) throw new Error(`doc 04: ${id} option ${number} leads to a scene with no lines`);
