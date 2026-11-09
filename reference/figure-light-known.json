@@ -1,0 +1,34 @@
+{
+ "schema": 1,
+ "note": "FIGURES tools/check-figure-light.mjs FINDS BRIGHTER THAN THEIR NIGHT, NOT YET RULED ON (errata 205). Each was measured when the check was written: the figure's mean drawn luminance against Thad's at its feet, in the same grade and lamp tint, over the limit there (1.12, raised inside a lamp's pool). Nothing was changed: each is for Tyler to look at beside Thad (python3 tools/art/beside-thad.py <id> <out.png>) and rule on. The check prints every entry on every run, fails on a figure flagged and not listed here, and fails on an entry that is no longer flagged -- take it out when it is fixed or ruled fine. The check cannot tell a white apron from a bright lamp; `why` says which this looks like.",
+ "known": [
+  {
+   "figure": "bakehouse_boy",
+   "room": "bakehouse",
+   "measured": { "ratio": 1.62, "limit": 1.12 },
+   "why": "His white apron and shirt over a tray of loaves, in the dim bakehouse, well away from the oven's light (the oven lamp is 900 px to his left). Most of the excess is the apron, but his face and arms are lighter than Thad's too.",
+   "fix": "Grade him into the room: a `figureLight` in reference/room-39/annotation.json naming bakehouse_boy, brightness about 0.68, a little warm; or declare the open door's light if it is meant to fall on him."
+  },
+  {
+   "figure": "sheng",
+   "room": "laundry",
+   "measured": { "ratio": 1.54, "limit": 1.12 },
+   "why": "His frame carries the ironing board and its white sheet, which is most of the excess: his own dark green jacket is about Thad's level. The laundry declares no lamp, so nothing in the room's data lights the sheet.",
+   "fix": "Either grade him (a `figureLight` in reference/room-28/annotation.json naming sheng, brightness about 0.72) or, if the stove's fire is meant to light the sheet, declare it as a lamp in the laundry's annotation so the room says so."
+  },
+  {
+   "figure": "boundary_b",
+   "room": "claim_row",
+   "measured": { "ratio": 1.18, "limit": 1.12 },
+   "why": "The man in the white shirt and hat at the claim markers, in the dark of the row with no lamp near: his shirt sleeves and face are lighter than Thad's, and boundary_a beside him measures 0.96.",
+   "fix": "A `figureLight` in reference/room-27/annotation.json naming boundary_b, brightness about 0.92, so he matches boundary_a."
+  },
+  {
+   "figure": "fiddler",
+   "room": "nugget",
+   "measured": { "ratio": 1.60, "limit": 1.56 },
+   "why": "By the swinging doors in his white shirt sleeves, at the edge of the stove's pool. The Nugget's `figureLight` grades Thad and Deke warmer and darker (Tyler, 2026-11-01) but not the fiddler, so he is drawn in his generation's own light beside a graded Thad. Only just over.",
+   "fix": "Add fiddler to the Nugget's `figureLight` figures with a perFigure brightness about 0.95, as Deke has his own."
+  }
+ ]
+}
