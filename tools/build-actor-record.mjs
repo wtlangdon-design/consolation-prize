@@ -125,6 +125,11 @@ const CLIPS = [
   // frame itself), 1 crouched, feeling the ground for the pick's head, 2 the mended pick held across him.
   // Played only by its acted directions, a frame at a time (Actor.hold). tools/art/acted-poses.py.
   { id: 'pick-fit', dir: 'pick-fit', prefix: 'pick-fit' },
+  // THE RACCOON IN HIS COAT (doc 111 C, the hole's USE with him halfway out; errata 238): in his shirtsleeves, the
+  // coat bundled in his arms with the raccoon in it, facing front. 0 braced, 1 a breath, 2 the bundle lurching left,
+  // 3 the paw swiping out. Played only over the hole's lines, a frame a line (ResponseRule.holds).
+  // tools/art/thad-coat-bundle-split.py.
+  { id: 'coat-bundle', dir: 'coat-bundle', prefix: 'coat-bundle' },
   // THE COACH IS A MOVER, not a room layer. errata 38's `move` translates a
   // named mover; a hotspot's state image is drawn by drawPlate and cannot be
   // translated at all, so beat 6b could never have worked from one. Its two
@@ -155,7 +160,7 @@ const PARTIAL_STATES = {
     // At Fanshawe's table he only converses: the state is set when he reaches the chair and cleared as the
     // conversation ends, before anything can move him (the accost's `seat`, errata 197).
     dining: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'reach', 'sit', 'rise', 'use-near', 'give-offer', 'shrug',
-      'pickup-low', 'alight-coach', 'aboard-coach', 'carry', 'farwalk', 'pick-fit', 'deed'],
+      'pickup-low', 'alight-coach', 'aboard-coach', 'carry', 'farwalk', 'pick-fit', 'deed', 'coat-bundle'],
   },
   // THE DOOR IS CLOSED BY THE STAGING, NOT BY A MISSING VARIANT. Beat 6b
   // clears `door-open` BEFORE the move, so the driver shuts the door and then

@@ -1,0 +1,38 @@
+{
+ "schema": 1,
+ "room": "ozymandias_tent",
+ "note": "ROOM 16 WITH THE SÉANCE ON, THE LAMP LIT (doc 111 B; errata 237, its art errata 238), proved apart from the room's main spec (node tools/gauntlet/proof.mjs ozymandias_tent --spec proofs/spec/seance-lit.json --out renders/proofs/seance-lit). It starts from fixture r16-seance-a, Act III with the séance on, and says so; the way in is played in tests/scenes-bc.test.ts and the full walkthrough. The séance group stands over the plate's own table, the lamp lit over the plate's, and Ozymandia's standing figure is not drawn. The principal change is the lamp put out: TALK TO her at the head of the table, and ask whether the dead mind the light.",
+ "fixture": "r16-seance-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "OZY_E1 option 2 (doc 111): whether the dead mind the light. Visible consequence: her answer over her head at the table, and when the exchange ends the lamp turned down to a bead, the tent and the group in the dark (T_SEANCE_DARK).",
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "TALK_TO"
+   },
+   {
+    "do": "click",
+    "on": "madame_ozymandia_presiding",
+    "why": "the medium at the head of the table"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 30,
+    "why": "OZY_E1 open"
+   },
+   {
+    "do": "option",
+    "option": "ozymandia_e1_2",
+    "why": "whether the dead mind the light"
+   },
+   {
+    "do": "waitFor",
+    "flag": "T_SEANCE_DARK",
+    "upTo": 90,
+    "why": "the lamp turned down"
+   }
+  ]
+ }
+}

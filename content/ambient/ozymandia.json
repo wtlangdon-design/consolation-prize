@@ -4,6 +4,9 @@
  "name": "MADAME OZYMANDIA",
  "posture": "behind-counter",
  "room": "ozymandias_tent",
+ "when": {
+  "T_SEANCE_ON": false
+ },
  "x": 966,
  "y": 500,
  "zone": 2,
@@ -16,7 +19,7 @@
  },
  "walkToNote": "WHERE THAD STANDS TO TALK TO HER: on the bare ground before the table's left side, the client's side (errata 89 C).",
  "tree": "OZYMANDIA",
- "note": "MADAME OZYMANDIA, behind her round table under the red lantern. No document describes her; she is drawn as an American spiritualist medium of the 1850s (errata 89 B), five poses on magenta generated against Thad (room-16 operation 3), cut at the table top by tools/art/room16-ozymandia.py. BEHIND THE TABLE: `y` is the cut row, not her feet. The crystal ball, the cash box and the tea pot stand in front of her: occlusion plane 1. Present in every act; her Act IV appearance is at Prosperity (doc 04), not here.",
+ "note": "MADAME OZYMANDIA, behind her round table under the red lantern. No document describes her; she is drawn as an American spiritualist medium of the 1850s (errata 89 B), five poses on magenta generated against Thad (room-16 operation 3), cut at the table top by tools/art/room16-ozymandia.py. BEHIND THE TABLE: `y` is the cut row, not her feet. The crystal ball, the cash box and the tea pot stand in front of her: occlusion plane 1. Present in every act; her Act IV appearance is at Prosperity (doc 04), not here. Errata 238: while the séance is on she is drawn seated at its head, in the séance's own cut-out (content/ambient/seance-group.json), so her standing figure is not drawn as well. TALK TO reaches her then through MADAME OZYMANDIA, PRESIDING (OZY_E1), and her words are said from here, over her place at the head of the table.",
  "barks": {},
  "barksNote": "Doc 07 writes no barks for her.",
  "sprite": {

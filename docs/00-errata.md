@@ -6448,3 +6448,72 @@ Doc 111 designs Act III's scenes B and C and writes every line of both under THE
   - **Two phrases** of Thad's reached a fourth subject with doc 111's first lines. The scene's writer reworded the three lines in doc 111 in the same pull request (the sign's LOOK 3 and LISTEN 1, and the line on leaving the table), so nothing is added to the narration allowlist.
 
 Lesson: none -- the first build of approved scenes. `tests/scenes-bc.test.ts` plays both from fixtures (`r16-seance-a`, `r16-seance-b`, `r25-sale-a`, `r23-sale-a`), including the wrong orders (the hen before the offer, the table while lit, the raccoon to the undertaker and to Sheng) and a save mid-séance and mid-sale.
+
+
+# 238 · SCENES B AND C'S ART, WIRED: THE SÉANCE, THE HEN, THE RACCOON HALFWAY OUT, THE COAT — TYLER, 2026-11-09 ("Go")
+
+Errata 237 built doc 111's séance and estate sale with stand-ins until `act3-seance` and `act3-estate-sale` delivered. Both have (PR 321; `reference/act3-seance/handback.md`, `reference/act3-estate-sale/handback.md`), and their art is wired here, on Tyler's "Go" for scenes B and C (2026-11-09). No image operation was spent and no line was written: every line is still doc 111's, extracted.
+
+## 238 A · The séance (Room 16)
+
+- **One figure, `seance_group`** (`content/ambient/seance-group.json`, posture `seated`): the handback's "one cut-out: the round table under a wine-red cloth to the floor on every side … Ozymandia at the head … four townspeople round it … Frame in the front-left chair with his notebook". Operation 3's sheets, the correction Tyler asked for ("The front bottom left chair at the seance looks like its half sunken into the floor"): every chair on full legs to the floor.
+  - **Drawn 1:1** at x 958, its chairs' feet on the floor at y 812. The sheet was cut at Room 16's man before the table (450 px), so it declares no `figureHeight`; its `depthY` (755, where the man is 448) tells the one-level check where that scale belongs.
+  - **Present while the séance is on** (`T_SEANCE_ON`). With the lamp turned down it is drawn from the dark sheet (`spriteWhen` on `T_SEANCE_ON` and `T_SEANCE_DARK`), "registered onto its rest frame, so the group does not move when the lamp goes down".
+  - **Breaks** (errata 77): lit, the grey-haired woman's glance and Frame's tapped pencil; dark, "the séance turns" (the bald man's head jerked up, Frame's writing hand down).
+  - **"The séance turns" is also acted** when Frame writes in SEA_E1 (options 2 and 4: Mott's pianos, and "I AM DEAD"). Doc 95 row 113, "He writes.", moves from C to A, performed by the group's frame 2: errata 237 kept it printed because Frame was only a voice, and he is drawn now.
+  - **When the dead have spoken** the séance's end lands after LEAVING THE TABLE's lines, and the group fades (`leaves`, 1.5 s): "Thad stays where he is until the last pair of boots has gone." It fades in the lit sheet, because the lamp has come up.
+- **The plate's own table is covered.** The group stands over the crystal ball's table, the strong box and the teapot, placed by measuring every frame of both sheets against the plate: 97% of the mask those objects were cut with is under the group, and the table and the box under it entirely. **What shows:** a sliver of the crystal ball's left edge, about 15 px square, beside Ozymandia's right hand under the rod (x 928-943, y 466-481), and the top of the brass rod's stand behind the bald man, which is the tent's and not the table's. The plate is not edited.
+- **Ozymandia's standing figure is not drawn during the séance** (`content/ambient/ozymandia.json`, `when` T_SEANCE_ON false). TALK TO reaches her through MADAME OZYMANDIA, PRESIDING, which opens her tree (its node is OZY_E1 then). Her words are said from her record's place, which is the head of the table.
+- **The five subjects are over what is drawn** (`reference/room-16/annotation.json`):
+  - THE SITTERS over the whole group; it is the largest, so every smaller subject wins over it.
+  - THE SÉANCE TABLE over the cloth.
+  - MADAME OZYMANDIA, PRESIDING over her at the head.
+  - MR. FRAME, AT THE TABLE over him in the front-left chair.
+  - THE LAMP over the hanging lamp.
+  - What the group covers or holds gives way while the séance is on: the crystal ball, the money box, the cards, the tea service, the second rod, the brass rod (across her palms), and the curtain and the cushions behind the sitters, whose rects would otherwise answer for a sitter. So A7 (the map to Ozymandia) cannot be done during the séance; the traversal keeps 53/53 and 0 dead ends, because the séance always ends.
+- **Frame is drawn, and speaks from his chair.** His voice point (`voices.seance_frame`) is over his drawn head, in his own colour. He is part of the group's cut-out, so the voice keeps the mechanism.
+- **He stands beside the group, never in front of it.** In front, on the strip of floor left before the chairs, he is 500 px tall and covered the table and the medium he was talking to (the first lit proof). The séance subjects' stands are at the table's ends: x 440 by Frame and the cloth, x 1490 by the stove, both at y 800. The floor under the group is carved out while the séance is on (a gated obstacle, errata 233's mechanism), so nobody walks through the chairs.
+- **Under the table** is as errata 237 built it: he goes under by the printed direction (doc 95 row 112 stays B, because he has no crawl), and is not hidden.
+- **The lamp** is two props over the plate's own (`art/props/room-16-seance-lamp.png`): lit while the séance is lit, turned down to a bead while it is dark.
+- **The tent darkens** by the mechanism the engine has for a room's picture by state, a plate chosen by `plateWhen`, as Room 31's night is. `art/backgrounds/room-16-tent-seance-dark.png` is the shipping plate ×0.44, the handback's own dimmed check, made by `tools/art/room16-seance-dark.py` with nothing drawn. The red lantern's breathing light is two entries, so it is off only while the séance is dark. **Not done:** Thad is not darkened with the room. The engine grades a figure by room, not by state, and that would be a new feature.
+
+## 238 B · The estate sale (Room 23) and the items
+
+- **The hen** (`content/ambient/hen-at-the-hole.json`, posture `animal`) is at the hole's left lip, where the handback's check render put her (x 1077, feet at y 499). She is there while the raccoon is out and before the coat (`T_RACCOON_OUT`, not `T_RACCOON_IN_COAT`).
+  - **She is there the moment she is set down.** A figure whose condition starts while Thad watches used to appear only on the next visit (nobody pops in), and the line that sets her flag is the one that sets her down. The new field `AmbientFile.setDown` says so, with the quoted line.
+  - She is still THE HEN in his inventory, as errata 237 built it.
+  - **Her size** is ruled in `content/scale-anchors.json`: "At Room 23's size a hen stands about a fifth of the room's man at that depth" (the brief, under Tyler's "I approve all of your decisions"). She measures 0.199 against the man at y 715, as the raccoon in the same hole is measured.
+- **The raccoon halfway out** is `raccoon_back`'s own sheet while `T_RACCOON_OUT` holds (`spriteWhen`), so the same figure changes rather than a second one appearing. It is not a fade: errata 237's fade stand-in is gone from this moment.
+  - Its foot row puts the cut across his chest at y 487, where the handback put it.
+  - Its ears span the sitting raccoon's 32 px, both drawn 1:1. `tests/scenes-bc-art.test.ts` holds that.
+  - When the coat comes down he fades from the hole halfway out, not sitting. The engine now draws a figure that is leaving in the sheet the flags choose (`AmbientLayer.present`).
+- **The coat.** Thad's `coat-bundle` clip is split from the strip into `art/actors/thad-coat-bundle-front/` with its `rig.json`, exactly as the handback says (`tools/art/thad-coat-bundle-split.py`). It is added to `tools/build-actor-record.mjs`, and the record is rebuilt.
+  - The hole's USE with him halfway out holds it over its lines (`holds`): frame 2, the bundle lurching left, over "There is a great deal of coat, and then a great deal of raccoon.", and frame 3, the paw swiping out, over "I have him. I am not sure which of us is winning."
+  - The direction stays printed (doc 95 row 119, class C).
+  - **Engine:** `ResponseRule.holds` was carried only for a door's scene (errata 197's deed). A hotspot's own rule now carries it too (`VerbSystem`, `GameState.resolveInteraction`), and `tools/compile-room.mjs`'s `docBullets` passes it through.
+- **Night grade** (`reference/room-23/annotation.json` `figureLight`), as errata 207 B graded four figures.
+  - The moon's colour as a multiply. The hen is a little darker and greyer, and the raccoon's emerging sheet takes the sitting sheet's cool grey.
+  - The raccoon is graded by sheet: `FigureLight.sheets` is new, so his sitting sheet, painted into the night, is untouched.
+  - `tools/check-figure-light.mjs` now measures every `spriteWhen` sheet as well. The hen and the emerging raccoon pass, and so does every variant already in the game.
+- **The hole's stand** moves from x 1040 to x 955. At 1040 he covered the hen from 972 to 1108.
+- **Icons.** The hen's and the coat's cells are moved from `art/ui/item-icons-act3-estate.png` into `art/ui/item-icons.png`, appended as the Gulch's three were (`tools/art/act3-estate-icons-place.py`). `tools/extract-content.mjs` writes `iconPending` only for an item with no cell. **MR. PRATT'S TWO DOLLARS AND SIXTY CENTS has no icon delivered** and keeps its `iconPending`.
+
+## 238 C · The checks
+
+- **`tests/movement.test.mjs`:**
+  - A group drawn as one cut-out declares its people (`sprite.members`, each sitter's box). An action is then measured against the person who makes it. The séance's glance is a third of the woman who glances and a fortieth of the table.
+  - Every `spriteWhen` sheet is now a case of its own.
+  - The ledger records the loosening and the review it was due (`proofs/check-friction.json`).
+- **The walkthrough** reaches OZY_E1 by TALK TO on MADAME OZYMANDIA, PRESIDING. `tests/scenes-bc.test.ts` does the same, and talks to her standing figure again after re-entering.
+- **The proofs** (`tools/gauntlet/proof.mjs --spec`):
+  - `renders/proofs/seance-lit/` (`proofs/spec/seance-lit.json`): the lamp put out by asking her.
+  - `renders/proofs/seance-dark/` (`proofs/spec/seance-dark.json`): going under the table.
+  - `renders/proofs/prosperity-hen/` (`proofs/spec/prosperity-hen.json`): T_RACCOON_OUT, set by the harness's control, because a route cannot use an inventory item.
+
+## 238 D · For Tyler
+
+- **THE SÉANCE waits behind the open conversation.** Found by the dark proof, and in errata 237's build, not this one. USE THE SÉANCE TABLE in the dark queues THE SÉANCE's lines and opens SEA_E1 at once. The options show under "(Thad goes down on his hands and knees and under the cloth.)", and each further line comes only on a click: the click advances the line first, so no option is chosen by it. The route harness cannot read them on, so the dark proof stops at going under.
+- **The tent's dark does not reach Thad.** He stays in his own even light in the dark tent (see 238 A).
+- **The crystal ball's sliver** shows by her hand (see 238 A).
+
+Lesson: none -- wiring delivered art into built scenes. `tests/scenes-bc-art.test.ts` fails if the séance figure, the hen or the raccoon's emerging sheet is removed or shows in the wrong state. It also fails if her standing figure shows during the séance, the group stops covering the plate's table, a subject leaves what is drawn, a stand is in front of the group, the floor runs under it, the lamp or the plate is wrong for the flags, the group's acted turn is lost, the coat stops holding his clip, the raccoon's size drifts from the sitting one's, the grade drops a sheet, or an icon goes pending again.

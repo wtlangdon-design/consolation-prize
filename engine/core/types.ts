@@ -522,6 +522,13 @@ export interface AmbientFile {
    */
   whenAny?: Condition[];
   /**
+   * PUT THERE BY WHAT THE PLAYER DID, so there the moment `when` holds, even while Thad watches (errata 238). Nobody
+   * pops in (see AmbientLayer.present): a figure whose condition starts holding in front of him is there next visit.
+   * The hen Thad sets at the hole's mouth is the exception that rule is not about -- she is seen being set down, by
+   * the line that sets her flag -- and saying why is the field's value.
+   */
+  setDown?: string;
+  /**
    * HOW HE LEAVES, when `when` stops holding while Thad is in the room. Tyler,
    * 2026-11-01: a character must never just disappear. Without this he is
    * simply absent; with it he walks the path and is gone at its end.
@@ -782,6 +789,14 @@ export interface AmbientFile {
      * begins and ends there returns without a jump.
      */
     breaks?: number[][];
+    /**
+     * THE PEOPLE IN ONE CUT-OUT, each by the box of the frame he sits in (errata 238: the séance, six people round one
+     * table, drawn and cut as one picture). Errata 77's deliberate action is measured against the person who makes it
+     * (tests/movement.test.mjs): a glance is a third of the woman who glances and a fortieth of the table. The engine
+     * never reads it.
+     */
+    members?: { who: string; rect: [number, number, number, number] }[];
+    membersNote?: string;
     /**
      * The frame held while this character's own tree is open. Doc 32 section
      * 8.2: stillness is a performance state, and a woman mid-scribble when
@@ -3282,6 +3297,13 @@ export interface RoomProp {
 export interface FigureLight {
   /** Mover ids (the player is `thad`) and ambient ids the grade applies to. */
   figures: string[];
+  /**
+   * SHEETS the grade applies to, whoever is drawn from them (errata 238). A figure with another sheet while a
+   * condition holds (AmbientFile.spriteWhen) can carry two pictures painted in different light: Prosperity's raccoon
+   * sits in a sheet painted into the night, and comes halfway out in one that is not. Naming the sheet grades the one
+   * picture and leaves the other as it was painted. `perFigure` may key a sheet's own adjustments by its path.
+   */
+  sheets?: string[];
   /** The light's colour as a multiply, each channel 0-1. Omitted: white. */
   light?: [number, number, number];
   brightness?: number;

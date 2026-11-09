@@ -1,0 +1,40 @@
+{
+ "schema": 1,
+ "id": "hen_at_the_hole",
+ "name": "THE HEN",
+ "posture": "animal",
+ "room": "prosperity",
+ "when": {
+  "T_RACCOON_OUT": true,
+  "T_RACCOON_IN_COAT": false
+ },
+ "setDown": "Doc 111 C, USE THE HEN on THE HOLE: \"Thad sets the hen at the mouth of the hole. The hen considers the hole. The raccoon considers the hen. Half a raccoon comes out.\" She is seen being set down, by the line that sets T_RACCOON_OUT, so she is there at once.",
+ "note": "PRATT'S HEN AT THE HOLE'S MOUTH (doc 111 C; errata 238): plain brown, side-on, facing right, toward the hole and the raccoon halfway out of it (reference/act3-estate-sale/handback.md, operation 1). From the moment Thad sets her down (T_RACCOON_OUT) until the coat goes over the raccoon (T_RACCOON_IN_COAT); she is THE HEN in his inventory throughout, as errata 237 built it, and goes back to Pratt at THE SALE. Drawn 1:1, as the raccoon is: cut at Room 23's man at the hole (367 px, the man at the walk band's far edge, the nearest floor below the hole), 73 px tall, 0.199 of him. Stood where the handback's check render put her, at the hole's left lip (x 1077, feet at y 499). Graded into the room's night (reference/room-23/annotation.json `figureLight`). The hen has no hotspot of her own: doc 111 writes her lines as an item's, and she is used, looked at and listened to there.",
+ "x": 1077,
+ "y": 499,
+ "zone": 2,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "A hen; doc 111 writes her no barks.",
+ "scenery": true,
+ "sceneryNote": "Errata 238: the pointer passes through her to THE HOLE and THE RACCOON, whose lines answer what is done at the hole's mouth.",
+ "sprite": {
+  "sheet": "art/actors/room-23-hen.png",
+  "frames": [
+   [2, 2, 74, 73],
+   [78, 2, 74, 73],
+   [154, 2, 74, 73],
+   [230, 2, 74, 73]
+  ],
+  "rate": 0.3,
+  "phase": 0.55,
+  "breaks": [
+   [2, 2, 2, 0],
+   [3, 3, 0, 3, 3, 0],
+   [2, 2, 0, 3, 0]
+  ],
+  "breakEvery": 6,
+  "frameNote": "0 rest · 1 a breath (derived) · 2 her head cocked, one eye up · 3 pecking at the ground (reference/act3-estate-sale/handback.md)."
+ }
+}

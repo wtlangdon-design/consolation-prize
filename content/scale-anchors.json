@@ -305,6 +305,26 @@
    "ruling": "A mule beside a man: her withers at his shoulder or a little below (reference/act3-hearse/brief.md: 0.75-0.9).",
    "by": "Tyler, 2026-11-09 (errata 231, the act3-hearse budget: \"I approve all of your decisions\"; the brief's size)",
    "note": "Errata 233. The figure is the hearse and Grievance as one cut-out (art/actors/room-14-hearse-grievance.png): columns 630-949 of the frame are her alone, the hearse and its shafts to the left. Her hooves are row 381 (the wheels reach the frame's last row, 386, which is `y`); her withers row 137, where her neck meets the collar; her ear tips row 80, the plume rising above them. HER EARS ARE SHORT and are not held to a mule's head-up range (1.10-1.35): drawn 1.01 of the man, and Tyler accepted them (2026-11-09: \"accept the short ears\"; reference/act3-hearse/handback.md, after two masked edits that repainted her head). The withers, which the brief sets, are the measure, as for funeral_grievance."
+  },
+  {
+   "figure": "hen_at_the_hole",
+   "animal": "Pratt's hen at the hole's mouth, side-on, in the rest frame",
+   "frame": 0,
+   "columns": [
+    0,
+    73
+   ],
+   "groundY": 715,
+   "feet": "feet",
+   "top": "comb",
+   "height": [
+    0.17,
+    0.25
+   ],
+   "basis": "About a fifth of the man, as the brief asks: a hen of 30-43 cm to the top of her comb beside a man of about 1.72 m is 0.17-0.25 of him.",
+   "ruling": "At Room 23's size a hen stands about a fifth of the room's man at that depth (reference/act3-estate-sale/brief.md).",
+   "by": "Tyler, 2026-11-09 (errata 231, the act3-estate-sale budget: \"I approve all of your decisions\"; the brief's size)",
+   "note": "Errata 238. Measured against the man at y 715, as the raccoon in the same hole is: the hole is in the face of the rise, and the walk band's far edge is the nearest floor below it. Cut at 0.199 of that man (reference/act3-estate-sale/handback.md)."
   }
  ],
  "animalsNote": "EVERY VISIBLE ANIMAL AT ITS TRUE SIZE (errata 201 for the horses; errata 205 for the rest). Each entry is measured by tests/scale.test.ts as the engine draws it, against the room's man where the animal stands: `top` (read from the sheet's top opaque row in `columns`, or `topRow`) and its feet (the bottom opaque row, or `feetRow`, or a room y in `feetY` when they are hidden). `groundY` names the floor the man is taken at when the animal is not standing on the room's floor at its anchor (a crate, a hole in a rise). Above the walk band the man is the curve carried on in a straight line, which is what a flat floor's perspective does. `basis` says where each range comes from. An entry with `knownWrong` is a measured failure recorded for Tyler and printed on every run: the test fails if it is fixed and the entry is left in.",

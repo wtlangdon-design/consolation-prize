@@ -25,6 +25,11 @@ export interface ResolvedAction {
   by?: string;
   /** `say` is a stage direction (doc 58). */
   direction?: boolean;
+  /**
+   * His picture over the lines (ResponseRule.holds), a frame of his clip a line. With the first selection only, as
+   * `then` is: it belongs to those lines (errata 238: the coat over the raccoon, a hotspot's own rule).
+   */
+  holds?: { clip: string; frames: number[] };
   dialogue: string | null;
   goto: string | null;
   /** Doc 22 item 9: the state this response moves the object to. */
@@ -348,6 +353,7 @@ export class VerbSystem {
         ...(written ? { variant: Math.min(seen, written - 1) + 1 } : {}),
         say: this.nextLine(`${scope}/${target.id}#${index}`, verbId, matched),
         then: first ? matched.then : undefined,
+        ...(first && matched.holds ? { holds: { clip: matched.holds.clip, frames: matched.holds.frames } } : {}),
         ...(matched.by ? { by: matched.by } : {}),
         // `direction` describes `say`, the first of the written lines, and not its repeats (doc 110: the
         // undertaker's "(low)" leads his first answer; his second time is a line, said).

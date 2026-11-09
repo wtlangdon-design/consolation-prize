@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "room": "ozymandias_tent",
+ "note": "ROOM 16 WITH THE SÉANCE ON AND THE LAMP TURNED DOWN (doc 111 B; errata 237, its art errata 238), proved apart from the room's main spec (node tools/gauntlet/proof.mjs ozymandias_tent --spec proofs/spec/seance-dark.json --out renders/proofs/seance-dark). It starts from fixture r16-seance-b, the lamp already down, and says so; putting it out is the lit proof's change (proofs/spec/seance-lit.json). The tent is its dimmed plate, the lamp a bead, the group its dark sheet. The principal change is going under the table: USE THE SÉANCE TABLE, THE SÉANCE heard,.",
+ "fixture": "r16-seance-b",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "USE THE SÉANCE TABLE in the dark (doc 111): T_UNDER_TABLE, and THE SÉANCE begins. Visible consequence: his direction going under the cloth over the dark tent, SEA_E1 offered beneath. The rest of THE SÉANCE is queued behind the open conversation and the route cannot read it on (errata 238 reports it); Frame writing as the table turns is held by tests/scenes-bc-art.test.ts.",
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "USE"
+   },
+   {
+    "do": "click",
+    "on": "seance_table",
+    "why": "under the cloth"
+   },
+   {
+    "do": "waitFor",
+    "flag": "T_UNDER_TABLE",
+    "upTo": 60,
+    "why": "under the cloth"
+   },
+   {
+    "do": "wait",
+    "seconds": 2
+   }
+  ]
+ }
+}

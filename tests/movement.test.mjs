@@ -61,16 +61,27 @@ function sheet(path) {
   return sheets.get(path);
 }
 
-/** The share of the rest frame's figure that frame `i` changes. */
+/**
+ * The share of the rest frame's figure that frame `i` changes -- of the whole figure, or, for a group drawn as one
+ * cut-out, of the one person in it who changes most (`sprite.members`, each by the box he sits in; errata 238). Six
+ * people round one table are six people: the grey-haired woman's glance is a third of her, and a fortieth of the
+ * table, and errata 77 asks whether a person makes a deliberate action, not whether a table does.
+ */
 function changeOf(sprite, i) {
+  if (sprite.members?.length) return Math.max(...sprite.members.map((one) => changeIn(sprite, i, one.rect)));
+  return changeIn(sprite, i, null);
+}
+
+function changeIn(sprite, i, box) {
   const png = sheet(sprite.sheet);
   const [x0, y0, w, h] = sprite.frames[0];
   const [x1, y1, w1, h1] = sprite.frames[i];
   if (w1 !== w || h1 !== h) return 1;
+  const [bx, by, bw, bh] = box ?? [0, 0, w, h];
   let figure = 0;
   let changed = 0;
-  for (let y = 0; y < h; y += 1) {
-    for (let x = 0; x < w; x += 1) {
+  for (let y = Math.max(0, by); y < Math.min(h, by + bh); y += 1) {
+    for (let x = Math.max(0, bx); x < Math.min(w, bx + bw); x += 1) {
       const a = ((y0 + y) * png.width + x0 + x) * 4;
       const b = ((y1 + y) * png.width + x1 + x) * 4;
       const p = png.pixels;
@@ -117,6 +128,13 @@ for (const path of manifest.ambient) {
   const npc = read(path);
   if (npc.sprite?.frames?.length && shipping(npc.room)) cases.push({ path, npc, room: npc.room, sprite: npc.sprite,
     posture: npc.posture });
+  // AND IN EVERY OTHER SHEET IT IS DRAWN FROM WHILE A CONDITION HOLDS (AmbientFile.spriteWhen; errata 238): the séance
+  // in the dark is a sheet of its own, on screen for as long as the player takes to go under the table.
+  for (const variant of npc.spriteWhen ?? []) {
+    if (!variant.sprite.frames?.length || !npc.sprite || !shipping(npc.room)) continue;
+    cases.push({ path, npc, room: `${npc.room}, while ${JSON.stringify(variant.when)}`,
+      sprite: { ...npc.sprite, ...variant.sprite }, posture: npc.posture });
+  }
   for (const [room, placed] of Object.entries(npc.placements ?? {})) {
     if (placed.sprite?.frames?.length && shipping(room)) cases.push({ path, npc, room, sprite: placed.sprite,
       posture: placed.posture ?? npc.posture });

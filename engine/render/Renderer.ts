@@ -619,6 +619,18 @@ export interface OverlayFor {
  * stop moving when I'm not clicking around."
  */
 /** A figure grade's brightness, contrast and saturation as a canvas filter string. */
+/**
+ * A FIGURE'S GRADE IN THIS ROOM (RoomFile.figureLight): the room's light when it names the figure, or names the sheet he
+ * is drawn from now (FigureLight.sheets; errata 238: the raccoon's sitting sheet is painted in the night and his
+ * halfway-out one is not), with his own adjustments, the figure's first, then the sheet's.
+ */
+export function figureGrade(light: FigureLight | undefined, id: string, sheet?: string): FigureLight | null {
+  const bySheet = sheet !== undefined && (light?.sheets ?? []).includes(sheet);
+  if (!light || (!light.figures.includes(id) && !bySheet)) return null;
+  const own = { ...(light.figures.includes(id) ? light.perFigure?.[id] ?? {} : {}), ...(bySheet ? light.perFigure?.[sheet!] ?? {} : {}) };
+  return Object.keys(own).length ? { ...light, ...own } : light;
+}
+
 export function gradeFilter(grade: FigureLight): string {
   const parts = [];
   if (grade.brightness !== undefined) parts.push(`brightness(${grade.brightness})`);
@@ -2062,11 +2074,8 @@ export class Renderer {
   }
 
   /** The room's figure grade, if it names this figure. Null otherwise: drawn exactly as before. */
-  private gradeFor(id: string): FigureLight | null {
-    const light = this.state.room.figureLight;
-    if (!light || !light.figures.includes(id)) return null;
-    const own = light.perFigure?.[id];
-    return own ? { ...light, ...own } : light;
+  private gradeFor(id: string, sheet?: string): FigureLight | null {
+    return figureGrade(this.state.room.figureLight, id, sheet);
   }
 
   /** A lamp is live unless a flag condition or an object-state condition says otherwise. */
@@ -2220,7 +2229,7 @@ export class Renderer {
     // ITS FEET ON ITS y (AmbientFile.sprite.footRow; errata 201), and what lies under them below it.
     const top = npc.y - drawH + 1 + drawnBelowFeet(height, drawH, declared.footRow);
     const tint = this.tintAt(npc.x, npc.y);
-    const grade = this.gradeFor(npc.id);
+    const grade = this.gradeFor(npc.id, declared.sheet);
     const draw = () => this.screen.context.drawImage(image, sx, sy, width, height, left, top, drawW, drawH);
     // FADING OUT (AmbientFile.leaves; errata 131 F): drawn fainter until gone.
     const opacity = this.ambient.opacity(npc.id);

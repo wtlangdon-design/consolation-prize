@@ -6566,6 +6566,10 @@ function estateSaleItems() {
   };
   const ICON = 'No icon is drawn for it yet: act3-estate-sale\'s brief asks for one (reference/act3-estate-sale/brief.md, "an item icon '
     + 'or two"); until it lands the panel draws its labelled box (Renderer.drawInventory).';
+  // PENDING ONLY WHILE THE SHIPPING SHEET HAS NO CELL FOR IT (errata 238): act3-estate-sale delivered the hen's and the
+  // coat's, moved in by tools/art/act3-estate-icons-place.py; the money's is still owed.
+  const cells = JSON.parse(readFileSync(resolve(ROOT, 'content/ui/item-icons.json'), 'utf8')).icons;
+  const pending = (id) => (cells[id] ? {} : { iconPending: ICON });
   const out = [];
   out.push(write('content/items/hen.json', {
     schema: 1, id: 'hen', name: 'THE HEN', short: 'THE HEN',
@@ -6573,7 +6577,7 @@ function estateSaleItems() {
       + 'doc 111 and re-run. Pratt\'s hen, on loan: PRA_E3 option 2 hands it over; it brings the raccoon halfway out of the hole, and '
       + 'goes back to Pratt at THE SALE. Doc 111 writes it one LOOK and one LISTEN.',
     responses: { LOOK_AT: [{ say: said('THE HEN', 'LOOK') }], LISTEN_TO: [{ say: said('THE HEN', 'LISTEN') }] },
-    iconPending: ICON,
+    ...pending('hen'),
   }));
   out.push(write('content/items/raccoon-in-coat.json', {
     schema: 1, id: 'raccoon_in_coat', name: 'THE RACCOON, IN MY COAT', short: 'THE RACCOON, IN MY COAT',
@@ -6581,7 +6585,7 @@ function estateSaleItems() {
       + 'doc 111 and re-run. Thad\'s coat over the raccoon at the hole\'s mouth (USE, with him halfway out); sold to Pratt at THE '
       + 'SALE. Doc 111 writes it one LOOK and one LISTEN.',
     responses: { LOOK_AT: [{ say: said('THE RACCOON, IN MY COAT', 'LOOK') }], LISTEN_TO: [{ say: said('THE RACCOON, IN MY COAT', 'LISTEN') }] },
-    iconPending: ICON,
+    ...pending('raccoon_in_coat'),
   }));
   out.push(write('content/items/pratt-money.json', {
     // THE SENTENCE LINE CANNOT HOLD THE WHOLE NAME (tools/check-item-names.mjs: "Listen to MR. PRATT'S TWO DOLLARS AND
@@ -6593,7 +6597,7 @@ function estateSaleItems() {
       + 'LOOK and one LISTEN.',
     responses: { LOOK_AT: [{ say: said("MR. PRATT'S TWO DOLLARS AND SIXTY CENTS", 'LOOK') }],
       LISTEN_TO: [{ say: said("MR. PRATT'S TWO DOLLARS AND SIXTY CENTS", 'LISTEN') }] },
-    iconPending: ICON,
+    ...pending('pratt_money'),
   }));
   return out;
 }

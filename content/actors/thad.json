@@ -61,7 +61,8 @@
       "carry",
       "farwalk",
       "pick-fit",
-      "deed"
+      "deed",
+      "coat-bundle"
     ]
   },
   "clips": [
@@ -864,6 +865,21 @@
       "anchor": [
         351,
         627
+      ]
+    },
+    {
+      "id": "coat-bundle",
+      "facing": "front",
+      "frames": [
+        "art/actors/thad-coat-bundle-front/coat-bundle-00.png",
+        "art/actors/thad-coat-bundle-front/coat-bundle-01.png",
+        "art/actors/thad-coat-bundle-front/coat-bundle-02.png",
+        "art/actors/thad-coat-bundle-front/coat-bundle-03.png"
+      ],
+      "figureHeight": 626,
+      "anchor": [
+        355,
+        626
       ]
     }
   ]

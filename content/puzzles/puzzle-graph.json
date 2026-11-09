@@ -191,6 +191,7 @@
      "requires": [
       "i:company_map",
       "r:ozymandias_tent",
+      "T_SEANCE_ON=false",
       "T_OZY_PAID=true",
       "T_SURVEY_LODGED=false"
      ],

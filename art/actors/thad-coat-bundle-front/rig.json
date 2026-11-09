@@ -1,0 +1,12 @@
+{
+  "source": "art/actors/thad-coat-bundle-front.png",
+  "clip": "coat-bundle",
+  "facing": "front",
+  "figure": [
+    189,
+    626
+  ],
+  "padding": 260,
+  "frames": 4,
+  "note": "Doc 111 C, USE THE RACCOON with him halfway out (\"Thad takes off his coat and drops it over him. There is a great deal of coat, and then a great deal of raccoon.\"): in his shirtsleeves, both arms round the coat with the raccoon in it. 0 braced, the raccoon's face and a paw out of the top, 1 a breath (derived), 2 the bundle lurching left, 3 the paw swiping out, his head back. act3-estate-sale operation 2, cut on his stand-front canvas and scale by tools/art/act3-coat-cut.py, split here by tools/art/thad-coat-bundle-split.py. Played only by the hole's USE, a frame a line (ResponseRule.holds; errata 238)."
+}
