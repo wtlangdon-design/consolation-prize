@@ -123,6 +123,7 @@ function placed(roomId: string) {
   });
 }
 
+const acted = (read('content/acted-directions.json') as { directions: { where: string; performedBy?: string[]; frames?: number[]; framesBy?: number[][] }[] }).directions;
 for (const roomId of built) {
   const room = rooms.get(roomId);
   if (!room?.walkBoxes) continue;
@@ -134,10 +135,19 @@ for (const roomId of built) {
   const people = placed(roomId).map((one) => {
     const drawn = one.sprite.figureHeight;
     const scale = drawn ? (man(one.x, one.y) * (one.sprite.stature ?? 1)) / drawn : 1;
-    // Every pose, merged: a man is where any of his frames puts him.
+    // Every pose, merged: a man is where any of his frames puts him -- EXCEPT a scenery figure's frames
+    // that only a combination's act shows (errata 197: Grievance walking out of her stall, which ends in
+    // the ride and another room). Nobody is talking then. Its rest, its breaks, and any frame an act in a
+    // conversation gives it are measured as before.
     // Its feet on its y, and what lies under them below it (sprite.footRow; errata 201), as the renderer draws it.
-    const masks = one.sprite.frames.map((frame) => maskOf(one.sprite.sheet, frame as [number, number, number, number], scale, one.x,
-      one.y + drawnBelowFeet(frame[3], Math.max(1, Math.round(frame[3] * scale)), one.sprite.footRow)));
+    const actedOnlyOutside = one.npc.scenery ? new Set(acted
+      .filter((row) => row.performedBy?.includes(one.npc.id) && !row.where.startsWith('dialogue/'))
+      .flatMap((row) => row.framesBy?.[row.performedBy!.indexOf(one.npc.id)] ?? row.frames ?? [])) : new Set<number>();
+    const idle = new Set<number>([0, 1, ...((one.sprite as { breaks?: number[][] }).breaks ?? []).flat()]);
+    const masks = one.sprite.frames
+      .filter((_, index) => !actedOnlyOutside.has(index) || idle.has(index))
+      .map((frame) => maskOf(one.sprite.sheet, frame as [number, number, number, number], scale, one.x,
+        one.y + drawnBelowFeet(frame[3], Math.max(1, Math.round(frame[3] * scale)), one.sprite.footRow)));
     return { ...one, masks };
   });
   const most = (a: Mask[], b: Mask[]) => Math.max(...a.flatMap((ma) => b.map((mb) => shared(ma, mb) / Math.max(1, Math.min(area(ma), area(mb))))));

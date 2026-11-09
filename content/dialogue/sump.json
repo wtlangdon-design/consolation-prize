@@ -526,11 +526,7 @@
             {
               "speaker": "sump",
               "line": "…",
-              "sound": {
-                "src": "audio/sfx/county-seal.wav",
-                "gain": 1,
-                "rest": 2
-              }
+              "cue": "S6-SEAL"
             },
             {
               "speaker": "sump",

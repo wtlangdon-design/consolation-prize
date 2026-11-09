@@ -92,6 +92,7 @@
   ],
   "ambient": [
     "grievance",
+    "grievance_out",
     "livery_man",
     "other_mules"
   ],

@@ -1,0 +1,14 @@
+{
+  "assetId": "room-15",
+  "subject": "grievance",
+  "role": "derived-state",
+  "derivedFrom": 4,
+  "promptFile": "reference/unacted-moments/grievance-prompt-01.txt",
+  "out": "art/staging/room-15/grievance-out-01/sheet.png",
+  "size": "1536x1024",
+  "images": [
+    "art/staging/room-15/grievance-out-01/livery-with-thad.png",
+    "art/staging/room-15/grievance-01/sheet.png"
+  ],
+  "authorizedBy": "Tyler, 2026-11-08: \"Yes, one more op\" (room-15 cap raised to 6) for Grievance walking out of her stall, doc 54 B3"
+}

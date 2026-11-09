@@ -321,5 +321,13 @@
   "afterSeconds": 1.0,
   "note": "Doc 57 D2: 'The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives.' Once: T_PRATT_JUMP_SEEN. TALK TO reaches him after, until PRA_D2 option 1 sends him home (errata 97 D)."
  },
- "peopleNote": "Errata 192 (reference/ozymandia-prosperity/talk-to-brief.md): doc 54's TALK TO lines for her are answered by the figure that draws her at Prosperity in Act IV. Their '(second time)' and '(third time and after)' are repeats, compiled as the rule's `repeat`, not flags."
+ "peopleNote": "Errata 192 (reference/ozymandia-prosperity/talk-to-brief.md): doc 54's TALK TO lines for her are answered by the figure that draws her at Prosperity in Act IV. Their '(second time)' and '(third time and after)' are repeats, compiled as the rule's `repeat`, not flags.",
+ "hotspotWalkTo": {
+  "hole": {
+   "x": 1040,
+   "y": 840,
+   "facing": "back"
+  }
+ },
+ "hotspotWalkToNote": "hole: Left of the hole's centre, not under it: stood at its centre he covered the raccoon in its mouth, and doc 54 A5's 'one look of complete contempt' was played behind his head (errata 197). From here the raccoon's look down and left (his frame 2) is at Thad."
 }

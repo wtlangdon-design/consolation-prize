@@ -104,8 +104,10 @@ test('B3: with both, his line, the ride over black, and the room it ends in; the
   const rule = ruleOf(state, 'with both');
   const out = useFork(state);
   assert.equal(out.say, rule.say);
-  assert.equal(out.by, hostOf(state).id, 'the livery man says it');
+  assert.ok(out.direction, 'it opens on the staging, which doc 95 acts (row 78)');
   assert.deepEqual(out.then, rule.then);
+  const said = out.then?.[0];
+  assert.ok(typeof said === 'object' && said.speaker === hostOf(state).id, 'then the livery man says his line');
   const ride = out.then?.at(-1);
   assert.ok(typeof ride === 'object' && ride.overBlack, 'the ride is over black');
   assert.equal(out.goesTo, rule.goto, 'and the room changes once it is read');

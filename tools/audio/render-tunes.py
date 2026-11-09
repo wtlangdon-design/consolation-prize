@@ -99,10 +99,12 @@ def pitch_track(notes, beat, cents_for, glide=0.04):
 
 def livery_hum():
     """Badly: an octave down in a man's chest, slower than the tune goes, every
-    note a little off and the eighth a whole half step wrong, the vibrato
-    uneven. Recognisably the town theme, and recognisably wrong."""
+    note a little off and THE FOURTH BAR SAGGING, a half step flat (doc 54 B3:
+    Thad whistles it "corrected: the fourth bar lifted where the livery man let
+    it sag"; errata 197 -- it was the eighth note sharp), the vibrato uneven.
+    Recognisably the town theme, and recognisably wrong."""
     rnd = np.random.default_rng(4101)
-    notes = [(b, m - 24 + (1 if k == 7 else 0), d) for k, (b, m, d) in enumerate(PHRASE)]
+    notes = [(b, m - 24 - (1 if b >= 6 else 0), d) for k, (b, m, d) in enumerate(PHRASE)]
     offs = rnd.uniform(-55, 45, len(notes))
     f, amp = pitch_track(notes, 60 / 104, lambda k: offs[k], glide=0.07)
     t = np.arange(len(f)) / RATE
@@ -128,14 +130,20 @@ def whistle(rnd, notes, beat):
     return (tone + breath) * amp * np.minimum(1, t / 0.05)
 
 
+LONG_MOMENT = 4.3
+
+
 def grievance_whistle():
     rnd = np.random.default_rng(4201)
     fork = load('r33-fork.wav')
     w = whistle(rnd, PHRASE, 60 / 120)
-    x = np.zeros(n_of(1.4) + len(w) + n_of(2.2))
+    x = np.zeros(n_of(1.4) + len(w) + n_of(2.2 + LONG_MOMENT))
     place(x, fork / (np.abs(fork).max() + 1e-9), 0.0, 0.35)
     place(x, w / (np.abs(w).max() + 1e-9), 1.3, 0.8)
     end = 1.3 + len(w) / RATE
+    # "Grievance's ears come round. She looks at Thad for a long moment. Then she walks out of her stall"
+    # (doc 54 B3): her steps after the long moment, not on the whistle's last note (errata 197).
+    end += LONG_MOMENT
     for k, at in enumerate((0.35, 0.8, 1.25, 1.7)):          # and she goes
         step = lowpass(load(f'step-dirt-{k % 4 + 1}.wav'), 1500)
         place(x, step, end + at, 0.5)

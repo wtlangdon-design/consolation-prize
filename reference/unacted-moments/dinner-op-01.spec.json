@@ -1,0 +1,13 @@
+{
+  "assetId": "room-11",
+  "subject": "thad-dinner",
+  "role": "canonical-design",
+  "promptFile": "reference/unacted-moments/dinner-prompt-01.txt",
+  "out": "art/staging/room-11/dinner-thad-01/sheet.png",
+  "size": "1536x1024",
+  "images": [
+    "art/staging/room-11/dinner-thad-01/thad-in-room-11.png",
+    "art/staging/room-11/dinner-thad-01/thad-stands.png"
+  ],
+  "authorizedBy": "Tyler, reference/unacted-moments/brief.md (errata 189): room-11's last operation, one sheet for the dinner's seat and the porch's deed"
+}

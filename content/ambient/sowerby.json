@@ -131,34 +131,36 @@
      [
       2,
       2,
-      232,
-      206
+      134,
+      119
      ],
      [
-      236,
+      138,
       2,
-      232,
-      206
+      134,
+      119
      ],
      [
-      470,
+      274,
       2,
-      232,
-      206
+      134,
+      119
      ],
      [
-      704,
+      410,
       2,
-      232,
-      206
+      134,
+      119
      ],
      [
-      938,
+      546,
       2,
-      232,
-      206
+      134,
+      119
      ]
     ],
+    "depthY": 585,
+    "depthYNote": "The floor row of the depth he stands at: the pulpit's platform at the back of the church, behind the pulpit's front (its base meets the floor near y 600). The room's depth curve, carried back to here, makes a man about 285 px; he is drawn at a man's waist-up for that (tools/art/room17-sowerby-scale.py). Tyler, 2026-11-08: \"he looks enormous behind the podium\" -- he was the waist-up of a man of nearly 500.",
     "rate": 0.22,
     "phase": 0.15,
     "breaks": [

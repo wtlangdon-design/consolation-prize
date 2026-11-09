@@ -23,6 +23,8 @@ export interface InteractionResult {
   then?: SpokenLine[];
   /** Who speaks `say`, when it is not the actor. */
   by?: string;
+  /** His clip's frames held over the lines, one a line (ResponseRule.holds). */
+  holds?: { clip: string; frames: number[] };
   /** `say` is a stage direction (doc 58). */
   direction?: boolean;
   /** Where the scene leads once its lines have been read; the room has not changed yet. */
@@ -61,6 +63,8 @@ export interface InteractionResolution {
   readonly dialogue: string | null;
   readonly say: string | null;
   readonly by?: string;
+  /** His clip's frames over the lines (ResponseRule.holds). */
+  readonly holds?: { clip: string; frames: number[] };
   /** `say` is a stage direction (doc 58). */
   readonly direction?: boolean;
   readonly then?: SpokenLine[];
@@ -146,6 +150,7 @@ export class Interaction {
       say: this.resolution.say,
       ...(this.resolution.by ? { by: this.resolution.by } : {}),
       ...(this.resolution.direction ? { direction: true } : {}),
+      ...(this.resolution.holds ? { holds: this.resolution.holds } : {}),
       then: this.resolution.then,
       ...(this.resolution.goesTo ? { goesTo: this.resolution.goesTo } : {}),
       ...(this.resolution.arrives ? { arrives: true, ...(this.resolution.pause ? { pause: this.resolution.pause } : {}) } : {}),
@@ -910,6 +915,7 @@ export class GameState {
           dialogue: null,
           say: scene.say ?? null,
           ...(scene.by ? { by: scene.by } : {}),
+          ...(scene.holds ? { holds: scene.holds } : {}),
           then: scene.then,
           ...(scene.stays || scene.arrives ? {} : { goesTo: transit }),
           effects,

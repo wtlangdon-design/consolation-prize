@@ -9,6 +9,8 @@ import { AmbientLayer } from '../engine/core/Ambient.ts';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
+import { WalkBoxes, heightIn } from '../engine/core/WalkBoxes.ts';
+import type { WalkBox } from '../engine/core/types.ts';
 // @ts-expect-error -- a plain .mjs module with no declarations; it reads 8-bit RGBA PNGs.
 import { readPng } from '../tools/lib/png.mjs';
 
@@ -348,5 +350,115 @@ test('a figure with barks and no tree says them where the player stands to talk 
       misses.push(`${npc.id}: its stand is ${Math.round(gap)} px off and its barks fire inside ${npc.approachRadius ?? 0}`);
     }
   }
+  assert.deepEqual(misses, []);
+});
+
+/* ---- A prop in front of a figure paints only its objects over him ---------- */
+
+// Errata 197 (Tyler, of the dinner: "the other guy's shoulder is partially missing behind the candle"). A prop
+// cut from a plate keeps the plate's own pixels around its objects -- the wall lit by the candles -- and drawn
+// in front of the man behind it, that wall cut his shoulders away. Where a prop overlaps a figure drawn behind
+// it, its pixels must be its objects: no more than a handful may be the plate itself (within 75, and dark).
+test('no prop paints the plate over a figure behind it', () => {
+  const manifest = read('content/manifest.json') as { rooms: string[]; ambient: string[] };
+  const ambient = manifest.ambient.map((path) => read(path)) as { id: string; room: string; x: number; y: number;
+    sprite?: { sheet: string; frames: number[][]; figureHeight?: number }; spriteWhen?: { sprite: { sheet?: string; frames?: number[][] } }[] }[];
+  const misses: string[] = [];
+  for (const path of manifest.rooms) {
+    const room = read(path) as { id: string; background: string; props?: { id: string; sheet: string; x: number; y: number; frame: number[] }[] };
+    if (!room.props?.length || !existsSync(resolve(ROOT, room.background))) continue;
+    const plate = readPng(readFileSync(resolve(ROOT, room.background)));
+    for (const prop of room.props) {
+      const img = readPng(readFileSync(resolve(ROOT, prop.sheet)));
+      const [fx, fy, fw, fh] = prop.frame as [number, number, number, number];
+      const px0 = Math.round(prop.x - fw / 2); const py0 = prop.y - fh;
+      for (const npc of ambient.filter((one) => one.room === room.id && one.sprite && !one.sprite.figureHeight && one.y < prop.y)) {
+        // The frames he shows WHILE this prop is drawn: the sheet a `spriteWhen` gives under the prop's own
+        // condition, else his own.
+        const during = (npc.spriteWhen ?? []).find((v) => JSON.stringify((v as { when?: unknown }).when) === JSON.stringify((prop as { when?: unknown }).when));
+        for (const sprite of [during ? { ...npc.sprite!, ...during.sprite } : npc.sprite!]) {
+          const [sx, sy, w, h] = sprite.frames![0]! as unknown as [number, number, number, number];
+          const art = readPng(readFileSync(resolve(ROOT, sprite.sheet!)));
+          const box: [number, number, number, number] = [Math.round(npc.x - w / 2), npc.y - h, Math.round(npc.x + w / 2), npc.y];
+          let painted = 0;
+          for (let y = Math.max(box[1], py0); y < Math.min(box[3], py0 + fh); y += 1) {
+            for (let x = Math.max(box[0], px0); x < Math.min(box[2], px0 + fw); x += 1) {
+              const i = ((fy + y - py0) * img.width + fx + x - px0) * 4;
+              if (img.pixels[i + 3] < 128) continue;
+              // Only where he is drawn: a prop over the empty corners of his frame hides nothing of him.
+              if (art.pixels[((sy + y - box[1]) * art.width + sx + x - box[0]) * 4 + 3]! < 128) continue;
+              const j = (y * plate.width + x) * 4;
+              const diff = Math.abs(img.pixels[i] - plate.pixels[j]) + Math.abs(img.pixels[i + 1] - plate.pixels[j + 1]) + Math.abs(img.pixels[i + 2] - plate.pixels[j + 2]);
+              const lum = 0.3 * img.pixels[i] + 0.59 * img.pixels[i + 1] + 0.11 * img.pixels[i + 2];
+              if (diff < 75 && lum < 120) painted += 1;
+            }
+          }
+          // A dark object in front of him (the wine bottle) can match the dark wall it stands against; the
+          // dinner's lit wall was 2864 pixels over him, the bottle and the table's edge are 765.
+          if (painted > 1500) misses.push(`${room.id}: ${prop.id} paints ${painted} pixels of the plate over ${npc.id} (${sprite.sheet})`);
+        }
+      }
+    }
+  }
+  assert.deepEqual(misses, []);
+});
+
+// NOTHING OF A SEATED MAN SHOWS OVER THE CLOTH (Tyler, 2026-11-08, of the dinner: "Close but thads one leg is
+// popping up through the tablecloth"). A man seated at a table is drawn in front of its top, so his forearms rest
+// on it, and behind the cloth that hangs in front of him. Whatever of him lies between the two -- a thigh under
+// the table's edge -- is drawn over the top. For every seat a room gives Thad, in every frame of its state: none
+// of his pixels left uncovered by a prop in front of him may lie over a prop behind him in the PEEK rows just
+// above the front prop's top edge. A forearm on the cloth sits well above that edge; a lap does not.
+test('a seated figure shows nothing of himself just above the cloth in front of him', () => {
+  const PEEK = 8;
+  const manifest = read('content/manifest.json') as { rooms: string[]; actor: string };
+  const actor = read(manifest.actor) as { clips: { id: string; facing: string; state?: string; frames: string[]; figureHeight: number; anchor: [number, number] }[] };
+  const misses: string[] = [];
+  let seats = 0;
+  for (const path of manifest.rooms) {
+    const room = read(path) as { id: string; walkBoxes?: WalkBox[]; onEnter?: { accost?: { seat?: { x: number; y: number; facing: string; state: string; when?: unknown; sitAt?: { x: number; y: number } } } };
+      props?: { id: string; sheet: string; x: number; y: number; frame: number[]; when?: unknown }[] };
+    const seat = room.onEnter?.accost?.seat;
+    if (!seat?.sitAt || !room.walkBoxes) continue;
+    seats += 1;
+    // He carries the height of the chair's floor in with him: the place he is drawn is in from the table's end.
+    const boxes = new WalkBoxes(room.walkBoxes, () => true);
+    const height = heightIn(boxes.nearest(seat.x, seat.y)!.box, seat.y);
+    const same = (when: unknown) => when === undefined || JSON.stringify(when) === JSON.stringify(seat.when);
+    const props = (room.props ?? []).filter((prop) => same(prop.when)).map((prop) => {
+      const img = readPng(readFileSync(resolve(ROOT, prop.sheet)));
+      const [fx, fy, fw, fh] = prop.frame as [number, number, number, number];
+      const x0 = Math.round(prop.x - fw / 2); const y0 = prop.y - fh;
+      const at = (x: number, y: number) => x >= x0 && x < x0 + fw && y >= y0 && y < y0 + fh
+        && img.pixels[((fy + y - y0) * img.width + fx + x - x0) * 4 + 3] >= 128;
+      const tops = new Map<number, number>();
+      for (let x = x0; x < x0 + fw; x += 1) for (let y = y0; y < y0 + fh; y += 1) if (at(x, y)) { tops.set(x, y); break; }
+      return { id: prop.id, front: prop.y > seat.sitAt!.y, at, tops };
+    });
+    const front = props.filter((p) => p.front); const behind = props.filter((p) => !p.front);
+    if (!front.length || !behind.length) continue;
+    for (const clip of actor.clips.filter((c) => c.state === seat.state && c.facing === seat.facing)) {
+      clip.frames.forEach((frame, index) => {
+        const img = readPng(readFileSync(resolve(ROOT, frame)));
+        const scale = height / clip.figureHeight;
+        const w = Math.max(1, Math.round(img.width * scale)); const h = Math.max(1, Math.round(img.height * scale));
+        const left = Math.round(seat.sitAt!.x - Math.round((clip.anchor[0] / img.width) * w));
+        const top = Math.round(seat.sitAt!.y - Math.round((clip.anchor[1] / img.height) * h));
+        let peeks = 0;
+        for (let row = 0; row < h; row += 1) {
+          for (let col = 0; col < w; col += 1) {
+            const sx = Math.min(img.width - 1, Math.floor(col / scale)); const sy = Math.min(img.height - 1, Math.floor(row / scale));
+            if (img.pixels[(sy * img.width + sx) * 4 + 3] < 128) continue;
+            const x = left + col; const y = top + row;
+            if (front.some((p) => p.at(x, y))) continue;
+            if (!front.some((p) => { const t = p.tops.get(x); return t !== undefined && y < t && y >= t - PEEK; })) continue;
+            if (behind.some((p) => p.at(x, y))) peeks += 1;
+          }
+        }
+        if (peeks > 0) misses.push(`${room.id}: seated ${clip.id}[${index}] shows ${peeks} pixels just above the front prop's edge, over the table`);
+      });
+    }
+  }
+  assert.ok(seats > 0, 'no seat with sitAt found: the check reads nothing');
   assert.deepEqual(misses, []);
 });

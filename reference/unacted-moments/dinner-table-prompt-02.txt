@@ -1,0 +1,14 @@
+Image 1 is a finished background from my pixel-art adventure game: a rich red office at night, with nobody in it. Image 2 is a frame from the game, for reference only: two men at dinner at the desk. Use image 2 ONLY to see where the two men sit; its table is laid wrongly and its striped tablecloth is a placeholder, so copy neither.
+
+Where they sit, as in image 2: the old man sits BEHIND the desk, at the middle of its far side, facing us. The young man sits in the dining chair at the desk's RIGHT-HAND END, facing left down the length of the desk toward the old man.
+
+Make exactly ONE change to image 1, painted in the same style, light and pixel grid as the rest: THE DESK, LAID FOR DINNER FOR THOSE TWO MEN, absurdly well.
+1. A plain white linen tablecloth over the whole desk, hanging straight down to the carpet on the near side AND at the right-hand end, so the front of the desk and all its legs are hidden. Soft natural folds, no stripes.
+2. Exactly two places, one in front of each man and nowhere else:
+   - the old man's place on the FAR side of the desk, directly in front of where he sits: a fine china plate, a fork on its left, a knife on its right, a crystal wine glass with red wine;
+   - the young man's place at the RIGHT-HAND END of the desk, at the very end where he sits, turned to face him: a fine china plate, a fork and a knife lying along the table's length beside it, a crystal wine glass with red wine.
+   The near side of the desk, toward us, has NO place setting: nobody sits there.
+3. Between the two places, on the middle of the desk: a silver serving dish with a domed cover, a bottle of red wine, and two silver candlesticks with lit candles.
+4. The brass oil lamp stays exactly where it is. The green book and the folded white handkerchief are gone, under the cloth.
+
+Change nothing else at all. Same framing, same camera, same pixel grid, same colours, same light; every other object exactly as it is, pixel for pixel: the door, the window and curtains, the map board, the armchairs, the portrait and its frame, the sabre, the dining chair at the desk's right-hand end (empty), the bookshelf, the sideboard and its drawer, the decanter, the safe, the carpet. The grey strips above and below stay grey. No people, no text.

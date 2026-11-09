@@ -1,3 +1,4 @@
+import { counterReading, priceText } from '../core/NodeCounter.ts';
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
@@ -74,6 +75,12 @@ interface QueuedLine {
   rest?: number;
   poses?: HeldPose[];
   cue?: string;
+  /** His frame while this (spoken) line is up (ResponseRule.holds). */
+  pose?: HeldPose;
+  /** Frames kept once this acted beat is over, through the rest of the lines (doc 95 Holds). */
+  holdsAfter?: HeldPose[];
+  /** An acted beat in which he walks to a hotspot's stand (doc 54 A5's retreat; ActStep.walk). */
+  walk?: { id: string; to: string };
 }
 
 /**
@@ -249,6 +256,16 @@ export class GameScene extends Phaser.Scene {
   private personTarget: ReturnType<typeof personLines> = null;
   /** The frames an acted direction holds while it plays from the queue (doc 95; errata 141). */
   private queuedPoses: HeldPose[] | null = null;
+  /** An acted beat's walk is under way, and the beat waits for it (ActStep.walk). */
+  private actWalking = false;
+  /** His frame while a line of a rule that `holds` is up (ResponseRule.holds). */
+  private spokenPose: HeldPose | null = null;
+  /** Frames an acted beat left held, kept until the queued lines are over (doc 95 Holds; errata 197). */
+  private lingering: HeldPose[] | null = null;
+  /** The accost's seat he is walking to, and the state he is in once he sits (errata 197). */
+  private seatedState: string | null = null;
+  /** Where he stood before he was set down at the table, and goes back to when he rises. */
+  private seatedFrom: { x: number; y: number } | null = null;
   /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
   private overBlack = false;
   /** A scene's destination, travelled to once its lines have been read (GameState.resolveInteraction). */
@@ -294,6 +311,12 @@ export class GameScene extends Phaser.Scene {
    */
   private pendingTree: {
     tree: string; at: { x: number; y: number }; greeted: boolean;
+    /**
+     * The accost's chair (errata 197): taken as this conversation opens. It belongs to the conversation, so
+     * a click that cancels it, or leaving the room, drops the seat with it (Codex on #279: a stale seat
+     * had sat him down at the next conversation, wherever it was).
+     */
+    seat?: { facing: Facing; state: string; sitAt?: { x: number; y: number }; from: { x: number; y: number } };
     /** A duel he calls on Thad (an accost's `duel`): its intro is the greeting. */
     duel?: string;
     /** The ambient character the conversation is with, when it is one. */
@@ -629,14 +652,15 @@ export class GameScene extends Phaser.Scene {
     // THADDEUS ACTS IN A CLIP (doc 95; errata 148): while a beat holds a frame
     // of his, the actor draws it; when the beat is over he is let go.
     this.actor.hold(this.heldPoses()?.find((pose) => pose.id === this.actor.id && pose.clip) as
-      { clip: string; frame: number } | undefined ?? null);
+      { clip: string; frame: number; facing?: Facing } | undefined ?? null);
 
     // A LINE THAT HAS BEEN READ COMES DOWN. Its hold is doc 30 section 4.1's,
     // computed by lineSeconds from the rate in ui.json -- the same number a
     // cutscene already waits out before its next step, now also the number
     // after which the words leave the screen rather than sitting there until
     // something else happens to move them.
-    if (this.sayUntil !== null && now >= this.sayUntil) {
+    if (this.actWalking && !this.actor.isWalking) this.actWalking = false;
+    if (this.sayUntil !== null && now >= this.sayUntil && !this.actWalking) {
       // A GREETING RUNS ON ITS OWN: the next line of a conversation's opening
       // follows when the last has been read, as a performed exchange's lines
       // do. So does an arrival scene with an outcome (onEnter.sayAfter, doc 57
@@ -752,6 +776,11 @@ export class GameScene extends Phaser.Scene {
     // so it is ticked whether or not the opening runner is.
     if (this.carried.update(now, this.world)) this.markDirty();
     // A character walking out (AmbientFile.exit) moves every frame he walks.
+    // An acted beat still to play holds its figures (doc 54 A5): whoever it sends away goes after his part.
+    this.ambient.holdLeavers = new Set([...(this.queuedPoses ?? []), ...this.pendingSay.flatMap((line) => line.poses ?? [])
+      .concat(this.pendingSay.flatMap((line) => line.direction && !line.silent
+        ? (actOf([...this.ambient.present, ...this.ambient.leaving], line.line) ?? []).flatMap((step) => step.poses) : []))]
+      .map((pose) => pose.id));
     if (this.ambient.noteDepartures(now)) this.markDirty();
     // A FIGURE WHO HAS FADED OUT may owe a sound (AmbientFile.leaves): Fanshawe's door.
     for (const cue of this.ambient.takeCues()) this.fireCue(cue);
@@ -825,6 +854,16 @@ export class GameScene extends Phaser.Scene {
         } else {
           this.actor.faceToward(at.x, at.y);
         }
+        // AND SITS, when the accost gave him a chair (errata 197): his seated clips until it ends.
+        const seatDue = this.pendingTree.seat;
+        if (seatDue) {
+          // ON THE CHAIR AT THE TABLE'S END (Tyler, 2026-11-08: "his hands out on nothing"): set down where
+          // his forearms meet the cloth, off the walked floor, and put back on it when he rises.
+          if (seatDue.sitAt) { this.actor.placeAt(seatDue.sitAt.x, seatDue.sitAt.y); this.seatedFrom = seatDue.from; }
+          this.actor.setFacing(seatDue.facing);
+          this.state.setMoverState(this.actor.id, seatDue.state);
+          this.seatedState = seatDue.state;
+        }
         if (evidence) {
           // CONTACT. She looks up from the ledger now (the greeting state
           // holds her talk frame) and the evidence is held before her for a
@@ -896,6 +935,13 @@ export class GameScene extends Phaser.Scene {
     // 143): the sentence line names what is under it now, not what it named
     // before the conversation opened, and not nothing until the pointer moves.
     const talking = this.conversationOpen();
+    // THE DINNER IS OVER: he stands from the chair as the conversation closes (errata 197).
+    if (this.wasTalking && !talking && this.seatedState !== null) {
+      if (this.state.moverState(this.actor.id) === this.seatedState) this.state.setMoverState(this.actor.id, undefined);
+      this.seatedState = null;
+      if (this.seatedFrom) { this.actor.placeAt(this.seatedFrom.x, this.seatedFrom.y); this.seatedFrom = null; }
+      this.markDirty();
+    }
     if (this.wasTalking && !talking && !this.panelHidden) {
       this.onPointerMove(this.input.activePointer);
       this.markDirty();
@@ -957,6 +1003,7 @@ export class GameScene extends Phaser.Scene {
       poses: this.heldPoses(),
       still: this.stilled,
       tally: this.slateTally(),
+      nodeCounter: this.nodeCounterLines(),
       performing: this.performance !== null,
       choiceView: this.choicesShowing() ? this.choiceViewNow() : {},
       // Whose greeting is being said, so they hold still for it as they do
@@ -1822,12 +1869,23 @@ export class GameScene extends Phaser.Scene {
     // DOC 30 §5's SPLIT UTTERANCES. The setup goes up now and the rest queue
     // behind it on their own reading holds, which is the 1990 rhythm the
     // presentation borrows: setup, beat, punchline.
+    // HIS PICTURE OVER THE LINES (ResponseRule.holds): the nth frame of his clip on the nth line.
+    const holds = result.holds;
+    // In the facing the clip is drawn in: the deed is held facing us, whichever way he walked to the door.
+    const facing = holds ? this.state.content.actor.clips.find((clip) => clip.id === holds.clip)?.facing : undefined;
+    const poseAt = (n: number): HeldPose | undefined => holds?.frames.length
+      ? { id: this.state.content.actor.id, clip: holds.clip, frame: holds.frames[Math.min(n, holds.frames.length - 1)]!,
+        ...(facing ? { facing } : {}) } : undefined;
+    if (holds && result.say) this.spokenPose = poseAt(0) ?? null;
     if (result.then?.length) {
       const who = this.state.content.actor.id;
       // A bare line is his; a line with a speaker is theirs (doc 57 A9's read-back).
-      this.pendingSay.push(...result.then.map((line) => (typeof line === 'string'
-        ? { speaker: who, line } : { speaker: line.speaker, line: line.line, ...(line.overBlack ? { overBlack: true } : {}),
-          ...(line.direction ? { direction: true } : {}) })));
+      this.pendingSay.push(...result.then.map((line, index) => {
+        const pose = poseAt(index + 1);
+        return { ...(typeof line === 'string'
+          ? { speaker: who, line } : { speaker: line.speaker, line: line.line, ...(line.overBlack ? { overBlack: true } : {}),
+            ...(line.direction ? { direction: true } : {}) }), ...(pose ? { pose } : {}) };
+      }));
     }
     // SHE ANSWERS, AFTER HIS LINE, EVERY TIME (errata 192): her bark, in her voice, over her head.
     if (this.personTarget?.target.id === target.id) {
@@ -2079,6 +2137,10 @@ export class GameScene extends Phaser.Scene {
 
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
     this.leaveLines();
+    // A picture held over a beat's lines stays in the room it was said in (ResponseRule.holds).
+    if (this.spokenPose) this.actor.hold(null);
+    this.spokenPose = null;
+    this.lingering = null;
     this.loadNear();
     // A room over once its ending is said stays over black, after a load too (errata 121 B).
     const black = this.state.room.blackWhen;
@@ -2185,10 +2247,16 @@ export class GameScene extends Phaser.Scene {
       // completes here, and the opening its entry gates is performed once.
       if (accost.completes) this.state.completeByTimeline(accost.completes);
       this.actor.faceToward(npc.x, npc.y);
+      // `seat`: to the chair instead, and he sits as the conversation opens (doc 48 S1 beat 1).
+      const seat = accost.seat && this.state.flags.test(accost.seat.when) ? accost.seat : null;
       this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id,
-        ...(accost.completes ? { viaAction: true } : {}), ...(accost.duel ? { duel: accost.duel } : {}) };
+        ...(accost.completes ? { viaAction: true } : {}), ...(accost.duel ? { duel: accost.duel } : {}),
+        ...(seat ? { seat: { facing: seat.facing, state: seat.state, ...(seat.sitAt ? { sitAt: seat.sitAt } : {}),
+          from: { x: seat.x, y: seat.y } } } : {}) };
       // `approach`: he walks to the caller's stand first; the tree opens on arrival.
-      if (accost.approach && npc.walkTo) this.actor.walkTo(npc.walkTo.x, npc.walkTo.y);
+      if (seat) {
+        this.actor.walkTo(seat.x, seat.y);
+      } else if (accost.approach && npc.walkTo) this.actor.walkTo(npc.walkTo.x, npc.walkTo.y);
       this.markDirty();
     });
   }
@@ -2856,6 +2924,11 @@ export class GameScene extends Phaser.Scene {
   private advanceSay(): boolean {
     const next = this.pendingSay.shift();
     if (next === undefined) {
+      // The last line is down: a picture held over the lines is let go (ResponseRule.holds), and so is
+      // whatever an acted beat left held.
+      if (this.spokenPose) this.actor.hold(null);
+      this.spokenPose = null;
+      this.lingering = null;
       // AN ARRIVAL SCENE IS OVER when its last line comes off: only now does
       // it hand over, complete, and write (so a figure in it walks out after).
       if (this.afterArrival) {
@@ -2877,6 +2950,8 @@ export class GameScene extends Phaser.Scene {
       this.pendingSay.unshift(...steps.map((step) => ({
         speaker: next.speaker, line: next.line, direction: true, silent: true,
         rest: step.seconds, poses: step.poses, ...(step.cue ? { cue: step.cue } : {}),
+        ...(step.walk ? { walk: step.walk } : {}),
+        ...(step.holds ? { holdsAfter: step.holds } : {}),
       })));
       return this.advanceSay();
     }
@@ -2884,12 +2959,21 @@ export class GameScene extends Phaser.Scene {
       this.setSay(null);
       this.sayingActor = next.speaker;
       this.queuedPoses = next.poses ?? null;
+      // AND WHAT IT LEAVES HELD (doc 95 Holds): Grievance out of her stall through "Twelve years." (errata 197).
+      if (next.holdsAfter) this.lingering = next.holdsAfter;
       this.sayUntil = this.time.now / 1000 + (next.rest ?? 0);
+      // HE RETREATS (ActStep.walk): to the hotspot's own stand, and the beat holds until he is there.
+      if (next.walk && next.walk.id === this.actor.id) {
+        const spot = this.state.room.hotspots.find((one) => one.id === next.walk!.to);
+        const stand = spot?.walkTo ?? (spot ? { x: spot.rect[0] + spot.rect[2] / 2, y: spot.rect[1] + spot.rect[3] } : null);
+        if (stand && this.actor.walkTo(stand.x, stand.y)) this.actWalking = true;
+      }
       if (next.cue) this.fireCue(next.cue);
       this.markDirty();
       return true;
     }
     this.setSay(next.direction ? GameScene.asDirection(next.line) : next.line, next.speaker, next.direction === true);
+    this.spokenPose = next.pose ?? null;
     this.markDirty();
     return true;
   }
@@ -2955,8 +3039,9 @@ export class GameScene extends Phaser.Scene {
     }
     // Once per showing: a line redrawn is not a line said again.
     this.soundedWords = words;
-    // Whatever is said next, an acted beat from the queue is over.
+    // Whatever is said next, an acted beat from the queue is over, and so is a held picture.
     this.queuedPoses = null;
+    this.spokenPose = null;
     this.sayIsDirection = text !== null && direction;
     // DOC 30 SECTION 5'S BLOCK WIDTH, WHICH NOTHING HAD EVER USED. "Spoken
     // text uses a default maximum block width of 240 native pixels." This
@@ -3951,6 +4036,14 @@ export class GameScene extends Phaser.Scene {
    * being performed once its pencil has gone down -- the exchange lands only
    * when its last line is read, which is after the next boast.
    */
+  /** The open node's running total, as two lines (doc 04 SOW_C1; NodeCounter). */
+  private nodeCounterLines(): string[] | null {
+    const place = this.state.content.ui.nodeCounter;
+    const reading = place ? counterReading(this.state.dialogue.currentNode, (id) => this.state.flags.get(id)) : null;
+    if (!place || !reading) return null;
+    return [`${place.countLabel} ${reading.count}`, `${place.priceLabel} ${place.currency}${priceText(reading.price)}`];
+  }
+
   private slateTally(): { player: number; opponent: number } | null {
     const score = this.state.dialogue.duelScore;
     if (!score) return null;
@@ -3976,7 +4069,9 @@ export class GameScene extends Phaser.Scene {
 
   /** Which figures hold which frames now: an acted direction, in a conversation or queued (doc 95; errata 141). */
   private heldPoses(): HeldPose[] | null {
-    return this.performance?.current?.poses ?? this.queuedPoses;
+    const now = this.performance?.current?.poses ?? this.queuedPoses ?? (this.spokenPose ? [this.spokenPose] : null);
+    if (!this.lingering) return now;
+    return [...(now ?? []), ...this.lingering.filter((pose) => !now?.some((one) => one.id === pose.id))];
   }
 
   private fireCue(id: string): void {

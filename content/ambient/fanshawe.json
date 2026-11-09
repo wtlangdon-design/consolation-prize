@@ -94,5 +94,67 @@
   "waistOn": 495,
   "hands": "folded",
   "waistOnNote": "The plate row the figure's waist ends on: his desk's back edge (y 495 at x 1031); nothing on the desk is his and his hands never come below it. Held by tests/counter-surface.test.mjs against the plate."
- }
+ },
+ "spriteWhen": [
+  {
+   "when": {
+    "T_BORDERS_MOTT": true,
+    "T_DINED": false
+   },
+   "note": "THE DINNER (doc 48 S1; errata 197): while the table is laid (the same condition as Room 11's `dinner` prop) he is turned three-quarters to his left, to Thad at the table's end. Tyler, 2026-11-08: \"is the guy he's with not looking at him at all?\" and \"One more op\": room-11 attempt 7, cut by tools/art/fanshawe-turned.py to his own sheet's measure.",
+   "sprite": {
+    "sheet": "art/actors/room-11-fanshawe-turned.png",
+    "frames": [
+     [
+      2,
+      2,
+      347,
+      194
+     ],
+     [
+      351,
+      2,
+      347,
+      194
+     ],
+     [
+      700,
+      2,
+      347,
+      194
+     ],
+     [
+      1049,
+      2,
+      347,
+      194
+     ]
+    ],
+    "breaks": [
+     [
+      2,
+      2,
+      2,
+      0
+     ],
+     [
+      3,
+      3,
+      3,
+      0
+     ],
+     [
+      2,
+      2,
+      0,
+      3,
+      3,
+      0
+     ]
+    ],
+    "talkFrame": 2,
+    "frameNote": "Turned to his guest: 0 rest, hands folded · 1 breath · 2 welcome, his hand held out to Thad · 3 laughing. A break every `breakEvery` seconds (errata 77)."
+   }
+  }
+ ]
 }

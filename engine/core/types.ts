@@ -86,6 +86,12 @@ export interface ResponseRule {
    * A line with a speaker is theirs (doc 57 E9: Sump at the archive door).
    */
   then?: SpokenLine[];
+  /**
+   * HIS PICTURE WHILE THE LINES ARE SAID (doc 48 S1 beat 4: "Thad on the porch, holding the deed wrong
+   * side up"; errata 197): a clip of his, the nth frame held over the nth line (`say` first, then
+   * each of `then`), the last held for any lines beyond.
+   */
+  holds?: { clip: string; frames: number[]; note?: string };
   /** Who speaks `say`, when it is not Thad (doc 57 E9's archive door: Sump). */
   by?: string;
   /**
@@ -667,6 +673,12 @@ export interface AmbientFile {
    * part of a drawn crowd. Rate is full cycles per second and phase offsets
    * it, so no two people on a street move on the same beat.
    */
+  /**
+   * ANOTHER SHEET WHILE A CONDITION HOLDS (errata 197; Tyler, of the dinner: "is the guy he's with not looking
+   * at him at all?"): the first entry whose `when` holds replaces the sprite's sheet and frames (and whatever
+   * else it names) for as long as it holds.
+   */
+  spriteWhen?: { when: Condition; note?: string; sprite: Partial<NonNullable<AmbientFile['sprite']>> }[];
   sprite?: {
     sheet: string;
     rate: number;
@@ -1658,6 +1670,14 @@ export interface RoomFile {
        * before the greeting; the conversation opens when he arrives.
        */
       approach?: boolean;
+      /**
+       * HE SITS DOWN TO IT (doc 48 S1 beat 1, "Thad seated; the table laid absurdly well"; errata 197).
+       * While `when` holds, he walks to this point instead, turns to `facing`, and takes the mover
+       * state `state` (his seated clips) as the conversation opens; it is cleared when it ends.
+       */
+      seat?: { x: number; y: number; facing: Facing; state: string; when?: Condition; note?: string;
+        /** Where he is drawn once seated, when the chair is off the floor he walks (at a table's end). */
+        sitAt?: { x: number; y: number } };
     };
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
@@ -2017,7 +2037,23 @@ export interface DialogueRepeat {
   exchange?: { speaker: string; line: string; direction?: boolean; sound?: LineSound }[];
 }
 
+/**
+ * A RUNNING TOTAL SHOWN WHILE A NODE IS OPEN (doc 04 SOW_C1's counter; errata 75, 189):
+ * a number counter, and a price read from it at `perUnit` each. Once `stopsOn` is set the
+ * negotiation is settled and the price stops at `minimum`. The figures come from the
+ * documents (the extractor reads them); the labels and placement are content/ui/ui.json's.
+ */
+export interface NodeCounter {
+  counter: string;
+  perUnit: number;
+  minimum: number;
+  stopsOn: string;
+  note?: string;
+}
+
 export interface DialogueNode {
+  /** Doc 04 SOW_C1: a running total on screen while the node is open. */
+  counter?: NodeCounter;
   /**
    * What the other party says before the options are offered.
    *
@@ -2180,6 +2216,8 @@ export interface UiFile {
   notices: Record<string, string>;
   keys: Record<string, string>;
   hud: { hintTemplate: string };
+  /** How a node's running total is drawn (NodeCounter): its two labels, the currency mark, and where. */
+  nodeCounter?: { note?: string; countLabel: string; priceLabel: string; currency: string; at: [number, number] };
   /** Doc 20's map screen. Interface grammar, of a class with the templates. */
   map?: { note?: string; button: string; back: string; travelTemplate: string };
   /**
@@ -2629,6 +2667,12 @@ export interface PerformedDirection {
    */
   clip?: string;
   facing?: Facing;
+  /**
+   * AND THEN HE GOES SOMEWHERE (doc 54 A5: "Thad retreats, coughing, as far as the claim
+   * marker"): the protagonist, his clip played, walks to this hotspot's stand in the room,
+   * and the beat lasts until he is there. Doc 95 writes it `thad:<clip>@<hotspot>`.
+   */
+  walkTo?: string;
 }
 
 /** content/acted-directions.json: doc 95's table, as extracted. */
@@ -2643,6 +2687,10 @@ export interface ActedDirectionsFile {
     where: string;
     performedBy?: string[];
     frames?: number[];
+    /** Each figure's own frames, in the order `performedBy` names them, when they act differently. */
+    framesBy?: number[][];
+    /** Each figure's own held frame, in the same order. */
+    holdsBy?: number[];
     seconds?: number;
     holds?: number;
     cue?: { id: string; frame: number };

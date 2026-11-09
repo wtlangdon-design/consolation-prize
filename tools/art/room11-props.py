@@ -24,7 +24,7 @@ from scipy import ndimage as ndi
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PLATE = os.path.join(ROOT, 'art/backgrounds/room-11-fanshawe-office.png')
-DINNER = os.path.join(ROOT, 'art/staging/room-11/dinner-01/dinner-1536.png')
+DINNER = os.path.join(ROOT, 'art/staging/room-11/dinner-03/dinner-1536.png')   # tools/art/room11-dinner-relay.py
 CROP = (8, 170, 1528, 854)
 HANDKERCHIEF = (888, 490, 990, 534)   # plate pixels (x0, y0, x1, y1)
 SHIFT = 100

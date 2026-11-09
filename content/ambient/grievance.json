@@ -43,6 +43,12 @@
     2,
     138,
     184
+   ],
+   [
+    702,
+    2,
+    138,
+    184
    ]
   ],
   "rate": 0.22,
@@ -72,7 +78,7 @@
    ]
   ],
   "breakEvery": 6,
-  "frameNote": "0 rest · 1 breath (derived) · 2 ears round to the left · 3 her head turned to look left · 4 a snort. A break every `breakEvery` seconds (errata 77).",
+  "frameNote": "0 rest · 1 breath (derived) · 2 ears round to the left · 3 her head turned to look left · 4 a snort. A break every `breakEvery` seconds (errata 77). · ACTED ONLY: 5 nothing, while she is out of her stall in `grievance_out` (doc 54 B3, doc 95 row 79; errata 197).",
   "provenance": "art/staging/room-15/grievance/grievance.json"
  }
 }

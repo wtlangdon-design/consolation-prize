@@ -1,0 +1,18 @@
+Image 1 is a frame of my pixel-art adventure game at exact game size: Thad, the hero, in a blue frock coat, standing at the left of Colonel Fanshawe's office, where a dinner is laid on the desk. Image 2 is Thad himself, the style standard, from the front and from the side. Look at Thad's pixels: BIG square blocks, a face of a handful of blocks, a few flat, softly shaded tones, no fine texture, no hard internal contrast.
+
+I need THAD drawn on his own as ONE sheet of FOUR poses, side by side, left to right, each the same man as Image 2: same face, same dark hair, same blue frock coat, brown waistcoat, white shirt, grey trousers, brown shoes, same colours, same size of pixels.
+
+1. SEATED TO DINE: Thad sitting upright on a plain dark wooden dining chair (draw the chair), seen in PROFILE facing LEFT, his knees forward, both forearms resting forward at the height of a table top as if on the edge of a tablecloth, looking left at his host, polite and a little out of his depth. No table, only the chair.
+2. THE WINE: identical to pose 1 except he raises a small glass of red wine to his lips with his near hand. A clear, deliberate movement.
+3. ON THE PORCH: Thad STANDING, facing the viewer, full length, holding a single folded legal document (an old deed: cream paper with a red wax seal) in both hands in front of his chest, and holding it UPSIDE DOWN: the red seal is at the TOP of the paper and its lines of writing run upside down. He looks down at it, pleased with himself.
+4. Identical to pose 3 except he has looked up from the paper, out at the viewer, with a small satisfied smile. The paper is still upside down.
+
+STYLE: exactly as coarse as Thad in Images 1 and 2. Every pixel a large crisp square block the size of Thad's. Flat soft shading, few tones, low texture, no fine detail. Not sharper than Thad. Plain even light.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no table, nothing else.
+- Poses 3 and 4 the same height as Thad standing; poses 1 and 2 the same man seated on the chair, the chair's feet on the same baseline as poses 3 and 4's shoes.
+- Clear magenta space between poses. No pose touches another.
+- Between poses 1 and 2, and between 3 and 4, ONLY the change described happens.
+- The deed's writing is only small dark scribble lines. No letters, no words, no text anywhere, no labels, no numbers, no borders.
+- Crisp pixel edges against the magenta. No soft glow, blur or halo.

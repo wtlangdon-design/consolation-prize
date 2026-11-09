@@ -5394,6 +5394,51 @@ Lesson: a person's TALK TO is only staged like a tree's if a test walks it (the 
   - The letter-writer's and the boundary men's figures overlap the edges of a doorway's and two posts' click areas, and both stay clickable.
 - **The lesson** is a row in doc 55 §8. When a figure moves rooms, read its own lines for where they assume it stands. Read every line in the new room and the old one for who they assume is there.
 
+# 197 · FIVE WRITTEN MOMENTS, ACTED; AND SOWERBY AT HIS SIZE — TYLER, 2026-11-08 (reference/unacted-moments/brief.md; "he looks enormous behind the podium")
+
+*Errata 189's five unacted moments, built from the brief. Nothing new is written: every line and direction is the documents'. Three image operations were spent: room-11's last, which its cap allowed, then one each for room-15 and room-11 that Tyler approved. Tyler approves the two sounds by ear (errata 102).*
+
+- **1 · Fanshawe's dinner (doc 48 S1 beats 1–4).** Room-11 attempt 6 drew Thad against himself in Room 11. It has him seated in profile on a dining chair, then the same with his wine raised. It also has him standing with the deed upside down, looking down at it, then up. `tools/rig/cut-dinner.py` cuts them at his record's scale:
+  - the state `dining`: seated `idle`, the wine as his `idle-break`, and `stand`;
+  - the clip `deed`.
+  - **Seated:** Room 11's accost gains a `seat` for the dinner only (`T_BORDERS_MOTT`, not `T_DINED`). He walks to the chair at the table's free end (1440, 740), facing Fanshawe, and sits as FAN_A2 opens. He stands as it closes.
+  - **At the table (Tyler, of the first render: "sitting very awkwardly at the table with his hands out on nothing. And is the guy he's with not looking at him at all?"):**
+    - the seat's `sitAt` sets him down in from the table's end, so his forearms rest on the cloth;
+    - Fanshawe is turned to him while the table is laid (Tyler: "One more op", room-11 cap 7). Room-11 attempt 7 drew his four poses three-quarters to his left, cut by `tools/art/fanshawe-turned.py`. A figure may now carry `spriteWhen`, another sheet while a condition holds; here it is the dinner prop's own condition.
+  - **And then (Tyler, of the next render: "Thad is very awkwardly positioned at the table. Maybe you need the tablecloth to come all the way down and it can hide his legs completely? And the other guy's shoulder is partially missing behind the candle."):**
+    - the cloth now hangs to the floor: a second prop, `dinner_drape` (`tools/art/room11-dinner-drape.py`), standing on the carpet in front of the chair, so his legs are under it while the table top stays behind his forearms;
+    - the table prop no longer carries the plate's lit wall around the candles and the lamp, which was drawn over Fanshawe's shoulders. **The lesson:** `tests/lessons.test.ts` fails when a prop paints the plate over a figure behind it. It fails on the old prop (2864 pixels).
+  - **And then (Tyler, of the next: "Close but thads one leg is popping up through the tablecloth"):** seated, he is drawn in front of the table top, and his lap lies just above the cloth's front edge, so it was drawn over the top. The drape now carries the table's own pixels for the 15 rows above that edge (from y 530), so his lap goes under the top; his forearms rest above them. **The lesson:** `tests/lessons.test.ts` fails when any of a seated figure, in any frame of his seat's state, shows over a prop behind him in the 8 rows just above the edge of a prop in front of him. It fails on the old drape (332 pixels).
+  - **The places, where the men sit (Tyler, 2026-11-08/09: "the place settings are setup in the wrong places for their dinner"; "Maybe just regenerate the whole set table instead of cutting and replacing?").** Operation 4 laid both places side by side along the near edge, where nobody sits. Room-11 attempt 8 (cap 8) generated the table again and attempt 9 (Tyler: "One more op, with a map", cap 9) re-laid it to a map with every object's box drawn in. Both laid the places along the near edge again, but both hung a plain linen cloth to the carpet. Tyler chose "New cloth, move by hand":
+    - `tools/art/room11-dinner-relay.py` keeps attempt 9's table and moves its own pixels: the covered dish to the near left; the left place, mirrored, to the far side in front of Fanshawe, beside his glass; the right place to Thad's end, its fork and knife turned to lie along the table. The cloth is put back from the cloth around it, and the wall from the plate source. The dinner is the cloth's shape and each object standing on it, not "every pixel that differs", because attempt 9 redrew the whole room.
+    - The table is now two layers of the one picture (`tools/art/room11-dinner-drape.py`): `dinner`, its top, drawn behind Thad seated; `dinner_drape`, its real cloth from 15 rows above the top's front edge to the carpet, drawn in front of him. The synthetic striped cloth is gone.
+    - **The lesson:** a doc 55 §8 row, "A table is laid for nobody who sits at it".
+  - **The porch:** beat 4's two lines at the door ("A very fine dinner." / "I believe I own something.") play over the deed's two frames, through a rule's new `holds`. The pose is let go when the lines are down or the room changes.
+  - The seal and the wine are a shade toward brick red, because `check-key-fringe` reads saturated red as the key.
+- **2 · Grievance and the tune (doc 54 B3, doc 95 row 79).** The staging before "Twelve years." was dropped at extraction. It is now the case's first beat, acted:
+  - the fork rings and the corrected tune is whistled (`B3-WHISTLE`, fired by the act, not at the click);
+  - her ears come round as the tune ends, and she gives Thad a long look;
+  - her steps follow it.
+  - **The livery man's hum now sags in its fourth bar** (it was the eighth note sharp), as doc 54 says the whistle lifts it.
+  - Thad stands to it: his only bending clip is from another drawing and would jump.
+  - **She walks out of her stall** (Tyler: "Yes, one more op", room-15 cap 6). Room-15 attempt 6 drew the half door open and her two strides. `tools/art/grievance-out.py` composes `grievance_out`, a scenery figure that is empty at rest: the door open, the stall dark behind it, her stepping out (her canonical front pose), then walking off left.
+    - Row 79 acts both figures. Her own goes empty while the other is out. A row may now give each figure its own frames and holds (`;` groups).
+    - She stays out through "Twelve years." because an act's holds now last through the rest of a combination's lines.
+    - `staging-clear` no longer measures a scenery figure's combination-only frames against talk stands, as recorded in `proofs/check-friction.json`.
+- **3 · The tonic and the blanket (doc 54 A5, doc 95 rows 77–78).** Both directions were dropped at extraction and are now acted.
+  - **The fumes:** Thad recoils (his back recoil) and walks back to the claim marker, through a doc 95 act that may now end in a walk (`thad:<clip>/<facing>@<hotspot>`). The fume is not drawn: the engine has no smoke.
+  - **The blanket:** the pause, the raccoon's head-turned look, then his walk out. A figure with an acted beat still to play is held present until it is played (`Ambient.holdLeavers`).
+  - **The hole's stand moves left of its centre** (annotation `stands`), because from the centre Thad's head covered the raccoon. Doc 55 §8 has the row.
+- **4 · The county seal (doc 48 S6 beat 3).** The rendered seal was a raw line sound. It is now the cue `S6-SEAL`, which ducks the registrar's music under the stamp and its tail and lets it back. `levels.loudest` names it the single exception to errata 106: `check-sound-levels` holds it 6 dB over every other sound in the game, and fails with a bell turned up past it.
+- **5 · Sowerby's counter (doc 04 SOW_C1).** ADJECTIVES and PRICE are drawn in the bitmap face on the panel's right while SOW_C1 is open. The extractor reads the rate and the minimum ("Two dollars an adjective; the minimum rate is fifty cents") onto the node. The labels and the placement are `content/ui/ui.json`'s. **A reading, reversible by name:** once "He was present." settles it, the price stops at the written fifty cents and the adjective count stays as it stood. `tests/node-counter.test.ts` holds it.
+- **Sowerby at his size (Tyler, of the counter render: "he looks enormous behind the podium").**
+  - His church sheet was the waist-up of a man of nearly 500 px. The room's man at the pulpit's depth is 285.
+  - He is resampled to a man's waist-up there (`tools/art/room17-sowerby-scale.py`, `depthY` 585), the desk is re-cleared, and he is snapped at that depth.
+  - **The lesson:** `tests/scale.test.ts` now holds every behind-counter figure to at most 0.45 of a man at its own depth. It fails on the old sheet (0.71).
+- **The lessons:**
+  - Doc 95's new "Performed by" form (`thad:<clip>/<facing>@<hotspot>`) is held by `tests/acted-directions.test.ts`.
+  - The level exception is held by `check-sound-levels`; it fails with a bell turned up.
+
 # 198 · THE HORSES MOVED BACK AND DIMMED FOR THE NIGHT — TYLER, 2026-11-08
 
 Tyler: "The three horses on main street are now a little too front and center and seem to be lit a little too bright. Can you move them back a bit, make them a bit smaller since they're moving away from the front of the screen, and make sure they're a bit dimmer for the night?"

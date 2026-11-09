@@ -391,6 +391,42 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 198: Tyler moved the hitching horses back from 1545,850 to 1405,755. The test restated their old place as numbers (the points under the hooves, the ground behind them, the pointer over them), so moving the figure broke it. It now reads the place from content/ambient/hitching-horses.json and asks the same questions there: the ground under the hooves is not walkable, the ground behind is, and the pointer over them finds the mud. Nothing it guards is weakened."
+  },
+  {
+   "check": "tests/staging-clear.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 197: a scenery figure's frames that only a combination's act shows are not measured against talk stands (Grievance walking out of her stall, doc 54 B3, which ends in the ride and the Nugget; nobody is talking then). Its rest, breaks and any frame a conversation's act gives it are still measured; a figure that talks is measured on every frame as before."
+  },
+  {
+   "check": "tests/f5.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 197: the county seal is now the cue S6-SEAL, not a raw line sound with a `rest`. The test asserted the old shape (one line with `sound`); it now asserts one line with the cue named as the loudest in the game, that cue's duck, and its place between the certification and the read-back, which is no weaker."
+  },
+  {
+   "check": "tests/one-level.test.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 197: a figure behind a counter at the back of a room declares how deep it stands (`depthY`), and a man there is the room's curve carried back to that floor, not clamped to the walk band. Clamped, Sowerby at the pulpit was snapped as the man of 390 the walk band's far edge gives, not the 285 he is; the measure is now the true one."
+  },
+  {
+   "check": "tests/acted-directions.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 197: a doc 95 act may now end in a walk (`thad:<clip>/<facing>@<hotspot>`, Thad's retreat to the claim marker). That last beat holds no frame and lasts until he arrives, so the test exempts it from 'every beat holds a frame of his clip for its seconds' and asserts instead that the walk goes to a hotspot in the room. The clip's own beats are held as before."
+  },
+  {
+   "check": "tests/room-11.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 197: the dinner is now two props, the table and its cloth to the floor (dinner_drape), so the props shown with the table laid are both; the test lists both, which is no weaker."
+  },
+  {
+   "check": "tests/movement.test.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 197: `grievance_out` carries a movementException quoting Tyler (\"Yes, one more op\"). It draws nothing at rest; it is Grievance out of her stall, shown only in doc 95 row 79's act, while her own figure, grievance.json, carries her movement and is held by the test as before."
   }
  ]
 }

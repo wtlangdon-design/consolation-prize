@@ -1,0 +1,15 @@
+{
+  "source": "art/staging/room-11/dinner-thad-01/sheet.png",
+  "key": "magenta",
+  "clip": "idle-break",
+  "facing": "left",
+  "figure": [
+    186,
+    626
+  ],
+  "padding": 292,
+  "frames": 3,
+  "note": "Doc 48 S1 beat 1, 'Thad seated', through beat 3 (errata 189's unacted moments): seated at Fanshawe's table on a dining chair, in profile facing left, forearms at the table's edge; the wine raised is his idle break. room-11 attempt 6, cut by tools/rig/cut-dinner.py at his front record's scale.",
+  "state": "dining",
+  "scale_from": "thad-deed-front"
+}
