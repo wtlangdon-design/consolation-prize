@@ -1,0 +1,65 @@
+{
+ "schema": 1,
+ "what": "errata 223: an arrival on a room still loading is held black, \"Loading…\" after the threshold; an ordinary arrival is untouched",
+ "commit": "484d4a54265dd9756bbc6dc6a7e73f75a9d889be",
+ "branch": "loading-hold",
+ "dirty": false,
+ "slow": {
+  "location": "loc_claims_road",
+  "room": "claims_road",
+  "heldBackMs": 2500,
+  "heldBack": [
+   "art/backgrounds/room-22-claims-road.png",
+   "art/props/room-22-cabin.png"
+  ],
+  "frames": 30,
+  "framesInPieces": 0,
+  "wordsAfterMs": 806,
+  "wholeAfterMs": 3804,
+  "shownAfterMs": 3804,
+  "sampleGapMs": 156
+ },
+ "ordinary": {
+  "location": "loc_main_street",
+  "room": "main_street",
+  "frames": 12,
+  "framesHeldBlackOrWorded": 0
+ },
+ "thresholdSeconds": 0.5,
+ "panels": [
+  {
+   "name": "l01-held-loading",
+   "why": "claims_road arrived on before its pictures: held black, \"Loading…\" up",
+   "hash": "7581ad7f55a195befd6c8786445e57c7602b8019c72057403a1cc3db730a959a",
+   "file": "raw-captures-ignored/l01-held-loading.png",
+   "room": "claims_road",
+   "black": 1,
+   "whole": false,
+   "holding": true,
+   "loading": true
+  },
+  {
+   "name": "l02-shown-whole",
+   "why": "claims_road shown once whole, the words gone",
+   "hash": "308ee7182bf9121437b8f1fd565edd805f372ca4199e6670a29e056d596590e0",
+   "file": "raw-captures-ignored/l02-shown-whole.png",
+   "room": "claims_road",
+   "black": 0,
+   "whole": true,
+   "holding": false,
+   "loading": false
+  },
+  {
+   "name": "l03-ordinary-arrival",
+   "why": "main_street by the map's whole walk: no hold, no words",
+   "hash": "53669835957771b10e9acfd2deaf3be341484ba8223671d6b9b308ef239938fb",
+   "file": "raw-captures-ignored/l03-ordinary-arrival.png",
+   "room": "main_street",
+   "black": 0,
+   "whole": true,
+   "holding": false,
+   "loading": false
+  }
+ ],
+ "failures": []
+}

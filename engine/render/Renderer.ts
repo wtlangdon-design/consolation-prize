@@ -136,6 +136,11 @@ export interface Frame {
   /** Black over the play area, 0 to 1: a room handing on by a fade (errata 133). */
   fadeBlack?: number;
   /**
+   * ERRATA 223: the words over a black that has waited on its room past the
+   * threshold ("Loading…", from ui.json), or null. Drawn only over full black.
+   */
+  loading?: string | null;
+  /**
    * ERRATA 157'S PAN DOWN FROM THE STARS: the room drawn `offset` play-area
    * pixels lower than it stands, with the bottom of `sky` filling the space
    * above it. Offset 864 is all sky; 0 is the room as it always is.
@@ -1024,6 +1029,8 @@ export class Renderer {
     if (this.state.isMap) {
       this.drawRoom();
       this.drawMap(frame);
+      // The map is arrived on like any room, and held like one (errata 223).
+      this.drawFadeBlack(frame);
       if (frame.showPanel !== false) this.drawPanel(frame);
       this.drawMenu();
       return;
@@ -1102,13 +1109,7 @@ export class Renderer {
     // commenting on.
     if (frame.actCard) this.drawActCard(frame.actCard);
     this.drawTitle();
-    if ((frame.fadeBlack ?? 0) > 0) {
-      const ctx = this.screen.context;
-      const was = ctx.globalAlpha;
-      ctx.globalAlpha = was * Math.min(1, frame.fadeBlack ?? 0);
-      this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
-      ctx.globalAlpha = was;
-    }
+    this.drawFadeBlack(frame);
     if (frame.showPanel !== false) this.drawPanel(frame);
     if (frame.showPanel !== false && frame.panelDim) {
       // Dimmed, not removed: the same panel under the overlay's black at half strength.
@@ -2413,6 +2414,26 @@ export class Renderer {
    * menu in the game's face on the dark ground below it. The panel band stays
    * black. Every word is content/ui/title.json's.
    */
+  /**
+   * Black over the play area, to `fadeBlack` (errata 133), and over full black
+   * the words that say it is waiting on its room (errata 223): centred in the
+   * play area, in the shipping face at GLYPH_SCALE, in the speech ink, where
+   * errata 155's "Click to begin" stands.
+   */
+  private drawFadeBlack(frame: Frame): void {
+    const black = Math.min(1, frame.fadeBlack ?? 0);
+    if (black <= 0) return;
+    const ctx = this.screen.context;
+    const was = ctx.globalAlpha;
+    ctx.globalAlpha = was * black;
+    this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
+    ctx.globalAlpha = was;
+    if (black >= 1 && frame.loading) {
+      this.font.drawCentredOutlined(ctx, frame.loading, NATIVE_WIDTH / 2, Math.round(PLAY_HEIGHT / 2 - SPEECH_LINE_HEIGHT / 2),
+        this.screen.roleColour('ink'), this.screen.roleColour('overlayBg'));
+    }
+  }
+
   private drawTitleScreen(title: { items: TitleItem[]; hovered: string | null; theEnd?: boolean; begin?: boolean }): void {
     const file = this.state.content.title;
     if (!file) return;

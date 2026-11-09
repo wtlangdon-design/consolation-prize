@@ -5,6 +5,7 @@ import type { GameState } from '../core/GameState.ts';
 import type { AmbientFile, Cutaway, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
+import { ArrivalHold } from '../core/ArrivalHold.ts';
 import { personLines } from '../core/PersonLines.ts';
 import { planNear, planRoom } from '../core/BootAssets.ts';
 import { MapWalk, homeLocation, mapPath, placePoint } from '../core/MapWalk.ts';
@@ -230,6 +231,16 @@ export class GameScene extends Phaser.Scene {
   /** A room handing on by a fade (errata 133): when it began, and whether the new room is in. */
   private roomFade: { after: { goto: string }; from: number; enteredAt: number | null; upFrom: number | null } | null = null;
   private fadeBlack = 0;
+  /**
+   * EVERY ARRIVAL WAITS FOR ITS ROOM (errata 223): an exit, the map, a goto or
+   * a load onto a room still arriving holds black until it is whole, and the
+   * room does not run until it is seen. `accostAfterHold` is the arrival's
+   * accost, armed when the room is shown (null: none owed). `loadingUp` is
+   * whether "Loading…" is over the black this frame.
+   */
+  private readonly arrivalHold = new ArrivalHold();
+  private accostAfterHold: boolean | null = null;
+  private loadingUp = false;
   /**
    * NEW GAME'S WAY IN (errata 157): the title fades to black ('out'), the
    * screen holds black until Room 1 has arrived whole ('black'), and then the
@@ -650,6 +661,14 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
+    // AN ARRIVAL ON A ROOM STILL ARRIVING (errata 223): black, and nothing of
+    // the room runs -- no line, walk, scene or clock -- until it is whole.
+    if (this.holdsArrival(now)) {
+      this.showLoading(now);
+      this.present();
+      return;
+    }
+
     // THADDEUS ACTS IN A CLIP (doc 95; errata 148): while a beat holds a frame
     // of his, the actor draws it; when the beat is over he is let go.
     this.actor.hold(this.heldPoses()?.find((pose) => pose.id === this.actor.id && pose.clip) as
@@ -949,6 +968,12 @@ export class GameScene extends Phaser.Scene {
     }
     this.wasTalking = talking;
 
+    this.showLoading(now);
+    this.present();
+  }
+
+  /** The frame, drawn if anything changed since the last one. */
+  private present(): void {
     if (!this.dirty) return;
     this.dirty = false;
     this.frameCount += 1;
@@ -1015,6 +1040,8 @@ export class GameScene extends Phaser.Scene {
       // ROOM 33'S NINETY SECONDS: the panel inert and dim, the sentence blank (errata 133).
       panelDim: this.tuneStart !== null,
       fadeBlack: this.fadeBlack,
+      // ERRATA 223: "Loading…" over a black that has waited on its room past the threshold.
+      loading: this.loadingUp ? this.state.content.ui.loading?.label ?? null : null,
       pan: this.panFrame(),
       // ERRATA 158: in a cut-away's room he is not there, nor anyone who moves with him.
       moversHidden: this.state.inCutaway,
@@ -1180,7 +1207,8 @@ export class GameScene extends Phaser.Scene {
 
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
     // Nothing to name while the ninety seconds run or a room fades (errata 133).
-    if (this.tuneStart !== null || this.roomFade !== null || this.entry !== null || this.cut !== null) return;
+    if (this.tuneStart !== null || this.roomFade !== null || this.entry !== null || this.cut !== null
+      || this.arrivalHold.holding) return;
     if (this.beginCard) return;
     if (this.titleMenu && !this.state.menu.isOpen) {
       const { x, y } = this.nativePoint(pointer);
@@ -1311,7 +1339,9 @@ export class GameScene extends Phaser.Scene {
     // An act card holds the screen for its time; a click does not cut it.
     if (this.actCardUntil !== null) return;
     // A fade between rooms, and a cutscene beat after control, are not the player's (errata 133).
-    if (this.roomFade !== null || this.entry !== null || this.cut !== null || this.carriedCutscene()) return;
+    // AND AN ARRIVAL HELD IN BLACK (errata 223): the room is not there to click on yet.
+    if (this.roomFade !== null || this.entry !== null || this.cut !== null || this.carriedCutscene()
+      || this.arrivalHold.holding) return;
 
     // The menu takes every click while it is open, including clicks on the
     // verb panel behind it.
@@ -2213,7 +2243,70 @@ export class GameScene extends Phaser.Scene {
     // A RESUME IS NOT AN ARRIVAL: coming back from the map or a load puts him
     // where he stood, and a man does not remark on a town he is standing in.
     if (!resume) this.arrivalLines();
-    this.armAccost(resume !== null && resume !== undefined);
+    // ERRATA 223: AN ARRIVAL ON A ROOM STILL ARRIVING IS HELD IN BLACK. A room
+    // that is already whole -- the usual case, its neighbours fetched ahead --
+    // is not held at all. NEW GAME, a fade and a cut-away hold for themselves.
+    const resumed = resume !== null && resume !== undefined;
+    const wasHolding = this.arrivalHold.holding;
+    const otherHold = this.entry !== null || this.roomFade !== null || this.cut !== null;
+    if (this.arrivalHold.arrive(this.time.now / 1000, this.roomWhole(), otherHold)) {
+      this.fadeBlack = 1;
+      // Its accost is timed from when the room is seen, not from the black.
+      this.accostTimer?.remove();
+      this.accostTimer = undefined;
+      this.accostAfterHold = resumed;
+    } else {
+      if (wasHolding && !otherHold) this.fadeBlack = 0;
+      this.accostAfterHold = null;
+      this.armAccost(resumed);
+    }
+  }
+
+  /**
+   * ONE FRAME OF AN ARRIVAL'S HOLD (errata 223). True while it holds: the
+   * screen is black and the room is not run. On the frame the room is whole
+   * (or the limit has passed, errata 157's `roomReadyLimitSeconds`) the black
+   * goes at once, as the cut it replaces did, and the room begins from that
+   * frame: what was started on arrival is moved on by the time it was held,
+   * so a line's reading hold is spent where it can be read.
+   */
+  private holdsArrival(now: number): boolean {
+    const limit = this.state.content.ui.timing?.roomReadyLimitSeconds ?? 12;
+    const hold = this.arrivalHold.tick(now, this.roomWhole(), limit);
+    if (!hold) return false;
+    if (!hold.released) {
+      this.fadeBlack = 1;
+      return true;
+    }
+    this.fadeBlack = 0;
+    if (this.sayUntil !== null) this.sayUntil += hold.heldFor;
+    if (this.sayAt !== null) this.sayAt += hold.heldFor;
+    this.arrivedAt = now;
+    this.view.setArrivedAt(now);
+    this.timelineAt = null;
+    if (this.accostAfterHold !== null) {
+      const resumed = this.accostAfterHold;
+      this.accostAfterHold = null;
+      this.armAccost(resumed);
+    }
+    this.markDirty();
+    return false;
+  }
+
+  /**
+   * "LOADING…" (errata 223; Tyler, 2026-11-09). Up over any black that is
+   * waiting on its room -- an arrival's hold, NEW GAME's, a fade's, a
+   * cut-away's -- once the wait has lasted `ui.json`'s `loading.afterSeconds`;
+   * never on an ordinary arrival, and gone the frame the room is whole.
+   */
+  private showLoading(now: number): void {
+    const words = this.state.content.ui.loading;
+    const up = words !== undefined && this.arrivalHold.label(now, this.fadeBlack,
+      this.fadeBlack >= 1 ? this.roomWhole() : true, words.afterSeconds ?? 0.5);
+    if (up !== this.loadingUp) {
+      this.loadingUp = up;
+      this.markDirty();
+    }
   }
 
   /** The pending accost's timer, cancelled by leaving the room. */
@@ -3090,7 +3183,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private onMenuKey(): void {
-    if (this.state.dialogue.isActive || this.beginCard || this.cut !== null) return;
+    if (this.state.dialogue.isActive || this.beginCard || this.cut !== null || this.arrivalHold.holding) return;
     this.state.menu.escape();
     this.afterMenu();
   }
@@ -3249,7 +3342,9 @@ export class GameScene extends Phaser.Scene {
       theEnd: this.titleMenu !== null && this.titleTheEnd,
       hovered: this.hovered?.id ?? null,
       card: this.actCard !== null || this.actCardUntil !== null,
-      fading: this.roomFade !== null,
+      fading: this.roomFade !== null || this.arrivalHold.holding,
+      holding: this.arrivalHold.holding,
+      loading: this.loadingUp,
       segment: this.playingSegment(),
     };
   }
@@ -3587,6 +3682,11 @@ export class GameScene extends Phaser.Scene {
     this.pendingActCard = null;
     this.accostTimer?.remove();
     this.accostTimer = undefined;
+    // An arrival still held is let go: the title is drawn, not its black (errata 223).
+    if (this.arrivalHold.holding) this.fadeBlack = 0;
+    this.arrivalHold.cancel();
+    this.accostAfterHold = null;
+    this.loadingUp = false;
     this.sfx.stopAll();
     this.state.menu.close();
     this.titleMenu = titleItems(this.state.content.title!, this.state.canContinue);
@@ -3797,7 +3897,7 @@ export class GameScene extends Phaser.Scene {
    */
   private quietForCutaway(now: number): boolean {
     const room = this.state.room;
-    return !this.titleMenu && this.entry === null && this.roomFade === null && this.opening === null
+    return !this.titleMenu && this.entry === null && this.roomFade === null && !this.arrivalHold.holding && this.opening === null
       && !this.state.dialogue.isActive && !this.pendingTree && !this.state.menu.isOpen
       && !this.sequence.isRunning && !this.carried.isRunning && this.performance === null
       && this.sayLines.length === 0 && this.pendingSay.length === 0 && this.sayAt === null
