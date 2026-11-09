@@ -33,15 +33,34 @@ const setup = async () => {
   return { content, storage, state, tree: npc.tree as string, office, outside };
 };
 
-test('asking is not enough: the assay is back only once he has left the office and come in again', async () => {
+/**
+ * ON THE SPOT (errata 232; Tyler, 2026-11-09: no step exists only to make the player leave and come back). She
+ * runs the assay at the window: asking returns it in the same conversation, with Document B, and the rest of
+ * WIN_B2's questions are still there to ask. The next TALK TO opens WIN_B4 on its options.
+ */
+test('asking is enough: the assay comes back in the same conversation, and nobody has to leave the room', async () => {
   const { state, tree, office, outside } = await setup();
   state.dialogue.start(tree);
-  state.dialogue.select('winnie1');
+  const said = state.dialogue.select('winnie1');
+  assert.equal(state.puzzleComplete('C6'), true, 'the assay is back at once');
+  assert.ok(state.carried.includes('document_b'), 'and Document B is in hand');
+  assert.equal(state.dialogue.positionSnapshot().node, 'WIN_B2', 'still in the same conversation');
+  assert.ok(state.dialogue.presentOptions().some((one) => one.option.id === 'winnie3'), 'her other questions are still there');
+  void said;
   state.dialogue.end();
-  assert.equal(state.puzzleProgress().C6, 'pending');
   state.dialogue.start(tree);
-  assert.equal(state.dialogue.positionSnapshot().node, 'WIN_B2', 'still asking, not yet returned');
+  assert.equal(state.dialogue.positionSnapshot().node, 'WIN_B2', 'until he leaves, her other questions stay');
   state.dialogue.end();
+  state.enterRoom(outside);
+  state.enterRoom(office);
+  assert.deepEqual(state.dialogue.openingOf(tree), [], 'the result is not said twice');
+  state.dialogue.start(tree);
+  assert.equal(state.dialogue.positionSnapshot().node, 'WIN_B4', 'and then the sparring');
+});
+
+test('a save from before the change, the assay asked and not returned, gets it on the way back in', async () => {
+  const { state, tree, office, outside } = await setup();
+  state.flags.set('T_ASSAY_ASKED', true);
   state.enterRoom(outside);
   state.enterRoom(office);
   const opening = state.dialogue.openingOf(tree);

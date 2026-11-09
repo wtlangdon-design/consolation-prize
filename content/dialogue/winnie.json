@@ -408,13 +408,47 @@
           "tag": "PROGRESS",
           "text": "Will you run my assay?",
           "afterUse": "remove",
-          "say": "I'll run your assay. I'd run your assay if it were a bucket of rain.",
           "puzzle": {
-            "C6": "pending"
+            "C6": "complete"
           },
           "set": {
-            "T_ASSAY_ASKED": true
-          }
+            "T_ASSAY_ASKED": true,
+            "T_ASSAY_RETURNED": true
+          },
+          "gives": [
+            "document_b"
+          ],
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "I'll run your assay. I'd run your assay if it were a bucket of rain."
+            },
+            {
+              "speaker": "winnie",
+              "line": "She runs it at the window. It does not take long.",
+              "direction": true
+            },
+            {
+              "speaker": "winnie",
+              "line": "Your assay."
+            },
+            {
+              "speaker": "thad",
+              "line": "And?"
+            },
+            {
+              "speaker": "winnie",
+              "line": "Mud, rock, and a mineral I've recorded as disappointment. No gold. Not a color."
+            },
+            {
+              "speaker": "thad",
+              "line": "Then there's no Document B."
+            },
+            {
+              "speaker": "winnie",
+              "line": "The form requires an assay. It doesn't require a good one."
+            }
+          ]
         },
         {
           "id": "winnie2",

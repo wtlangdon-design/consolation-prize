@@ -577,6 +577,19 @@
       "i:document_b",
       "p:C6"
      ]
+    },
+    {
+     "site": "dialogue:WINNIE:WIN_B2:winnie1",
+     "requires": [
+      "n:WINNIE/WIN_B2"
+     ],
+     "yields": [
+      "o:WINNIE/WIN_B2/winnie1",
+      "f:T_ASSAY_ASKED=true",
+      "f:T_ASSAY_RETURNED=true",
+      "i:document_b",
+      "p:C6"
+     ]
     }
    ]
   },
