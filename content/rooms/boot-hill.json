@@ -653,7 +653,7 @@
             "say": "My coffin is inside, behind the glass.",
             "repeat": [
               "Black lacquer, brass lamps and a plume on the roof. I have never traveled in such style, and I am not traveling now.",
-              "The back door is on a latch. It is the kind of latch that assumes nobody inside will want out."
+              "The rear of the hearse shuts on a latch. It is the kind of latch that assumes nobody inside will want out."
             ],
             "then": [
               "The curtains are drawn, out of respect for a man who isn't there."
@@ -664,8 +664,8 @@
           {
             "say": "The coffin shifts an inch every time the wind leans on the hearse.",
             "repeat": [
-              "A brass lamp ticking as it cools.",
-              "Nothing from inside. That is the whole problem."
+              "The brass lamps creak on their brackets whenever the wind comes over the hill.",
+              "Not a sound out of the coffin. That is the whole problem."
             ],
             "then": [
               "It weighs nothing, and she knows it."

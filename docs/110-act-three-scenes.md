@@ -100,8 +100,8 @@ Funeral day, after the séance. The procession has reached the foot of Boot Hill
 **THE WAY ON** · *walk through, while stalled* — "The funeral is waiting on the mule. So am I."
 
 **THE HEARSE**
-**LOOK** 1 "My coffin is inside, behind the glass. The curtains are drawn, out of respect for a man who isn't there." · 2 "Black lacquer, brass lamps and a plume on the roof. I have never traveled in such style, and I am not traveling now." · 3 "The back door is on a latch. It is the kind of latch that assumes nobody inside will want out."
-**LISTEN** 1 "The coffin shifts an inch every time the wind leans on the hearse. It weighs nothing, and she knows it." · 2 "A brass lamp ticking as it cools." · 3 "Nothing from inside. That is the whole problem."
+**LOOK** 1 "My coffin is inside, behind the glass. The curtains are drawn, out of respect for a man who isn't there." · 2 "Black lacquer, brass lamps and a plume on the roof. I have never traveled in such style, and I am not traveling now." · 3 "The rear of the hearse shuts on a latch. It is the kind of latch that assumes nobody inside will want out."
+**LISTEN** 1 "The coffin shifts an inch every time the wind leans on the hearse. It weighs nothing, and she knows it." · 2 "The brass lamps creak on their brackets whenever the wind comes over the hill." · 3 "Not a sound out of the coffin. That is the whole problem."
 
 **GRIEVANCE, AT THE GATE**
 **LOOK** 1 "Grievance, in black harness, standing at the gate as if it were a wall. Her head is turned toward the hearse." · 2 "She has carried every coffin in Consolation up this hill. She has never once been fooled, and she does not mean to start with mine." · 3 "Her ears are flat. The livery man would call it professional."
