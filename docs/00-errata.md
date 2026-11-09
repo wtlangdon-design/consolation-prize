@@ -5502,3 +5502,19 @@ Tyler, of `renders/room-02-main-street-horses.png`: "Brightness is good. Maybe m
 - **Shown:**
   - `renders/room-02-main-street-horses.png`: night, with Thad standing beside the black at the horses' own depth (1250,746), the board clear to their left.
   - `renders/room-36-main-street-dawn-rail.png`: dawn, with Thad at the same spot beside the empty rail.
+
+# 203 · EVERY ROOM'S BED, PLANNED — TYLER, 2026-11-08 ("Proceed")
+
+*Tyler had asked whether the sound was up to date. The music was: every room has a bed, settled by errata 104. The room sound was not: only four rooms (Main Street, the Registrar, the Nugget and the Clarion) have a bed of it, and Prosperity's was designed in doc 45 and never built. Tyler said to proceed with a plan for the rest.*
+
+- **The plan is doc 45, "Every room's bed".**
+  - It gives a bed to every room that has none, rooms 1 to 44, each drawn from that room's own LISTEN lines as built.
+  - It names four rooms that deliberately have none: the undertaker's, the coffin, the listening chamber, and under Prosperity.
+- **Its rules:**
+  - A bed holds only the room-wide sounds the room's LISTEN lines report.
+  - Nothing in a bed is louder or different near any hotspot. Three kinds of sound are excepted: figures while they are there, ways out, and a room's own working noise. Each is checked against the three lines invariant 3 protects before it is wired.
+  - Nothing in a bed follows a puzzle's state.
+  - No bed has a pitch.
+  - Tyler hears every bed before it ships.
+- **One earlier design is withdrawn.** Doc 45's `R23/24-A` had a "localized warm moving air at hole" for Prosperity. A sound there would mark the one place on the claim whose LISTEN matters (invariant 3), so the hole gets no sound.
+- **The builder's brief is `reference/room-beds/brief.md`.** It covers rendering, wiring and a check that holds the plan. It also asks for an audition page for Tyler, and nothing ships until he has heard it. No image operation is needed.
