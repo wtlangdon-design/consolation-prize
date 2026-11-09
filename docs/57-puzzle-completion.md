@@ -176,13 +176,19 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 
 ## B4 · Vessel refuses to sign
 
+*Fiddler's Gulch (errata 213, 217): B4 is G6, at the grog tent, Room 52 — doc 109's DEKE VESSEL, found, option 6. What follows is the game before the trip was built.*
+
 *Room 4.* The first TALK TO plays doc 03's Duel One opening ("Grubb! You came all this way."). VES_B1 option 6 — "I need you to sign an affidavit." — is the refusal and the offer → **B4**, and Duel One begins.
 
 ## B5 · Duel One
 
+*Fiddler's Gulch (errata 213, 217): B5 is G7, on the bar, Room 53 — doc 109's DUEL ONE, ON THE BAR, with the rule-keeper's rules in place of Sowerby's handbill. What follows is the game before the trip was built.*
+
 *Room 4. Doc 03 Part Four with errata 73 B–D and 75:* Sowerby reads the handbill; Vessel throws pairs 1, 2, 3, 4 and 1 again; Thad has only wrong answers; a voice from the ring of chairs mutters each counter and Thad says his notebook line (doc 03). Five straight losses; the loss dialogue; pairs 1–4 join when it is over → **B5**. VES_B1 option 3 replays it for anyone who enjoys losing.
 
 ## B6 · Beat Vessel
+
+*Fiddler's Gulch (errata 213, 217): Vessel is in Room 4 from G9. Duel Two's pool is pairs 1–21, 25 and 26 (doc 109, G8); the duel still needs fourteen.*
 
 *Room 4.* VES_B1 option 5, after B5. First to five exchanges; Vessel draws from pairs 1–21, Tier 1 first, never repeating within a duel; a lost Duel Two closes nothing and option 5 offers it again (errata 73 E). Winning dialogue (doc 03) → THE AFFIDAVIT; THE POCKET WATCH returns → **B6**.
 
@@ -485,7 +491,7 @@ Asking anyone else to be executor is answered by the interest rule:
 | `T_DINED` | A10 beat 3 | — |
 | `T_VESSEL_LOCATION` | FRA_B1 | B3 |
 | `T_GRIEVANCE_MOTT` | LIV_A1 6 | LIV_A1 4, HOB_C2 6 |
-| `T_VESSEL_FOUND` | B3 | Vessel in Room 4 |
+| `T_VESSEL_FOUND` | G9 *(B3 before the Gulch; errata 213, 217)* | Vessel in Room 4 |
 | `T_OFFICE_TOPIC` | WIN_B1 6 | FRA_A1 5 |
 | `T_FANSHAWE_FUNERALS` | FRA_A1 5 | SOW_A1 5 |
 | `T_MEMORIAL_BOOKED` | the letter on Sowerby; SOW_A1 7 | FRA_A1 6 |

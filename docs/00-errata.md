@@ -5933,3 +5933,18 @@ The brief's last step. Every line is extracted from docs 108 and 109; docs 02, 0
 - **A closer creek waits for a better water source.** Doc 45's row 26 says so, and quotes Tyler.
 - **The audition page's creek** plays the shipped file, labelled "Interim: the accepted water, from the bank".
 - **Tyler's approval to merge** is his "Everything else sounds good."
+
+# 217 · THE RECORD, CAUGHT UP WITH THE GULCH — TYLER, 2026-11-08 ("Go")
+
+*An audit of Fiddler's Gulch as built (Tyler's "Go") found the game playing as designed. It found three faults in play, which errata of their own fix: openings that are never spoken, old saves, and the traversal. It also found places where the record still describes the game before the trip. This entry brings the record up to date.*
+
+- **Ruling 5's count is now 52.** Ruling 5 says 45, and "The traversal script uses this list of 45". The canonical list is now 52: those 45, and the Gulch's seven, G1–G5, G8 and G9 (G6 and G7 are B4 and B5). It lives in `tools/check-puzzle-graph.mjs` (errata 213). CLAUDE.md and doc 02 already say 52. `README.md` now does too.
+- **Ruling 6's count is now 52 screens.** The Gulch adds ten (Rooms 45–54) to ruling 6's 42. Every Gulch screen is painted, so the backgrounds are 51.
+- **Doc 57 gains pointers at B4, B5 and B6:**
+  - B4 is G6, in the grog tent;
+  - B5 is G7, on the bar;
+  - Duel Two's pool is pairs 1–21, 25 and 26;
+  - `T_VESSEL_FOUND` is now written at G9.
+
+  Each pointer is a note: no line was changed, and the extraction is unchanged.
+- **One sound cue was not built.** Doc 45's `R45-RIDE`, hooves under the black on both rides, was never built. It is taken up by the errata that fixes the openings.
