@@ -1,0 +1,16 @@
+{
+ "assetId": "act3-seance",
+ "subject": "act3-seance-table",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-16-tent",
+ "promptFile": "reference/act3-seance/op-1.txt",
+ "out": "art/staging/act3-seance/op-1/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act3-seance/op-1/template.png",
+  "art/staging/act3-seance/op-1/thad-in-room-16.png",
+  "art/staging/act3-seance/op-1/frame-and-ozymandia.png"
+ ],
+ "derivedFrom": "art/actors/room-16-ozymandia.png"
+}

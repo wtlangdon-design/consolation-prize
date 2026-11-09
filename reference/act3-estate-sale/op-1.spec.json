@@ -1,0 +1,16 @@
+{
+ "assetId": "act3-estate-sale",
+ "subject": "act3-estate-sale-hen-and-raccoon",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-23-prosperity",
+ "promptFile": "reference/act3-estate-sale/op-1.txt",
+ "out": "art/staging/act3-estate-sale/op-1/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act3-estate-sale/op-1/canvas.png",
+  "art/staging/act3-estate-sale/op-1/raccoon.png",
+  "art/staging/act3-estate-sale/op-1/thad-in-room-23.png"
+ ],
+ "derivedFrom": "art/actors/room-23-raccoon.png"
+}

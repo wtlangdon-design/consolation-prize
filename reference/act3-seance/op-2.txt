@@ -1,0 +1,13 @@
+Image 1 is from my pixel-art adventure game: on the left, the same séance group twice (a round table under a wine-red cloth to the ground, a candle and a bell, the fortune-teller at the head with her brass rod, four townspeople and the newspaper editor with his notebook); on the right, the tent's hanging lamp twice, a red-glass brass lantern.
+
+Repaint it as follows, keeping every person, chair, the table, the candle and the bell EXACTLY where and as they are -- the same drawing, the same poses -- and changing only the light and the two things named:
+
+THE TWO GROUPS, in near-darkness: the hanging lamp has been turned down, so the ONE lit candle on the table is the only real light. Faces are dim and lit warmly from below by the candle; the cloth is almost black, a deep dark red; the edges of everything fall away into shadow. Still drawn clearly enough to see every person.
+1. The top group: everyone still, as now, in the dark.
+2. The bottom group: the moment the séance turns -- the bald man on the right has jerked his head up, eyes wide; and the editor at the front is writing hard in his notebook, his pencil hand moving fast. Everyone else as in the top group.
+
+THE TWO LAMPS, each cut out cleanly on magenta with nothing behind it (no curtain, no background):
+- the top lamp LIT, glowing warm red-orange as now;
+- the bottom lamp TURNED DOWN: the same lantern, its glass dark, with only a tiny bead of flame inside.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) everywhere else, nothing touching. No glow spilling onto the magenta, no floor, no text, no border.

@@ -1,0 +1,13 @@
+Image 1 is from my pixel-art adventure game: the same séance group five times on magenta -- three times lamp-lit in the left column, twice in near-darkness in the right column. Image 2 shows WHAT IS WRONG with it, in the game: the two FRONT CHAIRS -- the editor's at the front left and the bald man's at the front right -- look SUNK INTO THE FLOOR. Their seats are almost on the ground, their legs are stubs, and the two men's lower legs and feet are missing, so they look like they are sitting in a hole.
+
+Repaint Image 1 to fix that, keeping everything else the same -- the same people, faces, clothes, places, poses, the table, cloth, candle and bell, the same size of the group:
+- Every chair STANDS ON THE FLOOR at a proper chair height: a seat at about the height of a man's knee, four full wooden legs reaching down to the floor.
+- The two front chairs are nearer to us than the table, so their legs reach LOWER on the picture than the bottom of the tablecloth.
+- The editor at the front left and the bald man at the front right sit properly on their chairs, their lower legs and boots on the floor in front of the chair; their knees may go under the edge of the tablecloth.
+- The tablecloth still falls all the way to the floor; nothing shows under the table.
+
+And keep each copy's action:
+LEFT COLUMN, lamp-lit, warm light from above: 1. everyone still; 2. the grey-haired woman on the right glancing round sideways at her neighbour; 3. the editor tapping his pencil on his notebook, his hand raised a little.
+RIGHT COLUMN, near-darkness, the candle the only real light: 1. everyone still; 2. the séance turns -- the bald man has jerked his head up, eyes wide, and the editor is writing hard.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) everywhere else, every group separated by clear magenta, nothing touching. No floor drawn, no shadows, no text, no numbers, no border.
