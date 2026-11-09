@@ -6113,3 +6113,21 @@ These come from the feel review of errata 221's playthrough. Tyler answered on 2
     - the first visit is the meeting, and later visits say the return line;
     - no opening that calls the player new can be said twice.
   - With the runner's change removed, three of these fail.
+
+# 228 · THE GAPS THE TRANSCRIPT FOUND, CHECKED IN THE GAME — TYLER, 2026-11-09 ("Proceed with all the necessary fixes")
+
+The feel review listed ten places on the main path where a first-time player might not follow. Each was checked against the content, not just the transcript. Six were not real gaps:
+- the hotel's "Nineteen." is the room number, and the clerk's directions follow;
+- the affidavit is chased before Documents A–D only on the walkthrough's order, since Act II's opening line sends the player to Sump;
+- the Thursday ledger is a hotspot in the laundry, with Sheng's and Pratt's Thursdays before it;
+- Sheng's "two dollars and sixty cents" is Sheng knowing the sum better than Thad, which is the joke;
+- Sump's note, copy and third copy arrive as items with their icons;
+- section nineteen was fixed in errata 224.
+
+Four were real, and are fixed:
+- **The filing fee was named before anyone named a fee.** The barman's two dollars became "The filing fee" at A8, but Sump's Act I answer asked only for a boundary. His answer now ends: "With a boundary and two dollars, the office will file it." (doc 04 SUM_A1 option 1).
+- **The map arrived unseen.** FAN_A1's option 2 handed the map over on screen, but option 1, the one most players pick, did not. Option 1 now plays the handover too (doc 04; doc 95 row 104). The emphasis marks in its reply were dropped, so the direction pass can read the reply cell.
+- **"Keep it. I have dozens." named nothing.** Doc 57 A10's beat 3, the knocked glass and the handkerchief, was written but not played. It now plays before the line (doc 95 row 105).
+- **The last duel had no stakes on screen.** Fanshawe's challenge now ends: "Lose, and nobody in town believes a word you file." (doc 03).
+
+Lesson: `tests/gifts-shown.test.mjs` requires every dialogue option that gives an item to show the handover in a performed direction, or to be listed with the reason its words already hand the thing over (three are listed). The map as it was fails it. The fee and the stakes are matters of taste, recorded as a row in doc 55 §8.
