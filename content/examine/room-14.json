@@ -5,6 +5,7 @@
   "sources": [
     "docs/05-examine-layer.md::ROOM 14 — BOOT HILL#1",
     "docs/54-batch-c.md::ROOM 14 · BOOT HILL",
+    "docs/110-act-three-scenes.md::THE LINES",
     "docs/05-examine-layer.md::ROOM 14 — BOOT HILL#2",
     "docs/49-wrong-answers.md::ROOM 14 — BOOT HILL"
   ],
@@ -113,6 +114,90 @@
       ],
       "overrides": {
         "PUSH": "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
+      }
+    },
+    {
+      "name": "THE HEARSE",
+      "LOOK_AT": [
+        "My coffin is inside, behind the glass. The curtains are drawn, out of respect for a man who isn't there.",
+        "Black lacquer, brass lamps and a plume on the roof. I have never traveled in such style, and I am not traveling now.",
+        "The back door is on a latch. It is the kind of latch that assumes nobody inside will want out."
+      ],
+      "LISTEN_TO": [
+        "The coffin shifts an inch every time the wind leans on the hearse. It weighs nothing, and she knows it.",
+        "A brass lamp ticking as it cools.",
+        "Nothing from inside. That is the whole problem."
+      ],
+      "overrides": {
+        "PUSH": "The deceased does not push. It would look keen.",
+        "PULL": "It is attached to the mule, and the mule is attached to the ground.",
+        "PICK_UP": "With what is in it, I very nearly could."
+      }
+    },
+    {
+      "name": "GRIEVANCE, AT THE GATE",
+      "LOOK_AT": [
+        "Grievance, in black harness, standing at the gate as if it were a wall. Her head is turned toward the hearse.",
+        "She has carried every coffin in Consolation up this hill. She has never once been fooled, and she does not mean to start with mine.",
+        "Her ears are flat. The livery man would call it professional."
+      ],
+      "LISTEN_TO": [
+        "A long breath out through the nose, aimed at the coffin.",
+        "Her harness creaks as she shifts her weight. She shifts it away from the hill.",
+        "Nothing. She has said what she has to say."
+      ],
+      "overrides": {
+        "PULL": "She considers the request, declines it, and goes on looking at the coffin.",
+        "PUSH": "From behind? At a funeral? I would be the second thing they buried.",
+        "PICK_UP": "She is in harness, and in no mood."
+      }
+    },
+    {
+      "name": "THE MOURNERS",
+      "LOOK_AT": [
+        "Half the town, in black, at the gate. Nobody here has buried me before, and they would like to get it right.",
+        "They are standing the way people stand at a stopped coach, politely, looking at their watches.",
+        "Not one of them has looked at me twice. A low hat does more than I would have guessed."
+      ],
+      "LISTEN_TO": [
+        "Somebody says I was a quiet sort of fellow. Somebody else says I was new. They agree that will be it.",
+        "A watch being wound, and then a second watch, out of sympathy.",
+        "Somebody asks whether the mule always does this. The undertaker says she has never done it before. Everybody looks at the coffin."
+      ],
+      "overrides": {
+        "PICK_UP": "They have come to carry me. It would confuse things to carry them."
+      }
+    },
+    {
+      "name": "THE UNDERTAKER",
+      "LOOK_AT": [
+        "The undertaker, at Grievance's head in his good apron. He is the only man here who knows the coffin is empty, and he is sweating for both of us.",
+        "He keeps not looking at me, which is very nearly the same thing as looking at me.",
+        "He has a hand on her bridle. She allows it, the way she allows weather."
+      ],
+      "LISTEN_TO": [
+        "He is murmuring to the mule. It sounds like an apology.",
+        "His boots shift on the gravel. He would like to be anywhere else, the box included.",
+        "Nothing. He has stopped murmuring. It was not working."
+      ],
+      "overrides": {
+        "PICK_UP": "He is holding the mule. Somebody has to."
+      }
+    },
+    {
+      "name": "REVEREND SOWERBY, AT THE GATE",
+      "LOOK_AT": [
+        "Reverend Sowerby, with his book open at the place, ready to see me off.",
+        "There is a pencil behind his ear, for the counting.",
+        "He has not looked at me once. The clergy see the soul, and I am wearing a hat."
+      ],
+      "LISTEN_TO": [
+        "He is turning pages to find his place, and finding it twice.",
+        "He hums the opening of a hymn under his breath, to see if it still fits.",
+        "Nothing. He is saving it."
+      ],
+      "overrides": {
+        "PICK_UP": "He would charge for it."
       }
     }
   ],

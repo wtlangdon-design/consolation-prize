@@ -535,6 +535,12 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 232: not loosened, changed with the design. The test that required leaving the office before the assay returned now requires that it returns in the same conversation, that her other questions stay until he leaves, and, as a new second test, that a save from before the change still gets it on the way back in."
+  },
+  {
+   "check": "tools/check-narration-templates.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 233: three phrases on the allowlist -- \"ticking as it cools\", \"nothing from inside\" and \"back door\" -- each reached a fourth subject with doc 110's lines for THE HEARSE, which Tyler approved (\"Go\") and the builder may not rewrite. Genuinely looser: the three are now allowed under four subjects. Listed for the voice pass with the first run's entries, and named in the PR for Tyler."
   }
  ]
 }

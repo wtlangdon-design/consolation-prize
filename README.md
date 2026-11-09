@@ -78,7 +78,7 @@ docs/               the design. 00-errata.md wins over all of it.
 | Flag order | No gate can be read before something can write it |
 | Glyph coverage | Every character in content has a font glyph |
 | Palette | Locked, 256 entries, 6-bit VGA, every referenced index in range |
-| Puzzle graph | All 52 puzzles reachable (errata 213, 217); win reachable from every reachable state |
+| Puzzle graph | All 53 puzzles reachable (errata 213, 217, 233); win reachable from every reachable state |
 
 The puzzle-graph check is inert until the graph lands — it reports that it
 traversed nothing rather than passing on no evidence.

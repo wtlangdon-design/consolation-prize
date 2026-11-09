@@ -770,7 +770,9 @@ const slug = (name) => name.toLowerCase().replace(/^(the|a)\s+/, '').replace(/[^
 // use, and those ids were chosen by a person: THE IMPROVEMENT COMPANY SIGN is
 // `company_sign`, which no mechanical slug of that name will ever produce.
 // Slugging is the fallback for a hotspot the live file has never seen.
-const liveIdByName = new Map((live0.hotspots ?? []).map((h) => [h.name, h.id]));
+// A WAY'S CLOSED STAND-IN (errata 91 E) carries its way's name and is the compiler's own: never a subject's id. Room
+// 14's plot is PIKE'S NEIGHBOR and, while the procession is stalled, the closed way up under the same name (errata 233).
+const liveIdByName = new Map((live0.hotspots ?? []).filter((h) => !h.stateOf).map((h) => [h.name, h.id]));
 const byId = new Map();
 for (const [name, entry] of hotspots) {
   // An exit that is ALSO the thing itself (Room 14's open plot: looked at
@@ -1242,6 +1244,99 @@ for (const spec of ann.scenes ?? []) {
   const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
   if (!hotspot) fail(`scenes: no hotspot "${spec.hotspot}" in this room`);
   (hotspot.responses[spec.verb] ??= []).unshift(sceneBlock(spec, hotspot));
+}
+
+// THE WORDS OF ONE DOCUMENT BLOCK, in order (doc 110, THE LINES). `**NAME:**` names the speaker (the annotation's
+// `speakers`; none is Thad), `*(...)*` is a direction by whoever speaks next or last, `*(beat)*` is the speaker's "…"
+// (doc 58 rule 2), `*(second)*` begins the words for the second time, and an arrow ends the words: what follows it is
+// what the moment does, which the annotation says. Read from the document, never typed here.
+function blockWords(texts, spec, what) {
+  const first = [];
+  const second = [];
+  for (const text of texts) {
+    let speaker = 'thad';
+    let into = first;
+    const [spoken] = text.split('→');
+    const tokens = [...spoken.matchAll(/\*\*([A-Z' -]+):\*\*|\*\(([^)]+)\)\*|"([^"]+)"/g)];
+    // A direction is its speaker's: the name that follows it on the line, or the one before it.
+    for (let n = 0; n < tokens.length; n += 1) {
+      const [, who, note, quote] = tokens[n];
+      if (who !== undefined) {
+        speaker = spec.speakers?.[who];
+        if (!speaker) fail(`${what}: "${who}" speaks in ${spec.ref} and the annotation's speakers do not name them`);
+      } else if (note !== undefined) {
+        if (/^second$/i.test(note.trim())) { into = second; continue; }
+        const nextWho = tokens.slice(n + 1).find((t) => t[1] !== undefined || t[3] !== undefined);
+        const by = nextWho?.[1] !== undefined ? (spec.speakers?.[nextWho[1]] ?? speaker) : speaker;
+        if (/^(beat|pause|long pause)$/i.test(note.trim())) into.push({ speaker: by, line: '…' });
+        else into.push({ speaker: by, line: note.trim(), direction: true });
+      } else into.push({ speaker, line: quote });
+    }
+  }
+  if (!first.length) fail(`${what}: ${spec.ref} "${spec.head}" has no words`);
+  return { first, second };
+}
+
+// A VERB'S ANSWER WRITTEN AS A LABELLED BLOCK (doc 110, THE LINES): `**TALK TO THE UNDERTAKER** · *while stalled*` and
+// the `> ` lines under it, or its words after a dash on the same line; or a label with cases as bullets under it,
+// `**THE HEARSE** · USE, *or* OPEN` then `- *while the prayer runs* — ...`. The annotation's `docBlocks` names the
+// section, the line the block starts with (`head`), the case where the label has several, the verbs, the condition,
+// and what it does (`set`, `completes`, `goto`); `rideFrom` names a bold label whose numbered lines follow over black
+// (doc 110's THE RIDE, told as the Gulch ride is). The words are read here, in order, from the document.
+function docBlock(spec) {
+  const body = sectionBody(spec.ref, 'docBlocks');
+  const lines = body.split('\n');
+  const heads = lines.map((one, n) => [one, n]).filter(([one]) => one.startsWith(spec.head)
+    && (!spec.case || spec.caseIsBullet || one.includes(`*${spec.case}*`)));
+  if (heads.length !== 1) fail(`docBlocks: ${spec.ref} has ${heads.length} lines starting ${spec.head}${spec.case ? ` with *${spec.case}*` : ''}`);
+  const [headLine, at] = heads[0];
+  let texts;
+  if (spec.caseIsBullet) {
+    const bullet = lines.slice(at + 1).find((one, n, rest) => one.startsWith(`- *${spec.case}*`)
+      && rest.slice(0, n).every((before) => before.startsWith('- ')));
+    if (!bullet) fail(`docBlocks: ${spec.head} has no bullet "- *${spec.case}*"`);
+    texts = [bullet.split(' — ').slice(1).join(' — ')];
+  } else if (/ — /.test(headLine) && /"/.test(headLine.split(' — ').slice(1).join(' — '))) {
+    texts = [headLine.split(' — ').slice(1).join(' — ')];
+  } else {
+    texts = [];
+    for (const one of lines.slice(at + 1)) {
+      if (!one.startsWith('> ')) break;
+      texts.push(one.slice(2));
+    }
+  }
+  const { first, second } = blockWords(texts, spec, 'docBlocks');
+  if (second.some((one) => one.speaker !== first[0].speaker || one.direction)) {
+    fail(`docBlocks: ${spec.head}'s second time is not one speaker's words, as its first line's: it cannot be a repeat`);
+  }
+  const ride = [];
+  if (spec.rideFrom) {
+    const start = lines.findIndex((one) => one.startsWith(`**${spec.rideFrom}**`));
+    if (start < 0) fail(`docBlocks: ${spec.ref} has no **${spec.rideFrom}**`);
+    for (const one of lines.slice(start + 1)) {
+      const item = /^\d+\. "([^"]+)"\s*$/.exec(one);
+      if (item) ride.push({ speaker: 'thad', line: item[1], overBlack: true });
+      else if (one.trim() && ride.length) break;
+    }
+    if (!ride.length) fail(`docBlocks: **${spec.rideFrom}** has no numbered lines`);
+  }
+  const [lead, ...rest] = first;
+  const then = [...rest.map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one)), ...ride];
+  return {
+    ...(spec.when ? { when: spec.when } : {}),
+    say: lead.line, ...(lead.speaker !== 'thad' ? { by: lead.speaker } : {}), ...(lead.direction ? { direction: true } : {}),
+    ...(then.length ? { then } : {}),
+    ...(second.length ? { repeat: second.map((one) => one.line) } : {}),
+    ...(spec.set ? { set: spec.set } : {}), ...(spec.completes ? { completes: spec.completes } : {}),
+    ...(spec.goto ? { goto: spec.goto } : {}),
+    sceneLine: `${spec.ref} · ${spec.head}${spec.case ? `, ${spec.case}` : ''}`,
+  };
+}
+for (const spec of [...(ann.docBlocks ?? [])].reverse()) {
+  const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
+  if (!hotspot) fail(`docBlocks: no hotspot "${spec.hotspot}" in this room`);
+  const rule = docBlock(spec);
+  for (const verb of spec.verbs) (hotspot.responses[verb] ??= []).unshift({ ...rule });
 }
 
 // The annotation's scene lines, each placed ahead of its subject's ordinary
@@ -2278,6 +2373,20 @@ for (const [id, entry] of examineEntries) {
       const row = body.split('\n').find((one) => one.startsWith(`- **${scene.bullet}**`));
       const said = row ? [...row.matchAll(/"([^"]+)"/g)].map((q) => q[1]) : [];
       if (!said.length) fail(`onEnterScene: ${fromRef} has no "- **${scene.bullet}**" bullet with a quoted line`);
+      scenes.push({ when, lines: said.map((line) => ({ speaker: 'thad', line })), ...(after ? { after } : {}), ...(note ? { note } : {}) });
+      continue;
+    }
+    // THAD'S LINES UNDER A BOLD LABEL (doc 110: `**ARRIVING** · *the first entry while the procession is stalled*`,
+    // then `> "..."`). `bold` names the label; the quoted `> ` lines under it are his.
+    if (scene.bold) {
+      const rows = body.split('\n');
+      const at = rows.findIndex((one) => one.startsWith(`**${scene.bold}**`));
+      const said = [];
+      for (const row of at < 0 ? [] : rows.slice(at + 1)) {
+        if (!row.startsWith('> ')) break;
+        said.push(...[...row.matchAll(/"([^"]+)"/g)].map((q) => q[1]));
+      }
+      if (!said.length) fail(`onEnterScene: ${fromRef} has no **${scene.bold}** with quoted lines under it`);
       scenes.push({ when, lines: said.map((line) => ({ speaker: 'thad', line })), ...(after ? { after } : {}), ...(note ? { note } : {}) });
       continue;
     }

@@ -919,6 +919,27 @@
     "note": "Doc 57 E8: out of Room 32 and HOB_C1, Thad on the hill at night; his line writes T_FUNERAL_DONE.",
     "say": [
       "Out. I have been buried and dug up in one evening, and of the two I preferred the second."
+    ],
+    "scenes": [
+      {
+        "when": {
+          "T_RODE_UP": true,
+          "T_RIDE_ARRIVED": false,
+          "T_LAID_IN": false
+        },
+        "lines": [
+          {
+            "speaker": "thad",
+            "line": "By the time the town caught us up, the coffin was on its trestles and I was at the back with my hat down, as out of breath as anybody."
+          }
+        ],
+        "after": {
+          "set": {
+            "T_RIDE_ARRIVED": true
+          }
+        },
+        "note": "Doc 110 section 2 (errata 233): the first entry after the ride, Thad already at the back with his hat low as the town arrives (doc 48 S2 beat 1, rewritten as staging). Said once; from here S2 plays as written."
+      }
     ]
   },
   "occlusionPlanes": [],

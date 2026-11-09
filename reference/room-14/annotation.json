@@ -119,9 +119,39 @@
    560,
    150,
    175
+  ],
+  "hearse": [
+   790,
+   240,
+   320,
+   470
+  ],
+  "grievance_at_the_gate": [
+   1110,
+   300,
+   230,
+   410
+  ],
+  "undertaker": [
+   1350,
+   445,
+   100,
+   300
+  ],
+  "reverend_sowerby_at_the_gate": [
+   800,
+   490,
+   140,
+   310
+  ],
+  "mourners": [
+   1450,
+   460,
+   380,
+   340
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE NINETEEN is the scatter of boards between Mott's stone and Pike's (one hotspot, read along, doc 54). PIKE'S MARKER is the right-most board at the back, at the hill's crest; the plot beside it, to its right, is PIKE'S NEIGHBOR while it is dug and MY OWN PLOT after the funeral (errata 87 D). Errata 185: THE FENCE, the rails left of the gate.",
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE NINETEEN is the scatter of boards between Mott's stone and Pike's (one hotspot, read along, doc 54). PIKE'S MARKER is the right-most board at the back, at the hill's crest; the plot beside it, to its right, is PIKE'S NEIGHBOR while it is dug and MY OWN PLOT after the funeral (errata 87 D). Errata 185: THE FENCE, the rails left of the gate. Errata 233 (doc 110 section 2): while the procession is stalled at the gate, THE HEARSE and GRIEVANCE, AT THE GATE over the hearse and its mule (content/ambient/procession-hearse.json, declared once its picture, art/actors/room-14-hearse-grievance.png, is in the repository: reference/act3-hearse/brief.md), REVEREND SOWERBY, AT THE GATE, THE UNDERTAKER and THE MOURNERS over their figures (procession_*).",
  "hotspotWhen": {
   "pike_s_neighbor": {
    "T_OBITUARY": true,
@@ -130,6 +160,21 @@
   },
   "my_own_plot": {
    "T_FUNERAL_DONE": true
+  },
+  "hearse": {
+   "T_PROCESSION_STALLED": true
+  },
+  "grievance_at_the_gate": {
+   "T_PROCESSION_STALLED": true
+  },
+  "undertaker": {
+   "T_PROCESSION_STALLED": true
+  },
+  "reverend_sowerby_at_the_gate": {
+   "T_PROCESSION_STALLED": true
+  },
+  "mourners": {
+   "T_PROCESSION_STALLED": true
   }
  },
  "exitSubjects": {
@@ -148,10 +193,21 @@
    "when": {
     "T_EXECUTOR_NAMED": true,
     "T_OBITUARY": true,
-    "T_FUNERAL_DONE": false
+    "T_FUNERAL_DONE": false,
+    "T_RODE_UP": true
    },
-   "note": "Doc 20: Room 31, the funeral, is reached from Boot Hill once the executor is named (E6). The open plot beside Pike is where it is held, so from E6 until the funeral is done the plot is the way up to it; its words stay on PIKE'S NEIGHBOR, which is hidden meanwhile (errata 99 G).",
-   "stub": true
+   "note": "Doc 20: Room 31, the funeral, is reached from Boot Hill once the executor is named (E6). The open plot beside Pike is where it is held, so from E6 until the funeral is done the plot is the way up to it; its words stay on PIKE'S NEIGHBOR, which is hidden meanwhile (errata 99 G). Errata 233 (doc 110 section 2, THE WAY ON): from E6 until the ride (T_RODE_UP) the procession is stalled at the gate, and the way up refuses with doc 110's line; the ride itself is how he gets there.",
+   "stub": true,
+   "closed": {
+    "fromRef": "docs/110-act-three-scenes.md::### THE LINES",
+    "line": "**THE WAY ON**",
+    "when": {
+     "T_EXECUTOR_NAMED": true,
+     "T_OBITUARY": true,
+     "T_FUNERAL_DONE": false,
+     "T_RODE_UP": false
+    }
+   }
   }
  },
  "exits": {
@@ -201,7 +257,12 @@
   "pike_s_marker": "LOOK_AT",
   "pike_s_neighbor": "LOOK_AT",
   "my_own_plot": "LOOK_AT",
-  "fence": "LOOK_AT"
+  "fence": "LOOK_AT",
+  "hearse": "LOOK_AT",
+  "grievance_at_the_gate": "LOOK_AT",
+  "undertaker": "LOOK_AT",
+  "reverend_sowerby_at_the_gate": "LOOK_AT",
+  "mourners": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every marker here is looked at on a bare click.",
  "occlusion": {
@@ -275,9 +336,21 @@
    "set": {
     "T_PLATE_AT_GATE": true
    }
+  },
+  {
+   "when": {
+    "T_EXECUTOR_NAMED": true,
+    "T_OBITUARY": true,
+    "T_FUNERAL_DONE": false,
+    "T_RODE_UP": false,
+    "T_PROCESSION_STALLED": false
+   },
+   "set": {
+    "T_PROCESSION_STALLED": true
+   }
   }
  ],
- "onEnterSetNote": "Doc 57 C3: 'If T_SHENG_TASK is set and D4 is not done, Sowerby is at the gate with the plate (D4). Then T_FUNERAL_DAY clears ... and Sowerby is back in his church.' He stands at the gate for the visit that ends the day (T_PLATE_AT_GATE), and is gone the next time.",
+ "onEnterSetNote": "Doc 57 C3: 'If T_SHENG_TASK is set and D4 is not done, Sowerby is at the gate with the plate (D4). Then T_FUNERAL_DAY clears ... and Sowerby is back in his church.' He stands at the gate for the visit that ends the day (T_PLATE_AT_GATE), and is gone the next time. Errata 233 (doc 110 section 2, States and flags): until scene B is built, the first entry once the funeral can be reached (E6, the obituary, before the funeral and the ride) stalls the procession at the gate.",
  "onEnterScenes": [
   {
    "fromRef": "docs/57-puzzle-completion.md::## D4 · Sheng's task",
@@ -299,6 +372,147 @@
     ]
    },
    "note": "Doc 57 D4: on the funeral day the Reverend has a full plate, at the foot of Boot Hill -- the exchange, then THE LINEN MONEY. Plays after the day's own line. His figure is content/ambient/sowerby-gate.json."
+  },
+  {
+   "fromRef": "docs/110-act-three-scenes.md::### THE LINES",
+   "bold": "ARRIVING",
+   "when": {
+    "T_EXECUTOR_NAMED": true,
+    "T_OBITUARY": true,
+    "T_FUNERAL_DONE": false,
+    "T_RODE_UP": false,
+    "T_PROCESSION_STALLED": false
+   },
+   "note": "Doc 110 section 2, ARRIVING: said on the entry that stalls the procession, so once."
   }
- ]
+ ],
+ "hotspotWalkTo": {
+  "hearse": {
+   "x": 1040,
+   "y": 805,
+   "facing": "back"
+  },
+  "grievance_at_the_gate": {
+   "x": 1180,
+   "y": 805,
+   "facing": "back"
+  },
+  "undertaker": {
+   "x": 1280,
+   "y": 790,
+   "facing": "right"
+  },
+  "reverend_sowerby_at_the_gate": {
+   "x": 1010,
+   "y": 800,
+   "facing": "left"
+  },
+  "mourners": {
+   "x": 1300,
+   "y": 840,
+   "facing": "right"
+  }
+ },
+ "hotspotWalkToNote": "Errata 233: where Thad stands to examine the procession's figures, between them, so he never stands on one (the point under each rect lands on Sowerby or the mourners).",
+ "docBlocks": [
+  {
+   "hotspot": "undertaker",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/110-act-three-scenes.md::### THE LINES",
+   "head": "**TALK TO THE UNDERTAKER**",
+   "speakers": {
+    "UNDERTAKER": "procession_undertaker",
+    "THAD": "thad"
+   }
+  },
+  {
+   "hotspot": "mourners",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/110-act-three-scenes.md::### THE LINES",
+   "head": "**TALK TO THE MOURNERS**"
+  },
+  {
+   "hotspot": "grievance_at_the_gate",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/110-act-three-scenes.md::### THE LINES",
+   "head": "**TALK TO GRIEVANCE**"
+  },
+  {
+   "hotspot": "reverend_sowerby_at_the_gate",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/110-act-three-scenes.md::### THE LINES",
+   "head": "**TALK TO REVEREND SOWERBY**",
+   "case": "while stalled, before the prayer",
+   "when": {
+    "T_HILL_PRAYER": false
+   },
+   "set": {
+    "T_HILL_PRAYER": true
+   },
+   "speakers": {
+    "SOWERBY": "procession_sowerby",
+    "THAD": "thad"
+   }
+  },
+  {
+   "hotspot": "reverend_sowerby_at_the_gate",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/110-act-three-scenes.md::### THE LINES",
+   "head": "**TALK TO REVEREND SOWERBY**",
+   "case": "while the prayer runs",
+   "when": {
+    "T_HILL_PRAYER": true
+   }
+  },
+  {
+   "hotspot": "hearse",
+   "verbs": [
+    "USE",
+    "OPEN"
+   ],
+   "ref": "docs/110-act-three-scenes.md::### THE LINES",
+   "head": "**THE HEARSE** · USE",
+   "case": "while stalled, before the prayer",
+   "caseIsBullet": true,
+   "when": {
+    "T_HILL_PRAYER": false
+   }
+  },
+  {
+   "hotspot": "hearse",
+   "verbs": [
+    "USE",
+    "OPEN"
+   ],
+   "ref": "docs/110-act-three-scenes.md::### THE LINES",
+   "head": "**THE HEARSE** · USE",
+   "case": "while the prayer runs",
+   "caseIsBullet": true,
+   "when": {
+    "T_HILL_PRAYER": true
+   },
+   "set": {
+    "T_RODE_UP": true,
+    "T_HILL_PRAYER": false,
+    "T_PROCESSION_STALLED": false
+   },
+   "completes": "E6b",
+   "goto": "funeral",
+   "rideFrom": "THE RIDE",
+   "speakers": {
+    "THAD": "thad"
+   }
+  }
+ ],
+ "docBlocksNote": "Errata 233, doc 110 section 2, THE LINES: TALK TO each of the procession, the prayer asked for, and USE or OPEN THE HEARSE (refused with the town watching; during the prayer, Thad climbs in: T_RODE_UP, E6b, THE RIDE over black, and Room 31). The words are read from doc 110 by tools/compile-room.mjs (docBlock)."
 }

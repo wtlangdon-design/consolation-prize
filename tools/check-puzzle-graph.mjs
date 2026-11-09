@@ -42,10 +42,13 @@ export const CANONICAL_PUZZLE_IDS = [
   ...range('D', 1, 6),
   'E0',
   'E0b',
-  ...range('E', 1, 10),
+  ...range('E', 1, 6),
+  // SCENE A, THE HEARSE (doc 110 section 2; errata 233): between the executor and the coffin.
+  'E6b',
+  ...range('E', 7, 10),
   ...range('F', 1, 5),
   // FIDDLER'S GULCH (doc 107; reference/fiddlers-gulch/brief.md, "When it is all in"): G1 to G9, less G6 and G7, which
-  // are B4 and B5 moved to the Gulch. 45 and seven: 52.
+  // are B4 and B5 moved to the Gulch. 45 and seven: 52; and E6b, the hearse (errata 233): 53.
   'G1', 'G2', 'G3', 'G4', 'G5', 'G8', 'G9',
 ];
 

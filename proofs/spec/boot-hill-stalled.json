@@ -1,0 +1,45 @@
+{
+ "schema": 1,
+ "room": "boot_hill",
+ "note": "ROOM 14 WITH THE PROCESSION STALLED AT THE GATE (doc 110 section 2; errata 233), proved apart from the room's main spec (node tools/gauntlet/proof.mjs boot_hill --spec proofs/spec/boot-hill-stalled.json --out renders/proofs/boot-hill-stalled). It starts from fixture r14-stall-a, after E6 with the obituary out, and says so; the way there is played in tests/hearse.test.ts and the full walkthrough. The hearse and Grievance are not drawn yet (reference/act3-hearse/brief.md): until their picture is in, the gate shows the undertaker, Sowerby and the mourners. The principal change is the blessing asked: TALK TO Sowerby, and he answers.",
+ "fixture": "r14-stall-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "TALK TO REVEREND SOWERBY, AT THE GATE (doc 110 section 2): Thad asks whether a hill can be blessed. Visible consequence: Thad's question, then the Reverend's answer over his own head.",
+  "flags": {},
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "TALK_TO"
+   },
+   {
+    "do": "click",
+    "on": "reverend_sowerby_at_the_gate",
+    "why": "the blessing asked"
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 30,
+    "why": "Thad's question"
+   },
+   {
+    "do": "wait",
+    "seconds": 2
+   },
+   {
+    "do": "click",
+    "at": [
+     450,
+     60
+    ],
+    "why": "read on, to the Reverend's answer"
+   },
+   {
+    "do": "waitFor",
+    "says": "procession_sowerby",
+    "upTo": 60
+   }
+  ]
+ }
+}

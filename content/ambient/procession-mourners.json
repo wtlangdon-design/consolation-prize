@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "procession_mourners",
+ "name": "THE MOURNERS",
+ "posture": "band",
+ "room": "boot_hill",
+ "when": {
+  "T_PROCESSION_STALLED": true
+ },
+ "note": "THE MOURNERS AT THE GATE (doc 110 section 2: \"Half the town, in black, at the gate\"), while the procession is stalled (errata 233). Room 31's seven (funeral_mourners' sheet), drawn by figureHeight 350 -- Room 31's man where they stand there (y 664) -- so they are Room 14's size here. They have no bowed pose yet: doc 110's \"The mourners bow their heads and shut their eyes\" waits on reference/act3-hearse/brief.md operation 2, and is carried by the words meanwhile. Examined through THE MOURNERS.",
+ "x": 1640,
+ "y": 800,
+ "zone": 0,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "The mourners are heard through their LISTEN lines.",
+ "sprite": {
+  "sheet": "art/actors/room-31-mourners-master.png",
+  "frames": [
+   [
+    2,
+    2,
+    443,
+    403
+   ],
+   [
+    447,
+    2,
+    443,
+    403
+   ],
+   [
+    892,
+    2,
+    443,
+    403
+   ],
+   [
+    1337,
+    2,
+    443,
+    403
+   ],
+   [
+    1782,
+    2,
+    443,
+    403
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.4,
+  "breaks": [
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 0,
+  "frameNote": "0 watching the grave, hats held · 1 breath (derived) · 2-4 a different two or three of them shifting their weight.",
+  "provenance": "reference/cast-unify-28.spec.json",
+  "redrawn": "Errata 111 W (Tyler, 2026-11-06). Seven distinct mourners drawn on magenta by cast-unify 30 (reference/cast-unify-28.txt), every man holding his hat (doc 10), each measured and turned to look LEFT toward the grave, standing at his own spot on the hill at its depth curve inside THE MOURNERS hotspot, composed and relit into the night by tools/art/room31-mourners.py. The old group faced the camera.",
+  "figureHeight": 350,
+  "stature": 1.0
+ }
+}

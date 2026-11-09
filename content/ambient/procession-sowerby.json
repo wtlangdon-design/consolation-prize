@@ -1,0 +1,100 @@
+{
+ "schema": 1,
+ "id": "procession_sowerby",
+ "name": "REVEREND SOWERBY",
+ "posture": "standing",
+ "room": "boot_hill",
+ "when": {
+  "T_PROCESSION_STALLED": true
+ },
+ "note": "REVEREND SOWERBY AT THE GATE, WITH HIS BOOK (doc 110 section 2), while the procession is stalled (errata 233). The sheet sowerby_gate uses, cut from Room 31's master and relit into the hill's night, 1:1: 314 tall where Room 14's man is 301. Examined and talked to through REVEREND SOWERBY, AT THE GATE. While the prayer runs (T_HILL_PRAYER) his speaking break says THE PRAYER's lines in turn, round again (barkTurns, onBreaks).",
+ "x": 870,
+ "y": 800,
+ "zone": 0,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "EXTRACTED from docs/110-act-three-scenes.md (THE PRAYER) by tools/extract-content.mjs. Do not edit: change doc 110 and re-run. While T_HILL_PRAYER holds, said on his speaking breaks, in turn, then round again.",
+ "sprite": {
+  "sheet": "art/actors/room-31-sowerby-master.png",
+  "frames": [
+   [
+    2,
+    2,
+    182,
+    314
+   ],
+   [
+    186,
+    2,
+    182,
+    314
+   ],
+   [
+    370,
+    2,
+    182,
+    314
+   ],
+   [
+    554,
+    2,
+    182,
+    314
+   ],
+   [
+    738,
+    2,
+    182,
+    314
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.1,
+  "breaks": [
+   [
+    2,
+    2,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ],
+   [
+    2,
+    3,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 0,
+  "frameNote": "0 rest, a finger raised · 1 breath (derived) · 2 leaning forward with the sermon · 3 leaning back · 4 head bowed, hands together. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "reference/cast-unify-18.spec.json",
+  "breaksThatSpeak": [
+   0
+  ],
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). Drawn in day colours and relit into the funeral's night where he stands (tools/art/room31-relight-one.py), as the rest of that cast is."
+ },
+ "barkTurns": [
+  {
+   "counter": "HILL_PRAYER_SAID",
+   "when": {
+    "T_HILL_PRAYER": true
+   },
+   "onBreaks": true,
+   "lines": [
+    "O Lord, who made the hills, and saw fit to set this one at an incline…",
+    "…look down upon this creature, who has borne so many of our brothers upward…",
+    "…and give her strength to bear one more, though he weighs, by every account, very little…",
+    "…and her mother before her, who was also a mule, and also of firm opinions…",
+    "…the amen will be along shortly. I am paid to the foot."
+   ],
+   "source": "docs/110-act-three-scenes.md::### THE LINES"
+  }
+ ]
+}

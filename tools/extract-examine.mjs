@@ -246,6 +246,25 @@ function extract(room, declarations) {
         }
         continue;
       }
+      // A BOLD NAME ON A LINE OF ITS OWN, its runs on the lines under it (doc 110, THE LINES: `**THE HEARSE**`, then
+      // `**LOOK** 1 "..." · 2 "..."` and `**LISTEN** 1 "..."`). Only when a run follows: a bold label with no run
+      // under it is something else's.
+      const bare = /^\*\*([A-Z][^*]+?)\*\*\s*$/.exec(line);
+      if (bare) {
+        const runs = lines.slice(at + 1, at + 3).map((row) => /^\*\*(LOOK|LISTEN)\*\*\s+(\d+\s+".*)$/.exec(row.trim()));
+        if (runs[0]) {
+          for (const said of runs) if (said) appendRun(plain(bare[1]), said[1], said[2], '');
+          continue;
+        }
+      }
+      // A WRONG TRY AS A BULLET (doc 110, THE WRONG TRIES: `- **THE HEARSE** · PUSH — "..."`), a verb on its own.
+      // A try with an item (`· USE THE TUNING FORK — the existing line: "..."`) is a combination, not an override,
+      // and is read by tools/extract-content.mjs.
+      const bullet = /^-\s+\*\*(.+?)\*\*\s*·\s*(PUSH|PULL|PICK UP|OPEN|CLOSE|USE|TALK TO)\s+—\s+"(.+)"\s*$/.exec(line);
+      if (bullet) {
+        pendingOverrides.push({ name: plain(bullet[1]), verb: bullet[2].replace(/ /g, '_'), line: bullet[3] });
+        continue;
+      }
       // A continuation: **NAME** — LOOK n "..." | LISTEN n "...".
       // An act-tagged continuation carries `*(act: "3-4")*` after the name.
       const continuation = /^\*\*(.+?)\*\*\s*(?:\*\(act:\s*"?([^)"]+)"?\)\*)?\s*—\s*LOOK\s(.*)$/.exec(line);

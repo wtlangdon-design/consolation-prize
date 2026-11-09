@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "procession_undertaker",
+ "name": "THE UNDERTAKER",
+ "posture": "standing",
+ "room": "boot_hill",
+ "when": {
+  "T_PROCESSION_STALLED": true
+ },
+ "note": "THE UNDERTAKER AT GRIEVANCE'S HEAD (doc 110 section 2: \"at Grievance's head in his good apron ... He has a hand on her bridle\"), while the procession is stalled at Boot Hill's gate (errata 233). Room 31's own figure (funeral_undertaker's sheet), drawn by its figureHeight at Room 14's curve. Examined and talked to through THE UNDERTAKER over him; his words are Room 14's (docBlocks).",
+ "x": 1400,
+ "y": 745,
+ "zone": 1,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "Doc 110 writes no barks for the undertaker at the gate; he is heard through THE UNDERTAKER.",
+ "sprite": {
+  "sheet": "art/actors/room-31-undertaker-master.png",
+  "frames": [
+   [
+    2,
+    2,
+    129,
+    400
+   ],
+   [
+    133,
+    2,
+    129,
+    400
+   ],
+   [
+    264,
+    2,
+    129,
+    400
+   ],
+   [
+    395,
+    2,
+    129,
+    400
+   ],
+   [
+    526,
+    2,
+    129,
+    400
+   ]
+  ],
+  "rate": 0.22,
+  "phase": 0.3,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "talkFrame": 0,
+  "frameNote": "0 hands folded · 1 breath (derived) · 2 head bowed · 3 a glance down to the left, at the coffin · 4 hands folded, looking up.",
+  "provenance": "reference/cast-unify-29.spec.json",
+  "redrawn": "Errata 111 X (Tyler, 2026-11-06: 'The old man is super weirdly short and stout. The man in the blue jacket is a bad cutout.'). Drawn on magenta by cast-unify 31 (reference/cast-unify-29.txt) at ordinary lean proportions, as tall as Thad, cut with its own pixels and a clean edge, and relit into the funeral's night (tools/art/room31-relight-one.py). The undertaker at Thad's height (the brief before had asked for him 'a little shorter than the hero', and he came back squat).",
+  "figureHeight": 400,
+  "stature": 1.0
+ }
+}
