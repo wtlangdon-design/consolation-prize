@@ -71,6 +71,8 @@ import { check as nightExposure } from './check-night-exposure.mjs';
 import { check as figureLight } from './check-figure-light.mjs';
 import { check as plateFlatEdges } from './check-plate-flat-edges.mjs';
 import { check as fontCandidates } from './font/check-candidates.mjs';
+import { check as repeatedLines } from './check-repeated-lines.mjs';
+import { check as narrationTemplates } from './check-narration-templates.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -170,6 +172,10 @@ const CHECKS = [
   signBaselines,
   clusterFloor,
   fontCandidates,
+  // Errata 226: the feel review's repeats, caught mechanically -- a line seen
+  // whole twice on the main path, and a phrase Thad reaches for too often.
+  repeatedLines,
+  narrationTemplates,
 ];
 
 /**
