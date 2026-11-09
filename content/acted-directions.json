@@ -1047,10 +1047,19 @@
     },
     {
       "n": 98,
-      "class": "B",
+      "class": "A",
       "speaker": "frame",
       "words": "He presses it on Thad, still damp.",
-      "where": "dialogue/frame FRA_B1 options 1 and 2"
+      "where": "dialogue/frame FRA_B1 options 1 and 2",
+      "performedBy": [
+        "frame"
+      ],
+      "frames": [
+        5,
+        6
+      ],
+      "seconds": 1.6,
+      "holds": 6
     },
     {
       "n": 99,
@@ -1061,10 +1070,19 @@
     },
     {
       "n": 100,
-      "class": "B",
+      "class": "A",
       "speaker": "ozymandia",
       "words": "She takes a second, identical rod from under the table.",
-      "where": "dialogue/ozymandia OZY_A1 option 9"
+      "where": "dialogue/ozymandia OZY_A1 option 9",
+      "performedBy": [
+        "ozymandia"
+      ],
+      "frames": [
+        5,
+        6
+      ],
+      "seconds": 2,
+      "holds": 6
     },
     {
       "n": 101,

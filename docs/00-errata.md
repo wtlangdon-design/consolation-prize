@@ -5825,3 +5825,13 @@ The brief's last step. Every line is extracted from docs 108 and 109; docs 02, 0
 - **Doc 95** gains four rows for the new directions: Frame's damp paper and Ozymandia's second rod printed until a pose is drawn (B), Sump's absence and the ride home told (C).
 - **Tests.** `tests/gulch-consolation.test.ts` plays G1 with and without the money and before Act II, A9's third copy, B1's paper and the ride home; `tests/assay.test.ts`'s Duel One tests are played through the tent and the bar, with the same invariants (resumed mid-duel, dropped leaves it on offer, never without B4, the replay once).
 - Lesson: none -- a build step, the trip's last; every check it needed was added in errata 200 and 206 to 210.
+# 214 · FRAME'S PAPER AND OZYMANDIA'S SECOND ROD, ACTED — TYLER, 2026-11-09 ("do the drawn poses")
+
+*Told that two of errata 213's directions were printed because neither character had a pose for them, Tyler asked for the poses.*
+
+- **The operations.** Two, on `cast-unify` (87 and 88 of 90; `reference/cast-unify-58.txt` and `-59.txt`), by errata 144's method as errata 148 drew the last acted poses: the character's own shipping rest frame repeated as a template, the first copy left as it is, the others repainted; the current sheet for identity, and for Ozymandia the plate's own brass rod (Room 16's stand) so the second rod is the same rod.
+- **Frame** (row 98, now A): 5 the Clarion lifted from his side, his notebook tucked under the other arm; 6 the paper thrust out to his left, where Thad stands to talk to him. He holds 6 through "Nobody ever buys the one they're in."
+- **Ozymandia** (row 100, now A): 5 leaning down to the box under the table, one arm out of sight below the table's edge; 6 upright, the rod held up beside her. She holds 6 through "This one. The other one is working."
+- **Cut** by `tools/art/acted-poses.py`, which now takes names (`acted-poses.py frame ozymandia --write`) so a run touches only the sheets named. Each row is cut at the height that makes its first figure the shipping rest frame's height, registered on the legs (Frame) and on the waist line (Ozymandia), snapped to one level, and appended as frames 5 and 6; frames 0 to 4 keep their pixels.
+- **Seen in the running game** (`renders/acted-frame-and-ozymandia-with-thad.png`): both play in their rooms, held through their next line.
+- Lesson: none -- two poses drawn at Tyler's request; `tests/acted-directions.test.ts` already fails an A row with no figure to act it or a frame it does not have.

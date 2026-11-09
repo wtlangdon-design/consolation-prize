@@ -27,7 +27,8 @@ fit. 72's blotter read as his stamp; 78 drew a rocker blotter. (Errata 148.)
 RE-RUNNABLE: every sheet is rebuilt from its five shipping frames (0-4) -- anything below them is
 the strip this tool wrote, and is written again.
 
-Usage: acted-poses.py [--write]   (without --write, prints the measurements and writes nothing)
+Usage: acted-poses.py [who ...] [--write]   (without --write, prints the measurements and writes nothing;
+       with names from WHO or 'thad', only those)
 """
 import json, os, subprocess, sys, tempfile
 import numpy as np
@@ -48,7 +49,11 @@ WHO = {
     'pratt': ('content/ambient/pratt.json', 'legs', [(44, 0, 1), (44, 0, 2)]),
     'pratt_jump': ('content/ambient/pratt-jump.json', 'legs', [(44, 1, 1)]),
     'deke_vessel': ('content/ambient/deke-vessel.json', 'legs', [(47, 0, 1)]),
+    # Fiddler's Gulch's changes in Consolation (doc 109; errata 214): cast-unify 87 and 88.
+    'frame': ('content/ambient/frame.json', 'legs', [(58, 0, 1), (58, 0, 2)]),
+    'ozymandia': ('content/ambient/ozymandia.json', 'waist', [(59, 0, 1), (59, 0, 2)]),
 }
+ONLY = [a for a in sys.argv[1:] if not a.startswith('--')]   # names from WHO, or 'thad'; none means all
 SHIPPED = 5             # frames 0-4 are the shipping sheet's; the rest are this tool's
 # Thad's clip after his stand-back frame: crouched (75), fitting the head on (77), the pick whole (77).
 THAD_POSES = [(46, 0, 1), (48, 0, 1), (48, 0, 2)]
@@ -160,6 +165,7 @@ def grow_and_paste(boxes_wh, pose, ox, oy):
 report = {}
 with tempfile.TemporaryDirectory() as tmp:
     for who, (rec_p, how, picks) in WHO.items():
+        if ONLY and who not in ONLY: continue
         rec = read(rec_p); s = rec['sprite']
         s['frames'] = s['frames'][:SHIPPED]
         sheet = np.asarray(Image.open(os.path.join(ROOT, s['sheet'])).convert('RGBA')).copy()
@@ -198,6 +204,8 @@ with tempfile.TemporaryDirectory() as tmp:
         open(os.path.join(ROOT, rec_p), 'w').write(json.dumps(rec, indent=indent, ensure_ascii=False) + '\n')
 
     # THAD: the pick-fit clip from the back
+    if ONLY and 'thad' not in ONLY:
+        print(json.dumps(report, indent=1)); sys.exit(0)
     stand = np.asarray(Image.open(os.path.join(ROOT, 'art/actors/thad-stand-back/stand-00.png')).convert('RGBA')).copy()
     rig = read('art/actors/thad-stand-back/rig.json')
     fw, fh = rig['figure']; pad = rig['padding']
