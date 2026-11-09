@@ -1,6 +1,6 @@
 # 111 · ACT III, SCENES B AND C: THE SÉANCE AND THE ESTATE SALE
 
-*Tyler, 2026-11-09, asking whether the other Act III scenes were still to come ("Don't we still have multiple more scenes for CC to build to make act 3 more fun?"). This doc designs them for his approval. It supersedes doc 110 §3's outline, and changes one thing in it: the séance no longer replaces Frame's obituary. No lines are written until Tyler approves this design.*
+*Tyler, 2026-11-09, asking whether the other Act III scenes were still to come ("Don't we still have multiple more scenes for CC to build to make act 3 more fun?"). This doc designs them for his approval. It supersedes doc 110 §3's outline, and changes one thing in it: the séance no longer replaces Frame's obituary. Approved (Tyler, 2026-11-09: "Go"); the lines are below, under THE LINES.*
 
 ---
 
@@ -117,6 +117,139 @@ To be written:
   - The raccoon's sheet and Pratt's figures already exist.
   - That is up to two figures and an item icon or two, from `act3-estate-sale` (four operations).
 - **Puzzles:** the count is unchanged. The sale is E3.2's new way of completing.
+
+---
+
+## THE LINES
+
+*Written by one voice under errata 225's pass and doc 59, for Tyler's "Go" (2026-11-09). Each hotspot's LOOK and LISTEN rotate 1, 2, 3, then hold the last.*
+
+### B · The séance
+
+**THE SÉANCE SIGN** · *the Lane, the evening after E0b*
+**LOOK** 1 "Chalked on a board at Madame Ozymandia's: SÉANCE TONIGHT · OBADIAH MOTT, IF AVAILABLE · $2." · 2 "'If available.' She has covered herself, which is more than Mott ever did." · 3 "The two dollars is written larger than the dead man."
+**LISTEN** 1 "The board knocks against the tent pole in the wind, like something wanting in." · 2 "Chalk squeaking. She has gone back to underline the price." · 3 "Nothing. Signs in this town have learned to wait."
+
+**ARRIVING** · *Ozymandia's tent, the séance, the first entry*
+> "Five of the town around a table, holding hands, and Madame Ozymandia at the head of it. Nobody has noticed me, which is the one thing in Consolation that has ever been free."
+
+**THE SÉANCE TABLE**
+**LOOK** 1 "A round table under a cloth that reaches the floor on every side. Whatever goes on under there is between it and the spirits." · 2 "Five chairs, five townspeople, five two-dollar faces. There is no sixth chair, and plenty of room underneath." · 3 "In the middle, one candle and a little bell, for spirits who would rather ring."
+**LISTEN** 1 "Ten feet shifting under the cloth. There would be room for two more." · 2 "Somebody's knee has found the table leg, and apologizes to it." · 3 "Nothing, which at a séance is the main attraction."
+
+**THE LAMP**
+**LOOK** 1 "A hanging lamp, turned up. Madame Ozymandia keeps the dead in good light until the money is in." · 2 "It throws the whole table's shadow on the canvas. Mine would be the shadow of a man who has not paid." · 3 "The wick is trimmed for a long evening. The spirits, I expect, are billed by the hour."
+**LISTEN** 1 "A soft hiss, like somebody keeping a secret badly." · 2 "Moths at the glass, wanting in, in the way of moths." · 3 "The flame steadies. Nobody has breathed for a while."
+
+**THE SITTERS**
+**LOOK** 1 "Four of the town in their good coats, holding hands. They have paid two dollars each to meet a man they have only read about." · 2 "One of them has brought her question on a slip of paper, in case the dead are hard of hearing." · 3 "They are watching the candle. I could be anybody, and tonight I would rather be."
+**LISTEN** 1 "Somebody whispers that Mott will know where the gold is. Somebody else whispers that he never did." · 2 "A stomach, and then an apology to the spirits for it." · 3 "Four people trying to breathe quietly, which is louder than breathing."
+
+**MR. FRAME, AT THE TABLE**
+**LOOK** 1 "Mr. Frame, front row, pencil ready. He has written the headline already and left a space for whatever the dead say." · 2 "His notebook is open at a fresh page headed MOTT SPEAKS. It is a very confident page." · 3 "He is the only one at the table not holding hands. He needs both of them to write."
+**LISTEN** 1 "His pencil, tapping the page, impatient for the hereafter." · 2 "He whispers a headline to himself, tries a second, and prefers the first." · 3 "Nothing. Mr. Frame, silent, is the strangest thing in the tent."
+
+**MADAME OZYMANDIA, PRESIDING**
+**LOOK** 1 "Madame Ozymandia at the head of the table, in more scarves than usual, the brass rod across her palms." · 2 "Her eyes are closed. One of them is not entirely closed, and it is on the money box." · 3 "She has the air of a woman to whom the dead owe money."
+**LISTEN** 1 "She hums, low, a note that is neither music nor not." · 2 "Coins settling in the box at her feet, a sound she seems to find restful." · 3 "Nothing. She is listening, which she tells me is new."
+
+**`OZY_E1`** · *TALK TO Madame Ozymandia, at the séance, the lamp lit*
+> **OZYMANDIA:** "The table is full, darling, and the spirits are particular."
+
+| # | Option | Tag | Response | State |
+|---|---|---|---|---|
+| 1 | "Is there room for one more?" | `[TOPIC · retain]` | "At the table — two dollars — in advance —" — *"And if I haven't two dollars?"* — "Then the spirits will tell you all about it afterwards, darling. Through me. For two dollars." *(second)* "Two dollars, darling. The dead are not a charity. Neither am I." | |
+| 2 | "Do the dead mind the light?" | `[PROGRESS · remove]` | "Mind it? They cannot abide it, darling. Nobody has ever been reached in a well-lit room." *(She turns the lamp down to a bead.)* "There. Now we are all equally invisible." | sets `T_SEANCE_DARK` |
+| 3 | "Will Mott come?" | `[TOPIC · retain]` | "Everyone comes, darling. Eventually." *(beat)* "Some of them are slower than others." *(second)* "Patience. The dead keep their own hours." | |
+| 4 | "Does the rod work on ghosts?" | `[COMIC · retain]` | "The rod works on everything, darling. That is its tragedy." *(second)* "On everything. Ask it about you, sometime. Two dollars." | |
+
+**THE SÉANCE TABLE** · USE
+- *while the lamp is lit* — "Not in this light. Five people would see a grown man go under a table, and one of them would print it."
+- *in the dark* — *(Thad goes down on his hands and knees and under the cloth.)* "Ten feet, and now twelve." → `T_UNDER_TABLE`, and the séance.
+
+**THE SÉANCE** · *heard from under the table; Thad sees only feet*
+> **OZYMANDIA:** "We call upon the spirit of Obadiah Mott."
+> *(A silence is held.)*
+> **OZYMANDIA:** "Obadiah Mott. The town is waiting."
+> *(A silence is held.)*
+> **OZYMANDIA:** "Obadiah Mott — two dollars a head —"
+> *(A silence is held.)*
+> **OZYMANDIA:** *(She consults the rod.)* "The spirits say he is… busy."
+> **FRAME:** "BUSY? Twelve years dead and BUSY?"
+
+**`SEA_E1`** · *Thad, as the voice of the dead, from under the table*
+
+| # | Option | Tag | Response | State |
+|---|---|---|---|---|
+| 1 | "Woooo." | `[COMIC · retain]` | **FRAME:** "Is that him?" — **OZYMANDIA:** "That is the wind, darling. The wind is free." *(second)* **OZYMANDIA:** "Still the wind. It is a very persistent wind." | |
+| 2 | "I tune pianos." | `[COMIC · retain]` | **FRAME:** "Mott tuned PIANOS?" *(He writes.)* — **OZYMANDIA:** "The dead take up hobbies, darling." *(second)* **FRAME:** "He said that already. Still good." | |
+| 3 | "The gold is under the church." | `[COMIC · remove]` | *(Two chairs go over. Two pairs of boots leave at a run.)* — **OZYMANDIA:** "The spirits are not responsible for directions." | |
+| 4 | "I am Obadiah Mott, and I am dead." | `[PROGRESS · remove]` | **FRAME:** "QUOTABLE!" *(He writes.)* "'I AM DEAD,' says Mott. Front page. Within the hour." — **OZYMANDIA:** *(She looks down at the cloth for a long moment.)* "…Two dollars, whoever you are." | sets `T_MOTT_SPOKE` |
+
+**LEAVING THE TABLE** · *after `T_MOTT_SPOKE`*
+> *(The lamp comes up. Thad stays where he is until the last pair of boots has gone.)* "I have now been a dead man once. It is mostly waiting under furniture."
+
+**`SUM_E1`** · *a new row, at the Registrar's, after `T_MOTT_SPOKE`*
+
+| # | Option | Tag | Response | State |
+|---|---|---|---|---|
+| 1‴ | "It's in the Clarion. Mott has spoken. He says he's dead." | `[PROGRESS · remove]` | "From where?" — *"From under a table."* — "The office does not accept testimony from the deceased." *(beat)* "It has tried." | **E1**, blocked by design |
+
+**THE WRONG TRIES** · *at the séance*
+- **THE LAMP** · USE — "It is hers. She would charge me for the dark."
+- **THE LAMP** · PULL — "Pulling it down would end the séance, and then I would have to explain the séance."
+- **THE SÉANCE TABLE** · PULL — "If I pull the cloth, the spirits get a candle in their lap, and so does Mr. Frame."
+- **THE SÉANCE TABLE** · PICK UP — "It has five people holding on to it. Six, if you count the dead."
+- **MR. FRAME, AT THE TABLE** · TALK TO — **FRAME:** "Grubb! Something from the living, while we wait. The dead are running late." — *"I'd rather not be in the paper tonight."* — **FRAME:** "Nobody would rather. That's what makes it news." *(second)* **FRAME:** "AFTER. The dead are on page one."
+- **THE SITTERS** · TALK TO — "One of them puts a finger to her lips. The spirits are shy, she implies, and so should I be."
+- **THE SITTERS** · USE — "There is no sixth chair. I could stand at the back, and be charged for standing."
+- **MADAME OZYMANDIA, PRESIDING** · PULL *(the rod)* — "If I take the rod, she will have to listen with her hands, and she charges extra for that."
+- **THE SITTERS** · PICK UP — "They are holding hands. They would come as a set."
+- **MADAME OZYMANDIA, PRESIDING** · PICK UP — "She would charge me for the lift."
+
+### C · The estate sale
+
+**ARRIVING** · *Prosperity, after E3.1, the raccoon back*
+> "The raccoon is back in my hole. He regards the eviction as a misunderstanding."
+
+**`PRA_E3`** · *TALK TO Pratt, at his claim, after E3.1*
+> **PRATT:** "Grubb."
+
+| # | Option | Tag | Response | State |
+|---|---|---|---|---|
+| 1 | "I'm selling the effects of the late Mr. Grubb." | `[PROGRESS · remove]` | "Who?" — *"Me. In advance."* — *(He thinks about it for some time.)* "Raccoon." — *"The raccoon isn't mine."* — "Lives on your claim." *(beat)* "Effect." — *"How much?"* — "Two dollars and sixty cents." — *"That is exactly what I need."* — "Asked the undertaker." *(beat)* "Don't fetch." | sets `T_RACCOON_WANTED` |
+| 2 | "Could I borrow your hen?" | `[PROGRESS · remove]` · after 1 | "Hen comes back." — *"Of course."* — "Hen comes back." *(He hands Thad the hen. The hen looks at Thad as though the arrangement were hers.)* | gives THE HEN |
+| 3 | "Why do you want him?" | `[COMIC · retain]` · after 1 | "Bit me." *(pause)* "Nobody's bit me in twenty years." *(pause)* "Respect it." *(second)* "Respect it." | |
+
+**THE RACCOON** · *in the hole, after `T_RACCOON_WANTED`*
+- PICK UP, *or* USE — "Not while he's in the hole. I have seen how that goes, and so has Mr. Pratt's thumb."
+- USE THE TUNING FORK — "He has heard a great deal of A in his time. None of it has moved him."
+- **THE HOLE** · USE, *before the hen* — "My coat over the hole would only make it warmer. He would write to thank me."
+- USE THE HEN, *on THE HOLE* — *(Thad sets the hen at the mouth of the hole. The hen considers the hole. The raccoon considers the hen. Half a raccoon comes out.)* "Halfway. He is a careful animal." → `T_RACCOON_OUT`
+- PICK UP, *with the raccoon halfway out* — "With my hands? Mr. Pratt tried that, and now he has respect."
+- USE THE HEN, *with the raccoon halfway out* — "He looks at the hen. The hen looks at him. Neither of them will settle this without my coat."
+- USE, *with the raccoon halfway out* — *(Thad takes off his coat and drops it over him. There is a great deal of coat, and then a great deal of raccoon.)* "I have him. I am not sure which of us is winning." → THE RACCOON, IN MY COAT
+
+**THE SALE** · USE THE RACCOON, IN MY COAT *on Pratt*
+> **PRATT:** *(He opens the coat a little and looks in.)* "Raccoon."
+> *(He counts out the money, coin by coin.)*
+> **PRATT:** "Two dollars and sixty cents."
+> *(He holds out his other hand.)*
+> **PRATT:** "Hen."
+> *(Thad gives back the hen. Pratt gives back the coat, empty.)*
+> **PRATT:** "Keep the coat."
+> "He regards this as generous. Coming from Mr. Pratt, it is." → MR. PRATT'S TWO DOLLARS AND SIXTY CENTS; THE HEN and THE RACCOON, IN MY COAT leave inventory.
+
+**THE UNDERTAKER** · USE MR. PRATT'S TWO DOLLARS AND SIXTY CENTS — as Sheng's loan today, doc 57 E3.3: the undertaker's lines unchanged → `T_FUNERAL_BOOKED`, **E3**.
+
+**THE WRONG TRIES**
+- **PRATT** · USE THE HEN — **PRATT:** "Hen's on loan."
+- **THE UNDERTAKER** · USE THE RACCOON, IN MY COAT — **UNDERTAKER:** "I don't take livestock. Not live, anyway."
+- **AH-LAM SHENG** · USE THE RACCOON, IN MY COAT — **SHENG:** "I hold paper, Mr. Grubb. I do not hold raccoons. Both bite."
+- **THE HEN** · LOOK — "A brown hen of firm views. She has been in and out of Mr. Pratt's offers for weeks, and she knows her worth to the penny."
+- **THE HEN** · LISTEN — "A low, continuous remark, like a woman counting change."
+- **THE RACCOON, IN MY COAT** · LOOK — "My coat, with a raccoon in it, wearing it better than I did."
+- **THE RACCOON, IN MY COAT** · LISTEN — "Grumbling, in a tone I recognize from the Registrar's queue."
 
 ---
 
