@@ -256,7 +256,10 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "quietExit": {
+        "text": "I'll be quiet now."
+      }
     },
     "HOB_C2": {
       "id": "HOB_C2",
@@ -355,7 +358,10 @@
             "T_ACT_IV_OPENING": true
           }
         }
-      ]
+      ],
+      "quietExit": {
+        "text": "Thank you for telling me."
+      }
     }
   }
 }

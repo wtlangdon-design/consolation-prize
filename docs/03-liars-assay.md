@@ -314,11 +314,11 @@ Vessel opens with pair 1. Thad has no counters. He loses five straight exchanges
 
 > **THAD:** "Malnourished. Bishop. Yes."
 
-*The other three, as he hears them (errata 75):*
+*The other three, as he hears them (errata 75). Each note is shorter than the last (errata 225: the same three-beat echo four times running read as a metronome by the fourth; he gets quicker at it instead):*
 
 > **THAD:** "Grandmother. Gravel. Yes."
-> **THAD:** "Everyone. Shirts. Concern. Yes."
-> **THAD:** "In Sacramento. Not from. Yes."
+> **THAD:** "Shirts. Yes."
+> **THAD:** "Yes."
 
 *Before the first exchange, Reverend Sowerby reads the handbill's five rules aloud, all of them, with feeling (errata 75). The judges sit in the dark beyond the lamp; Sowerby holds the pencil.*
 
@@ -378,7 +378,9 @@ Vessel escalates. Thad answers flatly, without pleasure, like a man reading corr
 
 *Puzzle F4. Fanshawe calls the duel himself, to discredit Thad in front of the whole town before Thad can be heard. He is, as always, charming about it.*
 
-> **FANSHAWE:** "No hard feelings, Mr. Grubb. It's simply how we settle things here. You'll find it very fair."
+> **FANSHAWE:** "No hard feelings, Mr. Grubb. It's simply how we settle things here. You'll find it very fair. Lose, and nobody in town believes a word you file."
+
+*Errata 228: the challenge says what is at stake. The playthrough reached this duel with nothing on screen to say why it mattered.*
 
 Exchanges one through four use pairs 22, 23, and two returning boasts — Fanshawe deploys pair 4 and pair 9 against Thad, which the player will recognise, because Fanshawe has been listening the whole game.
 

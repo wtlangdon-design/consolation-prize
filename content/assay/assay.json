@@ -796,11 +796,11 @@
         },
         "3": {
           "speaker": "thad",
-          "line": "Everyone. Shirts. Concern. Yes."
+          "line": "Shirts. Yes."
         },
         "4": {
           "speaker": "thad",
-          "line": "In Sacramento. Not from. Yes."
+          "line": "Yes."
         }
       },
       "notebookRuling": "errata 73 D and 75: Thad writes each counter down as he hears it, and the notebook joins his repertoire when the duel is over.",
@@ -949,7 +949,7 @@
       "opening": [
         {
           "speaker": "fanshawe",
-          "line": "No hard feelings, Mr. Grubb. It's simply how we settle things here. You'll find it very fair."
+          "line": "No hard feelings, Mr. Grubb. It's simply how we settle things here. You'll find it very fair. Lose, and nobody in town believes a word you file."
         },
         {
           "speaker": "sowerby",
@@ -1108,11 +1108,11 @@
         },
         "3": {
           "speaker": "thad",
-          "line": "Everyone. Shirts. Concern. Yes."
+          "line": "Shirts. Yes."
         },
         "4": {
           "speaker": "thad",
-          "line": "In Sacramento. Not from. Yes."
+          "line": "Yes."
         }
       },
       "learns": [

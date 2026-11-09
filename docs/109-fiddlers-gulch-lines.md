@@ -344,7 +344,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 
 **`PAN_G1`, option 7** — "He says his ground runs so rich the gravel pays him rent." · `[PROGRESS · remove]` · *req `T_GULCH_MESSAGE_DOWN`*
 > **PANNER:** *(He snorts.)* "Tell him I've collected that rent. It was paid in buttons."
-> **THAD:** "Rent. Buttons. Yes." → pair 26
+> **THAD:** "Buttons. Yes." → pair 26 *(errata 225: shorter than the last echo, as his notes in Duel One get)*
 > **PANNER:** "Don't tell him, mind. He'll only send another."
 
 ### The pairs, for doc 03 Part Two, as Tier 7: learned in the Gulch (2)

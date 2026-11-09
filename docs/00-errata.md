@@ -6086,3 +6086,93 @@ Lesson: `tests/openings-voiced.test.ts`. It reads every document a tree names as
   - **"Loading…" comes up only after the threshold, never on an arrival already loaded.** It checks no words before 0.5 s, words after it, none once the room is whole, none on a shorter wait and none over a fade on a whole room. It also checks that the words are ui.json's, that the face draws every glyph, that the Renderer draws them over full black on a room and on the map, and that no engine file spells them.
   - A third test is a guard, not a lesson: every exit in the game, arrived on with its room fetched next door, is never held, blacked or worded.
   - With GameScene and the Renderer as they were before this errata, both lessons fail. With the hold made never to hold, the first fails. With the threshold taken out, the second fails.
+
+# 224 · SECTION NINETEEN IS HEARD BEFORE IT IS CITED, SUMP EXPLAINS ONCE, AND THE PIE WOMAN'S TIMER IS HELD — TYLER, 2026-11-09
+
+The feel review of errata 221's transcript, and Tyler's answers on it: "6 - yes" (Thad should cite section nineteen only after he has heard it), "3. - maybe she yells it on a longer timer? Like every minute?", and "Proceed with all the necessary fixes."
+
+- **Section nineteen.** SUM_E1's citation ("Section nineteen. The executor of a deceased claimholder.") was offered to a player who had never heard of it. The walkthrough never asked SUM_B1's "Who else may see a sealed filing?", so in Act III Thad quoted a statute out of nowhere: the hinge of Act III's leap.
+  - SUM_B1's question now sets `T_SECTION_NINETEEN`, and SUM_E1's citation requires it (doc 04).
+  - So that this cannot dead-end, SUM_E1 offers the same question, with Sump's same answer, to a player who never asked it (row 2′, `unless T_SECTION_NINETEEN`). Nothing is written new: it is the Act II row, offered once more.
+  - The walkthrough now asks it in Act III, as such a player would. Traversal: 52/52, 0 dead ends.
+- **"Circular… linear", once.** SUM_B1's opening (Thad's request, the A-B-D answer, "That would be circular, and this office is linear.") played on every Act II visit, so the joke was told whole twice on the walkthrough. It is now said the first time (`openingOnce`, `T_SUMP_DOCUMENTS_HEARD`); later visits open on the choices.
+- **The pie woman's timer, measured.** She already had one: three breaks rotating on a 26-second cycle put her calling-out break every 78 seconds. What made her feel constant was the same line said two and three times at once, which errata 222 fixed. Nothing about her timing changes. A test now holds her to at least a minute between shouts, so a later change cannot bring her back.
+- Lesson:
+  - `tests/room-07.test.ts` checks that the citation is not offered before the question is heard, that the question is offered in Act III instead, and that the documents are explained once. Both fail with the fixes removed.
+  - `tests/pie-shout-timer.test.ts` runs her sprite through the break arithmetic for ten minutes and fails on any gap under a minute. A 15-second cycle fails it.
+
+# 225 · QUIET EXITS, FRAME KNOWS HIM, SHORTER NOTES, "HE DIDN'T SAY YES" — TYLER, 2026-11-09
+
+These come from the feel review of errata 221's playthrough. Tyler answered on 2026-11-09: "4 - yes" (trim the comic goodbyes after the emotional scenes) and "5 - proceed" (Frame's return greeting). Then, on the plan made from the review, he said: "Proceed with all the necessary fixes."
+
+- **Quiet exits** (doc 04, `## Quiet exits`).
+  - The rotating comic goodbyes came straight after the game's four most serious moments:
+    - Winnie signing the death certificate;
+    - the coffin with Hob;
+    - Hob's confession;
+    - Winnie's "a number I believed".
+  - At those four nodes, once the moment has happened, the universal exit says one quiet line instead:
+    - "Thank you, Miss Ledger."
+    - "I'll be quiet now."
+    - "Thank you for telling me."
+    - "I'll see you at the Registrar's."
+  - The pool waits, so the next ordinary goodbye is the one that would have come (`DialogueNode.quietExit`).
+  - Rule 5 holds everywhere else.
+- **Frame knows him the second time.** FRA_A1's "You're new!" exchange played on all three of the playthrough's visits, across three acts.
+  - The exchange is now the first visit's only (`openingOnce`, `T_FRAME_MET`).
+  - Every visit after opens on doc 04's return line (`DialogueNode.returnOpening`).
+  - He still asks for a quote every time, as his voice rule says.
+- **Shorter notes.** The notebook echo ran four times in Duel One and twice more in the Gulch, all the same three-beat length.
+  - Each note is now shorter than the last (doc 03).
+  - The Gulch's second note is shortened the same way (doc 109).
+  - The pairs they teach are unchanged.
+- **"He didn't say yes."** Part Three's cut-away opened on "He said no.", but the player may only have walked out.
+  - Its first two lines are reworded so they hold either way (doc 96).
+- **Lessons.**
+  - `tests/quiet-exits.test.ts` checks that:
+    - each quiet exit is said once its moment has happened, and is never a pool line;
+    - before the moment, the pool's line is said;
+    - a quiet goodbye does not use up a comic one.
+  - `tests/return-greeting.test.ts` checks that:
+    - the first visit is the meeting, and later visits say the return line;
+    - no opening that calls the player new can be said twice.
+  - With the runner's change removed, three of these fail.
+
+# 227 · THE EXAMINE TRANSCRIPT — the feel review, 2026-11-09
+
+*The feel review judged the comedy from errata 221's transcript. That walkthrough almost never says LOOK AT or LISTEN TO, and the examine layer is most of the script. So the joke mix was measured on half of it. This is tooling: it reads the game and changes nothing in it.*
+
+- **What is built.** `tools/examine-transcript.mjs` plays `tests/data/full-game-walkthrough.json` headless, with the player `tests/full-game.test.ts` uses.
+  - It probes on the first arrival in each room. It probes again on a later arrival in a new act, or where the answers have changed.
+  - Each probe resolves LOOK AT and LISTEN TO on every hotspot and exit, and on every person a click can reach.
+  - Answers come from the engine's own resolver (`GameState.resolveInteraction`), so act variants, flag and puzzle gates, and repeat variants are as play gives them. A first selection's `then` lines are included.
+  - People resolve as `GameScene` resolves them: the room's lines for that person, then the person's examine layer, then the people pool. A figure wholly under a hotspot is examined through that hotspot (`AmbientLayer.personAt`). Room 33's rock answers LISTEN with a tap and no line (`GameScene.listenAt`).
+- **A probe changes nothing.** Resolving a verb advances the line cursors (`VerbSystem.resolve`), so the probe saves them, along with the selected verb, the held item and the people latch, and restores them after every resolution.
+  - `tests/examine-transcript.test.mjs` compares the state snapshot before and after a probe at several points in the walkthrough. It shows that a real LOOK does move the snapshot, and that the probed run breaks exactly where the plain run does.
+- **Where it is.** `renders/playthrough/examine.md` and `renders/playthrough/examine.json`, beside the transcript, with a summary at the top.
+  - First run: 42 rooms visited, 86 room arrivals written down, 1,061 hotspots, exits and people.
+  - 2,099 responses have a line, 23 have none, and 1,073 lines are distinct.
+- **Nothing is marked.** Every line is written the same way, in the room's own order. No effect of a response is recorded: no flag set, no puzzle completed and no conversation opened. So the three load-bearing LISTEN lines cannot be told from the rest (design invariant 3).
+- **What it shows, for whoever reads it.** These are reported, not changed.
+  - The 23 responses with no line are the Lane's three stub doors in each of their three arrivals, PIKE'S NEIGHBOR, THE GAP and the rock's LISTEN. The game has no LOOK AT or LISTEN TO pool.
+  - Named figures with no lines of their own (Main Street's map seller, pie woman and man leaving tomorrow, among others) answer with the people pool's single line.
+- How to run it: doc 55 §8.
+- Lesson: none -- tooling, no defect fixed.
+
+# 228 · THE GAPS THE TRANSCRIPT FOUND, CHECKED IN THE GAME — TYLER, 2026-11-09 ("Proceed with all the necessary fixes")
+
+The feel review listed ten places on the main path where a first-time player might not follow. Each was checked against the content, not just the transcript. Six were not real gaps:
+- the hotel's "Nineteen." is the room number, and the clerk's directions follow;
+- the affidavit is chased before Documents A–D only on the walkthrough's order, since Act II's opening line sends the player to Sump;
+- the Thursday ledger is a hotspot in the laundry, with Sheng's and Pratt's Thursdays before it;
+- Sheng's "two dollars and sixty cents" is Sheng knowing the sum better than Thad, which is the joke;
+- Sump's note, copy and third copy arrive as items with their icons;
+- section nineteen was fixed in errata 224.
+
+Four were real, and are fixed:
+- **The filing fee was named before anyone named a fee.** The barman's two dollars became "The filing fee" at A8, but Sump's Act I answer asked only for a boundary. His answer now ends: "With a boundary and two dollars, the office will file it." (doc 04 SUM_A1 option 1).
+- **The map arrived unseen.** FAN_A1's option 2 handed the map over on screen, but option 1, the one most players pick, did not. Option 1 now plays the handover too (doc 04; doc 95 row 104). The emphasis marks in its reply were dropped, so the direction pass can read the reply cell.
+- **"Keep it. I have dozens." named nothing.** Doc 57 A10's beat 3, the knocked glass and the handkerchief, was written but not played. It now plays before the line (doc 95 row 105).
+- **The last duel had no stakes on screen.** Fanshawe's challenge now ends: "Lose, and nobody in town believes a word you file." (doc 03).
+
+Lesson: `tests/gifts-shown.test.mjs` requires every dialogue option that gives an item to show the handover in a performed direction, or to be listed with the reason its words already hand the thing over (three are listed). The map as it was fails it. The fee and the stakes are matters of taste, recorded as a row in doc 55 §8.

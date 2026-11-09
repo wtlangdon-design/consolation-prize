@@ -679,6 +679,15 @@
    "note": "Doc 57 A9: the survey, after the deed, is lodged and leaves inventory (errata 80 D's routing flag)."
   },
   {
+   "id": "T_FRAME_MET",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_A1 openingOnce"
+   ],
+   "note": "Errata 225: FRA_A1's 'You're new!' exchange is the first visit's; every visit after opens on doc 04's return line."
+  },
+  {
    "id": "T_NINETY_DAYS",
    "type": "boolean",
    "initial": false,
@@ -686,6 +695,25 @@
     "dialogue:SUMP:SUM_B1:sump1b"
    ],
    "note": "Doc 57 D1: SUM_B1 option 1'' (About Document D)."
+  },
+  {
+   "id": "T_SECTION_NINETEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SUMP:SUM_B1:sump2",
+    "dialogue:SUMP:SUM_E1:sump2a"
+   ],
+   "note": "Errata 224: Thad has heard section nineteen from Sump. SUM_E1's citation of it waits on this; a player who never asked in Act II is offered the question in Act III."
+  },
+  {
+   "id": "T_SUMP_DOCUMENTS_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SUMP:SUM_B1 openingOnce"
+   ],
+   "note": "Errata 224: SUM_B1's opening (the three documents, 'circular... linear') is said once."
   },
   {
    "id": "T_NEED_TO_DIE",

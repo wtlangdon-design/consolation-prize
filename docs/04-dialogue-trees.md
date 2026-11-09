@@ -54,6 +54,17 @@ Rotating pool available at every node:
 > "I am going to leave now, in a dignified manner." *(Thad walks into the doorframe.)* *(Every time. It is never acknowledged.)*
 > "Thank you. This has been clarifying." *(Available only when it has not been.)*
 
+## Quiet exits
+
+*Errata 225 (Tyler, 2026-11-09). The feel review found the comic goodbyes landing straight after the game's four most serious moments, where they read as wallpaper. Asked whether to trim them after the emotional scenes: "yes". Rule 5 above holds everywhere else. At these four, while the gate holds, the universal exit is this line instead of the pool's next joke, and the pool waits.*
+
+| Tree | Node | While | Thad says |
+|---|---|---|---|
+| WINNIE | `WIN_C1` | `T_DEATH_CERTIFIED` | "Thank you, Miss Ledger." |
+| HOB | `HOB_C1` | always | "I'll be quiet now." |
+| HOB | `HOB_C2` | always | "Thank you for telling me." |
+| WINNIE | `WIN_F1` | `T_ASSAY_RUN` | "I'll see you at the Registrar's." |
+
 ---
 
 # PART TWO — THE TREES
@@ -263,7 +274,7 @@ FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK 
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Number two. Prosperity." | `[PROGRESS · remove]` | "Prosperity! You've *named* it. Nobody names them. I like you enormously." | **He now knows.** Gives map |
+| 1 | "Number two. Prosperity." | `[PROGRESS · remove]` | "Prosperity! You've named it. Nobody names them. I like you enormously." *(He gives Thad a map of the district. Claim Two is already circled.)* | **He now knows.** Gives map *(errata 228: the map arrives on screen, as it does in option 2)* |
 | 2 | "I'd rather not say." | `[PROGRESS · remove]` | "Very wise. Very wise indeed." *(He gives the map anyway. It has Claim Two circled.)* | Same outcome — **there is no way to withhold it, and the player will not notice until Act III** |
 | 3 | "Were you really a colonel?" | `[TOPIC · remove]` | "Chapultepec, '47. Terrible business. Wonderful weather." | `WAR_CONTRADICTIONS` +1 |
 | 4 | "You have a great many chairs." | `[COMIC · retain]` | "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch." *(second)* "Do sit, Mr. Grubb. You're standing again." | — |
@@ -454,6 +465,8 @@ He digs Thad out and speaks in complete sentences for the first time, and the ef
 > **FRAME:** "You're new! Say something quotable."
 > **THAD:** "I'd rather not."
 > **FRAME:** *(writing)* "'I'd… rather… not,' says mystery man."
+
+> **FRAME** *(every visit after the first; errata 225, Tyler, 2026-11-09: "proceed")*: "Mystery man! Say something quotable. I'll fix it later."
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
@@ -764,7 +777,7 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "I need to file this deed." | `[PROGRESS · remove]` | "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'" *(He taps the word.)* "Thereabouts is not a unit, Mr. Grubb. I have checked." | sets `T_SURVEY_NEEDED` — **A6** *(errata 75: the refusal; the filing itself is doc 57 A9)* req `T_SWINDLED` *(errata 172: he has no deed before the swindle)* |
+| 1 | "I need to file this deed." | `[PROGRESS · remove]` | "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'" *(He taps the word.)* "Thereabouts is not a unit, Mr. Grubb. I have checked." "With a boundary and two dollars, the office will file it." | *(errata 228: the fee, said before the money is called the filing fee)* sets `T_SURVEY_NEEDED` — **A6** *(errata 75: the refusal; the filing itself is doc 57 A9)* req `T_SWINDLED` *(errata 172: he has no deed before the swindle)* |
 | 1′ | "Where would I find a surveyor?" | `[PROGRESS · remove]` | "The territory licenses surveyors. Consolation has none. The statute accepts a boundary 'attested in good form by any person holding a trade license from this office.'" *(beat)* "I have issued one license this year. It was to a diviner." | req `T_SURVEY_NEEDED`; points to Ozymandia — A7 *(errata 75)* |
 | 1″ | "I have a survey." | `[PROGRESS · remove]` | "Then the deed, the survey and the fee. In that order. The order is in the statute, so that nobody can say he paid for the paper." | req THE SURVEY; doc 57 A9 *(errata 75)* |
 | 2 | "The deed's drawn wrong side up." | `[TOPIC · retain]` | "Statute does not specify an orientation. You would be surprised how much statute does not specify. I would not. I have read it." *(second)* "It still does not specify. I have read it again since you asked." | req `T_SWINDLED` |
@@ -792,7 +805,7 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 | 1′ | "About Document B—" | `[TOPIC · retain]` | "The Assay of Record, from the Assay Office, on its own form. It need not find anything. It need only be issued." *(second)* "Issued, Mr. Grubb. Not found. Issued." |
 | 1″ | "About Document D—" | `[PROGRESS · remove]` | "Proof of Continuous Occupancy. Ninety days, attested by a neighbor. The office accepts one neighbor. It does not inquire into his character. It has never found that useful." *(sets `T_NINETY_DAYS` — **D1**)* |
 | 1‴ | "About Document C—" | `[PROGRESS · remove]` · *with A, B and D* | "Present A, B and D together and the office issues C, the Certificate of Contiguity. It is the only document that comes after D. I find that restful." → E0, doc 57 |
-| 2 | "Who else may see a sealed filing?" | `[TOPIC · retain]` | "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control." *(second)* "The court, the claimholder, the executor of a deceased claimholder. Section nineteen has not changed since you asked. It is not that kind of section." |
+| 2 | "Who else may see a sealed filing?" | `[TOPIC · retain]` | "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control." *(second)* "The court, the claimholder, the executor of a deceased claimholder. Section nineteen has not changed since you asked. It is not that kind of section." *(sets `T_SECTION_NINETEEN`; errata 224)* |
 | 3 | "Do you ever stamp anything just for the pleasure of it?" | `[COMIC · retain]` | "Pleasure is not a ground. I stamp on grounds." *(second)* "Still not a ground. I have consulted the statute, in case." |
 
 **`SUM_E1` (Act III — the loophole: E1, E2)** *(errata 75)*
@@ -804,7 +817,8 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
 | 1 | "I'd like Obadiah Mott declared dead." | `[PROGRESS · remove]` | "Seven years' absence, which Mr. Mott has comfortably achieved, and a petitioner with standing: kin, or a creditor. Mr. Mott has no kin on file, and he owes nobody." *(beat)* "It is the most suspicious thing about him." | **E1**, blocked by design |
-| 2 | "Section nineteen. The executor of a deceased claimholder." | `[PROGRESS · remove]` | "May open the archive. Correct." — *"I hold a claim."* — "You do." — *"If I were deceased—"* — "Your executor would have the archive, and you would have a plot." *(beat)* "An executor may hold no interest in any claim touching the estate. Sub-section two. It was written after a family in Placerville." *(beat)* "The office does not advise. It answers." | req E1; sets `T_NEED_TO_DIE`, `T_EXECUTOR_RULE` — **E2** |
+| 2′ | "Who else may see a sealed filing?" | `[TOPIC · remove]` | "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control." | unless `T_SECTION_NINETEEN`; sets `T_SECTION_NINETEEN` *(errata 224: the Act II question, for a player who never asked it)* |
+| 2 | "Section nineteen. The executor of a deceased claimholder." | `[PROGRESS · remove]` | "May open the archive. Correct." — *"I hold a claim."* — "You do." — *"If I were deceased—"* — "Your executor would have the archive, and you would have a plot." *(beat)* "An executor may hold no interest in any claim touching the estate. Sub-section two. It was written after a family in Placerville." *(beat)* "The office does not advise. It answers." | req E1; req `T_SECTION_NINETEEN` *(errata 224: he cites it only once he has heard it)*; sets `T_NEED_TO_DIE`, `T_EXECUTOR_RULE` — **E2** |
 | 3 | "Is dying difficult here?" | `[COMIC · retain]` | "It is the only thing in Consolation that requires no form in advance. Afterward there are several." *(second)* "No form in advance. I have checked again. I find it a serious gap." | — |
 
 **`SUM_C1` (Act III — accepting the death certificate):**

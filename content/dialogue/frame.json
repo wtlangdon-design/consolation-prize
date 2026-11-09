@@ -260,6 +260,13 @@
           "universal": true,
           "ends": true
         }
+      ],
+      "openingOnce": "T_FRAME_MET",
+      "returnOpening": [
+        {
+          "speaker": "frame",
+          "line": "Mystery man! Say something quotable. I'll fix it later."
+        }
       ]
     },
     "FRA_B1": {
