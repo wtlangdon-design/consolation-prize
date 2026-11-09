@@ -143,6 +143,18 @@
    "note": "The oven's fire. A low breath (invariant 9: it tells nothing)."
   }
  ],
+ "figureLight": {
+  "figures": [
+   "bakehouse_boy"
+  ],
+  "light": [
+   1.0,
+   0.9,
+   0.76
+  ],
+  "brightness": 0.72,
+  "note": "Errata 207 (Tyler, 2026-11-08: \"Fix all five\"). tools/check-figure-light.mjs (errata 205) measured the boy at 1.62 of Thad where he stands, against a limit of 1.12: his white apron and shirt, drawn in their generation's own light, in the dim bakehouse well away from the oven's pool. Only he is named; Thad and the room are drawn as before. A warm multiply for the room's lamplight, so the apron reads cream rather than grey, and a brightness of 0.72 take him to 1.07 of Thad (beside him: renders/fixed-bakehouse-boy-beside-thad.png). A nudge is a number here (doc 55 §8, \"Light and colour\")."
+ },
  "defaultVerbs": {
   "flour": "LOOK_AT",
   "oven": "LOOK_AT",

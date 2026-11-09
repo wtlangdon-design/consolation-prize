@@ -106,8 +106,8 @@
    "animal": "Grievance stepping out of her stall, facing us (frame 1; frame 0 is empty until the fork acts)",
    "frame": 1,
    "columns": [
-    474,
-    534
+    463,
+    554
    ],
    "feet": "hooves",
    "top": "ear tips",
@@ -118,14 +118,8 @@
    "basis": "A mule of 13-15.2 hands (1.32-1.57 m at the withers; most of the West's pack and harness mules) beside a man of about 1.72 m: withers 0.77-0.91 of him. Her head carried naturally, the poll stands about 0.3 m over the withers and the long ears another 0.3 m, so the ear tips are 1.9-2.3 m: 1.10-1.35 of him.",
    "ruling": "A mule beside a man: her ear tips a head and more above his.",
    "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
-   "note": "Her own columns only: the open door (from 460) and the dark stall behind her (to 585) are in the same frame. Her hooves are row 445; the frame's last row (459) is `y`.",
-   "knownWrong": {
-    "measured": {
-     "height": 1.067
-    },
-    "why": "Stepping out she is drawn at the size she has in the stall, but 68 px nearer: her hooves are at y 676, where the room's man is 349, against 303 at the stall floor. So she shrinks against a man as she comes toward us: 1.07 here, 1.19 over the door.",
-    "fix": "Re-cut grievance_out frames 1-3 about 1.12x larger about her hooves (tools/art/grievance-out.py), so her ears stand about 1.19 of the man at y 676, as they do over the door; no image operation."
-   }
+   "note": "Her own columns only: the open door (from 460, below row 190) and the dark stall behind her (to 585) are in the same frame. Her hooves are row 445; the frame's last row (459) is `y`. Errata 207 re-cut her by tools/art/grievance-out.py at 1.21 of the man at her hooves: errata 205 measured her at 1.067 (drawn at her stall size, 68 px nearer).",
+   "atLeastAs": "grievance"
   },
   {
    "figure": "washout_grievance",

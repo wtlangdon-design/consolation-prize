@@ -83,6 +83,12 @@ type AnimalRuling = {
   height?: Range; withersRow?: number; withers?: Range; length?: Range;
   ruling: string;
   knownWrong?: { measured: Record<string, number>; why: string; fix: string };
+  /**
+   * Another entry for the same animal, further back: this one is never smaller against the man at
+   * its feet. Grievance stepping out of her stall was drawn at her stall size 68 px nearer, so she
+   * shrank as she came toward us (errata 205, fixed in errata 207), and 1.10 alone would let her.
+   */
+  atLeastAs?: string;
 };
 const { animals = [] } = read('content/scale-anchors.json') as { animals?: AnimalRuling[] };
 const cast = new Map(manifest.ambient.map((path) => {
@@ -166,6 +172,14 @@ for (const ruling of animals) {
       return;
     }
     assert.deepEqual(missed, [], missed.join('\n'));
+    if (ruling.atLeastAs) {
+      const back = animals.find((one) => one.figure === ruling.atLeastAs);
+      const backNpc = cast.get(ruling.atLeastAs);
+      assert.ok(back && backNpc?.sprite && rooms.get(backNpc.room), `${npc.id}: atLeastAs names ${ruling.atLeastAs}, an animal with a ruling`);
+      const there = animalProportion(backNpc, rooms.get(backNpc.room)!, back);
+      assert.ok(measured.height! >= there.height! - 0.005,
+        `${npc.id}'s ${ruling.top ?? 'top'} are ${measured.height!.toFixed(3)} of the man at its ${ruling.feet ?? 'feet'}, smaller than ${back.figure}'s ${there.height!.toFixed(3)}: it shrinks as it comes nearer`);
+    }
   });
 }
 
