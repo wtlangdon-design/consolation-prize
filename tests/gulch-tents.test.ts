@@ -11,7 +11,6 @@
  * Every line asserted here is read from doc 109 or from the content extracted from it, never typed into this file.
  */
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import test from 'node:test';
@@ -22,6 +21,8 @@ import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import type { Interactable } from '../engine/core/types.ts';
+// @ts-expect-error -- a plain .mjs module with no declarations.
+import { readiness } from '../tools/check-room-readiness.mjs';
 
 // PLAYS: G3
 
@@ -161,7 +162,10 @@ test('the Gulch\'s people each answer a wrong verb, and the readiness gate asks 
     assert.ok(room.peopleResponses?.[npc.id]?.[verb], `the lookout answers ${verb}`);
   }
   for (const n of [51, 52, 53, 54]) {
-    const out = execFileSync('node', ['tools/check-room-readiness.mjs', String(n)], { cwd: ROOT, encoding: 'utf8' });
-    assert.match(out, /Character behaviour sufficiently authored\?\s+YES/, `Room ${n}: every person answers a wrong verb`);
+    // The gate's own function, not its command line: the command writes proofs/readiness/room-NN.json with a fresh
+    // timestamp, and a test that writes to the tree fails CI's clean-tree step.
+    const result = await readiness(n) as { dimensions: { question: string; answer: string }[]; content: { question: string; answer: string }[] };
+    const asked = [...result.content, ...result.dimensions].find((one) => one.question === 'Character behaviour sufficiently authored?');
+    assert.equal(asked?.answer, 'YES', `Room ${n}: every person answers a wrong verb`);
   }
 });
