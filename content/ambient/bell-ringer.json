@@ -94,9 +94,11 @@
   "talkFrame": 4,
   "provenance": "art/staging/bell-ringer/bell-ringer/bell-ringer.json",
   "frameNote": "0 rest, the mallet down at his side · 1 breath · 2 the mallet raised · 3 the blow · 4 talking, a hand out.",
-  "figureHeight": 254.6,
+  "figureHeight": 265,
   "stature": 1,
-  "figureHeightNote": "His height without the bowler (the frame is 276 with it, the hat 20 rows): the street's man at his feet, which is the height PR 231 cut and snapped him at (errata 112's one level, 115 art pixels to a man). The engine draws him at the room's man there, so he stands at the curve."
+  "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Crown to sole under his bowler, read from his eyes and chin: 265. Was 254.6, which took the whole bowler off his height (20 rows; his skull's crown is 8 rows under the hat's top): 1.04 of Thad.",
+  "levelMan": 254.6,
+  "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs)."
  },
  "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 4 · THE BELL-RINGER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Every row is a blow on the bell: its words, where the row has any, are the bark, and the blow is `barkCues` (errata 161)."
 }

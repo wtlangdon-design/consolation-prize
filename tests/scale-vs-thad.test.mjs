@@ -83,8 +83,12 @@ const DEFECTS = {
   prosperity_ozymandia: { sprite: { figureHeight: 368 } },
   gulch_panner: { sprite: { figureHeight: 377 } },
   duel_town_left: { sprite: { figureHeight: undefined, stature: undefined } },
+  // Errata 235's 3%: the frame Tyler called "much smaller than everyone else" (Sowerby 1:1 at the gate,
+  // 1.04) and Sheng at his old 0.96, both inside errata 234's 5%.
+  sowerby_gate: { sprite: { figureHeight: undefined, stature: undefined } },
+  sheng: { sprite: { stature: 0.96 } },
 };
-test('the defects errata 234 corrected fail when put back', () => {
+test('the defects errata 234 and 235 corrected fail when put back', () => {
   const back = measureCast({ ambient: DEFECTS });
   for (const id of Object.keys(DEFECTS)) {
     const one = back.find((m) => m.figure === id);
@@ -93,6 +97,9 @@ test('the defects errata 234 corrected fail when put back', () => {
   }
 });
 
-test('the tolerance is the standing man\'s 5%', () => {
-  assert.equal(TOLERANCE, 0.05);
+// ERRATA 235 (Tyler, 2026-11-09, on tightening it: "3 - you decide"): 3%, down from the standing
+// man's 5% of errata 234. Sowerby at Boot Hill's gate was 1.044 of Thad, inside 5%, and was the frame
+// Tyler called "much smaller than everyone else".
+test('the tolerance is 3% of Thad', () => {
+  assert.equal(TOLERANCE, 0.03);
 });

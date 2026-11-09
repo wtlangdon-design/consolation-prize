@@ -18,9 +18,13 @@ turned over his shoulder in a nod. This cuts the sheet at one scale, and:
     board, so frame 1 is frame 0 with the raised arm two art pixels lower.
 
 Frames: 0 brush raised, 1 the dab (the two alternate: he paints), 2 head
-turned, 3 head turned and dipped. `figureHeight` is the HERO's height on the
-same sheet -- a man's height in its pixels -- so the engine draws him at the
-room's man where the ladder stands. Snapped to one level (errata 112).
+turned, 3 head turned and dipped. `figureHeight` is HIS crown to the soles on
+his step (errata 235: it was the hero's height on the sheet, and the
+generation drew him 0.8 of the hero, so he stood 0.80 of Thad), so the engine
+draws him at the room's man where the ladder stands, and the ladder is cut to
+whatever length then puts his brush on the numbers. Snapped to one level
+(errata 112) at that figureHeight: set it in content/ambient/sign-painter.json
+to the printed value before the run that ships.
 
 Usage: sign-painter.py   (writes art/actors/ambient-sign-painter.png; prints the frames)
 """
@@ -31,7 +35,8 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SHEET = os.path.join(ROOT, 'art/staging/room-36/coach-stop-dawn/painter-sheet.png')
 OUT = os.path.join(ROOT, 'art/actors/ambient-sign-painter.png')
-MAN_AT_LADDER = 254      # Room 1's curve at the ladder's feet (812): content/rooms/stage-road.json
+MAN_AT_LADDER = 258      # the coach stop's curve at the ladder's feet (812): content/rooms/coach-stop-dawn.json
+CAP = 0.008              # his flat cap: the crown about six rows under its top on a man of 743
 GROUND = 812             # where the ladder stands
 BRUSH_TO = 462           # the board's number line, POP. ... 2,000 (y 455-473 on the plate)
 LADDER_TOP = 740         # first row below his boots on the cut sheet: the top step and down
@@ -48,9 +53,22 @@ with tempfile.TemporaryDirectory() as tmp:
 
 alpha = lambda a: a[..., 3] > 128
 rows = lambda a: np.nonzero(alpha(a).any(1))[0]
-hero = cuts[0]; man = rows(hero)[-1] - rows(hero)[0] + 1     # a man's height on this sheet
-k = MAN_AT_LADDER / man                                       # room px per sheet px
+hero = cuts[0]
 painters = cuts[1:]
+# HIS OWN HEIGHT, NOT THE HERO'S (errata 235; Tyler, 2026-11-09, "1 - yes"). The generation drew him
+# about 0.8 of the hero beside him, and this sheet was scaled by the hero's height, so he stood on
+# his ladder 0.80 of Thad (errata 234). A man is now HIS crown to the soles on his step: the cap's top
+# in a head-wide window over his body (the raised brush arm is beside it), CAP rows under it for his
+# crown, down to the row above the ladder's top step.
+def crown_of(a):
+    al = alpha(a)
+    t = rows(a)[0]
+    torso = np.nonzero(al[t + (LADDER_TOP - t) // 4:t + (LADDER_TOP - t) // 2])[1]
+    c = int(np.median(torso)); half = int(round(0.075 * (LADDER_TOP - t)))
+    return int(np.nonzero(al[:, max(0, c - half):c + half + 1].any(1))[0][0])
+cap_top = crown_of(painters[0])
+man = LADDER_TOP - (cap_top + int(round(CAP * (LADDER_TOP - cap_top))))   # his crown to sole, sheet px
+k = MAN_AT_LADDER / man                                       # room px per sheet px
 bottom = rows(painters[0])[-1]
 need = (GROUND - BRUSH_TO) / k                                 # sheet px from the ladder's feet to the brush
 have = bottom - min(rows(p)[0] for p in painters[:2])

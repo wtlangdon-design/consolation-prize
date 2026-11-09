@@ -3,14 +3,11 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "lower_street",
  "roomWidth": 1920,
- "branch": "feat/streets-build",
- "commit": "4798aa5e12b40f27d69ee4934c6c09af203cdd03",
- "workingTreeClean": false,
- "dirtyAllowed": true,
- "uncommitted": [
-  "?? proofs/spec/lower-street.json",
-  "?? proofs/spec/the-lane.json"
- ],
+ "branch": "everyone-within-3",
+ "commit": "d432bafc82c8dc0c6e22f615cfd2148635c90219",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": "lower-street",
@@ -66,7 +63,7 @@
    ],
    "reportedHeight": 263,
    "expected": 263,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-00.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     820,
     450,
@@ -103,7 +100,7 @@
    ],
    "reportedHeight": 357,
    "expected": 357,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
     771,
     494,
@@ -120,6 +117,32 @@
  "ambientFigures": [
   {
    "kind": "ambient",
+   "id": "letter_writer",
+   "feet": [
+    1295,
+    775
+   ],
+   "sheet": "art/actors/ambient-letter-writer-master.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1268,
+    "y": 615,
+    "width": 55,
+    "height": 162
+   },
+   "seen": {
+    "x": 1268,
+    "y": 615,
+    "width": 55,
+    "height": 161,
+    "bottom": 775,
+    "right": 1322,
+    "changed": 6523
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
    "id": "bell_ringer",
    "feet": [
     929,
@@ -128,19 +151,19 @@
    "sheet": "art/actors/room-43-bell-ringer.png",
    "clipPlane": null,
    "box": {
-    "x": 858,
+    "x": 870,
     "y": 424,
-    "width": 143,
+    "width": 118,
     "height": 278
    },
    "seen": {
-    "x": 858,
-    "y": 424,
-    "width": 102,
-    "height": 277,
+    "x": 873,
+    "y": 432,
+    "width": 84,
+    "height": 269,
     "bottom": 700,
-    "right": 959,
-    "changed": 14093
+    "right": 956,
+    "changed": 10773
    },
    "props": []
   }
@@ -149,7 +172,7 @@
   {
    "panel": "B",
    "room": "lower_street",
-   "clock": 146.7448,
+   "clock": 174.9863,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -174,11 +197,21 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
     "PICK_SWINGS": 0,
-    "F5_LAID": 0
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
    },
    "inventory": [
     "letter",
@@ -197,7 +230,7 @@
      "height": 316,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       -48,
       474,
@@ -226,21 +259,29 @@
      "drawn": "art/actors/room-43-bell-ringer.png",
      "candidate": false,
      "loaded": true,
-     "hash": "bd1e94f76e2aed2da9d556856d98ac70c324e3d0aef29c4cacfc814a83745bea"
+     "hash": "7ce870e95e53a054f20b3c2e62d82b138c68a304f0d77927428fba69b69fae33"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer-master.png",
+     "path": "art/actors/ambient-letter-writer-master.png",
+     "drawn": "art/actors/ambient-letter-writer-master.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "686808269c57f3491b055ed3d964c9580af79347a5fe77eb823b0fba06117ff2"
     }
    ],
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-07T21:41:26.900Z",
+   "capturedAt": "2026-11-09T20:09:11.619Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "3b25f73de3c8a38d792c5292a23579bd8540dcf0d6d5c5c431ea371d231552e2"
+   "hash": "177e93cb9e2d5514f4612dc925209ba08543c2ee19687b9f98b4d332c2e41162"
   },
   {
    "panel": "A",
    "room": "lower_street",
-   "clock": 147.7448,
+   "clock": 176.00289999999998,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -265,11 +306,21 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
     "PICK_SWINGS": 0,
-    "F5_LAID": 0
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
    },
    "inventory": [
     "letter",
@@ -312,7 +363,15 @@
      "drawn": "art/actors/room-43-bell-ringer.png",
      "candidate": false,
      "loaded": true,
-     "hash": "bd1e94f76e2aed2da9d556856d98ac70c324e3d0aef29c4cacfc814a83745bea"
+     "hash": "7ce870e95e53a054f20b3c2e62d82b138c68a304f0d77927428fba69b69fae33"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer-master.png",
+     "path": "art/actors/ambient-letter-writer-master.png",
+     "drawn": "art/actors/ambient-letter-writer-master.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "686808269c57f3491b055ed3d964c9580af79347a5fe77eb823b0fba06117ff2"
     }
    ],
    "stubs": [],
@@ -320,10 +379,10 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-07T21:41:27.894Z",
+   "capturedAt": "2026-11-09T20:09:12.651Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "d576a6cf1529318a7db0f265b721cbbd4fc5f78dda5b933764571d5ad4d31e2f"
+   "hash": "7ad3558d6757343e7ab48d3a0ad2dfa4928150f1e5f90dd4b1c2361ec42c54c1"
   }
  ],
  "failures": [],
@@ -353,11 +412,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-07T21:41:32.668Z",
+ "at": "2026-11-09T20:09:18.156Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 350068,
+  "bytes": 350968,
   "panels": 4,
   "scale": 0.5
  }

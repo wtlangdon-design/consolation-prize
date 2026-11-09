@@ -1,0 +1,431 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "coach_stop_dawn",
+ "roomWidth": 1920,
+ "branch": "everyone-within-3",
+ "commit": "c90e70eac2262ddfce6511df0f604e379645c5e7",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r36-a, then entered coach_stop_dawn by control -- NOT proof that a player can reach it"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "road_open",
+    "kind": "far",
+    "y": 701,
+    "xs": [
+     943,
+     771,
+     1114,
+     599,
+     1286,
+     428,
+     1457,
+     256,
+     1629
+    ],
+    "expect": 224,
+    "x": 943
+   },
+   "at": [
+    943,
+    701
+   ],
+   "reportedHeight": 224,
+   "expected": 224,
+   "drawnFrom": "art/actors/thad-idle-left/idle-03.png",
+   "bounds": [
+    824,
+    477,
+    238,
+    247
+   ],
+   "order": 0,
+   "renderedHeight": 224,
+   "renderedBottom": 700,
+   "file": "raw-captures-ignored/panel-c-road_open-far.png"
+  },
+  {
+   "mark": {
+    "box": "road_open",
+    "kind": "near",
+    "y": 862,
+    "xs": [
+     943,
+     771,
+     1114,
+     599,
+     1286,
+     428,
+     1457,
+     256,
+     1629
+    ],
+    "expect": 263,
+    "x": 943
+   },
+   "at": [
+    943,
+    862
+   ],
+   "reportedHeight": 263,
+   "expected": 263,
+   "drawnFrom": "art/actors/thad-idle-left/idle-03.png",
+   "bounds": [
+    803,
+    599,
+    279,
+    290
+   ],
+   "order": 0,
+   "renderedHeight": 263,
+   "renderedBottom": 861,
+   "file": "raw-captures-ignored/panel-c-road_open-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "sign_painter",
+   "feet": [
+    470,
+    812
+   ],
+   "sheet": "art/actors/ambient-sign-painter.png",
+   "clipPlane": null,
+   "box": {
+    "x": 220,
+    "y": -174,
+    "width": 501,
+    "height": 988
+   },
+   "seen": {
+    "x": 389,
+    "y": 463,
+    "width": 170,
+    "height": 350,
+    "bottom": 812,
+    "right": 558,
+    "changed": 20983
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "coach_stop_dawn",
+   "clock": 9.3165,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe",
+    "sample"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1250,
+      770
+     ],
+     "facing": "left",
+     "clip": "walk",
+     "height": 245,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-left/walk-02.png",
+     "bounds": [
+      1119,
+      525,
+      247,
+      263
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:coach_stop_dawn",
+     "path": "art/backgrounds/room-36-coach-stop-dawn.png",
+     "drawn": "art/backgrounds/room-36-coach-stop-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a3d4f28afd6814859951245528eb52f9531e1e8f6a383c2bb6fa20f74f6524c"
+    },
+    {
+     "key": "art/actors/ambient-sign-painter.png",
+     "path": "art/actors/ambient-sign-painter.png",
+     "drawn": "art/actors/ambient-sign-painter.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d6686a8c6d89c908e037d80ba933b5cc18e4261a80bd1bc67f77d2e7f48361d7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(coach_stop_dawn)"
+   ],
+   "capturedAt": "2026-11-09T20:18:37.475Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "697bfede2d14570581ab964cd83f2d2fa9d45318c49043244790f7953e22bfa2"
+  },
+  {
+   "panel": "A",
+   "room": "coach_stop_dawn",
+   "clock": 10.3664,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe",
+    "sample"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1080,
+      770
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 245,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:coach_stop_dawn",
+     "path": "art/backgrounds/room-36-coach-stop-dawn.png",
+     "drawn": "art/backgrounds/room-36-coach-stop-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a3d4f28afd6814859951245528eb52f9531e1e8f6a383c2bb6fa20f74f6524c"
+    },
+    {
+     "key": "art/actors/ambient-sign-painter.png",
+     "path": "art/actors/ambient-sign-painter.png",
+     "drawn": "art/actors/ambient-sign-painter.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d6686a8c6d89c908e037d80ba933b5cc18e4261a80bd1bc67f77d2e7f48361d7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(coach_stop_dawn)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-09T20:18:38.440Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "1c541d751f3bb118af4bdb6ff3b56e212ab9f9d0c66621feac027c08e08b7cf4"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-09T20:18:43.365Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 434490,
+  "panels": 4,
+  "scale": 0.5
+ }
+}

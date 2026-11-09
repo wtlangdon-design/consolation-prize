@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "coach_stop_dawn",
+ "note": "ROOM 36's COACH STOP, THE CLOSE (doc 48 S7 beat 3; errata 121 B). It is reached only through Main Street at dawn's one exit, at the end of the game, so the proof starts from fixture r36-a (Act IV, the close) and enters by control, and says so. Written for errata 235: the man on the ladder re-cut at his own height, held in the frame beside Thad. The settle is short because the room performs the close on arrival and goes to black.",
+ "fixture": "r36-a",
+ "settleMs": 2500,
+ "principalChange": {
+  "none": "The coach stop has one state: the close is performed on arrival and the room is black after it (`blackWhen`), with no hotspots and no exits (content/rooms/coach-stop-dawn.json). What the frames are for is the painter on his ladder at the sign, beside Thad."
+ }
+}

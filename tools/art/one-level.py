@@ -17,6 +17,10 @@ Usage: one-level.py [--n 115] [--dry] [--only <path part> ...]   prints every sh
 --only snaps just the sheets whose path contains one of the parts: a NEW sheet is snapped on its
 own. Run over the whole game again, it rewrote 280 finished sheets -- snapping a frame that was
 snapped and then despilled moves its outline by a pixel -- so a finished sheet is never re-snapped.
+
+--resnap is the exception (errata 235): a finished sheet whose figureHeight has moved -- redrawn at Thad's
+height -- is re-snapped with --only and --resnap, which samples each new block from the old drawing at its
+centre instead of averaging it, so it stays crisp. Prefer the sheet's pre-snap drawing where git has one.
 """
 import json, os, sys
 import numpy as np
@@ -25,6 +29,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 N = float(sys.argv[sys.argv.index('--n') + 1]) if '--n' in sys.argv else 115.0
 DRY = '--dry' in sys.argv
+RESNAP = '--resnap' in sys.argv
 ONLY = []
 if '--only' in sys.argv:
     for a in sys.argv[sys.argv.index('--only') + 1:]:
@@ -78,7 +83,11 @@ def snap(a, b):
     crop[:, :cw] = a[t:bt, l:l + cw]
     pre = crop.astype(np.float32); pre[..., :3] *= pre[..., 3:4] / 255
     region = (0.0, 0.0, nw * bb, float(H))
-    small = np.stack([np.asarray(Image.fromarray(pre[..., c], 'F').resize((nw, nh), Image.BOX, box=region)) for c in range(4)], -1)
+    # RESNAP (errata 235): a sheet already snapped at another level is SAMPLED at each new block's centre,
+    # not averaged. Averaging blocks that straddle the old grid smeared the panner's face (his eyes went);
+    # a finished drawing at a level a few percent off keeps every colour it has.
+    mode = Image.NEAREST if RESNAP else Image.BOX
+    small = np.stack([np.asarray(Image.fromarray(pre[..., c], 'F').resize((nw, nh), mode, box=region)) for c in range(4)], -1)
     al = small[..., 3]
     keep = al >= 128
     for r in {0, nh - 1}:

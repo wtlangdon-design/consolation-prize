@@ -86,9 +86,11 @@
   "talkFrame": 5,
   "provenance": "art/staging/room-54/man-upstream/man-upstream.json",
   "frameNote": "0 rest, guarding · 1 breath · 2 the shovel tapping, warningly · 3 a look down the river · 4 a long sigh · 5 talking, pointing.",
-  "figureHeight": 293,
+  "figureHeight": 282,
   "stature": 1,
-  "figureHeightNote": "The room's man at his feet (soles y 600): cut and snapped there by tools/art/interiors-people.py (errata 112's one level). The engine draws him at the room's man there, so he stands at the curve."
+  "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Crown to sole under his hat, read from his eyes and chin: 282. Was 293, the hat's top to his soles: 0.96 of Thad.",
+  "levelMan": 293,
+  "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs)."
  },
  "barksNote": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (### THE MAN UPSTREAM) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run. Said on approach, one a visit, in turn, the same in every reputation state.",
  "barkTurns": [
