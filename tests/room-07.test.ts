@@ -124,6 +124,16 @@ test('A9: in the statute\'s order -- deed, survey, fee -- and out of order the c
   assert.ok(state.carried.includes('deed'), 'the deed is never lost');
 });
 
+test("the registrar explains the three documents once, and the Act II visits after open on the choices (errata 224)", async () => {
+  const state = await inState('r7-c');
+  const tree = clerkOf(state).tree as string;
+  const first = state.dialogue.openingOf(tree);
+  assert.ok(first.some((one) => /circular/.test(one.line)), 'the first Act II visit does not explain the documents');
+  state.dialogue.start(tree);
+  state.dialogue.select(opt(state, 'x'));
+  assert.deepEqual(state.dialogue.openingOf(tree), [], '"circular... linear" is told whole again on the next visit');
+});
+
 test('D1: Act II opens SUM_B1, and About Document D is the ninety-day rule', async () => {
   const state = await inState('r7-c');
   state.dialogue.start(clerkOf(state).tree as string);
@@ -138,7 +148,14 @@ test('E1 and E2: Act III opens SUM_E1; the petition fails by design, and section
   state.dialogue.start(clerkOf(state).tree as string);
   assert.equal(state.dialogue.positionSnapshot().node, 'SUM_E1');
   assert.ok(!state.dialogue.presentOptions().some((one) => one.option.id === opt(state, '2')), 'the loophole waits for the petition');
-  talk(state, [opt(state, '1'), opt(state, '2')]);
+  talk(state, [opt(state, '1')]);
+  // HE CITES IT ONLY ONCE HE HAS HEARD IT (errata 224): this save never asked SUM_B1's question, so the
+  // citation waits, and the question is offered here instead.
+  assert.ok(!state.dialogue.presentOptions().some((one) => one.option.id === opt(state, '2')),
+    'section nineteen is cited before he has heard of it');
+  assert.ok(state.dialogue.presentOptions().some((one) => one.option.id === opt(state, '2a')),
+    'a player who never asked in Act II is not offered the question in Act III');
+  talk(state, [opt(state, '2a'), opt(state, '2')]);
   assert.ok(state.puzzleComplete('E1'));
   assert.ok(state.puzzleComplete('E2'));
   assert.ok(state.flags.get('T_NEED_TO_DIE'));

@@ -303,7 +303,10 @@
               "selection": 2,
               "say": "The court, the claimholder, the executor of a deceased claimholder. Section nineteen has not changed since you asked. It is not that kind of section."
             }
-          ]
+          ],
+          "set": {
+            "T_SECTION_NINETEEN": true
+          }
         },
         {
           "id": "sump3",
@@ -325,7 +328,8 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "openingOnce": "T_SUMP_DOCUMENTS_HEARD"
     },
     "SUM_E1": {
       "id": "SUM_E1",
@@ -354,6 +358,19 @@
           ],
           "puzzle": {
             "E1": "complete"
+          }
+        },
+        {
+          "id": "sump2a",
+          "tag": "TOPIC",
+          "text": "Who else may see a sealed filing?",
+          "afterUse": "remove",
+          "say": "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control.",
+          "set": {
+            "T_SECTION_NINETEEN": true
+          },
+          "when": {
+            "T_SECTION_NINETEEN": false
           }
         },
         {
@@ -394,6 +411,9 @@
           "set": {
             "T_NEED_TO_DIE": true,
             "T_EXECUTOR_RULE": true
+          },
+          "when": {
+            "T_SECTION_NINETEEN": true
           },
           "after": [
             "sump1"
