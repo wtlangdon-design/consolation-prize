@@ -1,0 +1,147 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "RULE_KEEPER",
+  "speaker": "gulch_rule_keeper",
+  "name": "RULE-KEEPER",
+  "note": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (### THE RULE-KEEPER) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run. An option gated *(before Gn)* or *(after Gn)* reads GULCH_GATES; the way out is doc 04 part one's pool.",
+  "start": "RUL_G1",
+  "nodes": {
+    "RUL_G1": {
+      "id": "RUL_G1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 109 ends the opening on a direction, which is performed, not held over the options.",
+      "opening": [
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "You'll be wanting the rules."
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "Nobody asked.",
+          "direction": true
+        }
+      ],
+      "options": [
+        {
+          "id": "gulch_rule_keeper1",
+          "tag": "TOPIC",
+          "text": "What rules?",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "The camp's. I keep them."
+            },
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "He taps his head.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "Up here, where nobody can change them."
+            }
+          ],
+          "repeat": "Up here. Safe as gold."
+        },
+        {
+          "id": "gulch_rule_keeper2",
+          "tag": "TOPIC",
+          "text": "Can I sit at the plank?",
+          "afterUse": "retain",
+          "when": {
+            "T_PLANK_SEAT": false
+          },
+          "say": "Gold on the plank, then you sit. That's rule one.",
+          "repeat": "Rule one. Or two. It's a good rule, whichever it is."
+        },
+        {
+          "id": "gulch_rule_keeper3",
+          "tag": "TOPIC",
+          "text": "What happened to the fiddle?",
+          "afterUse": "retain",
+          "when": {
+            "T_PLANK_SEAT": false
+          },
+          "exchange": [
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "We struck."
+            },
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "A man doesn't play the fiddle when there's gold to sit up with."
+            }
+          ],
+          "repeat": "Hasn't been right since. Neither have I, much."
+        },
+        {
+          "id": "gulch_rule_keeper4",
+          "tag": "TOPIC",
+          "text": "Who's the Deacon?",
+          "afterUse": "retain",
+          "say": "Keeps the grog. Keeps the time. Came up the river with nothing but a mustache, and he's sold that.",
+          "repeat": "The Deacon. Lovely man. Sells you a drink like he's doing you a favor, and he is."
+        },
+        {
+          "id": "gulch_rule_keeper5",
+          "tag": "TOPIC",
+          "text": "Do you know Deke Vessel?",
+          "afterUse": "retain",
+          "when": {
+            "T_DEACON_FOUND": false
+          },
+          "say": "Never heard of him. There's no rule about him, so he's probably fine.",
+          "repeat": "No rule, no Vessel. That's how rules work."
+        },
+        {
+          "id": "gulch_rule_keeper6",
+          "tag": "COMIC",
+          "text": "Is there a rule against arithmetic?",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "There was a rule about something."
+            },
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "He thinks.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "Knives? It'll come to me."
+            }
+          ],
+          "repeat": "It came to me in the night and went again. Lovely rule, it was."
+        },
+        {
+          "id": "gulch_rule_keeper7",
+          "tag": "COMIC",
+          "text": "Play me something.",
+          "afterUse": "retain",
+          "when": {
+            "T_PLANK_SEAT": true
+          },
+          "exchange": [
+            {
+              "speaker": "gulch_rule_keeper",
+              "line": "He plays. It is very bad, and he is very happy.",
+              "direction": true
+            }
+          ],
+          "repeat": "That one's called 'The Strike'. It's the same as the other one."
+        },
+        {
+          "id": "gulch_rule_keeperx",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

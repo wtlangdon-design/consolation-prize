@@ -1,0 +1,216 @@
+{
+ "room": 54,
+ "note": "Ruling 22 steps 1-6 for UPSTREAM, written by tools/gulch-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 210).",
+ "what": "The head of Fiddler's Gulch, in daylight: the ravine walls narrowing to a little waterfall at the back, no taller than a man, rock behind and above it; the river running down from the falls and out at the front left, downstream; beside it a half-built wooden sluice with a board nailed across it; the best ground, gravel with gold showing in it, staked twice over -- two lines of stakes crossing, each with a paper notice; a small tent pitched right on the claim line at the back right; the man upstream standing guard over the gravel with a shovel.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 600,
+   "height": 290
+  },
+  "near": {
+   "y": 858,
+   "height": 465
+  },
+  "from": "Room 5's exterior slope, as the river below"
+ },
+ "walkable": [
+  300,
+  560,
+  1500,
+  298
+ ],
+ "exits": [
+  {
+   "hotspot": "DOWNSTREAM (the way back)",
+   "to": "gulch_river",
+   "rect": [
+    0,
+    640,
+    330,
+    224
+   ]
+  }
+ ],
+ "marks": {
+  "arrival": {
+   "x": 260,
+   "y": 800,
+   "facing": "right"
+  },
+  "man": {
+   "x": 1420,
+   "y": 720,
+   "facing": "left"
+  },
+  "stakes": {
+   "x": 1250,
+   "y": 780,
+   "facing": "back"
+  },
+  "sluice": {
+   "x": 640,
+   "y": 640,
+   "facing": "back"
+  },
+  "falls": {
+   "x": 960,
+   "y": 600,
+   "facing": "back"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE FALLS",
+   "rect": [
+    880,
+    120,
+    160,
+    210
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE RIVER (from the falls)",
+   "rect": [
+    760,
+    330,
+    380,
+    190
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE RIVER (running down)",
+   "rect": [
+    320,
+    520,
+    640,
+    180
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "DOWNSTREAM (the way back)",
+   "rect": [
+    0,
+    640,
+    330,
+    224
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SLUICE",
+   "rect": [
+    430,
+    430,
+    400,
+    110
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TENT (on the claim line)",
+   "rect": [
+    1520,
+    300,
+    330,
+    240
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STAKES",
+   "rect": [
+    1080,
+    560,
+    560,
+    150
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the stakes, the sluice and the tent are behind it or under his feet, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "the gulch walls, narrowing",
+   "p10": 92.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 67.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "the best ground, gravel",
+   "p10": 80.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 55.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE FALLS",
+   "p10": 105.0,
+   "p90": 105.0,
+   "darkAnchorMargin": 80.3,
+   "lightAnchorMargin": 16.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE RIVER (from the falls)",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE RIVER (running down)",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "DOWNSTREAM (the way back)",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE SLUICE",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 45.3,
+   "lightAnchorMargin": 51.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TENT (on the claim line)",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 67.3,
+   "lightAnchorMargin": 29.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STAKES",
+   "p10": 80.0,
+   "p90": 80.0,
+   "darkAnchorMargin": 55.3,
+   "lightAnchorMargin": 41.9,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

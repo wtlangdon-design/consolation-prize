@@ -1,0 +1,136 @@
+{
+ "schema": 1,
+ "id": "gulch_deacon",
+ "name": "THE DEACON",
+ "names": [
+  {
+   "when": {
+    "T_DEACON_FOUND": true
+   },
+   "name": "DEKE VESSEL"
+  }
+ ],
+ "posture": "standing",
+ "clipPlane": 1,
+ "note": "Doc 109, THE DEACON, before he is found, and DEKE VESSEL, found: Vessel behind the plank, clean-shaven with a pale stripe where his mustache was (doc 109, Two decisions). His figure is Vessel's own accepted frames (art/actors/deke-vessel.png), every pixel his, with the mustache taken off and the pale stripe laid where it was (tools/art/room52-deacon-from-deke.py; Tyler, 2026-11-09: \"exactly the same minus the mustache\"). gulch-vessel operation 1's new drawing was another man beside him, and is not used. Named THE DEACON until THE FIND (G4), then DEKE VESSEL; his tree opens DEA_G1 and then VES_G1. He leaves the Gulch at G9 (T_VESSEL_FOUND), with the watch. Doc 49's ROOM 52 answers a wrong verb on him (errata 202). The plank and its barrels stand in front of him (clipPlane 1); his legs show under the plank between them.",
+ "room": "grog_tent",
+ "x": 1202,
+ "y": 714,
+ "zone": 2,
+ "approachRadius": 60,
+ "tree": "DEACON",
+ "when": {
+  "T_VESSEL_FOUND": false,
+  "T_DUEL_ONE_CALLED": false
+ },
+ "walkTo": {
+  "x": 1120,
+  "y": 800,
+  "facing": "back"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: across the plank from him, in front of it, as a customer stands.",
+ "barks": {},
+ "sprite": {
+  "note": "Vessel's own frames, shaved: 0 rest, 1 breath, 2 talking (held while spoken to), 3 pushing his hat back, 4 looking out at the room, 5 looking down. Breaks every 11 s, as his in the Nugget.",
+  "sheet": "art/actors/room-52-deacon.png",
+  "frames": [
+   [
+    2,
+    2,
+    214,
+    386
+   ],
+   [
+    218,
+    2,
+    214,
+    386
+   ],
+   [
+    434,
+    2,
+    214,
+    386
+   ],
+   [
+    650,
+    2,
+    214,
+    386
+   ],
+   [
+    866,
+    2,
+    214,
+    386
+   ],
+   [
+    1082,
+    2,
+    214,
+    386
+   ]
+  ],
+  "rate": 0.45,
+  "phase": 0.5,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    3,
+    3
+   ],
+   [
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   [
+    5,
+    5,
+    5,
+    0
+   ]
+  ],
+  "breakEvery": 11,
+  "talkFrame": 2,
+  "provenance": "art/staging/room-52/deacon/deacon.json",
+  "frameNote": "0 rest · 1 breath · 2 talking · 3 his hat pushed back · 4 looking out · 5 looking down -- each Vessel's own frame, the mustache off.",
+  "figureHeight": 385,
+  "stature": 1,
+  "figureHeightNote": "The room's man at his feet (soles y 714), behind the plank: cut and snapped there by tools/art/interiors-people.py."
+ },
+ "speaksAs": "deke_vessel",
+ "speaksAsNote": "Doc 03's Duel One answers some wrong answers in Vessel's own name (`deke_vessel`): on the bar, his figure here speaks them (doc 109: the pairs and the loss are doc 03's, extracted from there).",
+ "leaves": {
+  "fade": 0.8,
+  "note": "Down the bank to the bar when he calls Duel One there (doc 109: \"The local way's out on the bar, son. Bring your boots.\"): gone from behind the plank as the conversation ends."
+ },
+ "placements": {
+  "gulch_river": {
+   "x": 1480,
+   "y": 600,
+   "zone": 1,
+   "when": {
+    "T_DUEL_ONE_CALLED": true
+   },
+   "posture": "standing",
+   "clipPlane": 0,
+   "walkTo": {
+    "x": 1170,
+    "y": 550,
+    "facing": "right"
+   },
+   "note": "Doc 109, DUEL ONE, ON THE BAR: Vessel on the bar, across the ring of stones from where Thad stands to face him (his walkTo, on the bar in front of the ring, near Vessel's own depth so the two read as two men facing each other), while the duel is called."
+  }
+ }
+}

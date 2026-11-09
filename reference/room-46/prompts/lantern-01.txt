@@ -1,0 +1,7 @@
+Image 1 is a background from my pixel-art adventure game: inside an old timbered gold mine, 1850s, lit only by daylight coming in through the entrance and holes in the hill.
+
+Draw ONE object for it, alone, in the middle of a flat pure magenta (#FF00FF) picture: an OLD MINER'S LANTERN, NOT LIT -- a small tin lantern with a glass chimney, a dented tin top and a wire bail handle, hanging from a bent iron nail by its bail. Dusty, a little rusty, long abandoned; the glass grimy, the wick dark. No flame, no glow, no light coming from it.
+
+Draw it LARGE, filling most of the picture's height, upright, seen from the front, as it would hang on a pit prop in image 1.
+
+THE LOOK: the same pixel-art style as image 1 -- the SAME BIG SQUARE PIXELS, flat, soft shading, very little texture, a dark outline, colours from image 1's dim browns and greys. Nothing else in the picture: no wall, no post, no ground, no shadow, no glow, no text, no border. Flat pure magenta all around it.

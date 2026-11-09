@@ -1,0 +1,97 @@
+{
+  "room": 54,
+  "name": "UPSTREAM",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/109-fiddlers-gulch-lines.md::UPSTREAM",
+    "docs/109-fiddlers-gulch-lines.md::UPSTREAM",
+    "docs/109-fiddlers-gulch-lines.md::THE MAN UPSTREAM",
+    "docs/49-wrong-answers.md::ROOM 54 — UPSTREAM"
+  ],
+  "subjects": [
+    {
+      "name": "THE STAKES",
+      "LOOK_AT": [
+        "Two sets of stakes on the same ground, crossing, each with a notice calling the other a liar.",
+        "One notice is in ink. The other is in larger ink.",
+        "I could settle this with a tape measure. Nobody here wants it settled. They want it won."
+      ],
+      "LISTEN_TO": [
+        "A notice rattling on its stake.",
+        "The other notice, rattling back.",
+        "Wind between the stakes, taking no side."
+      ],
+      "overrides": {
+        "PULL": "Pull one and I'm on somebody's side. Pull both and I'm on everybody's list."
+      }
+    },
+    {
+      "name": "THE BEST GROUND",
+      "LOOK_AT": [
+        "The head of the gulch: the richest ground in the camp, and the most argued over.",
+        "Gold shows in the gravel here without digging. Nobody's digging. They're both guarding it.",
+        "In Consolation this would get a parade. Here it gets a man with a shovel and a grudge."
+      ],
+      "LISTEN_TO": [
+        "Water running thin over gravel.",
+        "Grit settling, then the river again.",
+        "Quiet ground. The only quiet thing up here."
+      ],
+      "overrides": {
+        "PICK_UP": "Gold, lying there. I reached. A shovel came down between my hand and it, gently."
+      }
+    },
+    {
+      "name": "THE SLUICE",
+      "LOOK_AT": [
+        "A sluice, half built, abandoned when the argument started.",
+        "Somebody's nailed a board across it: NOT YET.",
+        "It would make them both richer. Neither will finish it while the other might gain."
+      ],
+      "LISTEN_TO": [
+        "Water dribbling through a gap in the boards.",
+        "A loose plank knocking, in no hurry.",
+        "Water going round the sluice instead of through it."
+      ],
+      "overrides": {
+        "USE": "I'd finish it for them. NOT YET, says the board. I don't know whose 'yet' it is."
+      }
+    },
+    {
+      "name": "THE FALLS",
+      "LOOK_AT": [
+        "A little waterfall where the gulch ends, no taller than a man.",
+        "Behind it, rock. Above it, more rock. This is as far as the gold goes.",
+        "The man upstream says his claim runs 'to the falls'. The falls haven't agreed to anything."
+      ],
+      "LISTEN_TO": [
+        "Falling water, loud and close.",
+        "Water on rock, the same note over and over. A low D.",
+        "The D again. Somebody should tell it there are other notes."
+      ],
+      "overrides": {
+        "TALK_TO": "I sang it an E, to give it ideas. It stayed on D."
+      }
+    },
+    {
+      "name": "DOWNSTREAM",
+      "LOOK_AT": [
+        "Back down the river to the bar and the panners.",
+        "Downstream, where the gold is merely good.",
+        "From up here the panners look small and busy, like men in a painting of a gold rush."
+      ],
+      "LISTEN_TO": [
+        "The rocker, faint, downstream.",
+        "The river going away from here, glad to.",
+        "Somebody downstream shouting 'MINE!' again. It's the camp's favorite word."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "THE MAN UPSTREAM": {
+      "PICK_UP": "If I lift him off that gravel, the other man wins it. I'd never hear the end of it from either.",
+      "PUSH": "One step his way and the shovel came up, flat, like a door shutting. I'm on the right side of it.",
+      "USE": "Use him for what? He does one thing, standing on gravel, and he does it without me."
+    }
+  }
+}

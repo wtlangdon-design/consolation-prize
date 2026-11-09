@@ -1,0 +1,85 @@
+{
+ "sheet": "art/actors/room-52-deacon.png",
+ "frames": [
+  [
+   2,
+   2,
+   214,
+   386
+  ],
+  [
+   218,
+   2,
+   214,
+   386
+  ],
+  [
+   434,
+   2,
+   214,
+   386
+  ],
+  [
+   650,
+   2,
+   214,
+   386
+  ],
+  [
+   866,
+   2,
+   214,
+   386
+  ],
+  [
+   1082,
+   2,
+   214,
+   386
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "talk",
+  "hat",
+  "look",
+  "down"
+ ],
+ "figureHeight": 385,
+ "stature": 1.0,
+ "posture": "behind-counter",
+ "man": 385.0,
+ "feet": [
+  1202,
+  714
+ ],
+ "mustacheRows": [
+  [
+   52,
+   70
+  ],
+  [
+   51,
+   70
+  ],
+  [
+   48,
+   66
+  ],
+  [
+   48,
+   66
+  ],
+  [
+   49,
+   67
+  ],
+  [
+   63,
+   77
+  ]
+ ],
+ "source": "art/actors/deke-vessel.png (Vessel's accepted figure, every frame), the mustache band only from gulch-vessel operation 2 (art/staging/room-52/deacon-shave/source.png), by tools/art/room52-deacon-from-deke.py",
+ "note": "Room 52: the Deacon is Vessel's own frames, shaved, scaled to the room's man at his feet and snapped to one level."
+}

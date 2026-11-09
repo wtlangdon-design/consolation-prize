@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "grog_tent",
+ "note": "ROOM 52's PROOF SPEC, from fixture r52-a (in the camp's trust, before the find).",
+ "fixture": "r52-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "The grog tent has one painted state (daylight through canvas, errata 190). Its changes are props over the plate: the peg shown empty while the rule-keeper plays, and the nail empty after G9 (THE NAIL), when Vessel has gone; held by tests/gulch-grog-tent.test.ts."
+ },
+ "ambientContact": {
+  "gulch_deacon": {
+   "lowestDrawnRowWithin": [
+    704,
+    720
+   ],
+   "why": "The Deacon stands on the floor behind the plank: the plank masks his waist (clipPlane 1) and his legs show under it between the barrels, so his boots are drawn, on the floor at y 714, and not past it."
+  }
+ }
+}

@@ -1,0 +1,1126 @@
+{
+  "schema": 1,
+  "id": "gulch_tents",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-51.json",
+      "reference/room-51/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "floor_0",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        390,
+        440,
+        670,
+        84
+      ]
+    },
+    {
+      "id": "floor_1",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        500,
+        524,
+        1260,
+        83
+      ]
+    },
+    {
+      "id": "floor_2",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        610,
+        607,
+        1150,
+        84
+      ]
+    },
+    {
+      "id": "floor_3",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        720,
+        691,
+        1040,
+        83
+      ]
+    },
+    {
+      "id": "floor_4",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        720,
+        774,
+        1040,
+        84
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      390,
+      440
+    ],
+    [
+      1060,
+      440
+    ],
+    [
+      1060,
+      521
+    ],
+    [
+      1760,
+      521
+    ],
+    [
+      1760,
+      858
+    ],
+    [
+      720,
+      858
+    ],
+    [
+      720,
+      694
+    ],
+    [
+      610,
+      694
+    ],
+    [
+      610,
+      610
+    ],
+    [
+      500,
+      610
+    ],
+    [
+      500,
+      527
+    ],
+    [
+      390,
+      527
+    ]
+  ],
+  "entrance": [
+    1700,
+    620
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        1700,
+        620
+      ],
+      "facing": "left",
+      "note": "Down the path from the ledge."
+    },
+    {
+      "from": "ledge",
+      "at": [
+        1700,
+        620
+      ],
+      "facing": "left",
+      "note": "Down the path from the ledge (doc 109, THE PATH DOWN)."
+    },
+    {
+      "from": "grog_tent",
+      "at": [
+        700,
+        446
+      ],
+      "facing": "front",
+      "note": "Out of the grog tent's flap."
+    },
+    {
+      "from": "gulch_river",
+      "at": [
+        745,
+        830
+      ],
+      "facing": "right",
+      "note": "Up the bank from the river."
+    }
+  ],
+  "ambient": [
+    "gulch_lookout"
+  ],
+  "hotspots": [
+    {
+      "id": "washing_line",
+      "name": "THE WASHING LINE",
+      "rect": [
+        950,
+        200,
+        180,
+        110
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Shirts on a line between two tents. Every one has a padlock on the pocket.",
+            "repeat": [
+              "Good shirts, too. Store-bought. Washed by somebody else, I'd bet.",
+              "One shirt has a padlock and no buttons. A man has his priorities."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Shirts flapping.",
+            "repeat": [
+              "A padlock knocking against a peg.",
+              "Washing, drying, with nothing to add."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "Every pocket's padlocked. I tried one, to see. A man across the way stood up."
+      },
+      "walkTo": {
+        "x": 1040,
+        "y": 452,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "notice",
+      "name": "THE NOTICE",
+      "rect": [
+        1250,
+        410,
+        210,
+        230
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A notice nailed to a stump: CLAIM JUMPERS WILL BE SPOKEN TO. Underlined twice.",
+            "repeat": [
+              "Underneath, in another hand: FIRMLY.",
+              "It's the most threatening thing I've read since Mr. Sump's forms."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A nail working loose.",
+            "repeat": [
+              "The notice flapping at one corner.",
+              "Quiet. It's said its piece, firmly."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "Taking down a notice against strangers would make me the stranger it means.",
+        "TALK_TO": "I told it I wasn't a jumper. It went on saying FIRMLY."
+      },
+      "walkTo": {
+        "x": 1350,
+        "y": 660,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "cook_fire",
+      "name": "THE COOK FIRE",
+      "rect": [
+        730,
+        360,
+        280,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A cook fire with a kettle on it and somebody's dinner in a pan. Nobody's watching it.",
+            "repeat": [
+              "Beans, with something better than beans in them. They eat well here. They can afford to.",
+              "I'm not going to steal a man's dinner. I've thought it through, and I'm not."
+            ],
+            "then": [
+              "Everybody's watching me."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Beans, ticking in the pan.",
+            "repeat": [
+              "The kettle working up to something.",
+              "Fat spitting. The best sound in two days."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I warmed my hands at it. Nobody stopped me. It's the friendliest thing in camp."
+      },
+      "walkTo": {
+        "x": 880,
+        "y": 640,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "tents",
+      "name": "THE TENTS",
+      "rect": [
+        1140,
+        80,
+        420,
+        390
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Canvas tents, every one pegged down twice and guyed like a ship.",
+            "repeat": [
+              "One tent has a sign on it: KNOCK. You can't knock on a tent. That's the idea.",
+              "In Consolation the tents are full of hope. These are full of gold, and it's made them twitchy."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Canvas breathing in the wind.",
+            "repeat": [
+              "Behind one flap, coins being stacked, carefully.",
+              "Somebody snoring lightly, like a man ready to wake."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "I lifted a flap. Somebody inside said 'No', very calmly, and I put it down."
+      },
+      "walkTo": {
+        "x": 1200,
+        "y": 560,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "cabins",
+      "name": "THE CABINS",
+      "rect": [
+        0,
+        60,
+        490,
+        350
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Log cabins with chimneys of sticks and mud.",
+            "repeat": [
+              "One cabin has three locks and no window. Whoever's inside has done well.",
+              "I knocked on one, to be friendly. A bolt went across inside. Then a second."
+            ],
+            "then": [
+              "The doors have more bolts than the walls have logs."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A bolt sliding home.",
+            "repeat": [
+              "Inside one, a man counting under his breath.",
+              "Counting again. He's lost his place and started over."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "I tried a latch. Three bolts answered from inside, one after another, like a choir."
+      },
+      "walkTo": {
+        "x": 440,
+        "y": 462,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_ledge",
+      "name": "THE PATH UP",
+      "rect": [
+        1580,
+        0,
+        340,
+        620
+      ],
+      "colour": 0,
+      "to": "ledge",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The path back up the ravine to the ledge and the mine.",
+            "repeat": [
+              "Up there is the way home, eventually, and a mule.",
+              "The rope's worn bright on the bends, where everybody holds on hardest."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Grit coming down the path.",
+            "repeat": [
+              "Wind on the ledge, high up.",
+              "The rope creaking, high up."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 109: the path back up the ravine to the ledge and the mine.",
+      "walkTo": {
+        "x": 1700,
+        "y": 600,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_grog_tent",
+      "name": "THE GROG TENT",
+      "rect": [
+        500,
+        0,
+        430,
+        400
+      ],
+      "colour": 0,
+      "to": "grog_tent",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A big tent with the flap tied back and a sign: GROG. The only word anybody bothered to paint.",
+            "repeat": [
+              "Men go in looking worried and come out poorer and less worried.",
+              "A man came out, looked at the sky, and went back in. It's that kind of tent."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Glasses, low talk, and a man laughing a little too long.",
+            "repeat": [
+              "A plank creaking under somebody's elbows.",
+              "A cork, and somebody laughing at nothing."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "when": {
+            "T_CAMP_TRUSTS": false,
+            "LOOKOUT_STOPS": 0
+          },
+          "say": "Stop there. That's far enough for a claim jumper.",
+          "by": "gulch_lookout",
+          "set": {
+            "LOOKOUT_STOPS": 1
+          },
+          "stays": true,
+          "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE TENTS · STOPPED BY THE LOOKOUT 1"
+        },
+        {
+          "when": {
+            "T_CAMP_TRUSTS": false,
+            "LOOKOUT_STOPS": 1
+          },
+          "say": "Not past me. I've a pan, and I know how to hold it.",
+          "by": "gulch_lookout",
+          "set": {
+            "LOOKOUT_STOPS": 2
+          },
+          "stays": true,
+          "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE TENTS · STOPPED BY THE LOOKOUT 2"
+        },
+        {
+          "when": {
+            "T_CAMP_TRUSTS": false,
+            "LOOKOUT_STOPS": {
+              "atLeast": 2
+            }
+          },
+          "say": "Still not past me. I'll stand here all day. I can afford to.",
+          "by": "gulch_lookout",
+          "set": {
+            "LOOKOUT_STOPS": 3
+          },
+          "stays": true,
+          "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE TENTS · STOPPED BY THE LOOKOUT 3"
+        }
+      ],
+      "note": "Doc 109: the way in. Until G3 the lookout stops him, one line a time in order, then the third again (STOPPED BY THE LOOKOUT, counted in LOOKOUT_STOPS).",
+      "walkTo": {
+        "x": 700,
+        "y": 446,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_river",
+      "name": "THE RIVER",
+      "rect": [
+        0,
+        520,
+        470,
+        344
+      ],
+      "colour": 0,
+      "to": "gulch_river",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Down to the river, where the men are standing in it.",
+            "repeat": [
+              "The bank's churned to mud by a hundred pairs of rich boots.",
+              "From here every man in the river looks as if he's dropped something small."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water over stones, and shovels.",
+            "repeat": [
+              "Shovels, and a rocker, down the bank.",
+              "The rocker, and the river, going about their business."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "when": {
+            "T_CAMP_TRUSTS": false,
+            "LOOKOUT_STOPS": 0
+          },
+          "say": "Stop there. That's far enough for a claim jumper.",
+          "by": "gulch_lookout",
+          "set": {
+            "LOOKOUT_STOPS": 1
+          },
+          "stays": true,
+          "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE TENTS · STOPPED BY THE LOOKOUT 1"
+        },
+        {
+          "when": {
+            "T_CAMP_TRUSTS": false,
+            "LOOKOUT_STOPS": 1
+          },
+          "say": "Not past me. I've a pan, and I know how to hold it.",
+          "by": "gulch_lookout",
+          "set": {
+            "LOOKOUT_STOPS": 2
+          },
+          "stays": true,
+          "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE TENTS · STOPPED BY THE LOOKOUT 2"
+        },
+        {
+          "when": {
+            "T_CAMP_TRUSTS": false,
+            "LOOKOUT_STOPS": {
+              "atLeast": 2
+            }
+          },
+          "say": "Still not past me. I'll stand here all day. I can afford to.",
+          "by": "gulch_lookout",
+          "set": {
+            "LOOKOUT_STOPS": 3
+          },
+          "stays": true,
+          "sceneLine": "docs/109-fiddlers-gulch-lines.md::## THE TENTS · STOPPED BY THE LOOKOUT 3"
+        }
+      ],
+      "note": "Doc 109: the way down to the river. Until G3 the lookout stops him, as at the grog tent, on the same count.",
+      "walkTo": {
+        "x": 745,
+        "y": 830,
+        "facing": "left"
+      }
+    }
+  ],
+  "peopleResponses": {
+    "gulch_lookout": {
+      "PICK_UP": [
+        {
+          "say": "I'm not going to lift a man who already thinks I'm here to take things."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "I gave him a friendly nudge. He raised the pan an inch, and I took my hand back."
+        }
+      ],
+      "USE": [
+        {
+          "say": "He's already in use. He's guarding a path, and he's doing it with his whole body."
+        }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "A man at the foot of the path, holding a gold pan across his chest like a shield.",
+          "repeat": [
+            "His boots are new, his hat is new, and his eyes haven't closed since spring.",
+            "He's richer than anybody in Consolation, and he looks like it's keeping him up at night."
+          ]
+        }
+      ],
+      "LISTEN_TO": [
+        {
+          "say": "Breathing through his nose, on purpose.",
+          "repeat": [
+            "His pan, tapping against a button.",
+            "Muttering 'jumper' to himself, not unkindly."
+          ]
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "floor_0_0",
+      "points": [
+        {
+          "x": 390,
+          "y": 440
+        },
+        {
+          "x": 740,
+          "y": 440
+        },
+        {
+          "x": 740,
+          "y": 524
+        },
+        {
+          "x": 390,
+          "y": 524
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_0_2",
+        "floor_1_0"
+      ]
+    },
+    {
+      "id": "floor_0_1",
+      "points": [
+        {
+          "x": 1010,
+          "y": 440
+        },
+        {
+          "x": 1060,
+          "y": 440
+        },
+        {
+          "x": 1060,
+          "y": 524
+        },
+        {
+          "x": 1010,
+          "y": 524
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_0_2",
+        "floor_1_1"
+      ]
+    },
+    {
+      "id": "floor_0_2",
+      "points": [
+        {
+          "x": 740,
+          "y": 440
+        },
+        {
+          "x": 1010,
+          "y": 440
+        },
+        {
+          "x": 1010,
+          "y": 450
+        },
+        {
+          "x": 740,
+          "y": 450
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_0_0",
+        "floor_0_1"
+      ]
+    },
+    {
+      "id": "floor_1_0",
+      "points": [
+        {
+          "x": 500,
+          "y": 524
+        },
+        {
+          "x": 740,
+          "y": 524
+        },
+        {
+          "x": 740,
+          "y": 607
+        },
+        {
+          "x": 500,
+          "y": 607
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_0_0",
+        "floor_2_0"
+      ]
+    },
+    {
+      "id": "floor_1_1",
+      "points": [
+        {
+          "x": 1010,
+          "y": 524
+        },
+        {
+          "x": 1270,
+          "y": 524
+        },
+        {
+          "x": 1270,
+          "y": 607
+        },
+        {
+          "x": 1010,
+          "y": 607
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_0_1",
+        "floor_2_1"
+      ]
+    },
+    {
+      "id": "floor_1_2",
+      "points": [
+        {
+          "x": 1450,
+          "y": 524
+        },
+        {
+          "x": 1760,
+          "y": 524
+        },
+        {
+          "x": 1760,
+          "y": 607
+        },
+        {
+          "x": 1450,
+          "y": 607
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_2_2"
+      ]
+    },
+    {
+      "id": "floor_2_0",
+      "points": [
+        {
+          "x": 610,
+          "y": 607
+        },
+        {
+          "x": 740,
+          "y": 607
+        },
+        {
+          "x": 740,
+          "y": 691
+        },
+        {
+          "x": 610,
+          "y": 691
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_1_0",
+        "floor_2_4",
+        "floor_3"
+      ]
+    },
+    {
+      "id": "floor_2_1",
+      "points": [
+        {
+          "x": 1010,
+          "y": 607
+        },
+        {
+          "x": 1270,
+          "y": 607
+        },
+        {
+          "x": 1270,
+          "y": 691
+        },
+        {
+          "x": 1010,
+          "y": 691
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_1_1",
+        "floor_2_3",
+        "floor_2_4",
+        "floor_3"
+      ]
+    },
+    {
+      "id": "floor_2_2",
+      "points": [
+        {
+          "x": 1450,
+          "y": 607
+        },
+        {
+          "x": 1760,
+          "y": 607
+        },
+        {
+          "x": 1760,
+          "y": 691
+        },
+        {
+          "x": 1450,
+          "y": 691
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_1_2",
+        "floor_2_3",
+        "floor_3"
+      ]
+    },
+    {
+      "id": "floor_2_3",
+      "points": [
+        {
+          "x": 1270,
+          "y": 640
+        },
+        {
+          "x": 1450,
+          "y": 640
+        },
+        {
+          "x": 1450,
+          "y": 691
+        },
+        {
+          "x": 1270,
+          "y": 691
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_2_1",
+        "floor_2_2",
+        "floor_3"
+      ]
+    },
+    {
+      "id": "floor_2_4",
+      "points": [
+        {
+          "x": 740,
+          "y": 610
+        },
+        {
+          "x": 1010,
+          "y": 610
+        },
+        {
+          "x": 1010,
+          "y": 691
+        },
+        {
+          "x": 740,
+          "y": 691
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_2_0",
+        "floor_2_1",
+        "floor_3"
+      ]
+    },
+    {
+      "id": "floor_3",
+      "points": [
+        {
+          "x": 720,
+          "y": 691
+        },
+        {
+          "x": 1760,
+          "y": 691
+        },
+        {
+          "x": 1760,
+          "y": 774
+        },
+        {
+          "x": 720,
+          "y": 774
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_2_0",
+        "floor_2_1",
+        "floor_2_2",
+        "floor_2_3",
+        "floor_2_4",
+        "floor_4"
+      ]
+    },
+    {
+      "id": "floor_4",
+      "points": [
+        {
+          "x": 720,
+          "y": 774
+        },
+        {
+          "x": 1760,
+          "y": 774
+        },
+        {
+          "x": 1760,
+          "y": 858
+        },
+        {
+          "x": 720,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 159,
+        "nearY": 858,
+        "nearHeight": 471
+      },
+      "neighbours": [
+        "floor_3"
+      ]
+    }
+  ],
+  "background": "art/backgrounds/room-51-tents.png",
+  "lamps": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "floor_0",
+    "floor_1",
+    "floor_2",
+    "floor_3",
+    "floor_4"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-51/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "props": [
+    {
+      "id": "grog_lettering",
+      "sheet": "art/props/room-51-grog.png",
+      "x": 776,
+      "y": 123,
+      "frame": [
+        0,
+        0,
+        72,
+        21
+      ],
+      "note": "THE GROG TENT's sign in the shipping face, the word its first LOOK reads (doc 109, tools/art/gulch-lettering.py): the generator draws the board blank."
+    },
+    {
+      "id": "knock_lettering",
+      "sheet": "art/props/room-51-knock.png",
+      "x": 1272,
+      "y": 233,
+      "frame": [
+        0,
+        0,
+        60,
+        14
+      ],
+      "note": "THE TENTS' KNOCK sign, the word its second LOOK reads (doc 109, tools/art/gulch-lettering.py)."
+    },
+    {
+      "id": "notice_lettering",
+      "sheet": "art/props/room-51-notice.png",
+      "x": 1352,
+      "y": 501,
+      "frame": [
+        0,
+        0,
+        42,
+        55
+      ],
+      "note": "THE NOTICE's words, underlined twice, and FIRMLY under them in another hand, as its first two LOOKs read them (doc 109, tools/art/gulch-lettering.py)."
+    }
+  ]
+}

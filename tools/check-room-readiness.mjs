@@ -336,6 +336,16 @@ function ask(room, sources, note) {
       }
     }
     for (const name of parsed.pending) slot(name);
+    // A SCENE UNDER A SUBJECT'S HEADING SHAPE IS NOT A SUBJECT (doc 109, Room 52: `### THE FIND` is what LOOK AT THE
+    // WATCH plays the first time, G4). Declared in the room's sources with the section it is, and excused only if that
+    // section writes no LOOK and no LISTEN run of its own -- a real subject with missing lines can never pass as one.
+    for (const scene of sources.examine?.scenes ?? []) {
+      const found = section(scene.source);
+      // Its own body only: to the next heading of any level (the section reader runs on to the next `## `).
+      const body = found.ok ? found.body.split(/\n#{1,3} /)[0] : '';
+      const own = /^\*\*(LOOK|LISTEN)\*\*/m.test(body);
+      if (found.ok && !own) byName.delete(scene.name);
+    }
     subjects = [...byName.values()];
 
     const withoutBoth = subjects.filter((one) => one.look < 1 || one.listen < 1);

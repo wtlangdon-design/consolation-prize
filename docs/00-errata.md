@@ -5664,6 +5664,27 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 - The bell ringer (1.11) and the sign painter at the coach stop (1.10) are just under the limit.
 - **Shown:** `renders/figure-light-bakehouse-boy-beside-thad.png` and `renders/figure-light-sheng-beside-thad.png`, each figure beside Thad at his feet, at game size.
 
+# 206 · FIDDLER'S GULCH BUILT, PART TWO: THE TENTS AND THE LOOKOUT (ROOM 51) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
+
+*Room 51 built under doc 55, in the brief's order. Every line is doc 109's or doc 49's (errata 199, 202), extracted.*
+
+- **The room.** The foot of the ravine path: cabins with bolted doors, the grog tent with its flap tied back, the guyed tent, shirts with padlocked pockets, the cook fire, the stump and its notice, the river down the bank, the path up. Daylight (errata 190).
+  - room-51: 4 of 4 operations. The master; the plate without the men, with a padlock on each shirt's pocket (doc 109's LOOK names them); a second plate pass that widens the river at the lower left with two men panning in it, because doc 109's THE RIVER says "From here every man in the river looks as if he's dropped something small"; and the lookout's pose sheet, painted over the in-game Thad.
+  - The lettering is the shipping face, read from the extracted LOOK lines (`tools/art/gulch-lettering.py`): GROG over the flap, KNOCK on the tent, and the notice, CLAIM JUMPERS WILL BE SPOKEN TO., underlined twice, with FIRMLY under it in a red pencil and a less tidy line, "in another hand".
+  - The canvas was blocked as weathered tan, a middle value, at the legibility gate: white canvas behind his head lost Thad's face.
+  - The floor is stepped on the band edges the compiler slices it into. Its first, sloped outline was rasterised into inscribed bands that left the arrival at the path's foot outside every band, where Thad was drawn 263 tall against the curve's 309 (the ledge's lesson, again).
+- **The lookout** (`content/ambient/gulch-lookout.json`): the gold pan across his chest like a shield, new boots and hat, cut at the room's man where he stands and measured in Thad's range (texture 5.8, 1.08 of Thad's). Four drawn poses: rest, a look back over his shoulder, the pan raised to his chin, a palm out. Thad talks to him from beside him, clear of the notice.
+- **G3 and the block** (the brief, "What the engine needs" 4):
+  - Before G3, the grog tent and the river are refused with STOPPED BY THE LOOKOUT, his three lines one at a time in order and then the third again, counted in `LOOKOUT_STOPS`; the path up is never stopped.
+  - GIVE THE CLARION is G3: his direction, the exchange, the Clarion out of inventory, `T_CAMP_TRUSTS`. GIVE THE DEED is his "A deed! Jumper."; anything else is Thad's line (a new `targetPools` tier, after a pair and before the item's pool).
+  - His tree LOO_G1 is extracted from doc 109 by a reader for all five Gulch trees (`gulchPeople()`): an option's *(before G3)* or *(after G3)* gates it, the opening has a node a side, the exit is doc 04's pool.
+  - His barks are said one a visit, in turn and round again, the same in every reputation state (`barkTurns`, one counter a side): the Gulch has not heard of Thad (doc 107).
+  - His LOOK and LISTEN are doc 109's, read into `peopleResponses` (`peopleExamine`); doc 49's three lines answer a wrong verb on him.
+- **The ledge's PATH DOWN is now the way down**, with an arrival at its top from the tents.
+- **Sound:** CONSOLATION in the minor carried from the ledge (R50-54-M); the R51-A bed, a cook fire, canvas, and now and then a bolt, rendered by `tools/audio/render-gulch-sfx.py`, shaped noise with no pitch.
+- **Deviation, recorded:** the grog tent and the river lead to Rooms 52 and 53, built next on this branch and shipped in the same pull request, so no way on main leads nowhere.
+- Lesson: `tests/gulch-tents.test.ts` fails if the lookout stops stopping him, or stops on the path up; if G3 stops taking the Clarion or opening the ways; if his barks stop going in turn or start following the town's opinion; or if a Gulch room's person has no wrong-verb line the gate can find.
+
 # 207 · THE FIVE FIGURES THE CHECKS CAUGHT, FIXED — TYLER, 2026-11-08 ("Fix all five")
 
 Errata 205's two checks found five figures wrong and recorded them without fixing them: Grievance stepping out of her stall, drawn too small, and four figures brighter than Thad in their rooms' night. Tyler: "Fix all five".
@@ -5716,3 +5737,91 @@ Errata 205's two checks found five figures wrong and recorded them without fixin
   - `renders/fixed-boundary-b-beside-thad.png`
   - `renders/fixed-fiddler-beside-thad.png`
 - **The lesson is the two checks themselves.** With their known lists empty, errata 205's checks now hold all five: a regression in any one fails the suite.
+
+# 208 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
+
+*Room 52 built under doc 55, in the brief's order. Every line is doc 109's, doc 49's or doc 04's and doc 03's as doc 109 directs, extracted.*
+
+- **The room.** Canvas over a frame, daylight through it (errata 190): the plank on two barrels with GOLD ON THE PLANK on its brass, the bottles on the shelf with their prices chalked under them, the watch on its nail, the fiddle on its peg, and the rule-keeper's keg. The flap back to the tents.
+  - room-52: 4 of 4 operations. The master; the plate without the men; the rule-keeper's pose sheet, painted over the in-game Thad; and the third barrel cut down to a keg, because a seated man drawn at a chair's height sat halfway down a barrel half a man tall (Tyler, 2026-11-09: "It looks like the one guy is sitting halfway down the barrel randomly").
+  - The lettering is the shipping face, read from the extracted LOOK lines (`tools/art/gulch-lettering.py`): WHISKEY and FLOUR on the barrels, the chalk under the bottles, and the brass plate. The plate is drawn whole as a prop, sized to the words and covering the painted one: the painted plate was 75 px between its screws, under its own blurred letters, and the words at the face's size are 104 px (Tyler: "The writing on the plaque is really poorly put on there").
+- **The rule-keeper** (`content/ambient/gulch-rule-keeper.json`): seated on the keg, his lap on its top (`seat.y`), seven drawn poses; he takes the fiddle down and plays it in two of them, the peg shown empty while he does (a prop with `byFrame`). His barks go in turn, one a visit (`barkTurns`).
+- **The Deacon** (`content/ambient/gulch-deacon.json`) is Vessel, and doc 109 says so: **Vessel's own accepted frames, the mustache taken off, and nothing else changed** (Tyler: "can you overlay Deke on Deacon to make sure they're exactly the same minus the mustache?").
+  - gulch-vessel operation 1 drew a new man; beside Vessel he was another man, and is unused.
+  - A shave in code (cheek colour, a pale stripe, a drawn mouth) read as a muzzle at game size (Tyler: "Is that how you're planning on leaving him? With mouth?").
+  - gulch-vessel operation 2 had the model shave Vessel's own sheet. From it only the mustache band of each frame is taken, registered, colour-matched and blended, and its own mouth deepened so it survives the room's snap (Tyler: "he still needs a bit more of a mouth"). `renders/room-52-deacon-vs-deke.png` shows Vessel, the Deacon, and the band as the only pixels that differ (`tools/art/room52-deacon-from-deke.py`).
+  - Before the find he is THE DEACON; from it, DEKE VESSEL (`names`). He leaves the tent at G9, with the watch.
+- **G4, THE FIND:** the watch's first LOOK is the find (a room `scenes` entry): the watch's own line, the find's, and doc 03's Duel One opening said here, `T_DEACON_FOUND`; his tree becomes VES_G1. After G9 the watch is THE NAIL, its LOOK and LISTEN doc 109's, the nail drawn empty over the plate.
+- **G5:** the tuning fork on the fiddle is the seat, `T_PLANK_SEAT`; Thad strikes the fork (an acted direction in his wrench frames, with its sound) and the rule-keeper plays (his frames, with the fiddle's).
+- **VES_G1** (`gulchVessel()`): doc 04's VES_B1 with doc 109's Gulch differences -- the seat first (options 3 and 6 answer with it until G5), the challenge to the bar (B4, Duel One), and after Duel One the rematch agreed, `T_VESSEL_FOUND`. The G9 puzzle id is not yet canonical and is wired at the trip's close.
+- **Sound:** the grog tent's music (errata 195); the R52 bed of canvas and glass, the fork's ring and the fiddle, rendered by `tools/audio/render-gulch-sfx.py`, shaped, with the fiddle ducked under its line.
+- **Deviation, recorded:** the tent's flap leads back to the tents only; the river (Room 53) is built next on this branch, in the same pull request.
+- Lesson: `tests/gulch-grog-tent.test.ts` fails if THE FIND, the watch's three states, G5's seat and the rule-keeper's playing frames with the peg empty, or VES_G1's three Gulch differences stop doing what doc 109 says; `tests/lessons.test.ts` fails a figure with no barks declared and a seated figure whose lap is not on its seat; doc 55 §8 carries the Deacon's face, the plate's lettering and the mouth after the snap.
+
+# 209 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
+
+*Room 53 built under doc 55, in the brief's order. Every line is doc 109's, doc 49's or doc 03's as doc 109 directs, extracted.*
+
+- **The room.** The river below the camp in daylight (errata 190): the near bank churned to mud, a rocker on it with a man in a good hat rocking it; the river brown with the digging, coming down out of the gulch, where it bends out of sight upstream; men panning in it; the long tom on the far bank with its three men; mid-stream the bar, dry gravel, with its ring of stones and its stump. The way back up the bank to the tents, and the way on upstream.
+  - room-53: 3 of 4 operations. The master; the plate without Thad and the panner (the men in the river and at the long tom stay, painted: they have no lines); the panner's pose sheet, painted over the in-game Thad.
+  - The graybox blocked the water and the bar at middle values (doc 109: the water is "brown with everybody's digging"); light water behind his face was weak at the legibility gate.
+- **The ford and the bar.** The bar is mid-stream, so Thad wades to it (doc 109: "A man has to wade to lose"). The bands the compiler slices a floor into hold one span each, and a bank, a ford and an island are not one span a band, so a room may now declare authored walk boxes (`walkBoxesExtra`), joined to the bands by the same geometry: the ford, level across the near channel, and the bar in three steps down its diagonal.
+  - The water is two clip planes (`tools/art/room53-water-mask.py`): the ford's rows from a man's knee to his feet, and the channel beside the bar where the panner stands. A mask hides only the figure's own pixels, so each is the plain band of water; the first cut left out the bar's outline and the panner's legs showed over it (the proof caught it).
+- **The panner** (`content/ambient/gulch-panner.json`): in a good coat, the pan in his hands, knee-deep in the channel right of the bar, drawn whole with his feet on the river bed and the water over his shins. Five drawn poses: panning, the swirl, a look upstream, his hand closed on something (PAN_G1 option 2, acted), talking. His tree PAN_G1 and his barks in turn are doc 109's; doc 49 answers a wrong verb on him. His G8 options wait for the man upstream (Room 54).
+- **Duel One on the bar (G7, B5)** (the brief, 7):
+  - VES_G1's challenge (option 6, B4) and its replay (option 3) no longer start the duel in the tent: they call it to the bar (`T_DUEL_ONE_CALLED`), and Vessel and the rule-keeper leave the tent for it.
+  - On the bar they are placements: Vessel standing across the ring, the rule-keeper on the stump with his boots off the gravel (the stump is taller to a man than the keg; his lap is on its top, a foot row below the frame). Coming down to the river walks Thad out onto the bar to face Vessel (the room's accost, as Duel Three's on Main Street).
+  - `duel_one_bar` is doc 03's Duel One -- Vessel's pairs 1, 2, 3, 4 and 1 again, the notebook, the loss dialogue -- with doc 109's differences, extracted: the rule-keeper's rules in place of Sowerby's handbill; a point is his pebble (the pencil is his, and it sounds doc 45's R53-PEBBLE), his pebbles pose held while it is set down; the panner mutters each counter; after the loss, "Five to nothing. Rule four." The engine's duel takes a bystander, a pencil and a mark cue of its own.
+  - Duel One in Room 4 is unchanged until the trip's close removes it there (the brief, 9), so the game is whole in between.
+- **Sound:** the Gulch's mix carried down from the tents; R53-A, fast water over stones, the rocker's knock and gravel down the long tom; R53-PEBBLE; R53-DUEL, the registrar's unaccompanied jaw-harp ASSAY, for the duel (doc 45).
+- **Deviation, recorded:** the way upstream leads to Room 54, built next on this branch and shipped in the same pull request.
+- Lesson: `tests/gulch-river.test.ts` fails if the bar's rules, the panner's muttering, the pebbles or the last word stop being doc 109's, if the duel is fought anywhere but the bar or leaves them on it, or if the water masks a man in the ford anywhere but from the knee down; `tests/lessons.test.ts` fails a seated placement whose lap is not on that room's seat (proved by taking the rule-keeper's foot row off: his lap at y 416 against the stump's top at 372).
+
+# 210 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
+
+*Room 54 built under doc 55, in the brief's order. Every line is doc 109's or doc 49's, extracted.*
+
+- **The room.** The head of the gulch in daylight (errata 190): the walls closing in on a little waterfall no taller than a man; the river running down from it to the front left; a half-built sluice beside it with a board nailed across it; the best ground, gravel with gold showing in it, staked twice over by two crossing lines of stakes with a notice each; the man upstream's tent on the claim line. The way back downstream.
+  - room-54: 3 of 4 operations. The master; the plate without the men, with flecks of gold in the gravel (doc 109's LOOK: "Gold shows in the gravel here without digging"); the man upstream's pose sheet, painted over the in-game Thad.
+  - The master's perspective is flatter than Room 5's slope, 0.18 a row, read from its own two figures.
+  - The board reads NOT YET in the shipping face (`tools/art/gulch-lettering.py`), drawn whole and flat across the trough's front in the sluice's lit wood: the plate's own board is a slanted plank, and the shipping face cannot lie on a slant. The notices stay blank: doc 109 says one is in ink and the other in larger ink, and writes neither's words.
+  - The walk keeps to the gravel between the river and the stakes, so no stake (plate) stands in front of him; his stand beside the man upstream is an authored box.
+- **The man upstream** (`content/ambient/gulch-man-upstream.json`): a good coat, the shovel planted beside him, guarding the gravel among the stakes. Five drawn poses: guarding, the blade tapped warningly (doc 109's LISTEN), a look downstream, a long sigh, talking. His tree UPS_G1 and his barks in turn are doc 109's; doc 49 answers a wrong verb on him.
+- **G8, the messages** (the brief, 10; `gulchMessages()`): the options doc 109 writes outside the two tables, read into PAN_G1 and UPS_G1. Every one waits for the camp's trust (G3: "Both options need G3"). The panner's boast carried up (`T_GULCH_MESSAGE_UP`) is answered upstream with pair 25's counter, and the man upstream's carried down (`T_GULCH_MESSAGE_DOWN`) with pair 26's.
+  - **A builder's reading, recorded:** PAN_G1 option 6 is tagged `remove` and writes a second answer "if asked again before it is carried". It is offered until the message is carried (the man upstream's answer ends it), and says the second line if asked again before then.
+- **Pairs 25 and 26** (doc 109's Tier 7, learned in the Gulch) are read into the Assay from doc 109 in doc 03's shapes, with their three wrong answers each, answered by Vessel (`gulchPairs()`); ASSAY_PAIR_25 and ASSAY_PAIR_26 hold them. Duel Two's pool is read from doc 109's own sentence: "now 1–21, 25 and 26"; it still needs fourteen.
+- **Sound:** the Gulch's mix carried up the river; R54-A, the little falls close and thin water over gravel, noise with no pitch, "whatever Thad hears in them" (doc 45).
+- Lesson: `tests/gulch-upstream.test.ts` fails if a message is offered before G3 or before it is given, if carrying them stops teaching pairs 25 and 26, if the pairs stop being doc 109's or leave Duel Two's pool, or if the pool's fourteen moves.
+
+# 211 · THE MINE'S LANTERNS, UNLIT, AS SCENERY — TYLER, 2026-11-09 ("Maybe lanterns can be setup throughout the caves to make it look a little more 'of the era'?"; asked how, "Unlit, as scenery")
+
+*Doc 108 lights the mine by daylight through old shafts, and no line names a lantern. Tyler was shown three ways (lit, unlit as scenery, or with lines) and chose unlit, as scenery.*
+
+- **One lantern, every way.** room-46 operation 3 drew one old miner's lantern, unlit, hanging by its bail from a nail. `tools/art/mine-lanterns.py` hangs it on the inner face of a post at every way on in Rooms 46 to 49, at the same size and the same height in each room, and flipped only where the room itself is mirrored (Room 49's passages; Room 47's two props either side of the shaft). The plates are not repainted, so Room 49's mirrored passages stay identical.
+- **Scenery.** No hotspot, no line, no light: the mine is still lit by its shafts (doc 108), and the lanterns are dead.
+- **Placed by sight.** On the post's brown, at a sixth of a man, the lantern read as a smudge; it hangs against the passage's dark, at a quarter. In Room 46 the right opening is the shortest, so the room's three hang lower together, under its beam.
+- Lesson: `tests/gulch-mine.test.ts` fails if a way on in a mine room has no lantern, or if a room's lanterns differ in size, height or drawing (proved by taking Room 49's right passage's away).
+
+# 212 · THE MINE'S WALLS, BROKEN ROCK — TYLER, 2026-11-09 ("The insides of the caves kind of look like dragon scales instead of rocks")
+
+- **The walls repainted.** The generator had drawn the mine's rock as rows of rounded, overlapping, same-sized lozenges. Each of the four mine plates was edited once to repaint only its walls and roof as rough, broken, irregular rock -- angular slabs, cracks at odd angles, no repeating shape -- with every timber, opening, boulder, the cart, the stake, the rails and the shaft of light left where it was: room-46 operation 4, room-47, room-48 and room-49 operation 3. Each was promoted at its old crop row, and measured against the old plate: within a pixel in 46, 47 and 48; Room 49's edit drifted three, and its passages were mirrored again from it (`tools/art/room49-mirror.py plate-02`), so they stay identical. The lanterns (errata 211) still hang on their posts.
+- **Budget.** room-46 4 of 4; rooms 47 to 49, 3 of 4.
+- Lesson: doc 55 §8 -- a generated rock face drawn as a repeating pattern of like shapes reads as a hide or a wall of scales, not rock.
+
+
+# 213 · FIDDLER'S GULCH BUILT, PART SIX: THE CHANGES IN CONSOLATION, AND THE TRIP WHOLE — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md, "What changes in Consolation" and "When it is all in"; Tyler: "Proceed")
+
+The brief's last step. Every line is extracted from docs 108 and 109; docs 02, 03, 04 and 57 carry only notes that point at them.
+
+- **A9's third copy.** The fee paid after the deed and the survey, Sump goes into the back and comes out with THE THIRD COPY (doc 109 A9), after his read-back and the invitation.
+- **B1's Clarion.** Either of Frame's stories pays with the destination and, still damp, THE CLARION (doc 109 B1). It is what G3 gives the lookout.
+- **G1, the rod hired.** Room 16, OZY_A1 option 9, from Act II: with the money it takes the two dollars and gives THE BRASS ROD (`T_ROD_HIRED`); without it, the same question is answered and asked again gives doc 109's line for having no money. **The builder's reading:** the two dollars are the filing fee, which A8's piano pays and pays again (the brief, 9: "two dollars from A8's piano, which can be earned again"), so G1 is gated on holding it and spends it.
+- **B3 ends at the washout.** The fork on Grievance with both is doc 54's line and then doc 108's THE RIDE, changed, over black, into Room 45; it sets `T_GULCH_TRIP`. **`T_VESSEL_FOUND` is G9's** (the brief, 5). Doc 57's old ride line, which put Thad in the Nugget, is listed as superseded in `proofs/written-not-built.json`.
+- **The ride home.** USE on Grievance at the washout after G9: doc 109's GOING HOME, the line over black, then the Nugget (`T_GULCH_HOME`).
+- **The Nugget after the trip.** VES_B1 opens on doc 109's "Again." greeting, the first TALK TO only; options 3 and 6 were the Gulch's and are gone from it (the brief, 7). The rematch is unchanged. Doc 03's Duel One opening is said at the find, in the grog tent (`duelOneOpening`).
+- **Duel One** is fought only on the bar (errata 209). `duel_one`, doc 03's Nugget staging, stays in the Assay file as the source the bar's duel shares its pairs and order with, and as what the mechanism tests play; nothing in play calls it.
+- **52 puzzles.** `tools/check-puzzle-graph.mjs` adds G1 to G5, G8 and G9 (G6 and G7 are B4 and B5 under their own ids); CLAUDE.md and doc 02 say 52. The continuous playthrough (`tests/data/full-game-walkthrough.json`) plays the trip between B3 and B6 and the fresh-save traversal and win-from-everywhere checks hold with it in.
+- **Engine.** A dialogue option can `take` an item it `holds`, or be offered only while one is lacking (`lacks`); an exit can complete a puzzle by being walked through (`completesOnTransit`, G2). Nothing in them names the fiction.
+- **Doc 95** gains four rows for the new directions: Frame's damp paper and Ozymandia's second rod printed until a pose is drawn (B), Sump's absence and the ride home told (C).
+- **Tests.** `tests/gulch-consolation.test.ts` plays G1 with and without the money and before Act II, A9's third copy, B1's paper and the ride home; `tests/assay.test.ts`'s Duel One tests are played through the tent and the bar, with the same invariants (resumed mid-duel, dropped leaves it on offer, never without B4, the replay once).
+- Lesson: none -- a build step, the trip's last; every check it needed was added in errata 200 and 206 to 210.

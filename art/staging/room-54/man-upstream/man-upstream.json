@@ -1,0 +1,59 @@
+{
+ "sheet": "art/actors/room-54-man-upstream.png",
+ "frames": [
+  [
+   2,
+   2,
+   162,
+   293
+  ],
+  [
+   166,
+   2,
+   162,
+   293
+  ],
+  [
+   330,
+   2,
+   162,
+   293
+  ],
+  [
+   494,
+   2,
+   162,
+   293
+  ],
+  [
+   658,
+   2,
+   162,
+   293
+  ],
+  [
+   822,
+   2,
+   162,
+   293
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "tap",
+  "glare",
+  "sigh",
+  "talk"
+ ],
+ "figureHeight": 293,
+ "stature": 1.0,
+ "posture": "standing",
+ "man": 293.0,
+ "feet": [
+  1200,
+  600
+ ],
+ "note": "Room 54: the room's man where they stand (soles at y 600) is 293.0; drawn at 1.0 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
+ "source": "room-54 (art/staging/room-54/man-upstream/sheet-01.png)"
+}

@@ -1,0 +1,11 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, exactly as he is drawn in the game, standing, four times in a row on magenta. HIS BODY IS THE STANDARD FOR EVERY PERSON IN THIS GAME: a SMALL head (crown to chin about one eighth of his height), narrow shoulders, a long torso, a realistic lean adult figure -- not a cartoon, not big-headed. Image 2 shows ONLY THE FACE of D, the keeper of a grog tent: take from it his CLEAN-SHAVEN face and his colouring -- NOTHING ELSE. His face is drawn there larger than it should be: in your picture it is the SIZE OF THE HERO'S FACE in Image 1. Image 3 is the hero in the grog tent where D works, in daylight through canvas: match its pixel size, soft shading and light. Image 4 is D as he looked before, in another town: take from it his wild brown hair, his brown coat over a cream shirt, his belt and his boots -- BUT NOT HIS MUSTACHE.
+
+D is a lean, cheerful, shameless man, as tall as the hero. He has SHAVED OFF HIS MUSTACHE: no mustache at all, and a pale stripe of untanned skin across his top lip where it was; the rest of his face sunburnt. He is beaming, very pleased with himself.
+
+Repaint Image 1: replace each hero figure with D, KEEPING THE HERO'S HEAD SIZE, NARROW SHOULDERS, LONG LEGS AND HEIGHT, feet on the same line, facing us, drawn WHOLE from hair to boots. Left to right:
+1. standing at ease behind his bar, both hands resting on the air in front of him at waist height, as if on a plank, beaming;
+2. polishing a small glass with a white cloth, held up at his chest, looking at us, beaming;
+3. the same, the glass turned, the cloth twisted inside it, looking at the glass, pleased;
+4. talking: one hand open, palm up, at chest height, as a man naming his price; a broad smile.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the hero -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No bar, no plank, no floor, no glow, no blur, no shadows, no text.

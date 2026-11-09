@@ -2659,7 +2659,8 @@ export class GameScene extends Phaser.Scene {
     if (line?.mark && this.markedLine !== line) {
       this.markedLine = line;
       this.pointWritten = true;
-      const cue = this.state.content.sounds?.events?.duelMark;
+      // A duel that scores another way sounds its own (doc 109's pebbles on the bar).
+      const cue = line.markCue ?? this.state.content.sounds?.events?.duelMark;
       if (cue) this.fireCue(cue);
     }
     if (!live.done) { this.markDirty(); return; }

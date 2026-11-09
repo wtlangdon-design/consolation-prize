@@ -1,0 +1,59 @@
+{
+ "sheet": "art/actors/room-53-panner.png",
+ "frames": [
+  [
+   2,
+   2,
+   160,
+   380
+  ],
+  [
+   164,
+   2,
+   160,
+   380
+  ],
+  [
+   326,
+   2,
+   160,
+   380
+  ],
+  [
+   488,
+   2,
+   160,
+   380
+  ],
+  [
+   650,
+   2,
+   160,
+   380
+  ],
+  [
+   812,
+   2,
+   160,
+   380
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "swirl",
+  "upstream",
+  "fist",
+  "talk"
+ ],
+ "figureHeight": 377,
+ "stature": 1.0,
+ "posture": "standing",
+ "man": 375.5,
+ "feet": [
+  1790,
+  690
+ ],
+ "note": "Room 53: the room's man where they stand (soles at y 690) is 375.5; drawn at 1.0 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
+ "source": "room-53 (art/staging/room-53/panner/sheet-01.png)"
+}

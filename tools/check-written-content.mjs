@@ -50,7 +50,9 @@ export function check() {
         // subject's ordinary chain, like an act variant; its chain is checked.
         if (rule.sceneLine) { sceneLines += 1; continue; }
         responses += 1;
-        const variants = 1 + (rule.repeat?.length ?? 0);
+        // A CHAIN WHOSE FIRST LINES A SCENE SAID (doc 109, THE WATCH: its first LOOK is THE FIND, said once by the
+        // scene; the subject's rule goes on from its second). `chainFrom` is how many the scene said.
+        const variants = 1 + (rule.repeat?.length ?? 0) + (rule.chainFrom ?? 0);
         if (variants < MIN_VARIANTS) thinVariants.push({ where: `${where}/${verb}`, have: variants });
       }
     }

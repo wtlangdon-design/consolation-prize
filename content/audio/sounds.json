@@ -494,6 +494,44 @@
     "attack": 0.08,
     "release": 2.5
    }
+  },
+  "R52-FORK": {
+   "why": "doc 45 R52-FORK: USE THE TUNING FORK on the fiddle (G5) -- the fork, exact A440, off the bus, then the pegs turning (tools/audio/render-gulch-sfx.py).",
+   "play": [
+    {
+     "src": "audio/sfx/grog-fork.wav",
+     "gain": 0.115,
+     "at": 0.12
+    }
+   ],
+   "room": "grog_tent"
+  },
+  "R52-FIDDLE": {
+   "why": "doc 45 R52-FIDDLE: the rule-keeper plays, very badly and very happily, a few seconds, no theme; on the bus, since it is an instrument, with R52-M ducked under it (errata 107).",
+   "play": [
+    {
+     "src": "audio/sfx/grog-fiddle.wav",
+     "gain": 0.023,
+     "at": 0.05
+    }
+   ],
+   "duck": {
+    "to": 0.15,
+    "seconds": 4.8,
+    "attack": 0.08,
+    "release": 1.5
+   },
+   "room": "grog_tent"
+  },
+  "R53-PEBBLE": {
+   "why": "doc 45 R53-PEBBLE: the rule-keeper moves a pebble from one pile to the other after each exchange of Duel One on the bar -- one pebble set down on gravel, cold, its natural tail (doc 109; tools/audio/render-gulch-sfx.py). In place of the judges' pencil, heard over the jaw harp at a featured cue's level.",
+   "play": [
+    {
+     "src": "audio/sfx/bar-pebble.wav",
+     "gain": 0.87
+    }
+   ],
+   "room": "gulch_river"
   }
  },
  "verbs": [
@@ -748,6 +786,10 @@
    "schoolhouse": "plank",
    "washout": "dirt",
    "ledge": "dirt",
+   "gulch_tents": "dirt",
+   "grog_tent": "dirt",
+   "gulch_river": "mud",
+   "upstream": "dirt",
    "mine_adit": "dirt",
    "mine_climb": "dirt",
    "mine_two_rocks": "dirt",
@@ -811,6 +853,26 @@
    "src": "audio/sfx/ledge-bed.wav",
    "gain": 0.22,
    "why": "doc 45 R50-A: wind high on the cliff; far below, water and shovels (tools/audio/render-gulch-sfx.py)."
+  },
+  "gulch_tents": {
+   "src": "audio/sfx/tents-bed.wav",
+   "gain": 0.6,
+   "why": "doc 45 R51-A: a cook fire, canvas in the wind, now and then a bolt sliding home (tools/audio/render-gulch-sfx.py; errata 195, 203)."
+  },
+  "grog_tent": {
+   "src": "audio/sfx/grog-bed.wav",
+   "gain": 1.0,
+   "why": "doc 45 R52-A: low talk, glasses set down, the plank creaking (tools/audio/render-gulch-sfx.py)."
+  },
+  "gulch_river": {
+   "src": "audio/sfx/river-bed.wav",
+   "gain": 0.215,
+   "why": "doc 45 R53-A: fast water over stones, the rocker's slow knock, gravel down the long tom (tools/audio/render-gulch-sfx.py)."
+  },
+  "upstream": {
+   "src": "audio/sfx/upstream-bed.wav",
+   "gain": 0.215,
+   "why": "doc 45 R54-A: the little falls, close; thin water over gravel. The falls are noise, not a pitch, whatever Thad hears in them (tools/audio/render-gulch-sfx.py)."
   }
  },
  "lines": [

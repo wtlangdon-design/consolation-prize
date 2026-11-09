@@ -1,9 +1,9 @@
 {
  "room": "mine_adit",
  "plate": "art/backgrounds/room-46-mine-adit.png",
- "plateNote": "Read on the promoted plate (art/backgrounds/room-46-mine-adit.png, room-46 operation 2, derived and promoted by tools/art/interiors-plate.mjs; frame.json beside the candidate). Every rect below was read off that picture.",
+ "plateNote": "Read on the promoted plate (art/backgrounds/room-46-mine-adit.png, room-46 operation 2, derived and promoted by tools/art/interiors-plate.mjs; frame.json beside the candidate). Every rect below was read off that picture. The walls repainted as broken rock by room-46 operation 4 (plate-02), every timber, opening and stone left where it was (Tyler, 2026-11-09: the walls looked \"like dragon scales instead of rocks\"); promoted at the same y 170.",
  "plateShipping": "art/backgrounds/room-46-mine-adit.png",
- "plateShippingHash": "08a5b5e8a889209ccb4a001e496a0383a4e66907a503e7285454289a3e5239ca",
+ "plateShippingHash": "b8d7be765fcb05c8362646cf2b64dd3be9b96ad430be5c51ea496fde2181d1c8",
  "plateSize": [
   1920,
   864
@@ -289,5 +289,46 @@
  },
  "onEnterSet": {
   "T_MINE_ENTERED": true
- }
+ },
+ "props": [
+  {
+   "id": "lantern_left_opening",
+   "sheet": "art/props/mine-lantern-46.png",
+   "x": 448,
+   "y": 488,
+   "frame": [
+    0,
+    0,
+    33,
+    88
+   ],
+   "note": "An old lantern, unlit, on the post by left_opening (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  },
+  {
+   "id": "lantern_middle_opening",
+   "sheet": "art/props/mine-lantern-46.png",
+   "x": 898,
+   "y": 488,
+   "frame": [
+    0,
+    0,
+    33,
+    88
+   ],
+   "note": "An old lantern, unlit, on the post by middle_opening (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  },
+  {
+   "id": "lantern_right_opening",
+   "sheet": "art/props/mine-lantern-46.png",
+   "x": 1478,
+   "y": 488,
+   "frame": [
+    0,
+    0,
+    33,
+    88
+   ],
+   "note": "An old lantern, unlit, on the post by right_opening (tools/art/mine-lanterns.py): scenery, the same at every way in the room, so none is marked (the brief: the mine must not show the way)."
+  }
+ ]
 }

@@ -17,7 +17,14 @@
   "actVariantsNone": {
    "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "The grog tent is reached only on the trip, in Act II (doc 107). Doc 109 writes its states as the watch's three and the fiddle's two (before and after G5), and the Deacon's before and after the find; the room has no act variation."
-  }
+  },
+  "scenes": [
+   {
+    "name": "THE FIND",
+    "source": "docs/109-fiddlers-gulch-lines.md::THE FIND",
+    "why": "Doc 109: '*G4. LOOK AT THE WATCH, the first time.*' It is the scene the watch's first LOOK plays, not a thing in the tent; it writes no LOOK or LISTEN of its own."
+   }
+  ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 52 — THE GROG TENT",
  "dialogue": {

@@ -16,7 +16,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 IDS = {42: 'barbers', 38: 'photographers_studio', 37: 'boarding_house_parlour', 39: 'bakehouse', 40: 'empty_storefront',
        41: 'schoolhouse', 45: 'washout', 46: 'mine_adit', 47: 'mine_climb', 48: 'mine_two_rocks', 49: 'mine_line',
-       50: 'ledge'}
+       50: 'ledge', 51: 'gulch_tents', 52: 'grog_tent'}
 # WHERE THAD STANDS FOR THE PICTURE, where nobody lives and the entrance is at an edge (Fiddler's Gulch): on the floor,
 # in the room's own walk band, clear of every figure.
 STANDS = {45: (760, 812), 46: (760, 800), 47: (980, 790), 48: (1080, 790), 49: (720, 800), 50: (600, 600)}

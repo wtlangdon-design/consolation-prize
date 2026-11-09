@@ -178,3 +178,22 @@ test('a save keeps the mine\'s place: the wrong-way count and the crossing are f
     assert.ok(flags.some((flag) => flag.id === id), `${id} is a declared flag, so a save restores it`);
   }
 });
+
+// THE LANTERNS ARE SCENERY, AND MARK NO WAY (Tyler, 2026-11-09: lanterns "of the era", "Unlit, as scenery"). Every way
+// on in a mine room has its lantern, every lantern in the room is the same drawing at the same size and height, and
+// one is flipped only to mirror its room's own mirror (Room 49's passages). A lantern on the right way alone, or a
+// bigger or a lower one there, would be a sign; the mine must not show the way (the brief).
+test('the mine\'s lanterns mark no way: one on every way on, all alike in a room', async () => {
+  const content = await loadContent(fsReader);
+  const mine = [...content.rooms.values()].filter((room) => /^mine_/.test(room.id));
+  assert.ok(mine.length >= 4, 'the four mine rooms');
+  for (const room of mine) {
+    const lanterns = (room.props ?? []).filter((prop) => prop.id.startsWith('lantern_'));
+    const onward = (room.exits ?? []).filter((exit) => !/back|washout/.test(exit.id));
+    for (const exit of onward) assert.ok(lanterns.some((one) => one.id === `lantern_${exit.id}`), `${room.id}: ${exit.id} has its lantern`);
+    const sizes = new Set(lanterns.map((one) => `${one.frame?.[2]}x${one.frame?.[3]}@${one.y}`));
+    assert.equal(sizes.size, 1, `${room.id}: every lantern the same size at the same height`);
+    const drawings = new Set(lanterns.map((one) => one.sheet.replace(/-flip(?=\.png$)/, '')));
+    assert.equal(drawings.size, 1, `${room.id}: one drawing, flipped only to mirror`);
+  }
+});

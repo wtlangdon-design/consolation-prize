@@ -462,7 +462,8 @@
     },
     "carrying": [
      "invitation",
-     "deed"
+     "deed",
+     "third_copy"
     ],
     "notCarrying": [
      "filing_fee"
@@ -533,7 +534,10 @@
     "flags": {
      "T_VESSEL_LOCATION": true,
      "ASSAY_PAIR_16": true
-    }
+    },
+    "carrying": [
+     "clarion"
+    ]
    }
   },
   {
@@ -565,6 +569,57 @@
    }
   },
   {
+   "id": "G1.1",
+   "puzzle": "G1",
+   "do": "go",
+   "room": "nugget"
+  },
+  {
+   "id": "G1.2",
+   "puzzle": "G1",
+   "do": "use",
+   "item": "tuning_fork",
+   "on": "piano",
+   "expect": {
+    "carrying": [
+     "filing_fee"
+    ]
+   }
+  },
+  {
+   "id": "G1.3",
+   "puzzle": "G1",
+   "do": "go",
+   "room": "ozymandias_tent"
+  },
+  {
+   "id": "G1.4",
+   "puzzle": "G1",
+   "do": "talk",
+   "npc": "ozymandia",
+   "choose": [
+    "ozymandia9"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "G1"
+    ],
+    "carrying": [
+     "brass_rod"
+    ],
+    "notCarrying": [
+     "filing_fee"
+    ]
+   }
+  },
+  {
+   "id": "G1.5",
+   "puzzle": "G1",
+   "do": "go",
+   "room": "livery"
+  },
+  {
    "id": "B3.1",
    "puzzle": "B3",
    "do": "use",
@@ -575,34 +630,109 @@
      "B3"
     ],
     "flags": {
-     "T_VESSEL_FOUND": true
+     "T_GULCH_TRIP": true
     },
-    "room": "nugget"
+    "room": "washout"
+   }
+  },
+  {
+   "id": "G2.1",
+   "puzzle": "G2",
+   "do": "go",
+   "room": "ledge",
+   "expect": {
+    "puzzles": [
+     "G2"
+    ],
+    "flags": {
+     "T_MINE_CROSSED": true
+    }
+   }
+  },
+  {
+   "id": "G3.1",
+   "puzzle": "G3",
+   "do": "go",
+   "room": "gulch_tents"
+  },
+  {
+   "id": "G3.2",
+   "puzzle": "G3",
+   "do": "use",
+   "item": "clarion",
+   "on": "gulch_lookout",
+   "expect": {
+    "puzzles": [
+     "G3"
+    ],
+    "flags": {
+     "T_CAMP_TRUSTS": true
+    },
+    "notCarrying": [
+     "clarion"
+    ]
+   }
+  },
+  {
+   "id": "G4.1",
+   "puzzle": "G4",
+   "do": "go",
+   "room": "grog_tent"
+  },
+  {
+   "id": "G4.2",
+   "puzzle": "G4",
+   "do": "verb",
+   "on": "watch",
+   "verb": "LOOK_AT",
+   "expect": {
+    "puzzles": [
+     "G4"
+    ],
+    "flags": {
+     "T_DEACON_FOUND": true
+    }
+   }
+  },
+  {
+   "id": "G5.1",
+   "puzzle": "G5",
+   "do": "use",
+   "item": "tuning_fork",
+   "on": "fiddle",
+   "expect": {
+    "puzzles": [
+     "G5"
+    ],
+    "flags": {
+     "T_PLANK_SEAT": true
+    }
    }
   },
   {
    "id": "B4.1",
    "puzzle": "B4",
-   "do": "go",
-   "room": "nugget_back",
-   "expect": {
-    "present": [
-     "deke_vessel"
-    ]
-   }
-  },
-  {
-   "id": "B4.2",
-   "puzzle": "B4",
    "do": "talk",
-   "npc": "deke_vessel",
+   "npc": "gulch_deacon",
    "choose": [
-    "ves_b1_6"
+    "ves_g1_6"
    ],
    "expect": {
     "puzzles": [
      "B4"
-    ]
+    ],
+    "flags": {
+     "T_DUEL_ONE_CALLED": true
+    }
+   }
+  },
+  {
+   "id": "B5.0",
+   "puzzle": "B5",
+   "do": "go",
+   "room": "gulch_river",
+   "expect": {
+    "dialogue": "DEACON"
    }
   },
   {
@@ -616,10 +746,115 @@
     ],
     "flags": {
      "T_DUEL_ONE_LOST": true,
+     "T_DUEL_ONE_CALLED": false,
      "ASSAY_PAIR_01": true,
      "ASSAY_PAIR_04": true
     },
     "dialogue": null
+   }
+  },
+  {
+   "id": "G8.1",
+   "puzzle": "G8",
+   "do": "talk",
+   "npc": "gulch_panner",
+   "choose": [
+    "gulch_panner6"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_GULCH_MESSAGE_UP": true
+    }
+   }
+  },
+  {
+   "id": "G8.2",
+   "puzzle": "G8",
+   "do": "go",
+   "room": "upstream"
+  },
+  {
+   "id": "G8.3",
+   "puzzle": "G8",
+   "do": "talk",
+   "npc": "gulch_man_upstream",
+   "choose": [
+    "gulch_man_upstream6"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "ASSAY_PAIR_25": true,
+     "T_GULCH_MESSAGE_DOWN": true
+    }
+   }
+  },
+  {
+   "id": "G8.4",
+   "puzzle": "G8",
+   "do": "go",
+   "room": "gulch_river"
+  },
+  {
+   "id": "G8.5",
+   "puzzle": "G8",
+   "do": "talk",
+   "npc": "gulch_panner",
+   "choose": [
+    "gulch_panner7"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "G8"
+    ],
+    "flags": {
+     "ASSAY_PAIR_26": true
+    }
+   }
+  },
+  {
+   "id": "G9.1",
+   "puzzle": "G9",
+   "do": "go",
+   "room": "grog_tent"
+  },
+  {
+   "id": "G9.2",
+   "puzzle": "G9",
+   "do": "talk",
+   "npc": "gulch_deacon",
+   "choose": [
+    "ves_g1_5"
+   ],
+   "expect": {
+    "puzzles": [
+     "G9"
+    ],
+    "flags": {
+     "T_VESSEL_FOUND": true
+    },
+    "dialogue": null
+   }
+  },
+  {
+   "id": "G9.3",
+   "puzzle": "G9",
+   "do": "go",
+   "room": "washout"
+  },
+  {
+   "id": "G9.4",
+   "puzzle": "G9",
+   "do": "verb",
+   "on": "grievance",
+   "verb": "USE",
+   "expect": {
+    "room": "nugget",
+    "flags": {
+     "T_GULCH_HOME": true
+    }
    }
   },
   {

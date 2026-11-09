@@ -1,0 +1,15 @@
+{
+ "assetId": "room-54",
+ "subject": "room-54-upstream",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-54-upstream",
+ "promptFile": "reference/room-54/prompts/composition-master-01.txt",
+ "out": "art/staging/room-54/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-54/layout-1536x1024.png",
+  "art/backgrounds/room-53-river.png",
+  "art/actors/thad-stand-front/stand-00.png"
+ ]
+}
