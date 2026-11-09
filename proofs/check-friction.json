@@ -385,6 +385,24 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 183, Room 42: doc 105 writes the jar's second LOOK as two quotes with a beat between them, and the extractor now speaks them as one line (the punchline was being dropped). The check looked for that joined line in the docs as one run of text and could not find it, so it also reads the docs with each *(beat)* between two quotes taken out. A line still has to appear in the docs word for word, in order; nothing it guards is weakened. tests/room-42.test.ts holds the joined line."
+  },
+  {
+   "check": "proofs/played-pending.json",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 200: G1 (the rod hire in Room 16) and the three Gulch items (the third copy, the brass rod, the Clarion) are written and their rooms are building, but the hand-overs that give them are part of the brief's last step, the changes in Consolation. They are listed pending with that reason, and tests/items.test.ts fails the moment one gains a source and stays listed, so the entries cannot outlive the work."
+  },
+  {
+   "check": "tests/item-icons-scale.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 200: the icon count held the number 26, and Fiddler's Gulch adds three items with icons. The count now compares the icon table with the manifest's real items in both directions, so a missing icon or a stray cell still fails; it is stricter than the number it replaces."
+  },
+  {
+   "check": "tools/check-written-vs-built.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 199, 200: docs 108 and 109, Fiddler's Gulch's writing, join the documents the check reads, so their lines are held to the ledger like every other source's. The diff reads as a loosening because the SOURCES list changed; nothing was excused. The lines for rooms not yet built (51 to 54, and the changes in Consolation) are listed under gulch-pending until they are."
   }
  ]
 }
