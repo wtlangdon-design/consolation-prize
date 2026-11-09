@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "funeral",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "2a400ee93543c021a87e1d8ad9646491f65dd134",
+ "branch": "scale-vs-thad",
+ "commit": "5fb66dab7042249e12c4b4f3e03a7025e761bea8",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -46,15 +46,15 @@
    ],
    "reportedHeight": 369,
    "expected": 369,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
    "bounds": [
-    768,
+    764,
     372,
-    383,
+    391,
     407
    ],
    "order": 0,
-   "renderedHeight": 389,
+   "renderedHeight": 369,
    "renderedBottom": 740,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
@@ -83,15 +83,15 @@
    ],
    "reportedHeight": 400,
    "expected": 400,
-   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
-    752,
+    748,
     457,
-    415,
+    424,
     442
    ],
    "order": 0,
-   "renderedHeight": 421,
+   "renderedHeight": 401,
    "renderedBottom": 857,
    "file": "raw-captures-ignored/panel-c-mud_near-near.png"
   }
@@ -105,22 +105,22 @@
     616,
     611
    ],
-   "sheet": "art/actors/room-31-undertaker.png",
+   "sheet": "art/actors/room-31-undertaker-master.png",
    "clipPlane": null,
    "box": {
-    "x": 549,
-    "y": 275,
-    "width": 135,
-    "height": 338
+    "x": 552,
+    "y": 211,
+    "width": 129,
+    "height": 402
    },
    "seen": {
-    "x": 549,
+    "x": 552,
     "y": 276,
-    "width": 123,
+    "width": 111,
     "height": 337,
     "bottom": 612,
-    "right": 671,
-    "changed": 25483
+    "right": 662,
+    "changed": 22877
    },
    "props": []
   },
@@ -131,22 +131,22 @@
     828,
     502
    ],
-   "sheet": "art/actors/room-31-sowerby.png",
+   "sheet": "art/actors/room-31-sowerby-master.png",
    "clipPlane": null,
    "box": {
-    "x": 755,
+    "x": 737,
     "y": 188,
-    "width": 147,
+    "width": 182,
     "height": 316
    },
    "seen": {
-    "x": 767,
-    "y": 189,
-    "width": 123,
-    "height": 314,
+    "x": 766,
+    "y": 195,
+    "width": 142,
+    "height": 308,
     "bottom": 502,
-    "right": 889,
-    "changed": 22975
+    "right": 907,
+    "changed": 24189
    },
    "props": []
   },
@@ -157,22 +157,22 @@
     1832,
     602
    ],
-   "sheet": "art/actors/room-31-hob.png",
+   "sheet": "art/actors/room-31-hob-master.png",
    "clipPlane": null,
    "box": {
-    "x": 1758,
-    "y": 234,
-    "width": 149,
-    "height": 370
+    "x": 1746,
+    "y": 202,
+    "width": 173,
+    "height": 402
    },
    "seen": {
-    "x": 1773,
+    "x": 1767,
     "y": 256,
-    "width": 119,
+    "width": 140,
     "height": 347,
     "bottom": 602,
-    "right": 1891,
-    "changed": 24077
+    "right": 1906,
+    "changed": 22146
    },
    "props": []
   },
@@ -198,7 +198,7 @@
     "height": 506,
     "bottom": 701,
     "right": 266,
-    "changed": 78106
+    "changed": 88168
    },
    "props": []
   },
@@ -206,25 +206,25 @@
    "kind": "ambient",
    "id": "funeral_mourners",
    "feet": [
-    1493,
-    668
+    1449,
+    664
    ],
-   "sheet": "art/actors/room-31-mourners.png",
+   "sheet": "art/actors/room-31-mourners-master.png",
    "clipPlane": null,
    "box": {
-    "x": 1220,
-    "y": 296,
-    "width": 546,
-    "height": 374
+    "x": 1228,
+    "y": 261,
+    "width": 443,
+    "height": 405
    },
    "seen": {
-    "x": 1232,
-    "y": 297,
-    "width": 522,
-    "height": 372,
-    "bottom": 668,
-    "right": 1753,
-    "changed": 142774
+    "x": 1242,
+    "y": 282,
+    "width": 416,
+    "height": 383,
+    "bottom": 664,
+    "right": 1657,
+    "changed": 104457
    },
    "props": []
   }
@@ -233,7 +233,7 @@
   {
    "panel": "B",
    "room": "funeral",
-   "clock": 9.6292,
+   "clock": 10.561,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -264,19 +264,33 @@
     "T_OBITUARY",
     "T_COFFIN_SIZED",
     "T_SOWERBY_PRICE",
-    "T_FUNERAL_BOOKED"
+    "T_FUNERAL_BOOKED",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_FANSHAWE"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 3,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
-    "PICK_SWINGS": 0
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -296,11 +310,11 @@
      "height": 385,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
-      100,
+      96,
       415,
-      399,
+      408,
       425
      ],
      "order": 0,
@@ -325,39 +339,39 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
+     "hash": "3f3781cf46ffaa57493b1d5554aa41b8c5d46959685c3e7901f5790e3b432105"
     },
     {
-     "key": "art/actors/room-31-hob.png",
-     "path": "art/actors/room-31-hob.png",
-     "drawn": "art/actors/room-31-hob.png",
+     "key": "art/actors/room-31-hob-master.png",
+     "path": "art/actors/room-31-hob-master.png",
+     "drawn": "art/actors/room-31-hob-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "942835063b3fe67bf86a45afa473c84131565605a0b71ce4ee39f59de840480b"
+     "hash": "29ca999bdb1be0b66dbfd1e5d4f062f49a326c9fd89fc87b47d4586d9d3e6927"
     },
     {
-     "key": "art/actors/room-31-mourners.png",
-     "path": "art/actors/room-31-mourners.png",
-     "drawn": "art/actors/room-31-mourners.png",
+     "key": "art/actors/room-31-mourners-master.png",
+     "path": "art/actors/room-31-mourners-master.png",
+     "drawn": "art/actors/room-31-mourners-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
+     "hash": "7e4b77b0f58ef7a8dce9edf6621d5567d983f1bfeb7517b01fa09e15933f4a62"
     },
     {
-     "key": "art/actors/room-31-sowerby.png",
-     "path": "art/actors/room-31-sowerby.png",
-     "drawn": "art/actors/room-31-sowerby.png",
+     "key": "art/actors/room-31-sowerby-master.png",
+     "path": "art/actors/room-31-sowerby-master.png",
+     "drawn": "art/actors/room-31-sowerby-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
+     "hash": "cbd09ef0e7d05e4842ab243ff53a422421b39f787f51f0e39036d2466eaf07bf"
     },
     {
-     "key": "art/actors/room-31-undertaker.png",
-     "path": "art/actors/room-31-undertaker.png",
-     "drawn": "art/actors/room-31-undertaker.png",
+     "key": "art/actors/room-31-undertaker-master.png",
+     "path": "art/actors/room-31-undertaker-master.png",
+     "drawn": "art/actors/room-31-undertaker-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
+     "hash": "64e4c5ee215f9e43abc08e34999717ba63d5f3115a3e40a0f32facfa19fa7d62"
     }
    ],
    "stubs": [],
@@ -365,15 +379,15 @@
    "controlWrites": [
     "enter(funeral)"
    ],
-   "capturedAt": "2026-11-06T00:28:50.191Z",
+   "capturedAt": "2026-11-09T19:26:02.656Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "5a25fdecdf682f4bc9553faf91622fd85e905675706abc1b65d985a4fc2b45fb"
+   "hash": "008085c6e2583f0adb56b4b9a3d670682ff0a99a4f31299c86cfc90a5a069b72"
   },
   {
    "panel": "A",
    "room": "funeral",
-   "clock": 10.4792,
+   "clock": 11.5276,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -404,19 +418,33 @@
     "T_OBITUARY",
     "T_COFFIN_SIZED",
     "T_SOWERBY_PRICE",
-    "T_FUNERAL_BOOKED"
+    "T_FUNERAL_BOOKED",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_FANSHAWE"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 3,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
-    "PICK_SWINGS": 0
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -460,39 +488,39 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
+     "hash": "3f3781cf46ffaa57493b1d5554aa41b8c5d46959685c3e7901f5790e3b432105"
     },
     {
-     "key": "art/actors/room-31-hob.png",
-     "path": "art/actors/room-31-hob.png",
-     "drawn": "art/actors/room-31-hob.png",
+     "key": "art/actors/room-31-hob-master.png",
+     "path": "art/actors/room-31-hob-master.png",
+     "drawn": "art/actors/room-31-hob-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "942835063b3fe67bf86a45afa473c84131565605a0b71ce4ee39f59de840480b"
+     "hash": "29ca999bdb1be0b66dbfd1e5d4f062f49a326c9fd89fc87b47d4586d9d3e6927"
     },
     {
-     "key": "art/actors/room-31-mourners.png",
-     "path": "art/actors/room-31-mourners.png",
-     "drawn": "art/actors/room-31-mourners.png",
+     "key": "art/actors/room-31-mourners-master.png",
+     "path": "art/actors/room-31-mourners-master.png",
+     "drawn": "art/actors/room-31-mourners-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
+     "hash": "7e4b77b0f58ef7a8dce9edf6621d5567d983f1bfeb7517b01fa09e15933f4a62"
     },
     {
-     "key": "art/actors/room-31-sowerby.png",
-     "path": "art/actors/room-31-sowerby.png",
-     "drawn": "art/actors/room-31-sowerby.png",
+     "key": "art/actors/room-31-sowerby-master.png",
+     "path": "art/actors/room-31-sowerby-master.png",
+     "drawn": "art/actors/room-31-sowerby-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
+     "hash": "cbd09ef0e7d05e4842ab243ff53a422421b39f787f51f0e39036d2466eaf07bf"
     },
     {
-     "key": "art/actors/room-31-undertaker.png",
-     "path": "art/actors/room-31-undertaker.png",
-     "drawn": "art/actors/room-31-undertaker.png",
+     "key": "art/actors/room-31-undertaker-master.png",
+     "path": "art/actors/room-31-undertaker-master.png",
+     "drawn": "art/actors/room-31-undertaker-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
+     "hash": "64e4c5ee215f9e43abc08e34999717ba63d5f3115a3e40a0f32facfa19fa7d62"
     }
    ],
    "stubs": [],
@@ -501,15 +529,15 @@
     "enter(funeral)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-06T00:28:51.038Z",
+   "capturedAt": "2026-11-09T19:26:03.653Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "a3eb7cda689cd13b371c51c67f8973c2613b9da9662c62e0c56ff07f15f6670d"
+   "hash": "601aabef5158c7249a95d743ece8e9ddcee9aaf753842a6d17b4e642bc50b68c"
   },
   {
    "panel": "D",
    "room": "funeral",
-   "clock": 19.4955,
+   "clock": 30.0936,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -542,19 +570,33 @@
     "T_SOWERBY_PRICE",
     "T_FUNERAL_BOOKED",
     "T_GRAVE_LOOKED",
-    "T_GOOD_TURNOUT"
+    "T_GOOD_TURNOUT",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_FANSHAWE"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 3,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
-    "PICK_SWINGS": 0
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -566,7 +608,7 @@
    "movers": {
     "thad": {
      "at": [
-      499,
+      521,
       857
      ],
      "facing": "left",
@@ -576,7 +618,7 @@
      "drawn": "sprite",
      "from": "art/actors/thad-walk-left/walk-05.png",
      "bounds": [
-      286,
+      308,
       457,
       403,
       429
@@ -603,31 +645,31 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
+     "hash": "3f3781cf46ffaa57493b1d5554aa41b8c5d46959685c3e7901f5790e3b432105"
     },
     {
-     "key": "art/actors/room-31-mourners.png",
-     "path": "art/actors/room-31-mourners.png",
-     "drawn": "art/actors/room-31-mourners.png",
+     "key": "art/actors/room-31-mourners-master.png",
+     "path": "art/actors/room-31-mourners-master.png",
+     "drawn": "art/actors/room-31-mourners-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
+     "hash": "7e4b77b0f58ef7a8dce9edf6621d5567d983f1bfeb7517b01fa09e15933f4a62"
     },
     {
-     "key": "art/actors/room-31-sowerby.png",
-     "path": "art/actors/room-31-sowerby.png",
-     "drawn": "art/actors/room-31-sowerby.png",
+     "key": "art/actors/room-31-sowerby-master.png",
+     "path": "art/actors/room-31-sowerby-master.png",
+     "drawn": "art/actors/room-31-sowerby-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
+     "hash": "cbd09ef0e7d05e4842ab243ff53a422421b39f787f51f0e39036d2466eaf07bf"
     },
     {
-     "key": "art/actors/room-31-undertaker.png",
-     "path": "art/actors/room-31-undertaker.png",
-     "drawn": "art/actors/room-31-undertaker.png",
+     "key": "art/actors/room-31-undertaker-master.png",
+     "path": "art/actors/room-31-undertaker-master.png",
+     "drawn": "art/actors/room-31-undertaker-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
+     "hash": "64e4c5ee215f9e43abc08e34999717ba63d5f3115a3e40a0f32facfa19fa7d62"
     }
    ],
    "stubs": [],
@@ -636,18 +678,20 @@
     "enter(funeral)",
     "cast(false)",
     "cast(true)",
+    "bystanders(false)",
     "stand(960,741)",
     "cast(false)",
     "cast(true)",
     "stand(960,857)",
     "cast(false)",
     "cast(true)",
+    "bystanders(true)",
     "flag T_GRAVE_LOOKED=true"
    ],
-   "capturedAt": "2026-11-06T00:29:00.081Z",
+   "capturedAt": "2026-11-09T19:26:22.238Z",
    "intent": "principal changed state: S2 BEAT 3 (doc 48; doc 54: 'S2's beat 3 fires on the second LOOK at the grave'). Prerequisite: the first LOOK, T_GRAVE_LOOKED, set by the flag control. Visible consequence: the grave's second line, then 'Good turnout.' from the back, and he walks.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "57a21a79558f3c8877dcf8721017522c00183a1e31735718bafb80f3c910ca02",
+   "hash": "d1b1b738db2d20b6437c00b9b629b9a04a7fae588ae4949302d1fdbad7392663",
    "changedBy": "flags"
   }
  ],
@@ -678,11 +722,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-06T00:29:00.081Z",
+ "at": "2026-11-09T19:26:22.238Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 477474,
+  "bytes": 483568,
   "panels": 5,
   "scale": 0.5
  }
