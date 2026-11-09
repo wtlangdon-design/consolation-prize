@@ -1,0 +1,562 @@
+{
+  "schema": 1,
+  "note": "Phrases tools/check-narration-templates.mjs lets Thad use under four or more subjects (errata 226). Each entry's `why` quotes the ruling that allows the phrase, or says it was found by the check's first run and is waiting for the voice pass. Adding an entry is loosening the check: record it in proofs/check-friction.json. An entry that falls under four is reported every run; take it off.",
+  "entries": [
+    {
+      "text": "twelve years",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "great deal",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "long way",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "long time",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "forty feet",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "like a man",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "every man",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nothing it's waiting",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "wind across",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "it is the only thing",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "door opens",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "looks like",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "whole town",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "thing in consolation",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "everything else",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "four dollars",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "great many",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "hundred miles",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nine years",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "two dollars",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "come back",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "look like",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "sounds like",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nothing to add",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nothing else",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "somebody else",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "i am not going to",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "is the only thing in",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "not going to be the",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "four hundred miles",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "since i arrived",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "anything else",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "faint ring",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "four times",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "loose board",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "mott's strike",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "never seen",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "say anything",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "way back",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "wind coming",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "from here you can see",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "i'm not going to be",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "in the draft from the",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "it's the only thing in",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "like to know",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "man in consolation",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nobody has ever",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nothing to say",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "best kept",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "door goes",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "every claim",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "floor moves",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "front page",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "honest thing",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "livery man",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "long enough",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nothing behind",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "street muffled",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "ten thousand",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "thousand men",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "two men",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "at the height of a",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "air and a drip",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "claim in the district",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "draft from the door",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nothing for a moment",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "half a step",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "thing in town",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "three thousand miles",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "brass plate",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "coming back",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "drip somewhere",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "eleven minutes",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "exactly like",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "far end",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "far side",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "first time",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "four hundred",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "four minutes",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "good collar",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "keeping time",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "little flat",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "man behind",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "night cools",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "page lifting",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "piano man",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "said nothing",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "six inches",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "somebody else's",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "tuning fork",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "two days",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "two thousand",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "worn bright",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "worn smooth",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nothing it is the quietest",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "which in this town is",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "boots on the boardwalk",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "four hundred and forty",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "half a step flat",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nothing it has said",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nothing it is waiting",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "thing in the building",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "waiting for the next",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "best kept thing",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "dollars a week",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "going to ask",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "going to say",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "note a little",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "put it back",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "put it right",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "said its piece",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "two thousand people",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "way i came",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "assay office",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "back room",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "every day",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "every time",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "first thing",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "go back",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "going round",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "honest work",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "inner door",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "kept quiet",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "men going",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nobody ever",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nobody walks",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nothing left",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "nowhere else",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "quarter turn",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "small brass",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "somebody built",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "somebody laughing",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "still nothing",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "street door",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "thousand miles",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "tied back",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "town built",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "warm air",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    },
+    {
+      "text": "wide enough",
+      "why": "found by the first run, errata 226; awaiting the voice pass"
+    }
+  ]
+}

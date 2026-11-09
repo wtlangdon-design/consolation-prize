@@ -6113,3 +6113,44 @@ These come from the feel review of errata 221's playthrough. Tyler answered on 2
     - the first visit is the meeting, and later visits say the return line;
     - no opening that calls the player new can be said twice.
   - With the runner's change removed, three of these fail.
+
+# 226 · REPEATS AND NARRATION HABITS, CAUGHT BY A CHECK — the feel review of errata 221's transcript, 2026-11-09
+
+The feel review found two jokes told whole on every visit (Sump's "circular… linear", Frame's "You're new!"; errata 224, 225) and three of Thad's habits: "The first X in Y" four times, "four minutes" five times, and two lines in a row shaped "…which I am told is…". A person reading a transcript found them. Two checks in `tools/run-all.mjs` now look for them on every run.
+
+- **`tools/check-repeated-lines.mjs`: nothing seen whole twice on the main path.**
+  - It plays `tests/data/full-game-walkthrough.json` through GameState, as `tests/full-game.test.ts` does (`tools/lib/main-path-lines.mjs`).
+  - It writes down every line the screen would show, in order: openings, greetings, Thad's echoes, replies, verb lines, arrival lines, act lines, barks and cut-aways. A direction a figure acts (doc 95) is not shown, so it is not counted.
+  - It fails on any line of six words or more seen in full more than once, whoever says it.
+  - Three things are not repeats:
+    - the universal exit pool, which rotates (errata 167);
+    - a [COMIC] option the walkthrough picks again, with its answer;
+    - a line on `content/checks/repeat-allowlist.json`, whose `why` must quote a ruling.
+  - Barks assume Thad walks up to everyone in every room he enters, which is the most a player could hear. A calling-out shout runs on the clock and is not modelled; errata 222 and 224 hold it.
+  - The run must break exactly where the walkthrough's `knownBreaks` say, so the transcript is always the main path.
+- **What its first run found** (all now on the allowlist):
+  - **Repeats a ruling wants.** Sixteen lines:
+    - the Assay's boasts and counters, heard in one duel and said in the next (doc 03: "the boast becomes available for Thad to use himself"; Fanshawe's "returning boasts … which the player will recognise");
+    - Sowerby's five rules, read before Duel Two and Duel Three (doc 03: he "reads aloud at unbearable length before every match");
+    - Frame's return greeting, said twice in Act III (doc 04, FRA_A1: "every visit after the first", errata 225).
+  - **Repeats awaiting a fix.** Three lines:
+    - Ozymandia's "The rod has been expecting you." opens her tree on all three visits (A7, G1, B6);
+    - the panner's "If he sent you, tell him I've found nothing. Nothing at all." opens PAN_G1 on both visits in G8;
+    - Thad's "Have you ever been in the Liar's Assay?" is asked of Frame, the livery man and Sheng, written the same in each of their trees.
+- **`tools/check-narration-templates.mjs`: Thad's habits across the whole game.**
+  - It reads every line of Thad's in the content the game can reach from its start room. The harness rooms and tree are not reached.
+  - It counts phrases of three to five words, with their leading and trailing stopwords taken off, so "in four minutes" and "four minutes ago" are both "four minutes". A five-word shape around a single word is kept whole ("it is the only thing", "which I am told is").
+  - Phrases made only of stopwords and names are skipped. A name is what Thad capitalises mid-sentence nearly every time ("Main Street", "Boot Hill").
+  - It counts **subjects, not lines.** Three LOOKs at one loose board are the board; "four minutes" said of four pianos is a habit.
+  - Every phrase under more than two subjects is listed, ranked. A phrase under four or more fails, unless `content/checks/narration-allowlist.json` lists it.
+- **What its first run found.** 139 phrases at four or more, seeded on the allowlist as "awaiting the voice pass".
+  - The top of the list: "twelve years" x29, "great deal" x23, "long way" x21, "long time" x18, "forty feet" x16, "like a man" x15, "nothing it's waiting" x13, "it is the only thing" x12.
+  - Some are the town's facts rather than habits ("twelve years", "forty feet", "four dollars"). Which to keep is for the voice pass.
+  - The review's own examples: "four minutes" x5, "first time" x5. "Which I am told is" is in only two lines in the game, so no count finds it. What the review heard was the two lines back to back, and neither check reads order.
+- **Left for Tyler.**
+  - The three repeats awaiting a fix, and the 139 phrases awaiting the voice pass. The check passes today only because they are listed.
+  - The thresholds: six words for a repeat, four subjects for a habit. Both are first guesses.
+- **The allowlists are exception lists.** Adding to either loosens its check, so `tools/check-friction.mjs` now counts them as it counts `duplicate-allowlist.json`.
+- Lesson:
+  - `tests/repeated-lines.test.mjs` proves each rule on a made-up transcript. It also takes errata 224's `openingOnce` back off Sump and errata 225's back off Frame, and the check names "That would be circular, and this office is linear." and "'I'd… rather… not,' says mystery man.". The game as it stands passes.
+  - `tests/narration-templates.test.mjs` proves each rule on made-up lines, plants a four-subject habit in the real game's lines and fails on it, and passes the game as it stands.

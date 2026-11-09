@@ -511,6 +511,18 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 224: not loosened, tightened. The E1/E2 test's one line that asked options 1 and 2 became option 1, then two new assertions (the citation is hidden until section nineteen is heard; the Act III question is offered instead), then 2a and 2. The friction check matched the option numbers on the removed and added lines. Every assertion the test had is still there."
+  },
+  {
+   "check": "content/checks/repeat-allowlist.json",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 226: the list is new, and is seeded with what the check's first run found on main, so the check passes the day it lands. Sixteen lines a ruling wants said again (doc 03's Assay pairs and Sowerby's rules, doc 04's Frame return greeting) and three awaiting a fix. Not a misfire: the list is the finding, made visible."
+  },
+  {
+   "check": "content/checks/narration-allowlist.json",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 226: the list is new, and is seeded with what the check's first run found on main, so the check passes the day it lands. 139 phrases at four or more subjects, awaiting the voice pass. Not a misfire: the list is the finding, made visible."
   }
  ]
 }

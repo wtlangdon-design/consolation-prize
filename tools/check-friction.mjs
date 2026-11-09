@@ -10,7 +10,8 @@
  * 1. A PULL REQUEST THAT LOOSENS A CHECK RECORDS IT. Loosening is: changing a
  *    line with a number in it in a check or test that already existed
  *    (a threshold), adding to an exception list (proofs/played-pending.json,
- *    content/ui/duplicate-allowlist.json), or adding a `movementException`.
+ *    content/ui/duplicate-allowlist.json, errata 226's two in content/checks/),
+ *    or adding a `movementException`.
  *    Such a pull request must add an entry to proofs/check-friction.json:
  *    { "check": "<file>", "date": "YYYY-MM-DD", "kind": "loosened",
  *      "why": "<what it misfired on>" }.
@@ -43,7 +44,9 @@ const existedInBase = (file) => {
   try { git('cat-file', '-e', `${base}:${file}`); return true; } catch { return false; }
 };
 const isCheck = (file) => /^tests\/.+\.test\.(ts|mjs)$/.test(file) || /^tools\/check-.+\.mjs$/.test(file);
-const EXCEPTION_FILES = ['proofs/played-pending.json', 'content/ui/duplicate-allowlist.json'];
+const EXCEPTION_FILES = ['proofs/played-pending.json', 'content/ui/duplicate-allowlist.json',
+  // Errata 226's two allowlists: a line or a phrase added to either is let past its check.
+  'content/checks/repeat-allowlist.json', 'content/checks/narration-allowlist.json'];
 
 // What this pull request loosens, by the check or list it loosens.
 const loosened = new Set();
