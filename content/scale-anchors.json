@@ -39,25 +39,218 @@
  "animals": [
   {
    "figure": "hitching_horses",
-   "horse": "the black with the blaze, head up, in the rest frame",
+   "animal": "the black with the blaze, head up, in the rest frame",
    "frame": 0,
    "columns": [
     48,
     160
+   ],
+   "feet": "hooves",
+   "top": "ear tips",
+   "height": [
+    1.22,
+    1.4
    ],
    "withersRow": 118,
    "withers": [
     0.82,
     0.95
    ],
-   "ears": [
-    1.22,
-    1.4
-   ],
+   "basis": "A riding horse of 15-16 hands (1.52-1.63 m at the withers) beside a man of about 1.72 m: withers 0.88-0.95 of him, and ears, head up, 2.1-2.4 m.",
    "ruling": "A full-sized riding horse beside a man: withers at his shoulder or a little above, ear tips clearly above his head.",
    "by": "Tyler, 2026-11-08",
    "quote": "And maybe slightly bigger since it looks like maybe Thad is their height standing next to them? I just want everything to scale correctly.",
    "note": "Errata 201. Measured against the room's man WHERE THE HORSE STANDS, at its front hooves, not at the frame's foot. The ear tips and hooves are read from the sheet (the top and bottom opaque rows of `columns`: the black's head, chest and front legs); the withers row is declared, where the crest of the neck meets the front of the saddle. Thad's shoulder is 0.82 of his height, the bottom of the withers range. Errata 198's size had the black's ears at 1.19 of the man at its hooves (Thad's height, as Tyler saw) and fails here."
+  },
+  {
+   "figure": "other_mules",
+   "animal": "the left-hand mule in the pen, facing out, head up, in the rest frame",
+   "frame": 0,
+   "columns": [
+    12,
+    79
+   ],
+   "feet": "hooves",
+   "top": "ear tips",
+   "height": [
+    1.1,
+    1.35
+   ],
+   "basis": "A mule of 13-15.2 hands (1.32-1.57 m at the withers; most of the West's pack and harness mules) beside a man of about 1.72 m: withers 0.77-0.91 of him. Her head carried naturally, the poll stands about 0.3 m over the withers and the long ears another 0.3 m, so the ear tips are 1.9-2.3 m: 1.10-1.35 of him.",
+   "ruling": "A mule beside a man: her ear tips a head and more above his.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "The anchor is her hooves (the frame's last rows; the rail rows between are dropped). Her withers are behind the pen's top rail, so only the ear tips are measured."
+  },
+  {
+   "figure": "grievance",
+   "animal": "Grievance looking out over her half door, in the rest frame",
+   "frame": 0,
+   "columns": [
+    45,
+    136
+   ],
+   "feetY": 608,
+   "feet": "hooves",
+   "top": "ear tips",
+   "height": [
+    1.1,
+    1.35
+   ],
+   "basis": "A mule of 13-15.2 hands (1.32-1.57 m at the withers; most of the West's pack and harness mules) beside a man of about 1.72 m: withers 0.77-0.91 of him. Her head carried naturally, the poll stands about 0.3 m over the withers and the long ears another 0.3 m, so the ear tips are 1.9-2.3 m: 1.10-1.35 of him.",
+   "ruling": "A mule beside a man: her ear tips a head and more above his.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "HER ANCHOR IS NOT HER FEET: `y` (430) is the half door's top, where tools/art/room15-figures.py cut her. Her hooves are behind the door, so `feetY` declares where they stand: the stall floor at the door's foot, y 608 on the plate (the open door's foot is 618 in grievance_out). Her withers are behind the door."
+  },
+  {
+   "figure": "grievance_out",
+   "animal": "Grievance stepping out of her stall, facing us (frame 1; frame 0 is empty until the fork acts)",
+   "frame": 1,
+   "columns": [
+    474,
+    534
+   ],
+   "feet": "hooves",
+   "top": "ear tips",
+   "height": [
+    1.1,
+    1.35
+   ],
+   "basis": "A mule of 13-15.2 hands (1.32-1.57 m at the withers; most of the West's pack and harness mules) beside a man of about 1.72 m: withers 0.77-0.91 of him. Her head carried naturally, the poll stands about 0.3 m over the withers and the long ears another 0.3 m, so the ear tips are 1.9-2.3 m: 1.10-1.35 of him.",
+   "ruling": "A mule beside a man: her ear tips a head and more above his.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "Her own columns only: the open door (from 460) and the dark stall behind her (to 585) are in the same frame. Her hooves are row 445; the frame's last row (459) is `y`.",
+   "knownWrong": {
+    "measured": {
+     "height": 1.067
+    },
+    "why": "Stepping out she is drawn at the size she has in the stall, but 68 px nearer: her hooves are at y 676, where the room's man is 349, against 303 at the stall floor. So she shrinks against a man as she comes toward us: 1.07 here, 1.19 over the door.",
+    "fix": "Re-cut grievance_out frames 1-3 about 1.12x larger about her hooves (tools/art/grievance-out.py), so her ears stand about 1.19 of the man at y 676, as they do over the door; no image operation."
+   }
+  },
+  {
+   "figure": "funeral_grievance",
+   "animal": "Grievance in the hearse harness, head lowered, in the rest frame",
+   "frame": 0,
+   "columns": [
+    15,
+    160
+   ],
+   "topRow": 125,
+   "feetRow": 415,
+   "withersRow": 155,
+   "withers": [
+    0.75,
+    0.9
+   ],
+   "feet": "hooves",
+   "top": "ear tips",
+   "basis": "A mule of 13-15.2 hands (1.32-1.57 m at the withers; most of the West's pack and harness mules) beside a man of about 1.72 m: withers 0.77-0.91 of him. Her head carried naturally, the poll stands about 0.3 m over the withers and the long ears another 0.3 m, so the ear tips are 1.9-2.3 m: 1.10-1.35 of him.",
+   "ruling": "A mule beside a man: her withers at his shoulder or a little below.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "Her frame carries the strip of hearse and a patch of the hill's grass under her, so neither her top nor her feet can be read from the pixels: her front hooves are row 415 (the frame's last row, 504, is `y`), her ear tips row 125 (the black plume rises above them to row 47), and her withers row 155, where her neck meets the harness saddle. Her head is lowered in the harness, so her ear tips stand only about as high as her withers and are not held to a mule's head-up range; the withers are the measure."
+  },
+  {
+   "figure": "dog",
+   "animal": "the dog asleep in the road, lying down, in the rest frame",
+   "frame": 0,
+   "columns": [
+    0,
+    112
+   ],
+   "feet": "belly",
+   "top": "back",
+   "height": [
+    0.15,
+    0.3
+   ],
+   "length": [
+    0.45,
+    0.75
+   ],
+   "basis": "A medium-to-large dog (55-65 cm at the shoulder) lying down beside a man of about 1.72 m: its back 26-52 cm off the ground (0.15-0.30 of him, curled or lying on his chest), and 0.8-1.3 m nose to tail as it lies (0.45-0.75). The dog's own note: 1.15 m nose to tail, 113 px at a man of 172.",
+   "ruling": "A dog lying in the road: about knee-high to a man, and about two-thirds of him long.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "The anchor is the frame's last row, which is where he lies (two empty rows under him)."
+  },
+  {
+   "figure": "dawn_dog",
+   "animal": "the same dog on his back in the road at dawn, legs folded up, in the rest frame",
+   "frame": 0,
+   "columns": [
+    0,
+    118
+   ],
+   "feet": "back",
+   "top": "paws",
+   "length": [
+    0.45,
+    0.75
+   ],
+   "basis": "The same dog: 0.8-1.3 m nose to tail as he lies (0.45-0.75 of a man of about 1.72 m). On his back his height is his folded legs, which is a pose and not a size, so only his length is measured; Room 2's dog measures 0.634.",
+   "ruling": "The same dog as Room 2's, the same length.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "The anchor is the frame's last row; his tail lies along the ground below his back (rows 76-83)."
+  },
+  {
+   "figure": "alley_cat",
+   "animal": "the cat sitting on the top crate, in the rest frame",
+   "frame": 0,
+   "columns": [
+    0,
+    46
+   ],
+   "groundY": 690,
+   "feet": "seat",
+   "top": "ear tips",
+   "height": [
+    0.16,
+    0.24
+   ],
+   "basis": "A domestic cat (23-25 cm at the shoulder) sitting upright: ear tips 28-41 cm above what she sits on, 0.16-0.24 of a man of about 1.72 m.",
+   "ruling": "A cat sitting up: her ears below a man's knee.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "HER ANCHOR IS THE CRATE'S LID (y 556), NOT THE FLOOR: she sits on the top crate, so her height is measured from the lid, and the man she is held to is the one at the crate stack's foot on the plate, y 690, the depth she sits at."
+  },
+  {
+   "figure": "raccoon",
+   "animal": "the raccoon sitting up in the mouth of the hole, in the rest frame",
+   "frame": 0,
+   "columns": [
+    0,
+    74
+   ],
+   "groundY": 715,
+   "feet": "seat",
+   "top": "ear tips",
+   "height": [
+    0.17,
+    0.27
+   ],
+   "basis": "A raccoon (23-30 cm at the shoulder, 40-70 cm head and body) sitting up on his haunches: ear tips 30-46 cm, 0.17-0.27 of a man of about 1.72 m.",
+   "ruling": "A raccoon sitting up: about a man's shin high.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "THE HOLE IS IN THE FACE OF THE RISE, so his `y` (482) is higher in the frame than it is deep: on a flat floor y 482 would put him 250 px behind the walk band. He is held to the man at the far edge of the walk band, y 715, the nearest floor the plate gives below the hole, which is the deepest the rise's foot can be; a deeper hole would make him larger against the man, not smaller."
+  },
+  {
+   "figure": "raccoon_meeting",
+   "animal": "the first of the three raccoons sitting by the hole, in the rest frame",
+   "frame": 0,
+   "columns": [
+    83,
+    156
+   ],
+   "groundY": 715,
+   "feet": "seat",
+   "top": "ear tips",
+   "height": [
+    0.17,
+    0.27
+   ],
+   "basis": "A raccoon (23-30 cm at the shoulder, 40-70 cm head and body) sitting up on his haunches: ear tips 30-46 cm, 0.17-0.27 of a man of about 1.72 m.",
+   "ruling": "A raccoon sitting up: about a man's shin high.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "Measured against the man at y 715, as the first raccoon is (the hole is in the face of the rise). The three are cut from his sheet."
   }
- ]
+ ],
+ "animalsNote": "EVERY VISIBLE ANIMAL AT ITS TRUE SIZE (errata 201 for the horses; errata 205 for the rest). Each entry is measured by tests/scale.test.ts as the engine draws it, against the room's man where the animal stands: `top` (read from the sheet's top opaque row in `columns`, or `topRow`) and its feet (the bottom opaque row, or `feetRow`, or a room y in `feetY` when they are hidden). `groundY` names the floor the man is taken at when the animal is not standing on the room's floor at its anchor (a crate, a hole in a rise). Above the walk band the man is the curve carried on in a straight line, which is what a flat floor's perspective does. `basis` says where each range comes from. An entry with `knownWrong` is a measured failure recorded for Tyler and printed on every run: the test fails if it is fixed and the entry is left in."
 }
