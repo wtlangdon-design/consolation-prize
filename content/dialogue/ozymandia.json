@@ -157,6 +157,94 @@
           }
         },
         {
+          "id": "ozymandia9",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Could I hire the rod?",
+          "when": {
+            "ACT": {
+              "atLeast": 2
+            }
+          },
+          "holds": [
+            "filing_fee"
+          ],
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "Hire the rod? The rod is not a mule, darling."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Two dollars a week — in advance —"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "She takes a second, identical rod from under the table.",
+              "direction": true
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "This one. The other one is working."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Keep it as long as you like. It will come back. They always come back."
+            }
+          ],
+          "takes": [
+            "filing_fee"
+          ],
+          "gives": [
+            "brass_rod"
+          ],
+          "set": {
+            "T_ROD_HIRED": true
+          },
+          "puzzle": {
+            "G1": "complete"
+          }
+        },
+        {
+          "id": "ozymandia9_unpaid",
+          "tag": "PROGRESS",
+          "afterUse": "retain",
+          "text": "Could I hire the rod?",
+          "when": {
+            "ACT": {
+              "atLeast": 2
+            },
+            "T_ROD_HIRED": false
+          },
+          "lacks": [
+            "filing_fee"
+          ],
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "Hire the rod? The rod is not a mule, darling."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Two dollars a week — in advance —"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "She takes a second, identical rod from under the table.",
+              "direction": true
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "This one. The other one is working."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Two dollars, darling. The rod does not extend credit. It has seen what happens."
+            }
+          ],
+          "repeat": "Two dollars, darling. The rod does not extend credit. It has seen what happens."
+        },
+        {
           "id": "ozymandiax",
           "tag": "EXIT",
           "text": "I am going to leave now, in a dignified manner.",

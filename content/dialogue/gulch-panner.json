@@ -100,6 +100,9 @@
           "repeat": "Tell him exactly that. Don't improve it."
         },
         {
+          "puzzle": {
+            "G8": "complete"
+          },
           "id": "gulch_panner7",
           "tag": "PROGRESS",
           "text": "He says his ground runs so rich the gravel pays him rent.",

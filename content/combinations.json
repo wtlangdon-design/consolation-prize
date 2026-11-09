@@ -283,13 +283,35 @@
             {
               "speaker": "sump",
               "line": "There is a note for you. It arrived before you did."
+            },
+            {
+              "speaker": "sump",
+              "line": "And your copy."
+            },
+            {
+              "speaker": "sump",
+              "line": "He goes into the back. He is gone some time.",
+              "direction": true
+            },
+            {
+              "speaker": "sump",
+              "line": "The third. For the applicant."
+            },
+            {
+              "speaker": "thad",
+              "line": "There aren't any in the slots."
+            },
+            {
+              "speaker": "sump",
+              "line": "No applicant has ever asked for one."
             }
           ],
           "takes": [
             "filing_fee"
           ],
           "items": [
-            "invitation"
+            "invitation",
+            "third_copy"
           ],
           "set": {
             "T_BORDERS_MOTT": true
@@ -911,10 +933,17 @@
       "target": "grievance",
       "puzzle": "B3",
       "say": "Twelve years.",
-      "note": "Doc 57 B3 (with doc 54's lines): the fork on Grievance. With the hum and Vessel's whereabouts, the corrected tune, \"Twelve years.\", the ride over black, and Thad placed in the Nugget (errata 73 B).",
+      "note": "Doc 57 B3 (with doc 54's lines): the fork on Grievance. With the hum and Vessel's whereabouts, the corrected tune, \"Twelve years.\", the ride over black (doc 108's, changed for the trip), and Thad placed at the washout (doc 107).",
       "rules": [
         {
           "case": "after B3",
+          "when": {
+            "T_GULCH_TRIP": true
+          },
+          "say": "She has heard it. She does not need to hear it twice."
+        },
+        {
+          "case": "after B3, Vessel back",
           "when": {
             "T_VESSEL_FOUND": true
           },
@@ -935,15 +964,15 @@
             },
             {
               "speaker": "thad",
-              "line": "Fiddler's Gulch, two days out. Deke Vessel was delighted to see me, which was the worst part. He has agreed to settle the matter the local way, and the local way has a room.",
+              "line": "Two days on Grievance. The road held for a day and a half, which Mr. Frame would call a miracle.",
               "overBlack": true
             }
           ],
           "set": {
-            "T_VESSEL_FOUND": true
+            "T_GULCH_TRIP": true
           },
           "completes": "B3",
-          "goto": "nugget"
+          "goto": "washout"
         },
         {
           "case": "after T_HUM_HEARD, without T_VESSEL_LOCATION",

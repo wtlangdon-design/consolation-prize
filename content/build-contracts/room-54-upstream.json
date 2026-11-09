@@ -3,7 +3,7 @@
  "id": "room-54-upstream",
  "room": "upstream",
  "docRoom": 54,
- "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 54 of Fiddler's Gulch (reference/fiddlers-gulch/brief.md; errata 202, 209; doc 55). Ids, statuses and pointers only.",
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 54 of Fiddler's Gulch (reference/fiddlers-gulch/brief.md; errata 202, 210; doc 55). Ids, statuses and pointers only.",
  "authorities": [
   "docs/00-errata.md",
   "docs/107-fiddlers-gulch.md",
@@ -175,7 +175,7 @@
   "visual": {
    "status": "PENDING",
    "evidence": [
-    "docs/36-issue-list.md::Q195 · Room 54, upstream: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 209; reference/fiddlers-gulch/brief.md); BUILT, room-54 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    "docs/36-issue-list.md::Q195 · Room 54, upstream: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 210; reference/fiddlers-gulch/brief.md); BUILT, room-54 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
    ],
    "scope": "the plate and the man upstream -- errata 72 E"
   },
@@ -183,7 +183,7 @@
    "room": {
     "status": "PENDING",
     "evidence": [
-     "docs/36-issue-list.md::Q195 · Room 54, upstream: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 209; reference/fiddlers-gulch/brief.md); BUILT, room-54 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+     "docs/36-issue-list.md::Q195 · Room 54, upstream: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 210; reference/fiddlers-gulch/brief.md); BUILT, room-54 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
     ]
    }
   },

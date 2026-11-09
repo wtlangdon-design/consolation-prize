@@ -5685,7 +5685,7 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 - **Deviation, recorded:** the grog tent and the river lead to Rooms 52 and 53, built next on this branch and shipped in the same pull request, so no way on main leads nowhere.
 - Lesson: `tests/gulch-tents.test.ts` fails if the lookout stops stopping him, or stops on the path up; if G3 stops taking the Clarion or opening the ways; if his barks stop going in turn or start following the town's opinion; or if a Gulch room's person has no wrong-verb line the gate can find.
 
-# 207 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
+# 208 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
 
 *Room 52 built under doc 55, in the brief's order. Every line is doc 109's, doc 49's or doc 04's and doc 03's as doc 109 directs, extracted.*
 
@@ -5705,7 +5705,7 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 - **Deviation, recorded:** the tent's flap leads back to the tents only; the river (Room 53) is built next on this branch, in the same pull request.
 - Lesson: `tests/gulch-grog-tent.test.ts` fails if THE FIND, the watch's three states, G5's seat and the rule-keeper's playing frames with the peg empty, or VES_G1's three Gulch differences stop doing what doc 109 says; `tests/lessons.test.ts` fails a figure with no barks declared and a seated figure whose lap is not on its seat; doc 55 §8 carries the Deacon's face, the plate's lettering and the mouth after the snap.
 
-# 208 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
+# 209 · FIDDLER'S GULCH BUILT, PART FOUR: THE RIVER AND DUEL ONE ON THE BAR (ROOM 53) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
 
 *Room 53 built under doc 55, in the brief's order. Every line is doc 109's, doc 49's or doc 03's as doc 109 directs, extracted.*
 
@@ -5724,7 +5724,7 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 - **Deviation, recorded:** the way upstream leads to Room 54, built next on this branch and shipped in the same pull request.
 - Lesson: `tests/gulch-river.test.ts` fails if the bar's rules, the panner's muttering, the pebbles or the last word stop being doc 109's, if the duel is fought anywhere but the bar or leaves them on it, or if the water masks a man in the ford anywhere but from the knee down; `tests/lessons.test.ts` fails a seated placement whose lap is not on that room's seat (proved by taking the rule-keeper's foot row off: his lap at y 416 against the stump's top at 372).
 
-# 209 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
+# 210 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
 
 *Room 54 built under doc 55, in the brief's order. Every line is doc 109's or doc 49's, extracted.*
 
@@ -5740,7 +5740,7 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 - **Sound:** the Gulch's mix carried up the river; R54-A, the little falls close and thin water over gravel, noise with no pitch, "whatever Thad hears in them" (doc 45).
 - Lesson: `tests/gulch-upstream.test.ts` fails if a message is offered before G3 or before it is given, if carrying them stops teaching pairs 25 and 26, if the pairs stop being doc 109's or leave Duel Two's pool, or if the pool's fourteen moves.
 
-# 210 · THE MINE'S LANTERNS, UNLIT, AS SCENERY — TYLER, 2026-11-09 ("Maybe lanterns can be setup throughout the caves to make it look a little more 'of the era'?"; asked how, "Unlit, as scenery")
+# 211 · THE MINE'S LANTERNS, UNLIT, AS SCENERY — TYLER, 2026-11-09 ("Maybe lanterns can be setup throughout the caves to make it look a little more 'of the era'?"; asked how, "Unlit, as scenery")
 
 *Doc 108 lights the mine by daylight through old shafts, and no line names a lantern. Tyler was shown three ways (lit, unlit as scenery, or with lines) and chose unlit, as scenery.*
 
@@ -5749,9 +5749,26 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 - **Placed by sight.** On the post's brown, at a sixth of a man, the lantern read as a smudge; it hangs against the passage's dark, at a quarter. In Room 46 the right opening is the shortest, so the room's three hang lower together, under its beam.
 - Lesson: `tests/gulch-mine.test.ts` fails if a way on in a mine room has no lantern, or if a room's lanterns differ in size, height or drawing (proved by taking Room 49's right passage's away).
 
-# 211 · THE MINE'S WALLS, BROKEN ROCK — TYLER, 2026-11-09 ("The insides of the caves kind of look like dragon scales instead of rocks")
+# 212 · THE MINE'S WALLS, BROKEN ROCK — TYLER, 2026-11-09 ("The insides of the caves kind of look like dragon scales instead of rocks")
 
-- **The walls repainted.** The generator had drawn the mine's rock as rows of rounded, overlapping, same-sized lozenges. Each of the four mine plates was edited once to repaint only its walls and roof as rough, broken, irregular rock -- angular slabs, cracks at odd angles, no repeating shape -- with every timber, opening, boulder, the cart, the stake, the rails and the shaft of light left where it was: room-46 operation 4, room-47, room-48 and room-49 operation 3. Each was promoted at its old crop row, and measured against the old plate: within a pixel in 46, 47 and 48; Room 49's edit drifted three, and its passages were mirrored again from it (`tools/art/room49-mirror.py plate-02`), so they stay identical. The lanterns (errata 210) still hang on their posts.
+- **The walls repainted.** The generator had drawn the mine's rock as rows of rounded, overlapping, same-sized lozenges. Each of the four mine plates was edited once to repaint only its walls and roof as rough, broken, irregular rock -- angular slabs, cracks at odd angles, no repeating shape -- with every timber, opening, boulder, the cart, the stake, the rails and the shaft of light left where it was: room-46 operation 4, room-47, room-48 and room-49 operation 3. Each was promoted at its old crop row, and measured against the old plate: within a pixel in 46, 47 and 48; Room 49's edit drifted three, and its passages were mirrored again from it (`tools/art/room49-mirror.py plate-02`), so they stay identical. The lanterns (errata 211) still hang on their posts.
 - **Budget.** room-46 4 of 4; rooms 47 to 49, 3 of 4.
 - Lesson: doc 55 §8 -- a generated rock face drawn as a repeating pattern of like shapes reads as a hide or a wall of scales, not rock.
 
+
+# 213 · FIDDLER'S GULCH BUILT, PART SIX: THE CHANGES IN CONSOLATION, AND THE TRIP WHOLE — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md, "What changes in Consolation" and "When it is all in"; Tyler: "Proceed")
+
+The brief's last step. Every line is extracted from docs 108 and 109; docs 02, 03, 04 and 57 carry only notes that point at them.
+
+- **A9's third copy.** The fee paid after the deed and the survey, Sump goes into the back and comes out with THE THIRD COPY (doc 109 A9), after his read-back and the invitation.
+- **B1's Clarion.** Either of Frame's stories pays with the destination and, still damp, THE CLARION (doc 109 B1). It is what G3 gives the lookout.
+- **G1, the rod hired.** Room 16, OZY_A1 option 9, from Act II: with the money it takes the two dollars and gives THE BRASS ROD (`T_ROD_HIRED`); without it, the same question is answered and asked again gives doc 109's line for having no money. **The builder's reading:** the two dollars are the filing fee, which A8's piano pays and pays again (the brief, 9: "two dollars from A8's piano, which can be earned again"), so G1 is gated on holding it and spends it.
+- **B3 ends at the washout.** The fork on Grievance with both is doc 54's line and then doc 108's THE RIDE, changed, over black, into Room 45; it sets `T_GULCH_TRIP`. **`T_VESSEL_FOUND` is G9's** (the brief, 5). Doc 57's old ride line, which put Thad in the Nugget, is listed as superseded in `proofs/written-not-built.json`.
+- **The ride home.** USE on Grievance at the washout after G9: doc 109's GOING HOME, the line over black, then the Nugget (`T_GULCH_HOME`).
+- **The Nugget after the trip.** VES_B1 opens on doc 109's "Again." greeting, the first TALK TO only; options 3 and 6 were the Gulch's and are gone from it (the brief, 7). The rematch is unchanged. Doc 03's Duel One opening is said at the find, in the grog tent (`duelOneOpening`).
+- **Duel One** is fought only on the bar (errata 209). `duel_one`, doc 03's Nugget staging, stays in the Assay file as the source the bar's duel shares its pairs and order with, and as what the mechanism tests play; nothing in play calls it.
+- **52 puzzles.** `tools/check-puzzle-graph.mjs` adds G1 to G5, G8 and G9 (G6 and G7 are B4 and B5 under their own ids); CLAUDE.md and doc 02 say 52. The continuous playthrough (`tests/data/full-game-walkthrough.json`) plays the trip between B3 and B6 and the fresh-save traversal and win-from-everywhere checks hold with it in.
+- **Engine.** A dialogue option can `take` an item it `holds`, or be offered only while one is lacking (`lacks`); an exit can complete a puzzle by being walked through (`completesOnTransit`, G2). Nothing in them names the fiction.
+- **Doc 95** gains four rows for the new directions: Frame's damp paper and Ozymandia's second rod printed until a pose is drawn (B), Sump's absence and the ride home told (C).
+- **Tests.** `tests/gulch-consolation.test.ts` plays G1 with and without the money and before Act II, A9's third copy, B1's paper and the ride home; `tests/assay.test.ts`'s Duel One tests are played through the tent and the bar, with the same invariants (resumed mid-duel, dropped leaves it on offer, never without B4, the replay once).
+- Lesson: none -- a build step, the trip's last; every check it needed was added in errata 200 and 206 to 210.

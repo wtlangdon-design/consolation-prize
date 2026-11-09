@@ -325,8 +325,7 @@ test('every scored exchange is written down in a held beat after the line that w
 });
 
 test('a held beat cannot be clicked through and ends on its own, even when lines wait for a click (errata 130)', async () => {
-  const state = await inBackRoom({ T_VESSEL_FOUND: true });
-  state.dialogue.select('ves_b1_6');
+  const state = await onTheBar();
   const exchange = state.dialogue.beginSelection('w0');
   const said = exchange.presentation;
   const replies = [...(said.say ? [{ speaker: said.sayer, line: said.say }] : []), ...said.rest];
@@ -335,7 +334,7 @@ test('a held beat cannot be clicked through and ends on its own, even when lines
   let now = 0;
   while (performance.current && performance.current.rest === undefined) { now += 1; performance.skip(now); }
   const beat = performance.current!;
-  assert.ok(beat.mark && (beat.rest ?? 0) > 0, 'the judges\' beat comes after the reply');
+  assert.ok(beat.mark && (beat.rest ?? 0) > 0, 'the pebble\'s beat comes after the reply');
   assert.equal(performance.skip(now + 0.2), false, 'a click does not cut the beat short');
   assert.equal(performance.current, beat);
   assert.equal(performance.tick(now + beat.rest! + 0.01), true, 'the beat ends by itself');
@@ -349,33 +348,93 @@ async function inBackRoom(flags: Record<string, boolean>) {
   return state;
 }
 
-test('VES_B1 opens once Vessel is found; option 6 is B4 and Duel One; B5 when it ends (doc 57)', async () => {
-  const state = await inBackRoom({ T_VESSEL_FOUND: true });
-  assert.equal(state.dialogue.positionSnapshot().node, 'VES_B1');
-  const ids = () => state.dialogue.presentOptions().map((o) => o.option.id);
-  assert.ok(ids().includes('ves_b1_6'));
-  assert.ok(!ids().includes('ves_b1_3'), 'option 3 is the replay: offered once Duel One is lost (errata 76 A, 130 D)');
-  assert.ok(!ids().includes('ves_b1_5'), 'the rematch is offered once Duel One is lost');
+/*
+ * DUEL ONE IS THE GULCH'S (reference/fiddlers-gulch/brief.md 7; doc 109; errata 209, 213). Vessel is found in the grog
+ * tent, his challenge (doc 04 VES_B1 option 6, B4) is VES_G1 option 6 there and calls the duel out to the bar, and the
+ * river answers the call on entering. The Nugget's VES_B1 keeps the rematch and loses options 3 and 6. Every room, tree
+ * and person here is read from the fixtures and the content, never named.
+ */
+const fixtureState = async (id: string, storage = new MemoryStorage()) => {
+  const state = new GameState(await loadContent(fsReader), storage);
+  const fixture = state.content.fixtures.get(id);
+  assert.ok(fixture && state.applyFixture(fixture), `fixture ${id} applies`);
+  return state;
+};
+/** In the grog tent with the plank a seat and the watch found: VES_G1 is what TALK TO opens. */
+const inTheTent = async () => {
+  const state = await fixtureState('r52-b');
+  state.dialogue.start(tentTree(state));
+  return state;
+};
+const tentTree = (state: GameState) => {
+  const tree = [...state.content.dialogue.values()].find((one) => Object.keys(one.nodes).includes('VES_G1'));
+  assert.ok(tree, 'some tree holds VES_G1');
+  return tree.id;
+};
+const riverRoom = (state: GameState) => state.content.fixtures.get('r53-b')!.room!;
+const tentRoom = (state: GameState) => state.content.fixtures.get('r52-b')!.room!;
+/** Walks down to the river; if the call stands, the river's accost starts the duel as the game does. */
+const downToTheBar = (state: GameState) => {
+  state.enterRoom(riverRoom(state));
+  const accost = state.room.onEnter?.accost;
+  assert.ok(accost?.duel, 'the river answers a call');
+  if (!state.flags.test(accost.when)) return false;
+  const caller = [...state.content.ambient.values()].find((npc) => npc.id === accost.npc)!;
+  state.dialogue.startDuel(caller.tree!, accost.duel);
+  return true;
+};
+const onTheBar = async (storage?: MemoryStorage) => {
+  const state = await fixtureState('r53-b', storage);
+  assert.ok(downToTheBar(state), 'called, he is fought on the bar');
+  return state;
+};
+const loseIt = (state: GameState) => {
+  for (let n = 0; n < 5 && state.dialogue.inDuel; n += 1) state.dialogue.select(state.dialogue.presentOptions()[0]!.option.id);
+};
+const ids = (state: GameState) => state.dialogue.presentOptions().map((o) => o.option.id);
 
-  const opened = state.dialogue.select('ves_b1_6');
-  assert.ok(opened.rest.length >= 6, 'his two lines, the five rules read, and the first boast');
+test('VES_G1 offers the challenge once the plank is a seat; option 6 is B4 and calls Duel One to the bar; B5 when it ends there (doc 57, doc 109)', async () => {
+  const state = await inTheTent();
+  assert.equal(state.dialogue.positionSnapshot().node, 'VES_G1');
+  assert.ok(ids(state).includes('ves_g1_6'));
+  assert.ok(!ids(state).includes('ves_g1_3'), 'option 3 is the replay: offered once Duel One is lost (errata 76 A, 130 D)');
+  assert.ok(!ids(state).includes('ves_g1_5'), 'the rematch is asked for once Duel One is lost');
+
+  state.dialogue.select('ves_g1_6');
   assert.ok(state.puzzleComplete('B4'));
+  assert.ok(!state.dialogue.inDuel && !state.dialogue.isActive, 'he calls it out to the bar; it is not fought in the tent');
+  assert.ok(!state.puzzleComplete('B5'));
+  assert.ok(downToTheBar(state));
   assert.ok(state.dialogue.inDuel);
-  for (let n = 0; n < 5; n += 1) state.dialogue.select(state.dialogue.presentOptions()[0]!.option.id);
+  loseIt(state);
   assert.ok(!state.dialogue.inDuel);
   assert.equal(state.flags.getBoolean('T_DUEL_ONE_LOST'), true);
   assert.equal(state.flags.getBoolean('ASSAY_PAIR_04'), true);
   assert.ok(state.puzzleComplete('B5'), 'Duel One completes B5 by being lost');
-  assert.ok(!ids().includes('ves_b1_6'), 'the affidavit question is spent');
-  assert.ok(ids().includes('ves_b1_3'), 'option 3 replays Duel One, twice if asked');
-  assert.ok(ids().includes('ves_b1_5'), 'and the rematch is offered');
+
+  state.enterRoom(tentRoom(state));
+  state.dialogue.start(tentTree(state));
+  assert.ok(!ids(state).includes('ves_g1_6'), 'the affidavit question is spent');
+  assert.ok(ids(state).includes('ves_g1_3'), 'option 3 replays Duel One');
+  assert.ok(ids(state).includes('ves_g1_5'), 'and the rematch is asked for (G9)');
+  state.dialogue.select('ves_g1_5');
+  assert.ok(state.puzzleComplete('G9'));
+
+  // Home: the Nugget's VES_B1 offers the rematch and neither of the options the Gulch took.
+  state.dialogue.start('DEKE_VESSEL');
+  assert.equal(state.dialogue.positionSnapshot().node, 'VES_B1');
+  assert.ok(!ids(state).some((id) => id === 'ves_b1_3' || id === 'ves_b1_6'), 'options 3 and 6 were the Gulch\'s');
+  assert.ok(ids(state).includes('ves_b1_5'), 'the rematch is offered');
 });
 
-test('the Duel One greeting plays on the first TALK TO only (doc 57 B4)', async () => {
+test('back from the Gulch, the first TALK TO in the back room plays doc 109\'s greeting, and only the first (doc 57 B4)', async () => {
+  const doc109 = await readFile(resolve(ROOT, 'docs/109-fiddlers-gulch-lines.md'), 'utf8');
+  const greeting = /in Room 4, after the trip\*\* — his first TALK TO opens with: "([^"]+)"/.exec(doc109)?.[1];
+  assert.ok(greeting, 'doc 109 writes it');
   const state = await inBackRoom({});
   state.dialogue.end();
   state.flags.set('T_VESSEL_FOUND', true);
-  assert.equal(state.dialogue.openingOf('DEKE_VESSEL').length, 3);
+  assert.deepEqual(state.dialogue.openingOf('DEKE_VESSEL').map((one) => one.line), [greeting]);
   state.dialogue.start('DEKE_VESSEL');
   state.dialogue.end();
   assert.equal(state.dialogue.openingOf('DEKE_VESSEL').length, 0);
@@ -394,10 +453,7 @@ test('Duel Two through the conversation: won with fourteen pairs, the yields rea
 
 test('a duel saved mid-fight resumes at the same boast (save/load restores partial trees)', async () => {
   const storage = new MemoryStorage();
-  const writer = new GameState(await loadContent(fsReader), storage);
-  writer.flags.set('T_VESSEL_FOUND', true);
-  writer.dialogue.start('DEKE_VESSEL');
-  writer.dialogue.select('ves_b1_6');
+  const writer = await onTheBar(storage);
   writer.dialogue.select('w0');
   writer.dialogue.select('w1');
   writer.save(1);
@@ -411,46 +467,52 @@ test('a duel saved mid-fight resumes at the same boast (save/load restores parti
 });
 
 test('a duel dropped mid-fight leaves Duel One on offer (invariant 6)', async () => {
-  const state = await inBackRoom({ T_VESSEL_FOUND: true });
-  state.dialogue.select('ves_b1_6');
+  const state = await onTheBar();
   state.dialogue.select('w0');
   state.dialogue.end();
-  state.dialogue.start('DEKE_VESSEL');
-  assert.ok(state.dialogue.presentOptions().some((o) => o.option.id === 'ves_b1_6'));
+  assert.ok(!state.puzzleComplete('B5'));
+  state.enterRoom(tentRoom(state));
+  assert.ok(downToTheBar(state), 'the call stands: coming back down to the river, he is waiting on the bar');
+  loseIt(state);
+  assert.ok(state.puzzleComplete('B5'));
 });
 
-test('Duel One cannot be reached without B4, nor fought once the Assay is over (duel audit 9a, 9b; errata 130 D)', async () => {
-  // Found by the duel audit: option 3 started Duel One first and completed B5
-  // with B4 never done; and whichever of options 3 and 6 the player had not
-  // taken stayed on offer for ever -- after Duel Two was won and the judges
-  // had gone home, Vessel would still be asked to sign what he had signed.
-  const duelOne = (state: GameState) => state.dialogue.presentOptions()
-    .filter((o) => (o.option as { duel?: string }).duel === 'duel_one').map((o) => o.option.id);
-  const loseDuelOne = (state: GameState) => {
-    for (let n = 0; n < 5 && state.dialogue.inDuel; n += 1) state.dialogue.select(state.dialogue.presentOptions()[0]!.option.id);
-  };
-  const pairs = Object.fromEntries(Array.from({ length: 14 }, (_, i) => [`ASSAY_PAIR_${String(i + 1).padStart(2, '0')}`, true]));
-  const winDuelTwo = (state: GameState) => {
-    for (const [flag, value] of Object.entries(pairs)) state.flags.set(flag, value);
-    state.dialogue.select('ves_b1_5');
-    for (let n = 0; n < 5; n += 1) state.dialogue.select('right');
-    assert.equal(state.flags.getBoolean('T_DUEL_TWO_WON'), true);
-  };
-  const state = await inBackRoom({ T_VESSEL_FOUND: true });
-  assert.deepEqual(duelOne(state), ['ves_b1_6'], 'before Duel One, only the affidavit starts it (B4)');
-  state.dialogue.select('ves_b1_6');
-  loseDuelOne(state);
+test('Duel One cannot be reached without B4, nor fought once the trip\'s part of it is over (duel audit 9a, 9b; errata 130 D)', async () => {
+  // Found by the duel audit in the Nugget, kept in the Gulch: option 3 started Duel One first and completed B5 with B4
+  // never done; and whichever of options 3 and 6 the player had not taken stayed on offer for ever.
+  const content = await loadContent(fsReader);
+  const accost = content.rooms.get(content.fixtures.get('r53-b')!.room!)!.onEnter!.accost!;
+  const callFlags = Object.keys(accost.when ?? {});
+  const calls = (state: GameState) => state.dialogue.presentOptions()
+    .filter((o) => callFlags.some((flag) => (o.option as { set?: Record<string, unknown> }).set?.[flag] === true))
+    .map((o) => o.option.id);
+  const state = await inTheTent();
+  assert.deepEqual(calls(state), ['ves_g1_6'], 'before Duel One, only the affidavit calls it (B4)');
+  state.dialogue.select('ves_g1_6');
+  downToTheBar(state);
+  loseIt(state);
   assert.ok(state.puzzleComplete('B4') && state.puzzleComplete('B5'));
-  assert.deepEqual(duelOne(state), ['ves_b1_3'], 'after Duel One, the replay and only the replay');
-  winDuelTwo(state);
-  assert.deepEqual(duelOne(state), [], 'no Duel One once Duel Two is won');
-  // And with the replay taken first.
-  const other = await inBackRoom({ T_VESSEL_FOUND: true });
-  other.dialogue.select('ves_b1_6');
-  loseDuelOne(other);
-  other.dialogue.select('ves_b1_3');
-  loseDuelOne(other);
-  assert.deepEqual(duelOne(other), [], 'twice if asked, and then no more');
+  state.enterRoom(tentRoom(state));
+  state.dialogue.start(tentTree(state));
+  assert.deepEqual(calls(state), ['ves_g1_3'], 'after Duel One, the replay and only the replay');
+  state.dialogue.select('ves_g1_3');
+  downToTheBar(state);
+  loseIt(state);
+  state.enterRoom(tentRoom(state));
+  state.dialogue.start(tentTree(state));
+  assert.deepEqual(calls(state), [], 'twice if asked, and then no more');
+  // And once he has gone home for the rematch, nothing anywhere calls Duel One.
+  const other = await inTheTent();
+  other.dialogue.select('ves_g1_6');
+  downToTheBar(other);
+  loseIt(other);
+  other.enterRoom(tentRoom(other));
+  other.dialogue.start(tentTree(other));
+  other.dialogue.select('ves_g1_5');
+  assert.equal(downToTheBar(other), false, 'the bar is empty');
+  other.dialogue.start('DEKE_VESSEL');
+  assert.ok(!other.dialogue.presentOptions().some((o) => (o.option as { duel?: string }).duel?.startsWith('duel_one')),
+    'and the back room does not fight it');
 });
 
 test('the rematch stays at full weight while one is owed (duel audit 2d; errata 130 E)', async () => {

@@ -35,7 +35,7 @@ import { fileURLToPath } from 'node:url';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
-// @ts-expect-error -- a plain .mjs module with no declarations; the canonical 45 (errata ruling 5).
+// @ts-expect-error -- a plain .mjs module with no declarations; the canonical 52 (errata ruling 5; errata 213).
 import { CANONICAL_PUZZLE_IDS } from '../tools/check-puzzle-graph.mjs';
 import { HeadlessPlayer, playThrough, type Break, type Step } from './lib/headless-player.ts';
 

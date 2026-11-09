@@ -158,7 +158,8 @@
    "note": "Doc 108: the way through; nothing on the plate shows it. Taking it is the first crossing (doc 107).",
    "setOnTransit": {
     "T_MINE_CROSSED": true
-   }
+   },
+   "completesOnTransit": "G2"
   }
  },
  "exits": {

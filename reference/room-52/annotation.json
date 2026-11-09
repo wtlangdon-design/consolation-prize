@@ -299,7 +299,7 @@
    "extracted": {
     "marker": "Doc 03's Duel One opening plays here",
     "file": "content/dialogue/deke-vessel.json",
-    "path": "nodes.VES_B1.opening",
+    "path": "duelOneOpening",
     "speakers": {
      "deke_vessel": "gulch_deacon"
     }

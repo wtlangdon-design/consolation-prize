@@ -480,14 +480,17 @@
     "executor_form",
     "pickaxe",
     "sample",
-    "deed"
+    "deed",
+    "brass_rod",
+    "third_copy"
    ],
    "derivedFrom": [
     "docs/04-dialogue-trees.md:170-176 (WIN_F1 after T_STRIKE_FOUND; 'Run it.' -- she runs it at the window, the first assay the player watches)",
     "docs/02-puzzle-graph.md:116-118 (F1-F3: the strike needs the fork and the pickaxe)",
     "docs/48-act-turn-beats.md:61-70 and docs/00-errata.md:1781-1784 (S4's close sets ACT 4)",
     "docs/02-puzzle-graph.md:64-69 and docs/04-dialogue-trees.md:106,124-126 (C1 T_ASSAY_QUEUE; WIN_B2's rows T_NO_MOTT_GOLD and T_SECOND_LEDGER, consumed on the way to C6 and E4; WIN_F1 option 2 presumes the nineteen names were read)",
-    "tests/data/full-game-walkthrough.json step F5.1 (what continuous play from a fresh save carries into the Registrar's at the filing; tests/items.test.ts holds the two equal)"
+    "tests/data/full-game-walkthrough.json step F5.1 (what continuous play from a fresh save carries into the Registrar's at the filing; tests/items.test.ts holds the two equal)",
+    "docs/109-fiddlers-gulch-lines.md::THE CHANGES IN CONSOLATION (A9's THE THIRD COPY and G1's THE BRASS ROD are carried to the end; THE CLARION is given to the lookout, G3)"
    ],
    "note": "The state continuous play from a fresh save is in at the filing -- every flag, puzzle and item -- with the inventory a player really has there: nineteen items, more than the panel's eight, so the inventory's scroll, item-on-item and the counter's 'Already on file' can be tried in the running game (the items audit, errata 140).",
    "puzzles": {

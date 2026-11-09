@@ -1044,6 +1044,34 @@
       "speaker": "gulch_man_upstream",
       "words": "He looks at Thad as if Thad had suggested something unwell.",
       "where": "dialogue/gulch-man-upstream UPS_G1 option 3"
+    },
+    {
+      "n": 98,
+      "class": "B",
+      "speaker": "frame",
+      "words": "He presses it on Thad, still damp.",
+      "where": "dialogue/frame FRA_B1 options 1 and 2"
+    },
+    {
+      "n": 99,
+      "class": "C",
+      "speaker": "sump",
+      "words": "He goes into the back. He is gone some time.",
+      "where": "combinations (filing_fee on sump, after both)"
+    },
+    {
+      "n": 100,
+      "class": "B",
+      "speaker": "ozymandia",
+      "words": "She takes a second, identical rod from under the table.",
+      "where": "dialogue/ozymandia OZY_A1 option 9"
+    },
+    {
+      "n": 101,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad climbs on. Grievance considers it, then turns for home.",
+      "where": "rooms/washout departure (the ride home)"
     }
   ]
 }

@@ -4,8 +4,9 @@ import { loadContent, Report, runCheck } from './lib/content.mjs';
  * Automated graph traversal: every puzzle reachable from a fresh save, and
  * the win state reachable from every reachable state.
  *
- * Errata ruling 5 fixes the canonical count at 45 and states the enumeration
- * this script traverses. 43 is wrong wherever it still appears.
+ * Errata ruling 5 fixed the canonical count at 45 and states the enumeration
+ * this script traverses; Fiddler's Gulch (doc 107, errata 213) adds seven, 52.
+ * 43 is wrong wherever it still appears.
  */
 export const CANONICAL_PUZZLE_IDS = [
   ...range('A', 1, 10),
@@ -16,6 +17,9 @@ export const CANONICAL_PUZZLE_IDS = [
   'E0b',
   ...range('E', 1, 10),
   ...range('F', 1, 5),
+  // FIDDLER'S GULCH (doc 107; reference/fiddlers-gulch/brief.md, "When it is all in"): G1 to G9, less G6 and G7, which
+  // are B4 and B5 moved to the Gulch. 45 and seven: 52.
+  'G1', 'G2', 'G3', 'G4', 'G5', 'G8', 'G9',
 ];
 
 function range(prefix, from, to) {
@@ -70,7 +74,7 @@ export function check() {
     if (!declared.has(id)) report.fail(`canonical puzzle "${id}" is missing from the graph`);
   }
   for (const id of declared) {
-    if (!CANONICAL_PUZZLE_IDS.includes(id)) report.fail(`puzzle "${id}" is not in the canonical list of 45`);
+    if (!CANONICAL_PUZZLE_IDS.includes(id)) report.fail(`puzzle "${id}" is not in the canonical list of 52`);
   }
 
   // Graph rule 1: nothing is destroyable. Monotonicity is what makes

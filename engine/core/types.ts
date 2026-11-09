@@ -336,6 +336,11 @@ export interface Exit extends Interactable {
    */
   setOnTransitWhen?: Condition;
   /**
+   * THE PUZZLE TAKING THIS WAY COMPLETES, when `setOnTransitWhen` holds or is absent. Doc 107's G2: the first crossing
+   * of the mine is the way through, and nothing else marks it (Room 49's right passage).
+   */
+  completesOnTransit?: string;
+  /**
    * A BEAT PLAYED AT THE DOOR (errata 84 E). The first rule whose `when` holds
    * is spoken as he goes through -- `say`, `then`, `by` -- its `set` is
    * written, and the room changes once the last line is read. Doc 57 A10's
@@ -2031,6 +2036,16 @@ export interface DialogueOption {
    * yields (errata 76 A).
    */
   gives?: string[];
+  /**
+   * ITEMS THE OPTION TAKES, on its first selection: what is paid for what it `gives` (doc 109, G1: the rod hired
+   * "with two dollars" -- THE FILING FEE the piano pays, A8, which can be earned again).
+   */
+  takes?: string[];
+  /**
+   * OFFERED ONLY WHILE HE DOES NOT CARRY THESE: the other side of a `holds` row. Doc 109, G1: "*(without:)* Two
+   * dollars, darling. The rod does not extend credit."
+   */
+  lacks?: string[];
   /** Puzzle progress the option writes (doc 53): WIN_B2's first row makes C6 pending. */
   puzzle?: Record<string, PuzzleStatus>;
   goto?: string;

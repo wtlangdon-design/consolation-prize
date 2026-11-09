@@ -322,10 +322,36 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "combination:tuning_fork:livery:grievance",
     "dialogue:DEACON:VES_G1:ves_g1_5"
    ],
-   "note": "Errata 73 B: from B3's completion (the fork on Grievance, Room 15), Vessel is in Room 4. Gates his Act II root (VES_B1) and his and the judges' presence in the back room. Doc 107 G9 writes it too: the rematch agreed in the grog tent (VES_G1 option 5). B3's write moves to G9 when the trip is whole (the brief)."
+   "note": "Doc 107 G9: the rematch agreed in the grog tent (VES_G1 option 5) -- from here Vessel is in Room 4. Gates his Act II root (VES_B1) and his and the judges' presence in the back room. It was B3's until the trip was built; the brief moved it to G9 (errata 213)."
+  },
+  {
+   "id": "T_GULCH_TRIP",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:tuning_fork:livery:grievance"
+   ],
+   "note": "Doc 107 B3, changed: the fork on Grievance, with the hum and Vessel's whereabouts -- the ride out to the washout (doc 108). Grievance's after-B3 line reads it."
+  },
+  {
+   "id": "T_GULCH_HOME",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:washout:grievance:USE"
+   ],
+   "note": "Doc 109, GOING HOME: the ride home on Grievance after G9, over black, to the Nugget."
+  },
+  {
+   "id": "T_ROD_HIRED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:OZYMANDIA:OZY_A1:ozymandia9"
+   ],
+   "note": "Doc 109, G1: the rod hired for two dollars (THE BRASS ROD). Ends OZY_A1 option 9's unpaid answer."
   },
   {
    "id": "T_DUEL_ONE_LOST",

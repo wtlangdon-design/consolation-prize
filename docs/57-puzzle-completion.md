@@ -172,6 +172,8 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 > **GRIEVANCE** · USE THE TUNING FORK, *after `T_HUM_HEARD`, without `T_VESSEL_LOCATION`* — "She would go, I think. I do not yet know where to, and she does not strike me as an animal who enjoys a vague errand."
 > **GRIEVANCE** · USE THE TUNING FORK, *with both* — doc 54's success line, then **the ride**, over black: "Fiddler's Gulch, two days out. Deke Vessel was delighted to see me, which was the worst part. He has agreed to settle the matter the local way, and the local way has a room." → **B3**; `T_VESSEL_FOUND`; Grievance is back in her stall; Vessel is in Room 4 (errata 73 B); Thad is placed in the Nugget.
 
+*Fiddler's Gulch (errata 213): the ride above is replaced by doc 108's THE RIDE, and B3 ends at the washout, Room 45; `T_VESSEL_FOUND` is G9's, and the ride home is doc 109's GOING HOME. A9's third copy, B1's Clarion and G1's rod are doc 109's THE CHANGES IN CONSOLATION. The trip's puzzles are G1 to G9 in doc 02.*
+
 ## B4 · Vessel refuses to sign
 
 *Room 4.* The first TALK TO plays doc 03's Duel One opening ("Grubb! You came all this way."). VES_B1 option 6 — "I need you to sign an affidavit." — is the refusal and the offer → **B4**, and Duel One begins.

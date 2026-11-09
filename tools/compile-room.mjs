@@ -1217,6 +1217,27 @@ for (const spec of ann.docRules ?? []) {
   (hotspot.responses[spec.verb] ??= []).unshift({ ...(spec.when ? { when: spec.when } : {}), say: said,
     sceneLine: `${spec.ref} · ${spec.startsWith} ${spec.label}` });
 }
+// A WAY HOME WRITTEN AS ONE LINE (doc 109, GOING HOME: `**GRIEVANCE** · USE, *after G9* — *(direction)* Then **the
+// ride**, over black: "..." → placed`). The annotation's `departures` names the section, the line by how it starts,
+// the condition, the flags it writes and where he is placed; the direction is performed, the ride is his over black,
+// and then he travels. Read from the document, never typed here.
+for (const spec of ann.departures ?? []) {
+  const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
+  if (!hotspot) fail(`departures: no hotspot "${spec.hotspot}" in this room`);
+  if (!spec.goto) fail(`departures: ${spec.hotspot} ${spec.verb} names nowhere to go`);
+  const body = sectionBody(spec.ref, 'departures');
+  const line = body.split('\n').find((one) => one.startsWith(spec.startsWith));
+  if (!line) fail(`departures: ${spec.ref} has no line starting ${spec.startsWith}`);
+  const direction = /\*\(([^)]+)\)\*/.exec(line.slice(spec.startsWith.length))?.[1];
+  const ride = /over black: "([^"]+)"/.exec(line)?.[1];
+  if (!direction || !ride) fail(`departures: ${spec.ref}'s line ${spec.startsWith} has no direction or no ride over black`);
+  (hotspot.responses[spec.verb] ??= []).unshift({
+    ...(spec.when ? { when: spec.when } : {}), say: direction, direction: true,
+    then: [{ speaker: 'thad', line: ride, overBlack: true }],
+    ...(spec.set ? { set: spec.set } : {}), ...(spec.completes ? { completes: spec.completes } : {}),
+    goto: spec.goto, sceneLine: `${spec.ref} · ${spec.startsWith}`,
+  });
+}
 for (const spec of ann.scenes ?? []) {
   const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
   if (!hotspot) fail(`scenes: no hotspot "${spec.hotspot}" in this room`);
@@ -1606,6 +1627,7 @@ const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([key, 
     defaultVerb: spec.defaultVerb ?? 'WALK_TO',
     ...(spec.setOnTransit ? { setOnTransit: spec.setOnTransit } : {}),
     ...(spec.setOnTransitWhen ? { setOnTransitWhen: spec.setOnTransitWhen } : {}),
+    ...(spec.completesOnTransit ? { completesOnTransit: spec.completesOnTransit } : {}),
     ...(spec.transitScene ? { transitScene: spec.transitScene.map(transitBeat) } : {}),
     ...(spec.note ? { note: spec.note } : {}),
     ...(spec.stateOf ? { stateOf: spec.stateOf } : {}),

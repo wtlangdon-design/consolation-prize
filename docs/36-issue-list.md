@@ -5002,19 +5002,19 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 
 **Open, for Tyler:** the plate and the lookout, in the playthrough (errata 72 E); the lookout's speech colour, the builder's #78c8e0.
 
-## Q193 · Room 52, the grog tent: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 207; reference/fiddlers-gulch/brief.md); BUILT, room-52 4 of 4 operations and gulch-vessel 2 of 2, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+## Q193 · Room 52, the grog tent: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 208; reference/fiddlers-gulch/brief.md); BUILT, room-52 4 of 4 operations and gulch-vessel 2 of 2, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
 
 **Built.** The grog tent: the plank, the barrels, the bottles, the watch (THE FIND, G4; THE NAIL after G9), the fiddle (G5, the seat), the rule-keeper on his keg and the Deacon behind the plank, Vessel's own frames shaved; VES_G1. Held by `tests/gulch-grog-tent.test.ts`.
 
 **Open, for Tyler:** the plate, the rule-keeper and the Deacon's face, in the playthrough (errata 72 E); the rule-keeper's speech colour, the builder's #f0d090.
 
-## Q194 · Room 53, the river: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 208; reference/fiddlers-gulch/brief.md); BUILT, room-53 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+## Q194 · Room 53, the river: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 209; reference/fiddlers-gulch/brief.md); BUILT, room-53 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
 
 **Built.** The river: the bar, the long tom, the rocker, the water, the panner knee-deep beside the bar, the ford out to the bar, and Duel One on the bar (G7) when Vessel has called it from the tent. Held by `tests/gulch-river.test.ts`.
 
 **Open, for Tyler:** the plate, the panner and the duel's staging, in the playthrough (errata 72 E); the panner's speech colour, the builder's #a8dca0.
 
-## Q195 · Room 54, upstream: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 209; reference/fiddlers-gulch/brief.md); BUILT, room-54 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+## Q195 · Room 54, upstream: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 210; reference/fiddlers-gulch/brief.md); BUILT, room-54 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
 
 **Built.** Upstream: the stakes, the best ground, the sluice and its NOT YET board, the falls, the man upstream, and G8, the messages carried between him and the panner, which teach pairs 25 and 26. Held by `tests/gulch-upstream.test.ts`.
 

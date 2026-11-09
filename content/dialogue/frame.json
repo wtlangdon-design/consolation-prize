@@ -297,6 +297,19 @@
             {
               "speaker": "frame",
               "line": "Vessel took the Tuesday coach to Fiddler's Gulch. Two days out, if the road holds, and the road never holds."
+            },
+            {
+              "speaker": "frame",
+              "line": "Take a copy. Page one."
+            },
+            {
+              "speaker": "frame",
+              "line": "He presses it on Thad, still damp.",
+              "direction": true
+            },
+            {
+              "speaker": "frame",
+              "line": "Nobody ever buys the one they're in."
             }
           ],
           "set": {
@@ -304,7 +317,10 @@
           },
           "puzzle": {
             "B1": "complete"
-          }
+          },
+          "gives": [
+            "clarion"
+          ]
         },
         {
           "id": "frame2",
@@ -319,6 +335,19 @@
             {
               "speaker": "frame",
               "line": "Vessel took the Tuesday coach to Fiddler's Gulch. Two days out, if the road holds, and the road never holds."
+            },
+            {
+              "speaker": "frame",
+              "line": "Take a copy. Page one."
+            },
+            {
+              "speaker": "frame",
+              "line": "He presses it on Thad, still damp.",
+              "direction": true
+            },
+            {
+              "speaker": "frame",
+              "line": "Nobody ever buys the one they're in."
             }
           ],
           "set": {
@@ -326,7 +355,10 @@
           },
           "puzzle": {
             "B1": "complete"
-          }
+          },
+          "gives": [
+            "clarion"
+          ]
         },
         {
           "id": "frame3",

@@ -1220,7 +1220,9 @@ function combinations() {
       delete pair.targetPending;
       pair.rules = [
         { case: 'after both', when: { T_SURVEY_LODGED: true, T_BORDERS_MOTT: false }, say: registrar.feeAfter.line,
-          then: [...registrar.readBack, ...registrar.invitation], takes: ['filing_fee'], items: ['invitation'],
+          // Doc 109, A9 · THE THIRD COPY: after the read-back and THE INVITATION, Sump's third copy (the trip's survey).
+          then: [...registrar.readBack, ...registrar.invitation, ...consolationScene('### A9 · THE THIRD COPY', { SUMP: 'sump' }).lines],
+          takes: ['filing_fee'], items: ['invitation', 'third_copy'],
           set: { T_BORDERS_MOTT: true }, completes: 'A9' },
         { case: 'before the deed and the survey', when: { T_BORDERS_MOTT: false }, ...sumpSays(registrar.feeBefore.line) },
       ];
@@ -1317,9 +1319,12 @@ function combinations() {
     // ITS STAGING, BEFORE THE LINE (errata 189, 190): the fork, the corrected tune, her look; doc 95 acts it.
     const staging = /^\*\(([^)]*)\)\*/.exec(success.trim())?.[1];
     if (!staging) throw new Error('B3: the success has no staging before the livery man\'s line');
-    const both = caseIn('docs/57-puzzle-completion.md', '## B3 ', 'with both');
-    const ride = /over black: "([^"]+)"/.exec(both)?.[1];
-    if (!livery || !ride) throw new Error('B3: the success line or the ride is missing');
+    // THE RIDE, CHANGED (doc 108, ## THE RIDE · B3, changed: "Replaces doc 57's B3 ride line when the trip is built"):
+    // the trip is built, so B3 rides out to the washout on doc 108's line, not to the Nugget on doc 57's.
+    const d108 = read('docs/108-the-washout-and-the-mine.md');
+    const changed = d108.slice(d108.indexOf('## THE RIDE · B3, changed'), d108.indexOf('\n## ', d108.indexOf('## THE RIDE · B3, changed') + 5));
+    const ride = /over black — "([^"]+)"/.exec(changed)?.[1];
+    if (!livery || !ride) throw new Error('B3: the success line or doc 108\'s changed ride is missing');
     return {
       before: only(caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'before the livery man has hummed')),
       after: only(caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'after B3')),
@@ -1598,12 +1603,15 @@ function combinations() {
   });
   rebuilt.push({
     item: 'tuning_fork', room: 'livery', target: 'grievance', puzzle: 'B3', say: b3.livery,
-    note: 'Doc 57 B3 (with doc 54\'s lines): the fork on Grievance. With the hum and Vessel\'s whereabouts, the corrected tune, "Twelve years.", the ride over black, and Thad placed in the Nugget (errata 73 B).',
+    note: 'Doc 57 B3 (with doc 54\'s lines): the fork on Grievance. With the hum and Vessel\'s whereabouts, the corrected tune, "Twelve years.", the ride over black (doc 108\'s, changed for the trip), and Thad placed at the washout (doc 107).',
     rules: [
-      { case: 'after B3', when: { T_VESSEL_FOUND: true }, say: b3.after },
+      { case: 'after B3', when: { T_GULCH_TRIP: true }, say: b3.after },
+      { case: 'after B3, Vessel back', when: { T_VESSEL_FOUND: true }, say: b3.after },
+      // B3 ENDS AT THE WASHOUT (doc 107; the brief, 5): the ride out, and Thad placed at the washout. Vessel is found in
+      // the Gulch (G4) and is in Room 4 only from the rematch (G9), so B3 no longer writes T_VESSEL_FOUND.
       { case: 'with both', when: { T_HUM_HEARD: true, T_VESSEL_LOCATION: true }, say: b3.staging, direction: true,
         then: [{ speaker: 'livery_man', line: b3.livery }, { speaker: 'thad', line: b3.ride, overBlack: true }],
-        set: { T_VESSEL_FOUND: true }, completes: 'B3', goto: 'nugget' },
+        set: { T_GULCH_TRIP: true }, completes: 'B3', goto: 'washout' },
       { case: 'after T_HUM_HEARD, without T_VESSEL_LOCATION', when: { T_HUM_HEARD: true }, say: b3.vague },
       { case: 'before the livery man has hummed', when: { T_HUM_HEARD: false }, say: b3.before },
     ],
@@ -1876,9 +1884,8 @@ function gulchVessel(speaker) {
   options.push(waiting({ ...sixDoc, id: 'ves_g1_6' }), sixHere);
   const five = byN(5);
   options.push({ id: 'ves_g1_5', tag: five.tag, text: five.text, afterUse: 'remove', when: { T_DUEL_ONE_LOST: true, T_VESSEL_FOUND: false },
-    // G9 is completed here once the Gulch's puzzles join the canonical list (the brief's last step); until then the
-    // option writes what G9 yields, T_VESSEL_FOUND.
-    exchange: g9, set: { T_VESSEL_FOUND: true }, ends: true });
+    // G9: the rematch agreed, and Vessel is in Room 4 from here (T_VESSEL_FOUND moves from B3 to G9, the brief, 5).
+    exchange: g9, set: { T_VESSEL_FOUND: true }, puzzle: { G9: 'complete' }, ends: true });
   const exit = vb1.options.find((one) => one.tag === 'EXIT');
   if (exit) options.push({ ...exit, id: 'ves_g1_x' });
   return { id: 'VES_G1', noPrompt: true,
@@ -1893,7 +1900,7 @@ function gulchVessel(speaker) {
  * `*(second, if asked again before it is carried)*` is the answer to asking again. "Both options need G3": every one
  * waits for the camp's trust. An option asked again before its message is carried stays until it is carried: the
  * message it gives is carried by the other man's option, whose flag ends it (the builder's reading of `remove` with a
- * second answer, errata 209).
+ * second answer, errata 210).
  */
 function gulchMessages(person) {
   const doc = read('docs/109-fiddlers-gulch-lines.md');
@@ -1935,7 +1942,10 @@ function gulchMessages(person) {
     if (!exchange.length) throw new Error(`doc 109: ${person.node} option ${n} says nothing`);
     // Carried by the other man's option: the flag it leaves is the one the other side's req does not read.
     const given = Object.keys(set).find((one) => one.startsWith('T_'));
+    // G8 is done when both pairs are taught: the option that teaches the second (doc 109: the answer carried down).
+    const last = Object.keys(set).some((one) => one === 'ASSAY_PAIR_26');
     out.push({
+      ...(last ? { puzzle: { G8: 'complete' } } : {}),
       id: `${person.speaker}${n}`, tag: tag[1], text,
       afterUse: again ? 'retain' : (tag[2] ?? 'remove'),
       when: { [GULCH_GATES.G3]: true, ...(req ? { [req]: true } : {}),
@@ -1945,6 +1955,32 @@ function gulchMessages(person) {
     });
   }
   return out;
+}
+
+/**
+ * DOC 109, THE CHANGES IN CONSOLATION: a scene written under `### heading` as `> **NAME:** ...` lines (THAD's are his),
+ * read with the Gulch's reader (gulchSpoken: quotes, directions, *(beat)* dropped). `→ THE ITEM` on a line is what the
+ * scene hands over; the caller routes it, as the scene's home tree or pair does. Each moves to its home document when
+ * the trip is built (doc 109): read from doc 109 until then, never retyped.
+ */
+function consolationScene(heading, speakers) {
+  const doc = read('docs/109-fiddlers-gulch-lines.md');
+  const at = doc.indexOf(`\n${heading}`);
+  if (at < 0) throw new Error(`doc 109: no "${heading}"`);
+  const rest = doc.slice(at + 1);
+  const end = rest.slice(4).search(/^#{2,3} |^---$/m);
+  const body = end < 0 ? rest : rest.slice(0, end + 4);
+  const lines = [];
+  const gives = [];
+  for (const m of body.matchAll(/^> \*\*([A-Z ]+):\*\* (.+)$/gm)) {
+    const speaker = m[1] === 'THAD' ? 'thad' : speakers[m[1]];
+    if (!speaker) throw new Error(`doc 109 ${heading}: a line of ${m[1]}'s, and no speaker for it`);
+    const [said, effect] = m[2].split('→');
+    lines.push(...gulchSpoken(said, speaker));
+    if (effect) gives.push(effect.trim());
+  }
+  if (!lines.length) throw new Error(`doc 109 ${heading}: no lines`);
+  return { lines, gives, body };
 }
 
 function gulchPeople() {
@@ -2762,11 +2798,13 @@ function minorTrees() {
           opening: [rootSpeech[0]],
           options,
         },
-        ...(actTwo ? { VES_B1: actTwo.node } : {}),
+        ...(actTwo ? { VES_B1: vesselBackFromTheGulch(actTwo.node) } : {}),
         ...(actFour ? { VES_F1: actFour.node } : {}),
         ...(actThree ? { UND_C1: actThree.node } : {}),
       },
       ...(actTwo ? { entries: [...(actFour?.entries ?? []), ...actTwo.entries] } : {}),
+      // Doc 03's Duel One opening, said in the Gulch at THE FIND (doc 109; reference/room-52/annotation.json's scene).
+      ...(actTwo ? { duelOneOpening: actTwo.node.opening } : {}),
       ...(actThree ? { entries: actThree.entries } : {}),
       start: 'root',
     }));
@@ -3720,6 +3758,18 @@ function frameTree() {
       ...(opening.length ? { opening } : {}), options };
   }
   if (!nodes.FRA_A1) throw new Error('doc 04: FRA_A1 was not extracted');
+  // DOC 109, B1 · THE CLARION: after FRA_B1's destination line, whichever story, Frame presses this week's paper on him.
+  {
+    const clarion = consolationScene('### B1 · THE CLARION', { FRAME: SPEAKER });
+    if (!clarion.gives.some((one) => /THE CLARION/.test(one))) throw new Error('doc 109 B1: the scene no longer gives THE CLARION');
+    const b1 = (nodes.FRA_B1?.options ?? []).filter((option) => option.puzzle?.B1 === 'complete');
+    if (b1.length !== 2) throw new Error(`doc 04: FRA_B1 has ${b1.length} options completing B1, not 2`);
+    for (const option of b1) {
+      option.exchange = [...(option.exchange ?? [{ speaker: SPEAKER, line: option.say }]), ...clarion.lines];
+      delete option.say;
+      option.gives = [...(option.gives ?? []), 'clarion'];
+    }
+  }
   const entries = Object.entries(ENTRY).filter(([node]) => nodes[node]).map(([node, when]) => ({ when, node }));
   for (const note of unplayed) process.stderr.write(`  doc 04 FRAME: ${note}\n`);
   return write('content/dialogue/frame.json', {
@@ -4214,6 +4264,28 @@ function hobTree() {
  * is lost", and it closes once Duel Two is won, because a won duel has nothing
  * left to yield.
  */
+/**
+ * VESSEL IN THE NUGGET, AFTER THE TRIP (doc 109, GOING HOME; the brief, 7 and 9). He is in Room 4 only from the
+ * rematch agreed in the Gulch (G9), and three things are not as doc 04's VES_B1 writes them:
+ * - his first TALK TO opens with doc 109's line, "In place of doc 03's opening, which is now said in the Gulch";
+ * - option 3, the replay of Duel One, "is offered only in the Gulch, before G9. In the Nugget, option 3 is not offered"
+ *   (doc 109, question 3);
+ * - option 6, the challenge (B4) and Duel One, were the tent's and the bar's (G6, G7): "Duel One is no longer fought in
+ *   Room 4" (the brief, 7).
+ * The rematch (option 5, Duel Two) is the Nugget's, as before.
+ */
+function vesselBackFromTheGulch(node) {
+  const doc = read('docs/109-fiddlers-gulch-lines.md');
+  const line = /^\*\*VESSEL, in Room 4, after the trip\*\* — .*?opens with: "([^"]+)"/m.exec(doc)?.[1];
+  if (!line) throw new Error('doc 109 GOING HOME: no line for Vessel in Room 4 after the trip');
+  if (!/Option 3 is the replay, and is offered only here, before G9\. In the Nugget, it is not offered\./.test(doc)
+    && !/In the Nugget, option 3 is not offered/.test(doc)) throw new Error('doc 109 no longer keeps option 3 out of the Nugget');
+  const options = node.options.filter((option) => option.id !== 'ves_b1_3' && option.id !== 'ves_b1_6');
+  if (options.length !== node.options.length - 2) throw new Error('doc 04: VES_B1 no longer has options 3 and 6 to take out');
+  return { ...node, prompt: line, opening: [{ speaker: 'deke_vessel', line }], options,
+    gulchNote: 'Doc 109: after the trip, "Grubb! You came all this way. Again." in place of doc 03\'s opening (said at THE FIND); options 3 and 6, the replay and the challenge, were the Gulch\'s.' };
+}
+
 function vesselActTwo() {
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('## DEKE VESSEL');
@@ -5165,6 +5237,43 @@ function liveryTree() {
  * "never mentioned again", so it sets nothing. A universal exit from doc 04's
  * pool closes it. Every string is the document's.
  */
+/**
+ * DOC 109, G1 · THE ROD, HIRED: a new OZY_A1 row, `| 9 | "option" | [TAG · aftermath] | response |`, read from doc 109
+ * (it moves to doc 04 when the trip is built). The response is her offer, then `*(with two dollars:)*` and
+ * `*(without:)*`: two options, one held while he carries the two dollars the piano pays (THE FILING FEE, A8, which can
+ * be earned again; doc 109: "Thad pays with two dollars from the Nugget's piano"), which takes them and gives THE
+ * BRASS ROD (G1), and one while he does not. `*(req ACT ≥ 2)*` is from Act II.
+ */
+function rodHired(speaker) {
+  const doc = read('docs/109-fiddlers-gulch-lines.md');
+  const at = doc.indexOf('\n### G1 · THE ROD, HIRED');
+  if (at < 0) throw new Error('doc 109: no "### G1 · THE ROD, HIRED"');
+  const body = doc.slice(at, doc.indexOf('\n### ', at + 5));
+  const row = /^\| (\d+) \| (.+?) \| (.+?) \| (.+) \|$/m.exec(body.split('\n').filter((line) => /^\| \d/.test(line)).join('\n'));
+  if (!row) throw new Error('doc 109 G1: no table row');
+  const [, n, optionCell, tagCell, response] = row;
+  const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
+  const text = quoted(optionCell)[0];
+  const act = /\*\(req ACT ≥ (\d)\)\*/.exec(response);
+  if (!tag || !text || !act) throw new Error('doc 109 G1: the row does not read (tag, text or req ACT)');
+  const [head, rest] = response.split('*(with two dollars:)*');
+  const [withPart, withoutPart] = (rest ?? '').split('*(without:)*');
+  if (!withPart || !withoutPart) throw new Error('doc 109 G1: no "with two dollars" and "without" answers');
+  if (!/→ THE BRASS ROD/.test(withPart)) throw new Error('doc 109 G1: the paid answer no longer gives THE BRASS ROD');
+  const said = (part) => gulchSpoken(part.split('→')[0].replace(act[0], ''), speaker).map((one) => ({ ...one, line: plain(one.line) }));
+  const offer = said(head);
+  const when = { ACT: { atLeast: Number(act[1]) } };
+  return [
+    { id: `${speaker}${n}`, tag: tag[1], afterUse: tag[2] ?? 'remove', text, when, holds: ['filing_fee'],
+      exchange: [...offer, ...said(withPart)], takes: ['filing_fee'], gives: ['brass_rod'], set: { T_ROD_HIRED: true },
+      puzzle: { G1: 'complete' } },
+    // Asked again without the money (errata 172: a question asked again is not answered word for word): her offer is
+    // made, so she says only the refusal -- doc 109's own words, the part of the answer that is still news.
+    { id: `${speaker}${n}_unpaid`, tag: tag[1], afterUse: 'retain', text, when: { ...when, T_ROD_HIRED: false }, lacks: ['filing_fee'],
+      exchange: [...offer, ...said(withoutPart)], repeat: said(withoutPart).map((one) => one.line).join(' ') },
+  ];
+}
+
 function ozymandiaTree() {
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('# MADAME OZYMANDIA');
@@ -5199,6 +5308,7 @@ function ozymandiaTree() {
     options.push(option);
   }
   if (options.length < 5) throw new Error(`doc 04 OZY_A1: ${options.length} options, fewer than 5`);
+  options.push(...rodHired(SPEAKER));
   options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[2 % POOL.length], universal: true, ends: true });
   return write('content/dialogue/ozymandia.json', {
     aftermathAuthored: true,

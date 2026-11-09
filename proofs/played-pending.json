@@ -1,12 +1,6 @@
 {
  "schema": 1,
  "note": "Puzzles sited wholly in built rooms that no test plays through yet, each with why. tests/lessons.test.ts fails on any such puzzle missing from both this file and a test's `// PLAYS:` line, so a new room cannot leave a puzzle unplayed in silence. Take an entry out when a test plays it.",
- "puzzles": {
-  "G1": "Fiddler's Gulch (reference/fiddlers-gulch/brief.md): G1, the rod hired in Room 16, is wired with the changes in Consolation, the last step of the brief's order. Its audit is in proofs/readiness/puzzles.json so the mine's readiness can cite it; this entry comes off when the test that plays it lands."
- },
- "items": {
-  "third_copy": "Fiddler's Gulch (reference/fiddlers-gulch/brief.md): the item is extracted from doc 109 and used on the trip (the washout fixture, the rod at the line), and the scene that hands it over is one of the changes in Consolation, the brief's last step: A9, Sump's third copy. This entry comes off when that scene lands.",
-  "brass_rod": "Fiddler's Gulch (reference/fiddlers-gulch/brief.md): the item is extracted from doc 109 and used on the trip (the washout fixture, the rod at the line), and the scene that hands it over is one of the changes in Consolation, the brief's last step: G1, the rod hired in Room 16. This entry comes off when that scene lands.",
-  "clarion": "Fiddler's Gulch (reference/fiddlers-gulch/brief.md): the item is extracted from doc 109 and used on the trip (the washout fixture, the rod at the line), and the scene that hands it over is one of the changes in Consolation, the brief's last step: B1, Frame's copy of the edition. This entry comes off when that scene lands."
- }
+ "puzzles": {},
+ "items": {}
 }

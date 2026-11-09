@@ -135,6 +135,8 @@ function gateHolds(option: DialogueOption, flags: FlagStore, held: boolean, aske
   if (!flags.test(option.when)) return false;
   if (option.whenAny && !option.whenAny.some((one) => flags.test(one))) return false;
   if ((option.holds ?? []).length > 0 && !held) return false;
+  // The other side of a `holds` row (doc 109, G1: the rod hired with two dollars, and without them).
+  if ((option.lacks ?? []).length > 0 && held) return false;
   return (option.after ?? []).every(asked);
 }
 
@@ -333,7 +335,7 @@ test('every option in every tree is offered exactly when its gates say, and ever
     for (const nodeId of Object.keys(tree.nodes)) {
       if (!reachable.has(nodeId)) { unreachable.push(`${tree.id}/${nodeId}`); continue; }
       const node = tree.nodes[nodeId]!;
-      const holding = node.options.some((o) => (o.holds ?? []).length) ? [false, true] : [false];
+      const holding = node.options.some((o) => (o.holds ?? []).length || (o.lacks ?? []).length) ? [false, true] : [false];
       const milestones = node.options.some((o) => o.rephrase) ? [false, true] : [false];
       const domain = domains(content, node);
       for (const setting of settings(domain, node)) {

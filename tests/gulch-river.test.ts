@@ -1,5 +1,5 @@
 /**
- * FIDDLER'S GULCH, ROOM 53: THE RIVER (reference/fiddlers-gulch/brief.md, "What the engine needs" 7; doc 109; errata 208).
+ * FIDDLER'S GULCH, ROOM 53: THE RIVER (reference/fiddlers-gulch/brief.md, "What the engine needs" 7; doc 109; errata 209).
  *
  * G7, Duel One on the bar: Vessel calls it in the grog tent (VES_G1 option 6, B4, or the replay) and it is fought here,
  * when the player comes down to the river. Doc 03's duel, with doc 109's differences: the rule-keeper recites the bar's rules

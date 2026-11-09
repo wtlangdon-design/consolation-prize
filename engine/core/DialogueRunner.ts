@@ -111,6 +111,8 @@ export interface DialogueResolution {
   readonly duelPoint?: 'player' | 'opponent';
   /** Items the option hands over when this settles (its `gives`, first selection only). */
   readonly grants?: readonly string[];
+  /** Items the option takes when this settles (its `takes`, first selection only), before it gives. */
+  readonly payments?: readonly string[];
 }
 
 /**
@@ -134,6 +136,8 @@ export interface MilestoneStore {
   holds?(item: string): boolean;
   /** The game state takes items an option `gives` (DialogueOption.gives). */
   grant?(items: string[]): void;
+  /** And gives up the items an option `takes` (DialogueOption.takes): what it is paid with. */
+  take?(items: string[]): void;
 }
 
 //: EXIT ENDS THE CONVERSATION. That is the tag's function, not an exemption
@@ -309,9 +313,10 @@ export class DialogueRunner {
     return this.milestones.reached(id);
   }
 
-  /** Whether he carries everything an option's `holds` names (DialogueOption.holds). */
+  /** Whether he carries everything an option's `holds` names, and nothing its `lacks` names (DialogueOption.holds, lacks). */
   private carries(option: DialogueOption): boolean {
-    return (option.holds ?? []).every((item) => this.milestones.holds?.(item) ?? false);
+    return (option.holds ?? []).every((item) => this.milestones.holds?.(item) ?? false)
+      && !(option.lacks ?? []).some((item) => this.milestones.holds?.(item) ?? false);
   }
 
   get isActive(): boolean {
@@ -738,6 +743,7 @@ export class DialogueRunner {
 
     return {
       ...(selection === 1 && option.gives?.length ? { grants: option.gives } : {}),
+      ...(selection === 1 && option.takes?.length ? { payments: option.takes } : {}),
       optionId: option.id,
       tree: treeId,
       node: nodeId,
@@ -851,6 +857,7 @@ export class DialogueRunner {
     commitBundle(exchange.tx.effects, this.dialogueWorld(), exchange.tx.journal);
 
     const { resolution } = exchange;
+    if (resolution.payments?.length) this.milestones.take?.([...resolution.payments]);
     if (resolution.grants?.length) this.milestones.grant?.([...resolution.grants]);
     if (resolution.duelChoice && this.duel) {
       const choice = this.duel.commit(resolution.duelChoice);

@@ -1,5 +1,5 @@
 /**
- * FIDDLER'S GULCH, ROOM 54: UPSTREAM (reference/fiddlers-gulch/brief.md, "What the engine needs" 10; doc 109; errata 209).
+ * FIDDLER'S GULCH, ROOM 54: UPSTREAM (reference/fiddlers-gulch/brief.md, "What the engine needs" 10; doc 109; errata 210).
  *
  * G8, the messages: the panner and the man upstream will not speak to each other, so they speak through the hero, in
  * boasts. Carrying the panner's boast up teaches pair 25 (the man upstream's answer); carrying his own back down teaches

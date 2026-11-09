@@ -1,6 +1,6 @@
 /**
  * FIDDLER'S GULCH, ROOM 52: THE GROG TENT (reference/fiddlers-gulch/brief.md, "What the engine needs" 5 and 6; doc
- * 109; errata 207).
+ * 109; errata 208).
  *
  * G4: the watch's first LOOK is THE FIND -- the subject's line, the find's lines and doc 03's Duel One opening, said
  * here -- and from then the keeper is named by his own name and his tree opens VES_G1. The watch has three states:
@@ -85,7 +85,9 @@ test('G4: the watch\'s first LOOK is THE FIND, and from it he is named and his t
   // Doc 03's opening as extracted: the file the room's scene reads it from, named in the annotation.
   const scene = (await json('reference/room-52/annotation.json')).scenes[0].extracted;
   const vessel = await json(scene.file);
-  for (const one of vessel.nodes.VES_B1.opening) assert.ok(said.includes(one.line), `doc 03's opening, here: ${one.line}`);
+  const opening = (scene.path as string).split('.').reduce((at: any, key) => at?.[key], vessel) as { line: string }[];
+  assert.ok(opening?.length, `${scene.file} holds doc 03's opening at ${scene.path}`);
+  for (const one of opening) assert.ok(said.includes(one.line), `doc 03's opening, here: ${one.line}`);
   assert.ok(state.puzzleComplete('G4'));
   assert.equal(state.flags.get('T_DEACON_FOUND'), true);
   assert.equal(state.nameOf(keeper), keeper.names![0]!.name, 'from the find his hover reads his own name');
