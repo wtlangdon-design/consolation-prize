@@ -1104,6 +1104,20 @@
       "speaker": "map_seller",
       "words": "The map seller brightens considerably.",
       "where": "dialogue/amb-map-seller root opening"
+    },
+    {
+      "n": 104,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "He gives Thad a map of the district. Claim Two is already circled.",
+      "where": "dialogue/fanshawe FAN_A1 option 1"
+    },
+    {
+      "n": 105,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.",
+      "where": "dialogue/fanshawe FAN_A2 option 6"
     }
   ]
 }

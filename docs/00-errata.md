@@ -6154,3 +6154,42 @@ The feel review found two jokes told whole on every visit (Sump's "circular… l
 - Lesson:
   - `tests/repeated-lines.test.mjs` proves each rule on a made-up transcript. It also takes errata 224's `openingOnce` back off Sump and errata 225's back off Frame, and the check names "That would be circular, and this office is linear." and "'I'd… rather… not,' says mystery man.". The game as it stands passes.
   - `tests/narration-templates.test.mjs` proves each rule on made-up lines, plants a four-subject habit in the real game's lines and fails on it, and passes the game as it stands.
+
+# 227 · THE EXAMINE TRANSCRIPT — the feel review, 2026-11-09
+
+*The feel review judged the comedy from errata 221's transcript. That walkthrough almost never says LOOK AT or LISTEN TO, and the examine layer is most of the script. So the joke mix was measured on half of it. This is tooling: it reads the game and changes nothing in it.*
+
+- **What is built.** `tools/examine-transcript.mjs` plays `tests/data/full-game-walkthrough.json` headless, with the player `tests/full-game.test.ts` uses.
+  - It probes on the first arrival in each room. It probes again on a later arrival in a new act, or where the answers have changed.
+  - Each probe resolves LOOK AT and LISTEN TO on every hotspot and exit, and on every person a click can reach.
+  - Answers come from the engine's own resolver (`GameState.resolveInteraction`), so act variants, flag and puzzle gates, and repeat variants are as play gives them. A first selection's `then` lines are included.
+  - People resolve as `GameScene` resolves them: the room's lines for that person, then the person's examine layer, then the people pool. A figure wholly under a hotspot is examined through that hotspot (`AmbientLayer.personAt`). Room 33's rock answers LISTEN with a tap and no line (`GameScene.listenAt`).
+- **A probe changes nothing.** Resolving a verb advances the line cursors (`VerbSystem.resolve`), so the probe saves them, along with the selected verb, the held item and the people latch, and restores them after every resolution.
+  - `tests/examine-transcript.test.mjs` compares the state snapshot before and after a probe at several points in the walkthrough. It shows that a real LOOK does move the snapshot, and that the probed run breaks exactly where the plain run does.
+- **Where it is.** `renders/playthrough/examine.md` and `renders/playthrough/examine.json`, beside the transcript, with a summary at the top.
+  - First run: 42 rooms visited, 86 room arrivals written down, 1,061 hotspots, exits and people.
+  - 2,099 responses have a line, 23 have none, and 1,073 lines are distinct.
+- **Nothing is marked.** Every line is written the same way, in the room's own order. No effect of a response is recorded: no flag set, no puzzle completed and no conversation opened. So the three load-bearing LISTEN lines cannot be told from the rest (design invariant 3).
+- **What it shows, for whoever reads it.** These are reported, not changed.
+  - The 23 responses with no line are the Lane's three stub doors in each of their three arrivals, PIKE'S NEIGHBOR, THE GAP and the rock's LISTEN. The game has no LOOK AT or LISTEN TO pool.
+  - Named figures with no lines of their own (Main Street's map seller, pie woman and man leaving tomorrow, among others) answer with the people pool's single line.
+- How to run it: doc 55 §8.
+- Lesson: none -- tooling, no defect fixed.
+
+# 228 · THE GAPS THE TRANSCRIPT FOUND, CHECKED IN THE GAME — TYLER, 2026-11-09 ("Proceed with all the necessary fixes")
+
+The feel review listed ten places on the main path where a first-time player might not follow. Each was checked against the content, not just the transcript. Six were not real gaps:
+- the hotel's "Nineteen." is the room number, and the clerk's directions follow;
+- the affidavit is chased before Documents A–D only on the walkthrough's order, since Act II's opening line sends the player to Sump;
+- the Thursday ledger is a hotspot in the laundry, with Sheng's and Pratt's Thursdays before it;
+- Sheng's "two dollars and sixty cents" is Sheng knowing the sum better than Thad, which is the joke;
+- Sump's note, copy and third copy arrive as items with their icons;
+- section nineteen was fixed in errata 224.
+
+Four were real, and are fixed:
+- **The filing fee was named before anyone named a fee.** The barman's two dollars became "The filing fee" at A8, but Sump's Act I answer asked only for a boundary. His answer now ends: "With a boundary and two dollars, the office will file it." (doc 04 SUM_A1 option 1).
+- **The map arrived unseen.** FAN_A1's option 2 handed the map over on screen, but option 1, the one most players pick, did not. Option 1 now plays the handover too (doc 04; doc 95 row 104). The emphasis marks in its reply were dropped, so the direction pass can read the reply cell.
+- **"Keep it. I have dozens." named nothing.** Doc 57 A10's beat 3, the knocked glass and the handkerchief, was written but not played. It now plays before the line (doc 95 row 105).
+- **The last duel had no stakes on screen.** Fanshawe's challenge now ends: "Lose, and nobody in town believes a word you file." (doc 03).
+
+Lesson: `tests/gifts-shown.test.mjs` requires every dialogue option that gives an item to show the handover in a performed direction, or to be listed with the reason its words already hand the thing over (three are listed). The map as it was fails it. The fee and the stakes are matters of taste, recorded as a row in doc 55 §8.

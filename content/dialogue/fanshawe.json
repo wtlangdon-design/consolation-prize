@@ -168,13 +168,23 @@
           "tag": "PROGRESS",
           "text": "Number two. Prosperity.",
           "afterUse": "remove",
-          "say": "Prosperity! You've named it. Nobody names them. I like you enormously.",
           "gives": [
             "company_map"
           ],
           "puzzle": {
             "A4": "complete"
-          }
+          },
+          "exchange": [
+            {
+              "speaker": "fanshawe",
+              "line": "Prosperity! You've named it. Nobody names them. I like you enormously."
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "He gives Thad a map of the district. Claim Two is already circled.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "fanshawe2",
@@ -397,6 +407,11 @@
             {
               "speaker": "fanshawe",
               "line": "Of course you do."
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.",
+              "direction": true
             },
             {
               "speaker": "fanshawe",
