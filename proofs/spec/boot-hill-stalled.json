@@ -24,18 +24,6 @@
     "why": "Thad's question"
    },
    {
-    "do": "wait",
-    "seconds": 2
-   },
-   {
-    "do": "click",
-    "at": [
-     450,
-     60
-    ],
-    "why": "read on, to the Reverend's answer"
-   },
-   {
     "do": "waitFor",
     "says": "procession_sowerby",
     "upTo": 60
