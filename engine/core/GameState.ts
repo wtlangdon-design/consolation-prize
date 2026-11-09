@@ -7,7 +7,8 @@ import { heightIn, WalkBoxes, type Route } from './WalkBoxes.ts';
 import { FlagStore } from './FlagStore.ts';
 import { DialogueRunner } from './DialogueRunner.ts';
 import { VerbSystem, type ResolvedAction } from './VerbSystem.ts';
-import { SaveManager, type SaveFile, type StorageLike } from './SaveManager.ts';
+import { SAVE_VERSION, SaveManager, type SaveFile, type StorageLike } from './SaveManager.ts';
+import { migrateSave } from './SaveMigration.ts';
 import { MenuSystem } from './MenuSystem.ts';
 import { MachineSettings } from './MachineSettings.ts';
 import { pureResolution } from './Assertions.ts';
@@ -1384,7 +1385,9 @@ export class GameState {
   load(slot: number | null = null): boolean {
     const save = slot === null ? this.saves.read() : this.saves.readSlot(slot);
     if (!save) return false;
-    return this.restoreFrom(save);
+    // A SAVE FROM AN EARLIER VERSION IS BROUGHT FORWARD FIRST (errata 218). One
+    // at the current version is restored exactly as written.
+    return this.restoreFrom(migrateSave(save, this.content.saveMigrations, this.content.flags, SAVE_VERSION));
   }
 
   /**

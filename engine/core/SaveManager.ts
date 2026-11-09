@@ -10,7 +10,16 @@ export const SAVE_KEY = 'consolation.save.v1';
  * them was weighing it against nothing -- and CLAUDE.md's own criterion,
  * "save/load restores exact state", was false in the document that states it.
  */
-export const SAVE_VERSION = 2;
+export const SAVE_VERSION = 3;
+/**
+ * BUMPED TO 3 BY ERRATA 218, AND VERSION 2 IS MIGRATED, NOT REJECTED. Fiddler's
+ * Gulch changed B1 and B3 under saves players had (a B1 that gave no Clarion,
+ * a B3 that put Thad in the Nugget with Vessel found), and those saves could
+ * no longer be finished. A v2 save still loads; GameState.load brings it
+ * forward with content/save-migrations.json (SaveMigration.ts). A v1 save is
+ * rejected as before -- nothing ever existed to bring forward.
+ */
+export const OLDEST_LOADABLE_VERSION = 2;
 
 export interface SaveFile {
   version: number;
@@ -184,7 +193,8 @@ export class SaveManager {
   private validate(parsed: unknown): SaveFile | null {
     if (typeof parsed !== 'object' || parsed === null) return null;
     const candidate = parsed as Partial<SaveFile>;
-    if (candidate.version !== SAVE_VERSION) return null;
+    if (typeof candidate.version !== 'number' || candidate.version < OLDEST_LOADABLE_VERSION
+      || candidate.version > SAVE_VERSION) return null;
     if (typeof candidate.room !== 'string') return null;
     if (!Array.isArray(candidate.inventory)) return null;
     if (typeof candidate.reputation !== 'number') return null;

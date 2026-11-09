@@ -2369,6 +2369,8 @@ export interface ManifestFile {
   actCards?: string;
   /** Errata 158: Monkey Island's cut-aways, extracted from doc 96. */
   cutaways?: string;
+  /** Errata 218: content/save-migrations.json, the rules that bring an older save forward. */
+  saveMigrations?: string;
   schema: number;
   font: string;
   scaling: string;
@@ -2795,6 +2797,8 @@ export interface ContentBundle {
   actCards: Map<number, string>;
   /** Errata 158: the cut-aways, in doc 96's order. Empty when the manifest names none. */
   cutaways: Cutaway[];
+  /** Errata 218: what loading a save written under an earlier version rewrites. Empty when the manifest names none. */
+  saveMigrations: SaveMigration[];
   /** Act openings, by act (ActCardsFile.openings). */
   actOpenings: Map<number, ActOpening>;
   /** Head overlays by id. Empty until something declares one. */
@@ -3309,6 +3313,42 @@ export interface CutawayCloseup {
   pushSeconds?: number;
   focus?: [number, number];
   lamp?: { x: number; y: number; radius: number; strength: number };
+}
+
+/**
+ * ONE REWRITE OF AN OLD SAVE (errata 218): when every condition holds for the
+ * save as it stands -- its flags (`when`, as any condition), its puzzles, the
+ * items it holds and lacks -- its writes are applied. Rules apply in order.
+ */
+export interface SaveMigrationRule {
+  id: string;
+  note?: string;
+  when?: Condition;
+  /** Each puzzle complete, or not complete. */
+  puzzles?: Record<string, 'complete' | 'incomplete'>;
+  holds?: string[];
+  lacks?: string[];
+  set?: FlagWrites;
+  /** Puzzles whose completion the save loses, to be earned again under the design as it now is. */
+  withdraws?: string[];
+  gives?: string[];
+  /** The save opens with no conversation and no duel in progress. */
+  closesDialogue?: boolean;
+}
+
+/** The rules that take a save written under version `from` to `to`. */
+export interface SaveMigration {
+  from: number;
+  to: number;
+  source: string;
+  note?: string;
+  rules: SaveMigrationRule[];
+}
+
+export interface SaveMigrationsFile {
+  schema: number;
+  note?: string;
+  migrations: SaveMigration[];
 }
 
 export interface CutawaysFile {

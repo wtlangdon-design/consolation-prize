@@ -5,7 +5,8 @@
   "start": "HARN_1",
   "nodes": {
     "HARN_1": {
-      "prompt": "Harness node one prompt.",
+      "noPrompt": true,
+      "exceptionReason": "Engine fixture: no opening is spoken, so no prompt is carried (a prompt without an opening is never heard; errata 218).",
       "options": [
         {
           "id": "opt_unlock",
@@ -36,7 +37,8 @@
       ]
     },
     "HARN_2": {
-      "prompt": "Harness node two prompt.",
+      "noPrompt": true,
+      "exceptionReason": "Engine fixture: no opening is spoken, so no prompt is carried (a prompt without an opening is never heard; errata 218).",
       "options": [
         {
           "id": "opt_gated",

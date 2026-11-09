@@ -2,6 +2,7 @@ import type { AssayFile } from './Assay.ts';
 import type {
   ActCardsFile,
   CutawaysFile,
+  SaveMigrationsFile,
   ActOpening,
   ActorFile,
   CarriedLightFile,
@@ -223,6 +224,14 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     if (!rooms.has(cut.room)) throw new Error(`Cut-away ${cut.id}: no room ${cut.room}`);
   }
 
+  // ERRATA 218: an older save's way forward. Each migration names the version it starts from, once.
+  const saveMigrations = manifest.saveMigrations
+    ? ((await read(manifest.saveMigrations)) as SaveMigrationsFile).migrations : [];
+  for (const one of saveMigrations) {
+    if (one.to !== one.from + 1) throw new Error(`Save migration from ${one.from} goes to ${one.to}, not ${one.from + 1}`);
+    if (saveMigrations.filter((other) => other.from === one.from).length > 1) throw new Error(`Two save migrations from ${one.from}`);
+  }
+
   if (!rooms.has(manifest.startRoom)) {
     throw new Error(`Start room not found: ${manifest.startRoom}`);
   }
@@ -232,7 +241,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, sounds, paths,
     speechColours, assay, items, fixtures, panel, title, actedDirections, exitPool,
     combinations, itemIcons,
-    sequences, actCards, actOpenings, cutaways,
+    sequences, actCards, actOpenings, cutaways, saveMigrations,
   };
 }
 

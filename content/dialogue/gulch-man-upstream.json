@@ -10,6 +10,12 @@
     "UPS_G1": {
       "id": "UPS_G1",
       "prompt": "Did he send you? Tell him it's mine. All of it, to the falls.",
+      "opening": [
+        {
+          "speaker": "gulch_man_upstream",
+          "line": "Did he send you? Tell him it's mine. All of it, to the falls."
+        }
+      ],
       "options": [
         {
           "id": "gulch_man_upstream1",

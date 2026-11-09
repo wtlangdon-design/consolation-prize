@@ -10,6 +10,12 @@
     "PAN_G1": {
       "id": "PAN_G1",
       "prompt": "If he sent you, tell him I've found nothing. Nothing at all.",
+      "opening": [
+        {
+          "speaker": "gulch_panner",
+          "line": "If he sent you, tell him I've found nothing. Nothing at all."
+        }
+      ],
       "options": [
         {
           "id": "gulch_panner1",

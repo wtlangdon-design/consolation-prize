@@ -7,7 +7,15 @@
   "nodes": {
     "root": {
       "id": "root",
-      "prompt": "The map seller brightens considerably.",
+      "noPrompt": true,
+      "exceptionReason": "Doc 07's opening is a stage line, performed as a direction, not held over the options.",
+      "opening": [
+        {
+          "speaker": "map_seller",
+          "line": "The map seller brightens considerably.",
+          "direction": true
+        }
+      ],
       "options": [
         {
           "id": "map_seller1",
