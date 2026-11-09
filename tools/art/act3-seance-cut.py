@@ -13,6 +13,16 @@ act3-seance drew the séance three times on magenta beside the in-game Thad as a
   4. A breath is derived as tools/art/cast-unify-cut.py derives one: the rows above the tabletop lifted a pixel.
   5. Despilled (the key's red-and-blue-over-green signature) and refused if any is left; snapped to one level.
 
+Operation 3 (a correction: the front chairs drawn standing on the floor, both lights in one sheet):
+  act3-seance-cut.py 3 art/actors/room-16-seance-table.png 2:glance --breath --xrange 0:760
+        --match-cloth <operation 1's lit sheet> --tap 233:268:272:312:4 --write
+  (operation 3's third row gave the pencil to the young man at the back and left Frame as he was, so Frame's tap is
+  derived from the rest frame: his pencil hand brought down 4 px onto the notebook)
+  act3-seance-cut.py 3 art/actors/room-16-seance-table-dark.png 2:turn --breath --xrange 760:1536 --split 1536
+        --match art/actors/room-16-seance-table.png --tap 233:268:272:312:4 --tap-on turn --write
+  (run after the lit one: it matches the NEW lit. The dark turn row drew the bald man's head jerking up but left
+  Frame's hand as it was, so his writing hand is brought down onto the notebook in the same frame, as the lit tap)
+
 Usage: act3-seance-cut.py <op> <out.png> <action row:label> ... [--breath] [--split X] [--match <sheet>]
                          [--lamps <out.png>] [--write]
   op 1: act3-seance-cut.py 1 art/actors/room-16-seance-table.png 2:glance 3:pencil --breath --write
@@ -30,9 +40,14 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 def opt(name):
     return sys.argv[sys.argv.index(name) + 1] if name in sys.argv else None
-SKIP = {sys.argv.index(n) + 1 for n in ('--match', '--lamps', '--split') if n in sys.argv}
+SKIP = {sys.argv.index(n) + 1 for n in ('--match', '--lamps', '--split', '--xrange', '--match-cloth', '--tap', '--tap-on') if n in sys.argv}
 args = [a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith('--') and i not in SKIP]
-MATCH, LAMPS = opt('--match'), opt('--lamps')
+MATCH, LAMPS, CLOTH = opt('--match'), opt('--lamps'), opt('--match-cloth')
+XR = [int(v) for v in opt('--xrange').split(':')] if opt('--xrange') else None
+# --tap x0:y0:x1:y1:dy -- a hand moved down dy px from the REST frame (in rest-frame pixels): a derived action, for
+# when the drawn one missed. The strip it leaves is filled from the row just above the box, column by column.
+TAP = [int(v) for v in opt('--tap').split(':')] if opt('--tap') else None
+TAP_ON = opt('--tap-on')   # apply the tap inside that action's frame instead of adding a frame of its own
 LAMP_H = 180                    # the plate's own hanging lamp, ring to finial (art/backgrounds/room-16-tent.png)
 OP, OUT = args[0], os.path.join(ROOT, args[1])
 # row:label[:n] -- n is how many changed regions the action is (largest first): a glance is one, a turn can be two
@@ -74,13 +89,32 @@ def bands(mask):
 
 
 sheet = np.asarray(Image.open(SRC).convert('RGB')).astype(int)
+if XR:
+    # one column of a two-column sheet (operation 3: lamp-lit left, dark right); the rest of it is magenta here
+    keep = np.zeros(sheet.shape[1], bool); keep[XR[0]:XR[1]] = True
+    sheet = sheet.copy(); sheet[:, ~keep] = (255, 0, 255)
 op = opaque_rgb(sheet)
 rows = bands(op[:, :RULER_X])
 ruler = []
 for y0, y1 in rows:
     r = np.nonzero(op[y0:y1, RULER_X:].any(1))[0]
-    ruler.append(r[-1] - r[0] + 1)
-if MATCH:
+    if len(r): ruler.append(r[-1] - r[0] + 1)          # none in a sheet without a ruler (operation 3)
+def cloth_width(rgb_or_rgba):
+    """The widest row of the lit tablecloth (red over green and blue): the table, which a correction does not
+    resize, where the chairs and people below it may now reach lower."""
+    c = rgb_or_rgba[..., :3].astype(int)
+    m = (c[..., 0] > c[..., 1] + 25) & (c[..., 0] > c[..., 2] + 15)
+    if rgb_or_rgba.shape[-1] == 4: m &= rgb_or_rgba[..., 3] > 128
+    return int(max((np.nonzero(r)[0][-1] - np.nonzero(r)[0][0] + 1) if r.any() else 0 for r in m))
+
+
+if CLOTH:
+    # No ruler, and a corrected drawing whose height changed: the table is the size to keep.
+    ref_sheet = np.asarray(Image.open(os.path.join(ROOT, CLOTH)).convert('RGBA'))
+    ref_rest = ref_sheet[2:ref_sheet.shape[0] - 2, 2:2 + (ref_sheet.shape[1] - 2) // 4 - 2]
+    y0, y1 = rows[0]
+    k = cloth_width(ref_rest) / cloth_width(np.where(op[y0:y1, :RULER_X, None], sheet[y0:y1, :RULER_X], 0))
+elif MATCH:
     # No ruler: the group is the same drawing as MATCH's rest frame, so it takes that frame's height exactly.
     ref_sheet = np.asarray(Image.open(os.path.join(ROOT, MATCH)).convert('RGBA'))
     ref_full = ref_sheet[2:ref_sheet.shape[0] - 2, 2:2 + (ref_sheet.shape[1] - 2) // 4 - 2]
@@ -177,6 +211,18 @@ for row, label, n_take in ACTIONS:
         out[y0:y1, x0:x1] = f[y0:y1, x0:x1]
     frames.append(out); labels.append(label)
     report[label] = {'placed': at, 'fit': fit, 'boxes': [[int(v) for v in b] for b in boxes]}
+if TAP:
+    x0, y0, x1, y1, dy = TAP
+    base = frames[labels.index(TAP_ON)] if TAP_ON else rest
+    f = base.copy()
+    hand = base[y0:y1, x0:x1].copy()
+    f[y0 + dy:y1 + dy, x0:x1] = np.where(hand[..., 3:4] > 128, hand, f[y0 + dy:y1 + dy, x0:x1])
+    f[y0:y0 + dy, x0:x1] = base[y0 - 1:y0, x0:x1]
+    if TAP_ON:
+        frames[labels.index(TAP_ON)] = f
+    else:
+        frames.append(f); labels.append('tap')
+    report['tap'] = {'box': [x0, y0, x1, y1], 'down': dy, 'derived': True, 'in': TAP_ON or 'its own frame'}
 b = MAN / N
 frames = [snap(f, b) for f in frames]
 fixed = 0

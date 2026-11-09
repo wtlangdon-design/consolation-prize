@@ -1,0 +1,15 @@
+{
+ "assetId": "act3-seance",
+ "subject": "act3-seance-table",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-16-tent",
+ "promptFile": "reference/act3-seance/op-3.txt",
+ "out": "art/staging/act3-seance/op-3/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act3-seance/op-3/input.png",
+  "art/staging/act3-seance/op-3/problem.png"
+ ],
+ "derivedFrom": 1
+}
