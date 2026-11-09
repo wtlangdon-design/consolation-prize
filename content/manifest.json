@@ -108,7 +108,9 @@
   "content/dialogue/gulch-panner.json",
   "content/dialogue/gulch-man-upstream.json"
  ],
- "puzzles": [],
+ "puzzles": [
+  "content/puzzles/puzzle-graph.json"
+ ],
  "sequences": [
   "content/sequences/opening.json"
  ],

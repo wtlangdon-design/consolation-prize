@@ -5978,3 +5978,38 @@ Each is fixed in its extractor (`gulchPeople()`, `ozymandiaTree()`, doc 07's tre
 **C · The ride's hooves (doc 45 `R45-RIDE`): not built.** Doc 45 asks for "hooves on a road, unhurried" under the black, both ways. Only an approved material could be used, because synthesized creatures have failed Tyler's ear before (errata 102, 215 F). The only approved hooves are the opening's team (`team-moving.wav`, `team-halted.wav`, `team-departing.wav`; errata 102), which errata 215 reuses for carts. They are two horses in harness drawing a coach: wheels rumbling, an axle squeaking once a turn. The ride is Thad alone on Grievance ("Thad climbs on"), and the ride home's own line is "Vessel took the coach". A coach under it would say the opposite of the line. Cutting the wheels and the axle out would make a sound Tyler has never heard, and doc 45 rule 5 and errata 102 wire no cue he has not heard. So nothing is wired. Both rides stay as they are: the line over black, and the washout's carried music. **What would build it:** an approved recording or render of one animal walking on a dry road, auditioned by Tyler first.
 
 Lesson: `tests/openings-voiced.test.ts`. It reads every document a tree names as its source. It finds every opening those documents write: a node marked by its id (docs 04, 57, 109), doc 27's `**Root:**` under its speaker's heading, and doc 07's ***Opening:*** lines. It asks the engine's own `openingOf`, on that node, whether every quoted line is said. It also fails on any node carrying a `prompt` that no spoken opening holds. Proved on the old content: the six Gulch and Ozymandia lines and the two stage lines fail it. `tests/gulch-tents.test.ts` and `tests/gulch-river.test.ts` now check what the lookout and the panner say, not their prompts, and fail on the old content too. `tests/town-trees-sourced.test.ts` holds the townspeople's openings to doc 07 as well. `tests/save-migration.test.ts` plays the continuous route to each window, rebuilds the old build's save there at version 2, loads it, and plays on to the last letter home with the headless player. The same save left at version 3 breaks, at G3 for (a) and at B3 for (b). With the rules emptied, both windows fail. Saves the new design made, at version 2 or 3, load exactly as written.
+
+# 219 · THE PUZZLE TRAVERSAL, MADE REAL — TYLER, 2026-11-08 ("Go")
+
+*Errata 217's audit found three faults in play, and the traversal was one of them. Invariant 6 says the player can never make the game unwinnable, "verified by automated graph traversal, not by inspection". The traversal was checking nothing. Tyler said go.*
+
+- **What was wrong.** `tools/check-puzzle-graph.mjs` holds the canonical 52, but it traversed the manifest's `puzzles`. That list has been empty since the engine skeleton. Every run printed "no puzzle graph declared ... nothing traversed ... inert" and passed. The only real proof was the one scripted route in `tests/full-game.test.ts`.
+- **Correcting the record.** These earlier entries are not edited; this note corrects them.
+  - Errata 213 says "the fresh-save traversal and win-from-everywhere checks hold with it in". They did not run. The traversal was inert then, as it had always been.
+  - Errata 73 E says a Thad with fourteen pairs can win Duel Two, "verified by the traversal". That is true, but `tests/assay.test.ts` verifies it, by walking every fourteen. The traversal did not.
+  - `tools/check-flag-order.mjs` deferred its "read before written, in play order" half to the puzzle graph. It printed that on every run.
+- **The graph is worked out from the content, never typed.**
+  - `tools/lib/puzzle-model.mjs` reads every place in the content that changes the game's state. There are 2,399 of them: a response, a dialogue option, an item used on something, a door, an arrival scene, an accost, a timeline, an act opening, a cutaway, the listening tap, a duel's ending. For each one it records what it needs and what it does, in the engine's own terms.
+  - `content/puzzles/puzzle-graph.json` is the per-puzzle view of this: for each of the 52, the places that complete it, what each needs and what each gives. The manifest now lists it.
+  - `node tools/derive-puzzle-graph.mjs --write` writes the file. Nobody edits it by hand. The check fails if it disagrees with the content, and the diff shows what changed.
+  - It holds ids only. No line of writing is in it, and none was written or changed.
+- **What the check now proves, every run.**
+  1. All 52 canonical puzzles can be reached from a fresh save.
+  2. The win can be reached. The win is the coach stop at dawn, the room the content marks as ending the game.
+  3. No flag is read before it can be written, in play order. Anywhere the player can get to, no gate waits on a value that nothing reachable ever writes. This is check-flag-order's deferred half.
+  4. The win can be reached from every reachable state.
+     - Some actions take something away for good: an item handed over, a flag turned, a puzzle finished that a gate wanted unfinished. Before this errata, the check simply forbade that. The game does it legitimately: the filing fee is spent three times, and the survey, the loan, the eggs, the tonic and the Clarion are each handed over once.
+     - So for each such action, the check now builds the worst order of play it can. The action happens before everything that wanted what it takes. Every one-time action is already used up. Then it asks whether the win can still be reached.
+- **The model, and what it does not prove.**
+  - Facts only build up, and each flag is judged on its own. So the model can call something reachable that no real order of play reaches. It never makes the opposite mistake.
+  - A test holds the model to the real game. `tests/puzzle-graph.test.mjs` plays the continuous playthrough through the real engine, step by step. Every flag value, item, puzzle, room and conversation node that play reaches must be one the model reaches. If a new kind of content is something the model cannot see, that test fails.
+  - Dead ends are tested one loss at a time. A dead end that only two losses together would cause is not looked for.
+  - Walking, timing and what is drawn are not modeled. The rooms, conversations and nodes that play depends on are modeled.
+- **What it found: nothing to bring to Tyler.**
+  - All 52 puzzles can be reached, and so can the win.
+  - No gate waits on a value nothing writes.
+  - No dead end, across every loss.
+  - `proofs/puzzle-graph-findings.json` is where a finding would be listed for Tyler's ruling. The check reports listed findings and passes. It fails once a listed finding no longer happens. The list is empty.
+- **One thing the dead-end pass makes visible.** Three things spend the filing fee: Ozymandia (A7), Sump (A9) and the rod (G1). The Nugget piano pays it again on every visit. A test removes the repeat payments, and the check finds the dead end. That repeat payment is load-bearing.
+- **Time.** The check takes about a second inside `run-all`. The test file takes about six seconds.
+- Lesson: an empty graph is a failure, not a note. `check-puzzle-graph` now fails when no graph is declared, when the declared graph is missing a canonical puzzle, or when it is out of step with the content. `tests/puzzle-graph.test.mjs` puts each defect back into the real content and the check fails on it: an empty graph, a puzzle missing, a stale graph, a yield removed (the clerk never writing T_TUNES_PIANOS makes A2 unreachable), a gate on a value nothing writes, the fork taken at G1, the fee paid only once, and a stale known finding.

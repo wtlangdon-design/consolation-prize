@@ -487,6 +487,18 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Fiddler's Gulch (doc 107; the brief, \"When it is all in\"; errata 213): the canonical list adds G1 to G5, G8 and G9, and its message says 52 where it said 45. Not a misfire, and not looser: every puzzle is still traversed from a fresh save and the win state from every reachable state, with seven more in the graph. The count was right for the documents it was written against."
+  },
+  {
+   "check": "tools/check-puzzle-graph.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 219 (Tyler: \"Go\"): not a misfire and not looser -- the check was inert (the manifest's graph was empty, so the entry above's 'every puzzle is still traversed' was not true) and is rewritten to traverse a graph derived from content. Lines with numbers changed because its messages and its one rule changed: 'nothing may be permanently consumed' (no puzzle may `remove`/`consume`) is replaced by the dead-end pass, because the game legitimately consumes (the filing fee three times, the survey, the loan, the eggs, the tonic, the Clarion) and the question invariant 6 asks is whether a consumption can strand the player. It now also fails on an empty or short graph, which it used to note and pass."
+  },
+  {
+   "check": "tools/check-flag-order.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 219: not loosened. Only its scope comment and one note changed -- the 'ordering-aware half deferred to the puzzle graph (Phase 5)' note now names check-puzzle-graph.mjs, which does that half since errata 219. No gate, threshold or failure changed; the friction check matched the number in the note."
   }
  ]
 }
