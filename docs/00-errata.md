@@ -6283,3 +6283,39 @@ Lesson:
   - the old save path still works.
 - `tests/c5.test.ts` holds C6 complete after the asking.
 - Both fail with the extractor's change removed.
+
+# 234 · EVERY FIGURE BESIDE THAD, MEASURED AS DRAWN — TYLER, 2026-11-09 ("the screenshot you sent shows Thad looking much smaller than everyone else. It all needs to be scaled correctly. Similarly through the whole game.")
+
+Tyler was looking at Room 14 with the funeral cast at the gate (PR 312's proof). Sowerby and the mourners read taller than Thad beside them.
+
+- **Why no check caught it.** `tests/scale.test.ts` held a standing figure to the room's curve on what its file *declared*: the curve times `stature`, or a 1:1 sheet's frame height. It never measured the drawn pixels.
+  - A sheet whose crown-to-sole is not its `figureHeight` passed. The hat, the padding and the raised arm were all invisible to it.
+  - A group (`band`) was not measured at all.
+  - Thad himself was never measured against the same curve.
+- **Thad is not the outlier.** Every standing clip of his is drawn crown-to-sole at exactly its `figureHeight`, and he scales with depth. So he is the curve's man in every room, and the fix is in the others.
+- **Now measured** (`tools/audit-scale-vs-thad.mjs`): all 79 placed figures in shipping rooms. Each one's crown-to-sole is taken on screen through the engine's own scale and set against Thad's at the same soles.
+  - 44 are held: 41 standing figures, and three groups measured by their tallest adult.
+  - A raised hand beside the head does not count.
+  - A hatted head is read from its face: the crown is 0.9 of the eyes-to-chin above the eyes. That share is measured on the hatless cast (Thad 0.92, Deke 0.90, the photographer 0.88, Frame 0.85).
+  - The house's brim rule (`tools/art/figure-height.py --hat`) took collars, fiddles, maps and shoulders for brims. It put Pratt's crown at his eyebrows.
+- **Fixed, in data only.** These changes are to `figureHeight` and `stature`. No pixels and no positions changed.
+  - **Sowerby at the gate and at the grave** were 1:1 sheets at 1.04 and 1.02 of Thad. Both are now 1.00.
+  - **The mourners' tallest man** was 1.03. He is now 1.00.
+  - **The duel crowd's barman** (left group) was 1.07. He is now 1.02.
+  - **The panner** was 0.93, because his hat was counted. He is now 0.97.
+  - **Pratt, three sheets,** was 1.01. He is now 0.96, the size Tyler ruled on 2026-11-06.
+  - **Ozymandia at Prosperity** was 0.89, because her hat was counted. She is now 0.93, partway (below).
+- **The one level (errata 112 G) limits the rest.** A sheet's art pixels are snapped to the man its `figureHeight` names. Redrawing it at another height without re-snapping moves its art pixels off the level.
+  - `levelMan` records the snap. `tests/one-level.test.mjs` checks the grid there and holds the drift to 5%.
+  - Sowerby, the mourners and Pratt reach their heights within it (2–5% drift).
+  - Three stop short at the limit: the duel crowd, the panner and Ozymandia.
+- **For Tyler** (pixels, so not done here):
+  - **Ozymandia at Prosperity** is 0.93 of Thad against her stature's 0.96. She needs her sheet re-snapped (`tools/art/one-level.py`) and then `figureHeight` 342.
+  - **The sign painter** is 0.80 of Thad on his ladder. His `figureHeight` is the hero's height on the generation sheet, and the ladder scales with him. He needs the ladder shortened in the sheet.
+  - Both are recorded as `knownWrong` in `content/scale-anchors.json`.
+- **What height cannot fix.** At equal height, a figure in a broad coat with a raised arm (Sowerby) still reads larger than Thad's slim blue coat. That is drawing, not scale.
+
+Lesson:
+- `tests/scale-vs-thad.test.mjs` measures every visible figure's on-screen pixels against Thad at the same soles. It holds a standing adult, and a group's tallest adult, to 0.95–1.05. Any other range in `content/scale-anchors.json` `figures` must cite a ruling.
+- It puts back three of these defects and requires each to fail. `tests/scale.test.ts` passed all three.
+- Reverting the panner's fix fails it.

@@ -89,12 +89,14 @@
   "breakEvery": 7,
   "frameNote": "0 the mallet resting on the ground · 1 breath (derived) · 2 the mallet on his shoulder · 3 the mallet raised overhead · 4 struck down on the new stake. Every `breakEvery` seconds he drives the stake, or shoulders the mallet (errata 77). · ACTED ONLY (doc 95, errata 148; cast-unify 73): 5 the mallet resting, his head bowed, looking at his boots. Played by its direction, never as a break.",
   "provenance": "reference/cast-unify-17.spec.json",
-  "figureHeight": 386,
+  "figureHeight": 402,
   "stature": 0.96,
   "statureNote": "Tyler, 2026-11-06, after the leaner redraw: \"scale wise, he still looks way bigger than Thad. I think his current frame needs to be scaled down to better match Thad.\" With his hat, his breadth and his mallet he read well over Thad at 1.03. Now 0.96 of the room's man, crown to sole: his hat brings him level with Thad. (Was 1.03: \"The bigger man: room-25's master drew him 1.05 of Thad\".)",
-  "figureHeightNote": "Crown to sole, his hat excluded: 0.913 of the drawn rest frame, as measured on the rake row of the same sheet (the hat-brim reading is thrown here by the mallet's handle).",
+  "figureHeightNote": "ERRATA 234. Crown to sole, his hat excluded, the crown read from his eyes and chin (content/scale-anchors.json `figures`): 402. Was 386 (tools/art/figure-height.py --hat), which took a row at his eyebrows for the crown and drew him 1.01 of Thad, not the 0.96 Tyler ruled (statureNote).",
   "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 19 (reference/cast-unify-17.txt), full figure, his mallet in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet; its own file.",
-  "buildNote": "LEANER (Tyler, 2026-11-06: \"standing next to Thad Pratt look like a much 'thicker' character\"; he chose \"Leaner, still sturdy\"): redrawn in the same poses, an ordinary working man a little broader than Thad (cast-unify 49), cut by tools/art/cast-unify-cut.py; figureHeight is crown to sole, the hat not counted (tools/art/figure-height.py --hat)."
+  "buildNote": "LEANER (Tyler, 2026-11-06: \"standing next to Thad Pratt look like a much 'thicker' character\"; he chose \"Leaner, still sturdy\"): redrawn in the same poses, an ordinary working man a little broader than Thad (cast-unify 49), cut by tools/art/cast-unify-cut.py; figureHeight is crown to sole, the hat not counted (tools/art/figure-height.py --hat).",
+  "levelMan": 402.0833,
+  "levelManNote": "ERRATA 234: the man his sheet was snapped to one level at (figureHeight 386 over stature 0.96), kept while his figureHeight is his true crown to sole. His art pixels are 0.96 of the level's (tests/one-level.test.mjs)."
  },
  "exit": {
   "path": [
