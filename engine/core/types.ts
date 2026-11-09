@@ -2275,6 +2275,13 @@ export interface UiFile {
    */
   fullscreen?: { note?: string; button: string; back: string };
   /**
+   * ERRATA 223: the words over a black that is waiting on its room, and how
+   * long it waits before they come up (Tyler, 2026-11-09: "is it possible to
+   * have it say "Loading..." On the screen if it's waiting for it to load a
+   * room?"). Optional: a bundle without it holds the black and says nothing.
+   */
+  loading?: { note?: string; label: string; afterSeconds?: number };
+  /**
    * How long a line stays up. Not written content and not in any document:
    * doc 17 states seconds for BEATS, and a line's duration is a property of
    * the line rather than of the beat that contains it.

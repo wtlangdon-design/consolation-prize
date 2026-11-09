@@ -243,7 +243,12 @@ export interface FrameReport {
    * card and waited ninety seconds for a map that was never asked for.
    */
   card: boolean;
+  /** A room fade is running, or an arrival is held in black (errata 223): either way the screen is not the player's. */
   fading: boolean;
+  /** An arrival is held in black because its room is not whole yet (errata 223). */
+  holding: boolean;
+  /** "Loading…" is over the black (errata 223): a wait on the room has passed its threshold. */
+  loading: boolean;
   /** The title is up after the close, reading THE END (errata 128). */
   theEnd: boolean;
   /**

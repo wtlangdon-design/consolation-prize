@@ -84,5 +84,10 @@
     "note": "Interface grammar, the same class as the map's. Two words rather than one because the button is a TOGGLE and has to say which way it goes -- 'FULL' when windowed, 'WINDOW' when full. Both fit the 336-unit cell at the scaled face: six glyphs is 216 units.",
     "button": "FULL",
     "back": "WINDOW"
+  },
+  "loading": {
+    "note": "Errata 223. Tyler, 2026-11-09, asked whether every arrival should hold black until the room is ready: \"Yes, and is it possible to have it say \"Loading...\" On the screen if it's waiting for it to load a room?\" Interface grammar, the same class as the map's and the notices. Drawn centred in the play area in the shipping face at GLYPH_SCALE 6, in the speech ink, over any black that is waiting on its room (an arrival's hold, NEW GAME's, a fade's, a cut-away's), once that wait has lasted afterSeconds. Never on an ordinary arrival: a room already whole is not held at all. The ellipsis is the single character U+2026, which art/ui/font-5x7.json covers.",
+    "label": "Loading…",
+    "afterSeconds": 0.5
   }
 }
