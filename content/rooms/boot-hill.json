@@ -208,6 +208,153 @@
       }
     },
     {
+      "id": "undertaker",
+      "name": "THE UNDERTAKER",
+      "rect": [
+        1750,
+        520,
+        100,
+        300
+      ],
+      "when": {
+        "T_PROCESSION_STALLED": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The undertaker, at Grievance's head in his good apron.",
+            "repeat": [
+              "He keeps not looking at me, which is very nearly the same thing as looking at me.",
+              "He has a hand on her bridle. She allows it, the way she allows weather."
+            ],
+            "then": [
+              "He is the only man here who knows the coffin is empty, and he is sweating for both of us."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "He is murmuring to the mule. It sounds like an apology.",
+            "repeat": [
+              "His boots shift on the gravel. He would like to be anywhere else, the box included.",
+              "Nothing. He has stopped murmuring. It was not working."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "say": "low",
+            "by": "procession_undertaker",
+            "direction": true,
+            "then": [
+              {
+                "speaker": "procession_undertaker",
+                "line": "She's never carried an empty box up this hill. I don't know how she can tell."
+              },
+              "I know exactly how she can tell."
+            ],
+            "repeat": [
+              "Nine years, sir, and she has never once stopped at this gate."
+            ],
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO THE UNDERTAKER**"
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "He is holding the mule. Somebody has to."
+      },
+      "walkTo": {
+        "x": 1690,
+        "y": 852,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "reverend_sowerby_at_the_gate",
+      "name": "REVEREND SOWERBY, AT THE GATE",
+      "rect": [
+        1250,
+        545,
+        120,
+        310
+      ],
+      "when": {
+        "T_PROCESSION_STALLED": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Reverend Sowerby, with his book open at the place, ready to see me off.",
+            "repeat": [
+              "There is a pencil behind his ear, for the counting.",
+              "He has not looked at me once. The clergy see the soul, and I am wearing a hat."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "He is turning pages to find his place, and finding it twice.",
+            "repeat": [
+              "He hums the opening of a hymn under his breath, to see if it still fits.",
+              "Nothing. He is saving it."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "when": {
+              "T_HILL_PRAYER": false
+            },
+            "say": "Reverend. Can a hill be blessed?",
+            "then": [
+              {
+                "speaker": "procession_sowerby",
+                "line": "A hill? Anything can be blessed, sir. There is a rate."
+              },
+              {
+                "speaker": "procession_sowerby",
+                "line": "…"
+              },
+              {
+                "speaker": "procession_sowerby",
+                "line": "Hills are by the foot."
+              },
+              "It's a short hill.",
+              {
+                "speaker": "procession_sowerby",
+                "line": "It is a long foot."
+              },
+              {
+                "speaker": "procession_sowerby",
+                "line": "Let us bow our heads."
+              }
+            ],
+            "set": {
+              "T_HILL_PRAYER": true
+            },
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO REVEREND SOWERBY**, while stalled, before the prayer"
+          },
+          {
+            "when": {
+              "T_HILL_PRAYER": true
+            },
+            "say": "He is mid-prayer, with his eyes shut and the whole town's shut with him. I have never had a better chance at anything.",
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO REVEREND SOWERBY**, while the prayer runs"
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "He would charge for it."
+      },
+      "walkTo": {
+        "x": 1180,
+        "y": 856,
+        "facing": "right"
+      }
+    },
+    {
       "id": "pike_s_neighbor",
       "name": "PIKE'S NEIGHBOR",
       "rect": [
@@ -296,6 +443,49 @@
       }
     },
     {
+      "id": "to_funeral_closed",
+      "stateOf": "to_funeral",
+      "name": "PIKE'S NEIGHBOR",
+      "rect": [
+        1630,
+        165,
+        200,
+        190
+      ],
+      "colour": 0,
+      "when": {
+        "T_EXECUTOR_NAMED": true,
+        "T_OBITUARY": true,
+        "T_FUNERAL_DONE": false,
+        "T_RODE_UP": false
+      },
+      "stub": true,
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "WALK_TO": [
+          {
+            "say": "The funeral is waiting on the mule. So am I."
+          }
+        ],
+        "USE": [
+          {
+            "say": "The funeral is waiting on the mule. So am I."
+          }
+        ],
+        "OPEN": [
+          {
+            "say": "The funeral is waiting on the mule. So am I."
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1730,
+        "y": 657,
+        "facing": "back"
+      },
+      "note": "Errata 91 E: PIKE'S NEIGHBOR before it opens -- docs/110-act-three-scenes.md::### THE LINES."
+    },
+    {
       "id": "mott_s_marker",
       "name": "MOTT'S MARKER",
       "rect": [
@@ -331,6 +521,250 @@
       "walkTo": {
         "x": 628,
         "y": 858,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mourners",
+      "name": "THE MOURNERS",
+      "rect": [
+        155,
+        410,
+        360,
+        328
+      ],
+      "when": {
+        "T_PROCESSION_STALLED": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Half the town, in black, at the gate.",
+            "repeat": [
+              "They are standing the way people stand at a stopped coach, politely, looking at their watches.",
+              "Not one of them has looked at me twice. A low hat does more than I would have guessed."
+            ],
+            "then": [
+              "Nobody here has buried me before, and they would like to get it right."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Somebody says I was a quiet sort of fellow. Somebody else says I was new.",
+            "repeat": [
+              "A watch being wound, and then a second watch, out of sympathy.",
+              "Somebody asks whether the mule always does this. The undertaker says she has never done it before. Everybody looks at the coffin."
+            ],
+            "then": [
+              "They agree that will be it."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "say": "One of them tells me it is a shame about the piano man, and asks whether I knew him. I say not well.",
+            "repeat": [
+              "Another tells me he was very quiet. I agree with her. I was."
+            ],
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO THE MOURNERS**"
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "They have come to carry me. It would confuse things to carry them."
+      },
+      "walkTo": {
+        "x": 500,
+        "y": 852,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "grievance_at_the_gate",
+      "name": "GRIEVANCE, AT THE GATE",
+      "rect": [
+        1300,
+        450,
+        400,
+        345
+      ],
+      "when": {
+        "T_PROCESSION_STALLED": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Grievance, in black harness, standing at the gate as if it were a wall.",
+            "repeat": [
+              "She has carried every coffin in Consolation up this hill. She has never once been fooled, and she does not mean to start with mine.",
+              "Her ears are flat. The livery man would call it professional."
+            ],
+            "then": [
+              "Her head is turned toward the hearse."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A long breath out through the nose, aimed at the coffin.",
+            "repeat": [
+              "Her harness creaks as she shifts her weight. She shifts it away from the hill.",
+              "Nothing. She has said what she has to say."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "say": "I tell her, very quietly, that I am not in there. She knows.",
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO GRIEVANCE**"
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "She considers the request, declines it, and goes on looking at the coffin.",
+        "PUSH": "From behind? At a funeral? I would be the second thing they buried.",
+        "PICK_UP": "She is in harness, and in no mood."
+      },
+      "walkTo": {
+        "x": 1560,
+        "y": 856,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "hearse",
+      "name": "THE HEARSE",
+      "rect": [
+        750,
+        400,
+        520,
+        395
+      ],
+      "when": {
+        "T_PROCESSION_STALLED": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "My coffin is inside, behind the glass.",
+            "repeat": [
+              "Black lacquer, brass lamps and a plume on the roof. I have never traveled in such style, and I am not traveling now.",
+              "The rear of the hearse shuts on a latch. It is the kind of latch that assumes nobody inside will want out."
+            ],
+            "then": [
+              "The curtains are drawn, out of respect for a man who isn't there."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The coffin shifts an inch every time the wind leans on the hearse.",
+            "repeat": [
+              "The brass lamps creak on their brackets whenever the wind comes over the hill.",
+              "Not a sound out of the coffin. That is the whole problem."
+            ],
+            "then": [
+              "It weighs nothing, and she knows it."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "T_HILL_PRAYER": false
+            },
+            "say": "Not with half the town watching. A man climbing into his own coffin draws a crowd, and I already have one.",
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **THE HEARSE** · USE, while stalled, before the prayer"
+          },
+          {
+            "when": {
+              "T_HILL_PRAYER": true
+            },
+            "say": "Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up.",
+            "direction": true,
+            "then": [
+              "Ahead of schedule.",
+              {
+                "speaker": "thad",
+                "line": "Grievance went through the gate before the amen.",
+                "overBlack": true
+              },
+              {
+                "speaker": "thad",
+                "line": "Behind us, Reverend Sowerby asked the Lord to look kindly on this creature, and opened his eyes to find the creature gone.",
+                "overBlack": true
+              },
+              {
+                "speaker": "thad",
+                "line": "It was a smoother ride than the stagecoach. I recommend it to anyone, at the end.",
+                "overBlack": true
+              }
+            ],
+            "set": {
+              "T_RODE_UP": true,
+              "T_HILL_PRAYER": false,
+              "T_PROCESSION_STALLED": false
+            },
+            "completes": "E6b",
+            "goto": "funeral",
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **THE HEARSE** · USE, while the prayer runs"
+          }
+        ],
+        "OPEN": [
+          {
+            "when": {
+              "T_HILL_PRAYER": false
+            },
+            "say": "Not with half the town watching. A man climbing into his own coffin draws a crowd, and I already have one.",
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **THE HEARSE** · USE, while stalled, before the prayer"
+          },
+          {
+            "when": {
+              "T_HILL_PRAYER": true
+            },
+            "say": "Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up.",
+            "direction": true,
+            "then": [
+              "Ahead of schedule.",
+              {
+                "speaker": "thad",
+                "line": "Grievance went through the gate before the amen.",
+                "overBlack": true
+              },
+              {
+                "speaker": "thad",
+                "line": "Behind us, Reverend Sowerby asked the Lord to look kindly on this creature, and opened his eyes to find the creature gone.",
+                "overBlack": true
+              },
+              {
+                "speaker": "thad",
+                "line": "It was a smoother ride than the stagecoach. I recommend it to anyone, at the end.",
+                "overBlack": true
+              }
+            ],
+            "set": {
+              "T_RODE_UP": true,
+              "T_HILL_PRAYER": false,
+              "T_PROCESSION_STALLED": false
+            },
+            "completes": "E6b",
+            "goto": "funeral",
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **THE HEARSE** · USE, while the prayer runs"
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "The deceased does not push. It would look keen.",
+        "PULL": "It is attached to the mule, and the mule is attached to the ground.",
+        "PICK_UP": "With what is in it, I very nearly could."
+      },
+      "walkTo": {
+        "x": 1000,
+        "y": 856,
         "facing": "back"
       }
     },
@@ -443,12 +877,13 @@
       "responses": {},
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20: Room 31, the funeral, is reached from Boot Hill once the executor is named (E6). The open plot beside Pike is where it is held, so from E6 until the funeral is done the plot is the way up to it; its words stay on PIKE'S NEIGHBOR, which is hidden meanwhile (errata 99 G).",
+      "note": "Doc 20: Room 31, the funeral, is reached from Boot Hill once the executor is named (E6). The open plot beside Pike is where it is held, so from E6 until the funeral is done the plot is the way up to it; its words stay on PIKE'S NEIGHBOR, which is hidden meanwhile (errata 99 G). Errata 233 (doc 110 section 2, THE WAY ON): from E6 until the ride (T_RODE_UP) the procession is stalled at the gate, and the way up refuses with doc 110's line; the ride itself is how he gets there.",
       "stub": true,
       "when": {
         "T_EXECUTOR_NAMED": true,
         "T_OBITUARY": true,
-        "T_FUNERAL_DONE": false
+        "T_FUNERAL_DONE": false,
+        "T_RODE_UP": true
       },
       "walkTo": {
         "x": 1700,
@@ -460,6 +895,9 @@
   "walkBoxes": [
     {
       "id": "floor_0",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 1693,
@@ -493,6 +931,9 @@
     },
     {
       "id": "floor_1",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 770,
@@ -527,6 +968,9 @@
     },
     {
       "id": "floor_2",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 770,
@@ -561,6 +1005,9 @@
     },
     {
       "id": "floor_3_0",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 200,
@@ -594,6 +1041,9 @@
     },
     {
       "id": "floor_3_1",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 770,
@@ -628,6 +1078,9 @@
     },
     {
       "id": "floor_4_0",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 200,
@@ -662,6 +1115,9 @@
     },
     {
       "id": "floor_4_1",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 770,
@@ -696,6 +1152,9 @@
     },
     {
       "id": "floor_4_2",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": false
+      },
       "points": [
         {
           "x": 480,
@@ -726,6 +1185,376 @@
       "neighbours": [
         "floor_4_0",
         "floor_4_1"
+      ]
+    },
+    {
+      "id": "floor_0_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 1693,
+          "y": 560
+        },
+        {
+          "x": 1880,
+          "y": 560
+        },
+        {
+          "x": 1880,
+          "y": 620
+        },
+        {
+          "x": 1693,
+          "y": 620
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_1_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_1_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 770,
+          "y": 620
+        },
+        {
+          "x": 1880,
+          "y": 620
+        },
+        {
+          "x": 1880,
+          "y": 679
+        },
+        {
+          "x": 770,
+          "y": 679
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_0_t_procession_stalled",
+        "floor_2_0_t_procession_stalled",
+        "floor_2_1_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_2_0_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 1700,
+          "y": 679
+        },
+        {
+          "x": 1880,
+          "y": 679
+        },
+        {
+          "x": 1880,
+          "y": 739
+        },
+        {
+          "x": 1700,
+          "y": 739
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_1_t_procession_stalled",
+        "floor_2_1_t_procession_stalled",
+        "floor_3_1_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_2_1_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 770,
+          "y": 679
+        },
+        {
+          "x": 1700,
+          "y": 679
+        },
+        {
+          "x": 1700,
+          "y": 725
+        },
+        {
+          "x": 770,
+          "y": 725
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_1_t_procession_stalled",
+        "floor_2_0_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_3_0_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 200,
+          "y": 739
+        },
+        {
+          "x": 480,
+          "y": 739
+        },
+        {
+          "x": 480,
+          "y": 798
+        },
+        {
+          "x": 200,
+          "y": 798
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_4_0_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_3_1_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 1700,
+          "y": 739
+        },
+        {
+          "x": 1880,
+          "y": 739
+        },
+        {
+          "x": 1880,
+          "y": 798
+        },
+        {
+          "x": 1700,
+          "y": 798
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_2_0_t_procession_stalled",
+        "floor_4_1_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_4_0_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 200,
+          "y": 798
+        },
+        {
+          "x": 480,
+          "y": 798
+        },
+        {
+          "x": 480,
+          "y": 858
+        },
+        {
+          "x": 200,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_3_0_t_procession_stalled",
+        "floor_4_3_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_4_1_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 1700,
+          "y": 798
+        },
+        {
+          "x": 1880,
+          "y": 798
+        },
+        {
+          "x": 1880,
+          "y": 858
+        },
+        {
+          "x": 1700,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_3_1_t_procession_stalled",
+        "floor_4_2_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_4_2_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 770,
+          "y": 800
+        },
+        {
+          "x": 1700,
+          "y": 800
+        },
+        {
+          "x": 1700,
+          "y": 858
+        },
+        {
+          "x": 770,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_4_1_t_procession_stalled",
+        "floor_4_3_t_procession_stalled"
+      ]
+    },
+    {
+      "id": "floor_4_3_t_procession_stalled",
+      "enabledWhen": {
+        "T_PROCESSION_STALLED": true
+      },
+      "points": [
+        {
+          "x": 480,
+          "y": 800
+        },
+        {
+          "x": 770,
+          "y": 800
+        },
+        {
+          "x": 770,
+          "y": 858
+        },
+        {
+          "x": 480,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_4_0_t_procession_stalled",
+        "floor_4_2_t_procession_stalled"
       ]
     }
   ],
@@ -803,6 +1632,18 @@
         "set": {
           "T_PLATE_AT_GATE": true
         }
+      },
+      {
+        "when": {
+          "T_EXECUTOR_NAMED": true,
+          "T_OBITUARY": true,
+          "T_FUNERAL_DONE": false,
+          "T_RODE_UP": false,
+          "T_PROCESSION_STALLED": false
+        },
+        "set": {
+          "T_PROCESSION_STALLED": true
+        }
       }
     ],
     "scenes": [
@@ -844,6 +1685,22 @@
           ]
         },
         "note": "Doc 57 D4: on the funeral day the Reverend has a full plate, at the foot of Boot Hill -- the exchange, then THE LINEN MONEY. Plays after the day's own line. His figure is content/ambient/sowerby-gate.json."
+      },
+      {
+        "when": {
+          "T_EXECUTOR_NAMED": true,
+          "T_OBITUARY": true,
+          "T_FUNERAL_DONE": false,
+          "T_RODE_UP": false,
+          "T_PROCESSION_STALLED": false
+        },
+        "lines": [
+          {
+            "speaker": "thad",
+            "line": "The procession has stopped at the gate. Everyone is looking at the mule, and the mule is looking at my coffin."
+          }
+        ],
+        "note": "Doc 110 section 2, ARRIVING: said on the entry that stalls the procession, so once."
       }
     ]
   },
@@ -857,6 +1714,10 @@
   ],
   "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-14/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
   "ambient": [
+    "procession_hearse",
+    "procession_mourners",
+    "procession_sowerby",
+    "procession_undertaker",
     "sowerby_gate"
   ]
 }

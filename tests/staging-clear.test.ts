@@ -209,8 +209,12 @@ for (const roomId of built) {
   // through the dog."). The bands ran straight through the sleeping dog; the room's annotation now carves him out as
   // it carves the trough. Just above an animal's feet is never floor.
   test(`${roomId}: nobody walks through an animal lying in the street`, () => {
+    // THE FLOOR THAT CAN BE THERE WITH IT (errata 233): a floor built for two states (WalkBox.enabledWhen) is read
+    // in the animal's own, so the hitch at Boot Hill's gate is held to the floor carved round it, and never excused
+    // by the floor of the state it is not there in.
+    const floorWith = (when?: Condition) => new WalkBoxes(room.walkBoxes as WalkBox[], (enabled) => coexist(enabled, when));
     const faults = placed(roomId).filter((one) => one.posture === 'animal')
-      .filter((one) => boxes.boxAt(one.x, one.y - 10) !== null && boxes.boxAt(one.x, one.y - 10) !== undefined)
+      .filter((one) => floorWith(one.when).boxAt(one.x, one.y - 10) !== undefined)
       .map((one) => `${one.npc.id} at ${one.x},${one.y} lies on walkable floor`);
     assert.deepEqual(faults, [], `${roomId}: carve the animal out of the walk boxes (annotation obstacles)`);
   });

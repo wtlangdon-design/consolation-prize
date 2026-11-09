@@ -388,12 +388,27 @@ export class AmbientLayer {
 
   /** The next of this person's barks in turn (AmbientFile.barkTurns), one a visit, round again; null if said this visit. */
   private nextOfTurns(npc: AmbientFile): FiredBark | null {
-    const set = npc.barkTurns?.find((one) => this.state.flags.test(one.when));
+    const set = npc.barkTurns?.find((one) => !one.onBreaks && this.state.flags.test(one.when));
     if (!set?.lines.length || this.ranThisVisit.has(npc.id)) return null;
     const said = this.state.flags.getNumber(set.counter);
     this.ranThisVisit.add(npc.id);
     this.state.flags.set(set.counter, said + 1);
     return { npc, line: set.lines[said % set.lines.length]! };
+  }
+
+  /**
+   * WHAT A SPEAKING BREAK SAYS (sprite.breaksThatSpeak): his bark for Thad's reputation, as ever, or, where he has
+   * none, the next of his barks taken in turn on his breaks (barkTurns `onBreaks`; doc 110, THE PRAYER), round
+   * again, counted as said so a save keeps the place. Null when he has nothing to say.
+   */
+  breakLine(npc: AmbientFile): string | null {
+    const reputation = this.barkFor(npc);
+    if (reputation) return reputation;
+    const set = npc.barkTurns?.find((one) => one.onBreaks && this.state.flags.test(one.when));
+    if (!set?.lines.length) return null;
+    const said = this.state.flags.getNumber(set.counter);
+    this.state.flags.set(set.counter, said + 1);
+    return set.lines[said % set.lines.length]!;
   }
 
   /** The next line of this man's run (AmbientFile.barkRun), counted as said; null if none is owed this visit. */

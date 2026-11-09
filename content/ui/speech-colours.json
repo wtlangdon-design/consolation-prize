@@ -138,6 +138,16 @@
       "sameAs": "sowerby",
       "note": "Sowerby at the graveside: the same man, the same colour."
     },
+    "procession_sowerby": {
+      "colour": "#c8b4e8",
+      "sameAs": "sowerby",
+      "note": "Sowerby at Boot Hill's gate, with the procession stalled (doc 110 section 2, errata 233): the same man, the same colour."
+    },
+    "procession_undertaker": {
+      "colour": "#a8a8e8",
+      "sameAs": "undertaker",
+      "note": "The undertaker at Grievance's head, at Boot Hill's gate (doc 110 section 2, errata 233): the same man, the same colour."
+    },
     "barber": {
       "colour": "#e8a8a8",
       "note": "The builder's choice for errata 183 (Room 42), clear of Thad's and of everyone he can share a room with; Tyler rules on it in the playthrough, as errata 169's were ruled from a sample."

@@ -761,6 +761,56 @@
    "note": "Doc 57 E6: Sump accepts Hob as executor. Read by THE ARCHIVE DOOR's OPEN in Room 7 (doc 57 E9), which lets Thad into Room 8. A fixture or the ?flags= control sets it until E6's pieces are built."
   },
   {
+   "id": "T_PROCESSION_STALLED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter",
+    "room:boot_hill:hearse:USE",
+    "room:boot_hill:hearse:OPEN"
+   ],
+   "note": "Doc 110 section 2 (errata 233): the funeral procession is stopped at Boot Hill's gate, because Grievance will not pull an empty coffin. Until scene B (the seance) is built, set by the first entry to Boot Hill once the funeral can be reached (T_EXECUTOR_NAMED and T_OBITUARY, before T_FUNERAL_DONE and T_RODE_UP); cleared by the ride (E6b)."
+  },
+  {
+   "id": "T_HILL_PRAYER",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:reverend_sowerby_at_the_gate:TALK_TO",
+    "room:boot_hill:hearse:USE",
+    "room:boot_hill:hearse:OPEN"
+   ],
+   "note": "Doc 110 section 2: Sowerby's prayer for the hill is running, and the town has its eyes shut. He is paid by the foot and does not stop, so it runs until the climb: leaving and coming back finds it still running. Cleared by the ride."
+  },
+  {
+   "id": "HILL_PRAYER_SAID",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "engine:ambient:barkTurns procession_sowerby"
+   ],
+   "note": "Doc 110 section 2, THE PRAYER: how many of Sowerby's prayer lines have been said, so the prayer goes on in turn, and round again, across visits and saves."
+  },
+  {
+   "id": "T_RODE_UP",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:hearse:USE",
+    "room:boot_hill:hearse:OPEN"
+   ],
+   "note": "Doc 110 section 2: Thad has ridden up Boot Hill in his own coffin, mid-prayer (E6b). Opens the way to the funeral, which the stall refused."
+  },
+  {
+   "id": "T_RIDE_ARRIVED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:funeral:onEnter:scene"
+   ],
+   "note": "Doc 110 section 2, ARRIVING AT THE GRAVE: said once, on the first entry to Room 31 after the ride."
+  },
+  {
    "id": "T_SAME_HAND",
    "type": "boolean",
    "initial": false,

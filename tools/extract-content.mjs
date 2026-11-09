@@ -1204,7 +1204,7 @@ function combinations() {
   }
 
   // Pairs a later block adds (doc 57's, doc 54 A5's bait and smoke, doc 108's rod at the line) are not doc 24's.
-  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 111 /.test(pair.note ?? '')).length;
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 110 |^Doc 111 /.test(pair.note ?? '')).length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
@@ -1785,7 +1785,7 @@ function combinations() {
 
   const mine = gulchMine();
   const giving = gulchGiving();
-  rebuilt.push(...mine.pairs, ...giving.pairs, ...gulchFiddle());
+  rebuilt.push(...mine.pairs, ...giving.pairs, ...gulchFiddle(), ...hearsePairs());
   // Act III's estate sale (doc 111, C; errata 237): its item tries, and the money at the undertaker's.
   rebuilt.push(...estateSalePairs(e3, undertakerSays));
   return write('content/combinations.json', {
@@ -6678,7 +6678,111 @@ function estateSalePairs(e3, undertakerSays) {
   return out;
 }
 
-const written = [opening(), stageDriver(), combinations(), seanceTree(), ...estateSaleItems(), ...rooms0507(), ...room02Exits(),
+/**
+ * SCENE A, THE HEARSE WON'T GO (doc 110 section 2, THE LINES; errata 233). What of the scene is not a room's own
+ * hotspot lines (those are tools/extract-examine.mjs's and tools/compile-room.mjs's, from the same section):
+ *  - THE PRAYER, `1. "..."` to `5. "..."` under `**THE PRAYER**`: Sowerby's barks at the gate while `T_HILL_PRAYER`
+ *    holds, said on his speaking breaks in turn and round again (barkTurns `onBreaks`), on one counter so a save keeps
+ *    its place. Written into content/ambient/procession-sowerby.json.
+ *  - THE WRONG TRIES' `**GRIEVANCE, AT THE GATE** · USE THE TUNING FORK — the existing line: "..."`: a pair on her.
+ *  - THE HEARSE AND GRIEVANCE as one figure, declared only once its picture is in the repository (errata 159's rule
+ *    for the close-ups): reference/act3-hearse/brief.md asks for art/actors/room-14-hearse-grievance.png. Until then
+ *    no file and no manifest entry exist, so nothing ships a missing or a wrong picture; the hotspots over where it
+ *    stands are the room's (reference/room-14/annotation.json).
+ */
+const HEARSE_REF = 'docs/110-act-three-scenes.md';
+const HEARSE_FIGURE = {
+  sheet: 'art/actors/room-14-hearse-grievance.png',
+  path: 'content/ambient/procession-hearse.json',
+  // The brief's four frames, in its order: rest, a breath, her head turning back to the hearse, a foot stamped once.
+  frames: 4,
+};
+function hearseLines() {
+  const doc = read(HEARSE_REF);
+  const at = doc.indexOf('\n### THE LINES\n');
+  if (at < 0) throw new Error('doc 110: no "### THE LINES"');
+  const rest = doc.slice(at + 1);
+  return rest.slice(0, rest.indexOf('\n---\n'));
+}
+function hearsePairs() {
+  const body = hearseLines();
+  const fork = body.split('\n').find((line) => line.startsWith('- **GRIEVANCE, AT THE GATE** · USE THE TUNING FORK — '));
+  const said = fork && /"([^"]+)"/.exec(fork)?.[1];
+  if (!said) throw new Error('doc 110, THE WRONG TRIES: no line for the tuning fork on GRIEVANCE, AT THE GATE');
+  return [{
+    item: 'tuning_fork', room: 'boot_hill', target: 'grievance_at_the_gate', say: said,
+    note: 'Doc 110 section 2, THE WRONG TRIES: the fork on Grievance at the gate is answered with B3\'s own line, which '
+      + 'doc 110 calls "the existing line" (she has heard it). Read from doc 110 by tools/extract-content.mjs (errata 233).',
+  }];
+}
+function hearseScene() {
+  const out = [];
+  const body = hearseLines();
+  const rows = body.split('\n');
+  const start = rows.findIndex((line) => line.startsWith('**THE PRAYER**'));
+  if (start < 0) throw new Error('doc 110: no **THE PRAYER**');
+  const prayer = [];
+  for (const line of rows.slice(start + 1)) {
+    const item = /^\d+\. "([^"]+)"\s*$/.exec(line);
+    if (item) prayer.push(item[1]);
+    else if (line.trim() && prayer.length) break;
+  }
+  if (prayer.length !== 5) throw new Error(`doc 110, THE PRAYER: ${prayer.length} lines, not the five it writes`);
+  const sowerbyPath = 'content/ambient/procession-sowerby.json';
+  const sowerby = JSON.parse(read(sowerbyPath));
+  Object.assign(sowerby, {
+    barks: {},
+    barkTurns: [{ counter: 'HILL_PRAYER_SAID', when: { T_HILL_PRAYER: true }, onBreaks: true, lines: prayer,
+      source: `${HEARSE_REF}::### THE LINES` }],
+    barksNote: 'EXTRACTED from docs/110-act-three-scenes.md (THE PRAYER) by tools/extract-content.mjs. Do not edit: change '
+      + 'doc 110 and re-run. While T_HILL_PRAYER holds, said on his speaking breaks, in turn, then round again.',
+  });
+  out.push(write(sowerbyPath, sowerby, 1));
+
+  // THE FIGURE, ONCE ITS PICTURE IS HERE.
+  const drawn = existsSync(resolve(ROOT, HEARSE_FIGURE.sheet));
+  const manifestPath = resolve(ROOT, 'content/manifest.json');
+  const manifest = readFileSync(manifestPath, 'utf8');
+  const listed = manifest.includes(`"${HEARSE_FIGURE.path}"`);
+  if (!drawn) {
+    if (existsSync(resolve(ROOT, HEARSE_FIGURE.path)) || listed) {
+      if (CHECKING) stale.push(HEARSE_FIGURE.path);
+      else throw new Error(`${HEARSE_FIGURE.path} is declared and ${HEARSE_FIGURE.sheet} is not drawn: remove the file and its manifest line`);
+    }
+    return out;
+  }
+  // Frames side by side with the cast sheets' two-pixel gutter (tools/art/room31-cast.py's layout).
+  const png = readFileSync(resolve(ROOT, HEARSE_FIGURE.sheet));
+  const width = png.readUInt32BE(16);
+  const height = png.readUInt32BE(20);
+  const frameW = (width - 2 * (HEARSE_FIGURE.frames + 1)) / HEARSE_FIGURE.frames;
+  if (!Number.isInteger(frameW)) throw new Error(`${HEARSE_FIGURE.sheet}: ${width} px is not ${HEARSE_FIGURE.frames} frames with a 2 px gutter`);
+  const frames = Array.from({ length: HEARSE_FIGURE.frames }, (_, n) => [2 + n * (frameW + 2), 2, frameW, height - 4]);
+  out.push(write(HEARSE_FIGURE.path, {
+    schema: 1, id: 'procession_hearse', name: 'GRIEVANCE', posture: 'animal', room: 'boot_hill',
+    when: { T_PROCESSION_STALLED: true },
+    note: 'THE HEARSE AND GRIEVANCE AT THE GATE (doc 110 section 2; reference/act3-hearse/brief.md operation 1): the '
+      + 'coffin inside, behind the glass; Grievance in her black harness, facing up the hill, her head turned back to the '
+      + 'hearse. Examined through THE HEARSE and GRIEVANCE, AT THE GATE. Declared by tools/extract-content.mjs once the '
+      + 'picture is in the repository (errata 233). Drawn at Room 14\'s man at the gate, 298 px (reference/act3-hearse/'
+      + 'handback.md), and stood on the open grass right of Mott\'s obelisk, which the hitch would cover in the gate itself '
+      + '(Tyler, 2026-11-09, of the first check render). Her size is ruled in content/scale-anchors.json.',
+    x: 1215, y: 792, zone: 0, approachRadius: 0, tree: '', barks: {}, barksNote: 'She does not speak.',
+    sprite: { sheet: HEARSE_FIGURE.sheet, frames, figureHeight: 298, stature: 1, rate: 0.2, phase: 0.7,
+      breaks: [[2, 2, 2, 0], [3, 3, 0], [1, 1, 0]], breakEvery: 7, talkFrame: 0,
+      frameNote: '0 rest, her head turned back a little toward the hearse · 1 a breath (derived) · 2 her head turned fully '
+        + 'back, at the hearse · 3 a front hoof stamped once (reference/act3-hearse/handback.md). The hearse is the same in all four.' },
+  }, 1));
+  if (!listed) {
+    const anchor = '"content/ambient/procession-mourners.json"';
+    if (!manifest.includes(anchor)) throw new Error('content/manifest.json does not list the mourners to add the hearse after');
+    if (CHECKING) stale.push('content/manifest.json');
+    else writeFileSync(manifestPath, manifest.replace(anchor, `${anchor},\n  "${HEARSE_FIGURE.path}"`));
+  }
+  return out;
+}
+
+const written = [opening(), stageDriver(), combinations(), seanceTree(), ...estateSaleItems(), ...hearseScene(), ...rooms0507(), ...room02Exits(),
   ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), hobRunning(), ozymandiaAtProsperity(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...gulchItems(), ...gulchPeople(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways(), ...waysOut()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);

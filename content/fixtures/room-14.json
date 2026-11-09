@@ -243,6 +243,131 @@
    "notBuilt": [
     "A10 (Room 11, the dinner): the act card that sets ACT 2"
    ]
+  },
+  {
+   "id": "r14-stall-a",
+   "label": "R14-STALL-A Act III, the funeral day: the procession stalled at the gate (doc 110, errata 233)",
+   "room": "boot_hill",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_SOWERBY_PRICE": true,
+    "T_PIKE_DEAD": true,
+    "T_FUNERAL_BOOKED": true,
+    "T_COFFIN_SIZED": true,
+    "T_OBITUARY": true,
+    "T_DECEASED": true,
+    "T_EXECUTOR_NAMED": true,
+    "T_PROCESSION_STALLED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete",
+    "E3": "complete",
+    "E4": "complete",
+    "E5": "complete",
+    "E6": "complete"
+   },
+   "derivedFrom": [
+    "docs/110-act-three-scenes.md::2 · Scene A · The hearse won't go"
+   ],
+   "note": "Room 31's R31-A without the ride: the procession at the gate, Grievance refusing an empty coffin, the way up closed. The hearse and Grievance are one figure waiting on reference/act3-hearse/brief.md; their hotspots answer meanwhile."
+  },
+  {
+   "id": "r14-stall-b",
+   "label": "R14-STALL-B The same, with Sowerby's prayer running: the hearse will take him",
+   "room": "boot_hill",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_SOWERBY_PRICE": true,
+    "T_PIKE_DEAD": true,
+    "T_FUNERAL_BOOKED": true,
+    "T_COFFIN_SIZED": true,
+    "T_OBITUARY": true,
+    "T_DECEASED": true,
+    "T_EXECUTOR_NAMED": true,
+    "T_PROCESSION_STALLED": true,
+    "T_HILL_PRAYER": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete",
+    "E3": "complete",
+    "E4": "complete",
+    "E5": "complete",
+    "E6": "complete"
+   },
+   "derivedFrom": [
+    "docs/110-act-three-scenes.md::2 · Scene A · The hearse won't go"
+   ],
+   "note": "TALK TO REVEREND SOWERBY has been asked; USE or OPEN THE HEARSE rides him up (E6b)."
   }
  ]
 }

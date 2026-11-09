@@ -35,7 +35,9 @@
     "T_COFFIN_SIZED": true,
     "T_OBITUARY": true,
     "T_DECEASED": true,
-    "T_EXECUTOR_NAMED": true
+    "T_EXECUTOR_NAMED": true,
+    "T_RODE_UP": true,
+    "T_RIDE_ARRIVED": true
    },
    "inventory": [
     "tuning_fork",
@@ -56,17 +58,19 @@
     "E3": "complete",
     "E4": "complete",
     "E5": "complete",
-    "E6": "complete"
+    "E6": "complete",
+    "E6b": "complete"
    },
    "derivedFrom": [
     "docs/48-act-turn-beats.md::S2 · THE FUNERAL (Act III opening)",
     "docs/57-puzzle-completion.md::E7 · The coffin",
-    "docs/54-batch-c.md::ROOM 31 · THE FUNERAL"
+    "docs/54-batch-c.md::ROOM 31 · THE FUNERAL",
+    "docs/110-act-three-scenes.md::2 · Scene A · The hearse won't go"
    ],
    "notBuilt": [
     "E4 (Room 5) and E5 (Room 9) write T_DECEASED and T_OBITUARY on paths whose earlier rooms are not all built: set here as their outcomes"
    ],
-   "note": "Doc 48 S2: the service, at night (errata 99 K), every hotspot live; beat 3 waits on the second LOOK at the grave or the way back toward Boot Hill."
+   "note": "Doc 48 S2: the service, at night (errata 99 K), every hotspot live; beat 3 waits on the second LOOK at the grave or the way back toward Boot Hill. Errata 233: he came up in the hearse (E6b), and has said his arrival."
   },
   {
    "id": "r31-b",
@@ -103,7 +107,9 @@
     "T_DECEASED": true,
     "T_EXECUTOR_NAMED": true,
     "T_GRAVE_LOOKED": true,
-    "T_GOOD_TURNOUT": true
+    "T_GOOD_TURNOUT": true,
+    "T_RODE_UP": true,
+    "T_RIDE_ARRIVED": true
    },
    "inventory": [
     "tuning_fork",
@@ -124,17 +130,19 @@
     "E3": "complete",
     "E4": "complete",
     "E5": "complete",
-    "E6": "complete"
+    "E6": "complete",
+    "E6b": "complete"
    },
    "derivedFrom": [
     "docs/48-act-turn-beats.md::S2 · THE FUNERAL (Act III opening)",
     "docs/57-puzzle-completion.md::E7 · The coffin",
-    "docs/54-batch-c.md::ROOM 31 · THE FUNERAL"
+    "docs/54-batch-c.md::ROOM 31 · THE FUNERAL",
+    "docs/110-act-three-scenes.md::2 · Scene A · The hearse won't go"
    ],
    "notBuilt": [
     "E4 (Room 5) and E5 (Room 9) write T_DECEASED and T_OBITUARY on paths whose earlier rooms are not all built: set here as their outcomes"
    ],
-   "note": "Doc 57 E7: the coffin now lies him down (USE), and the exits refuse."
+   "note": "Doc 57 E7: the coffin now lies him down (USE), and the exits refuse. Errata 233: he came up in the hearse (E6b), and has said his arrival."
   },
   {
    "id": "r31-c",
@@ -172,7 +180,9 @@
     "T_EXECUTOR_NAMED": true,
     "T_GRAVE_LOOKED": true,
     "T_GOOD_TURNOUT": true,
-    "T_LAID_IN": true
+    "T_LAID_IN": true,
+    "T_RODE_UP": true,
+    "T_RIDE_ARRIVED": true
    },
    "inventory": [
     "tuning_fork",
@@ -195,18 +205,20 @@
     "E5": "complete",
     "E6": "complete",
     "E7": "complete",
-    "E8": "complete"
+    "E8": "complete",
+    "E6b": "complete"
    },
    "derivedFrom": [
     "docs/48-act-turn-beats.md::S2 · THE FUNERAL (Act III opening)",
     "docs/57-puzzle-completion.md::E7 · The coffin",
     "docs/54-batch-c.md::ROOM 31 · THE FUNERAL",
-    "docs/57-puzzle-completion.md::E8 · Hob digs him out"
+    "docs/57-puzzle-completion.md::E8 · Hob digs him out",
+    "docs/110-act-three-scenes.md::2 · Scene A · The hearse won't go"
    ],
    "notBuilt": [
     "E4 (Room 5) and E5 (Room 9) write T_DECEASED and T_OBITUARY on paths whose earlier rooms are not all built: set here as their outcomes"
    ],
-   "note": "Doc 57 E8: the hill at night, the grave open, nobody; his line writes T_FUNERAL_DONE."
+   "note": "Doc 57 E8: the hill at night, the grave open, nobody; his line writes T_FUNERAL_DONE. Errata 233: he came up in the hearse (E6b), and has said his arrival."
   }
  ]
 }

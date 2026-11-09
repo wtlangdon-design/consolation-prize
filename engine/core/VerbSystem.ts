@@ -349,7 +349,9 @@ export class VerbSystem {
         say: this.nextLine(`${scope}/${target.id}#${index}`, verbId, matched),
         then: first ? matched.then : undefined,
         ...(matched.by ? { by: matched.by } : {}),
-        ...(matched.direction ? { direction: true } : {}),
+        // `direction` describes `say`, the first of the written lines, and not its repeats (doc 110: the
+        // undertaker's "(low)" leads his first answer; his second time is a line, said).
+        ...(matched.direction && (!written || seen === 0 || !(matched.repeat?.length)) ? { direction: true } : {}),
         dialogue: matched.dialogue ?? null,
         goto: matched.goto ?? null,
         state: matched.setState,

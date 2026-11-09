@@ -1449,6 +1449,13 @@
     },
     {
       "item": "tuning_fork",
+      "room": "boot_hill",
+      "target": "grievance_at_the_gate",
+      "say": "She has heard it. She does not need to hear it twice.",
+      "note": "Doc 110 section 2, THE WRONG TRIES: the fork on Grievance at the gate is answered with B3's own line, which doc 110 calls \"the existing line\" (she has heard it). Read from doc 110 by tools/extract-content.mjs (errata 233)."
+    },
+    {
+      "item": "tuning_fork",
       "room": "prosperity",
       "target": "raccoon",
       "otherwise": "pool",
