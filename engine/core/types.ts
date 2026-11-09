@@ -710,6 +710,16 @@ export interface AmbientFile {
      */
     stature?: number;
     /**
+     * THE ROW OF THE FRAME THE FIGURE STANDS ON, where that is not the frame's
+     * last row (errata 201). The engine puts this row on the figure's `y`, so
+     * the depth it scales and sorts the figure by is where its feet are, and
+     * what is drawn below them -- the hay under Main Street's grazing horse --
+     * is drawn below `y`. Main Street's horses were anchored on the foot of
+     * their hay, 16 rows under their hooves, and measured against a man there.
+     * Absent: the last row, as every other figure.
+     */
+    footRow?: number;
+    /**
      * Idle BREAKS: separate one-off actions, each leaving the idle, doing one
      * thing, and returning to it.
      *

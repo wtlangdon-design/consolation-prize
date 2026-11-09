@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
+import { drawnBelowFeet } from '../engine/core/Ambient.ts';
 import { WalkBoxes, heightIn } from '../engine/core/WalkBoxes.ts';
 import type { AmbientFile, Condition, RoomFile, WalkBox } from '../engine/core/types.ts';
 // @ts-expect-error -- a plain .mjs module with no declarations; it reads 8-bit RGBA PNGs.
@@ -138,13 +139,15 @@ for (const roomId of built) {
     // that only a combination's act shows (errata 197: Grievance walking out of her stall, which ends in
     // the ride and another room). Nobody is talking then. Its rest, its breaks, and any frame an act in a
     // conversation gives it are measured as before.
+    // Its feet on its y, and what lies under them below it (sprite.footRow; errata 201), as the renderer draws it.
     const actedOnlyOutside = one.npc.scenery ? new Set(acted
       .filter((row) => row.performedBy?.includes(one.npc.id) && !row.where.startsWith('dialogue/'))
       .flatMap((row) => row.framesBy?.[row.performedBy!.indexOf(one.npc.id)] ?? row.frames ?? [])) : new Set<number>();
     const idle = new Set<number>([0, 1, ...((one.sprite as { breaks?: number[][] }).breaks ?? []).flat()]);
     const masks = one.sprite.frames
       .filter((_, index) => !actedOnlyOutside.has(index) || idle.has(index))
-      .map((frame) => maskOf(one.sprite.sheet, frame as [number, number, number, number], scale, one.x, one.y));
+      .map((frame) => maskOf(one.sprite.sheet, frame as [number, number, number, number], scale, one.x,
+        one.y + drawnBelowFeet(frame[3], Math.max(1, Math.round(frame[3] * scale)), one.sprite.footRow)));
     return { ...one, masks };
   });
   const most = (a: Mask[], b: Mask[]) => Math.max(...a.flatMap((ma) => b.map((mb) => shared(ma, mb) / Math.max(1, Math.min(area(ma), area(mb))))));
