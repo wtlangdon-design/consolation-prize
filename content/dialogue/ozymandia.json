@@ -257,7 +257,8 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "openingOnce": "T_OZY_GREETED"
     }
   }
 }

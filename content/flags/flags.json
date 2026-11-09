@@ -679,6 +679,24 @@
    "note": "Doc 57 A9: the survey, after the deed, is lodged and leaves inventory (errata 80 D's routing flag)."
   },
   {
+   "id": "T_OZY_GREETED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:OZYMANDIA:OZY_A1 openingOnce"
+   ],
+   "note": "Errata 230: 'The rod has been expecting you.' is the first visit's; later visits open on the choices."
+  },
+  {
+   "id": "T_PANNER_GREETED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PANNER:PAN_G1 openingOnce"
+   ],
+   "note": "Errata 230: the panner's 'If he sent you...' is the first visit's; later visits open on the choices."
+  },
+  {
    "id": "T_FRAME_MET",
    "type": "boolean",
    "initial": false,

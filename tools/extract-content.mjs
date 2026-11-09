@@ -60,8 +60,25 @@ function quietExits(tree) {
   return tree;
 }
 
+/**
+ * GREETINGS SAID ONCE (errata 230). The repeat check (errata 226) found two openings said whole on every visit:
+ * Ozymandia's "The rod has been expecting you." (three visits) and the panner's "If he sent you…" (two). Each is
+ * the first visit's; later visits open on the choices.
+ */
+const GREETED_ONCE = { 'OZYMANDIA/OZY_A1': 'T_OZY_GREETED', 'PANNER/PAN_G1': 'T_PANNER_GREETED' };
+function greetOnce(tree) {
+  for (const [key, flag] of Object.entries(GREETED_ONCE)) {
+    const [treeId, nodeId] = key.split('/');
+    if (tree.id !== treeId) continue;
+    const node = tree.nodes[nodeId];
+    if (!node?.opening?.length) throw new Error(`errata 230: ${key} has no opening to say once`);
+    node.openingOnce = flag;
+  }
+  return tree;
+}
+
 function write(relative, data, indent = 2) {
-  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = quietExits(performDirections(data));
+  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = greetOnce(quietExits(performDirections(data)));
   const path = resolve(ROOT, relative);
   const wanted = `${JSON.stringify(data, null, indent)}\n`;
   if (CHECKING) {

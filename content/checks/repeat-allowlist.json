@@ -67,16 +67,8 @@
       "why": "Doc 04, FRA_A1: \"FRAME (every visit after the first; errata 225, Tyler, 2026-11-09: \"proceed\")\". Seen twice on the main path, both in Act III (C3.2 and C3.7)."
     },
     {
-      "text": "The rod has been expecting you.",
-      "why": "found by the first run, errata 226; awaiting a fix"
-    },
-    {
-      "text": "If he sent you, tell him I've found nothing. Nothing at all.",
-      "why": "found by the first run, errata 226; awaiting a fix"
-    },
-    {
       "text": "Have you ever been in the Liar's Assay?",
-      "why": "found by the first run, errata 226; awaiting a fix"
+      "why": "Intended (errata 230): Thad asks everyone he meets the same question, the way a newcomer would; each person's answer differs."
     }
   ]
 }
