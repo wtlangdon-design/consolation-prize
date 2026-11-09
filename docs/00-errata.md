@@ -6246,6 +6246,25 @@ The repeat check (errata 226) found three things marked "awaiting a fix".
 
 Lesson: the two allowlist entries are removed, so `tools/check-repeated-lines.mjs` fails if either greeting comes back. `tests/gulch-river.test.ts` reads the panner's opening before the conversation starts, as the scene does, and asserts that a second visit does not say it.
 
+# 231 · ACT III: FEWER COUNTERS, MORE SCENES — TYLER, 2026-11-09 ("I approve all of your decisions")
+
+The feel review of errata 221's playthrough, measured stop by stop with the examine layer (errata 227), found that Act III goes across a counter at 11 of its 17 destinations, five of them the Registrar's. Physical comedy was 3% of the game's laughs.
+
+Tyler asked for all three proposed scenes, with the paperwork condensed: "different, unique scenes vs in/out of the same rooms exchanging papers is soooo much more fun and interesting." The plan, "Consolation: fewer counters, more scenes", is now doc 110. He approved it whole and left Sheng to the builder.
+
+- **The order** (doc 110 §1):
+  - C, the estate sale, replaces Sheng's loan.
+  - B, the séance, replaces Frame's obituary at his desk.
+  - A, the hearse, is a new puzzle, E6b. The count goes from 52 to 53 when it is built.
+  - Recording the death and naming the executor become one Registrar visit.
+- **Sample first.** Scene A is designed in doc 110 §2 and goes to Tyler before any of its lines are written. B and C are designed after he has played A.
+- **Sheng** leaves Act III's main path; he is still in the laundry. His Act II favour still pays off in D5.
+- **The art budget**, which Tyler approved: act3-hearse, act3-seance and act3-estate-sale at four operations each, so attemptsTotal goes from 410 to 422 (art/staging/caps.json). B's and C's budgets are spent only after Tyler rules on A.
+- **Act II's trims:** Winnie running the assay on the spot shipped as errata 232. The second trim is held back with its reason (errata 232; doc 110 §4).
+- **Nothing in the game changes in this entry.** It records the ruling, the design and the budget.
+
+Lesson: none -- a ruling and a design, no defect fixed.
+
 # 232 · WINNIE RUNS THE ASSAY ON THE SPOT — TYLER, 2026-11-09 (approving "Consolation: fewer counters, more scenes": "I approve all of your decisions")
 
 The plan's rule: no step exists only to make the player leave a room and come back. Document B was one.
