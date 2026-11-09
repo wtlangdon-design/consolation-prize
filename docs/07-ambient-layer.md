@@ -214,7 +214,7 @@ is the whole of his character.
 | `R_RACCOON` | "Everybody knows about the raccoon. That one's free." |
 | `R_SURVEYED` | "She does that to everyone." |
 | `R_BORDERS_MOTT` | "Three men paid me to find out where you're staying." |
-| `R_LOST_DUEL` | "I watched. You were bad." |
+| `R_LOST_DUEL` | "I heard. You were bad." |
 | `R_WON_DUEL` | "I watched. You were less bad." |
 | `R_DEAD` | "You're in the paper. You're dead in the paper." *(beat)* "Penny?" |
 | `R_TRUTH` | "I *knew* it." *(He did not know it.)* |
