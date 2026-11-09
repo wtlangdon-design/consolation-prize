@@ -156,9 +156,39 @@
    700,
    1920,
    42
+  ],
+  "seance_table": [
+   735,
+   505,
+   490,
+   190
+  ],
+  "lamp": [
+   915,
+   0,
+   92,
+   182
+  ],
+  "sitters": [
+   600,
+   460,
+   760,
+   300
+  ],
+  "mr_frame_at_the_table": [
+   890,
+   600,
+   160,
+   150
+  ],
+  "madame_ozymandia_presiding": [
+   790,
+   50,
+   350,
+   455
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE CURTAIN is its left fall, beside her, so a LOOK at her is not the curtain's; THE TENT WALLS the painted canvas between the rod and the chart; THE GROUND the strip of bare earth behind the walk band; THE SECOND ROD the long box under the table.",
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE CURTAIN is its left fall, beside her, so a LOOK at her is not the curtain's; THE TENT WALLS the painted canvas between the rod and the chart; THE GROUND the strip of bare earth behind the walk band; THE SECOND ROD the long box under the table. Errata 237 (doc 111, B, the séance): while the séance is on (T_SEANCE_ON), THE SÉANCE TABLE over her table and THE LAMP over the hanging lantern take their places (MADAME OZYMANDIA'S TABLE and THE LANTERN, RED are gated off), MADAME OZYMANDIA, PRESIDING is over her own figure, THE SITTERS round the table and MR. FRAME, AT THE TABLE at its front. PENDING ART: the séance table, its sitters, Frame and the turned-down lamp are act3-seance's to draw (reference/act3-seance/brief.md); until they are cut in, these rects stand over the plate's own table and lantern and over empty floor, and are redrawn when the cut-outs land.",
  "people": {
   "MADAME OZYMANDIA": [
    "ozymandia"
@@ -231,7 +261,12 @@
   "chart": "LOOK_AT",
   "stove": "LOOK_AT",
   "tent_walls": "LOOK_AT",
-  "ground": "LOOK_AT"
+  "ground": "LOOK_AT",
+  "seance_table": "LOOK_AT",
+  "lamp": "LOOK_AT",
+  "sitters": "LOOK_AT",
+  "mr_frame_at_the_table": "LOOK_AT",
+  "madame_ozymandia_presiding": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
  "occlusion": {
@@ -248,5 +283,130 @@
     "note": "The crystal ball, the cash box and the tea pot, by box and by colour off the plate (tools/art/room16-ozymandia.py). Assigned to Ozymandia by her ambient record's clipPlane, not by any walk box."
    }
   ]
- }
+ },
+ "hotspotWhen": {
+  "madame_ozymandia_s_table": {
+   "T_SEANCE_ON": false
+  },
+  "lantern_red": {
+   "T_SEANCE_ON": false
+  },
+  "seance_table": {
+   "T_SEANCE_ON": true
+  },
+  "lamp": {
+   "T_SEANCE_ON": true
+  },
+  "sitters": {
+   "T_SEANCE_ON": true
+  },
+  "mr_frame_at_the_table": {
+   "T_SEANCE_ON": true
+  },
+  "madame_ozymandia_presiding": {
+   "T_SEANCE_ON": true
+  }
+ },
+ "onEnterSetWhen": [
+  {
+   "when": {
+    "ACT": 3,
+    "T_MOTT_SPOKE": false,
+    "T_SEANCE_ON": false
+   },
+   "set": {
+    "T_SEANCE_ON": true
+   }
+  },
+  {
+   "when": {
+    "ACT": {
+     "atLeast": 4
+    },
+    "T_SEANCE_ON": true
+   },
+   "set": {
+    "T_SEANCE_ON": false
+   }
+  }
+ ],
+ "onEnterSetWhenNote": "Errata 237 (doc 111, B): the séance is on from the evening after Fanshawe's offer (E0b, which makes ACT 3) until Mott has spoken (T_MOTT_SPOKE). Set on the way in here and in the Lane, the only way here; a player who never sat in finds it over in Act IV.",
+ "onEnterSay": {
+  "fromRef": "docs/111-scenes-b-and-c.md::#### B · In Ozymandia's tent",
+  "bold": "ARRIVING",
+  "sayWhen": {
+   "ACT": 3,
+   "T_MOTT_SPOKE": false
+  },
+  "sayOnce": "T_SEANCE_ARRIVED",
+  "note": "Doc 111, ARRIVING: 'Ozymandia's tent, the séance, the first entry'. Said once (T_SEANCE_ARRIVED), on the first entry while the séance is on; tested against the flags he walks in with, so it does not wait on T_SEANCE_ON's write."
+ },
+ "voices": {
+  "seance_frame": {
+   "x": 970,
+   "y": 640,
+   "note": "Errata 237: Mr. Frame at the front of the séance table, where act3-seance's operation 1 is to draw him (pending art); until then his words come from his place at the table."
+  }
+ },
+ "docBullets": [
+  {
+   "hotspot": "seance_table",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/111-scenes-b-and-c.md::#### B · In Ozymandia's tent",
+   "head": "**THE SÉANCE TABLE** · USE",
+   "bullet": "- *while the lamp is lit*",
+   "when": {
+    "T_SEANCE_DARK": false
+   }
+  },
+  {
+   "hotspot": "seance_table",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/111-scenes-b-and-c.md::#### B · In Ozymandia's tent",
+   "head": "**THE SÉANCE TABLE** · USE",
+   "bullet": "- *in the dark*",
+   "when": {
+    "T_SEANCE_DARK": true,
+    "T_UNDER_TABLE": false
+   },
+   "set": {
+    "T_UNDER_TABLE": true
+   },
+   "thenBlock": "THE SÉANCE",
+   "dialogue": "SEANCE",
+   "speakers": {
+    "OZYMANDIA": "ozymandia",
+    "FRAME": "seance_frame"
+   }
+  },
+  {
+   "hotspot": "mr_frame_at_the_table",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/111-scenes-b-and-c.md::#### B · The wrong tries, at the séance",
+   "bullet": "- **MR. FRAME, AT THE TABLE** · TALK TO",
+   "speakers": {
+    "FRAME": "seance_frame"
+   }
+  }
+ ],
+ "docBulletsNote": "Errata 237, doc 111 B, THE LINES: USE THE SÉANCE TABLE is refused while the lamp is lit; in the dark Thad goes under the cloth (T_UNDER_TABLE), THE SÉANCE is heard from under it, and SEA_E1 opens (content/dialogue/seance.json). TALK TO Mr. Frame at the table is his wrong try. Read from doc 111 by tools/compile-room.mjs (docBullet).",
+ "verbRules": [
+  {
+   "hotspot": "seance_table",
+   "verbs": [
+    "USE"
+   ],
+   "when": {
+    "T_UNDER_TABLE": true
+   },
+   "dialogue": "SEANCE",
+   "note": "Errata 237: under the table and not yet spoken -- he took SEA_E1's way out (doc 04's universal exit, \"available at every node\") and is still under the cloth -- USE THE SÉANCE TABLE opens SEA_E1 again with nothing said, so the séance can always be finished."
+  }
+ ]
 }

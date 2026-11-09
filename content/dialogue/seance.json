@@ -1,0 +1,136 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "SEANCE",
+  "speaker": "ozymandia",
+  "note": "EXTRACTED from docs/111-scenes-b-and-c.md (THE LINES, B: SEA_E1 and LEAVING THE TABLE) by tools/extract-content.mjs (errata 237). Do not edit: change doc 111 and re-run. Opened by USE THE SÉANCE TABLE in the dark (Room 16), after THE SÉANCE is heard from under it. Thad speaks the options as the voice of the dead; FRAME is `seance_frame`, his voice at the table (the tent's `voices`), not the Clarion's figure. Option 4 is always offered, so the séance can always be finished: it writes T_MOTT_SPOKE, ends the séance (T_SEANCE_ON, T_UNDER_TABLE) and plays LEAVING THE TABLE. Doc 04's universal exit leaves him under the cloth, and the table opens SEA_E1 again.",
+  "entries": [],
+  "start": "SEA_E1",
+  "nodes": {
+    "SEA_E1": {
+      "id": "SEA_E1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 111 SEA_E1: the séance before it (THE SÉANCE, heard from under the table) is said as he goes under, by the table's USE; the node opens on his choice of what the dead will say.",
+      "options": [
+        {
+          "id": "seance1",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "Woooo.",
+          "exchange": [
+            {
+              "speaker": "seance_frame",
+              "line": "Is that him?"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "That is the wind, darling. The wind is free."
+            }
+          ],
+          "repeat": "Still the wind. It is a very persistent wind."
+        },
+        {
+          "id": "seance2",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "I tune pianos.",
+          "exchange": [
+            {
+              "speaker": "seance_frame",
+              "line": "Mott tuned PIANOS?"
+            },
+            {
+              "speaker": "seance_frame",
+              "line": "He writes.",
+              "direction": true
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "The dead take up hobbies, darling."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "exchange": [
+                {
+                  "speaker": "seance_frame",
+                  "line": "He said that already. Still good."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "seance3",
+          "tag": "COMIC",
+          "afterUse": "remove",
+          "text": "The gold is under the church.",
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "Two chairs go over. Two pairs of boots leave at a run.",
+              "direction": true
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "The spirits are not responsible for directions."
+            }
+          ]
+        },
+        {
+          "id": "seance4",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "I am Obadiah Mott, and I am dead.",
+          "exchange": [
+            {
+              "speaker": "seance_frame",
+              "line": "QUOTABLE!"
+            },
+            {
+              "speaker": "seance_frame",
+              "line": "He writes.",
+              "direction": true
+            },
+            {
+              "speaker": "seance_frame",
+              "line": "'I AM DEAD,' says Mott. Front page. Within the hour."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "She looks down at the cloth for a long moment.",
+              "direction": true
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "…Two dollars, whoever you are."
+            },
+            {
+              "speaker": "thad",
+              "line": "The lamp comes up. Thad stays where he is until the last pair of boots has gone.",
+              "direction": true
+            },
+            {
+              "speaker": "thad",
+              "line": "I have now been dead once. It is mostly waiting under furniture."
+            }
+          ],
+          "set": {
+            "T_MOTT_SPOKE": true,
+            "T_UNDER_TABLE": false,
+            "T_SEANCE_ON": false
+          },
+          "ends": true
+        },
+        {
+          "id": "seancex",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

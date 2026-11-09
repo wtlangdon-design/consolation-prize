@@ -6,6 +6,8 @@
     "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT#1",
     "docs/09-examine-batch-2.md::ROOM 16 — MADAME OZYMANDIA'S TENT",
     "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT",
+    "docs/111-scenes-b-and-c.md::B · In Ozymandia's tent",
+    "docs/111-scenes-b-and-c.md::B · The wrong tries, at the séance",
     "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT#2",
     "docs/49-wrong-answers.md::ROOM 16 — OZYMANDIA'S TENT"
   ],
@@ -291,6 +293,88 @@
         "Nothing behind the curtain. The spirits are between appointments.",
         "The rings on the rail, faintly, when the wind leans on the tent."
       ]
+    },
+    {
+      "name": "THE SÉANCE TABLE",
+      "LOOK_AT": [
+        "A round table under a cloth that reaches the floor on every side. Whatever goes on under there is between it and the spirits.",
+        "Five chairs, five townspeople, five two-dollar faces. There is no sixth chair, and plenty of room underneath.",
+        "In the middle, one candle and a little bell, for spirits who would rather ring."
+      ],
+      "LISTEN_TO": [
+        "Ten feet shifting under the cloth. There would be room for two more.",
+        "Somebody's knee has found the table leg, and apologizes to it.",
+        "Nothing, which at a séance is the main attraction."
+      ],
+      "overrides": {
+        "PULL": "If I pull the cloth, the spirits get a candle in their lap, and so does Mr. Frame.",
+        "PICK_UP": "It has five people holding on to it. Six, if you count the dead."
+      }
+    },
+    {
+      "name": "THE LAMP",
+      "LOOK_AT": [
+        "A hanging lamp, turned up. Madame Ozymandia keeps the dead in good light until the money is in.",
+        "It throws the whole table's shadow on the canvas. Mine would be the shadow of a man who has not paid.",
+        "The wick is trimmed for a long evening. The spirits, I expect, are billed by the hour."
+      ],
+      "LISTEN_TO": [
+        "A soft hiss, like somebody keeping a secret badly.",
+        "Moths at the glass, wanting in, in the way of moths.",
+        "The flame steadies. Nobody has breathed for a while."
+      ],
+      "overrides": {
+        "USE": "It is hers. She would charge me for the dark.",
+        "PULL": "Pulling it down would end the séance, and then I would have to explain the séance."
+      }
+    },
+    {
+      "name": "THE SITTERS",
+      "LOOK_AT": [
+        "Four of the town in their good coats, holding hands. They have paid two dollars each to meet a man they have only read about.",
+        "One of them has brought her question on a slip of paper, in case the dead are hard of hearing.",
+        "They are watching the candle. I could be anybody, and tonight I would rather be."
+      ],
+      "LISTEN_TO": [
+        "Somebody whispers that Mott will know where the gold is. Somebody else whispers that he never did.",
+        "A stomach, and then an apology to the spirits for it.",
+        "Four people trying to breathe quietly, which is louder than breathing."
+      ],
+      "overrides": {
+        "TALK_TO": "One of them puts a finger to her lips. The spirits are shy, she implies, and so should I be.",
+        "USE": "There is no sixth chair. I could stand at the back, and be charged for standing.",
+        "PICK_UP": "They are holding hands. They would come as a set."
+      }
+    },
+    {
+      "name": "MR. FRAME, AT THE TABLE",
+      "LOOK_AT": [
+        "Mr. Frame, front row, pencil ready. He has written the headline already and left a space for whatever the dead say.",
+        "His notebook is open at a fresh page headed MOTT SPEAKS. It is a very confident page.",
+        "He is the only one at the table not holding hands. He needs both of them to write."
+      ],
+      "LISTEN_TO": [
+        "His pencil, tapping the page, impatient for the hereafter.",
+        "He whispers a headline to himself, tries a second, and prefers the first.",
+        "Nothing. Mr. Frame, silent, is the strangest thing in the tent."
+      ]
+    },
+    {
+      "name": "MADAME OZYMANDIA, PRESIDING",
+      "LOOK_AT": [
+        "Madame Ozymandia at the head of the table, in more scarves than usual, the brass rod across her palms.",
+        "Her eyes are closed. One of them is not entirely closed, and it is on the money box.",
+        "She has the air of a woman to whom the dead owe money."
+      ],
+      "LISTEN_TO": [
+        "She hums, low, a note that is neither music nor not.",
+        "Coins settling in the box at her feet, a sound she seems to find restful.",
+        "Nothing. She is listening, which she tells me is new."
+      ],
+      "overrides": {
+        "PULL": "If I take the rod, she will have to listen with her hands, and she charges extra for that.",
+        "PICK_UP": "She would charge me for the lift."
+      }
     }
   ],
   "exitsAndUnplaced": {

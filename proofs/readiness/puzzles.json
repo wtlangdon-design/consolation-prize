@@ -786,9 +786,11 @@
   },
   "E1": {
    "rooms": [
-    7
+    7,
+    44,
+    16
    ],
-   "audited": "2026-11-01",
+   "audited": "2026-11-09",
    "needs": [
     {
      "kind": "section",
@@ -797,8 +799,35 @@
     {
      "kind": "node",
      "id": "SUM_E1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/111-scenes-b-and-c.md::B · In the Lane"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/111-scenes-b-and-c.md::B · In Ozymandia's tent",
+     "contains": "**THE SÉANCE**"
+    },
+    {
+     "kind": "node",
+     "id": "OZY_E1"
+    },
+    {
+     "kind": "node",
+     "id": "SEA_E1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/111-scenes-b-and-c.md::B · At the Registrar's",
+     "contains": "1‴"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/111-scenes-b-and-c.md::B · The wrong tries, at the séance"
     }
-   ]
+   ],
+   "note": "Errata 237: doc 111's séance is E1's way of completing (Rooms 44 and 16, then SUM_E1's row 1‴ in Room 7); SUM_E1 option 1, the petition, stays for a player who goes straight to the Registrar."
   },
   "E2": {
    "rooms": [
@@ -819,10 +848,11 @@
   "E3": {
    "rooms": [
     17,
-    28,
+    25,
+    23,
     13
    ],
-   "audited": "2026-11-01",
+   "audited": "2026-11-09",
    "needs": [
     {
      "kind": "section",
@@ -834,17 +864,19 @@
     },
     {
      "kind": "node",
-     "id": "SHE_D1"
-    },
-    {
-     "kind": "node",
      "id": "UND_C1"
     },
     {
-     "kind": "item",
-     "name": "SHENG'S LOAN"
+     "kind": "section",
+     "ref": "docs/111-scenes-b-and-c.md::C · The estate sale",
+     "contains": "**THE SALE**"
+    },
+    {
+     "kind": "node",
+     "id": "PRA_E3"
     }
-   ]
+   ],
+   "note": "Errata 237: doc 111's estate sale is E3.2's way to the money (Rooms 25 and 23); the undertaker takes it with doc 57 E3.3's lines. Sheng's loan (SHE_D1 option 2, SHENG'S LOAN) is kept only for a save already past it (doc 110 section 1), so it is no longer one of E3's needs."
   },
   "E4": {
    "rooms": [

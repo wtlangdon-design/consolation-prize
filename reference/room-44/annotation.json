@@ -153,9 +153,15 @@
    270,
    140,
    430
+  ],
+  "seance_sign": [
+   1108,
+   470,
+   52,
+   180
   ]
  },
- "hotspotsNote": "Read off the plate (errata 161, part 3): generous over the thing the player sees (ruling 32).",
+ "hotspotsNote": "Read off the plate (errata 161, part 3): generous over the thing the player sees (ruling 32). Errata 237 (doc 111, B): THE SÉANCE SIGN, chalked on a board against the tent pole, while the séance is on (T_SEANCE_ON), between the tent's right-hand fall and the barber's pole. PENDING ART: no board is drawn on the plate yet (act3-seance's brief names none); the rect stands where the board is to hang and is redrawn when it is.",
  "people": {},
  "exitSubjects": {
   "THE WAY BACK TO MAIN STREET": {
@@ -322,7 +328,8 @@
   "photographer_s_window": "LOOK_AT",
   "ozymandia_s_tent": "LOOK_AT",
   "barber_s_pole": "LOOK_AT",
-  "empty_storefront": "LOOK_AT"
+  "empty_storefront": "LOOK_AT",
+  "seance_sign": "LOOK_AT"
  },
  "defaultVerbsNote": "Ground walks (errata 28b row 1; tests/ground-walks.test.ts).",
  "occlusion": {
@@ -333,5 +340,34 @@
    "mud_mid": 0,
    "mud_near": 0
   }
- }
+ },
+ "hotspotWhen": {
+  "seance_sign": {
+   "T_SEANCE_ON": true
+  }
+ },
+ "onEnterSetWhen": [
+  {
+   "when": {
+    "ACT": 3,
+    "T_MOTT_SPOKE": false,
+    "T_SEANCE_ON": false
+   },
+   "set": {
+    "T_SEANCE_ON": true
+   }
+  },
+  {
+   "when": {
+    "ACT": {
+     "atLeast": 4
+    },
+    "T_SEANCE_ON": true
+   },
+   "set": {
+    "T_SEANCE_ON": false
+   }
+  }
+ ],
+ "onEnterSetWhenNote": "Errata 237 (doc 111, B): the séance is on from the evening after Fanshawe's offer (E0b, which makes ACT 3) until Mott has spoken (T_MOTT_SPOKE), and its sign is out in the Lane; the tent is reached only from here. A player who never sat in finds it over in Act IV."
 }

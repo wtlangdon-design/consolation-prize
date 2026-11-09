@@ -762,8 +762,9 @@ const live0 = JSON.parse(read(ROOM_FILE) || '{}');
 const live = live0;
 
 // ---- reconcile: names in the docs against ids in the annotation -------------
-const slug = (name) => name.toLowerCase().replace(/^(the|a)\s+/, '').replace(/[^a-z]+/g, '_')
-  .replace(/^_|_$/g, '');
+// AN ACCENTED LETTER IS ITS LETTER (doc 111: THE SÉANCE TABLE is `seance_table`, not `s_ance_table`).
+const slug = (name) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/^(the|a)\s+/, '')
+  .replace(/[^a-z]+/g, '_').replace(/^_|_$/g, '');
 
 // THE LIVE FILE IS THE AUTHORITY ON IDS, NOT A SLUG RULE. It already pairs
 // every doc name with the id the engine, the annotation and the flags all
@@ -1053,6 +1054,9 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
   // annotation's `hotspotWhen.<id>` joins any act gate. Doc 57 A10: "Room 11's
   // own handkerchief hotspot is not drawn from now on."
   if (ann.hotspotWhen?.[id]) actGate = { ...actGate, when: { ...(actGate.when ?? {}), ...ann.hotspotWhen[id] } };
+  // A SUBJECT THAT IS THERE IN EITHER OF TWO STATES (doc 111, C: the raccoon in the hole in Act I until the eviction,
+  // and again after E3.1 until he is in the coat): `hotspotWhenAny.<id>`, at least one of which holds.
+  if (ann.hotspotWhenAny?.[id]) actGate = { ...actGate, whenAny: ann.hotspotWhenAny[id] };
   return {
     id,
     name: entry.docName,
@@ -1436,6 +1440,100 @@ for (const [id, spec] of Object.entries(ann.opensTree ?? {})) {
     }
   }
   hotspot.responses[spec.verb] = [...rules, ...(hotspot.responses[spec.verb] ?? [])];
+}
+
+// A VERB'S ANSWER WRITTEN AS A BULLET (doc 111, THE LINES). Doc 111 writes a subject's cases under a bold label --
+// `**THE SÉANCE TABLE** · USE`, then `- *while the lamp is lit* — "..."` and `- *in the dark* — *(...)* "..." → ...`;
+// `**THE RACCOON** · *in the hole, ...*`, then `- PICK UP, *or* USE — "..."` -- and its wrong tries as bullets of their
+// own (`- **MR. FRAME, AT THE TABLE** · TALK TO — **FRAME:** "..." — *"..."* — ...`). The annotation's `docBullets`
+// names the section, the label the bullets follow (`head`, or none for a bullet that stands alone), how the bullet
+// starts (`bullet`), the verbs, the condition, and what it does (`set`, `grants`, `completes`, `dialogue`); `thenBlock`
+// names a bold label whose `> ` lines follow it (doc 111's THE SÉANCE, heard from under the table). The words are read
+// in order: `**NAME:**` is the annotation's speaker (none is Thad), `*"..."*` is Thad inside another's line,
+// `*(beat)*` and `*(pause)*` are the speaker's "…", any other `*(...)*` is a direction by whoever speaks next on the
+// line, `*(second)*` begins the words for the second time, and an arrow ends the words. Never typed here.
+function bulletWords(text, spec, what) {
+  const first = [];
+  const second = [];
+  let into = first;
+  let speaker = 'thad';
+  const [spoken] = text.split('→');
+  const tokens = [...spoken.matchAll(/\*\*([A-Z][A-Z.' -]*):\*\*|\*"([^"]+)"\*|\*\(([^)]+)\)\*|"([^"]+)"/g)];
+  for (let n = 0; n < tokens.length; n += 1) {
+    const [, who, italic, note, quote] = tokens[n];
+    if (who !== undefined) {
+      speaker = spec.speakers?.[who];
+      if (!speaker) fail(`${what}: "${who}" speaks in ${spec.ref} and the annotation's speakers do not name them`);
+    } else if (italic !== undefined) {
+      into.push({ speaker: 'thad', line: italic });
+    } else if (note !== undefined) {
+      if (/^second$/i.test(note.trim())) { into = second; continue; }
+      const next = tokens.slice(n + 1).find((t) => t[1] !== undefined || t[2] !== undefined || t[4] !== undefined);
+      const by = next?.[1] !== undefined ? (spec.speakers?.[next[1]] ?? speaker) : next?.[2] !== undefined ? 'thad' : speaker;
+      if (/^(beat|pause|long pause)$/i.test(note.trim())) into.push({ speaker: by, line: '…' });
+      else into.push({ speaker: by, line: note.trim(), direction: true });
+    } else into.push({ speaker, line: quote });
+  }
+  if (!first.length) fail(`${what}: ${spec.ref} "${spec.bullet}" has no words`);
+  return { first, second };
+}
+function docBullet(spec) {
+  const body = sectionBody(spec.ref, 'docBullets');
+  const lines = body.split('\n');
+  let from = 0;
+  if (spec.head) {
+    const heads = lines.map((one, n) => [one, n]).filter(([one]) => one.startsWith(spec.head));
+    if (heads.length !== 1) fail(`docBullets: ${spec.ref} has ${heads.length} lines starting ${spec.head}`);
+    from = heads[0][1] + 1;
+  }
+  // Under a label, its own bullets only: the run of `- ` lines that follows it.
+  const run = [];
+  for (const one of lines.slice(from)) {
+    if (one.startsWith('- ')) run.push(one);
+    else if (spec.head && (one.trim() || run.length)) break;
+  }
+  const found = run.filter((one) => one.startsWith(spec.bullet));
+  if (found.length !== 1) fail(`docBullets: ${spec.ref} has ${found.length} bullets starting ${spec.bullet}${spec.head ? ` under ${spec.head}` : ''}`);
+  const words = found[0].slice(spec.bullet.length);
+  const dash = words.indexOf(' — ');
+  if (dash < 0) fail(`docBullets: ${spec.bullet} has no " — " before its words`);
+  const { first, second } = bulletWords(words.slice(dash + 3), spec, 'docBullets');
+  const after = [];
+  if (spec.thenBlock) {
+    const at = lines.findIndex((one) => one.startsWith(`**${spec.thenBlock}**`));
+    if (at < 0) fail(`docBullets: ${spec.ref} has no **${spec.thenBlock}**`);
+    // A line that is only a direction is the last speaker's (doc 111: "*(A silence is held.)*" after her call).
+    let last = 'thad';
+    for (const one of lines.slice(at + 1)) {
+      if (!one.startsWith('> ')) { if (after.length) break; continue; }
+      const said = bulletWords(one.slice(2), spec, 'docBullets thenBlock').first;
+      const named = /^\*\*[A-Z][A-Z.' -]*:\*\*/.test(one.slice(2));
+      const quoted = /"/.test(one.replace(/\*\([^)]*\)\*/g, ''));
+      for (const word of said) after.push(!named && !quoted && word.direction ? { ...word, speaker: last } : word);
+      if (named) last = said.at(-1).speaker;
+    }
+    if (!after.length) fail(`docBullets: **${spec.thenBlock}** has no lines`);
+  }
+  if (second.some((one) => one.speaker !== first[0].speaker || one.direction)) {
+    fail(`docBullets: ${spec.bullet}'s second time is not its first speaker's words: it cannot be a repeat`);
+  }
+  const [lead, ...rest] = first;
+  const then = [...rest, ...after].map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one));
+  return {
+    ...(spec.when ? { when: spec.when } : {}),
+    say: lead.line, ...(lead.speaker !== 'thad' ? { by: lead.speaker } : {}), ...(lead.direction ? { direction: true } : {}),
+    ...(then.length ? { then } : {}),
+    ...(second.length ? { repeat: second.map((one) => one.line) } : {}),
+    ...(spec.set ? { set: spec.set } : {}), ...(spec.grants ? { grants: spec.grants } : {}),
+    ...(spec.completes ? { completes: spec.completes } : {}), ...(spec.dialogue ? { dialogue: spec.dialogue } : {}),
+    sceneLine: `${spec.ref} · ${spec.head ? `${spec.head} ` : ''}${spec.bullet}`,
+  };
+}
+for (const spec of [...(ann.docBullets ?? [])].reverse()) {
+  const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
+  if (!hotspot) fail(`docBullets: no hotspot "${spec.hotspot}" in this room`);
+  const rule = docBullet(spec);
+  for (const verb of spec.verbs) (hotspot.responses[verb] ??= []).unshift({ ...rule });
 }
 
 // RULES THAT ANSWER A VERB IN A STATE (errata 96 F). The annotation's

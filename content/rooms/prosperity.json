@@ -55,9 +55,18 @@
         100,
         95
       ],
-      "when": {
-        "T_WARM_HOLE": false
-      },
+      "whenAny": [
+        {
+          "T_WARM_HOLE": false
+        },
+        {
+          "ACT": 3,
+          "T_SOWERBY_PRICE": true,
+          "T_RACCOON_IN_COAT": false,
+          "T_SHENG_LOAN": false,
+          "T_FUNERAL_BOOKED": false
+        }
+      ],
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -95,6 +104,66 @@
             ]
           }
         ],
+        "USE": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          },
+          {
+            "when": {
+              "T_RACCOON_WANTED": true,
+              "T_RACCOON_OUT": false
+            },
+            "say": "Not while he's in the hole. I have seen how that goes, and so has Mr. Pratt's thumb.",
+            "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - PICK UP, *or* USE"
+          },
+          {
+            "when": {
+              "T_RACCOON_OUT": true,
+              "T_RACCOON_IN_COAT": false
+            },
+            "say": "Thad takes off his coat and drops it over him. There is a great deal of coat, and then a great deal of raccoon.",
+            "direction": true,
+            "then": [
+              "I have him. I am not sure which of us is winning."
+            ],
+            "set": {
+              "T_RACCOON_IN_COAT": true
+            },
+            "grants": [
+              "raccoon_in_coat"
+            ],
+            "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - USE, *with the raccoon halfway out*"
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          },
+          {
+            "when": {
+              "T_RACCOON_WANTED": true,
+              "T_RACCOON_OUT": false
+            },
+            "say": "Not while he's in the hole. I have seen how that goes, and so has Mr. Pratt's thumb.",
+            "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - PICK UP, *or* USE"
+          },
+          {
+            "when": {
+              "T_RACCOON_OUT": true,
+              "T_RACCOON_IN_COAT": false
+            },
+            "say": "With my hands? Mr. Pratt tried that, and now he has respect.",
+            "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - PICK UP, *with the raccoon halfway out*"
+          }
+        ],
         "TALK_TO": [
           {
             "when": {
@@ -120,15 +189,6 @@
             ]
           }
         ],
-        "PICK_UP": [
-          {
-            "when": {
-              "T_FUMES": true
-            },
-            "say": "Not until the air clears. Possibly not until the season does.",
-            "sceneLine": true
-          }
-        ],
         "OPEN": [
           {
             "when": {
@@ -139,15 +199,6 @@
           }
         ],
         "CLOSE": [
-          {
-            "when": {
-              "T_FUMES": true
-            },
-            "say": "Not until the air clears. Possibly not until the season does.",
-            "sceneLine": true
-          }
-        ],
-        "USE": [
           {
             "when": {
               "T_FUMES": true
@@ -413,6 +464,23 @@
             ]
           }
         ],
+        "USE": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          },
+          {
+            "when": {
+              "T_RACCOON_WANTED": true,
+              "T_RACCOON_OUT": false
+            },
+            "say": "My coat over the hole would only make it warmer. He would write to thank me.",
+            "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - **THE HOLE** · USE, *before the hen*"
+          }
+        ],
         "PICK_UP": [
           {
             "when": {
@@ -447,15 +515,6 @@
           }
         ],
         "CLOSE": [
-          {
-            "when": {
-              "T_FUMES": true
-            },
-            "say": "Not until the air clears. Possibly not until the season does.",
-            "sceneLine": true
-          }
-        ],
-        "USE": [
           {
             "when": {
               "T_FUMES": true
@@ -920,6 +979,7 @@
     "pratt_jump",
     "prosperity_ozymandia",
     "raccoon",
+    "raccoon_back",
     "raccoon_meeting"
   ],
   "onEnter": {
@@ -937,7 +997,19 @@
       },
       "afterSeconds": 1,
       "note": "Doc 57 D2: 'The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives.' Once: T_PRATT_JUMP_SEEN. TALK TO reaches him after, until PRA_D2 option 1 sends him home (errata 97 D)."
-    }
+    },
+    "sayWhen": {
+      "ACT": 3,
+      "T_SOWERBY_PRICE": true,
+      "T_RACCOON_IN_COAT": false,
+      "T_SHENG_LOAN": false,
+      "T_FUNERAL_BOOKED": false
+    },
+    "sayOnce": "T_RACCOON_BACK_SEEN",
+    "note": "Doc 111, ARRIVING: 'Prosperity, after E3.1, the raccoon back'. Said once (T_RACCOON_BACK_SEEN), on the first entry while he is back.",
+    "say": [
+      "The raccoon is back in my hole. He regards the eviction as a misunderstanding."
+    ]
   },
   "peopleResponses": {
     "prosperity_ozymandia": {

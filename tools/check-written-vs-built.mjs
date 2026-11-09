@@ -33,6 +33,8 @@ export const SOURCES = [
   '98-main-street-pass', '105-the-six-interiors', '108-the-washout-and-the-mine', '109-fiddlers-gulch-lines',
   // Errata 233: scene A's lines (doc 110 section 2).
   '110-act-three-scenes',
+  // Errata 237: scenes B and C's lines (doc 111, THE LINES).
+  '111-scenes-b-and-c',
 ];
 
 export const norm = (text) => text

@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
  "room": 16,
- "id": "room-16",
+ "id": "room-16-tent",
  "name": "OZYMANDIA'S TENT",
  "content": [
   {
@@ -10,8 +10,10 @@
    "question": "LOOK/LISTEN complete?",
    "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT",
-    "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT"
+    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT#1",
+    "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT",
+    "docs/111-scenes-b-and-c.md::B · In Ozymandia's tent",
+    "docs/111-scenes-b-and-c.md::B · The wrong tries, at the séance"
    ],
    "why": "18 subject(s), each with a LOOK and a LISTEN"
   },
@@ -20,8 +22,10 @@
    "question": "Repeat-selection variants complete?",
    "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT",
-    "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT"
+    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT#1",
+    "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT",
+    "docs/111-scenes-b-and-c.md::B · In Ozymandia's tent",
+    "docs/111-scenes-b-and-c.md::B · The wrong tries, at the séance"
    ],
    "why": "all 18 subject(s) carry three LOOK and three LISTEN variants"
   },
@@ -30,9 +34,9 @@
    "question": "Act/state variants complete?",
    "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT#2"
    ],
-   "why": "none, by doctrine: Part Two-B wrote no variant for the tent. Her Act IV appearance is at Prosperity (doc 04), not here."
+   "why": "2 act-gated subject(s) authored: THE CRYSTAL BALL (act 3), THE CHART (act 4)"
   },
   {
    "id": "wrong-verbs",
@@ -57,9 +61,10 @@
    "question": "Puzzle requirements complete?",
    "answer": "YES",
    "evidence": [
-    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
+    "proofs/readiness/puzzles.json"
    ],
-   "why": "A7 are all specified in that section"
+   "why": "A7 are specified, and every piece of their content is written"
   },
   {
    "id": "items",
@@ -115,8 +120,10 @@
    "question": "Writing",
    "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT",
+    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT#1",
     "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT",
+    "docs/111-scenes-b-and-c.md::B · In Ozymandia's tent",
+    "docs/111-scenes-b-and-c.md::B · The wrong tries, at the séance",
     "docs/49-wrong-answers.md::ROOM 16 — OZYMANDIA'S TENT",
     "docs/04-dialogue-trees.md::MADAME OZYMANDIA"
    ],
@@ -127,7 +134,8 @@
    "question": "Puzzle behaviour",
    "answer": "YES",
    "evidence": [
-    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
+    "proofs/readiness/puzzles.json"
    ],
    "why": "the puzzles sited here, the items they need and issue, and the flags they set"
   },
@@ -136,9 +144,9 @@
    "question": "Act/state behaviour",
    "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT#2"
    ],
-   "why": "none, by doctrine: Part Two-B wrote no variant for the tent. Her Act IV appearance is at Prosperity (doc 04), not here."
+   "why": "2 act-gated subject(s) authored: THE CRYSTAL BALL (act 3), THE CHART (act 4)"
   },
   {
    "id": "character-behaviour",
@@ -162,24 +170,26 @@
   {
    "id": "visual-subjects",
    "question": "Visual subject requirements",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "A renders/room-01-in-engine-1920x1080.png",
     "B art/backgrounds/room-01-stage-road.png",
-    "C art/actors/thad-stand-front/stand-00.png"
+    "C art/actors/thad-stand-front/stand-00.png",
+    "D art/backgrounds/room-03-nugget.png",
+    "E reference/casting/room-01-casting-master.png"
    ],
-   "why": "D and E: room-16 has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+   "why": "every baseline slot is satisfied: A, B, C, D, E"
   },
   {
    "id": "geometry",
    "question": "Geometry/placement",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-16/annotation.json",
-    "(no room file declared)",
-    "(none declared)"
+    "content/rooms/ozymandias-tent.json",
+    "art/backgrounds/room-16-tent.png"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | the room is not in the manifest | no shipping plate declared"
+   "why": "annotation, room file and plate are all present at the canonical size"
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
@@ -190,32 +200,32 @@
   {
    "id": "annotation",
    "question": "Room annotation exists?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-16/annotation.json"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+   "why": "authored geometry is on disk"
   },
   {
    "id": "compiled",
    "question": "Room JSON in the manifest?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room file declared)"
+    "content/rooms/ozymandias-tent.json"
    ],
-   "why": "the room is not in the manifest"
+   "why": "content/rooms/ozymandias-tent.json is loaded by the engine"
   },
   {
    "id": "plate",
    "question": "Shipping plate at the canonical size?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "art/backgrounds/room-16-tent.png"
    ],
-   "why": "no shipping plate declared"
+   "why": "art/backgrounds/room-16-tent.png is 1920x864, PNG colour type 2"
   }
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
- "geometryReady": "NO",
- "at": "2026-11-01T05:09:21.434Z"
+ "geometryReady": "YES",
+ "at": "2026-11-09T21:46:00.409Z"
 }

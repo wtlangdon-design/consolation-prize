@@ -245,6 +245,26 @@
    "note": "THE HOLE IS IN THE FACE OF THE RISE, so his `y` (482) is higher in the frame than it is deep: on a flat floor y 482 would put him 250 px behind the walk band. He is held to the man at the far edge of the walk band, y 715, the nearest floor the plate gives below the hole, which is the deepest the rise's foot can be; a deeper hole would make him larger against the man, not smaller."
   },
   {
+   "figure": "raccoon_back",
+   "animal": "the raccoon back in the mouth of the hole in Act III (doc 111, C), in the rest frame",
+   "frame": 0,
+   "columns": [
+    0,
+    74
+   ],
+   "groundY": 715,
+   "feet": "seat",
+   "top": "ear tips",
+   "height": [
+    0.17,
+    0.27
+   ],
+   "basis": "A raccoon (23-30 cm at the shoulder, 40-70 cm head and body) sitting up on his haunches: ear tips 30-46 cm, 0.17-0.27 of a man of about 1.72 m.",
+   "ruling": "A raccoon sitting up: about a man's shin high.",
+   "by": "Tyler, 2026-11-08 (errata 205: \"Proceed\", on holding the whole cast to the horses' two catches)",
+   "note": "THE HOLE IS IN THE FACE OF THE RISE, so his `y` (482) is higher in the frame than it is deep: on a flat floor y 482 would put him 250 px behind the walk band. He is held to the man at the far edge of the walk band, y 715, the nearest floor the plate gives below the hole, which is the deepest the rise's foot can be; a deeper hole would make him larger against the man, not smaller. Errata 237: raccoon_back is the same sheet at the same place, so the same ruling holds."
+  },
+  {
    "figure": "raccoon_meeting",
    "animal": "the first of the three raccoons sitting by the hole, in the rest frame",
    "frame": 0,

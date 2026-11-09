@@ -188,6 +188,16 @@ export function check() {
       for (const { data } of items) {
         if (data.fixture) continue;
         const cell = table.icons[data.id];
+        // AN ICON THAT IS ANOTHER SESSION'S TO DRAW (errata 237): declared with the art it waits on, and noted every
+        // run, never passed in silence. A cell cut for it ends the wait: an item may not carry both.
+        if (!cell && typeof data.iconPending === 'string' && data.iconPending.length) {
+          report.note(`${data.id}: icon pending -- ${data.iconPending.slice(0, 100)}`);
+          continue;
+        }
+        if (cell && data.iconPending) {
+          report.fail(`${data.id}: has an icon cell and still says iconPending -- take the field off`);
+          continue;
+        }
         if (!cell) {
           report.fail(`${data.id}: no icon -- errata 29 restores item art to scope`);
           continue;

@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "raccoon_back",
+ "name": "THE RACCOON",
+ "posture": "animal",
+ "room": "prosperity",
+ "when": {
+  "ACT": 3,
+  "T_SOWERBY_PRICE": true,
+  "T_RACCOON_IN_COAT": false,
+  "T_SHENG_LOAN": false,
+  "T_FUNERAL_BOOKED": false
+ },
+ "note": "THE RACCOON, BACK IN THE HOLE (doc 111, C; errata 237): 'The raccoon has come back to Prosperity's hole, as he regards it as his.' From E3.1 (the Reverend's figure, T_SOWERBY_PRICE) until he is in Thad's coat (T_RACCOON_IN_COAT), in Act III, on the estate sale's way (not for a save that took Sheng's loan or booked the funeral with it). The raccoon's own sheet and frames, where he sat in Act I (content/ambient/raccoon.json); examined through THE RACCOON hotspot over him. He has no walk away this time: the coat goes over him and he is gone from the hole with it (`leaves`). PENDING ART: 'the raccoon in a coat, carried' and Pratt's hen are act3-estate-sale's to draw (reference/act3-estate-sale/brief.md); until then the coat is not drawn and he fades from the hole's mouth as it drops.",
+ "x": 1180,
+ "y": 482,
+ "zone": 2,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "A raccoon; no barks.",
+ "sprite": {
+  "sheet": "art/actors/room-23-raccoon.png",
+  "frames": [
+   [
+    7,
+    2,
+    75,
+    80
+   ],
+   [
+    95,
+    2,
+    76,
+    80
+   ],
+   [
+    184,
+    2,
+    74,
+    80
+   ],
+   [
+    273,
+    3,
+    72,
+    79
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.2,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    2,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "frameNote": "0 rest · 1 breath · 2 his head turned to look left · 3 eating. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-23/raccoon/raccoon.json"
+ },
+ "leaves": {
+  "fade": 0.6,
+  "note": "Errata 237: the coat drops over him (doc 111, USE with him halfway out) and he goes with it."
+ }
+}

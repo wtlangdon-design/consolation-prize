@@ -62,6 +62,24 @@ for (const block of doc109.split(/^(?=\*\*[^*]+\*\* \*\(item\)\*)/m).slice(1)) {
   }
   doc109Sections.set(head, runs);
 }
+/**
+ * ACT III'S SCENE C ITEMS ARE DOC 111'S (errata 237), read from its THE LINES as they are extracted: `- **NAME** · LOOK —
+ * "..."` and LISTEN, one line each as the document writes them; an item doc 111 names and writes no line for is
+ * `linesPending`. Its fate is doc 111's words: THE SALE's "THE HEN and THE RACCOON, IN MY COAT leave inventory", and the
+ * money "as Sheng's loan" at the undertaker's (doc 57 E3.3, where the loan is spent).
+ */
+const doc111 = readFileSync(resolve(ROOT, 'docs/111-scenes-b-and-c.md'), 'utf8');
+const doc111Lines = (name: string) => {
+  const said = (verb: string) => [...doc111.matchAll(/^- \*\*([^*]+)\*\* · (LOOK|LISTEN) — "([^"]+)"$/gm)]
+    .filter((m) => m[1] === name && m[2] === verb).map((m) => m[3]!);
+  return { LOOK_AT: said('LOOK'), LISTEN_TO: said('LISTEN') };
+};
+const doc111Fate = (name: string) => {
+  const sale = /→ MR\. PRATT'S TWO DOLLARS AND SIXTY CENTS; (.+) leave inventory\./.exec(doc111)?.[1] ?? '';
+  if (sale.split(' and ').includes(name)) return 'Given to (doc 111: leave inventory)';
+  if (doc111.includes(`· USE ${name} — as Sheng's loan today`)) return 'Spent (doc 111: as Sheng\'s loan, doc 57 E3.3)';
+  return '';
+};
 /** Items whose hand-over is built later on the same trip, each with its reason (proofs/played-pending.json `items`). */
 const pendingSource = (JSON.parse(readFileSync(resolve(ROOT, 'proofs/played-pending.json'), 'utf8')).items ?? {}) as Record<string, string>;
 const doc23Rows = [...doc23.matchAll(/^\| ([a-z_]+) \| (.+?) \| (.+?) \|$/gm)]
@@ -69,6 +87,11 @@ const doc23Rows = [...doc23.matchAll(/^\| ([a-z_]+) \| (.+?) \| (.+?) \|$/gm)]
 // A Gulch item's fate is doc 109's own words where it is handed on: "THE CLARION leaves inventory" (G3).
 const sectionOf = (id: string) => {
   const short = content.items.get(id)?.short ?? '';
+  const name = content.items.get(id)?.name ?? '';
+  if (doc111.includes(`**${name}**`) || doc111.includes(`· USE ${name} `)) {
+    const lines = doc111Lines(name);
+    return { acquired: doc111Fate(name), runs: { LOOK_AT: lines.LOOK_AT.map((one) => [one]), LISTEN_TO: lines.LISTEN_TO.map((one) => [one]) } };
+  }
   const runs = doc109Sections.get(short);
   return doc23Sections.get(short) ?? (runs
     ? { acquired: doc109.includes(`${short} leaves inventory`) ? 'Given to (doc 109: leaves inventory)' : '', runs }
@@ -138,6 +161,18 @@ test('every item is doc 23\'s: one row and one section each, the names it gives,
   assert.deepEqual([...rows.keys()].filter((display) => !items.some((item) => item.short === display)), [],
     'doc 23 rows with no item in the manifest');
   for (const item of items) {
+    // Doc 111's (errata 237): its one LOOK and one LISTEN, word for word, or none written and marked pending.
+    if (doc111.includes(`· USE ${item.name} `) || doc111.includes(`**${item.name}**`)) {
+      const lines = doc111Lines(item.name);
+      if (!lines.LOOK_AT.length && !lines.LISTEN_TO.length) {
+        assert.ok(item.linesPending, `${item.id}: doc 111 writes it no LOOK or LISTEN, and it is not marked linesPending`);
+        continue;
+      }
+      for (const verb of ['LOOK_AT', 'LISTEN_TO'] as const) {
+        assert.deepEqual((item.responses?.[verb] ?? []).map((rule) => rule.say), lines[verb], `${item.id}: ${verb} is not doc 111's, word for word`);
+      }
+      continue;
+    }
     const gulch = doc109Sections.get(item.short ?? '');
     if (gulch) {
       for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
@@ -171,6 +206,8 @@ test('every item has an icon cell inside the sheet, with something drawn in it',
   const sheet = readPng(readFileSync(resolve(ROOT, table.sheet)));
   for (const item of items) {
     const cell = table.icons[item.id];
+    // An icon another session is to draw says whose (errata 237), and the panel draws its labelled box meanwhile.
+    if (!cell && typeof item.iconPending === 'string' && item.iconPending.length) continue;
     assert.ok(cell, `${item.id}: no icon`);
     const [x, y, w, h] = cell;
     assert.ok(x >= 0 && y >= 0 && x + w <= sheet.width && y + h <= sheet.height, `${item.id}: its cell is outside the sheet`);
@@ -196,7 +233,9 @@ test('every item has a source, and the continuous playthrough carries every item
   }
   // Doc 54 A5's bait and smoke are the two attempts the player may skip
   // (errata 68 A: "Both attempts are optional").
-  const optional = new Set(['eggs', 'tonic']);
+  // SHENG'S LOAN is kept for a save already past it (doc 110 section 1; errata 237): the estate sale pays for the
+  // funeral now, and a fresh game is never offered the loan.
+  const optional = new Set(['eggs', 'tonic', 'loan']);
   assert.deepEqual(items.map((item) => item.id).filter((id) => !everCarried.has(id) && !optional.has(id) && !pendingSource[id]), [],
     'items the whole game, played through, never puts in his hand');
 });

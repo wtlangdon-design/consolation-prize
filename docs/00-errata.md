@@ -6395,3 +6395,56 @@ The deploy for the merged fixes timed out (run 42693542314): "Uploaded artifact 
 - **Not changed.** `?candidate=` overrides that point at other staged files still work on a local server. On the live site they find nothing, as they should.
 
 Lesson: `tests/runtime-staging.test.mjs` checks three things. The game's own staged files are found. The shipped total stays under 900 MB. The build filters `art/staging`. With the filter removed, the third test fails. The workflow's size gate backs this up in CI.
+
+# 237 · ACT III'S SCENES B AND C, BUILT: THE SÉANCE AND THE ESTATE SALE — TYLER, 2026-11-09 ("Go")
+
+Doc 111 designs Act III's scenes B and C and writes every line of both under THE LINES; Tyler approved it (2026-11-09: "Go"). Both are in the game. B, the séance, is E1's way of completing; C, the estate sale, is E3.2's way to the money. Every line is read from doc 111, and at the undertaker's from doc 57 E3.3; nothing was written by the builder. No puzzle id is added: B and C are new ways of completing E1 and E3 (`content/puzzles/puzzle-graph.json` gains one completing site for each). Traversal: 52/52 from a fresh save on main, the win reachable, 0 dead ends. Scene A (errata 233) is not on main yet, and nothing here depends on it.
+
+- **B · The séance** (Rooms 44, 16, then 7).
+  - **The séance is on** from the evening after E0b (ACT 3) until Mott has spoken: `T_SEANCE_ON`, set on the way into the Lane or the tent (`onEnter.setWhen`), cleared by SEA_E1's fourth option. A player who never sits in finds it over in Act IV.
+  - **The Lane:** THE SÉANCE SIGN, LOOK and LISTEN 1–3, while the séance is on.
+  - **Room 16:** ARRIVING once (`T_SEANCE_ARRIVED`). Five subjects, each with LOOK and LISTEN 1–3 holding the last: THE SÉANCE TABLE and THE LAMP stand in for her own table and the red lantern, which are gated off, plus THE SITTERS, MR. FRAME, AT THE TABLE, and MADAME OZYMANDIA, PRESIDING. Every wrong try is an override, except TALK TO Mr. Frame, which is his exchange and a second time.
+  - **OZY_E1** is her node while the séance is on; option 2 puts the lamp out (`T_SEANCE_DARK`).
+  - **USE THE SÉANCE TABLE** is refused while the lamp is lit. In the dark Thad goes under the cloth (`T_UNDER_TABLE`), THE SÉANCE is heard from under it, and **SEA_E1** opens (`content/dialogue/seance.json`). Option 4 has him say he is dead (`T_MOTT_SPOKE`). It plays LEAVING THE TABLE, ends the séance, and the tent is itself again.
+  - **SEA_E1 has doc 04's universal exit**, "available at every node", because a tree must always be leavable (errata 57). Leaving keeps him under the cloth, and the table opens SEA_E1 again with nothing said, so the séance can always be finished.
+  - **The Registrar's:** SUM_E1's row 1‴ (doc 111), offered once `T_MOTT_SPOKE` holds, completes **E1**, blocked by design. Option 1, the petition, stays for a player who goes straight to Sump. Section nineteen (option 2, E2) now follows either one (`DialogueOption.afterAny`).
+- **C · The estate sale** (Rooms 25, 23, then 13).
+  - **PRA_E3** is Pratt's node at his claim after E3.1 (`T_SOWERBY_PRICE`) until the sale. Option 1 sets `T_RACCOON_WANTED`; option 2, only after it, lends THE HEN; option 3 is comic.
+  - **The raccoon is back in the hole** after E3.1, in Act III, on the estate sale's way only: not for a save that took Sheng's loan or booked the funeral with it. He is `content/ambient/raccoon-back.json`, his own sheet where he sat in Act I. THE RACCOON hotspot is over him again (`Interactable.whenAny`: Act I until the eviction, or this). Prosperity's ARRIVING is said once (`T_RACCOON_BACK_SEEN`).
+  - **Once he is wanted:** a hand in the hole, the coat on the hole before the hen, and the fork on him are refused. THE HEN on THE HOLE brings him halfway out (`T_RACCOON_OUT`); the hen stays with Thad. Then a hand and the hen again are refused, and USE drops the coat over him: THE RACCOON, IN MY COAT (`T_RACCOON_IN_COAT`). He is gone from the hole, which stays empty of raccoons into Act IV.
+  - **THE SALE:** the raccoon in the coat on Pratt gives MR. PRATT'S TWO DOLLARS AND SIXTY CENTS, takes back the hen and the raccoon (`T_RACCOON_SOLD`), and PRA_E3 stops being his opening.
+  - **The undertaker** takes the money with doc 57 E3.3's three cases, words, gates (`T_SOWERBY_PRICE`, `T_COFFIN_SIZED`) and outcome unchanged: `T_FUNERAL_BOOKED`, **E3**.
+  - **Wrong tries:** the hen to Pratt, and the raccoon to the undertaker and to Sheng, answer with doc 111's lines and take nothing.
+  - **Sheng's loan** stays in doc 04 and in his tree, and so do SHENG'S LOAN and its pair at the undertaker's, for a save already past it (doc 110 section 1). SHE_D1's Act III opening, which existed only to offer the loan, is removed, so a fresh path is never offered it.
+- **New flags**, all declared in `content/flags/flags.json` and doc 57's state table: `T_SEANCE_ON`, `T_SEANCE_ARRIVED`, `T_SEANCE_DARK`, `T_UNDER_TABLE`, `T_MOTT_SPOKE`, `T_RACCOON_WANTED`, `T_RACCOON_BACK_SEEN`, `T_RACCOON_OUT`, `T_RACCOON_IN_COAT`, `T_RACCOON_SOLD`.
+- **New items:** `hen` (THE HEN), `raccoon_in_coat` (THE RACCOON, IN MY COAT) and `pratt_money` (MR. PRATT'S TWO DOLLARS AND SIXTY CENTS). Each is extracted from doc 111.
+- **How it is read.**
+  - `tools/extract-content.mjs` reads OZY_E1, SEA_E1 and LEAVING THE TABLE, SUM_E1's row, PRA_E3, the items and every item try from doc 111.
+  - `tools/extract-examine.mjs` reads three more of doc 111's shapes:
+    - a bold name with its state noted after it;
+    - a wrong try with a note on its verb;
+    - a "·" inside a quoted line, which is the line's own.
+  - A doc 54 alias holds only for the writing it was declared over, so doc 111's THE LAMP is not THE LANTERN, RED.
+  - `tools/compile-room.mjs` gains `docBullets`, a verb's cases as doc 111 writes them under a label, and `hotspotWhenAny`. A slug now drops accents, so THE SÉANCE TABLE is `seance_table`.
+  - The puzzle model, `tools/check-fixtures.mjs` and `tests/dialogue-reveal.test.ts` read `whenAny` on a hotspot and `afterAny` on an option. The readiness gate reads doc 111's nodes (`tools/lib/puzzle-content.mjs`), and `proofs/readiness/puzzles.json` lists E1's and E3's new needs.
+- **Doc 111, structure only.** Four headings were added under B, so each room's examine pass can name its own part: `#### B · In the Lane`, `#### B · In Ozymandia's tent`, `#### B · At the Registrar's` and `#### B · The wrong tries, at the séance`. No word of the scene changed.
+- **Doc 95** gains rows 109–123 (rows 107–108 are errata 233's). Each new direction is printed: class C where the words carry the joke or Thad sees only feet, class B where a physical pose is waiting on art.
+- **The face** (`art/ui/font-5x7.json`) gains é, É and ·, which doc 111 writes ("SÉANCE TONIGHT · OBADIAH MOTT, IF AVAILABLE · $2."). CLAUDE.md makes extending the face the only response to a missing glyph. Each glyph is the face's own letter or stop with a mark added.
+- **PENDING ART: stand-ins until act3-seance and act3-estate-sale deliver.**
+  - The séance's five subjects are rects over the plate's own table and lantern, and over empty floor round them; her standing figure stands in for her presiding. Frame is a voice at the table (the tent's `voices`, `seance_frame`, his colour).
+  - The sign's rect stands where the board is to hang, against the tent pole.
+  - The coat is not drawn: the raccoon fades from the hole's mouth as it drops (`leaves`).
+  - The three items have no icons (`iconPending`), and the panel draws their labelled boxes. `tools/check-item-names.mjs` and the item tests note them every run; an item with a cell may not also say it is pending.
+  - Every rect is redrawn when the cut-outs land.
+- **The walkthrough** (`tests/data/full-game-walkthrough.json`) now plays B and C in place of the petition and the loan: 175 steps. The repeat check and the narration check pass on it.
+- **Saves.** No migration, so `SAVE_VERSION` is unchanged. A save holding the loan pays with it as before. A save in Act III that has not taken the loan goes the estate sale's way.
+- **For Tyler.**
+  - **The money's LOOK and LISTEN** were missing from doc 111 when it was built; the scene's writer added them to THE LINES in the same pull request, so it is not `linesPending`.
+  - **Its name does not fit the sentence line** (108% of it). Its short name is the name's own last words, TWO DOLLARS AND SIXTY CENTS, which Pratt says at THE SALE. Nothing new is written, but the choice is yours.
+  - **Built as decided, with no new words:**
+    - The séance ends at Act IV for a player who never sat in.
+    - OZY_E1 is her node for the whole séance, in the dark as well as lit, so TALK TO never reaches her ordinary tree mid-séance.
+    - SUM_E1 option 1 is still offered after the séance (either one completes E1).
+  - **Two phrases** of Thad's reached a fourth subject with doc 111's first lines. The scene's writer reworded the three lines in doc 111 in the same pull request (the sign's LOOK 3 and LISTEN 1, and the line on leaving the table), so nothing is added to the narration allowlist.
+
+Lesson: none -- the first build of approved scenes. `tests/scenes-bc.test.ts` plays both from fixtures (`r16-seance-a`, `r16-seance-b`, `r25-sale-a`, `r23-sale-a`), including the wrong orders (the hen before the offer, the table while lit, the raccoon to the undertaker and to Sheng) and a save mid-séance and mid-sale.

@@ -73,18 +73,21 @@ test('D4, the laundry\'s half: the Reverend\'s money buys the ledger, and the ro
   assert.ok(shown(state).includes(`${s}6`), 'pair 18 is never lost');
 });
 
-test('the loan: in Act III the paper opens again, after the ledger, for two dollars and sixty cents', async () => {
+test('the loan is no longer offered: in Act III, after the ledger, his root opens, and the estate sale pays (errata 237)', async () => {
+  // Doc 110 section 1, doc 111 C: "Sheng's loan row stays in his tree only for a save already past it". A fresh path
+  // reaches Act III after the ledger and is never offered it: the paper does not open again for it.
   const state = await inState('r28-b');
   const s = speaker(state);
   state.dialogue.start(hostOf(state).tree!);
   state.dialogue.select(`${s}1a`);
   state.flags.set('T_NEED_TO_DIE', true);
   state.dialogue.start(hostOf(state).tree!);
-  assert.equal(node(state), 'SHE_D1');
-  state.dialogue.select(`${s}2`);
-  assert.ok(state.carried.includes('loan'), "SHENG'S LOAN");
-  state.dialogue.start(hostOf(state).tree!);
-  assert.equal(node(state), 'SHE_A1', 'and his root after');
+  assert.equal(node(state), 'SHE_A1', 'his root, not the paper');
+  assert.ok(!state.dialogue.presentOptions().some((one) => one.option.gives?.includes('loan')), 'the loan row is not offered');
+  // The row is kept, and SHENG'S LOAN with its pair at the undertaker's, for a save already holding it.
+  const row = state.content.dialogue.get(hostOf(state).tree!)!.nodes.SHE_D1!.options.find((one) => one.id === `${s}2`);
+  assert.deepEqual(row?.gives, ['loan'], 'the row stays in the tree');
+  assert.ok(state.content.combinations.pairs.some((pair) => pair.item === 'loan' && pair.target === 'undertaker'), 'and its pair');
 });
 
 test('four dollars: three different answers, then the third again', async () => {

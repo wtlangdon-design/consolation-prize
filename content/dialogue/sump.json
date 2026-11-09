@@ -365,6 +365,36 @@
           }
         },
         {
+          "id": "sump1c",
+          "tag": "PROGRESS",
+          "text": "It's in the Clarion. Mott has spoken. He says he's dead.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "sump",
+              "line": "From where?"
+            },
+            {
+              "speaker": "thad",
+              "line": "From under a table."
+            },
+            {
+              "speaker": "sump",
+              "line": "The office does not accept testimony from the deceased."
+            },
+            {
+              "speaker": "sump",
+              "line": "It has tried."
+            }
+          ],
+          "puzzle": {
+            "E1": "complete"
+          },
+          "when": {
+            "T_MOTT_SPOKE": true
+          }
+        },
+        {
           "id": "sump2a",
           "tag": "TOPIC",
           "text": "Who else may see a sealed filing?",
@@ -419,12 +449,13 @@
           "when": {
             "T_SECTION_NINETEEN": true
           },
-          "after": [
-            "sump1"
-          ],
           "puzzle": {
             "E2": "complete"
-          }
+          },
+          "afterAny": [
+            "sump1",
+            "sump1c"
+          ]
         },
         {
           "id": "sump3",
