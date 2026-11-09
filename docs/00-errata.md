@@ -5518,3 +5518,73 @@ Tyler, of `renders/room-02-main-street-horses.png`: "Brightness is good. Maybe m
   - Tyler hears every bed before it ships.
 - **One earlier design is withdrawn.** Doc 45's `R23/24-A` had a "localized warm moving air at hole" for Prosperity. A sound there would mark the one place on the claim whose LISTEN matters (invariant 3), so the hole gets no sound.
 - **The builder's brief is `reference/room-beds/brief.md`.** It covers rendering, wiring and a check that holds the plan. It also asks for an audition page for Tyler, and nothing ships until he has heard it. No image operation is needed.
+
+# 205 · EVERY ANIMAL AT ITS TRUE SIZE, AND NO FIGURE BRIGHTER THAN ITS NIGHT — TYLER, 2026-11-08 ("Proceed")
+
+Tyler caught two things on Main Street's horses that no check held: they were drawn too small for horses (errata 201), and they were brighter than the street's night (errata 198). He said "Proceed" to holding the whole cast to both catches, not only the horses.
+
+*Two checks, and what they found. Nothing was fixed. No image operation was spent, and no line was written or changed.*
+
+## 205 A · Every animal at its true size
+
+- **`tests/scale.test.ts` now holds every visible animal, not just the horses.** It measures each one as the engine draws it, against the room's man where the animal stands.
+- **The measures.** `content/scale-anchors.json` `animals` has one entry per animal. Each entry says what is measured: the top (ear tips, back), the withers and the length. Each entry also has a `basis`, which gives the real-world range and where it comes from.
+  - A riding horse is 15–16 hands. Its withers are 0.82–0.95 of a man of about 1.72 m, and its ear tips 1.22–1.40.
+  - A mule is 13–15.2 hands. Its withers are 0.75–0.90 of a man, and its ear tips 1.10–1.35, head carried naturally.
+  - A dog lying down has its back 0.15–0.30 of a man off the ground, and is 0.45–0.75 of a man nose to tail.
+  - A sitting cat's ear tips are 0.16–0.24 of a man.
+  - A raccoon sitting up has its ear tips 0.17–0.27 of a man.
+- **A new animal cannot skip it.** An `animal` posture in a shipping room with no entry fails: "every visible animal in a shipping room has a size ruling".
+- **Where an anchor is not the feet, the entry says so.** The top and feet are read from the sheet's own pixels unless the entry declares them.
+  - **Grievance in her stall.** Her `y` is the half door's top, where she was cut. Her hooves are behind the door, so `feetY` puts them on the stall floor at the door's foot, y 608.
+  - **The cat.** Her `y` is the crate lid. She is measured from the lid, but against the man at the crate stack's foot, `groundY` 690.
+  - **The raccoons.** The hole is in the face of the rise, so their `y` (482, 488) is higher in the frame than it is deep. They are held to the man at the walk band's far edge, `groundY` 715. That is the deepest the rise's foot can be, so it is the generous reading.
+  - **Grievance in the hearse harness.** Her frame carries a patch of grass and the hearse. Her ear tips (row 125, under the plume) and hooves (row 415) are declared. Her `y` is the frame's foot, 89 rows below her hooves, so she depth-sorts as if she stood 89 px nearer than she does. That is noted, not changed.
+  - **Grievance stepping out.** Frame 0 is empty, so frame 1 is measured, in her own columns.
+- **Beyond the walk band the man is carried on in a straight line.** The engine's curve clamps at its far edge, which is right for a walker. A stall at the back of the livery is not the size of the front of the mud. A flat floor's man shrinks in a line toward the horizon, so the test carries the curve on in a line (as the church's behind-counter check does). The exception is a room whose curve says what lies beyond the band (`beyondY`). The horses stand inside the band and are measured exactly as before. Put back errata 198's file and the test still fails.
+- **The measurements.**
+
+| Animal | Room | Measured against the man at its feet | Range | |
+|---|---|---|---|---|
+| hitching_horses (the black) | Main Street | ear tips 1.250, withers 0.924 (man 165) | 1.22–1.40, 0.82–0.95 | pass |
+| other_mules (left, facing out) | Livery | ear tips 1.115 (man 306) | 1.10–1.35 | pass, near the bottom |
+| grievance (over the door) | Livery | ear tips 1.197 (man 303 at the stall floor) | 1.10–1.35 | pass |
+| **grievance_out (stepping out)** | Livery | **ear tips 1.067** (man 349 at y 676) | 1.10–1.35 | **FAILS: known** |
+| funeral_grievance | Funeral | withers 0.774 (man 336) | 0.75–0.90 | pass, near the bottom |
+| dog (asleep) | Main Street | back 0.275, length 0.637 (man 171) | 0.15–0.30, 0.45–0.75 | pass |
+| dawn_dog (on his back) | Main Street at dawn | length 0.665 (man 170) | 0.45–0.75 | pass |
+| alley_cat (on the crate) | Back alley | ear tips 0.226 (man 248) | 0.16–0.24 | pass, near the top |
+| raccoon | Prosperity | ear tips 0.218 (man 367) | 0.17–0.27 | pass |
+| raccoon_meeting (the first) | Prosperity | ear tips 0.221 (man 367) | 0.17–0.27 | pass |
+
+- **The one failure is Grievance stepping out of her stall.** Frames 1–3 draw her at the size she has over the door, but her hooves are 68 px nearer, at y 676. So against a man she shrinks as she comes toward us: 1.07 there, against 1.19 over the door.
+  - It is recorded as `knownWrong` on her entry. It is printed on every run, and the test fails if she is fixed and the entry is left in.
+  - Suggested fix: re-cut frames 1–3 about 1.12× larger about her hooves (`tools/art/grievance-out.py`), with no image operation.
+  - Shown: `renders/animal-scale-grievance-out-beside-thad.png`, with Thad standing at her hooves' depth.
+
+## 205 B · No figure brighter than its night
+
+- **`tools/check-figure-light.mjs`, in `tools/run-all.mjs`.** It compares every placed figure, in every room it stands in, with Thad at the same feet. Tyler judges a figure against Thad.
+  - **Both are drawn as the engine draws them.** The figure gets the room's `figureLight` grade if the room names it, then the lamps' tint at its feet. Thad's standing frame gets the same treatment: graded if the room grades him, and tinted by the same lamps. The test reuses the engine's own `moverTint`.
+  - **The measure** is the mean luminance of the opaque pixels.
+  - **The limit is 1.12× Thad's.** That is the midpoint of errata 198's own two measurements: the pie woman, whom it took as the street's night (1.07), and the horses it dimmed (1.17).
+  - **The room's own light raises the limit.** Every lamp the room declares raises it for a figure inside the lamp's radius. The raise is 1.5× at the lamp's heart, falling in a line to nothing at the radius. It is measured from the lamp to the nearest drawn pixel of the figure, with the lamp's vertical `reach`.
+  - **Out of scope:** rooms that are daylight by ruling, where there is no night to be brighter than (the dawn dog), and candidate rooms.
+  - **It takes about a second.**
+- **Calibrated on the known cases, in `tests/figure-light.test.mjs`.**
+  - **Errata 198's horses before the grade fail.** At 1545,850 with no grade they measure 1.17.
+  - **The horses as they are pass,** at 0.90.
+  - **The pie woman passes.**
+  - **The map seller passes, because of the lantern.** He measures 1.90 of Thad, and stands in the office lantern's pool, where the limit is 2.10. With the lamps taken away he fails. So it is the room's light that passes him, not a loose limit.
+- **It cannot tell a white apron from a bright lamp.** A figure in pale clothes, or one whose frame carries a pale prop, measures brighter than Thad's blue coat in the same light. So a flag is a finding to look at, not a fix. `tools/art/beside-thad.py <id> <out.png>` draws any placed figure beside Thad at game size, using the same grade and tint models.
+- **What it flags.** 70 placings were measured and four are over the limit. They are recorded in `reference/figure-light-known.json`, each with its numbers, why it reads bright, and a suggested fix. They are printed on every run, and the check fails on a new flag or on a listed one that has stopped being flagged.
+
+| Figure | Room | Against Thad there | Limit there | What it looks like | Suggested |
+|---|---|---|---|---|---|
+| bakehouse_boy | Bakehouse | 1.62 | 1.12 | white apron and shirt, far from the oven's light | a bakehouse `figureLight` naming him, brightness about 0.68 |
+| sheng | Laundry | 1.54 | 1.12 | mostly the white sheet on his ironing board; the laundry declares no lamp | grade him (about 0.72), or declare the stove as a lamp if it lights the sheet |
+| boundary_b | Claim row | 1.18 | 1.12 | white shirt sleeves in the dark row; boundary_a beside him is 0.96 | a claim-row `figureLight` naming him, about 0.92 |
+| fiddler | Nugget | 1.60 | 1.56 (stove's pool) | white sleeves; the Nugget grades Thad and Deke but not him | add him to the Nugget's `figureLight`, perFigure brightness about 0.95 |
+
+- The bell ringer (1.11) and the sign painter at the coach stop (1.10) are just under the limit.
+- **Shown:** `renders/figure-light-bakehouse-boy-beside-thad.png` and `renders/figure-light-sheng-beside-thad.png`, each figure beside Thad at his feet, at game size.
