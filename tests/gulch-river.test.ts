@@ -164,6 +164,6 @@ test('the panner: his tree and his barks are doc 109\'s', async () => {
   const opening = quotes(doc.split('\n').find((one) => one.startsWith('> **'))!);
   const tree = state.content.dialogue.get(panner.tree!)!;
   // What is SPOKEN, not the prompt the renderer draws nowhere (errata 218: this line was only ever the prompt).
-  assert.deepEqual(state.dialogue.openingOf(tree.id).map((one) => one.line), opening, 'his opening is doc 109\'s, and spoken');
+  assert.deepEqual(state.dialogue.openingOf(tree.id).map((one) => one.line), opening, 'his opening, as the document writes it, is spoken');
   assert.ok(state.dialogue.presentOptions().some((one) => one.option.tag === 'COMIC'));
 });
