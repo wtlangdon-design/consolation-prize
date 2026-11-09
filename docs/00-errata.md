@@ -6346,7 +6346,8 @@ What changed:
     - the bell ringer: 254.6 → 265, because the old figure took the whole bowler off;
     - the man upstream: 293 → 282;
     - Fanshawe at the duel: 352 → 364;
-    - the fiddler: 288 → 279.
+    - the fiddler: 288 → 284, so 0.98 of Thad. His crown to sole is 279, but at 279 the stage lamp's pool would reach far enough that, ungraded, he would slip 1% under the brightness limit and his grade would hold nothing (`tests/figure-light.test.mjs`).
+  - **The man on the ladder is graded into the dawn** (`figureLight` brightness 0.95 in `content/rooms/coach-stop-dawn.json`). Re-cut with less ladder, his frame measured 1.15 of Thad's light against the limit of 1.12. Graded, it is 1.09.
   - **Statures moved into the band, keeping their direction:**
     - Sheng: 0.96 → 0.98;
     - Hob at the funeral: 1.04 → 1.02;

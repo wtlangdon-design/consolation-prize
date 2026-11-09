@@ -51,7 +51,7 @@
     288
    ]
   ],
-  "figureHeight": 279,
+  "figureHeight": 284,
   "stature": 1.0,
   "rate": 1.2667,
   "phase": 0,
@@ -81,7 +81,7 @@
   "talkFrame": 4,
   "frameNote": "HE KEEPS TIME WITH THE PIANO (doc 22: the fiddler idles in time with the musical bar grid; errata 118): `keepsTime` reads the Nugget bed's own position at its tempo, 152, so 0, the bow out at the start of the stroke, and 1, drawn across to its end, alternate once a beat, and a break comes every twelve bars (18.95 s), on a bar line. 2 mid-stroke, for a busier passage in the second break; 3 TUNE, the fiddle at his chest, a peg turned -- the first break; 4 TALK, fiddle and bow lowered.",
   "provenance": "art/staging/townspeople-110/fiddler/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 115)",
-  "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Crown to sole under his hat, read from his eyes and chin: 279. Was 288, the hat's top to his soles (errata 115's by-eye reading): 0.97 of Thad.",
+  "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). His crown to sole under his hat, read from his eyes and chin, is 279; 284 draws him 0.98 of Thad, inside the 3%, and keeps him far enough from the stage lamp's pool that his figure-light grade is still the thing holding him (tests/figure-light.test.mjs; at 279 the lamp's allowance grew and the ungraded figure slipped 1% under its limit). Was 288, the hat's top to his soles (errata 115's by-eye reading): 0.97 of Thad.",
   "levelMan": 288,
   "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs).",
   "keepsTime": "music"
