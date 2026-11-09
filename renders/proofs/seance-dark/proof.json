@@ -4,16 +4,10 @@
  "room": "ozymandias_tent",
  "roomWidth": 1920,
  "branch": "scenes-bc-art",
- "commit": "bf2db926a535813d75d96c99afafe36b2af78a02",
- "workingTreeClean": false,
- "dirtyAllowed": true,
- "uncommitted": [
-  "M proofs/spec/seance-dark.json",
-  " M renders/proofs/seance-lit/contact-sheet.webp",
-  " M renders/proofs/seance-lit/index.html",
-  " M renders/proofs/seance-lit/proof.json",
-  "?? renders/proofs/seance-dark/"
- ],
+ "commit": "1be8e8aa18909081affdebb5e6609d5b972de5f6",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": null,
@@ -87,7 +81,7 @@
    ],
    "reportedHeight": 518,
    "expected": 518,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
     775,
     339,
@@ -124,7 +118,7 @@
     "height": 510,
     "bottom": 811,
     "right": 1398,
-    "changed": 137162
+    "changed": 136602
    },
    "props": []
   }
@@ -133,7 +127,7 @@
   {
    "panel": "B",
    "room": "ozymandias_tent",
-   "clock": 10.2285,
+   "clock": 10.0039,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -347,15 +341,15 @@
    "controlWrites": [
     "enter(ozymandias_tent)"
    ],
-   "capturedAt": "2026-11-09T23:44:06.378Z",
+   "capturedAt": "2026-11-09T23:51:24.891Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "f9bfc308c6d084584ec264f2bd6bbec9cbf26346a2714134cbedb9f2c55a80fa"
+   "hash": "28bd87bd1225a354475fc03ac9c0a59cdca27b1482073da878cd3010143b89ce"
   },
   {
    "panel": "A",
    "room": "ozymandias_tent",
-   "clock": 11.111799999999999,
+   "clock": 10.8873,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -565,15 +559,15 @@
     "enter(ozymandias_tent)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T23:44:07.286Z",
+   "capturedAt": "2026-11-09T23:51:25.797Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "d2cad564fbfb4dece1cb70635828e6897fb5130e5610f368606cfcf4d6a8a868"
+   "hash": "05b1ca3f9ee7917de22b59a5b6133c44fcf72a6025c0fddeaac8e2da365e244d"
   },
   {
    "panel": "D",
    "room": "ozymandias_tent",
-   "clock": 22.011400000000002,
+   "clock": 21.6368,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -743,7 +737,7 @@
      "height": 479,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       186,
       321,
@@ -798,10 +792,10 @@
     "cast(true)",
     "bystanders(true)"
    ],
-   "capturedAt": "2026-11-09T23:44:18.214Z",
+   "capturedAt": "2026-11-09T23:51:36.525Z",
    "intent": "principal changed state: USE THE SÉANCE TABLE in the dark (doc 111): T_UNDER_TABLE, and THE SÉANCE begins. Visible consequence: his direction going under the cloth over the dark tent, SEA_E1 offered beneath. The rest of THE SÉANCE is queued behind the open conversation and the route cannot read it on (errata 238 reports it); Frame writing as the table turns is held by tests/scenes-bc-art.test.ts.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "7f531c90a03da6f3abf73150d1414741287132d72e43356077100f67f60197ec",
+   "hash": "e83126a91e805b0cad594b0c29eead8f181491715797ad5168c986ab70d16563",
    "changedBy": "flags"
   }
  ],
@@ -832,11 +826,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T23:44:18.214Z",
+ "at": "2026-11-09T23:51:36.525Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 230260,
+  "bytes": 230406,
   "panels": 5,
   "scale": 0.5
  }
