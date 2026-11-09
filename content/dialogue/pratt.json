@@ -8,6 +8,16 @@
   "entries": [
     {
       "when": {
+        "ACT": 3,
+        "T_SOWERBY_PRICE": true,
+        "T_RACCOON_SOLD": false,
+        "T_SHENG_LOAN": false,
+        "T_FUNERAL_BOOKED": false
+      },
+      "node": "PRA_E3"
+    },
+    {
+      "when": {
         "T_PRATT_TURNED": true
       },
       "node": "PRA_D6"
@@ -550,6 +560,157 @@
         },
         {
           "id": "prattx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "PRA_E3": {
+      "id": "PRA_E3",
+      "noPrompt": true,
+      "exceptionReason": "Doc 111 writes PRA_E3 as a spoken opening and a table.",
+      "opening": [
+        {
+          "speaker": "pratt",
+          "line": "Grubb."
+        }
+      ],
+      "options": [
+        {
+          "id": "pratt_e3_1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "I'm selling the effects of the late Mr. Grubb.",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Who?"
+            },
+            {
+              "speaker": "thad",
+              "line": "Me. In advance."
+            },
+            {
+              "speaker": "pratt",
+              "line": "He thinks about it for some time.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
+              "line": "Raccoon."
+            },
+            {
+              "speaker": "thad",
+              "line": "The raccoon isn't mine."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Lives on your claim."
+            },
+            {
+              "speaker": "pratt",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Effect."
+            },
+            {
+              "speaker": "thad",
+              "line": "How much?"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Two dollars and sixty cents."
+            },
+            {
+              "speaker": "thad",
+              "line": "That is exactly what I need."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Asked the undertaker."
+            },
+            {
+              "speaker": "pratt",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Don't fetch."
+            }
+          ],
+          "set": {
+            "T_RACCOON_WANTED": true
+          }
+        },
+        {
+          "id": "pratt_e3_2",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Could I borrow your hen?",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Hen comes back."
+            },
+            {
+              "speaker": "thad",
+              "line": "Of course."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Hen comes back."
+            },
+            {
+              "speaker": "pratt",
+              "line": "He hands Thad the hen. The hen looks at Thad as though the arrangement were hers.",
+              "direction": true
+            }
+          ],
+          "after": [
+            "pratt_e3_1"
+          ],
+          "gives": [
+            "hen"
+          ]
+        },
+        {
+          "id": "pratt_e3_3",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "Why do you want him?",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Bit me."
+            },
+            {
+              "speaker": "pratt",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Nobody's bit me in twenty years."
+            },
+            {
+              "speaker": "pratt",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Respect it."
+            }
+          ],
+          "repeat": "Respect it.",
+          "after": [
+            "pratt_e3_1"
+          ]
+        },
+        {
+          "id": "pratt_e3x",
           "tag": "EXIT",
           "text": "I should go.",
           "universal": true,

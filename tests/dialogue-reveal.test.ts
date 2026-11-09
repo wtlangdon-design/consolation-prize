@@ -137,6 +137,8 @@ function gateHolds(option: DialogueOption, flags: FlagStore, held: boolean, aske
   if ((option.holds ?? []).length > 0 && !held) return false;
   // The other side of a `holds` row (doc 109, G1: the rod hired with two dollars, and without them).
   if ((option.lacks ?? []).length > 0 && held) return false;
+  // Doc 111: offered once any one of these has been asked (DialogueOption.afterAny).
+  if ((option.afterAny ?? []).length > 0 && !option.afterAny!.some(asked)) return false;
   return (option.after ?? []).every(asked);
 }
 
@@ -252,7 +254,8 @@ function walkNode(content: Loaded, tree: DialogueFile, nodeId: string, domain: M
       walk.failures.push(`${where}: an option follows the exit (${ids.join(', ')})`);
     }
     for (const option of node.options) {
-      const ungated = !option.when && !option.whenAny && !(option.after ?? []).length && !(option.holds ?? []).length;
+      const ungated = !option.when && !option.whenAny && !(option.after ?? []).length && !(option.afterAny ?? []).length
+        && !(option.holds ?? []).length;
       if (option.tag === EXIT && ungated && option.afterUse !== 'remove' && !ids.includes(option.id)) {
         walk.failures.push(`${where}: the ungated exit ${option.id} is missing`);
       }

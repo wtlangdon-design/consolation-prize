@@ -547,6 +547,42 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 235: TIGHTENED, not loosened -- the tolerance went from 5% to 3% (Tyler, 2026-11-09, '3 - you decide'), and the put-back defects gained Sowerby at the gate and Sheng at 0.96; the friction check reads any changed number in a check as a loosening. The one exception added is Ozymandia's ruled range (0.93-0.99, Tyler's '2 - yes' to her re-snap at stature 0.96) in content/scale-anchors.json, beside Pratt's ruled range."
+  },
+  {
+   "check": "tools/check-item-names.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 237: the estate sale's three items (THE HEN, THE RACCOON, IN MY COAT, MR. PRATT'S TWO DOLLARS AND SIXTY CENTS) have no icon yet, and act3-estate-sale's brief is to draw them; the builder may not draw art. An item may now declare `iconPending` with the art it waits on; it is noted every run, the panel draws its labelled box (Renderer.drawInventory), and an item with a cell may not also say it is pending. Not a misfire: a new exception for art another session owes."
+  },
+  {
+   "check": "tests/lessons.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 237: the estate sale's three items (THE HEN, THE RACCOON, IN MY COAT, MR. PRATT'S TWO DOLLARS AND SIXTY CENTS) have no icon yet, and act3-estate-sale's brief is to draw them; the builder may not draw art. An item may now declare `iconPending` with the art it waits on; it is noted every run, the panel draws its labelled box (Renderer.drawInventory), and an item with a cell may not also say it is pending. Not a misfire: a new exception for art another session owes."
+  },
+  {
+   "check": "tests/item-icons-scale.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 237: the estate sale's three items (THE HEN, THE RACCOON, IN MY COAT, MR. PRATT'S TWO DOLLARS AND SIXTY CENTS) have no icon yet, and act3-estate-sale's brief is to draw them; the builder may not draw art. An item may now declare `iconPending` with the art it waits on; it is noted every run, the panel draws its labelled box (Renderer.drawInventory), and an item with a cell may not also say it is pending. Not a misfire: a new exception for art another session owes."
+  },
+  {
+   "check": "tests/items.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 237: not loosened, changed with the design. The items test read every item from doc 23 or doc 109; the estate sale's are doc 111's, checked word for word against it, and the one doc 111 writes no LOOK or LISTEN for must be `linesPending`. SHENG'S LOAN joins the eggs and the tonic as an item the walkthrough never carries: doc 110 section 1 keeps it only for a save already past it, and a fresh game is never offered it. The pending icons are as in tools/check-item-names.mjs."
+  },
+  {
+   "check": "tests/room-28.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 237: not loosened, changed with the design. 'The loan: in Act III the paper opens again' asserted the loan is offered in Act III; doc 110 section 1 and doc 111 C say it is offered to nobody on a fresh path. The test now asserts the opposite: his root opens, the row is not offered, and the row and its pair at the undertaker's are kept for a save past it."
+  },
+  {
+   "check": "content/checks/narration-allowlist.json",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 237: two phrases reach a fourth subject with doc 111's lines as Tyler approved them ('dead man', 'wind like'). The builder may not reword a line, so they wait for the voice pass, or for Tyler."
   }
  ]
 }

@@ -11,7 +11,8 @@
    "answer": "YES",
    "evidence": [
     "docs/97-lower-street-and-the-lane.md::ROOM 44 — THE LANE",
-    "docs/97-lower-street-and-the-lane.md::ROOM 44 · THE LANE"
+    "docs/97-lower-street-and-the-lane.md::ROOM 44 · THE LANE",
+    "docs/111-scenes-b-and-c.md::B · In the Lane"
    ],
    "why": "6 subject(s), each with a LOOK and a LISTEN"
   },
@@ -21,7 +22,8 @@
    "answer": "YES",
    "evidence": [
     "docs/97-lower-street-and-the-lane.md::ROOM 44 — THE LANE",
-    "docs/97-lower-street-and-the-lane.md::ROOM 44 · THE LANE"
+    "docs/97-lower-street-and-the-lane.md::ROOM 44 · THE LANE",
+    "docs/111-scenes-b-and-c.md::B · In the Lane"
    ],
    "why": "all 6 subject(s) carry three LOOK and three LISTEN variants"
   },
@@ -116,6 +118,7 @@
    "evidence": [
     "docs/97-lower-street-and-the-lane.md::ROOM 44 — THE LANE",
     "docs/97-lower-street-and-the-lane.md::ROOM 44 · THE LANE",
+    "docs/111-scenes-b-and-c.md::B · In the Lane",
     "docs/49-wrong-answers.md::ROOM 44 — THE LANE",
     "docs/00-errata.md::43 · CONSOLATION GETS THREE STREET SCREENS, NOT ONE"
    ],
@@ -173,13 +176,13 @@
   {
    "id": "geometry",
    "question": "Geometry/placement",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-44/annotation.json",
     "content/rooms/the-lane.json",
     "art/backgrounds/room-44-the-lane.png"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | the room is not in the manifest | no shipping plate declared"
+   "why": "annotation, room file and plate are all present at the canonical size"
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
@@ -190,32 +193,32 @@
   {
    "id": "annotation",
    "question": "Room annotation exists?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-44/annotation.json"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+   "why": "authored geometry is on disk"
   },
   {
    "id": "compiled",
    "question": "Room JSON in the manifest?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "content/rooms/the-lane.json"
    ],
-   "why": "the room is not in the manifest"
+   "why": "content/rooms/the-lane.json is loaded by the engine"
   },
   {
    "id": "plate",
    "question": "Shipping plate at the canonical size?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "art/backgrounds/room-44-the-lane.png"
    ],
-   "why": "no shipping plate declared"
+   "why": "art/backgrounds/room-44-the-lane.png is 1920x864, PNG colour type 2"
   }
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
- "geometryReady": "NO",
- "at": "2026-11-07T21:03:23.431Z"
+ "geometryReady": "YES",
+ "at": "2026-11-09T21:46:01.090Z"
 }

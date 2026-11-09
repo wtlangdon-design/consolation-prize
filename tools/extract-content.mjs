@@ -1204,7 +1204,7 @@ function combinations() {
   }
 
   // Pairs a later block adds (doc 57's, doc 54 A5's bait and smoke, doc 108's rod at the line) are not doc 24's.
-  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, /.test(pair.note ?? '')).length;
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 111 /.test(pair.note ?? '')).length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
@@ -1786,6 +1786,8 @@ function combinations() {
   const mine = gulchMine();
   const giving = gulchGiving();
   rebuilt.push(...mine.pairs, ...giving.pairs, ...gulchFiddle());
+  // Act III's estate sale (doc 111, C; errata 237): its item tries, and the money at the undertaker's.
+  rebuilt.push(...estateSalePairs(e3, undertakerSays));
   return write('content/combinations.json', {
     ...existing, pairs: rebuilt, itemPools, areaPools: mine.areaPools, targetPools: giving.targetPools, globalPool: global,
   });
@@ -3570,6 +3572,8 @@ function sumpTree() {
       then: [...winF2, { speaker: SPEAKER, line: '…', cue: 'S6-SEAL' }, ...readBack] },
     // Doc 04 gives this reply to Winnie by name: "**WINNIE:** "Don't you dare."".
     'SUM_F1:3': { speakerAll: 'winnie' },
+    // Doc 111, B · At the Registrar's: "a new row, at the Registrar's, after `T_MOTT_SPOKE`" (errata 237).
+    'SUM_E1:1‴': { when: { T_MOTT_SPOKE: true } },
   };
   const ITEM = { 'THE SURVEY': 'survey' };
   const PRIME = { '': '', '′': 'a', '″': 'b', '‴': 'c' };
@@ -3579,7 +3583,8 @@ function sumpTree() {
   const parts = body.split(/^\*\*`(SUM_[A-Z0-9]+)`/m);
   for (let at = 1; at < parts.length; at += 2) {
     const id = parts[at];
-    const text = parts[at + 1];
+    // SUM_E1's new row is doc 111's (the séance's front page; errata 237), read with doc 04's.
+    const text = id === 'SUM_E1' ? `${parts[at + 1]}\n${seanceSumpRows()}\n` : parts[at + 1];
     if (DEFER[id]) { unplayed.push(`${id} not extracted yet: ${DEFER[id]}`); continue; }
     const ROW = /^\| (\d+)(′|″|‴)? \|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|(?:[ \t]*(.*?)[ \t]*\|)?[ \t]*$/gm;
     const rows = [...text.matchAll(ROW)];
@@ -3672,6 +3677,21 @@ function sumpTree() {
   // "circular… linear" and all; it played on every Act II visit, so the joke was told whole twice on the
   // walkthrough. It is said the first time; later visits open on the choices.
   if (nodes.SUM_B1?.opening?.length) nodes.SUM_B1.openingOnce = 'T_SUMP_DOCUMENTS_HEARD';
+  // SECTION NINETEEN FOLLOWS WHICHEVER WAY E1 WAS BROUGHT (doc 111: "Section nineteen (E2) follows in the same visit, as
+  // now"): doc 04's "req E1" is the petition (option 1) or the séance's front page (row 1‴), whichever came first.
+  {
+    const e1 = nodes.SUM_E1?.options ?? [];
+    const front = e1.findIndex((option) => option.id === `${SPEAKER}1c`);
+    const section = e1.find((option) => option.id === `${SPEAKER}2`);
+    if (front < 0 || !section || JSON.stringify(section.after) !== JSON.stringify([`${SPEAKER}1`])) {
+      throw new Error('doc 04/111 SUM_E1: the front page (1‴) or section nineteen\'s "req E1" (2) does not read');
+    }
+    section.afterAny = [`${SPEAKER}1`, `${SPEAKER}1c`];
+    delete section.after;
+    // Offered beside the petition, not after section nineteen.
+    const [row] = e1.splice(front, 1);
+    e1.splice(e1.findIndex((option) => option.id === `${SPEAKER}1`) + 1, 0, row);
+  }
   if (!nodes.SUM_A1) throw new Error('doc 04: SUM_A1 was not extracted');
   const entries = ENTRIES.filter((one) => nodes[one.node]);
   for (const note of unplayed) process.stderr.write(`  doc 04 SUMP: ${note}\n`);
@@ -5399,6 +5419,8 @@ function ozymandiaTree() {
   if (options.length < 5) throw new Error(`doc 04 OZY_A1: ${options.length} options, fewer than 5`);
   options.push(...rodHired(SPEAKER));
   options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[2 % POOL.length], universal: true, ends: true });
+  // AT THE SÉANCE (doc 111, B; errata 237): OZY_E1, while the séance is on and he is not under the table.
+  const seance = seanceOzymandiaNode(SPEAKER, POOL);
   return write('content/dialogue/ozymandia.json', {
     aftermathAuthored: true,
     schema: 1,
@@ -5408,10 +5430,10 @@ function ozymandiaTree() {
     note: 'EXTRACTED from docs/04-dialogue-trees.md (MADAME OZYMANDIA) by tools/extract-content.mjs. '
       + 'Do not edit: change doc 04 and re-run. Plain quotes in a reply are hers, italic quotes Thad\'s. '
       + 'The universal exit line is doc 04 part one\'s pool.',
-    entries: [],
+    entries: [seance.entry],
     start: 'OZY_A1',
     // Her opening is spoken (errata 218): the engine voices `opening`, and a line kept only in `prompt` was never heard.
-    nodes: { OZY_A1: { id: 'OZY_A1', prompt, opening: [{ speaker: SPEAKER, line: prompt }], options } },
+    nodes: { OZY_A1: { id: 'OZY_A1', prompt, opening: [{ speaker: SPEAKER, line: prompt }], options }, OZY_E1: seance.node },
   });
 }
 
@@ -5645,6 +5667,8 @@ function prattTree() {
   const B1 = node('PRA_B1', '## Root: `PRA_B1`', 4);
   const D6 = node('PRA_D6', '## `PRA_D6`', 4);
   const D2 = { ...node('PRA_D2', '## `PRA_D2`', 4), openingOnce: 'T_PRATT_JUMP_HEARD' };
+  // THE ESTATE SALE (doc 111, C; errata 237): PRA_E3, at his claim after E3.1, until the sale.
+  const E3 = estateSalePrattNode(SPEAKER, POOL);
   const counts = { PRA_A1: A1.options.length, PRA_B1: B1.options.length, PRA_D6: D6.options.length, PRA_D2: D2.options.length };
   if (counts.PRA_A1 !== 7 || counts.PRA_B1 !== 8 || counts.PRA_D6 !== 6 || counts.PRA_D2 !== 4) throw new Error(`doc 04 PRATT: option counts ${JSON.stringify(counts)}`);
   const note = 'EXTRACTED from docs/04-dialogue-trees.md (NICKEL PRATT) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. '
@@ -5652,8 +5676,8 @@ function prattTree() {
   return [
     write('content/dialogue/pratt.json', {
       aftermathAuthored: true, schema: 1, id: 'PRATT', speaker: SPEAKER, name: 'NICKEL PRATT', note,
-      entries: [{ when: { T_PRATT_TURNED: true }, node: 'PRA_D6' }, { when: { ACT: { atLeast: 2 } }, node: 'PRA_B1' }],
-      start: 'PRA_A1', closing, nodes: { PRA_A1: A1, PRA_B1: B1, PRA_D6: D6 },
+      entries: [E3.entry, { when: { T_PRATT_TURNED: true }, node: 'PRA_D6' }, { when: { ACT: { atLeast: 2 } }, node: 'PRA_B1' }],
+      start: 'PRA_A1', closing, nodes: { PRA_A1: A1, PRA_B1: B1, PRA_D6: D6, PRA_E3: E3.node },
     }),
     write('content/dialogue/pratt-jump.json', {
       aftermathAuthored: true, schema: 1, id: 'PRATT_JUMP', speaker: SPEAKER, name: 'NICKEL PRATT', note,
@@ -5750,9 +5774,11 @@ function shengTree() {
     aftermathAuthored: true, schema: 1, id: 'SHENG', speaker: SPEAKER, name: 'AH-LAM SHENG',
     note: 'EXTRACTED from docs/04-dialogue-trees.md (AH-LAM SHENG) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. '
       + 'SHE_D1 opens only while its business is open, so SHE_A1\'s options are never lost (errata 99 D).',
+    // THE LOAN IS NO LONGER OFFERED (doc 110 section 1, doc 111 C; errata 237): the estate sale pays for the funeral, and
+    // SHE_D1's Act III opening, which existed only to offer the loan, is gone. The row stays in doc 04 and in this tree,
+    // and SHENG'S LOAN and its pair at the undertaker's stay, for a save already past it.
     entries: [
       { when: { T_SHENG_HOLDS_PAPER: true, T_PRATT_TRAIL: false }, node: 'SHE_D1' },
-      { when: { T_NEED_TO_DIE: true, T_PRATT_TRAIL: true, T_SHENG_LOAN: false }, node: 'SHE_D1' },
     ],
     start: 'SHE_A1', nodes: { SHE_A1: A1, SHE_D1: D1 },
   });
@@ -6328,7 +6354,330 @@ function cutaways() {
   });
 }
 
-const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
+/**
+ * ACT III, SCENES B AND C: THE SÉANCE AND THE ESTATE SALE (doc 111, THE LINES; errata 237). Tyler, 2026-11-09: "Go".
+ * Everything of the two scenes that is not a room's own hotspot lines (those are tools/extract-examine.mjs's and
+ * tools/compile-room.mjs's, from the same section) is read here, never typed:
+ *  - `OZY_E1` (TALK TO Madame Ozymandia at the séance) -> a node of content/dialogue/ozymandia.json (ozymandiaTree);
+ *  - `SEA_E1` (Thad, as the voice of the dead, from under the table) and LEAVING THE TABLE -> content/dialogue/seance.json;
+ *  - `SUM_E1`'s new row 1‴ -> content/dialogue/sump.json (sumpTree);
+ *  - `PRA_E3` (TALK TO Pratt at his claim after E3.1) -> a node of content/dialogue/pratt.json (prattTree);
+ *  - the items THE HEN, THE RACCOON, IN MY COAT and MR. PRATT'S TWO DOLLARS AND SIXTY CENTS -> content/items/;
+ *  - the item tries: the fork and the hen at the hole, THE SALE, the money and the raccoon at the undertaker's, the
+ *    raccoon at Sheng's, the hen to Pratt -> content/combinations.json (combinations).
+ * Which flag each state is, which item each name is, and what each step does are routing, authored here as every tree's
+ * ROUTE table is; doc 111's words are the document's.
+ */
+const SCENES_BC = 'docs/111-scenes-b-and-c.md';
+const SCENES_BC_ITEMS = { 'THE HEN': 'hen', 'THE RACCOON, IN MY COAT': 'raccoon_in_coat',
+  "MR. PRATT'S TWO DOLLARS AND SIXTY CENTS": 'pratt_money' };
+function scenesBCLines() {
+  const doc = read(SCENES_BC);
+  const at = doc.indexOf('\n## THE LINES\n');
+  if (at < 0) throw new Error('doc 111: no "## THE LINES"');
+  const rest = doc.slice(at + 1);
+  const end = rest.indexOf('\n---\n');
+  return end < 0 ? rest : rest.slice(0, end);
+}
+/** The lines from the one starting `head` to the next bold label or heading (exclusive), as written. */
+function scenesBCBlock(head) {
+  const rows = scenesBCLines().split('\n');
+  const at = rows.findIndex((one) => one.startsWith(head));
+  if (at < 0) throw new Error(`doc 111: no line starting ${head}`);
+  if (rows.findIndex((one, n) => n > at && one.startsWith(head)) > 0) throw new Error(`doc 111: two lines start ${head}`);
+  const out = [rows[at]];
+  for (const row of rows.slice(at + 1)) {
+    if (/^\*\*|^#/.test(row)) break;
+    out.push(row);
+  }
+  return out;
+}
+/**
+ * One reply as doc 111 writes it, in order: a plain quote is `speaker`'s (or the last `**NAME:**`'s, by `speakers`), an
+ * italic quote is Thad's, `*(beat)*` and `*(pause)*` are the speaker's "…", `*(second)*` begins the second time's words,
+ * and any other bracket is a direction by whoever speaks next (doc 58's notes hidden, as in every tree).
+ */
+function scenesBCWords(cell, speaker, speakers = {}) {
+  const first = [];
+  const second = [];
+  let into = first;
+  let who = speaker;
+  const tokens = [...cell.split('→')[0].matchAll(/\*\*([A-Z][A-Z.' -]*):\*\*|\*"([^"]+)"\*|\*\(([^)]+)\)\*|"([^"]+)"/g)];
+  for (let n = 0; n < tokens.length; n += 1) {
+    const [, name, italic, note, quote] = tokens[n];
+    if (name !== undefined) {
+      who = speakers[name];
+      if (!who) throw new Error(`doc 111: "${name}" speaks and nobody is routed for the name`);
+    } else if (italic !== undefined) into.push({ speaker: 'thad', line: plain(italic) });
+    else if (note !== undefined) {
+      if (/^second$/i.test(note.trim())) { into = second; continue; }
+      // A direction is the next speaker's when it leads into his words, the last speaker's when a dash parts it from
+      // them (doc 111 SEA_E1 2: `**FRAME:** "Mott tuned PIANOS?" *(He writes.)* — **OZYMANDIA:** ...` is Frame writing).
+      const next = tokens.slice(n + 1).find((t) => t[1] !== undefined || t[2] !== undefined || t[4] !== undefined);
+      const parted = next ? cell.slice(tokens[n].index + tokens[n][0].length, next.index).includes('—') : true;
+      const by = parted ? who : next?.[1] !== undefined ? (speakers[next[1]] ?? who) : next?.[2] !== undefined ? 'thad' : who;
+      // DOC 58's NOTES ARE HIDDEN, BUT "pair" HERE IS A PAIR OF BOOTS. The tree pattern hides "(pair 19; errata 75)"
+      // and "(sets ...)", the builder's notes in docs 04 and 27, and so hid doc 111's "Two pairs of boots leave at a
+      // run.", "the last pair of boots" and "Thad sets the hen at the mouth of the hole": doc 111 writes no builder's
+      // note inside a reply, so only doc 58's list and the note words that cannot be staging hide one here.
+      const words = note.trim();
+      const shown = /^(beat|pause|long pause)$/i.test(words) ? { line: '…', direction: false }
+        : /\berrata\b|\breq\s|\bsets `|\bdoc \d|\bTyler,|→/i.test(words) || directionRule().hidden.has(words) ? null
+          : { line: words, direction: true };
+      if (shown) into.push({ speaker: by, line: shown.line, ...(shown.direction ? { direction: true } : {}) });
+    } else into.push({ speaker: who, line: plain(quote) });
+  }
+  return { first, second };
+}
+/** A doc 111 table's rows, `| n | "option" | tag | response | state |`. */
+function scenesBCRows(head) {
+  const rows = [];
+  for (const row of scenesBCBlock(head)) {
+    const m = /^\| (\d+)(′|″|‴)? \| (.+?) \| (.+?) \| (.+?) \|\s*(.*?)\s*\|\s*$/.exec(row);
+    if (m) rows.push({ number: m[1], prime: m[2] ?? '', option: m[3], tag: m[4], response: m[5], state: m[6] });
+  }
+  if (!rows.length) throw new Error(`doc 111: ${head} has no rows`);
+  return rows;
+}
+/** One option of a doc 111 node: its words, its second time, and the state its last cell names. */
+function scenesBCOption(row, { id, speaker, speakers, prefix }) {
+  const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(row.tag);
+  const text = quoted(row.option)[0];
+  if (!tag || !text) throw new Error(`doc 111: option ${row.number}${row.prime} does not read`);
+  const { first, second } = scenesBCWords(row.response, speaker, speakers);
+  if (!first.length) throw new Error(`doc 111: option ${row.number}${row.prime} has no reply`);
+  const option = { id, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text: plain(text) };
+  if (first.length === 1 && first[0].speaker === speaker && !first[0].direction) option.say = first[0].line;
+  else option.exchange = first;
+  if (second.length === 1 && second[0].speaker === speaker && !second[0].direction) option.repeat = second[0].line;
+  else if (second.length) option.repeats = [{ selection: 2, exchange: second }];
+  const after = afterIds(row.tag, prefix);
+  if (after) option.after = after;
+  const sets = [...row.state.matchAll(/sets `([A-Z_0-9]+)`/g)].map((m) => m[1]);
+  if (sets.length) option.set = Object.fromEntries(sets.map((flag) => [flag, true]));
+  const gives = /gives (THE [A-Z, ]+?|MR\. [A-Z' ]+?)\s*$/.exec(row.state.trim());
+  if (gives) {
+    const item = SCENES_BC_ITEMS[gives[1].trim()];
+    if (!item) throw new Error(`doc 111: option ${row.number} gives "${gives[1]}", which has no item id`);
+    option.gives = [item];
+  }
+  return option;
+}
+/** A node's spoken opening: its `> **NAME:** "..."` line(s) under the label. */
+function scenesBCOpening(head, speakers) {
+  const out = [];
+  for (const row of scenesBCBlock(head)) {
+    if (!row.startsWith('> ')) continue;
+    out.push(...scenesBCWords(row.slice(2), 'thad', speakers).first);
+  }
+  return out;
+}
+
+/** OZY_E1, at the séance: a node of her tree, opening while the séance is on and Thad is not under the table. */
+function seanceOzymandiaNode(speaker, pool) {
+  const head = '**`OZY_E1`**';
+  const speakers = { OZYMANDIA: speaker };
+  const opening = scenesBCOpening(head, speakers);
+  if (opening.length !== 1) throw new Error('doc 111 OZY_E1: the opening is not one line of hers');
+  const options = scenesBCRows(head).map((row) => scenesBCOption(row, {
+    id: `${speaker}_e1_${row.number}`, speaker, speakers, prefix: `${speaker}_e1_` }));
+  if (options.length !== 4) throw new Error(`doc 111 OZY_E1: ${options.length} options, not 4`);
+  if (!options[1].set?.T_SEANCE_DARK) throw new Error('doc 111 OZY_E1: option 2 no longer sets T_SEANCE_DARK');
+  options.push({ id: `${speaker}_e1x`, tag: 'EXIT', text: pool[2 % pool.length], universal: true, ends: true });
+  return {
+    // While the séance is on: also if he has left SEA_E1 by its way out and is still under the cloth.
+    entry: { when: { T_SEANCE_ON: true }, node: 'OZY_E1' },
+    node: { id: 'OZY_E1', prompt: opening[0].line, opening, options },
+  };
+}
+
+/** SEA_E1 and LEAVING THE TABLE: Thad, as the voice of the dead; the fourth option ends the séance. */
+function seanceTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  const SPEAKER = 'ozymandia';
+  const speakers = { OZYMANDIA: SPEAKER, FRAME: 'seance_frame' };
+  const options = scenesBCRows('**`SEA_E1`**').map((row) => scenesBCOption(row, {
+    id: `seance${row.number}`, speaker: SPEAKER, speakers, prefix: 'seance' }));
+  if (options.length !== 4) throw new Error(`doc 111 SEA_E1: ${options.length} options, not 4`);
+  const spoken = options.find((one) => one.set?.T_MOTT_SPOKE);
+  if (!spoken || spoken.id !== 'seance4') throw new Error('doc 111 SEA_E1: option 4 no longer sets T_MOTT_SPOKE');
+  const leaving = scenesBCOpening('**LEAVING THE TABLE**', speakers);
+  if (!leaving.length) throw new Error('doc 111: LEAVING THE TABLE has no lines');
+  spoken.exchange = [...(spoken.exchange ?? [{ speaker: SPEAKER, line: spoken.say }]), ...leaving];
+  delete spoken.say;
+  // The séance is over: the lamp comes up, the town goes home, and he comes out from under the table.
+  spoken.set = { ...spoken.set, T_UNDER_TABLE: false, T_SEANCE_ON: false };
+  spoken.ends = true;
+  // Doc 04's universal exit, "available at every node": a tree is always leavable (errata 57). Leaving keeps him under the
+  // cloth (T_UNDER_TABLE), and USE THE SÉANCE TABLE opens SEA_E1 again (reference/room-16/annotation.json).
+  options.push({ id: 'seancex', tag: 'EXIT', text: POOL[0], universal: true, ends: true });
+  return write('content/dialogue/seance.json', {
+    aftermathAuthored: true,
+    schema: 1,
+    id: 'SEANCE',
+    speaker: SPEAKER,
+    note: 'EXTRACTED from docs/111-scenes-b-and-c.md (THE LINES, B: SEA_E1 and LEAVING THE TABLE) by tools/extract-content.mjs '
+      + '(errata 237). Do not edit: change doc 111 and re-run. Opened by USE THE SÉANCE TABLE in the dark (Room 16), after THE '
+      + 'SÉANCE is heard from under it. Thad speaks the options as the voice of the dead; FRAME is `seance_frame`, his voice at '
+      + 'the table (the tent\'s `voices`), not the Clarion\'s figure. Option 4 is always offered, so the séance can always be '
+      + 'finished: it writes T_MOTT_SPOKE, ends the séance (T_SEANCE_ON, T_UNDER_TABLE) and plays LEAVING THE TABLE. Doc 04\'s '
+      + 'universal exit leaves him under the cloth, and the table opens SEA_E1 again.',
+    entries: [],
+    start: 'SEA_E1',
+    nodes: { SEA_E1: { id: 'SEA_E1', noPrompt: true,
+      exceptionReason: 'Doc 111 SEA_E1: the séance before it (THE SÉANCE, heard from under the table) is said as he goes under, '
+        + 'by the table\'s USE; the node opens on his choice of what the dead will say.', options } },
+  });
+}
+
+/** SUM_E1's new row (doc 111, B · At the Registrar's): the table's rows, for sumpTree to read with doc 04's. */
+function seanceSumpRows() {
+  return scenesBCBlock('**`SUM_E1`**').filter((row) => /^\| \d/.test(row)).join('\n');
+}
+
+/** PRA_E3, at his claim after E3.1: a node of his tree, until the sale. */
+function estateSalePrattNode(speaker, pool) {
+  const head = '**`PRA_E3`**';
+  const speakers = { PRATT: speaker };
+  const opening = scenesBCOpening(head, speakers);
+  if (opening.length !== 1) throw new Error('doc 111 PRA_E3: the opening is not one line of his');
+  const options = scenesBCRows(head).map((row) => scenesBCOption(row, {
+    id: `${speaker}_e3_${row.number}`, speaker, speakers, prefix: `${speaker}_e3_` }));
+  if (options.length !== 3) throw new Error(`doc 111 PRA_E3: ${options.length} options, not 3`);
+  if (!options[0].set?.T_RACCOON_WANTED || options[1].gives?.[0] !== 'hen') throw new Error('doc 111 PRA_E3: options 1 and 2 no longer read');
+  options.push({ id: `${speaker}_e3x`, tag: 'EXIT', text: pool[4 % pool.length], universal: true, ends: true });
+  return {
+    // After E3.1 (the Reverend's figure) and until the sale, in Act III, on the estate sale's way: not for a save that
+    // already took Sheng's loan or booked the funeral with it (doc 110 section 1).
+    entry: { when: { ACT: 3, T_SOWERBY_PRICE: true, T_RACCOON_SOLD: false, T_SHENG_LOAN: false, T_FUNERAL_BOOKED: false }, node: 'PRA_E3' },
+    node: { id: 'PRA_E3', noPrompt: true, exceptionReason: 'Doc 111 writes PRA_E3 as a spoken opening and a table.', opening, options },
+  };
+}
+
+/** THE HEN, THE RACCOON, IN MY COAT, and MR. PRATT'S TWO DOLLARS AND SIXTY CENTS. */
+function estateSaleItems() {
+  const lines = scenesBCLines().split('\n');
+  const said = (name, verb) => {
+    const row = lines.find((one) => one.startsWith(`- **${name}** · ${verb} — `));
+    const line = row && quoted(row)[0];
+    if (!line) throw new Error(`doc 111: no ${name} · ${verb} line`);
+    return line;
+  };
+  const ICON = 'No icon is drawn for it yet: act3-estate-sale\'s brief asks for one (reference/act3-estate-sale/brief.md, "an item icon '
+    + 'or two"); until it lands the panel draws its labelled box (Renderer.drawInventory).';
+  const out = [];
+  out.push(write('content/items/hen.json', {
+    schema: 1, id: 'hen', name: 'THE HEN', short: 'THE HEN',
+    note: 'EXTRACTED from docs/111-scenes-b-and-c.md (THE LINES, C) by tools/extract-content.mjs (errata 237). Do not edit: change '
+      + 'doc 111 and re-run. Pratt\'s hen, on loan: PRA_E3 option 2 hands it over; it brings the raccoon halfway out of the hole, and '
+      + 'goes back to Pratt at THE SALE. Doc 111 writes it one LOOK and one LISTEN.',
+    responses: { LOOK_AT: [{ say: said('THE HEN', 'LOOK') }], LISTEN_TO: [{ say: said('THE HEN', 'LISTEN') }] },
+    iconPending: ICON,
+  }));
+  out.push(write('content/items/raccoon-in-coat.json', {
+    schema: 1, id: 'raccoon_in_coat', name: 'THE RACCOON, IN MY COAT', short: 'THE RACCOON, IN MY COAT',
+    note: 'EXTRACTED from docs/111-scenes-b-and-c.md (THE LINES, C) by tools/extract-content.mjs (errata 237). Do not edit: change '
+      + 'doc 111 and re-run. Thad\'s coat over the raccoon at the hole\'s mouth (USE, with him halfway out); sold to Pratt at THE '
+      + 'SALE. Doc 111 writes it one LOOK and one LISTEN.',
+    responses: { LOOK_AT: [{ say: said('THE RACCOON, IN MY COAT', 'LOOK') }], LISTEN_TO: [{ say: said('THE RACCOON, IN MY COAT', 'LISTEN') }] },
+    iconPending: ICON,
+  }));
+  out.push(write('content/items/pratt-money.json', {
+    // THE SENTENCE LINE CANNOT HOLD THE WHOLE NAME (tools/check-item-names.mjs: "Listen to MR. PRATT'S TWO DOLLARS AND
+    // SIXTY CENTS on THE CATALOGUE — MUSICAL INSTRUMENTS" is 108% of the line). Its short name is the name's own last
+    // words, which are Pratt's at THE SALE ("Two dollars and sixty cents."): nothing new is written. For Tyler to confirm.
+    schema: 1, id: 'pratt_money', name: "MR. PRATT'S TWO DOLLARS AND SIXTY CENTS", short: 'TWO DOLLARS AND SIXTY CENTS',
+    note: 'Named by docs/111-scenes-b-and-c.md (THE SALE) and read by tools/extract-content.mjs (errata 237). Pratt\'s price for the '
+      + 'raccoon, counted out at THE SALE; spent at the undertaker\'s exactly as SHENG\'S LOAN was (doc 57 E3.3). Doc 111 writes no LOOK '
+      + 'or LISTEN for it: reported to Tyler, and marked `linesPending` until it does.',
+    linesPending: true,
+    iconPending: ICON,
+  }));
+  return out;
+}
+
+/**
+ * THE ITEM TRIES (doc 111, C): at the hole, THE SALE, and the wrong tries with the coat and the hen. Pairs, each read from
+ * its own line; the money at the undertaker's is doc 57 E3.3's own three cases, the loan's words unchanged.
+ */
+function estateSalePairs(e3, undertakerSays) {
+  const lines = scenesBCLines().split('\n');
+  const bullet = (start) => {
+    const found = lines.filter((one) => one.startsWith(start));
+    if (found.length !== 1) throw new Error(`doc 111: ${found.length} lines start ${start}`);
+    return found[0].slice(start.length);
+  };
+  const ruleOf = (words, by = 'thad') => {
+    const { first } = scenesBCWords(words, by, { PRATT: 'pratt', UNDERTAKER: 'undertaker', SHENG: 'sheng' });
+    if (!first.length) throw new Error(`doc 111: "${words.slice(0, 40)}" has no words`);
+    const [lead, ...rest] = first;
+    return { say: lead.line, ...(lead.speaker !== 'thad' ? { by: lead.speaker } : {}), ...(lead.direction ? { direction: true } : {}),
+      ...(rest.length ? { then: rest.map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one)) } : {}) };
+  };
+  const NOTE = 'Doc 111 (THE LINES, C; errata 237)';
+  const out = [];
+  const raccoonIn = { T_RACCOON_WANTED: true, T_RACCOON_IN_COAT: false };
+  const fork = ruleOf(bullet('- USE THE TUNING FORK — '));
+  // Each of these answers only in its state; out of it, the item's pools answer (`otherwise`), as doc 57 F5's do.
+  out.push({ item: 'tuning_fork', room: 'prosperity', target: 'raccoon', otherwise: 'pool', say: fork.say,
+    note: `${NOTE}: the fork on the raccoon in the hole, once Pratt wants him; before that, the fork's own pool.`,
+    rules: [{ case: 'in the hole, after T_RACCOON_WANTED', when: raccoonIn, ...fork }] });
+  const bait = ruleOf(bullet('- USE THE HEN, *on THE HOLE* — '));
+  out.push({ item: 'hen', room: 'prosperity', target: 'hole', otherwise: 'pool', say: bait.say,
+    note: `${NOTE}: the hen at the hole's mouth brings the raccoon halfway out (T_RACCOON_OUT). The hen stays with Thad.`,
+    rules: [{ case: 'on THE HOLE', when: { ...raccoonIn, T_RACCOON_OUT: false }, ...bait, set: { T_RACCOON_OUT: true } }] });
+  const henAgain = ruleOf(bullet('- USE THE HEN, *with the raccoon halfway out* — '));
+  out.push({ item: 'hen', room: 'prosperity', target: 'raccoon', otherwise: 'pool', say: henAgain.say,
+    note: `${NOTE}: the hen to the raccoon without the coat.`,
+    rules: [{ case: 'with the raccoon halfway out', when: { ...raccoonIn, T_RACCOON_OUT: true }, ...henAgain }] });
+  // THE SALE: the raccoon in the coat to Pratt. He counts out the money and takes back the hen.
+  const saleRows = scenesBCBlock('**THE SALE**').filter((one) => one.startsWith('> '));
+  if (!saleRows.length) throw new Error('doc 111: THE SALE has no lines');
+  const sale = [];
+  let last = 'thad';
+  for (const row of saleRows) {
+    const named = /^\*\*[A-Z][A-Z.' -]*:\*\*/.test(row.slice(2));
+    const words = scenesBCWords(row.slice(2), 'thad', { PRATT: 'pratt' }).first;
+    const quotedHere = /"/.test(row.replace(/\*\([^)]*\)\*/g, ''));
+    // A line that is only a direction belongs to whoever is acting in the scene, the last named speaker.
+    for (const one of words) sale.push(!named && !quotedHere && one.direction ? { ...one, speaker: last } : one);
+    if (named) last = words.at(-1).speaker;
+  }
+  if (!/→ MR\. PRATT'S TWO DOLLARS AND SIXTY CENTS; THE HEN and THE RACCOON, IN MY COAT leave inventory/.test(saleRows.at(-1))) {
+    throw new Error('doc 111: THE SALE no longer ends in the money, the hen and the raccoon leaving inventory');
+  }
+  const [lead, ...rest] = sale;
+  out.push({ item: 'raccoon_in_coat', room: 'pratts_claim', target: 'pratt', otherwise: 'pool', say: lead.line,
+    note: `${NOTE}, THE SALE: the raccoon, in the coat, to Pratt. He counts out MR. PRATT'S TWO DOLLARS AND SIXTY CENTS and takes back `
+      + 'the hen; the raccoon goes with him (T_RACCOON_SOLD).',
+    rules: [{ case: 'THE SALE', when: { T_RACCOON_SOLD: false }, holds: ['hen'], say: lead.line,
+      ...(lead.speaker !== 'thad' ? { by: lead.speaker } : {}), ...(lead.direction ? { direction: true } : {}),
+      then: rest.map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one)),
+      takes: ['raccoon_in_coat', 'hen'], items: ['pratt_money'], set: { T_RACCOON_SOLD: true } }] });
+  // THE UNDERTAKER, with the new money: doc 57 E3.3's lines, its gates and its outcome, unchanged.
+  out.push({ item: 'pratt_money', room: 'undertaker', target: 'undertaker', puzzle: 'E3', say: e3.paid[0],
+    note: `${NOTE}, THE UNDERTAKER: MR. PRATT'S TWO DOLLARS AND SIXTY CENTS on the undertaker, "as Sheng's loan today, doc 57 E3.3: `
+      + 'the undertaker\'s lines unchanged" -- the loan\'s three cases, read from doc 57, with the new money spent.',
+    rules: [
+      { case: 'with T_SOWERBY_PRICE and T_COFFIN_SIZED', when: { T_SOWERBY_PRICE: true, T_COFFIN_SIZED: true, T_FUNERAL_BOOKED: false },
+        ...undertakerSays(e3.paid), takes: ['pratt_money'], set: { T_FUNERAL_BOOKED: true }, completes: 'E3' },
+      { case: 'before the Reverend\'s figure', when: { T_SOWERBY_PRICE: false }, ...undertakerSays(e3.noFigure) },
+      { case: 'before the sizing', when: { T_COFFIN_SIZED: false }, ...undertakerSays(e3.noSizing) },
+    ] });
+  for (const [start, room, target, item] of [
+    ['- **PRATT** · USE THE HEN — ', 'pratts_claim', 'pratt', 'hen'],
+    ['- **THE UNDERTAKER** · USE THE RACCOON, IN MY COAT — ', 'undertaker', 'undertaker', 'raccoon_in_coat'],
+    ['- **AH-LAM SHENG** · USE THE RACCOON, IN MY COAT — ', 'laundry', 'sheng', 'raccoon_in_coat'],
+  ]) {
+    const rule = ruleOf(bullet(start));
+    out.push({ item, room, target, say: rule.say, note: `${NOTE}, THE WRONG TRIES: ${start.slice(2, -3).replace(/\*\*/g, '')}.`,
+      rules: [{ case: 'any time', ...rule }] });
+  }
+  return out;
+}
+
+const written = [opening(), stageDriver(), combinations(), seanceTree(), ...estateSaleItems(), ...rooms0507(), ...room02Exits(),
   ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), hobRunning(), ozymandiaAtProsperity(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...gulchItems(), ...gulchPeople(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways(), ...waysOut()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);

@@ -1125,6 +1125,111 @@
       "speaker": "winnie",
       "words": "She runs it at the window. It does not take long.",
       "where": "dialogue/winnie WIN_B2 option 1"
+    },
+    {
+      "n": 109,
+      "class": "B",
+      "speaker": "ozymandia",
+      "words": "She turns the lamp down to a bead.",
+      "where": "dialogue/ozymandia OZY_E1 option 2"
+    },
+    {
+      "n": 110,
+      "class": "C",
+      "speaker": "ozymandia",
+      "words": "A silence is held.",
+      "where": "rooms/ozymandias_tent seance_table USE (THE SÉANCE)"
+    },
+    {
+      "n": 111,
+      "class": "C",
+      "speaker": "ozymandia",
+      "words": "She consults the rod.",
+      "where": "rooms/ozymandias_tent seance_table USE (THE SÉANCE)"
+    },
+    {
+      "n": 112,
+      "class": "B",
+      "speaker": "thad",
+      "words": "Thad goes down on his hands and knees and under the cloth.",
+      "where": "rooms/ozymandias_tent seance_table USE (in the dark)"
+    },
+    {
+      "n": 113,
+      "class": "C",
+      "speaker": "seance_frame",
+      "words": "He writes.",
+      "where": "dialogue/seance SEA_E1 options 2 and 4"
+    },
+    {
+      "n": 114,
+      "class": "C",
+      "speaker": "ozymandia",
+      "words": "Two chairs go over. Two pairs of boots leave at a run.",
+      "where": "dialogue/seance SEA_E1 option 3"
+    },
+    {
+      "n": 115,
+      "class": "C",
+      "speaker": "ozymandia",
+      "words": "She looks down at the cloth for a long moment.",
+      "where": "dialogue/seance SEA_E1 option 4"
+    },
+    {
+      "n": 116,
+      "class": "C",
+      "speaker": "thad",
+      "words": "The lamp comes up. Thad stays where he is until the last pair of boots has gone.",
+      "where": "dialogue/seance SEA_E1 option 4 (LEAVING THE TABLE)"
+    },
+    {
+      "n": 117,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "He hands Thad the hen. The hen looks at Thad as though the arrangement were hers.",
+      "where": "dialogue/pratt PRA_E3 option 2"
+    },
+    {
+      "n": 118,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad sets the hen at the mouth of the hole. The hen considers the hole. The raccoon considers the hen. Half a raccoon comes out.",
+      "where": "combinations (hen on hole)"
+    },
+    {
+      "n": 119,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad takes off his coat and drops it over him. There is a great deal of coat, and then a great deal of raccoon.",
+      "where": "rooms/prosperity raccoon USE (with him halfway out)"
+    },
+    {
+      "n": 120,
+      "class": "B",
+      "speaker": "pratt",
+      "words": "He opens the coat a little and looks in.",
+      "where": "combinations (raccoon_in_coat on pratt, THE SALE)"
+    },
+    {
+      "n": 121,
+      "class": "B",
+      "speaker": "pratt",
+      "words": "He counts out the money, coin by coin.",
+      "where": "combinations (raccoon_in_coat on pratt, THE SALE)"
+    },
+    {
+      "n": 122,
+      "class": "B",
+      "speaker": "pratt",
+      "words": "He holds out his other hand.",
+      "where": "combinations (raccoon_in_coat on pratt, THE SALE)"
+    },
+    {
+      "n": 123,
+      "class": "B",
+      "speaker": "pratt",
+      "words": "Thad gives back the hen. Pratt gives back the coat, empty.",
+      "where": "combinations (raccoon_in_coat on pratt, THE SALE)"
     }
   ]
 }

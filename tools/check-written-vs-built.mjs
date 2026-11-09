@@ -31,6 +31,8 @@ export const SOURCES = [
   '26-batch-a', '27-minor-trees', '43-room-01-staging-script', '48-act-turn-beats', '49-wrong-answers',
   '54-batch-c', '57-puzzle-completion', '94-clue-pass', '96-cutaways', '97-lower-street-and-the-lane',
   '98-main-street-pass', '105-the-six-interiors', '108-the-washout-and-the-mine', '109-fiddlers-gulch-lines',
+  // Errata 237: scenes B and C's lines (doc 111, THE LINES).
+  '111-scenes-b-and-c',
 ];
 
 export const norm = (text) => text

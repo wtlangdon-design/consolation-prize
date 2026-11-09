@@ -455,7 +455,8 @@ export class DialogueRunner {
 
   /** Whether every option this one follows has been asked in this node. See DialogueOption.after. */
   private followsAsked(option: DialogueOption, treeId: string, nodeId: string): boolean {
-    return (option.after ?? []).every((id) => this.countOf(treeId, nodeId, id) > 0);
+    return (option.after ?? []).every((id) => this.countOf(treeId, nodeId, id) > 0)
+      && (!option.afterAny?.length || option.afterAny.some((id) => this.countOf(treeId, nodeId, id) > 0));
   }
 
   /**

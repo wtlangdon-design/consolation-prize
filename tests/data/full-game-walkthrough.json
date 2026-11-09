@@ -1460,15 +1460,102 @@
    "id": "E1.1",
    "puzzle": "E1",
    "do": "go",
-   "room": "claims_registrar"
+   "room": "the_lane",
+   "expect": {
+    "flags": {
+     "T_SEANCE_ON": true
+    },
+    "targets": [
+     "seance_sign"
+    ]
+   }
   },
   {
    "id": "E1.2",
    "puzzle": "E1",
+   "do": "go",
+   "room": "ozymandias_tent",
+   "expect": {
+    "flags": {
+     "T_SEANCE_ARRIVED": true
+    },
+    "targets": [
+     "seance_table",
+     "lamp",
+     "sitters",
+     "mr_frame_at_the_table",
+     "madame_ozymandia_presiding"
+    ],
+    "noTargets": [
+     "madame_ozymandia_s_table",
+     "lantern_red"
+    ]
+   }
+  },
+  {
+   "id": "E1.3",
+   "puzzle": "E1",
+   "do": "talk",
+   "npc": "ozymandia",
+   "choose": [
+    "ozymandia_e1_2"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_SEANCE_DARK": true
+    }
+   }
+  },
+  {
+   "id": "E1.4",
+   "puzzle": "E1",
+   "do": "verb",
+   "verb": "USE",
+   "on": "seance_table",
+   "expect": {
+    "flags": {
+     "T_UNDER_TABLE": true
+    },
+    "dialogue": "SEANCE",
+    "node": "SEA_E1"
+   }
+  },
+  {
+   "id": "E1.5",
+   "puzzle": "E1",
+   "do": "choose",
+   "choose": [
+    "seance4"
+   ],
+   "expect": {
+    "flags": {
+     "T_MOTT_SPOKE": true,
+     "T_UNDER_TABLE": false,
+     "T_SEANCE_ON": false
+    },
+    "dialogue": null,
+    "noTargets": [
+     "seance_table"
+    ],
+    "targets": [
+     "madame_ozymandia_s_table"
+    ]
+   }
+  },
+  {
+   "id": "E1.6",
+   "puzzle": "E1",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "E1.7",
+   "puzzle": "E1",
    "do": "talk",
    "npc": "sump",
    "choose": [
-    "sump1"
+    "sump1c"
    ],
    "expect": {
     "node": "SUM_E1",
@@ -1521,34 +1608,111 @@
    "id": "E3.3",
    "puzzle": "E3",
    "do": "go",
-   "room": "laundry"
+   "room": "pratts_claim"
   },
   {
    "id": "E3.4",
    "puzzle": "E3",
    "do": "talk",
-   "npc": "sheng",
+   "npc": "pratt",
    "choose": [
-    "sheng2"
+    "pratt_e3_1",
+    "pratt_e3_2"
    ],
    "leave": true,
    "expect": {
-    "carrying": [
-     "loan"
-    ],
     "flags": {
-     "T_SHENG_LOAN": true
-    }
+     "T_RACCOON_WANTED": true
+    },
+    "carrying": [
+     "hen"
+    ]
    }
   },
   {
    "id": "E3.5",
    "puzzle": "E3",
    "do": "go",
-   "room": "undertaker"
+   "room": "prosperity",
+   "expect": {
+    "flags": {
+     "T_RACCOON_BACK_SEEN": true
+    },
+    "present": [
+     "raccoon_back"
+    ],
+    "targets": [
+     "raccoon"
+    ]
+   }
   },
   {
    "id": "E3.6",
+   "puzzle": "E3",
+   "do": "use",
+   "item": "hen",
+   "on": "hole",
+   "expect": {
+    "flags": {
+     "T_RACCOON_OUT": true
+    },
+    "carrying": [
+     "hen"
+    ]
+   }
+  },
+  {
+   "id": "E3.7",
+   "puzzle": "E3",
+   "do": "verb",
+   "verb": "USE",
+   "on": "raccoon",
+   "expect": {
+    "flags": {
+     "T_RACCOON_IN_COAT": true
+    },
+    "carrying": [
+     "raccoon_in_coat",
+     "hen"
+    ],
+    "noTargets": [
+     "raccoon"
+    ]
+   }
+  },
+  {
+   "id": "E3.8",
+   "puzzle": "E3",
+   "do": "go",
+   "room": "pratts_claim"
+  },
+  {
+   "id": "E3.9",
+   "puzzle": "E3",
+   "do": "use",
+   "item": "raccoon_in_coat",
+   "on": "pratt",
+   "expect": {
+    "flags": {
+     "T_RACCOON_SOLD": true
+    },
+    "carrying": [
+     "pratt_money"
+    ],
+    "notCarrying": [
+     "raccoon_in_coat",
+     "hen"
+    ]
+   }
+  },
+  {
+   "id": "E3.10",
+   "puzzle": "E3",
+   "do": "go",
+   "room": "undertaker"
+  },
+  {
+   "id": "E3.11",
    "puzzle": "E3",
    "do": "talk",
    "npc": "undertaker",
@@ -1563,10 +1727,10 @@
    }
   },
   {
-   "id": "E3.7",
+   "id": "E3.12",
    "puzzle": "E3",
    "do": "use",
-   "item": "loan",
+   "item": "pratt_money",
    "on": "undertaker",
    "expect": {
     "puzzles": [
@@ -1576,7 +1740,7 @@
      "T_FUNERAL_BOOKED": true
     },
     "notCarrying": [
-     "loan"
+     "pratt_money"
     ]
    }
   },

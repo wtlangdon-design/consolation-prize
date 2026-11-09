@@ -26,7 +26,9 @@ const MANIFEST = 'proofs/readiness/puzzles.json';
 const ITEM_DOCS = ['docs/23-inventory-act1.md', 'docs/54-batch-c.md', 'docs/109-fiddlers-gulch-lines.md'];
 // FIDDLER'S GULCH IS READ WHERE IT IS WRITTEN (reference/fiddlers-gulch/brief.md): doc 109's nodes, items and
 // pairs 25-26 are extracted from doc 109 directly, never copied into docs 03, 04 or 23.
-const NODE_DOCS = ['docs/04-dialogue-trees.md', 'docs/27-minor-trees.md', 'docs/109-fiddlers-gulch-lines.md'];
+// Act III's scenes B and C are read where they are written too (doc 111; errata 237): OZY_E1, SEA_E1, PRA_E3.
+const NODE_DOCS = ['docs/04-dialogue-trees.md', 'docs/27-minor-trees.md', 'docs/109-fiddlers-gulch-lines.md',
+  'docs/111-scenes-b-and-c.md'];
 const GULCH = 'docs/109-fiddlers-gulch-lines.md';
 
 function read(path) {

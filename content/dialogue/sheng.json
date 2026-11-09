@@ -12,14 +12,6 @@
         "T_PRATT_TRAIL": false
       },
       "node": "SHE_D1"
-    },
-    {
-      "when": {
-        "T_NEED_TO_DIE": true,
-        "T_PRATT_TRAIL": true,
-        "T_SHENG_LOAN": false
-      },
-      "node": "SHE_D1"
     }
   ],
   "start": "SHE_A1",

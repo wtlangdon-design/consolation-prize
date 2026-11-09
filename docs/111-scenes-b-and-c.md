@@ -126,9 +126,13 @@ To be written:
 
 ### B · The séance
 
+#### B · In the Lane
+
 **THE SÉANCE SIGN** · *the Lane, the evening after E0b*
 **LOOK** 1 "Chalked on a board at Madame Ozymandia's: SÉANCE TONIGHT · OBADIAH MOTT, IF AVAILABLE · $2." · 2 "'If available.' She has covered herself, which is more than Mott ever did." · 3 "The two dollars is written larger than the dead man."
 **LISTEN** 1 "The board knocks against the tent pole in the wind, like something wanting in." · 2 "Chalk squeaking. She has gone back to underline the price." · 3 "Nothing. Signs in this town have learned to wait."
+
+#### B · In Ozymandia's tent
 
 **ARRIVING** · *Ozymandia's tent, the séance, the first entry*
 > "Five of the town around a table, holding hands, and Madame Ozymandia at the head of it. Nobody has noticed me, which is the one thing in Consolation that has ever been free."
@@ -189,11 +193,15 @@ To be written:
 **LEAVING THE TABLE** · *after `T_MOTT_SPOKE`*
 > *(The lamp comes up. Thad stays where he is until the last pair of boots has gone.)* "I have now been a dead man once. It is mostly waiting under furniture."
 
+#### B · At the Registrar's
+
 **`SUM_E1`** · *a new row, at the Registrar's, after `T_MOTT_SPOKE`*
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
 | 1‴ | "It's in the Clarion. Mott has spoken. He says he's dead." | `[PROGRESS · remove]` | "From where?" — *"From under a table."* — "The office does not accept testimony from the deceased." *(beat)* "It has tried." | **E1**, blocked by design |
+
+#### B · The wrong tries, at the séance
 
 **THE WRONG TRIES** · *at the séance*
 - **THE LAMP** · USE — "It is hers. She would charge me for the dark."

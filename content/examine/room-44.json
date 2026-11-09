@@ -5,6 +5,7 @@
   "sources": [
     "docs/97-lower-street-and-the-lane.md::ROOM 44 — THE LANE",
     "docs/97-lower-street-and-the-lane.md::ROOM 44 · THE LANE",
+    "docs/111-scenes-b-and-c.md::B · In the Lane",
     "docs/49-wrong-answers.md::ROOM 44 — THE LANE"
   ],
   "subjects": [
@@ -101,6 +102,19 @@
       "overrides": {
         "OPEN": "Boarded with long nails, by somebody who meant it."
       }
+    },
+    {
+      "name": "THE SÉANCE SIGN",
+      "LOOK_AT": [
+        "Chalked on a board at Madame Ozymandia's: SÉANCE TONIGHT · OBADIAH MOTT, IF AVAILABLE · $2.",
+        "'If available.' She has covered herself, which is more than Mott ever did.",
+        "The two dollars is written larger than the dead man."
+      ],
+      "LISTEN_TO": [
+        "The board knocks against the tent pole in the wind, like something wanting in.",
+        "Chalk squeaking. She has gone back to underline the price.",
+        "Nothing. Signs in this town have learned to wait."
+      ]
     }
   ]
 }

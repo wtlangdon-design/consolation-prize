@@ -210,6 +210,11 @@ export interface Interactable {
    */
   when?: Condition;
   /**
+   * AND AT LEAST ONE OF THESE HOLDS as well (doc 111, C): the raccoon is in the hole in Act I until the eviction, and
+   * again after E3.1 until he is in the coat -- one subject, two states that one condition cannot say.
+   */
+  whenAny?: Condition[];
+  /**
    * The verb a player would try first. Errata 28b: every object declares one,
    * and it fires on a left click with nothing selected and on any right
    * click. Most are LOOK AT; doors are OPEN and roads are WALK TO.
@@ -1370,6 +1375,12 @@ export interface ItemFile {
   heldNote?: string;
   /** No LOOK or LISTEN written yet. Doc 15 lists ~40 of these as unwritten. */
   linesPending?: boolean;
+  /**
+   * NO ICON DRAWN YET, AND WHY (errata 237: the estate sale's hen, raccoon and money, whose icons are
+   * act3-estate-sale's to draw). The panel draws the item's labelled box (Renderer.drawInventory) until a cell
+   * is cut into content/ui/item-icons.json; the reason says whose art it waits on.
+   */
+  iconPending?: string;
   responses?: Record<string, ResponseRule[]>;
   overrides?: Record<string, string>;
 }
@@ -2005,6 +2016,11 @@ export interface DialogueOption {
    * only ever grows: an option once offered is never taken back by this.
    */
   after?: string[];
+  /**
+   * OFFERED ONCE ANY ONE OF THESE HAS BEEN ASKED: `after` where either of two questions raises it. Doc 111: SUM_E1's
+   * section nineteen follows the petition (option 1) or the séance's front page (row 1‴), whichever the player brought.
+   */
+  afterAny?: string[];
   /**
    * The option's response is a SCENE, not a line, and the scene is not built.
    *
