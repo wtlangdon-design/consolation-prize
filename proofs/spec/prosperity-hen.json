@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "prosperity",
+ "note": "ROOM 23 IN THE ESTATE SALE, THE HEN AT THE HOLE AND THE RACCOON HALFWAY OUT (doc 111 C; errata 237, its art errata 238), proved apart from the room's main spec (node tools/gauntlet/proof.mjs prosperity --spec proofs/spec/prosperity-hen.json --out renders/proofs/prosperity-hen). It starts from fixture r23-sale-a, the raccoon wanted and the hen carried, and says so. The principal change is the hen set at the hole's mouth: T_RACCOON_OUT, set here by the harness's control, because a route cannot use an inventory item; USE THE HEN on THE HOLE is played in tests/scenes-bc.test.ts, tests/scenes-bc-art.test.ts and the full walkthrough.",
+ "fixture": "r23-sale-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "T_RACCOON_OUT (doc 111 C, the hen on the hole). Visible consequence: the hen at the hole's left lip, graded into the night, and the raccoon halfway out of the hole in his emerging sheet, looking at her.",
+  "flags": {
+   "T_RACCOON_OUT": true
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 6
+   }
+  ]
+ }
+}

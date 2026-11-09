@@ -1170,10 +1170,17 @@
     },
     {
       "n": 113,
-      "class": "C",
+      "class": "A",
       "speaker": "seance_frame",
       "words": "He writes.",
-      "where": "dialogue/seance SEA_E1 options 2 and 4"
+      "where": "dialogue/seance SEA_E1 options 2 and 4",
+      "performedBy": [
+        "seance_group"
+      ],
+      "frames": [
+        2
+      ],
+      "seconds": 1.5
     },
     {
       "n": 114,

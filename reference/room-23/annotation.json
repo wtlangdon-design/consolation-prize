@@ -321,12 +321,12 @@
  "peopleNote": "Errata 192 (reference/ozymandia-prosperity/talk-to-brief.md): doc 54's TALK TO lines for her are answered by the figure that draws her at Prosperity in Act IV. Their '(second time)' and '(third time and after)' are repeats, compiled as the rule's `repeat`, not flags.",
  "hotspotWalkTo": {
   "hole": {
-   "x": 1040,
+   "x": 955,
    "y": 840,
    "facing": "back"
   }
  },
- "hotspotWalkToNote": "hole: Left of the hole's centre, not under it: stood at its centre he covered the raccoon in its mouth, and doc 54 A5's 'one look of complete contempt' was played behind his head (errata 197). From here the raccoon's look down and left (his frame 2) is at Thad.",
+ "hotspotWalkToNote": "hole: Left of the hole's centre, not under it: stood at its centre he covered the raccoon in its mouth, and doc 54 A5's 'one look of complete contempt' was played behind his head (errata 197). From here the raccoon's look down and left (his frame 2) is at Thad. Errata 238: a step further left again (x 955, from 1040), so that the hen he sets at the hole's left lip (x 1040-1114, content/ambient/hen-at-the-hole.json) is in front of the player and not behind his coat: at 1040 his figure covered her from 972 to 1108.",
  "hotspotWhenAny": {
   "raccoon": [
    {
@@ -400,10 +400,17 @@
    },
    "grants": [
     "raccoon_in_coat"
-   ]
+   ],
+   "holds": {
+    "clip": "coat-bundle",
+    "frames": [
+     2,
+     3
+    ]
+   }
   }
  ],
- "docBulletsNote": "Errata 237, doc 111 C, THE RACCOON in the hole once Pratt wants him (T_RACCOON_WANTED): a hand in the hole is refused, and so is the coat over the hole before the hen; with him halfway out (the hen at the hole, T_RACCOON_OUT, a pair in content/combinations.json) a hand is refused again, and USE drops the coat over him: THE RACCOON, IN MY COAT (T_RACCOON_IN_COAT). Read from doc 111 by tools/compile-room.mjs (docBullet). The fork and the hen are item pairs (tools/extract-content.mjs).",
+ "docBulletsNote": "Errata 237, doc 111 C, THE RACCOON in the hole once Pratt wants him (T_RACCOON_WANTED): a hand in the hole is refused, and so is the coat over the hole before the hen; with him halfway out (the hen at the hole, T_RACCOON_OUT, a pair in content/combinations.json) a hand is refused again, and USE drops the coat over him: THE RACCOON, IN MY COAT (T_RACCOON_IN_COAT). Read from doc 111 by tools/compile-room.mjs (docBullet). The fork and the hen are item pairs (tools/extract-content.mjs). Errata 238: the coat's USE holds Thad's coat-bundle clip over its two lines (ResponseRule.holds; art/actors/thad-coat-bundle-front, reference/act3-estate-sale/handback.md operation 2): frame 2, the bundle lurching left, over the direction, and frame 3, the paw swiping out, over his line. The direction stays printed (doc 95 row 119, class C: the words carry the joke).",
  "onEnterSay": {
   "fromRef": "docs/111-scenes-b-and-c.md::### C · The estate sale",
   "bold": "ARRIVING",
@@ -416,5 +423,29 @@
   },
   "sayOnce": "T_RACCOON_BACK_SEEN",
   "note": "Doc 111, ARRIVING: 'Prosperity, after E3.1, the raccoon back'. Said once (T_RACCOON_BACK_SEEN), on the first entry while he is back."
+ },
+ "figureLight": {
+  "figures": [
+   "hen_at_the_hole"
+  ],
+  "sheets": [
+   "art/actors/room-23-raccoon-emerging.png"
+  ],
+  "light": [
+   0.72,
+   0.8,
+   1.0
+  ],
+  "saturate": 0.7,
+  "perFigure": {
+   "hen_at_the_hole": {
+    "brightness": 0.85,
+    "saturate": 0.6
+   },
+   "art/actors/room-23-raccoon-emerging.png": {
+    "saturate": 0.8
+   }
+  },
+  "note": "Errata 238, as errata 207 B graded four figures into their night: Prosperity is night, and act3-estate-sale's hen was painted in daylight browns and its raccoon halfway out in neutral greys, a little lighter than the sitting raccoon, whose sheet is painted into the night (reference/act3-estate-sale/handback.md). The moon's colour as a multiply, then the hen a little darker and greyer, so she reads as a brown hen at night rather than in daylight, and the raccoon in the sitting sheet's cool grey. Graded by sheet for him (FigureLight.sheets): his sitting sheet is not touched. Judged by eye at the hole beside the sitting raccoon. tools/check-figure-light.mjs measures both against Thad."
  }
 }

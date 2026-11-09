@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 
 import { heightIn, WalkBoxes } from '../engine/core/WalkBoxes.ts';
 import { moverTint } from '../engine/render/LightFields.ts';
+import { figureGrade } from '../engine/render/Renderer.ts';
 import { Report, ROOT } from './lib/content.mjs';
 import { readPng } from './lib/png.mjs';
 
@@ -67,11 +68,12 @@ const png = (path) => {
   return pngs.get(path);
 };
 
-/** The room's grade for a figure, as Renderer.gradeFor resolves it; null when it names nobody of that id. */
-export function gradeFor(room, id) {
-  const light = room.figureLight;
-  if (!light || !light.figures.includes(id)) return null;
-  return { ...light, ...(light.perFigure?.[id] ?? {}) };
+/**
+ * The room's grade for a figure drawn from a sheet, as Renderer.gradeFor resolves it (figureGrade): null when it names
+ * neither that id nor that sheet (FigureLight.sheets; errata 238).
+ */
+export function gradeFor(room, id, sheet) {
+  return figureGrade(room.figureLight, id, sheet);
 }
 
 /** One pixel through the grade (CSS brightness, contrast, saturate, then the multiply), and the tint. */
@@ -182,24 +184,32 @@ export function measureCast({ ambient: ambientOverrides = {}, rooms: roomOverrid
       .concat(Object.entries(npc.placements ?? {}).map(([roomId, at]) => ({ roomId, at })));
     for (const { roomId, at } of places) {
       const room = rooms.get(roomId);
-      const sprite = at.sprite ?? npc.sprite;
-      if (!room || room.candidateOf !== undefined || !sprite?.frames?.length) continue;
+      const own = at.sprite ?? npc.sprite;
+      if (!room || room.candidateOf !== undefined || !own?.frames?.length) continue;
       if (daylight(room)) { skipped.push(`${npc.id} in ${roomId}: daylight by ruling`); continue; }
-      const image = png(sprite.sheet);
-      // The rest frame, or the first that draws anything (a figure that is empty until it acts).
-      const frame = sprite.frames.find((one) => meanDrawnLuma(image, one) !== null);
-      if (!frame) continue;
-      const x = at.x ?? npc.x;
-      const y = at.y ?? npc.y;
-      const tint = moverTint(room.lamps, x, y, null);
-      const figure = meanDrawnLuma(image, frame, gradeFor(room, npc.id), tint);
-      const reference = meanDrawnLuma(thad.image, thad.rect, gradeFor(room, 'thad'), tint);
-      const allowance = lampAllowance(room.lamps, drawnRect(room, x, y, sprite, frame));
-      const ratio = figure / reference;
-      measured.push({
-        figure: npc.id, room: roomId, x, y, luma: figure, thad: reference, ratio, allowance,
-        limit: LIMIT * allowance, flagged: ratio > LIMIT * allowance,
-      });
+      // AND EVERY OTHER SHEET IT IS DRAWN FROM WHILE A CONDITION HOLDS (AmbientFile.spriteWhen; errata 238): the
+      // raccoon halfway out of the hole and the hen were painted in daylight, and the séance in the dark is its own
+      // sheet. Each is measured as the engine draws it, under its own name.
+      const sheets = [{ sprite: own, as: npc.id }].concat(at === npc ? (npc.spriteWhen ?? [])
+        .filter((variant) => variant.sprite.sheet)
+        .map((variant) => ({ sprite: { ...own, ...variant.sprite }, as: `${npc.id} (${variant.sprite.sheet})` })) : []);
+      for (const { sprite, as } of sheets) {
+        const image = png(sprite.sheet);
+        // The rest frame, or the first that draws anything (a figure that is empty until it acts).
+        const frame = sprite.frames.find((one) => meanDrawnLuma(image, one) !== null);
+        if (!frame) continue;
+        const x = at.x ?? npc.x;
+        const y = at.y ?? npc.y;
+        const tint = moverTint(room.lamps, x, y, null);
+        const figure = meanDrawnLuma(image, frame, gradeFor(room, npc.id, sprite.sheet), tint);
+        const reference = meanDrawnLuma(thad.image, thad.rect, gradeFor(room, 'thad'), tint);
+        const allowance = lampAllowance(room.lamps, drawnRect(room, x, y, sprite, frame));
+        const ratio = figure / reference;
+        measured.push({
+          figure: as, room: roomId, x, y, luma: figure, thad: reference, ratio, allowance,
+          limit: LIMIT * allowance, flagged: ratio > LIMIT * allowance,
+        });
+      }
     }
   }
   return { measured, skipped };

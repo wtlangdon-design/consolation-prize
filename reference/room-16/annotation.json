@@ -158,10 +158,10 @@
    42
   ],
   "seance_table": [
-   735,
-   505,
-   490,
-   190
+   728,
+   493,
+   520,
+   300
   ],
   "lamp": [
    915,
@@ -170,25 +170,25 @@
    182
   ],
   "sitters": [
-   600,
-   460,
-   760,
-   300
+   518,
+   298,
+   881,
+   515
   ],
   "mr_frame_at_the_table": [
-   890,
-   600,
-   160,
-   150
+   618,
+   468,
+   225,
+   320
   ],
   "madame_ozymandia_presiding": [
-   790,
-   50,
-   350,
-   455
+   873,
+   298,
+   210,
+   200
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE CURTAIN is its left fall, beside her, so a LOOK at her is not the curtain's; THE TENT WALLS the painted canvas between the rod and the chart; THE GROUND the strip of bare earth behind the walk band; THE SECOND ROD the long box under the table. Errata 237 (doc 111, B, the séance): while the séance is on (T_SEANCE_ON), THE SÉANCE TABLE over her table and THE LAMP over the hanging lantern take their places (MADAME OZYMANDIA'S TABLE and THE LANTERN, RED are gated off), MADAME OZYMANDIA, PRESIDING is over her own figure, THE SITTERS round the table and MR. FRAME, AT THE TABLE at its front. PENDING ART: the séance table, its sitters, Frame and the turned-down lamp are act3-seance's to draw (reference/act3-seance/brief.md); until they are cut in, these rects stand over the plate's own table and lantern and over empty floor, and are redrawn when the cut-outs land.",
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE CURTAIN is its left fall, beside her, so a LOOK at her is not the curtain's; THE TENT WALLS the painted canvas between the rod and the chart; THE GROUND the strip of bare earth behind the walk band; THE SECOND ROD the long box under the table. Errata 237 (doc 111, B, the séance): while the séance is on (T_SEANCE_ON), THE SÉANCE TABLE over her table and THE LAMP over the hanging lantern take their places (MADAME OZYMANDIA'S TABLE and THE LANTERN, RED are gated off), MADAME OZYMANDIA, PRESIDING is over her own figure, THE SITTERS round the table and MR. FRAME, AT THE TABLE at its front. Errata 238 (act3-seance's art, reference/act3-seance/handback.md): the séance is drawn (content/ambient/seance-group.json, over the plate's own table, 518-1399 x 298-812), and its five subjects are over what is drawn: THE SÉANCE TABLE over the cloth, THE SITTERS over the whole group (the largest, so every smaller subject over a sitter wins), MADAME OZYMANDIA, PRESIDING over her at the head, MR. FRAME, AT THE TABLE over him in the front-left chair, and THE LAMP over the hanging lamp, drawn over the plate's own in both its states (`props`). What the group covers, or holds, gives way while the séance is on: THE CRYSTAL BALL, THE MONEY BOX, THE CARDS, THE TEA SERVICE and THE SECOND ROD are under it, the rod is across her palms, and THE CURTAIN and THE CUSHIONS lie behind the sitters, where their rects would answer for a sitter.",
  "people": {
   "MADAME OZYMANDIA": [
    "ozymandia"
@@ -217,7 +217,21 @@
    "facing": "left"
   }
  },
- "obstacles": [],
+ "obstacles": [
+  {
+   "id": "seance_group",
+   "rect": [
+    518,
+    750,
+    881,
+    66
+   ],
+   "when": {
+    "T_SEANCE_ON": true
+   },
+   "note": "Errata 238: the séance's chairs and the table's cloth (content/ambient/seance-group.json, its chairs' feet at y 812, x 518-1399), while the séance is on. He walks in front of the group or round it, never through it. The floor is built twice, with and without it (tools/compile-room.mjs, gated obstacles, errata 233)."
+  }
+ ],
  "lamps": [
   {
    "id": "red_lantern",
@@ -229,7 +243,26 @@
    "amount": 0.12,
    "rate": 0.22,
    "phase": 0.3,
+   "when": {
+    "T_SEANCE_ON": false
+   },
    "note": "The red lantern hung centre. A slow, low breath (invariant 9)."
+  },
+  {
+   "id": "red_lantern_seance",
+   "at": [
+    960,
+    110
+   ],
+   "radius": 620,
+   "amount": 0.12,
+   "rate": 0.22,
+   "phase": 0.3,
+   "when": {
+    "T_SEANCE_ON": true,
+    "T_SEANCE_DARK": false
+   },
+   "note": "Errata 238: the same lantern while the séance sits under it lit. Turned down to a bead (T_SEANCE_DARK) it breathes no light; a condition cannot say 'not both', so the lantern is two entries, one for each state it is lit in."
   },
   {
    "id": "stove",
@@ -305,6 +338,30 @@
   },
   "madame_ozymandia_presiding": {
    "T_SEANCE_ON": true
+  },
+  "crystal_ball": {
+   "T_SEANCE_ON": false
+  },
+  "money_box": {
+   "T_SEANCE_ON": false
+  },
+  "cards": {
+   "T_SEANCE_ON": false
+  },
+  "tea_service": {
+   "T_SEANCE_ON": false
+  },
+  "second_rod": {
+   "T_SEANCE_ON": false
+  },
+  "brass_rod": {
+   "T_SEANCE_ON": false
+  },
+  "curtain": {
+   "T_SEANCE_ON": false
+  },
+  "cushions": {
+   "T_SEANCE_ON": false
   }
  },
  "onEnterSetWhen": [
@@ -343,9 +400,9 @@
  },
  "voices": {
   "seance_frame": {
-   "x": 970,
-   "y": 640,
-   "note": "Errata 237: Mr. Frame at the front of the séance table, where act3-seance's operation 1 is to draw him (pending art); until then his words come from his place at the table."
+   "x": 723,
+   "y": 466,
+   "note": "Errata 238: Mr. Frame is drawn at the séance table, in the front-left chair (content/ambient/seance-group.json), so his words come from over his own head there, in his own colour (content/ui/speech-colours.json). He is part of the group's cut-out, not a figure of his own, so his voice keeps its place here."
   }
  },
  "docBullets": [
@@ -407,6 +464,95 @@
    },
    "dialogue": "SEANCE",
    "note": "Errata 237: under the table and not yet spoken -- he took SEA_E1's way out (doc 04's universal exit, \"available at every node\") and is still under the cloth -- USE THE SÉANCE TABLE opens SEA_E1 again with nothing said, so the séance can always be finished."
+  },
+  {
+   "hotspot": "madame_ozymandia_presiding",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "when": {
+    "T_SEANCE_ON": true
+   },
+   "dialogue": "OZYMANDIA",
+   "note": "Errata 238: while the séance is on her standing figure is not drawn (she is the head of the séance's cut-out), so TALK TO her is TALK TO MADAME OZYMANDIA, PRESIDING, and opens her tree, whose node then is OZY_E1 (doc 111)."
   }
- ]
+ ],
+ "hotspotWalkTo": {
+  "seance_table": {
+   "x": 985,
+   "y": 852,
+   "facing": "back"
+  },
+  "sitters": {
+   "x": 1000,
+   "y": 852,
+   "facing": "back"
+  },
+  "madame_ozymandia_presiding": {
+   "x": 980,
+   "y": 852,
+   "facing": "back"
+  },
+  "mr_frame_at_the_table": {
+   "x": 905,
+   "y": 852,
+   "facing": "left"
+  },
+  "lamp": {
+   "x": 960,
+   "y": 852,
+   "facing": "back"
+  }
+ },
+ "hotspotWalkToNote": "Errata 238: where Thad stands for the séance's subjects, on the floor left in front of the group (y 816-858, the gated obstacle below), between Frame's chair (to x 850) and the bald man's (from x 1178), so he never stands in front of a sitter.",
+ "obstaclesNote": "Errata 238: the séance group's floor, while the séance is on.",
+ "props": [
+  {
+   "id": "seance_lamp_lit",
+   "sheet": "art/props/room-16-seance-lamp.png",
+   "x": 959,
+   "y": 183,
+   "frame": [
+    2,
+    2,
+    80,
+    180
+   ],
+   "when": {
+    "T_SEANCE_ON": true,
+    "T_SEANCE_DARK": false
+   },
+   "note": "Errata 238: the séance's hanging lamp, lit (reference/act3-seance/handback.md, operation 2), drawn over the plate's own lamp (matched to it at 919,4)."
+  },
+  {
+   "id": "seance_lamp_down",
+   "sheet": "art/props/room-16-seance-lamp.png",
+   "x": 959,
+   "y": 183,
+   "frame": [
+    84,
+    2,
+    80,
+    180
+   ],
+   "when": {
+    "T_SEANCE_ON": true,
+    "T_SEANCE_DARK": true
+   },
+   "note": "Errata 238: the same lamp turned down to a bead (doc 111, OZY_E1 option 2), over the dimmed plate's lamp."
+  }
+ ],
+ "plates": {
+  "seance_dark": "art/backgrounds/room-16-tent-seance-dark.png"
+ },
+ "plateWhen": [
+  {
+   "when": {
+    "T_SEANCE_ON": true,
+    "T_SEANCE_DARK": true
+   },
+   "plate": "seance_dark"
+  }
+ ],
+ "platesNote": "Errata 238: the tent with the lamp turned down (doc 111, OZY_E1 option 2) is the shipping plate dimmed (tools/art/room16-seance-dark.py, x0.44, the handback's own check), chosen by state as Room 31's night is. Once the séance is over the lamp comes up and the plate is the tent's own. Thad is not darkened with it: the engine grades a figure by room, not by state."
 }

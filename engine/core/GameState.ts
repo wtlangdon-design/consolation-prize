@@ -1024,6 +1024,9 @@ export class GameState {
       say: action.say,
       ...(action.by ? { by: action.by } : {}),
       ...(action.direction ? { direction: true } : {}),
+      // HIS PICTURE OVER A HOTSPOT'S OWN LINES (ResponseRule.holds; errata 238). It was carried only for a door's
+      // scene (errata 197's deed on the porch), so a rule's `holds` on any other target was read and dropped.
+      ...(action.holds ? { holds: action.holds } : {}),
       then: action.then,
       ...(goesTo ? { goesTo } : {}),
       effects,

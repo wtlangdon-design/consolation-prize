@@ -1526,6 +1526,9 @@ function docBullet(spec) {
     ...(second.length ? { repeat: second.map((one) => one.line) } : {}),
     ...(spec.set ? { set: spec.set } : {}), ...(spec.grants ? { grants: spec.grants } : {}),
     ...(spec.completes ? { completes: spec.completes } : {}), ...(spec.dialogue ? { dialogue: spec.dialogue } : {}),
+    // HIS PICTURE WHILE THE LINES ARE SAID (ResponseRule.holds; errata 238): doc 111's coat dropped over the raccoon,
+    // Thad holding the bundle, a frame of his clip a line.
+    ...(spec.holds ? { holds: spec.holds } : {}),
     sceneLine: `${spec.ref} · ${spec.head ? `${spec.head} ` : ''}${spec.bullet}`,
   };
 }

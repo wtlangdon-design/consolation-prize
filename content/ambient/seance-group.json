@@ -1,0 +1,188 @@
+{
+ "schema": 1,
+ "id": "seance_group",
+ "name": "THE SITTERS",
+ "posture": "seated",
+ "room": "ozymandias_tent",
+ "when": {
+  "T_SEANCE_ON": true
+ },
+ "note": "THE SÉANCE (doc 111 B, THE LINES: \"Five of the town around a table, holding hands, and Madame Ozymandia at the head of it.\"; errata 238). One cut-out (reference/act3-seance/handback.md, operation 3): the round table under its wine-red cloth to the floor, one candle and one hand bell; Ozymandia at the head, eyes closed, the rod across her palms; a woman in a bonnet, a young man, a grey-haired woman and a bald man; Mr. Frame in the front-left chair with his notebook. Drawn 1:1 (no figureHeight: the sheet was cut at Room 16's man on the floor before the table, 450 px, and its heads match Thad's there), its chairs' feet on the floor at y 812, placed over the plate's own table so the table, the crystal ball, the strong box and the teapot are covered (errata 238). While the séance is on; the lamp turned down (T_SEANCE_DARK) draws the dark sheet, registered on the lit one. Ozymandia's standing figure is not drawn meanwhile (content/ambient/ozymandia.json `when`). Examined through THE SÉANCE TABLE, THE SITTERS, MR. FRAME, AT THE TABLE and MADAME OZYMANDIA, PRESIDING, over their drawn places; TALK TO reaches her through MADAME OZYMANDIA, PRESIDING. Scenery: the pointer passes through it to those hotspots. When the dead have spoken the séance ends (T_SEANCE_ON cleared, after LEAVING THE TABLE's lines) and the group fades: 'Thad stays where he is until the last pair of boots has gone.'",
+ "x": 958,
+ "y": 812,
+ "zone": 1,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "Nobody at the table barks: the séance is heard through THE SÉANCE and SEA_E1 (doc 111).",
+ "scenery": true,
+ "sceneryNote": "Errata 238: the five séance subjects are hotspots over the drawn table, lamp, sitters, Frame and Ozymandia; a click on the group is theirs.",
+ "sprite": {
+  "sheet": "art/actors/room-16-seance-table.png",
+  "frames": [
+   [
+    2,
+    2,
+    881,
+    515
+   ],
+   [
+    885,
+    2,
+    881,
+    515
+   ],
+   [
+    1768,
+    2,
+    881,
+    515
+   ],
+   [
+    2651,
+    2,
+    881,
+    515
+   ]
+  ],
+  "depthY": 755,
+  "depthYNote": "The depth the group's 1:1 scale belongs to: the floor before the table at the walk band's far edge, where Room 16's man is 448, the 450 the cut snapped the sheet at (tools/art/act3-seance-cut.py MAN). Read by the checks only (tests/one-level.test.mjs); the engine draws the sheet 1:1.",
+  "rate": 0.25,
+  "phase": 0.4,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0,
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 9,
+  "talkFrame": 0,
+  "frameNote": "0 rest · 1 a breath (derived: the sitters above the table's far edge lifted a pixel) · 2 the grey-haired woman glancing round at her neighbour · 3 Frame tapping his pencil on his notebook (derived). Every frame is the rest frame with only the head or the hand that moves changed (reference/act3-seance/handback.md).",
+  "members": [
+   {
+    "who": "the woman in the bonnet",
+    "rect": [
+     0,
+     80,
+     165,
+     330
+    ]
+   },
+   {
+    "who": "the young man",
+    "rect": [
+     140,
+     30,
+     220,
+     170
+    ]
+   },
+   {
+    "who": "Madame Ozymandia",
+    "rect": [
+     355,
+     0,
+     210,
+     200
+    ]
+   },
+   {
+    "who": "the grey-haired woman",
+    "rect": [
+     560,
+     30,
+     190,
+     180
+    ]
+   },
+   {
+    "who": "the bald man",
+    "rect": [
+     735,
+     115,
+     146,
+     370
+    ]
+   },
+   {
+    "who": "Mr. Frame",
+    "rect": [
+     95,
+     165,
+     240,
+     350
+    ]
+   }
+  ],
+  "membersNote": "SIX PEOPLE IN ONE CUT-OUT (errata 238): each sitter's own box in the frame, clear of the cloth where the drawing allows. Errata 77's deliberate action is measured against the person who makes it (tests/movement.test.mjs): a glance is a third of the grey-haired woman, and a fortieth of the whole table."
+ },
+ "spriteWhen": [
+  {
+   "when": {
+    "T_SEANCE_DARK": true,
+    "T_SEANCE_ON": true
+   },
+   "note": "Doc 111, OZY_E1 option 2: she turns the lamp down to a bead. The same group in near-darkness, the candle the only light, on the lit sheet's canvas and registered onto its rest frame, so nothing moves when the lamp goes down (reference/act3-seance/handback.md, operation 3). Once the séance ends the lamp comes up, and the group goes in the lit sheet.",
+   "sprite": {
+    "sheet": "art/actors/room-16-seance-table-dark.png",
+    "frames": [
+     [
+      2,
+      2,
+      881,
+      515
+     ],
+     [
+      885,
+      2,
+      881,
+      515
+     ],
+     [
+      1768,
+      2,
+      881,
+      515
+     ]
+    ],
+    "breaks": [
+     [
+      2,
+      2,
+      2,
+      0
+     ],
+     [
+      2,
+      2,
+      0
+     ]
+    ],
+    "breakEvery": 11,
+    "frameNote": "0 rest, in the dark · 1 a breath (derived) · 2 the séance turns: the bald man's head jerked up, mouth open, and Frame's writing hand brought down onto the notebook. Played as a break, and acted when Frame writes in SEA_E1 (doc 95 row 113)."
+   }
+  }
+ ],
+ "leaves": {
+  "fade": 1.5,
+  "note": "Doc 111, LEAVING THE TABLE: 'The lamp comes up. Thad stays where he is until the last pair of boots has gone.' The séance's end lands after its lines, and the town goes."
+ }
+}

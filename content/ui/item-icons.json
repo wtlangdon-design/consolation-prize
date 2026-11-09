@@ -180,8 +180,21 @@
       280,
       60,
       40
+    ],
+    "raccoon_in_coat": [
+      60,
+      280,
+      60,
+      40
+    ],
+    "hen": [
+      120,
+      280,
+      60,
+      40
     ]
   },
   "errata146": "Redrawn at slot size: 60x40 cells, drawn at a whole x2 into the 180x80 inventory slot (tests/item-icons-scale.test.ts). Cut by tools/art/item-icons-cut.py from art/staging/item-icons/sheet-01.png, item-icons attempt 1; one factor for all 26 (4.395 source pixels to an art pixel).",
-  "gulch": "Fiddler's Gulch: third_copy, brass_rod and clarion, cut by tools/art/gulch-icons-cut.py from art/staging/gulch-icons/sheet-01.png (gulch-reserve attempt 1), appended after the 27; 8.632 source pixels to an art pixel."
+  "gulch": "Fiddler's Gulch: third_copy, brass_rod and clarion, cut by tools/art/gulch-icons-cut.py from art/staging/gulch-icons/sheet-01.png (gulch-reserve attempt 1), appended after the 27; 8.632 source pixels to an art pixel.",
+  "act3Estate": "Act III scene C: raccoon_in_coat and hen, cut by tools/art/act3-coat-cut.py (act3-estate-sale operation 2) at slot size and moved in by tools/art/act3-estate-icons-place.py, appended after the Gulch's three (errata 238). pratt_money has no cell delivered."
 }

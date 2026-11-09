@@ -1495,8 +1495,9 @@
   {
    "id": "E1.3",
    "puzzle": "E1",
-   "do": "talk",
-   "npc": "ozymandia",
+   "do": "verb",
+   "verb": "TALK_TO",
+   "on": "madame_ozymandia_presiding",
    "choose": [
     "ozymandia_e1_2"
    ],

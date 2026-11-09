@@ -11,7 +11,7 @@
   "T_SHENG_LOAN": false,
   "T_FUNERAL_BOOKED": false
  },
- "note": "THE RACCOON, BACK IN THE HOLE (doc 111, C; errata 237): 'The raccoon has come back to Prosperity's hole, as he regards it as his.' From E3.1 (the Reverend's figure, T_SOWERBY_PRICE) until he is in Thad's coat (T_RACCOON_IN_COAT), in Act III, on the estate sale's way (not for a save that took Sheng's loan or booked the funeral with it). The raccoon's own sheet and frames, where he sat in Act I (content/ambient/raccoon.json); examined through THE RACCOON hotspot over him. He has no walk away this time: the coat goes over him and he is gone from the hole with it (`leaves`). PENDING ART: 'the raccoon in a coat, carried' and Pratt's hen are act3-estate-sale's to draw (reference/act3-estate-sale/brief.md); until then the coat is not drawn and he fades from the hole's mouth as it drops.",
+ "note": "THE RACCOON, BACK IN THE HOLE (doc 111, C; errata 237): 'The raccoon has come back to Prosperity's hole, as he regards it as his.' From E3.1 (the Reverend's figure, T_SOWERBY_PRICE) until he is in Thad's coat (T_RACCOON_IN_COAT), in Act III, on the estate sale's way (not for a save that took Sheng's loan or booked the funeral with it). The raccoon's own sheet and frames, where he sat in Act I (content/ambient/raccoon.json); examined through THE RACCOON hotspot over him. He has no walk away this time: the coat goes over him and he is gone from the hole with it (`leaves`). Errata 238: halfway out of the hole once the hen is set at its mouth (T_RACCOON_OUT), in act3-estate-sale's sheet of him emerging (spriteWhen), at the place the handback's check render put him (his cut across the chest at y 487: footRow), and graded into the night by that sheet (reference/room-23/annotation.json `figureLight` `sheets`), since the sitting sheet is painted into it and the emerging one is not. When the coat goes over him he fades from the hole's mouth while Thad holds the bundle (the hole's USE holds his coat-bundle clip over its lines).",
  "x": 1180,
  "y": 482,
  "zone": 2,
@@ -76,6 +76,66 @@
  },
  "leaves": {
   "fade": 0.6,
-  "note": "Errata 237: the coat drops over him (doc 111, USE with him halfway out) and he goes with it."
- }
+  "note": "Errata 237: the coat drops over him (doc 111, USE with him halfway out) and he goes with it. Errata 238: halfway out, as he was when the coat came down (AmbientLayer.present dresses a figure that is leaving in the sheet the flags now choose), while Thad holds the bundle."
+ },
+ "spriteWhen": [
+  {
+   "when": {
+    "T_RACCOON_OUT": true
+   },
+   "note": "Doc 111 C: \"Half a raccoon comes out.\" Head, shoulders and forepaws, a straight cut across his chest at the hole's mouth, looking left at the hen with suspicion (reference/act3-estate-sale/handback.md, operation 1). Matched to the sitting raccoon: the span across his ears is 32 px on both sheets, both drawn 1:1.",
+   "sprite": {
+    "sheet": "art/actors/room-23-raccoon-emerging.png",
+    "frames": [
+     [
+      2,
+      2,
+      96,
+      65
+     ],
+     [
+      100,
+      2,
+      96,
+      65
+     ],
+     [
+      198,
+      2,
+      96,
+      65
+     ],
+     [
+      296,
+      2,
+      96,
+      65
+     ]
+    ],
+    "footRow": 59,
+    "breaks": [
+     [
+      2,
+      2,
+      2,
+      0
+     ],
+     [
+      3,
+      3,
+      0
+     ],
+     [
+      2,
+      2,
+      0,
+      3,
+      0
+     ]
+    ],
+    "breakEvery": 7,
+    "frameNote": "0 rest, looking left with suspicion · 1 a breath (derived) · 2 sniffing toward the hen · 3 ducked back down by half. Row 59 stands on his y (482), so the cut across his chest is at y 487, where the handback put it."
+   }
+  }
+ ]
 }

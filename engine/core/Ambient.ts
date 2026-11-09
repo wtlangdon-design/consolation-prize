@@ -175,6 +175,9 @@ export class AmbientLayer {
       this.latchedRoom = room;
       this.latched = new Map(live.map((npc) => [npc.id, npc]));
     }
+    // ONE THE PLAYER PUTS THERE (AmbientFile.setDown; errata 238): the hen Thad sets at the hole's mouth is there
+    // the moment he sets her down, and from then on she is one who was here.
+    for (const npc of live) if (npc.setDown && !this.latched!.has(npc.id)) this.latched!.set(npc.id, npc);
     const out = live.filter((npc) => this.latched!.has(npc.id));
     for (const [id, npc] of this.latched) {
       if (out.some((one) => one.id === id)) continue;
@@ -190,7 +193,10 @@ export class AmbientLayer {
         const began = this.fadings.get(id);
         if (began !== undefined && this.clock - began >= npc.leaves.fade) continue;
       }
-      out.push(npc);
+      // IN THE SHEET THE FLAGS NOW CHOOSE (AmbientFile.spriteWhen; errata 238), not the one he arrived in: the raccoon
+      // who came halfway out while Thad watched goes under the coat halfway out, not sitting, and the séance that
+      // ends as the lamp comes up is drawn lit as it goes.
+      out.push(this.dressed(this.state.content.ambient.get(id) ?? npc, room));
     }
     return out;
   }
@@ -233,6 +239,12 @@ export class AmbientLayer {
       .filter((npc): npc is AmbientFile => npc !== undefined)
       // PRESENT ONLY WHILE THEIR CONDITION HOLDS, the room's placement first.
       .filter((npc) => ambientHere(npc, roomId, (when) => this.state.flags.test(when)))
+      .map((npc) => this.dressed(npc, roomId));
+  }
+
+  /** A figure as he is drawn in this room now: the sheet the flags choose, and the room's own placement. */
+  private dressed(file: AmbientFile, roomId: string): AmbientFile {
+    return [file]
       // ANOTHER SHEET WHILE A CONDITION HOLDS (AmbientFile.spriteWhen; errata 197): Fanshawe turned to his
       // guest while the dinner is laid. The first whose condition holds is drawn instead.
       .map((npc) => {
@@ -266,7 +278,7 @@ export class AmbientLayer {
             barks: placed.barks ?? npc.barks,
           }
           : npc;
-      });
+      })[0]!;
   }
 
   /**

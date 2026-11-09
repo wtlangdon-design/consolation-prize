@@ -128,13 +128,17 @@ test('scene B: with the lamp lit the table is refused; put out, he goes under, h
   assert.ok(written(lit.say), 'the refusal is doc 111\'s');
   assert.equal(state.flags.get('T_UNDER_TABLE'), false);
   assert.equal(state.dialogue.isActive, false);
-  // The medium, at the séance: OZY_E1. The lamp is put out by asking whether the dead mind the light.
-  const host = hostWith(player, 'OZY_E1');
-  player.talk(host.id);
+  // The medium, at the séance: OZY_E1. She is drawn at the head of the table, in the séance's own cut-out, and TALK TO
+  // reaches her through the subject over her there (errata 238). The lamp is put out by asking whether the dead mind
+  // the light.
+  const presiding = seanceSubjects(state).find((id) => state.room.hotspots.find((one) => one.id === id)!.responses?.TALK_TO?.some((rule) => rule.dialogue));
+  assert.ok(presiding, 'a séance subject opens her tree');
+  player.verb(presiding, 'TALK_TO');
   assert.equal(node(state), 'OZY_E1');
-  const opening = state.dialogue.openingOf(host.tree!);
+  const tree = state.dialogue.activeTreeId!;
+  const opening = state.dialogue.openingOf(tree);
   assert.ok(opening.length && opening.every((one) => written(one.line)), 'her opening is doc 111\'s');
-  const dark = offered(state).find((id) => content.dialogue.get(host.tree!)!.nodes.OZY_E1!.options.find((one) => one.id === id)?.set?.T_SEANCE_DARK);
+  const dark = offered(state).find((id) => content.dialogue.get(tree)!.nodes.OZY_E1!.options.find((one) => one.id === id)?.set?.T_SEANCE_DARK);
   assert.ok(dark, 'the question that puts the lamp out is offered');
   player.choose(dark);
   assert.equal(state.flags.get('T_SEANCE_DARK'), true);
@@ -146,8 +150,8 @@ test('scene B: with the lamp lit the table is refused; put out, he goes under, h
   assert.equal(state.dialogue.isActive, true);
   assert.equal(node(state), 'SEA_E1');
   // A comic try answers, and answers again differently; the try that empties two chairs goes; the dead speak.
-  const tree = content.dialogue.get(state.dialogue.activeTreeId!)!;
-  const options = tree.nodes.SEA_E1!.options;
+  const seance = content.dialogue.get(state.dialogue.activeTreeId!)!;
+  const options = seance.nodes.SEA_E1!.options;
   const comic = options.filter((one) => one.tag === 'COMIC');
   const first = state.dialogue.select(comic[0]!.id);
   const again = state.dialogue.select(comic[0]!.id);
@@ -164,7 +168,11 @@ test('scene B: with the lamp lit the table is refused; put out, he goes under, h
   assert.equal(state.dialogue.isActive, false, 'and the conversation with it');
   assert.deepEqual(seanceSubjects(state).filter((id) => isTarget(state, id)), [], 'the tent is itself again');
   for (const one of spoken.exchange!) assert.ok(written(one.line), `"${one.line}" is doc 111's`);
-  // Her own tree is her own again.
+  // Her own tree is her own again: the next time he comes in, she is standing behind her table.
+  state.enterRoom(TENT);
+  player.ambient.arrived();
+  const host = hostWith(player, 'OZY_E1');
+  assert.equal(host.tree, tree);
   player.talk(host.id);
   assert.notEqual(node(state), 'OZY_E1');
 });
@@ -238,8 +246,9 @@ test('scene B: every subject at the séance answers LOOK and LISTEN, and every w
       assert.ok(written(line), `${id} ${verb}`);
       assert.equal(player.verb(id, verb).say, line);
     }
+    // TALK TO an exchange, not a tree (the presiding medium's opens OZY_E1, played above).
     const talk = spot.responses?.TALK_TO?.[0];
-    if (talk) {
+    if (talk && !talk.dialogue) {
       const first = player.verb(id, 'TALK_TO');
       for (const line of said(first)) assert.ok(written(line), `${id} TALK TO: "${line}"`);
       assert.ok(said(first).length >= 3, 'an exchange, with his line in it');

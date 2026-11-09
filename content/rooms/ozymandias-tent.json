@@ -91,7 +91,8 @@
     }
   ],
   "ambient": [
-    "ozymandia"
+    "ozymandia",
+    "seance_group"
   ],
   "hotspots": [
     {
@@ -103,6 +104,9 @@
         72,
         42
       ],
+      "when": {
+        "T_SEANCE_ON": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -145,6 +149,9 @@
         95,
         72
       ],
+      "when": {
+        "T_SEANCE_ON": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -187,6 +194,9 @@
         100,
         98
       ],
+      "when": {
+        "T_SEANCE_ON": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -265,6 +275,9 @@
         95,
         130
       ],
+      "when": {
+        "T_SEANCE_ON": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -316,6 +329,9 @@
         252,
         64
       ],
+      "when": {
+        "T_SEANCE_ON": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -429,8 +445,8 @@
         "PULL": "Pulling it down would end the séance, and then I would have to explain the séance."
       },
       "walkTo": {
-        "x": 961,
-        "y": 855,
+        "x": 960,
+        "y": 852,
         "facing": "back"
       }
     },
@@ -443,6 +459,9 @@
         72,
         312
       ],
+      "when": {
+        "T_SEANCE_ON": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -469,65 +488,6 @@
       },
       "walkTo": {
         "x": 1291,
-        "y": 855,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "mr_frame_at_the_table",
-      "name": "MR. FRAME, AT THE TABLE",
-      "rect": [
-        890,
-        600,
-        160,
-        150
-      ],
-      "when": {
-        "T_SEANCE_ON": true
-      },
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Mr. Frame, front row, pencil ready.",
-            "repeat": [
-              "His notebook is open at a fresh page headed MOTT SPEAKS. It is a very confident page.",
-              "He is the only one at the table not holding hands. He needs both of them to write."
-            ],
-            "then": [
-              "He has written the headline already and left a space for whatever the dead say."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "His pencil, tapping the page, impatient for the hereafter.",
-            "repeat": [
-              "He whispers a headline to himself, tries a second, and prefers the first.",
-              "Nothing. Mr. Frame, silent, is the strangest thing in the tent."
-            ]
-          }
-        ],
-        "TALK_TO": [
-          {
-            "say": "Grubb! Something from the living, while we wait. The dead are running late.",
-            "by": "seance_frame",
-            "then": [
-              "I'd rather not be in the paper tonight.",
-              {
-                "speaker": "seance_frame",
-                "line": "Nobody would rather. That's what makes it news."
-              }
-            ],
-            "repeat": [
-              "AFTER. The dead are on page one."
-            ],
-            "sceneLine": "docs/111-scenes-b-and-c.md::#### B · The wrong tries, at the séance · - **MR. FRAME, AT THE TABLE** · TALK TO"
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 970,
         "y": 855,
         "facing": "back"
       }
@@ -568,6 +528,57 @@
       "walkTo": {
         "x": 356,
         "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "madame_ozymandia_presiding",
+      "name": "MADAME OZYMANDIA, PRESIDING",
+      "rect": [
+        873,
+        298,
+        210,
+        200
+      ],
+      "when": {
+        "T_SEANCE_ON": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Madame Ozymandia at the head of the table, in more scarves than usual, the brass rod across her palms.",
+            "repeat": [
+              "Her eyes are closed. One of them is not entirely closed, and it is on the money box.",
+              "She has the air of a woman to whom the dead owe money."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "She hums, low, a note that is neither music nor not.",
+            "repeat": [
+              "Coins settling in the box at her feet, a sound she seems to find restful.",
+              "Nothing. She is listening, which she tells me is new."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "when": {
+              "T_SEANCE_ON": true
+            },
+            "dialogue": "OZYMANDIA"
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "If I take the rod, she will have to listen with her hands, and she charges extra for that.",
+        "PICK_UP": "She would charge me for the lift."
+      },
+      "walkTo": {
+        "x": 980,
+        "y": 852,
         "facing": "back"
       }
     },
@@ -619,6 +630,9 @@
         150,
         330
       ],
+      "when": {
+        "T_SEANCE_ON": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -647,6 +661,65 @@
       }
     },
     {
+      "id": "mr_frame_at_the_table",
+      "name": "MR. FRAME, AT THE TABLE",
+      "rect": [
+        618,
+        468,
+        225,
+        320
+      ],
+      "when": {
+        "T_SEANCE_ON": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Mr. Frame, front row, pencil ready.",
+            "repeat": [
+              "His notebook is open at a fresh page headed MOTT SPEAKS. It is a very confident page.",
+              "He is the only one at the table not holding hands. He needs both of them to write."
+            ],
+            "then": [
+              "He has written the headline already and left a space for whatever the dead say."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "His pencil, tapping the page, impatient for the hereafter.",
+            "repeat": [
+              "He whispers a headline to himself, tries a second, and prefers the first.",
+              "Nothing. Mr. Frame, silent, is the strangest thing in the tent."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "say": "Grubb! Something from the living, while we wait. The dead are running late.",
+            "by": "seance_frame",
+            "then": [
+              "I'd rather not be in the paper tonight.",
+              {
+                "speaker": "seance_frame",
+                "line": "Nobody would rather. That's what makes it news."
+              }
+            ],
+            "repeat": [
+              "AFTER. The dead are on page one."
+            ],
+            "sceneLine": "docs/111-scenes-b-and-c.md::#### B · The wrong tries, at the séance · - **MR. FRAME, AT THE TABLE** · TALK TO"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 905,
+        "y": 852,
+        "facing": "left"
+      }
+    },
+    {
       "id": "cushions",
       "name": "THE CUSHIONS",
       "rect": [
@@ -655,6 +728,9 @@
         340,
         215
       ],
+      "when": {
+        "T_SEANCE_ON": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -773,13 +849,88 @@
       }
     },
     {
+      "id": "tent_walls",
+      "name": "THE TENT WALLS",
+      "rect": [
+        1215,
+        0,
+        330,
+        380
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Canvas, painted with stars on the inside, patched with flour sacks on the out.",
+            "repeat": [
+              "Some of the painted stars are in constellations. Some are wherever she wanted a star.",
+              "From outside: FLOUR, FLOUR, FLOUR, in faded stencil. From inside: the heavens."
+            ],
+            "then": [
+              "From in here, the sky is always clear."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Canvas breathing. The whole room inhales.",
+            "repeat": [
+              "A gust leaning on the canvas, and the stars bellying in.",
+              "The street through canvas, soft and far, like a rumor about a street."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1380,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stove",
+      "name": "THE STOVE",
+      "rect": [
+        1350,
+        0,
+        192,
+        700
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A small iron stove, very hot, in a tent whose door is a sheet of canvas.",
+            "repeat": [
+              "It is fed with pages from an almanac. The future, she tells me, is excellent fuel.",
+              "The heat makes the painted stars shimmer. I'm almost certain that's deliberate."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A low roar, small and steady, like an audience waiting.",
+            "repeat": [
+              "A page curling as it catches.",
+              "Iron ticking. It keeps better time than her predictions."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1446,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
       "id": "seance_table",
       "name": "THE SÉANCE TABLE",
       "rect": [
-        735,
-        505,
-        490,
-        190
+        728,
+        493,
+        520,
+        300
       ],
       "when": {
         "T_SEANCE_ON": true
@@ -884,126 +1035,8 @@
         "PICK_UP": "It has five people holding on to it. Six, if you count the dead."
       },
       "walkTo": {
-        "x": 980,
-        "y": 855,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "tent_walls",
-      "name": "THE TENT WALLS",
-      "rect": [
-        1215,
-        0,
-        330,
-        380
-      ],
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Canvas, painted with stars on the inside, patched with flour sacks on the out.",
-            "repeat": [
-              "Some of the painted stars are in constellations. Some are wherever she wanted a star.",
-              "From outside: FLOUR, FLOUR, FLOUR, in faded stencil. From inside: the heavens."
-            ],
-            "then": [
-              "From in here, the sky is always clear."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Canvas breathing. The whole room inhales.",
-            "repeat": [
-              "A gust leaning on the canvas, and the stars bellying in.",
-              "The street through canvas, soft and far, like a rumor about a street."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 1380,
-        "y": 855,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "stove",
-      "name": "THE STOVE",
-      "rect": [
-        1350,
-        0,
-        192,
-        700
-      ],
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A small iron stove, very hot, in a tent whose door is a sheet of canvas.",
-            "repeat": [
-              "It is fed with pages from an almanac. The future, she tells me, is excellent fuel.",
-              "The heat makes the painted stars shimmer. I'm almost certain that's deliberate."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "A low roar, small and steady, like an audience waiting.",
-            "repeat": [
-              "A page curling as it catches.",
-              "Iron ticking. It keeps better time than her predictions."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 1446,
-        "y": 855,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "madame_ozymandia_presiding",
-      "name": "MADAME OZYMANDIA, PRESIDING",
-      "rect": [
-        790,
-        50,
-        350,
-        455
-      ],
-      "when": {
-        "T_SEANCE_ON": true
-      },
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Madame Ozymandia at the head of the table, in more scarves than usual, the brass rod across her palms.",
-            "repeat": [
-              "Her eyes are closed. One of them is not entirely closed, and it is on the money box.",
-              "She has the air of a woman to whom the dead owe money."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "She hums, low, a note that is neither music nor not.",
-            "repeat": [
-              "Coins settling in the box at her feet, a sound she seems to find restful.",
-              "Nothing. She is listening, which she tells me is new."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PULL": "If I take the rod, she will have to listen with her hands, and she charges extra for that.",
-        "PICK_UP": "She would charge me for the lift."
-      },
-      "walkTo": {
-        "x": 965,
-        "y": 855,
+        "x": 985,
+        "y": 852,
         "facing": "back"
       }
     },
@@ -1056,10 +1089,10 @@
       "id": "sitters",
       "name": "THE SITTERS",
       "rect": [
-        600,
-        460,
-        760,
-        300
+        518,
+        298,
+        881,
+        515
       ],
       "when": {
         "T_SEANCE_ON": true
@@ -1097,8 +1130,8 @@
         "PICK_UP": "They are holding hands. They would come as a set."
       },
       "walkTo": {
-        "x": 980,
-        "y": 855,
+        "x": 1000,
+        "y": 852,
         "facing": "back"
       }
     }
@@ -1167,6 +1200,9 @@
   "walkBoxes": [
     {
       "id": "mud_far",
+      "enabledWhen": {
+        "T_SEANCE_ON": false
+      },
       "points": [
         {
           "x": 220,
@@ -1200,6 +1236,9 @@
     },
     {
       "id": "mud_mid",
+      "enabledWhen": {
+        "T_SEANCE_ON": false
+      },
       "points": [
         {
           "x": 220,
@@ -1234,6 +1273,9 @@
     },
     {
       "id": "mud_near",
+      "enabledWhen": {
+        "T_SEANCE_ON": false
+      },
       "points": [
         {
           "x": 220,
@@ -1264,6 +1306,230 @@
       "neighbours": [
         "mud_mid"
       ]
+    },
+    {
+      "id": "mud_far_0_t_seance_on",
+      "enabledWhen": {
+        "T_SEANCE_ON": true
+      },
+      "points": [
+        {
+          "x": 220,
+          "y": 755
+        },
+        {
+          "x": 518,
+          "y": 755
+        },
+        {
+          "x": 518,
+          "y": 789
+        },
+        {
+          "x": 220,
+          "y": 789
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 755,
+        "farHeight": 448,
+        "nearY": 858,
+        "nearHeight": 519
+      },
+      "neighbours": [
+        "mud_mid_0_t_seance_on"
+      ]
+    },
+    {
+      "id": "mud_far_1_t_seance_on",
+      "enabledWhen": {
+        "T_SEANCE_ON": true
+      },
+      "points": [
+        {
+          "x": 1399,
+          "y": 755
+        },
+        {
+          "x": 1880,
+          "y": 755
+        },
+        {
+          "x": 1880,
+          "y": 789
+        },
+        {
+          "x": 1399,
+          "y": 789
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 755,
+        "farHeight": 448,
+        "nearY": 858,
+        "nearHeight": 519
+      },
+      "neighbours": [
+        "mud_mid_1_t_seance_on"
+      ]
+    },
+    {
+      "id": "mud_mid_0_t_seance_on",
+      "enabledWhen": {
+        "T_SEANCE_ON": true
+      },
+      "points": [
+        {
+          "x": 220,
+          "y": 789
+        },
+        {
+          "x": 518,
+          "y": 789
+        },
+        {
+          "x": 518,
+          "y": 824
+        },
+        {
+          "x": 220,
+          "y": 824
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 755,
+        "farHeight": 448,
+        "nearY": 858,
+        "nearHeight": 519
+      },
+      "neighbours": [
+        "mud_far_0_t_seance_on",
+        "mud_mid_2_t_seance_on",
+        "mud_near_t_seance_on"
+      ]
+    },
+    {
+      "id": "mud_mid_1_t_seance_on",
+      "enabledWhen": {
+        "T_SEANCE_ON": true
+      },
+      "points": [
+        {
+          "x": 1399,
+          "y": 789
+        },
+        {
+          "x": 1880,
+          "y": 789
+        },
+        {
+          "x": 1880,
+          "y": 824
+        },
+        {
+          "x": 1399,
+          "y": 824
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 755,
+        "farHeight": 448,
+        "nearY": 858,
+        "nearHeight": 519
+      },
+      "neighbours": [
+        "mud_far_1_t_seance_on",
+        "mud_mid_2_t_seance_on",
+        "mud_near_t_seance_on"
+      ]
+    },
+    {
+      "id": "mud_mid_2_t_seance_on",
+      "enabledWhen": {
+        "T_SEANCE_ON": true
+      },
+      "points": [
+        {
+          "x": 518,
+          "y": 816
+        },
+        {
+          "x": 1399,
+          "y": 816
+        },
+        {
+          "x": 1399,
+          "y": 824
+        },
+        {
+          "x": 518,
+          "y": 824
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 755,
+        "farHeight": 448,
+        "nearY": 858,
+        "nearHeight": 519
+      },
+      "neighbours": [
+        "mud_mid_0_t_seance_on",
+        "mud_mid_1_t_seance_on",
+        "mud_near_t_seance_on"
+      ]
+    },
+    {
+      "id": "mud_near_t_seance_on",
+      "enabledWhen": {
+        "T_SEANCE_ON": true
+      },
+      "points": [
+        {
+          "x": 220,
+          "y": 824
+        },
+        {
+          "x": 1880,
+          "y": 824
+        },
+        {
+          "x": 1880,
+          "y": 858
+        },
+        {
+          "x": 220,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 755,
+        "farHeight": 448,
+        "nearY": 858,
+        "nearHeight": 519
+      },
+      "neighbours": [
+        "mud_mid_0_t_seance_on",
+        "mud_mid_1_t_seance_on",
+        "mud_mid_2_t_seance_on"
+      ]
     }
   ],
   "lamps": [
@@ -1277,7 +1543,26 @@
       "amount": 0.12,
       "rate": 0.22,
       "phase": 0.3,
+      "when": {
+        "T_SEANCE_ON": false
+      },
       "note": "The red lantern hung centre. A slow, low breath (invariant 9)."
+    },
+    {
+      "id": "red_lantern_seance",
+      "at": [
+        960,
+        110
+      ],
+      "radius": 620,
+      "amount": 0.12,
+      "rate": 0.22,
+      "phase": 0.3,
+      "when": {
+        "T_SEANCE_ON": true,
+        "T_SEANCE_DARK": false
+      },
+      "note": "Errata 238: the same lantern while the séance sits under it lit. Turned down to a bead (T_SEANCE_DARK) it breathes no light; a condition cannot say 'not both', so the lantern is two entries, one for each state it is lit in."
     },
     {
       "id": "stove",
@@ -1307,9 +1592,9 @@
   "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-16/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
   "voices": {
     "seance_frame": {
-      "x": 970,
-      "y": 640,
-      "note": "Errata 237: Mr. Frame at the front of the séance table, where act3-seance's operation 1 is to draw him (pending art); until then his words come from his place at the table."
+      "x": 723,
+      "y": 466,
+      "note": "Errata 238: Mr. Frame is drawn at the séance table, in the front-left chair (content/ambient/seance-group.json), so his words come from over his own head there, in his own colour (content/ui/speech-colours.json). He is part of the group's cut-out, not a figure of his own, so his voice keeps its place here."
     }
   },
   "onEnter": {
@@ -1345,5 +1630,53 @@
     "say": [
       "Five of the town around a table, holding hands, and Madame Ozymandia at the head of it. Nobody has noticed me, which is the one thing in Consolation that has ever been free."
     ]
-  }
+  },
+  "plates": {
+    "seance_dark": "art/backgrounds/room-16-tent-seance-dark.png"
+  },
+  "plateWhen": [
+    {
+      "when": {
+        "T_SEANCE_ON": true,
+        "T_SEANCE_DARK": true
+      },
+      "plate": "seance_dark"
+    }
+  ],
+  "props": [
+    {
+      "id": "seance_lamp_lit",
+      "sheet": "art/props/room-16-seance-lamp.png",
+      "x": 959,
+      "y": 183,
+      "frame": [
+        2,
+        2,
+        80,
+        180
+      ],
+      "when": {
+        "T_SEANCE_ON": true,
+        "T_SEANCE_DARK": false
+      },
+      "note": "Errata 238: the séance's hanging lamp, lit (reference/act3-seance/handback.md, operation 2), drawn over the plate's own lamp (matched to it at 919,4)."
+    },
+    {
+      "id": "seance_lamp_down",
+      "sheet": "art/props/room-16-seance-lamp.png",
+      "x": 959,
+      "y": 183,
+      "frame": [
+        84,
+        2,
+        80,
+        180
+      ],
+      "when": {
+        "T_SEANCE_ON": true,
+        "T_SEANCE_DARK": true
+      },
+      "note": "Errata 238: the same lamp turned down to a bead (doc 111, OZY_E1 option 2), over the dimmed plate's lamp."
+    }
+  ]
 }
