@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "ledge",
+ "note": "ROOM 50's PROOF SPEC, from fixture r50-a (out of the mine, the first crossing made).",
+ "fixture": "r50-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "The ledge has one visual state (daylight, errata 190) and nobody on it (doc 107). THE PATH DOWN is a way once Room 51 is built."
+ }
+}

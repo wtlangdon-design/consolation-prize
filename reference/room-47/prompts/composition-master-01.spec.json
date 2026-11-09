@@ -1,0 +1,17 @@
+{
+ "assetId": "room-47",
+ "subject": "room-47-mine-climb",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-47-mine-climb",
+ "promptFile": "reference/room-47/prompts/composition-master-01.txt",
+ "out": "art/staging/room-47/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-47/layout-1536x1024.png",
+  "art/backgrounds/room-34-under-prosperity.png",
+  "art/backgrounds/room-46-mine-adit.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

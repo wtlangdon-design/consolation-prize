@@ -89,7 +89,9 @@ test('every direction the game shows is in doc 95, and every row of doc 95 is in
   for (const row of table.directions) {
     assert.ok(shown.has(key(row.speaker, row.words)), `doc 95 row ${row.n}: "${row.words}" is not in the content`);
   }
-  assert.equal(table.directions.length, found.length, 'one row for each direction');
+  // ONE ROW FOR EACH DIRECTION, not for each place it plays: the rod at the line (doc 108) is one direction on both of
+  // the line's passages, decided once. Rows are keyed by speaker and words, so the count is of distinct directions.
+  assert.equal(table.directions.length, shown.size, 'one row for each direction');
 });
 
 test('every acted direction is acted by a figure in its room, and prints nothing', async () => {

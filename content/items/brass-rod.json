@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "brass_rod",
+  "name": "The brass rod",
+  "short": "THE BRASS ROD",
+  "note": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (THE CHANGES IN CONSOLATION) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "Madame Ozymandia's second rod, hired at two dollars a week. It's identical to the first, which she says is the point.",
+        "repeat": [
+          "A red thread grip, worn exactly where hers is worn. She says that's the rod's thumb.",
+          "It seeks the hidden metal, I'm told. So far it has found my belt buckle."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Quiet, held still.",
+        "repeat": [
+          "A faint ring when I knock it on something. An A, nearly.",
+          "Quiet. It's saving itself, she'd say."
+        ]
+      }
+    ]
+  }
+}

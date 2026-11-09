@@ -22,6 +22,7 @@ import { readPng } from '../tools/lib/png.mjs';
 
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const read = (path: string) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
+const manifest = read('content/manifest.json');
 const panel = read('content/ui/panel.json');
 const table = read('content/ui/item-icons.json');
 const [slotW, slotH] = panel.inventory.cell as [number, number];
@@ -34,7 +35,10 @@ const wholeScale = (w: number, h: number): number | null => {
 
 test('every icon cell is drawn into its slot at a whole-number scale', () => {
   const icons = table.icons as Record<string, [number, number, number, number]>;
-  assert.equal(Object.keys(icons).length, 26, 'all 26 items have an icon');
+  // Every item the manifest loads has a cell, and nothing else does (26, then Fiddler's Gulch's three).
+  const real = (manifest.items as string[]).map((path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8')))
+    .filter((item: { fixture?: boolean }) => !item.fixture).map((item: { id: string }) => item.id).sort();
+  assert.deepEqual(Object.keys(icons).sort(), real, 'every item has an icon, and every icon is an item');
   for (const [id, [, , w, h]] of Object.entries(icons)) {
     const fit = wholeScale(w, h);
     assert.ok(fit !== null && fit >= 1, `${id}: a ${w}x${h} cell draws at x${Math.min(slotW / w, slotH / h).toFixed(3)} in the ${slotW}x${slotH} slot`);

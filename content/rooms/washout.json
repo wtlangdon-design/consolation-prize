@@ -1,0 +1,606 @@
+{
+  "schema": 1,
+  "id": "washout",
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-45.json",
+      "reference/room-45/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "floor_0",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1650,
+        650,
+        112,
+        52
+      ]
+    },
+    {
+      "id": "floor_1",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        1583,
+        702,
+        141,
+        52
+      ]
+    },
+    {
+      "id": "floor_2",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        207,
+        754,
+        1457,
+        52
+      ]
+    },
+    {
+      "id": "floor_3",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        120,
+        806,
+        1482,
+        52
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      120,
+      760
+    ],
+    [
+      700,
+      720
+    ],
+    [
+      1000,
+      790
+    ],
+    [
+      1420,
+      800
+    ],
+    [
+      1560,
+      720
+    ],
+    [
+      1650,
+      650
+    ],
+    [
+      1800,
+      650
+    ],
+    [
+      1720,
+      760
+    ],
+    [
+      1600,
+      858
+    ],
+    [
+      120,
+      858
+    ]
+  ],
+  "entrance": [
+    300,
+    800
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        300,
+        800
+      ],
+      "facing": "right",
+      "note": "Off Grievance, at the road's end (doc 108: the ride, over black)."
+    },
+    {
+      "from": "livery",
+      "at": [
+        300,
+        800
+      ],
+      "facing": "right",
+      "note": "B3's ride (doc 108, THE RIDE), once the trip is reached from Consolation."
+    },
+    {
+      "from": "mine_adit",
+      "at": [
+        1720,
+        690
+      ],
+      "facing": "left",
+      "note": "Out of the old mine."
+    },
+    {
+      "from": "ledge",
+      "at": [
+        1720,
+        690
+      ],
+      "facing": "left",
+      "note": "Through the mine from the ledge, the way known (doc 107)."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "grievance",
+      "name": "GRIEVANCE",
+      "rect": [
+        430,
+        520,
+        110,
+        290
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Grievance, standing where the road stopped. To be fair, she stopped first.",
+            "repeat": [
+              "She's found the one patch of grass on the slide and is treating it as the point of the trip.",
+              "She looked at the mine, then at me, then at the grass. One of us is going in."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Grass, torn up without hurry.",
+            "repeat": [
+              "A long breath through the nose, aimed at the slide.",
+              "Chewing. She'll be here. She's made that very clear."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "T_VESSEL_FOUND": false
+            },
+            "say": "Not without Vessel. I've come two days for him, and a mule's opinion is all I'd be taking home.",
+            "sceneLine": true
+          }
+        ],
+        "TALK_TO": [
+          {
+            "say": "I told her I'd be back. She went on eating, which I'm choosing to take as trust.",
+            "repeat": [
+              "I told her about Vessel. She doesn't care about Vessel. Nobody here does but me."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "I pushed her, gently, to see if she'd come. She moved one hoof, onto better grass."
+      },
+      "walkTo": {
+        "x": 650,
+        "y": 815,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "signpost",
+      "name": "THE SIGNPOST",
+      "rect": [
+        855,
+        465,
+        180,
+        300
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A signpost: FIDDLER'S GULCH 3 MI, pointing straight into the slide.",
+            "repeat": [
+              "Three miles. I could walk three miles. I can't walk them through a hill.",
+              "Somebody has scratched out the 3 and written nothing in its place. Honest, at least."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A loose board knocking in the wind.",
+            "repeat": [
+              "The sign creaking a quarter-turn and back. It isn't sure either.",
+              "Wind, and a crow further up, laughing at something."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "It's set deep. Whoever put it up meant it. Then the hill disagreed.",
+        "TALK_TO": "I asked it which way now. It pointed into the slide again. It's committed."
+      },
+      "walkTo": {
+        "x": 945,
+        "y": 856,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "road_back",
+      "name": "THE ROAD BACK",
+      "rect": [
+        0,
+        380,
+        330,
+        484
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The road back to Consolation. Two days of it, and most of it held.",
+            "repeat": [
+              "Somewhere down there is my claim, with a raccoon in it, keeping my place.",
+              "I'm not going back without Vessel. I've told the road, and it took it well."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind coming up it from the valley.",
+            "repeat": [
+              "Far off, a wagon. Going the other way, sensibly.",
+              "Empty road. It's waiting for somebody with better luck."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I told the road I'd be back. Roads hear that from everybody, and believe nobody."
+      }
+    },
+    {
+      "id": "slide",
+      "name": "THE SLIDE",
+      "rect": [
+        1030,
+        20,
+        560,
+        780
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Half a hill, lying across the road.",
+            "repeat": [
+              "Mud, boulders and a whole pine, roots up. It's recent. Nobody has thought to put it back.",
+              "I tried climbing it. It moved. I came down a different way than I went up."
+            ],
+            "then": [
+              "The road's still under there, I assume, going to Fiddler's Gulch without me."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water working through it, a trickle at a time.",
+            "repeat": [
+              "Stones ticking down, one every so often.",
+              "Quiet, now. It's thinking about the next part."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "I shoved it. A stone came down and stopped at my boot, like a reply.",
+        "PICK_UP": "One stone at a time, I'd have the road clear by spring. Vessel would have spent everything by then."
+      },
+      "walkTo": {
+        "x": 1310,
+        "y": 855,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_mine_adit",
+      "name": "THE OLD MINE",
+      "rect": [
+        1590,
+        320,
+        300,
+        340
+      ],
+      "colour": 0,
+      "to": "mine_adit",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An old mine in the ridge, propped with timbers. It goes into the hill the road can't get round.",
+            "repeat": [
+              "Somebody dug this looking for gold, and found the other side of the hill instead.",
+              "Rails come out of it and stop at the edge of the slide. The cart went with the road."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Cool air breathing out of the hill.",
+            "repeat": [
+              "Water dripping, a long way in.",
+              "The hill breathes out, and in again, through it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "It's open. A hole doesn't have much else to offer."
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 108: the way in, until the first crossing.",
+      "when": {
+        "T_MINE_CROSSED": false
+      },
+      "walkTo": {
+        "x": 1720,
+        "y": 680,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "to_ledge",
+      "name": "THE OLD MINE",
+      "rect": [
+        1590,
+        320,
+        300,
+        340
+      ],
+      "colour": 0,
+      "to": "ledge",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An old mine in the ridge, propped with timbers. It goes into the hill the road can't get round.",
+            "repeat": [
+              "Somebody dug this looking for gold, and found the other side of the hill instead.",
+              "Rails come out of it and stop at the edge of the slide. The cart went with the road."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Cool air breathing out of the hill.",
+            "repeat": [
+              "Water dripping, a long way in.",
+              "The hill breathes out, and in again, through it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "It's open. A hole doesn't have much else to offer."
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "when": {
+            "T_WAY_THROUGH_SAID": false
+          },
+          "say": "I know the way now. Stake, uphill, big rock, the still one.",
+          "set": {
+            "T_WAY_THROUGH_SAID": true
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE WASHOUT · THE WAY THROUGH"
+        }
+      ],
+      "note": "Doc 107: after the first crossing the washout and the ledge join directly; doc 108's THE WAY THROUGH is said on the first such walk.",
+      "stateOf": "to_mine_adit",
+      "when": {
+        "T_MINE_CROSSED": true
+      },
+      "walkTo": {
+        "x": 1720,
+        "y": 680,
+        "facing": "right"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "floor_0",
+      "points": [
+        {
+          "x": 1650,
+          "y": 650
+        },
+        {
+          "x": 1762,
+          "y": 650
+        },
+        {
+          "x": 1762,
+          "y": 702
+        },
+        {
+          "x": 1650,
+          "y": 702
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 372
+      },
+      "neighbours": [
+        "floor_1"
+      ]
+    },
+    {
+      "id": "floor_1",
+      "points": [
+        {
+          "x": 1583,
+          "y": 702
+        },
+        {
+          "x": 1724,
+          "y": 702
+        },
+        {
+          "x": 1724,
+          "y": 754
+        },
+        {
+          "x": 1583,
+          "y": 754
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 372
+      },
+      "neighbours": [
+        "floor_0",
+        "floor_2"
+      ]
+    },
+    {
+      "id": "floor_2",
+      "points": [
+        {
+          "x": 207,
+          "y": 754
+        },
+        {
+          "x": 1664,
+          "y": 754
+        },
+        {
+          "x": 1664,
+          "y": 806
+        },
+        {
+          "x": 207,
+          "y": 806
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 372
+      },
+      "neighbours": [
+        "floor_1",
+        "floor_3"
+      ]
+    },
+    {
+      "id": "floor_3",
+      "points": [
+        {
+          "x": 120,
+          "y": 806
+        },
+        {
+          "x": 1602,
+          "y": 806
+        },
+        {
+          "x": 1602,
+          "y": 858
+        },
+        {
+          "x": 120,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 372
+      },
+      "neighbours": [
+        "floor_2"
+      ]
+    }
+  ],
+  "background": "art/backgrounds/room-45-washout.png",
+  "lamps": [],
+  "onEnter": {
+    "set": {
+      "T_WASHOUT_SEEN": true
+    },
+    "sayOnce": "T_WASHOUT_SEEN",
+    "say": [
+      "So that's what Mr. Frame meant."
+    ]
+  },
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "floor_0",
+    "floor_1",
+    "floor_2",
+    "floor_3"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-45/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "ambient": [
+    "washout_grievance"
+  ],
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "props": [
+    {
+      "id": "signpost_lettering",
+      "sheet": "art/props/room-45-signpost.png",
+      "x": 940,
+      "y": 554,
+      "frame": [
+        0,
+        0,
+        108,
+        44
+      ],
+      "note": "THE SIGNPOST's words in the shipping face, from its first LOOK (doc 108), with the 3 scratched out as its third LOOK says (tools/art/gulch-lettering.py): the generator draws the plank blank."
+    }
+  ]
+}

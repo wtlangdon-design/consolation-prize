@@ -1,0 +1,235 @@
+{
+ "room": "mine_climb",
+ "plate": "art/backgrounds/room-47-mine-climb.png",
+ "plateNote": "Read on the promoted plate (art/backgrounds/room-47-mine-climb.png, room-47 operation 2, derived and promoted by tools/art/interiors-plate.mjs; frame.json beside the candidate). Every rect below was read off that picture.",
+ "plateShipping": "art/backgrounds/room-47-mine-climb.png",
+ "plateShippingHash": "30c65db4dc99f58df55d568d505e16c7a3eafbc027f6bea9a45dd1b3ad0ef2a4",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   160,
+   690
+  ],
+  [
+   1860,
+   690
+  ],
+  [
+   1880,
+   858
+  ],
+  [
+   120,
+   858
+  ]
+ ],
+ "walkableNote": "THE FORK'S FLOOR, under the bar of daylight, in front of both ways.",
+ "scaling": {
+  "far": {
+   "y": 700,
+   "height": 357
+  },
+  "near": {
+   "y": 858,
+   "height": 398
+  },
+  "note": "ROOM 47'S DEPTH, FROM THE MASTER: Thad was painted about 394 tall with his feet at y 841 (the master at 0.8 in the plate's canvas, cropped from row 130); along Room 34's slope (0.26 a row) that is 357 at the band's far edge and 398 at its near."
+ },
+ "entrance": [
+  360,
+  760
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    360,
+    760
+   ],
+   "facing": "right",
+   "note": "In from the adit."
+  },
+  {
+   "from": "mine_adit",
+   "at": [
+    360,
+    760
+   ],
+   "facing": "right",
+   "note": "Through the adit's right-hand opening."
+  },
+  {
+   "from": "mine_two_rocks",
+   "at": [
+    585,
+    720
+   ],
+   "facing": "front",
+   "note": "Back down the passage up -- by THE WAY BACK, or round from THE WAY PAST THE OTHER ROCK."
+  }
+ ],
+ "hotspots": {
+  "props": [
+   660,
+   40,
+   90,
+   620
+  ],
+  "shaft_of_light": [
+   880,
+   0,
+   170,
+   680
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees. THE PROPS is the left prop, the carved one. THE SHAFT OF LIGHT is the bar of daylight and the disc of sky at its top.",
+ "people": {},
+ "exitSubjects": {
+  "THE WAY BACK": {
+   "id": "way_back",
+   "to": "mine_adit",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 108: back toward the three openings."
+  },
+  "THE PASSAGE UP": {
+   "id": "passage_up",
+   "to": "mine_two_rocks",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 108: the passage that rises."
+  },
+  "THE PASSAGE ON": {
+   "id": "passage_on",
+   "to": "mine_adit",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 107: a wrong way at the climb leads back to the adit.",
+   "transitScene": [
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 1,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 0
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 1
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 2,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 1
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 2
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 3,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 2
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 3
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 4,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 3
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 4
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 5,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": {
+       "atLeast": 4
+      }
+     }
+    }
+   ]
+  }
+ },
+ "exits": {
+  "way_back": [
+   250,
+   110,
+   220,
+   500
+  ],
+  "passage_up": [
+   500,
+   220,
+   170,
+   420
+  ],
+  "passage_on": [
+   1320,
+   250,
+   290,
+   420
+  ]
+ },
+ "exitWalkTo": {
+  "way_back": {
+   "x": 360,
+   "y": 700,
+   "facing": "left"
+  },
+  "passage_up": {
+   "x": 585,
+   "y": 695,
+   "facing": "back"
+  },
+  "passage_on": {
+   "x": 1460,
+   "y": 700,
+   "facing": "back"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "props": "LOOK_AT",
+  "shaft_of_light": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object is looked at on a bare click; every way walks.",
+ "occlusion": {
+  "note": "Nothing stands nearer the camera than the walk band.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "props": [
+  {
+   "id": "props_carving",
+   "sheet": "art/props/room-47-props-carving.png",
+   "x": 710,
+   "y": 590,
+   "frame": [
+    0,
+    0,
+    60,
+    46
+   ],
+   "note": "THE PROPS' carving (doc 108's first LOOK): SORRY in the shipping face, low on the left prop, and above it the initials and the date that line names but never spells, carved too rough to read (tools/art/gulch-lettering.py)."
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "assetId": "room-46",
+ "subject": "room-46-mine-adit",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-46-mine-adit",
+ "promptFile": "reference/room-46/prompts/composition-master-01.txt",
+ "out": "art/staging/room-46/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-46/layout-1536x1024.png",
+  "art/backgrounds/room-34-under-prosperity.png",
+  "art/backgrounds/room-45-washout.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

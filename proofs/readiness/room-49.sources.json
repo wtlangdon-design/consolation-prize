@@ -1,0 +1,44 @@
+{
+ "schema": 1,
+ "room": 49,
+ "id": "room-49-mine-line",
+ "name": "THE MINE: THE LINE",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-11-08 for reference/fiddlers-gulch/brief.md (errata 190-191, 194, 195, 199) from docs 107, 108, 49 and 02.",
+ "examine": {
+  "primary": "docs/108-the-washout-and-the-mine.md::THE MINE · THE LINE",
+  "batch": [],
+  "merged": [],
+  "completions": [
+   "docs/108-the-washout-and-the-mine.md::THE MINE · THE LINE"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "The mine is walked only on the trip, in Act II, and only until the first crossing: after it THE OLD MINE leads straight from the washout to the ledge (doc 107, The mine; doc 108, THE WAY THROUGH). Doc 108 writes one state for it."
+  }
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 49 — THE MINE: THE LINE",
+ "dialogue": {
+  "characters": [],
+  "trees": [],
+  "none": {
+   "source": "docs/108-the-washout-and-the-mine.md::THE MINE · THE LINE",
+   "why": "Nobody is in the mine (doc 107, The places; the brief's table)."
+  }
+ },
+ "puzzles": {
+  "ids": [
+   "G2"
+  ],
+  "source": [
+   "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+  ]
+ },
+ "staging": {
+  "required": false,
+  "why": "No doc 48 script is sited here. The mine's ways and their lines are doc 108's: THE MINE · BACK WHERE HE STARTED and the rod at the line."
+ },
+ "connectivity": "docs/107-fiddlers-gulch.md::The mine",
+ "exits": "docs/108-the-washout-and-the-mine.md::THE MINE · THE LINE",
+ "roomFile": "content/rooms/mine-line.json",
+ "plate": "art/backgrounds/room-49-mine-line.png"
+}

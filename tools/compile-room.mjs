@@ -1268,7 +1268,7 @@ for (const spec of [...(ann.verbRules ?? [])].reverse()) {
     if (at < 0) fail(`verbRules: ${path} has no section "${heading}"`);
     const line = text.slice(at).split('\n').find((one) => one.startsWith(spec.startsWith));
     if (!line) fail(`verbRules: no line starting "${spec.startsWith}" in ${spec.ref}`);
-    // `**X** · VERB — "..."`, or doc 108's numbered run under a subject, `**TALK TO** 1 "..." · 2 "..."` (errata 196).
+    // `**X** · VERB — "..."`, or doc 108's numbered run under a subject, `**TALK TO** 1 "..." · 2 "..."` (errata 199).
     const said = line.includes(' — ') ? line.split(' — ').slice(1).join(' — ') : line.slice(spec.startsWith.length);
     const words = [...said.replace(/\*\([^)]*\)\*/g, '').matchAll(/"([^"]+)"/g)].map((m) => m[1]);
     if (!words.length) fail(`verbRules: "${spec.startsWith}" has no quoted line`);
@@ -1419,7 +1419,7 @@ function transitBeat(spec) {
   return { ...arrival, ...(spec.when ? { when: spec.when } : {}), say: first, ...(by ? { by } : {}),
     ...(following.length ? { then: following } : {}),
     ...(spec.set ? { set: spec.set } : {}), ...(spec.stays ? { stays: true } : {}),
-    sceneLine: `${spec.ref} · ${spec.bullet ?? `beat ${spec.row}`}` };
+    sceneLine: `${spec.ref} · ${spec.bullet ?? spec.bold ?? (spec.item !== undefined ? `item ${spec.item}` : `beat ${spec.row}`)}` };
 }
 
 // THE QUOTED WORDS OF ONE BEAT, read three ways: a bold bullet (`- **Beat 4**
@@ -1434,6 +1434,15 @@ function beatQuotes(spec, body, what) {
   if (spec.row !== undefined) {
     m = new RegExp(`^\\| ${esc(String(spec.row))} \\| (.+)$`, 'm').exec(body);
     if (!m) fail(`${what}: ${spec.ref} has no table row ${spec.row}`);
+  } else if (spec.item !== undefined) {
+    // A NUMBERED LIST'S ITEM (doc 108, THE MINE · BACK WHERE HE STARTED: `1. "Ah. I've been here."`).
+    m = new RegExp(`^${esc(String(spec.item))}\\. (.+)$`, 'm').exec(body);
+    if (!m) fail(`${what}: ${spec.ref} has no item ${spec.item}`);
+  } else if (spec.bold !== undefined) {
+    // A BOLD-LABELLED LINE (doc 108: `**THE WAY THROUGH** *(when it is said)* — "..."`); its note is not a line.
+    m = new RegExp(`^\\*\\*${esc(spec.bold)}\\*\\*(.+)$`, 'm').exec(body);
+    if (!m) fail(`${what}: ${spec.ref} has no **${spec.bold}** line`);
+    m = [m[0], m[1].replace(/\*\([^)]*\)\*/g, '')];
   } else {
     m = new RegExp(`^- \\*\\*${esc(spec.bullet)}\\*\\* (.+)$`, 'm').exec(body)
       ?? new RegExp(`^- (${esc(spec.bullet)}.+)$`, 'm').exec(body);
@@ -1470,7 +1479,10 @@ function linesFrom(ref, name) {
   return out;
 }
 
-const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name, spec]) => {
+const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([key, spec]) => {
+  // ONE WAY, TWO DESTINATIONS (doc 107: after the first crossing THE OLD MINE goes straight to the ledge). A second
+  // spec for the same way is keyed "NAME#2"; it is the same subject, `stateOf` the first, never live with it.
+  const name = key.replace(/#\w+$/, '');
   // An exit with no LOOK or LISTEN of its own and only doc 49's refusal is
   // filed under `exitsAndUnplaced` (Room 14's THE GATE, errata 87 E).
   // A way whose words are another document's keeps the refusals doc 49 wrote for
@@ -1499,6 +1511,7 @@ const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name,
     ...(spec.setOnTransitWhen ? { setOnTransitWhen: spec.setOnTransitWhen } : {}),
     ...(spec.transitScene ? { transitScene: spec.transitScene.map(transitBeat) } : {}),
     ...(spec.note ? { note: spec.note } : {}),
+    ...(spec.stateOf ? { stateOf: spec.stateOf } : {}),
     // A door no document gives a LOOK or LISTEN (errata 72 F; Room 14's gate).
     ...(spec.stub ? { stub: true } : {}),
     // A way that opens later (Room 18's stairs, after A2).
@@ -2078,7 +2091,7 @@ if (MERGED) {
       const body = after.slice(0, (/\n## |\n---\n/.exec(after) ?? { index: after.length }).index);
       // An indented quote is a bullet's (doc 57 C3's Room 14 line); it counts.
       // A line that ends in what it writes (doc 57 E8: `> "Out. ..." → T_FUNERAL_DONE`) counts.
-      // Doc 108's forms (errata 196): `**ON FIRST ARRIVAL** — "..."`, named by `bold`, or a section that is one bare
+      // Doc 108's forms (errata 199): `**ON FIRST ARRIVAL** — "..."`, named by `bold`, or a section that is one bare
       // quoted line (THE MINE · ON FIRST ENTERING).
       const labelled = bold ? new RegExp(`^\\*\\*${bold}\\*\\*[^"]*"([^"]+)"`, 'm').exec(body) : null;
       if (bold && !labelled) fail(`onEnterSay: ${fromRef} has no **${bold}** line`);

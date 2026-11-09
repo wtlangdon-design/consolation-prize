@@ -1218,6 +1218,21 @@ const ConsolationAudio = (function () {
     parts: [ tune('harmonicaLA', 1.0),
              { inst: 'fiddleLA', role: 'counter', gain: 0.6, fromLoop: 0, events: CONSOLATION_FID } ] };
 
+  /* FIDDLER'S GULCH (doc 45, "Rooms 45-54"; errata 195). Still no new notes: CONSOLATION's own parts.
+   * The mine (R46-49-M): the tune on harmonica alone, slow -- the town he has left, far off. One stem, one gain, carried
+   * unbroken across all four mine rooms, so nothing in it can tell a right turn from a wrong one (doc 107). */
+  const CONSOLATION_MINE_LA = { name: 'CONSOLATION, the mine (LA)', tempo: TEMPO / 2, loopBeats: LOOP_BEATS,
+    parts: [ tune('harmonicaLA', 1.0) ] };
+  /* The ledge and the Gulch (R50-54-M): CONSOLATION in the minor, on jaw harp and harmonica -- the town theme with
+   * the cheer gone, for the camp that found gold. D major's three sharps come down a half step (F-sharp, B, C-sharp
+   * to F, B-flat, C): D minor, natural, in the tune and in the jaw harp's offbeats alike. No piano, because the camp
+   * has none; no fiddle, because nobody in Fiddler's Gulch plays one. */
+  const MINOR_OF_D = (events) => events.map((e) => ([6, 11, 1].includes(((e.m % 12) + 12) % 12)
+    ? Object.assign({}, e, { m: e.m - 1 }) : e));
+  const CONSOLATION_GULCH_LA = { name: 'CONSOLATION, the Gulch (LA)', tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [ { inst: 'harmonicaLA', role: 'tune', gain: 1.0, fromLoop: 0, events: MINOR_OF_D(CONSOLATION_MEL) },
+             { inst: 'jawHarpLA', role: 'offbeats', gain: 0.8, fromLoop: 0, events: MINOR_OF_D(CONSOLATION_JAW) } ] };
+
   /* THE FINAL DUEL (doc 45 U-FINAL-DUEL: "THE ASSAY + THE COMPANY"; OQ-14
    * left how they combine; errata 109). The Company's tune, on the fiddle that
    * sang it in its own offices, over the Assay's machinery -- the piano's
@@ -1328,6 +1343,7 @@ const ConsolationAudio = (function () {
     STRIKE_LA, ASSAY_LA, WINNIE_LA, COMPANY_LA,
     CONSOLATION_PIANO_LA, CONSOLATION_DAWN_LA, CONSOLATION_FUNERAL_LA, ASSAY_JAW_LA, STRIKE_LAYER_LA,
     CONSOLATION_LAUNDRY_LA, CONSOLATION_LIVERY_LA, CONSOLATION_CLARION_LA, CONSOLATION_TENT_LA,
+    CONSOLATION_MINE_LA, CONSOLATION_GULCH_LA,
     FINAL_DUEL_LA, TUNING_LA, WHISTLE_PHRASE, TEMPO_OF_THEME: TEMPO, AUDITIONS,
     CONSOLATION_NUGGET_FIDDLE_LA, FIDDLER_FASTER_LA, FIDDLER_PASSING_LA, FIDDLER_BROKEN_OFF_LA, FIDDLER_OPEN_A_LA, FIDDLER_PHRASE_LA,
     midiToFreq, createEngine, automateArc

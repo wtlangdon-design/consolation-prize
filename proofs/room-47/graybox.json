@@ -1,0 +1,200 @@
+{
+ "room": 47,
+ "note": "Ruling 22 steps 1-6 for THE MINE: THE CLIMB, written by tools/gulch-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 199).",
+ "what": "A fork: at the left a passage climbing steeply with steps cut in it, at the right a level passage with rusted rails running into it; two pit props hold the roof, one carved; a bar of daylight comes down a shaft in the roof onto the middle of the floor, between the two ways.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 700,
+   "height": 393
+  },
+  "near": {
+   "y": 858,
+   "height": 434
+  },
+  "from": "Room 34's depth (the game's other mine): 0.26 a row on a near-flat floor"
+ },
+ "walkable": [
+  150,
+  700,
+  1700,
+  158
+ ],
+ "exits": [
+  {
+   "hotspot": "THE WAY BACK",
+   "to": "mine_adit",
+   "rect": [
+    0,
+    330,
+    140,
+    534
+   ]
+  },
+  {
+   "hotspot": "THE PASSAGE UP",
+   "to": "mine_two_rocks",
+   "rect": [
+    300,
+    170,
+    300,
+    520
+   ]
+  },
+  {
+   "hotspot": "THE PASSAGE ON",
+   "to": "mine_adit",
+   "rect": [
+    1340,
+    350,
+    330,
+    340
+   ]
+  }
+ ],
+ "marks": {
+  "arrival": {
+   "x": 300,
+   "y": 800,
+   "facing": "right"
+  },
+  "up": {
+   "x": 450,
+   "y": 720,
+   "facing": "up"
+  },
+  "on": {
+   "x": 1500,
+   "y": 720,
+   "facing": "up"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY BACK",
+   "rect": [
+    0,
+    330,
+    140,
+    534
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PASSAGE UP",
+   "rect": [
+    300,
+    170,
+    300,
+    520
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PROPS",
+   "rect": [
+    690,
+    110,
+    80,
+    580
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PROPS (the second)",
+   "rect": [
+    1150,
+    110,
+    80,
+    580
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SHAFT OF LIGHT",
+   "rect": [
+    880,
+    0,
+    170,
+    700
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PASSAGE ON",
+   "rect": [
+    1340,
+    350,
+    330,
+    340
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band; the props stand at its far edge.",
+ "surfaces": [
+  {
+   "surface": "rock roof and walls",
+   "p10": 50.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 25.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, rock and grit",
+   "p10": 90.0,
+   "p90": 90.0,
+   "darkAnchorMargin": 65.3,
+   "lightAnchorMargin": 31.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAY BACK",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 31.3,
+   "lightAnchorMargin": 65.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PASSAGE UP",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PROPS",
+   "p10": 96.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 71.3,
+   "lightAnchorMargin": 25.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PROPS (the second)",
+   "p10": 96.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 71.3,
+   "lightAnchorMargin": 25.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PASSAGE ON",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

@@ -359,7 +359,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 45 — THE WASHOUT
 
-*Rooms 45 to 54, errata 196 (Tyler, 2026-11-08, told docs 108 and 109 wrote no wrong-verb layer for Fiddler's Gulch: "Write them (doc 49)"). One voice, under doc 59 and docs 108–109's rules: nothing hints, nothing in the mine favors a way, and every line is true whenever its room can be read.*
+*Rooms 45 to 54, errata 199 (Tyler, 2026-11-08, told docs 108 and 109 wrote no wrong-verb layer for Fiddler's Gulch: "Write them (doc 49)"). One voice, under doc 59 and docs 108–109's rules: nothing hints, nothing in the mine favors a way, and every line is true whenever its room can be read.*
 
 **THE SLIDE** · PUSH — "I shoved it. A stone came down and stopped at my boot, like a reply."
 **THE SLIDE** · PICK_UP — "One stone at a time, I'd have the road clear by spring. Vessel would have spent everything by then."

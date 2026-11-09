@@ -1161,6 +1161,10 @@ export class GameState {
   private transitDestination(target: Interactable, verb: string): string | null {
     const exit = target as Partial<Exit>;
     if (!exit.to) return null;
+    // AN ITEM USED ON A WAY IS A QUESTION ABOUT THE ITEM, NOT A WALK (doc 107: "an item used on an exit (new)").
+    // USE is a transit verb, so USE THE BRASS ROD on the line's passage walked him down it; with something held,
+    // the carry verb resolves the item instead -- its pair, its area's lines or its pool -- as it does anywhere else.
+    if (this.held && this.verbs.carries(verb)) return null;
     return this.verbs.isTransit(verb) ? exit.to : null;
   }
 

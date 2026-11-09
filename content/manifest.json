@@ -57,7 +57,13 @@
   "content/rooms/boarding-house-parlour.json",
   "content/rooms/bakehouse.json",
   "content/rooms/empty-storefront.json",
-  "content/rooms/schoolhouse.json"
+  "content/rooms/schoolhouse.json",
+  "content/rooms/washout.json",
+  "content/rooms/mine-adit.json",
+  "content/rooms/mine-climb.json",
+  "content/rooms/mine-two-rocks.json",
+  "content/rooms/mine-line.json",
+  "content/rooms/ledge.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -128,7 +134,8 @@
   "content/fixtures/room-33.json",
   "content/fixtures/room-34.json",
   "content/fixtures/room-35.json",
-  "content/fixtures/room-36.json"
+  "content/fixtures/room-36.json",
+  "content/fixtures/room-45.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -160,7 +167,10 @@
   "content/items/loan.json",
   "content/items/blanket.json",
   "content/items/linen-money.json",
-  "content/items/sample.json"
+  "content/items/sample.json",
+  "content/items/third-copy.json",
+  "content/items/brass-rod.json",
+  "content/items/clarion.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [
@@ -234,7 +244,8 @@
   "content/ambient/photographer.json",
   "content/ambient/boarding-a.json",
   "content/ambient/boarding-b.json",
-  "content/ambient/bakehouse-boy.json"
+  "content/ambient/bakehouse-boy.json",
+  "content/ambient/washout-grievance.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",
@@ -669,6 +680,36 @@
     "src": "audio/consolation-title.wav",
     "gain": 0.6,
     "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the district map plays the town theme, full, as Monkey Island's map screen plays its own."
+   },
+   "washout": {
+    "src": "audio/thaddeus-room-01.wav",
+    "gain": 0.7,
+    "why": "Doc 45 R45-M (errata 195): THADDEUS, as Room 1's stem, WITHOUT Room 1's distant-piano layer -- the road out as Room 1 is the road in. The mine's entry cuts it off, as a door does."
+   },
+   "mine_adit": {
+    "src": "audio/consolation-mine.wav",
+    "gain": 0.5,
+    "why": "Doc 45 R46-49-M (errata 195): CONSOLATION, harmonica alone, slow, distant -- the town he has left. ONE file and ONE gain for all four mine rooms, carried across them, never restarted (tests/gulch-mine.test.ts)."
+   },
+   "mine_climb": {
+    "src": "audio/consolation-mine.wav",
+    "gain": 0.5,
+    "why": "Doc 45 R46-49-M (errata 195): CONSOLATION, harmonica alone, slow, distant -- the town he has left. ONE file and ONE gain for all four mine rooms, carried across them, never restarted (tests/gulch-mine.test.ts)."
+   },
+   "mine_two_rocks": {
+    "src": "audio/consolation-mine.wav",
+    "gain": 0.5,
+    "why": "Doc 45 R46-49-M (errata 195): CONSOLATION, harmonica alone, slow, distant -- the town he has left. ONE file and ONE gain for all four mine rooms, carried across them, never restarted (tests/gulch-mine.test.ts)."
+   },
+   "mine_line": {
+    "src": "audio/consolation-mine.wav",
+    "gain": 0.5,
+    "why": "Doc 45 R46-49-M (errata 195): CONSOLATION, harmonica alone, slow, distant -- the town he has left. ONE file and ONE gain for all four mine rooms, carried across them, never restarted (tests/gulch-mine.test.ts)."
+   },
+   "ledge": {
+    "src": "audio/consolation-gulch.wav",
+    "gain": 0.6,
+    "why": "Doc 45 R50-54-M (errata 195): CONSOLATION in the minor, jaw harp and harmonica. No piano, because the camp has none; no fiddle, because nobody in Fiddler's Gulch plays one."
    }
   },
   "tunedFlag": "T_IN_TUNE",

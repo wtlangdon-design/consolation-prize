@@ -313,7 +313,7 @@ export class AmbientLayer {
       const key = `${npc.id}:${state}`;
       if (!this.fired.has(key)) {
         const exchange = npc.barkExchange?.[state];
-        const line = exchange?.[0]?.line ?? npc.barks[state];
+        const line = exchange?.[0]?.line ?? npc.barks?.[state];
         const cue = npc.barkCues?.[state];
         if (line || cue) {
           this.fired.add(key);
@@ -349,7 +349,7 @@ export class AmbientLayer {
 
   /** The line this character has for the reputation Thad currently carries. */
   barkFor(npc: AmbientFile): string | null {
-    return npc.barkExchange?.[this.reputationState]?.[0]?.line ?? npc.barks[this.reputationState] ?? null;
+    return npc.barkExchange?.[this.reputationState]?.[0]?.line ?? npc.barks?.[this.reputationState] ?? null;
   }
 
   /**
@@ -359,7 +359,7 @@ export class AmbientLayer {
   barkLinesFor(npc: AmbientFile): { speaker: string; line: string }[] {
     const exchange = npc.barkExchange?.[this.reputationState];
     if (exchange?.length) return exchange;
-    const line = npc.barks[this.reputationState];
+    const line = npc.barks?.[this.reputationState];
     return line ? [{ speaker: npc.id, line }] : [];
   }
 

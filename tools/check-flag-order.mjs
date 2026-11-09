@@ -55,6 +55,15 @@ function collectWrites(content) {
   // Writes made on entry under a condition, and an arrival scene's outcome (doc 57 C6, D4, D6, F4).
   for (const { data } of content.rooms) for (const rule of data.onEnter?.setWhen ?? []) record(rule.set, undefined);
   for (const { data } of content.rooms) for (const scene of data.onEnter?.scenes ?? []) record(scene.after?.set, undefined);
+  // A WAY IS A WRITER TOO (Fiddler's Gulch): taking it writes its `setOnTransit` (the mine's first crossing), and a
+  // beat said at the door writes its `set` (BACK WHERE HE STARTED's count, THE WAY THROUGH). Uncounted, the
+  // washout's way to the ledge read as gated on a flag nothing writes.
+  for (const { data } of content.rooms) {
+    for (const exit of data.exits ?? []) {
+      record(exit.setOnTransit, undefined);
+      for (const rule of exit.transitScene ?? []) record(rule.set, rule.add);
+    }
+  }
   // An item used on something is a writer too: a pair's own `set`, and each of
   // its cases' (Room 18's stairs open on the piano pair's T_ROOM_GRANTED).
   const combos = content.combinations?.data ?? content.combinations;
@@ -107,6 +116,14 @@ function collectReads(content) {
   for (const { data } of content.rooms) {
     for (const [id, expected] of Object.entries(data.onEnter?.accost?.when ?? {})) {
       reads.push({ id, expected, where: `${data.id}/onEnter/accost` });
+    }
+    // A beat said at a door reads its own condition (the mine's wrong ways count by it).
+    for (const exit of data.exits ?? []) {
+      for (const [index, rule] of (exit.transitScene ?? []).entries()) {
+        for (const [id, expected] of Object.entries(rule.when ?? {})) {
+          reads.push({ id, expected, where: `${data.id}/${exit.id}/transitScene[${index}]` });
+        }
+      }
     }
   }
   return reads;

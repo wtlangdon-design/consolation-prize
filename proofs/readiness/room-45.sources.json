@@ -3,7 +3,7 @@
  "room": 45,
  "id": "room-45-washout",
  "name": "THE WASHOUT",
- "note": "POINTERS, NOT ANSWERS. Mapped 2026-11-08 for reference/fiddlers-gulch/brief.md (errata 190-191, 194-196) from docs 107, 108, 49 and 02.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-11-08 for reference/fiddlers-gulch/brief.md (errata 190-191, 194, 195, 199) from docs 107, 108, 49 and 02.",
  "examine": {
   "primary": "docs/108-the-washout-and-the-mine.md::THE WASHOUT",
   "batch": [],

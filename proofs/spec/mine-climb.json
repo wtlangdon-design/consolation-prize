@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "mine_climb",
+ "note": "ROOM 47's PROOF SPEC, from fixture r47-a.",
+ "fixture": "r47-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "The climb has one visual state and nothing in it changes: nobody is in the mine (doc 107), and no state may show the way (the brief)."
+ }
+}

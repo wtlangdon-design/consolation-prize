@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a rock ledge high on a ravine wall in daylight, with an old mine's mouth at the left, a cairn, a gold camp far below by a river, and a roped zigzag path at the right. A man in a blue coat is standing on the ledge.
+
+Make exactly one change: remove the man. Paint what is behind him: the rock and boulders of the cliff, the ledge's dirt and grass, and the far ravine wall. Match the rest exactly: the same pixel-art style and pixel grid, the same colours, the same daylight.
+
+Change nothing else: the mine's mouth and its timbers, the cairn, the camp and the river below, the path and its rope, the ravine walls and the sky stay exactly as they are. No people on the ledge, no text, no border.

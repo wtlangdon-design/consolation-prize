@@ -771,6 +771,87 @@
     }
    ],
    "castingNote": "Grievance only, waiting on the grass: her whole-mule sheet from the livery's generation (art/staging/room-15/grievance-01/sheet.png), as the brief allows when it fits the light."
+  },
+  "room-46-mine-adit": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-34-under-prosperity",
+    "path": "art/backgrounds/room-34-under-prosperity.png",
+    "note": "D -- the game's other mine, timbered rock in the same hand. This one (the adit, three openings and a stake) is lit by daylight down old shafts and cracks, not a lantern: the same day inside (errata 190, doc 108)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody is in the mine (doc 107). The hero only, in the master, and taken out of the plate."
+  },
+  "room-47-mine-climb": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-34-under-prosperity",
+    "path": "art/backgrounds/room-34-under-prosperity.png",
+    "note": "D -- the game's other mine, timbered rock in the same hand. This one (the climb, a fork with a shaft of daylight) is lit by daylight down old shafts and cracks, not a lantern: the same day inside (errata 190, doc 108)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody is in the mine (doc 107). The hero only, in the master, and taken out of the plate."
+  },
+  "room-48-mine-two-rocks": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-34-under-prosperity",
+    "path": "art/backgrounds/room-34-under-prosperity.png",
+    "note": "D -- the game's other mine, timbered rock in the same hand. This one (the two rocks) is lit by daylight down old shafts and cracks, not a lantern: the same day inside (errata 190, doc 108)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody is in the mine (doc 107). The hero only, in the master, and taken out of the plate."
+  },
+  "room-49-mine-line": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-34-under-prosperity",
+    "path": "art/backgrounds/room-34-under-prosperity.png",
+    "note": "D -- the game's other mine, timbered rock in the same hand. This one (the line, two passages alike and a cart) is lit by daylight down old shafts and cracks, not a lantern: the same day inside (errata 190, doc 108)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody is in the mine (doc 107). The hero only, in the master, and taken out of the plate."
+  },
+  "room-50-ledge": {
+   "visualType": "exterior-day",
+   "daylight": "Errata 190 (Tyler, 2026-11-08, approving doc 107): the camp is in daylight. The washout, the ledge and the five Gulch screens are drawn in daylight.",
+   "comparable": {
+    "id": "room-29-high-ridge",
+    "path": "art/backgrounds/room-29-high-ridge.png",
+    "note": "D -- the approved high place with a whole settlement far below, in the game's hand (Room 29's ridge over Consolation); relit to day by errata 190, and the same day as the washout (art/backgrounds/room-45-washout.png)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody on the ledge. The camp below is painted small into the plate; its people are specks with no lines."
   }
  }
 }

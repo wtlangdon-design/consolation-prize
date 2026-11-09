@@ -48,6 +48,22 @@ for (const section of doc23.split(/^## /m).slice(1)) {
   }
   doc23Sections.set(head, { acquired: /^\*(.+)\*$/m.exec(section)?.[1] ?? '', runs });
 }
+/**
+ * FIDDLER'S GULCH'S ITEMS ARE DOC 109'S (reference/fiddlers-gulch/brief.md: extracted from doc 109 directly, never
+ * copied into doc 23): `**NAME** *(item)*` and its LOOK and LISTEN runs, checked word for word as doc 23's are.
+ */
+const doc109 = readFileSync(resolve(ROOT, 'docs/109-fiddlers-gulch-lines.md'), 'utf8');
+const doc109Sections = new Map<string, Record<string, string[][]>>();
+for (const block of doc109.split(/^(?=\*\*[^*]+\*\* \*\(item\)\*)/m).slice(1)) {
+  const head = /^\*\*([^*]+)\*\*/.exec(block)![1]!;
+  const runs: Record<string, string[][]> = { LOOK_AT: [], LISTEN_TO: [] };
+  for (const [, verb, run] of block.split('\n').slice(1, 3).join('\n').matchAll(/\*\*(LOOK|LISTEN)\*\* (.+)$/gm)) {
+    runs[verb === 'LOOK' ? 'LOOK_AT' : 'LISTEN_TO']!.push([...run!.matchAll(/\d "([^"]+)"/g)].map((m) => m[1]!));
+  }
+  doc109Sections.set(head, runs);
+}
+/** Items whose hand-over is built later on the same trip, each with its reason (proofs/played-pending.json `items`). */
+const pendingSource = (JSON.parse(readFileSync(resolve(ROOT, 'proofs/played-pending.json'), 'utf8')).items ?? {}) as Record<string, string>;
 const doc23Rows = [...doc23.matchAll(/^\| ([a-z_]+) \| (.+?) \| (.+?) \|$/gm)]
   .filter((row) => row[1] !== 'Item').map(([, , full, display]) => ({ full: full!, display: display! }));
 const sectionOf = (id: string) => doc23Sections.get(content.items.get(id)?.short ?? '');
@@ -115,6 +131,16 @@ test('every item is doc 23\'s: one row and one section each, the names it gives,
   assert.deepEqual([...rows.keys()].filter((display) => !items.some((item) => item.short === display)), [],
     'doc 23 rows with no item in the manifest');
   for (const item of items) {
+    const gulch = doc109Sections.get(item.short ?? '');
+    if (gulch) {
+      for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
+        const rules = item.responses?.[verb] ?? [];
+        assert.deepEqual(rules.map((rule) => [rule.say, ...(rule.repeat ?? [])].join(' / ')).sort(),
+          gulch[verb]!.map((run) => run.join(' / ')).sort(), `${item.id}: ${verb} is not doc 109's, word for word`);
+        for (const rule of rules) assert.equal(1 + (rule.repeat?.length ?? 0), 3, `${item.id}: ${verb} has three variants (doc 05)`);
+      }
+      continue;
+    }
     const row = rows.get(item.short ?? '');
     assert.ok(row, `${item.id}: no doc 23 row draws "${item.short}"`);
     assert.equal(item.name, row.full, `${item.id}: its full name is doc 23's`);
@@ -153,11 +179,18 @@ test('every item has an icon cell inside the sheet, with something drawn in it',
 
 test('every item has a source, and the continuous playthrough carries every item it does not leave optional', () => {
   const all = sources();
-  for (const item of items) assert.ok(all.get(item.id)?.length, `${item.id}: nothing in the game hands it over`);
+  for (const item of items) {
+    if (pendingSource[item.id]) {
+      // A PENDING SOURCE COMES OFF THE LIST THE DAY IT IS BUILT: an item that is handed over and still listed fails.
+      assert.ok(!all.get(item.id)?.length, `${item.id} is handed over now -- take it out of proofs/played-pending.json's items`);
+      continue;
+    }
+    assert.ok(all.get(item.id)?.length, `${item.id}: nothing in the game hands it over`);
+  }
   // Doc 54 A5's bait and smoke are the two attempts the player may skip
   // (errata 68 A: "Both attempts are optional").
   const optional = new Set(['eggs', 'tonic']);
-  assert.deepEqual(items.map((item) => item.id).filter((id) => !everCarried.has(id) && !optional.has(id)), [],
+  assert.deepEqual(items.map((item) => item.id).filter((id) => !everCarried.has(id) && !optional.has(id) && !pendingSource[id]), [],
     'items the whole game, played through, never puts in his hand');
 });
 

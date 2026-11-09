@@ -4959,3 +4959,39 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Six subjects from doc 105 with three LOOKs and three LISTENs each, and three overrides; nobody in it; fourteen desks and fourteen hooks composed to doc 105's count from the room's own pixels. On the map at the schoolhouse; THE DOOR, with its own lines, goes back to the map. Held by `tests/room-41.test.ts`. Proofs under `renders/proofs/schoolhouse/`.
 
 **Open, for Tyler:** (a) The desks are one desk laid fourteen times (errata 183, Room 41 B); the hooks are two rails of seven. (b) The room is drawn farther off than the shops (a man is 398 there).
+
+## Q186 · Room 45, the washout: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 199, 200; reference/fiddlers-gulch/brief.md); BUILT, room-45 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Five subjects from doc 108 with three LOOKs and three LISTENs each, doc 49's seven refusals, Grievance waiting on her grass (her livery sheet), the signpost lettered. THE OLD MINE leads into the adit until the first crossing, then straight to the ledge. Reached by fixture r45-a until B3 switches over (errata 200). Held by `tests/gulch-mine.test.ts`.
+
+**Open, for Tyler:** the plate, in the playthrough (errata 72 E).
+
+## Q187 · Room 46, the mine's adit: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 199, 200; reference/fiddlers-gulch/brief.md); BUILT, room-46 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** The adit: the stake, three openings and the way out. The left and middle openings lead back out to the washout with BACK WHERE HE STARTED's next line; the right one, by the stake, leads on. Held by `tests/gulch-mine.test.ts`.
+
+**Open, for Tyler:** the plate, in the playthrough (errata 72 E).
+
+## Q188 · Room 47, the mine's climb: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 199, 200; reference/fiddlers-gulch/brief.md); BUILT, room-47 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** The climb: the props (SORRY carved), the shaft of light, the passage up (on) and the passage on (back to the adit, with the next line). Held by `tests/gulch-mine.test.ts`.
+
+**Open, for Tyler:** the plate, in the playthrough (errata 72 E).
+
+## Q189 · Room 48, the mine's two rocks: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 199, 200; reference/fiddlers-gulch/brief.md); BUILT, room-48 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** The two rocks: past the big rock leads on; past the other leads back to the climb, with the next line. The master's hole of sky over the right passage was taken out. Held by `tests/gulch-mine.test.ts`.
+
+**Open, for Tyler:** the plate, in the playthrough (errata 72 E).
+
+## Q190 · Room 49, the mine's line: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 199, 200; reference/fiddlers-gulch/brief.md); BUILT, room-49 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** The line: two passages that are mirror images; the left loops back to the line, the right is the way through (T_MINE_CROSSED). THE BRASS ROD on either passage tells, in turn; anywhere else in the mine it gives doc 108's wrong answers. Held by `tests/gulch-mine.test.ts`.
+
+**Open, for Tyler:** the plate, in the playthrough (errata 72 E).
+
+## Q191 · Room 50, the ledge: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 199, 200; reference/fiddlers-gulch/brief.md); BUILT, room-50 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** The ledge: the camp below, the cairn, the ravine, the mine (straight back to the washout) and THE PATH DOWN, a hotspot until Room 51 is built. Held by `tests/gulch-mine.test.ts`.
+
+**Open, for Tyler:** the plate, in the playthrough (errata 72 E).

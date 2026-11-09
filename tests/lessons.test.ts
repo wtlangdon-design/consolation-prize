@@ -350,3 +350,17 @@ test('a figure with barks and no tree says them where the player stands to talk 
   }
   assert.deepEqual(misses, []);
 });
+
+/* ---- Every figure declares its barks, even none ------------------------- */
+
+// Fiddler's Gulch (errata 200): Grievance at the washout was written with no `barks` at all, and the room's life
+// proof crashed the moment Thad walked near her -- the ambient layer reads a figure's barks by reputation state.
+// The type says the field is there; nothing held the content to it. A figure with nothing to say says so with `{}`.
+test('every ambient figure declares its barks, an empty set for one who says nothing', () => {
+  const manifest = JSON.parse(readFileSync(resolve(ROOT, 'content/manifest.json'), 'utf8'));
+  const missing = (manifest.ambient as string[]).filter((path) => {
+    const npc = JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
+    return !npc.barks || typeof npc.barks !== 'object';
+  });
+  assert.deepEqual(missing, [], 'figures with no barks object -- give one that says nothing `"barks": {}`');
+});

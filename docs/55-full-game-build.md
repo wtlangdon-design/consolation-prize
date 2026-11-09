@@ -139,6 +139,12 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | 39 | 2026-11-08 | #268 | 3 of 4 (master, plate with the people out, the boy on a child's template) | The bakehouse: five subjects from doc 105, the oven its light, the boy at the table's end with his tray, a figure who never speaks. On the map at the bakehouse. `?room=bakehouse`. Its door back has no lines (doc 36 Q183) |
 | 40 | 2026-11-08 | #268 | 3 of 4 (master, plate with Thad out, its door drawn on the Lane) | The empty storefront: five subjects from doc 105, nobody in it, the Lane's light through the boards, the sign lettered HARDWARE & SUNDRIES. In from the Lane by the door beside the boarded window (Tyler's ruling). `?room=empty_storefront`. Its door back has no lines (doc 36 Q184) |
 | 41 | 2026-11-08 | #268 | 3 of 4 (two masters that miscounted, the plate with every desk out; the fourteen desks and hooks composed from the room's own pixels) | The schoolhouse: six subjects from doc 105, nobody in it, fourteen desks and fourteen hooks to doc 105's count, the bell, the blank board, the cold stove. On the map at the schoolhouse. `?room=schoolhouse` (doc 36 Q185) |
+| 45 | 2026-11-08 | -- | 2 of 4 (master, plate) | The washout: the slide with its pine, the signpost lettered, the road back, the old mine; Grievance from her livery sheet. `?fixture=r45-a` (doc 36 Q186) |
+| 46 | 2026-11-08 | -- | 2 of 4 | The mine's adit: three openings and the stake. `?fixture=r46-a` (doc 36 Q187) |
+| 47 | 2026-11-08 | -- | 2 of 4 (master at 0.8, the sides extended) | The mine's climb: the passage up, the passage on, the props, the shaft of light. `?fixture=r47-a` (doc 36 Q188) |
+| 48 | 2026-11-08 | -- | 2 of 4 (the plate took out a hole of sky over the right passage) | The mine's two rocks. `?fixture=r48-a` (doc 36 Q189) |
+| 49 | 2026-11-08 | -- | 2 of 4 (the passages mirrored in code) | The mine's line: two passages alike, the cart. `?fixture=r49-a` (doc 36 Q190) |
+| 50 | 2026-11-08 | -- | 2 of 4 | The ledge above the camp. `?fixture=r50-a` (doc 36 Q191) |
 
 ## 8 · What playing found — held by a script where a script can hold it
 

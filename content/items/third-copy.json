@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "third_copy",
+  "name": "The third copy",
+  "short": "THE THIRD COPY",
+  "note": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (THE CHANGES IN CONSOLATION) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "My copy of the survey, the third, in Mr. Sump's own hand: 'Commencing at the stake, thereabouts; thence uphill, with feeling…'",
+        "repeat": [
+          "'…to the larger of the two rocks; thence along the line the rod preferred, some forty feet, until the humming stopped; thence home.'",
+          "Mr. Sump says no applicant ever asked for the third copy. I'm the first. I may frame it."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Paper, crisp. Nobody's folded it before me.",
+        "repeat": [
+          "It crackles. It's the best-kept thing I own.",
+          "Quiet. It's official now. It doesn't need to say anything."
+        ]
+      }
+    ]
+  }
+}

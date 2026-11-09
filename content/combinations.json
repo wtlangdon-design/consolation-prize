@@ -1194,6 +1194,98 @@
           "then": []
         }
       ]
+    },
+    {
+      "item": "brass_rod",
+      "room": "mine_line",
+      "target": "left_passage",
+      "puzzle": "G2",
+      "say": "Left, it shivers. Right, not a quiver.",
+      "note": "Doc 108, THE MINE · THE LINE: THE BRASS ROD · USE, at the line -- either passage, one run (ROD_AT_LINE). It tells, it does not open: the right passage leads out with or without it (doc 107).",
+      "rules": [
+        {
+          "case": "the rod at the line, first",
+          "when": {
+            "ROD_AT_LINE": 0
+          },
+          "say": "He holds the rod out down the left passage. It trembles in his hands like a plucked string. He turns it to the right passage. It goes still.",
+          "direction": true,
+          "then": [
+            {
+              "speaker": "thad",
+              "line": "Left, it shivers. Right, not a quiver."
+            }
+          ],
+          "add": {
+            "ROD_AT_LINE": 1
+          }
+        },
+        {
+          "case": "the rod at the line, second",
+          "when": {
+            "ROD_AT_LINE": 1
+          },
+          "say": "The same again. Left, it shivers. Right, it's still.",
+          "add": {
+            "ROD_AT_LINE": 1
+          }
+        },
+        {
+          "case": "the rod at the line, third and after",
+          "when": {
+            "ROD_AT_LINE": {
+              "atLeast": 2
+            }
+          },
+          "say": "A third time, the same answer. It has more patience than I do."
+        }
+      ]
+    },
+    {
+      "item": "brass_rod",
+      "room": "mine_line",
+      "target": "right_passage",
+      "puzzle": "G2",
+      "say": "Left, it shivers. Right, not a quiver.",
+      "note": "Doc 108, THE MINE · THE LINE: THE BRASS ROD · USE, at the line -- either passage, one run (ROD_AT_LINE). It tells, it does not open: the right passage leads out with or without it (doc 107).",
+      "rules": [
+        {
+          "case": "the rod at the line, first",
+          "when": {
+            "ROD_AT_LINE": 0
+          },
+          "say": "He holds the rod out down the left passage. It trembles in his hands like a plucked string. He turns it to the right passage. It goes still.",
+          "direction": true,
+          "then": [
+            {
+              "speaker": "thad",
+              "line": "Left, it shivers. Right, not a quiver."
+            }
+          ],
+          "add": {
+            "ROD_AT_LINE": 1
+          }
+        },
+        {
+          "case": "the rod at the line, second",
+          "when": {
+            "ROD_AT_LINE": 1
+          },
+          "say": "The same again. Left, it shivers. Right, it's still.",
+          "add": {
+            "ROD_AT_LINE": 1
+          }
+        },
+        {
+          "case": "the rod at the line, third and after",
+          "when": {
+            "ROD_AT_LINE": {
+              "atLeast": 2
+            }
+          },
+          "say": "A third time, the same answer. It has more patience than I do."
+        }
+      ]
     }
   ],
   "itemPools": {
@@ -1239,5 +1331,37 @@
     "No. They are two separate objects and I should like them to remain so.",
     "I have tried it. Nothing about the arrangement improved.",
     "I do not know what I expected."
+  ],
+  "areaPools": [
+    {
+      "id": "mine-brass-rod",
+      "item": "brass_rod",
+      "rooms": [
+        "mine_adit",
+        "mine_climb",
+        "mine_two_rocks",
+        "mine_line"
+      ],
+      "lines": [
+        "I held it out. It pointed at the floor, which is where it was already pointing.",
+        "It dipped toward my boots. My boots aren't gold.",
+        "It hangs there. I hang there. We get nowhere together."
+      ],
+      "source": "docs/108-the-washout-and-the-mine.md::THE MINE · WRONG ANSWERS, ANYWHERE IN IT"
+    },
+    {
+      "id": "mine-tuning-fork",
+      "item": "tuning_fork",
+      "rooms": [
+        "mine_adit",
+        "mine_climb",
+        "mine_two_rocks",
+        "mine_line"
+      ],
+      "lines": [
+        "Not down here. A mine has no business being in tune."
+      ],
+      "source": "docs/108-the-washout-and-the-mine.md::THE MINE · WRONG ANSWERS, ANYWHERE IN IT"
+    }
   ]
 }

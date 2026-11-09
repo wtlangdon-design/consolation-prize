@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "id": "washout_grievance",
+ "name": "GRIEVANCE",
+ "posture": "animal",
+ "room": "washout",
+ "x": 480,
+ "y": 803,
+ "zone": 2,
+ "approachRadius": 40,
+ "note": "GRIEVANCE AT THE WASHOUT (doc 108: 'Grievance waits here for as long as Thad is gone'), standing on the one patch of grass at the slide's edge, facing us. Her livery generation's whole-mule sheet (room-15 operation 4), which fits the day's light, so no operation was spent (the brief). Her examine lines, TALK TO and USE are the washout's GRIEVANCE hotspot's (doc 108).",
+ "barksNote": "A mule; no barks.",
+ "barks": {},
+ "sprite": {
+  "sheet": "art/actors/room-45-grievance.png",
+  "frames": [
+   [
+    2,
+    2,
+    107,
+    278
+   ],
+   [
+    111,
+    2,
+    107,
+    278
+   ],
+   [
+    220,
+    2,
+    107,
+    278
+   ],
+   [
+    329,
+    2,
+    107,
+    278
+   ],
+   [
+    438,
+    2,
+    107,
+    278
+   ],
+   [
+    547,
+    2,
+    107,
+    278
+   ]
+  ],
+  "rate": 0.22,
+  "phase": 0.4,
+  "breaks": [
+   [
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    4,
+    0
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    3,
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "frameNote": "0 rest · 1 breath (derived) · 2 still · 3 ears round · 4 her head turned to look left, at the mine · 5 a snort. A break every `breakEvery` seconds (errata 77).",
+  "figureHeight": 278,
+  "stature": 0.83,
+  "figureHeightNote": "The washout's man at her feet (y 803) is 334.7; she is cut at 0.83 of him, as the composition master drew her, and snapped to one level (errata 112).",
+  "provenance": "art/staging/room-45/grievance/grievance.json"
+ }
+}

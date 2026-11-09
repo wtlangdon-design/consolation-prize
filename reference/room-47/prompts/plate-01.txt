@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game, a fork in an old mine in daylight, placed in the middle of the canvas: a passage with steps climbing at the left, a level passage with rusted rails at the right, two timber props, and a bar of daylight falling from a hole in the roof. A man in a blue coat is standing on the floor. The flat grey strips around the picture are unfinished.
+
+Make exactly two changes:
+1. Remove the man. Paint what is behind him: the rock floor and the grit.
+2. Extend the chamber into the grey strips on the LEFT and RIGHT, so it fills the whole width: more of the same rough rock wall and the same rock floor on each side. Nothing new: no more openings, timbers or rails. The new parts match exactly: same pixel-art style and pixel grid, same colours, same perspective, the light falling off into dimness away from the bar of daylight.
+
+Change nothing else in the middle: the dim way back at the left edge, the climbing passage with its steps, the level passage and its rails, the two props and their beam, the hole in the roof with its disc of sky, and the bar of daylight stay exactly as they are. The grey above and below may stay grey. No people, no text, no border.

@@ -1,0 +1,9 @@
+Image 1 shows the inventory icons of my pixel-art adventure game as they are now: it tells you the STYLE and the SIZE to match. Image 2 shows three characters from the same game, the same style: soft-shaded pixel art, low texture, a dark outline, warm muted 1850s colours, readable against a dark ground.
+
+Draw THREE new inventory icons in exactly that style, on a flat pure magenta (#FF00FF) background, in one row of three, left to right, each object alone, centred in its third, a little wider than tall, all at the same scale family as the icons in Image 1, with clear magenta between them. Each must read at a glance on a dark panel at a small size, so give every object a light or warm face and a dark outline. None may look like any icon in Image 1.
+
+1. a crisp flat sheet of clean white paper, never folded, with neat black handwriting in lines and a curving boundary line drawn in black ink
+2. a slender Y-shaped brass divining rod, polished, with red thread wound round the grip at the bottom
+3. a fresh newspaper rolled up tight into a tube and tied round the middle with string, the ink very black on it
+
+Same pixel size and soft shading as Image 1. Crisp pixel edges. No glow, no text you can read, no numbers, no labels, no shadows, no ground.

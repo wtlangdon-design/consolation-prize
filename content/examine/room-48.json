@@ -1,0 +1,84 @@
+{
+  "room": 48,
+  "name": "THE MINE: THE TWO ROCKS",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS",
+    "docs/108-the-washout-and-the-mine.md::THE MINE · THE TWO ROCKS",
+    "docs/49-wrong-answers.md::ROOM 48 — THE MINE: THE TWO ROCKS"
+  ],
+  "subjects": [
+    {
+      "name": "THE BIG ROCK",
+      "LOOK_AT": [
+        "A boulder the size of a stagecoach, sitting in the middle of the chamber as if it had paid for the seat.",
+        "A passage goes round behind it. Everything in here goes round it. It's used to that.",
+        "I put my shoulder to it, for no reason I can defend. It didn't notice."
+      ],
+      "LISTEN_TO": [
+        "Not a whisper. It's very big and very quiet, and those go together.",
+        "A drip running down its side, finding the path it always finds.",
+        "The silence of something that will be here after everyone."
+      ],
+      "overrides": {
+        "TALK_TO": "I asked it to move, politely. It's been asked before, by better men, with dynamite."
+      }
+    },
+    {
+      "name": "THE OTHER ROCK",
+      "LOOK_AT": [
+        "A second boulder, smaller. In any other chamber it would be the big one.",
+        "It's a perfectly good rock. It's just been standing next to that one for ten thousand years.",
+        "I've decided to like this one best. Somebody should."
+      ],
+      "LISTEN_TO": [
+        "Grit running off it.",
+        "Water ticking on it, slower than on the big one.",
+        "Not a sound. It knows it's being compared."
+      ],
+      "overrides": {
+        "PICK_UP": "I tried. It's the small one, and it still beat me. I won't be telling the big one.",
+        "TALK_TO": "I told it I liked it best. I whispered, so the big one wouldn't hear."
+      }
+    },
+    {
+      "name": "THE WAY PAST THE BIG ROCK",
+      "LOOK_AT": [
+        "A passage behind the big rock, going on.",
+        "I'd have to squeeze past the rock to take it. The rock won't move for me. Few things do.",
+        "Dark beyond the rock, the same dark as everywhere."
+      ],
+      "LISTEN_TO": [
+        "Dark, and a drip in it.",
+        "Quiet air, along it.",
+        "A drip, and air. The same as the other way."
+      ]
+    },
+    {
+      "name": "THE WAY PAST THE OTHER ROCK",
+      "LOOK_AT": [
+        "A passage beyond the smaller rock, going on.",
+        "An easy walk past it. The small rock is accommodating. It has had to be.",
+        "It goes on into the dark, like everything down here that isn't a rock."
+      ],
+      "LISTEN_TO": [
+        "Dark, with a drip in it somewhere.",
+        "Quiet air, that way too.",
+        "Air, and a drip. The same as past the big one."
+      ]
+    },
+    {
+      "name": "THE WAY BACK",
+      "LOOK_AT": [
+        "Back toward the climb and the bar of daylight.",
+        "Back. I've grown fond of that shaft of light. It's the only thing down here with a view.",
+        "Back where the roof has a hole in it, and the hole has a sky."
+      ],
+      "LISTEN_TO": [
+        "The wind over the shaft, faint, behind me.",
+        "Nothing much. A drip, back the way I came.",
+        "A creak from the props, back there, then nothing."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,525 @@
+{
+  "schema": 1,
+  "id": "ledge",
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-50.json",
+      "reference/room-50/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "floor_0",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        100,
+        410,
+        600,
+        90
+      ]
+    },
+    {
+      "id": "floor_1",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        92,
+        500,
+        721,
+        89
+      ]
+    },
+    {
+      "id": "floor_2",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        84,
+        589,
+        840,
+        90
+      ]
+    },
+    {
+      "id": "floor_3",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        76,
+        679,
+        960,
+        89
+      ]
+    },
+    {
+      "id": "floor_4",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        68,
+        768,
+        1080,
+        90
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      100,
+      410
+    ],
+    [
+      700,
+      410
+    ],
+    [
+      1260,
+      858
+    ],
+    [
+      60,
+      858
+    ]
+  ],
+  "entrance": [
+    230,
+    440
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        230,
+        440
+      ],
+      "facing": "front",
+      "note": "Out of the mine's far end."
+    },
+    {
+      "from": "mine_line",
+      "at": [
+        230,
+        440
+      ],
+      "facing": "front",
+      "note": "The first crossing, out of the line's right passage."
+    },
+    {
+      "from": "washout",
+      "at": [
+        230,
+        440
+      ],
+      "facing": "front",
+      "note": "Through the mine from the washout, the way known (doc 107)."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "cairn",
+      "name": "THE CAIRN",
+      "rect": [
+        960,
+        410,
+        200,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A heap of stones on the edge, piled on purpose.",
+            "repeat": [
+              "A marker. For what, it doesn't say. Up here a man marks anything he might own later.",
+              "I added a stone. It seemed polite."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind in the gaps between the stones.",
+            "repeat": [
+              "A stone settling, then quiet.",
+              "Quiet. It isn't saying what it's for."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "Somebody built it carefully. I'm not going to be the man who undid it, on my first day."
+      },
+      "walkTo": {
+        "x": 1060,
+        "y": 856,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "path_down",
+      "name": "THE PATH DOWN",
+      "rect": [
+        1480,
+        300,
+        440,
+        564
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A path down the ravine wall, in zigzags, with a rope along the bad parts.",
+            "repeat": [
+              "Somebody put the rope in. Somebody else, I think, needed it.",
+              "Every turn of it is in view of the camp. They'll see me coming for a quarter of an hour."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Grit trickling down the zigzags.",
+            "repeat": [
+              "The rope creaking against its pegs.",
+              "At the bottom, a man, waiting. I can hear him not moving."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "I tested the rope. It held. I'd like that noted somewhere official."
+      },
+      "walkTo": {
+        "x": 1140,
+        "y": 840,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "camp_below",
+      "name": "THE CAMP BELOW",
+      "rect": [
+        1080,
+        240,
+        420,
+        600
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Fiddler's Gulch: tents, cabins, a river, and smoke going straight up.",
+            "repeat": [
+              "Every man down there is standing in water or guarding something. Some are doing both.",
+              "I've come two days to stand on a ledge and look at other men's gold. It's like a shop window."
+            ],
+            "then": [
+              "It looks rich from here."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water, and shovels, and nobody talking.",
+            "repeat": [
+              "A rocker going, slow, like a tired clock.",
+              "Somebody shouting 'MINE!' at somebody else, faintly."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I shouted 'Hello!' down. A hundred men looked up, and one of them pointed a pan at me."
+      },
+      "walkTo": {
+        "x": 1040,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ravine",
+      "name": "THE RAVINE",
+      "rect": [
+        560,
+        0,
+        1360,
+        240
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The ravine wall, straight down.",
+            "repeat": [
+              "I can see why nobody comes here. A hill has to fall on the road first.",
+              "A long way down. I've decided against finding out how long."
+            ],
+            "then": [
+              "The path is the only sensible way down, and it isn't very."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The river, a long way below.",
+            "repeat": [
+              "A pebble I kicked, still going.",
+              "Wind coming up the wall, cold."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "No. There's a path. I'll take the path."
+      },
+      "walkTo": {
+        "x": 520,
+        "y": 487,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_washout",
+      "name": "THE MINE",
+      "rect": [
+        80,
+        60,
+        250,
+        330
+      ],
+      "colour": 0,
+      "to": "washout",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The mine's far end, a hole in the cliff. It's the only door this town has.",
+            "repeat": [
+              "Back through it are the slide, the road, and Grievance, eating.",
+              "From this side it's just a hole. You'd never know it had opinions about rocks."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Cool air, breathing out.",
+            "repeat": [
+              "A drip, far back in the hill.",
+              "The hill breathing, slow."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 109: the way back, through the mine to the washout, the way known (doc 107).",
+      "walkTo": {
+        "x": 230,
+        "y": 425,
+        "facing": "back"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "floor_0",
+      "points": [
+        {
+          "x": 100,
+          "y": 410
+        },
+        {
+          "x": 700,
+          "y": 410
+        },
+        {
+          "x": 700,
+          "y": 500
+        },
+        {
+          "x": 100,
+          "y": 500
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 221,
+        "nearY": 858,
+        "nearHeight": 532
+      },
+      "neighbours": [
+        "floor_1"
+      ]
+    },
+    {
+      "id": "floor_1",
+      "points": [
+        {
+          "x": 92,
+          "y": 500
+        },
+        {
+          "x": 813,
+          "y": 500
+        },
+        {
+          "x": 813,
+          "y": 589
+        },
+        {
+          "x": 92,
+          "y": 589
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 221,
+        "nearY": 858,
+        "nearHeight": 532
+      },
+      "neighbours": [
+        "floor_0",
+        "floor_2"
+      ]
+    },
+    {
+      "id": "floor_2",
+      "points": [
+        {
+          "x": 84,
+          "y": 589
+        },
+        {
+          "x": 924,
+          "y": 589
+        },
+        {
+          "x": 924,
+          "y": 679
+        },
+        {
+          "x": 84,
+          "y": 679
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 221,
+        "nearY": 858,
+        "nearHeight": 532
+      },
+      "neighbours": [
+        "floor_1",
+        "floor_3"
+      ]
+    },
+    {
+      "id": "floor_3",
+      "points": [
+        {
+          "x": 76,
+          "y": 679
+        },
+        {
+          "x": 1036,
+          "y": 679
+        },
+        {
+          "x": 1036,
+          "y": 768
+        },
+        {
+          "x": 76,
+          "y": 768
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 221,
+        "nearY": 858,
+        "nearHeight": 532
+      },
+      "neighbours": [
+        "floor_2",
+        "floor_4"
+      ]
+    },
+    {
+      "id": "floor_4",
+      "points": [
+        {
+          "x": 68,
+          "y": 768
+        },
+        {
+          "x": 1148,
+          "y": 768
+        },
+        {
+          "x": 1148,
+          "y": 858
+        },
+        {
+          "x": 68,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 400,
+        "farHeight": 221,
+        "nearY": 858,
+        "nearHeight": 532
+      },
+      "neighbours": [
+        "floor_3"
+      ]
+    }
+  ],
+  "background": "art/backgrounds/room-50-ledge.png",
+  "lamps": [],
+  "onEnter": {
+    "set": {
+      "T_LEDGE_SEEN": true
+    },
+    "sayOnce": "T_LEDGE_SEEN",
+    "say": [
+      "Daylight. And below it, a whole camp in a ravine, with a river at the bottom. Fiddler's Gulch."
+    ]
+  },
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "floor_0",
+    "floor_1",
+    "floor_2",
+    "floor_3",
+    "floor_4"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-50/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120
+}

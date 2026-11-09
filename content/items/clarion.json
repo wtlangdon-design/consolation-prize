@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "clarion",
+  "name": "The Clarion",
+  "short": "THE CLARION",
+  "note": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (THE CHANGES IN CONSOLATION) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "This week's Clarion, smelling of ink, with my story on page one and my name spelled a new way.",
+        "repeat": [
+          "Page one. Mr. Frame says nobody ever buys the one they're in. I can see why.",
+          "Under my story, a notice for a lost dog. I'm in very good company."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Paper, rustling.",
+        "repeat": [
+          "A crackle, where the ink's still drying in the folds.",
+          "Quiet. It's said all it's going to say about me, in print."
+        ]
+      }
+    ]
+  }
+}

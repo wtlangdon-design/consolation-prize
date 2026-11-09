@@ -749,6 +749,13 @@
       "speaker": "boarding_a",
       "words": "She laughs for some time.",
       "where": "dialogue/amb-boarding-women root option 2"
+    },
+    {
+      "n": 77,
+      "class": "B",
+      "speaker": "thad",
+      "words": "He holds the rod out down the left passage. It trembles in his hands like a plucked string. He turns it to the right passage. It goes still.",
+      "where": "combinations (brass_rod on left_passage and right_passage, at the line, first)"
     }
   ]
 }

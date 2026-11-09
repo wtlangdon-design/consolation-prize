@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "mine_line",
+ "note": "ROOM 49's PROOF SPEC, from fixture r49-a. The two passages are mirror images (tools/art/room49-mirror.py).",
+ "fixture": "r49-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "The line has one visual state and nothing in it changes: the rod at the line is a performed direction and a line, never a picture or a sound (doc 107), and no state may show the way (the brief)."
+ }
+}

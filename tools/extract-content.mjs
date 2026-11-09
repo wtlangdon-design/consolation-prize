@@ -1150,8 +1150,8 @@ function combinations() {
     }
   }
 
-  // Pairs a later block adds (doc 57's, doc 54 A5's bait and smoke) are not doc 24's.
-  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 /.test(pair.note ?? '')).length;
+  // Pairs a later block adds (doc 57's, doc 54 A5's bait and smoke, doc 108's rod at the line) are not doc 24's.
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, /.test(pair.note ?? '')).length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
@@ -1698,8 +1698,103 @@ function combinations() {
     itemPools[id] = lines;
   }
 
+  const mine = gulchMine();
+  rebuilt.push(...mine.pairs);
   return write('content/combinations.json', {
-    ...existing, pairs: rebuilt, itemPools, globalPool: global,
+    ...existing, pairs: rebuilt, itemPools, areaPools: mine.areaPools, globalPool: global,
+  });
+}
+
+/**
+ * FIDDLER'S GULCH: THE ROD AND THE FORK IN THE MINE (doc 108; reference/fiddlers-gulch/brief.md, "What the engine
+ * needs" 3). Read from doc 108 where it is written, never typed here:
+ *  - THE BRASS ROD · USE, *at the line*: a pair on each of the line's two passages, its three variants said in turn
+ *    on a counter both share (ROD_AT_LINE), the first with its direction performed (the humming is shown, not heard);
+ *  - THE BRASS ROD · USE, *anywhere but the line*, and THE TUNING FORK · USE: area pools across the mine's four rooms,
+ *    after a pair and before the item's own pool (engine/core/VerbSystem.ts).
+ * The room and passage ids are routing, authored here as OPENING_PAIRS is; the words are the document's.
+ */
+const MINE_ROOMS = ['mine_adit', 'mine_climb', 'mine_two_rocks', 'mine_line'];
+const LINE_PASSAGES = ['left_passage', 'right_passage'];
+function gulchMine() {
+  const doc = read('docs/108-the-washout-and-the-mine.md');
+  const section = (heading) => {
+    const at = doc.indexOf(`## ${heading}`);
+    if (at < 0) throw new Error(`doc 108: no section "${heading}"`);
+    const rest = doc.slice(at + heading.length + 3);
+    return rest.slice(0, (/\n## |\n---\n/.exec(rest) ?? { index: rest.length }).index);
+  };
+  const row = (body, startsWith) => {
+    const line = body.split('\n').find((one) => one.startsWith(startsWith));
+    if (!line) throw new Error(`doc 108: no line starting "${startsWith}"`);
+    return line.slice(line.indexOf(' — ') + 3);
+  };
+  // `1 *(direction)* "words" · 2 "words" · 3 "words"`: each variant's direction and quotes, in order.
+  const variants = (text) => text.split(' · ').map((piece) => ({
+    direction: /\*\(([^)]+)\)\*/.exec(piece)?.[1]?.trim() ?? null,
+    lines: [...piece.replace(/\*\([^)]*\)\*/g, '').matchAll(/"([^"]+)"/g)].map((m) => m[1]),
+  }));
+  const wrong = section('THE MINE · WRONG ANSWERS, ANYWHERE IN IT');
+  const rodAnywhere = variants(row(wrong, '**THE BRASS ROD** · USE')).flatMap((one) => one.lines);
+  const forkAnywhere = variants(row(wrong, '**THE TUNING FORK** · USE')).flatMap((one) => one.lines);
+  const atLine = variants(row(section('THE MINE · THE LINE'), '**THE BRASS ROD** · USE'));
+  if (rodAnywhere.length !== 3 || forkAnywhere.length !== 1 || atLine.length !== 3) {
+    throw new Error(`doc 108: the mine's rod and fork lines read ${rodAnywhere.length}, ${forkAnywhere.length}, ${atLine.length}`);
+  }
+  const rules = atLine.map((one, n) => ({
+    case: `the rod at the line, ${['first', 'second', 'third and after'][n]}`,
+    when: { ROD_AT_LINE: n < 2 ? n : { atLeast: 2 } },
+    ...(one.direction
+      ? { say: one.direction, direction: true, then: one.lines.map((line) => ({ speaker: 'thad', line })) }
+      : { say: one.lines[0], ...(one.lines.length > 1 ? { then: one.lines.slice(1).map((line) => ({ speaker: 'thad', line })) } : {}) }),
+    ...(n < 2 ? { add: { ROD_AT_LINE: 1 } } : {}),
+  }));
+  const pairs = LINE_PASSAGES.map((target) => ({
+    item: 'brass_rod', room: 'mine_line', target, puzzle: 'G2', say: atLine[0].lines[0],
+    note: "Doc 108, THE MINE · THE LINE: THE BRASS ROD · USE, at the line -- either passage, one run (ROD_AT_LINE). It "
+      + 'tells, it does not open: the right passage leads out with or without it (doc 107).',
+    rules,
+  }));
+  const source = 'docs/108-the-washout-and-the-mine.md::THE MINE · WRONG ANSWERS, ANYWHERE IN IT';
+  return {
+    pairs,
+    areaPools: [
+      { id: 'mine-brass-rod', item: 'brass_rod', rooms: MINE_ROOMS, lines: rodAnywhere, source },
+      { id: 'mine-tuning-fork', item: 'tuning_fork', rooms: MINE_ROOMS, lines: forkAnywhere, source },
+    ],
+  };
+}
+
+/**
+ * FIDDLER'S GULCH'S THREE ITEMS (doc 109, THE CHANGES IN CONSOLATION): `**NAME** *(item)*` and its LOOK and LISTEN
+ * runs, three numbered lines each, extracted from doc 109 where they are written (the brief: never copied into doc
+ * 23). The id and the item's name are routing, as doc 23's table supplies them for its items.
+ */
+const GULCH_ITEMS = {
+  'THE THIRD COPY': { id: 'third_copy', name: 'The third copy' },
+  'THE BRASS ROD': { id: 'brass_rod', name: 'The brass rod' },
+  'THE CLARION': { id: 'clarion', name: 'The Clarion' },
+};
+function gulchItems() {
+  const doc = read('docs/109-fiddlers-gulch-lines.md');
+  return Object.entries(GULCH_ITEMS).map(([display, { id, name }]) => {
+    const at = doc.indexOf(`**${display}** *(item)*`);
+    if (at < 0) throw new Error(`doc 109: no "**${display}** *(item)*"`);
+    const body = doc.slice(at).split('\n').slice(1, 4).join('\n');
+    const responses = {};
+    for (const [verb, label] of [['LOOK_AT', 'LOOK'], ['LISTEN_TO', 'LISTEN']]) {
+      const line = new RegExp(`^\\*\\*${label}\\*\\* (.+)$`, 'm').exec(body);
+      if (!line) throw new Error(`doc 109: ${display} has no ${label} run`);
+      const lines = [...line[1].matchAll(/\d "([^"]+)"/g)].map((m) => m[1]);
+      if (lines.length !== 3) throw new Error(`doc 109: ${display} ${label} has ${lines.length} lines, not 3`);
+      responses[verb] = [{ say: lines[0], repeat: lines.slice(1) }];
+    }
+    return write(`content/items/${id.replace(/_/g, '-')}.json`, {
+      schema: 1, id, name, short: display,
+      note: 'EXTRACTED from docs/109-fiddlers-gulch-lines.md (THE CHANGES IN CONSOLATION) by tools/extract-content.mjs. '
+        + 'Do not edit: change doc 109 and re-run.',
+      responses,
+    });
   });
 }
 
@@ -5542,7 +5637,7 @@ function cutaways() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), hobRunning(), ozymandiaAtProsperity(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways(), ...waysOut()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), hobRunning(), ozymandiaAtProsperity(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...gulchItems(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways(), ...waysOut()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
   // Doc 58 rule 5: a reply whose spoken lines this pass reads differently is
