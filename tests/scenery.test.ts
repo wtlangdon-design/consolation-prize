@@ -43,7 +43,8 @@ for (const room of ['main_street']) {
     layer.arrived();
     const horses = layer.present.find((npc) => npc.id === 'hitching_horses');
     assert.ok(horses?.scenery, 'the horses are present, as scenery');
-    const at = { x: 1545, y: 800 };
+    // Over the group's middle, a fifth of a man above its feet: horse or rail, never bare sky.
+    const at = { x: horses!.x, y: horses!.y - 40 };
     assert.equal(layer.npcAt(at.x, at.y), undefined, 'no figure answers the pointer over them');
     assert.equal(state.targetAt(at.x, at.y)?.id, 'mud', 'the mud under them does');
   });
@@ -55,9 +56,12 @@ for (const room of ['main_street', 'main_street_dawn']) {
     const content = await loadContent(fsReader);
     const room_ = content.rooms.get(room)!;
     const boxes = new WalkBoxes(room_.walkBoxes!, () => true);
-    for (const [x, y] of [[1360, 840], [1545, 830], [1715, 850]] as const) {
+    // Read from where the horses stand (errata 198 moved them), not restated: their feet, both ends of the
+    // group's footprint, and the ground a man's half-height behind them.
+    const { x: hx, y: hy } = content.ambient.get('hitching_horses')!;
+    for (const [x, y] of [[hx - 165, hy - 10], [hx, hy - 20], [hx + 140, hy]] as const) {
       assert.equal(boxes.contains(x, y), false, `${x},${y} under the horses is not ground he can stand on`);
     }
-    assert.ok(boxes.contains(1545, 780), 'the ground behind them is');
+    assert.ok(boxes.contains(hx, hy - 80), 'the ground behind them is');
   });
 }

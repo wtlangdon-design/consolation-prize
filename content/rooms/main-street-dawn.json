@@ -587,7 +587,9 @@
       },
       "neighbours": [
         "mud_far_2",
-        "mud_mid_0"
+        "mud_mid_0",
+        "mud_mid_1",
+        "mud_mid_3"
       ]
     },
     {
@@ -621,9 +623,9 @@
       },
       "neighbours": [
         "mud_far_2",
-        "mud_mid_0",
         "mud_mid_1",
-        "mud_mid_3"
+        "mud_mid_4",
+        "mud_mid_6"
       ]
     },
     {
@@ -658,7 +660,7 @@
       "neighbours": [
         "mud_far_0",
         "mud_far_1",
-        "mud_mid_0"
+        "mud_mid_1"
       ]
     },
     {
@@ -669,11 +671,11 @@
           "y": 675
         },
         {
-          "x": 2553,
+          "x": 1226,
           "y": 675
         },
         {
-          "x": 2553,
+          "x": 1226,
           "y": 767
         },
         {
@@ -692,31 +694,27 @@
       },
       "neighbours": [
         "mud_far_0",
-        "mud_far_1",
-        "mud_far_2",
         "mud_mid_3",
-        "mud_near_0",
-        "mud_near_1",
-        "mud_near_2"
+        "mud_near"
       ]
     },
     {
       "id": "mud_mid_1",
       "points": [
         {
-          "x": 2703,
+          "x": 1558,
           "y": 675
         },
         {
-          "x": 3690,
+          "x": 2553,
           "y": 675
         },
         {
-          "x": 3690,
+          "x": 2553,
           "y": 767
         },
         {
-          "x": 2703,
+          "x": 1558,
           "y": 767
         }
       ],
@@ -730,15 +728,121 @@
         "nearHeight": 206
       },
       "neighbours": [
+        "mud_far_0",
         "mud_far_1",
+        "mud_far_2",
         "mud_mid_3",
-        "mud_near_1"
+        "mud_mid_6",
+        "mud_near"
       ]
     },
     {
       "id": "mud_mid_2",
       "points": [
         {
+          "x": 1226,
+          "y": 762
+        },
+        {
+          "x": 1558,
+          "y": 762
+        },
+        {
+          "x": 1558,
+          "y": 767
+        },
+        {
+          "x": 1226,
+          "y": 767
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_3",
+      "points": [
+        {
+          "x": 1226,
+          "y": 675
+        },
+        {
+          "x": 1558,
+          "y": 675
+        },
+        {
+          "x": 1558,
+          "y": 720
+        },
+        {
+          "x": 1226,
+          "y": 720
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_far_0",
+        "mud_mid_0",
+        "mud_mid_1"
+      ]
+    },
+    {
+      "id": "mud_mid_4",
+      "points": [
+        {
+          "x": 2703,
+          "y": 675
+        },
+        {
+          "x": 3690,
+          "y": 675
+        },
+        {
+          "x": 3690,
+          "y": 767
+        },
+        {
+          "x": 2703,
+          "y": 767
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_far_1",
+        "mud_mid_6",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_5",
+      "points": [
+        {
           "x": 2553,
           "y": 765
         },
@@ -765,11 +869,11 @@
         "nearHeight": 206
       },
       "neighbours": [
-        "mud_near_1"
+        "mud_near"
       ]
     },
     {
-      "id": "mud_mid_3",
+      "id": "mud_mid_6",
       "points": [
         {
           "x": 2553,
@@ -799,49 +903,15 @@
       },
       "neighbours": [
         "mud_far_1",
-        "mud_mid_0",
-        "mud_mid_1"
+        "mud_mid_1",
+        "mud_mid_4"
       ]
     },
     {
-      "id": "mud_near_0",
+      "id": "mud_near",
       "points": [
         {
           "x": 60,
-          "y": 767
-        },
-        {
-          "x": 1329,
-          "y": 767
-        },
-        {
-          "x": 1329,
-          "y": 858
-        },
-        {
-          "x": 60,
-          "y": 858
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 0,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 584,
-        "farHeight": 105,
-        "nearY": 858,
-        "nearHeight": 206
-      },
-      "neighbours": [
-        "mud_mid_0",
-        "mud_near_2"
-      ]
-    },
-    {
-      "id": "mud_near_1",
-      "points": [
-        {
-          "x": 1730,
           "y": 767
         },
         {
@@ -853,7 +923,7 @@
           "y": 858
         },
         {
-          "x": 1730,
+          "x": 60,
           "y": 858
         }
       ],
@@ -870,42 +940,8 @@
         "mud_mid_0",
         "mud_mid_1",
         "mud_mid_2",
-        "mud_near_2"
-      ]
-    },
-    {
-      "id": "mud_near_2",
-      "points": [
-        {
-          "x": 1329,
-          "y": 767
-        },
-        {
-          "x": 1730,
-          "y": 767
-        },
-        {
-          "x": 1730,
-          "y": 808
-        },
-        {
-          "x": 1329,
-          "y": 808
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 0,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 584,
-        "farHeight": 105,
-        "nearY": 858,
-        "nearHeight": 206
-      },
-      "neighbours": [
-        "mud_mid_0",
-        "mud_near_0",
-        "mud_near_1"
+        "mud_mid_4",
+        "mud_mid_5"
       ]
     }
   ],
@@ -914,15 +950,15 @@
     {
       "id": "hitching_rail",
       "sheet": "art/props/room-36-hitching-rail-dawn.png",
-      "x": 1545,
-      "y": 850,
+      "x": 1405,
+      "y": 755,
       "frame": [
         0,
         0,
-        443,
-        261
+        367,
+        216
       ],
-      "note": "Errata 187. Tyler, 2026-11-08: \"At dawn I think the horses should all be gone. Just the hitching post is there.\" Room 2's hitching rail, empty: cut from the night group's rest frame, at the engine's own scale for it, under the dawn's light (tools/art/hitching-rail-dawn.py). Its obstacle stays."
+      "note": "Errata 187. Tyler, 2026-11-08: \"At dawn I think the horses should all be gone. Just the hitching post is there.\" Room 2's hitching rail, empty: cut from the night group's rest frame, at the engine's own scale for it, graded as the night draws it and then under the dawn's light (tools/art/hitching-rail-dawn.py). Its obstacle stays. Errata 198 moved the night group back to 1405,755, and the empty rail with it, re-cut at the scale the room's curve gives there."
     }
   ],
   "occlusionPlanes": [],
