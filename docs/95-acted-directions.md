@@ -135,7 +135,7 @@ Counts: **A 26 · B 3 · C 50** — 79 directions, every one flagged `"direction
 | 98 | B | frame | He presses it on Thad, still damp. | dialogue/frame FRA_B1 options 1 and 2 |  |  |  |  |  | Fiddler's Gulch, Consolation's changes (doc 109 B1; errata 213): the Clarion handed over wet from the press. A give, and Frame's sheet has none; printed until a pose is drawn. |
 | 99 | C | sump | He goes into the back. He is gone some time. | combinations (filing_fee on sump, after both) |  |  |  |  |  | Fiddler's Gulch, Consolation's changes (doc 109 A9; errata 213): "He is gone some time" is the joke, and it is time passing, which no pose holds. |
 | 100 | B | ozymandia | She takes a second, identical rod from under the table. | dialogue/ozymandia OZY_A1 option 9 |  |  |  |  |  | Fiddler's Gulch, Consolation's changes (doc 109 G1; errata 213): a reach under the table, physical, and her sheet has none; printed until a pose is drawn. "Identical" is told either way. |
-| 101 | C | thad | Thad climbs on. Grievance considers it, then turns for home. | rooms/washout departure (the ride home) |  |  |  |  |  | Fiddler's Gulch, the trip's close (doc 108; errata 213): said over black as the ride home begins; nobody is on screen to act it. |
+| 101 | C | thad | Thad climbs on. Grievance considers it, then turns for home. | rooms/washout departure (the ride home) |  |  |  |  |  | Fiddler's Gulch, the trip's close (doc 108; errata 213): printed over the washout, then the ride goes over black. Climbing on would need a mounted Thad and a turning mule, neither drawn, and "considers it" is the joke, told. |
 
 ## When a B pose is drawn
 
