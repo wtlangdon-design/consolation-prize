@@ -153,7 +153,7 @@ Twenty-four. Distribution matches the puzzle graph: 4 from Vessel's first duel, 
 
 **23.**
 > *"I have never been wrong about a claim in my life."*
-> **"You have been right about exactly one, Colonel, and you have spent twelve years making sure nobody digs it."**
+> **"You have been right about exactly one, Colonel. You spent twelve years making sure nobody digs it."**
 
 **24.** — *see Duel Four.*
 

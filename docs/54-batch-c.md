@@ -242,7 +242,7 @@
 ## C3/C4 — the office, empty *(errata 68 D)*
 
 *While the funeral C3 manufactures is running, the room is drawn without Fanshawe. On first entering it:*
-> "Empty. It is the first time I have seen this room without somebody being generous in it."
+> "Empty. I have never seen this room without somebody being generous in it."
 
 > **THE SUBMISSION LOG** · PICK UP, *empty office* — "Nine years of priority submissions, filed one day a month, every month, in one hand. Winnie is going to want to see this, and she is not going to enjoy it." → the padded log (C4)
 > **THE STOCK PORTRAIT DRAWER** · OPEN or PICK UP, *empty office* — "The drawer is full of the same gentleman. Dozens of him, stacked, all looking nobly at nothing. Every one of him is Obadiah Mott." → the fake photograph (C4)
