@@ -2099,6 +2099,11 @@ export interface NodeCounter {
 }
 
 export interface DialogueNode {
+  /**
+   * THE GOODBYE AFTER AN EMOTIONAL SCENE (errata 225). While `when` holds, the node's universal exit is said as
+   * `text` -- one quiet line written for the moment -- instead of the next comic goodbye in the pool.
+   */
+  quietExit?: { when?: Condition; text: string };
   /** Doc 04 SOW_C1: a running total on screen while the node is open. */
   counter?: NodeCounter;
   /**
@@ -2129,6 +2134,11 @@ export interface DialogueNode {
    * the node opens.
    */
   openingOnce?: string;
+  /**
+   * WHAT THE OPENING BECOMES once `openingOnce` is set (errata 225): Frame's "You're new!" was said on every visit
+   * through three acts. Absent, a heard opening is simply not said again.
+   */
+  returnOpening?: { speaker: string; line: string }[];
   /**
    * WHAT THE OPENING DOES, once, with `openingOnce`. Doc 04 WIN_B4: "The
    * opening completes C6 and issues Document B." Performed when the tree
