@@ -39176,6 +39176,67 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-09T00:08:05.186Z"
+  },
+  {
+   "attempt": 9,
+   "role": "plate",
+   "assetId": "room-11",
+   "subject": "room-11-fanshawe-office",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/unacted-moments/dinner-table-prompt-03.txt",
+   "promptHash": "5240b384f32a46f52f2a71538bc8d4b8ce381849eb7785df803f495c0175b488",
+   "references": [
+    {
+     "path": "art/staging/room-11/dinner-03/table-now.png",
+     "hash": "8c31a65cccee9f8df700ef41a46155a5ac6b15229c10d17526422fa293516ca2",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-11/dinner-03/layout.png",
+     "hash": "9d94d72b13fe29354410a24ff07d34165e9ce03ae08e98f815778effb76a1fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-11/dinner-02/where-they-sit.png",
+     "hash": "a475ba2266fc2fd9b5c6e90352f1c6d7b5d9e0a2370bf028e670c26668ca6476",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "8c31a65cccee9f8df700ef41a46155a5ac6b15229c10d17526422fa293516ca2",
+   "sourcePath": "art/staging/room-11/dinner-03/table-now.png",
+   "out": "art/staging/room-11/dinner-03/source.png",
+   "outputHash": "031e8bd4e5bfa330c8060dfb5260608c8d73380033140d5aca079b67c71e1206",
+   "bytes": 2099554,
+   "usage": {
+    "input_tokens": 5126,
+    "input_tokens_details": {
+     "image_tokens": 4608,
+     "text_tokens": 518
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 6677
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T00:11:02.978Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-09: \"One more op, with a map (Recommended)\" (room-11 cap raised to 9) -- attempt 8's table re-laid to a marked layout, one place before each man",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T00:11:02.984Z"
   }
  ],
  "promotions": [
