@@ -6152,3 +6152,21 @@ Four were real, and are fixed:
 - **The last duel had no stakes on screen.** Fanshawe's challenge now ends: "Lose, and nobody in town believes a word you file." (doc 03).
 
 Lesson: `tests/gifts-shown.test.mjs` requires every dialogue option that gives an item to show the handover in a performed direction, or to be listed with the reason its words already hand the thing over (three are listed). The map as it was fails it. The fee and the stakes are matters of taste, recorded as a row in doc 55 §8.
+
+# 229 · THE VOICE PASS ON THE MAIN PATH — TYLER, 2026-11-09 ("Proceed with all the necessary fixes")
+
+This entry covers the narration habits the feel review found on errata 221's transcript. The lines are rewritten to doc 59 under errata 100's dialogue pass, in the documents. No puzzle, flag or fact changes.
+
+- **Repeated shapes.**
+  - "The first X in Y" came four times. Two of them were Thad's, and they are reworded:
+    - the parlor piano's "first honest work" is now the "most honest work" (docs 24, 57). This frees Winnie's "first honest transaction at this window in nine years" to stand alone;
+    - the Colonel's empty office is now "I have never seen this room without somebody being generous in it" (doc 54).
+  - The survey line at the counter is no longer the twin of the fee line after it ("…which I am told is…", twice running). It now reads: "He has read it without expression. In this office, that is the highest mark." (doc 57).
+- **A joke that explained itself.** Ozymandia's "That was the filing fee. It is now a divining fee." loses its explanation, "Money out here changes careers faster than men do." (doc 57).
+- **One idea a line.** The arrival below Prosperity was one paragraph holding four ideas. It is now three lines, said in turn (doc 57 F1; the pair's rule carries `then`).
+- **Counters land; they don't argue.** Pair 23's counter is split in two sentences (doc 03).
+- **Kept.**
+  - "Four minutes" runs from the piano tunings to the coffin to the packing. It escalates rather than repeats, so it stays.
+  - The truth gambit's long line stays long. It is the one counter allowed to be.
+
+Lesson: none -- a voice rewrite, not a defect fixed. The narration-template check (errata 226) now holds these habits on every build.
