@@ -5941,6 +5941,20 @@ The brief's last step. Every line is extracted from docs 108 and 109; docs 02, 0
 - **The fault.** The lookout is won by giving him the Clarion. Giving him anything else except the deed was answered "He wants proof I own nothing. Handing him things isn't helping." That tells the player to stop giving him things, which is the verb that solves.
 - **The fix**, in doc 109, written under the Gulch's writing exception (errata 191 and 194): "That proves I own something. He wants it in writing that I don't." It says what he wants, as doc 94's lines do, and never names the paper or the action. It was re-extracted into `content/combinations.json`'s target pool.
 - **The lesson** is `tests/target-pool-honest.test.mjs`. It fails if a target's catch-all line says the verb is no use while an item in its `except` list solves on that target. The old line makes it fail.
+# 217 · THE RECORD, CAUGHT UP WITH THE GULCH — TYLER, 2026-11-08 ("Go")
+
+*An audit of Fiddler's Gulch as built (Tyler's "Go") found the game playing as designed. It found three faults in play, which errata of their own fix: openings that are never spoken, old saves, and the traversal. It also found places where the record still describes the game before the trip. This entry brings the record up to date.*
+
+- **Ruling 5's count is now 52.** Ruling 5 says 45, and "The traversal script uses this list of 45". The canonical list is now 52: those 45, and the Gulch's seven, G1–G5, G8 and G9 (G6 and G7 are B4 and B5). It lives in `tools/check-puzzle-graph.mjs` (errata 213). CLAUDE.md and doc 02 already say 52. `README.md` now does too.
+- **Ruling 6's count is now 52 screens.** The Gulch adds ten (Rooms 45–54) to ruling 6's 42. Every Gulch screen is painted, so the backgrounds are 51.
+- **Doc 57 gains pointers at B4, B5 and B6:**
+  - B4 is G6, in the grog tent;
+  - B5 is G7, on the bar;
+  - Duel Two's pool is pairs 1–21, 25 and 26;
+  - `T_VESSEL_FOUND` is now written at G9.
+
+  Each pointer is a note: no line was changed, and the extraction is unchanged.
+- **One sound cue was not built.** Doc 45's `R45-RIDE`, hooves under the black on both rides, was never built. It is taken up by the errata that fixes the openings.
 
 # 218 · SPOKEN OPENINGS, OLD SAVES MIGRATED, AND THE RIDE'S HOOVES — TYLER, 2026-11-08 ("Go")
 
