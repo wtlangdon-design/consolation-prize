@@ -5102,6 +5102,21 @@ function fanshaweTree() {
   const turn = /\*\*The turn:\*\*[^*]*\*"([^"]+)"\*/.exec(body)?.[1];
   if (!turn) throw new Error('doc 04 FAN_C1: Thad\'s aside ("The turn") was not found');
   const SPEAKER = 'fanshawe';
+  // DOC 120 I-1, the two FAN_A2 rows it rewrites, read from its THE LINES.
+  const dinner = (() => {
+    const rows = read('docs/120-act-one-by-hand.md').split('\n');
+    const after = (start) => {
+      const row = rows.find((one) => one.startsWith(start));
+      if (!row) throw new Error(`doc 120: no line starting ${start}`);
+      return row.slice(row.indexOf(' — ') + 3);
+    };
+    const six = scenesBCWords(after('**`FAN_A2` option 6**'), 'thad', { FANSHAWE: SPEAKER });
+    const closing = scenesBCWords(after('**`FAN_A2`, leaving the conversation**'), 'thad', { FANSHAWE: SPEAKER }).first;
+    if (six.first.length !== 2 || !six.first[1].direction || six.second.length !== 1 || closing.length !== 1) {
+      throw new Error('doc 120 I-1: FAN_A2 option 6 or its closing does not read');
+    }
+    return { six: { then: [six.first[1]], repeat: six.second[0].line }, closing: closing[0].line };
+  })();
   const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
   const ROUTE = {
@@ -5111,15 +5126,19 @@ function fanshaweTree() {
     'FAN_A1:2': { gives: ['company_map'], puzzle: { A4: 'complete' } },
     // THE HANDKERCHIEF ARRIVES ON SCREEN (errata 228): doc 57's knocked glass is played before "Keep it. I have
     // dozens.", which otherwise named an object nobody had seen.
-    'FAN_A2:6': { then: [...(beat3Staging ? [{ speaker: SPEAKER, ...beat3Staging, ...(beat3Staging.direction ? {} : {}) }] : []),
-      { speaker: SPEAKER, line: beat3 }], gives: ['handkerchief'], set: { T_DINED: true },
-      puzzle: { A10: 'complete' }, ends: true },
+    // THE DINNER IS ENDED BY HAND (doc 120 I-1; errata 248): the cover put back over the contract (Room 11's CLOSE)
+    // is what carries doc 57's beat 3, THE HANDKERCHIEF, T_DINED and A10 now. Option 6 is said, the Colonel agrees,
+    // and the dish is still there: it stays on the menu and answers again (`dinner.six`).
+    'FAN_A2:6': { then: dinner.six.then, retain: true, repeat: dinner.six.repeat },
     'FAN_B1:1': { goto: 'FAN_B2' },
     // THE WAR'S PAYOFF (errata 184): "available in Act III with all five" (doc 04, THE WAR).
     'FAN_B1:6': { when: { ACT: { atLeast: 3 }, WAR_CONTRADICTIONS: { atLeast: 5 } } },
     'FAN_C1:1': { then: [{ speaker: 'thad', line: turn }], set: { ACT: 3, ...(actOpenings()[3] ? { [actOpenings()[3].due]: true } : {}) }, puzzle: { E0b: 'complete' } },
   };
-  const EXIT_SAY = { FAN_A2: leaving };
+  // Leaving the conversation is no longer leaving the table (doc 120 I-1): doc 57's line for leaving is said at the
+  // door (Room 11's transit), and the conversation closes on doc 120's.
+  const EXIT_SAY = { FAN_A2: dinner.closing };
+  void leaving;
   const ENTRY = [
     ['FAN_C1', { T_CLAIM1_BLANK: true, T_EXCAVATION_CLAUSE: false }],
     ['FAN_A2', { T_BORDERS_MOTT: true, T_DINED: false }],
@@ -5200,6 +5219,8 @@ function fanshaweTree() {
       if (route.gives) option.gives = route.gives;
       if (route.puzzle) option.puzzle = route.puzzle;
       if (route.ends) option.ends = true;
+      if (route.retain) { option.afterUse = 'retain'; option.tag = 'TOPIC'; }
+      if (route.repeat) option.repeat = route.repeat;
       options.push(option);
     }
     if (!hasExit) {

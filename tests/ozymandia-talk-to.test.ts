@@ -66,7 +66,28 @@ test('every other verb on her is his alone: no answer from her', async () => {
   const staged = personLines(state.room, her, 'LOOK_AT', (when) => state.flags.test(when), layer.hitBox(her),
     (one) => layer.barkLinesFor(one));
   assert.ok(staged === null || staged.answer.length === 0);
-  assert.ok(staged === null || staged.target.walkTo === undefined, 'only TALK TO walks over first');
+  assert.ok(staged === null || staged.target.walkTo === undefined, 'a look does not walk over');
+});
+
+test('a verb done with his hands walks him to the person first, as TALK TO does (errata 248)', async () => {
+  const { state, layer } = await atTheClaimAfterTheVoid();
+  let tried = 0;
+  for (const room of state.content.rooms.values()) {
+    for (const [id, verbs] of Object.entries(room.peopleResponses ?? {})) {
+      const npc = state.content.ambient.get(id);
+      if (!npc?.walkTo) continue;
+      for (const verb of Object.keys(verbs)) {
+        const every = () => true;
+        const hands = personLines(room, npc, verb, every, layer.hitBox(npc), () => [], true);
+        const eyes = personLines(room, npc, verb, every, layer.hitBox(npc), () => [], false);
+        if (!hands || !eyes || verb === 'TALK_TO') continue;
+        assert.deepEqual(hands.target.walkTo, npc.walkTo, `${room.id}: ${verb} on ${id} walks him to where he stands with that person`);
+        assert.equal(eyes.target.walkTo, undefined);
+        tried += 1;
+      }
+    }
+  }
+  assert.ok(tried > 0, 'a person with hands-on lines and a place to stand');
 });
 
 test('the scene walks up to a person before her lines, through the staged chain', async () => {
@@ -76,6 +97,8 @@ test('the scene walks up to a person before her lines, through the staged chain'
   const at = scene.indexOf('const personal = npc && chosen !== null');
   assert.ok(at > 0, 'the people path asks core/PersonLines.ts');
   const path = scene.slice(at, scene.indexOf('return;', at));
-  assert.match(path, /if \(chosen === 'TALK_TO'\) this\.beginInteraction\(personal\.target, chosen\)/);
+  // Errata 248: and before a verb done with his hands too. Only LOOK and LISTEN answer from where he stands.
+  assert.match(path, /if \(!fromAfar\.has\(chosen\)\) this\.beginInteraction\(personal\.target, chosen\)/);
+  assert.match(scene, /const fromAfar = new Set\(this\.state\.content\.verbs\.examineVerbs \?\? \[\]\)/);
   assert.match(scene, /this\.pendingSay\.push\(\.\.\.this\.personTarget\.answer\)/);
 });

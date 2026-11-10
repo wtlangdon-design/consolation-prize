@@ -582,6 +582,64 @@
     "fanshawe2",
     "fanshawe6"
    ],
+   "leave": true,
+   "note": "Errata 248 (doc 120 I-1). Said, and agreed with; the dish is still there.",
+   "expect": {
+    "flags": {
+     "T_DINED": false
+    },
+    "dialogue": null
+   }
+  },
+  {
+   "id": "A10.2a",
+   "puzzle": "A10",
+   "do": "verb",
+   "verb": "USE",
+   "on": "my_glass",
+   "note": "Errata 248 (doc 120 I-1). The wine that takes itself.",
+   "expect": {
+    "flags": {
+     "T_DINED": false
+    }
+   }
+  },
+  {
+   "id": "A10.2b",
+   "puzzle": "A10",
+   "do": "verb",
+   "verb": "OPEN",
+   "on": "covered_dish",
+   "note": "Errata 248 (doc 120 I-1). The contract, served.",
+   "expect": {
+    "flags": {
+     "T_CONTRACT_SERVED": true
+    },
+    "targets": [
+     "contract"
+    ]
+   }
+  },
+  {
+   "id": "A10.2c",
+   "puzzle": "A10",
+   "do": "verb",
+   "verb": "PUSH",
+   "on": "contract",
+   "note": "Errata 248 (doc 120 I-1).",
+   "expect": {
+    "flags": {
+     "T_DINED": false
+    }
+   }
+  },
+  {
+   "id": "A10.2d",
+   "puzzle": "A10",
+   "do": "verb",
+   "verb": "CLOSE",
+   "on": "contract",
+   "note": "Errata 248 (doc 120 I-1). The game's solving CLOSE: the cover goes back on it.",
    "expect": {
     "puzzles": [
      "A10"
@@ -592,7 +650,9 @@
     "carrying": [
      "handkerchief"
     ],
-    "dialogue": null
+    "notCarrying": [
+     "invitation"
+    ]
    }
   },
   {

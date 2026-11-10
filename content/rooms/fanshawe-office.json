@@ -12,6 +12,148 @@
   "horizon": 320,
   "hotspots": [
     {
+      "id": "my_glass",
+      "name": "MY GLASS",
+      "rect": [
+        1224,
+        462,
+        34,
+        58
+      ],
+      "when": {
+        "T_BORDERS_MOTT": true,
+        "T_DINED": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "My glass.",
+            "repeat": [
+              "The wine comes up to the same line each time, like a tide with a patron.",
+              "I have never seen him pour. I have only seen the bottle put down."
+            ],
+            "then": [
+              "It was full when I sat down and it has been full ever since, whatever I do to it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A small note, when the bottle touches the rim. He plays it very well.",
+            "repeat": [
+              "Wine, arriving. It does not glug. He would not allow it to glug.",
+              "Nothing. It is full, and full things are quiet."
+            ]
+          }
+        ],
+        "PUSH": [
+          {
+            "say": "I moved it away. He moved it back, with the air of a man returning my hat.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE GLASS, TRIED** - PUSH"
+          }
+        ],
+        "PULL": [
+          {
+            "say": "I moved it away. He moved it back, with the air of a man returning my hat.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE GLASS, TRIED** - PUSH"
+          }
+        ],
+        "PICK_UP": [
+          {
+            "say": "I have it. So has he, in every way that signifies.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE GLASS, TRIED** - PICK UP"
+          }
+        ],
+        "USE": [
+          {
+            "say": "Thad drinks. The glass is full again before it reaches the cloth.",
+            "direction": true,
+            "then": [
+              "One glass, by my count. By the glass's count, none."
+            ],
+            "repeat": [
+              "Two. I am keeping the tally on my fingers, under the table, where he cannot refill them.",
+              "I have stopped counting. The glass never started."
+            ],
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE GLASS, TRIED** - USE"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1241,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "bottle",
+      "name": "THE BOTTLE",
+      "rect": [
+        1083,
+        435,
+        34,
+        94
+      ],
+      "when": {
+        "T_BORDERS_MOTT": true,
+        "T_DINED": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A dark bottle with a label in French.",
+            "repeat": [
+              "It is never emptier. I am beginning to think there is a second one, and that they take turns.",
+              "The label has a château on it. The château has more windows than Consolation."
+            ],
+            "then": [
+              "It has been at this table longer than I have and knows the form."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing, while it stands. It is biding his time for him.",
+            "repeat": [
+              "A cork somewhere under the table, being managed.",
+              "The glass, ringing a little, the way a thing does when it knows what is coming."
+            ]
+          }
+        ],
+        "CLOSE": [
+          {
+            "say": "It has no cork that I can find. I do not believe he has ever needed one.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE BOTTLE, TRIED** - CLOSE"
+          }
+        ],
+        "USE": [
+          {
+            "say": "I do not pour at this table. I have looked for the chance.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE BOTTLE, TRIED** - USE"
+          }
+        ],
+        "OPEN": [
+          {
+            "say": "I do not pour at this table. I have looked for the chance.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE BOTTLE, TRIED** - USE"
+          }
+        ],
+        "PICK_UP": [
+          {
+            "say": "He has it before I do. He has had it since before I thought of it.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE BOTTLE, TRIED** - PICK UP"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1100,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
       "id": "submission_log",
       "name": "THE SUBMISSION LOG",
       "rect": [
@@ -23,6 +165,14 @@
       "when": {
         "T_QUEUE_PADDED": false
       },
+      "whenAny": [
+        {
+          "T_BORDERS_MOTT": false
+        },
+        {
+          "T_DINED": true
+        }
+      ],
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -163,7 +313,8 @@
         46
       ],
       "when": {
-        "T_DINED": false
+        "T_DINED": false,
+        "T_BORDERS_MOTT": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -188,6 +339,217 @@
       },
       "walkTo": {
         "x": 938,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "covered_dish",
+      "name": "THE COVERED DISH",
+      "rect": [
+        858,
+        490,
+        94,
+        60
+      ],
+      "when": {
+        "T_BORDERS_MOTT": true,
+        "T_DINED": false,
+        "T_CONTRACT_SERVED": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A silver cover the size of a saddle. Whatever is under it has been kept warm for me.",
+            "repeat": [
+              "I can see the whole table in it, bent, and the Colonel at the middle of the bend.",
+              "Everything else has been pressed on me twice. This he has not mentioned once."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. A cover keeps the sound in with the heat.",
+            "repeat": [
+              "A very small tick, as the silver cools. It is in no hurry and neither is he.",
+              "Nothing. It is the only quiet thing on the table, and I do not find that restful."
+            ]
+          }
+        ],
+        "CLOSE": [
+          {
+            "say": "It is closed. That is the difficulty with it.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE DISH, TRIED** - CLOSE"
+          }
+        ],
+        "PUSH": [
+          {
+            "say": "It does not slide. It has been set down by a man who meant it to stay.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE DISH, TRIED** - PUSH"
+          }
+        ],
+        "PULL": [
+          {
+            "say": "It does not slide. It has been set down by a man who meant it to stay.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE DISH, TRIED** - PUSH"
+          }
+        ],
+        "PICK_UP": [
+          {
+            "say": "It is the size of a saddle and it is his. I should need a horse and a reason.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE DISH, TRIED** - PICK UP"
+          }
+        ],
+        "OPEN": [
+          {
+            "say": "Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract.",
+            "by": "fanshawe",
+            "direction": true,
+            "then": [
+              {
+                "speaker": "fanshawe",
+                "line": "Ah! You've found the fish. Take your time with it, Mr. Grubb. I never hurry a man at his fish."
+              }
+            ],
+            "set": {
+              "T_CONTRACT_SERVED": true
+            },
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE DISH, TRIED** - OPEN"
+          }
+        ],
+        "USE": [
+          {
+            "say": "Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract.",
+            "by": "fanshawe",
+            "direction": true,
+            "then": [
+              {
+                "speaker": "fanshawe",
+                "line": "Ah! You've found the fish. Take your time with it, Mr. Grubb. I never hurry a man at his fish."
+              }
+            ],
+            "set": {
+              "T_CONTRACT_SERVED": true
+            },
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE DISH, TRIED** - OPEN"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 905,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "contract",
+      "name": "THE CONTRACT",
+      "rect": [
+        858,
+        490,
+        94,
+        60
+      ],
+      "when": {
+        "T_BORDERS_MOTT": true,
+        "T_DINED": false,
+        "T_CONTRACT_SERVED": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "'The undersigned, being of sound mind and well dined.' My name is in it already, spelled correctly, which in this town amounts to a warning.",
+            "repeat": [
+              "It is very warm, and very short, and the parsley is fresh. He has gone to more trouble over this than over the soup.",
+              "There is a line at the bottom with nothing on it. The whole dinner has been walking me toward that line."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper, settling on hot china. It sounds comfortable there.",
+            "repeat": [
+              "Nothing. It has said everything it means to, in small type.",
+              "The Colonel, not mentioning it. He is doing that quite loudly."
+            ]
+          }
+        ],
+        "CLOSE": [
+          {
+            "when": {
+              "T_DINED": false
+            },
+            "say": "Thad puts the cover back over the contract.",
+            "direction": true,
+            "then": [
+              "I mean to work it myself.",
+              {
+                "speaker": "fanshawe",
+                "line": "Of course you do."
+              },
+              {
+                "speaker": "fanshawe",
+                "line": "Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.",
+                "direction": true
+              },
+              {
+                "speaker": "fanshawe",
+                "line": "Keep it. I have dozens."
+              }
+            ],
+            "set": {
+              "T_DINED": true
+            },
+            "grants": [
+              "handkerchief"
+            ],
+            "completes": "A10",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE CONTRACT, TRIED** - CLOSE"
+          }
+        ],
+        "OPEN": [
+          {
+            "say": "It is one page. There is nothing to open. It took him one page.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE CONTRACT, TRIED** - OPEN"
+          }
+        ],
+        "PUSH": [
+          {
+            "say": "Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two.",
+            "direction": true,
+            "then": [
+              "It is nearer than when I began. I shall stop helping."
+            ],
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE CONTRACT, TRIED** - PUSH"
+          }
+        ],
+        "PULL": [
+          {
+            "say": "Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two.",
+            "direction": true,
+            "then": [
+              "It is nearer than when I began. I shall stop helping."
+            ],
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE CONTRACT, TRIED** - PUSH"
+          }
+        ],
+        "USE": [
+          {
+            "say": "He has not asked me to sign. He has only made it extremely convenient.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE CONTRACT, TRIED** - USE"
+          }
+        ],
+        "PICK_UP": [
+          {
+            "say": "A man who picks up a contract at this table has as good as read it aloud. I have left it on its plate.",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE CONTRACT, TRIED** - PICK UP"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 905,
         "y": 855,
         "facing": "back"
       }
@@ -671,6 +1033,15 @@
       "transitScene": [
         {
           "when": {
+            "T_BORDERS_MOTT": true,
+            "T_DINED": false
+          },
+          "say": "Already? Then come back when you're hungry. The table will keep.",
+          "by": "fanshawe",
+          "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · THE DOOR"
+        },
+        {
+          "when": {
             "T_DINED": true,
             "ACT": {
               "atMost": 1
@@ -1064,10 +1435,13 @@
           "T_BORDERS_MOTT": true,
           "T_DINED": false
         },
-        "note": "Doc 48 S1 beat 1, 'Thad seated; the table laid absurdly well': for the dinner only, he walks to the chair at the table's free end and sits there, facing Fanshawe, until the conversation ends (errata 197; the state `dining`, tools/rig/cut-dinner.py). Drawn at `sitAt`, in from the table's end, so his forearms rest on the cloth (Tyler, 2026-11-08: \"sitting very awkwardly at the table with his hands out on nothing\").",
+        "note": "Doc 48 S1 beat 1, 'Thad seated; the table laid absurdly well': for the dinner only, he walks to the chair at the table's free end and sits there, facing Fanshawe, until the conversation ends (errata 197; the state `dining`, tools/rig/cut-dinner.py). Drawn at `sitAt`, in from the table's end, so his forearms rest on the cloth (Tyler, 2026-11-08: \"sitting very awkwardly at the table with his hands out on nothing\"). Errata 248 (doc 120 I-1): he keeps the chair after the conversation closes, until the dinner is over (`keepWhile`), so the table can be tried from it.",
         "sitAt": {
           "x": 1352,
           "y": 702
+        },
+        "keepWhile": {
+          "T_DINED": false
         }
       }
     },
@@ -1077,7 +1451,10 @@
     },
     "say": [
       "Empty. I have never seen this room without somebody being generous in it."
-    ]
+    ],
+    "set": {
+      "T_CONTRACT_SERVED": false
+    }
   },
   "occlusionPlanes": [],
   "occlusionBands": [

@@ -2201,6 +2201,16 @@
     "combination:wreath:obituary"
    ],
    "note": "Doc 120 (errata 248): the obituary is under the ribbon of the Colonel's wreath, as its card."
+  },
+  {
+   "id": "T_CONTRACT_SERVED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:fanshawe_office:onEnter",
+    "room:fanshawe_office:covered_dish:OPEN"
+   ],
+   "note": "Doc 120 I-1 (errata 248): the cover is off the dish at the Colonel's table and the contract is on the plate. Cleared on every entry: a dinner left starts again."
   }
  ]
 }

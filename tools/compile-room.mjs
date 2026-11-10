@@ -1777,7 +1777,9 @@ function beatQuotes(spec, body, what) {
       ?? new RegExp(`^- (${esc(spec.bullet)}.+)$`, 'm').exec(body);
     if (!m) fail(`${what}: ${spec.ref} has no "- **${spec.bullet}**" bullet`);
   }
-  const [spoken] = m[1].split(/\sThen\s/);
+  // A beat's own words may hold a "Then" (the Colonel's "Already? Then come back when you're hungry."): `whole`
+  // reads the line entire, where the default cuts a table row at its "Then the act card".
+  const [spoken] = spec.whole ? [m[1]] : m[1].split(/\sThen\s/);
   const lines = [...spoken.matchAll(/"([^"]+)"/g)].map((q) => q[1].replace(/\*/g, ''));
   if (!lines.length) fail(`${what}: ${spec.ref} "${spec.bullet ?? spec.row}" has no spoken line`);
   return lines;

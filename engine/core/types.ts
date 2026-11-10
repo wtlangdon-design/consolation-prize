@@ -1780,6 +1780,12 @@ export interface RoomFile {
        * state `state` (his seated clips) as the conversation opens; it is cleared when it ends.
        */
       seat?: { x: number; y: number; facing: Facing; state: string; when?: Condition; note?: string;
+        /**
+         * HE KEEPS HIS SEAT WHILE THIS HOLDS (doc 120 I-1; errata 248): the conversation closing does not stand him up.
+         * He stays in the chair, in his seated clips, and does not walk, so what is on the table can be tried from
+         * it; he rises when this stops holding, or goes by the door.
+         */
+        keepWhile?: Condition;
         /** Where he is drawn once seated, when the chair is off the floor he walks (at a table's end). */
         sitAt?: { x: number; y: number } };
     };

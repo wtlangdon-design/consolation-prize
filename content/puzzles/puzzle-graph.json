@@ -260,16 +260,18 @@
    "id": "A10",
    "completedBy": [
     {
-     "site": "dialogue:FANSHAWE:FAN_A2:fanshawe6",
+     "site": "room:fanshawe_office:contract:CLOSE#0",
      "requires": [
-      "n:FANSHAWE/FAN_A2",
-      "o:FANSHAWE/FAN_A2/fanshawe2"
+      "r:fanshawe_office",
+      "T_BORDERS_MOTT=true",
+      "T_DINED=false",
+      "T_CONTRACT_SERVED=true",
+      "T_DINED=false"
      ],
      "yields": [
-      "o:FANSHAWE/FAN_A2/fanshawe6",
       "f:T_DINED=true",
-      "i:handkerchief",
-      "p:A10"
+      "p:A10",
+      "i:handkerchief"
      ]
     }
    ]

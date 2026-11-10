@@ -2,7 +2,7 @@ import { counterReading, priceText } from '../core/NodeCounter.ts';
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
-import type { AmbientFile, Cutaway, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
+import type { AmbientFile, Condition, Cutaway, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { ArrivalHold } from '../core/ArrivalHold.ts';
@@ -282,6 +282,8 @@ export class GameScene extends Phaser.Scene {
   private lingering: HeldPose[] | null = null;
   /** The accost's seat he is walking to, and the state he is in once he sits (errata 197). */
   private seatedState: string | null = null;
+  /** While this holds he keeps the seat the accost gave him after the conversation closes (accost.seat.keepWhile). */
+  private seatKept: Condition | null = null;
   /** Where he stood before he was set down at the table, and goes back to when he rises. */
   private seatedFrom: { x: number; y: number } | null = null;
   /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
@@ -334,7 +336,7 @@ export class GameScene extends Phaser.Scene {
      * a click that cancels it, or leaving the room, drops the seat with it (Codex on #279: a stale seat
      * had sat him down at the next conversation, wherever it was).
      */
-    seat?: { facing: Facing; state: string; sitAt?: { x: number; y: number }; from: { x: number; y: number } };
+    seat?: { facing: Facing; state: string; sitAt?: { x: number; y: number }; from: { x: number; y: number }; keepWhile?: Condition };
     /** A duel he calls on Thad (an accost's `duel`): its intro is the greeting. */
     duel?: string;
     /** The ambient character the conversation is with, when it is one. */
@@ -685,7 +687,8 @@ export class GameScene extends Phaser.Scene {
     // of his, the actor draws it; when the beat is over he is let go.
     // AND WHAT THE ROOM SAYS HE IS HOLDING (Room.actorPoses; errata 246), when no beat holds a frame of his.
     const carried = roomPose(this.state.room.actorPoses, (when) => this.state.flags.test(when), now);
-    this.actor.rooted = carried?.rooted === true;
+    this.actor.rooted = carried?.rooted === true
+      || (this.seatedState !== null && this.seatKept !== null && this.state.flags.test(this.seatKept));
     this.actor.hold(this.heldPoses()?.find((pose) => pose.id === this.actor.id && pose.clip) as
       { clip: string; frame: number; facing?: Facing } | undefined
       ?? (carried && !this.actor.isWalking ? { clip: carried.clip, frame: carried.frame,
@@ -905,6 +908,7 @@ export class GameScene extends Phaser.Scene {
           this.actor.setFacing(seatDue.facing);
           this.state.setMoverState(this.actor.id, seatDue.state);
           this.seatedState = seatDue.state;
+          this.seatKept = seatDue.keepWhile ?? null;
         }
         if (evidence) {
           // CONTACT. She looks up from the ledger now (the greeting state
@@ -979,9 +983,16 @@ export class GameScene extends Phaser.Scene {
     // before the conversation opened, and not nothing until the pointer moves.
     const talking = this.conversationOpen();
     // THE DINNER IS OVER: he stands from the chair as the conversation closes (errata 197).
-    if (this.wasTalking && !talking && this.seatedState !== null) {
+    // UNLESS HE KEEPS HIS SEAT (accost.seat.keepWhile; errata 248): at Fanshawe's table he sits until the dinner is
+    // over, and the table is tried from the chair.
+    const kept = this.seatedState !== null && this.seatKept !== null && this.state.flags.test(this.seatKept);
+    // A kept seat is left when what kept him has ended AND its last line is read: the dinner ends on a rule whose
+    // lines are said from the chair (the glass knocked, the handkerchief).
+    const quiet = this.pendingSay.length === 0 && this.sayingActor === null;
+    if (!talking && this.seatedState !== null && !kept && (this.seatKept === null ? this.wasTalking : quiet)) {
       if (this.state.moverState(this.actor.id) === this.seatedState) this.state.setMoverState(this.actor.id, undefined);
       this.seatedState = null;
+      this.seatKept = null;
       if (this.seatedFrom) { this.actor.placeAt(this.seatedFrom.x, this.seatedFrom.y); this.seatedFrom = null; }
       this.markDirty();
     }
@@ -1628,15 +1639,17 @@ export class GameScene extends Phaser.Scene {
     // and the people pool below, as before.
     // Errata 192: he walks to where a conversation with her stands first, and a person with no tree answers
     // TALK TO with her bark (core/PersonLines.ts).
+    const fromAfar = new Set(this.state.content.verbs.examineVerbs ?? []);
     const personal = npc && chosen !== null
       ? personLines(this.state.room, npc, chosen, (when) => this.state.flags.test(when), this.ambient.hitBox(npc),
-        (one) => this.ambient.barkLinesFor(one))
+        (one) => this.ambient.barkLinesFor(one), !fromAfar.has(chosen))
       : null;
     if (personal && chosen !== null) {
-      // Only TALK TO walks over first (the brief's step 3); every other verb a room writes for a person answers
-      // from where he stands, as it always has.
+      // TALK TO walks over first (the brief's step 3), and so does a verb done with his hands (errata 248): he
+      // pushed the Colonel through his own door from the far side of Main Street. LOOK and LISTEN answer from where
+      // he stands, as they always have.
       this.personTarget = personal;
-      if (chosen === 'TALK_TO') this.beginInteraction(personal.target, chosen);
+      if (!fromAfar.has(chosen)) this.beginInteraction(personal.target, chosen);
       else this.applyInteraction(personal.target, chosen);
       this.markDirty();
       return;
@@ -1737,6 +1750,12 @@ export class GameScene extends Phaser.Scene {
    * this verb, so the chain is as short as the object needs and no shorter.
    */
   private beginInteraction(target: Interactable, verb: string): void {
+    // HELD WHERE HE IS (Room.actorPoses `rooted`, a kept seat): he reaches from there. No walk, and no turn, which
+    // would stand a seated man up in his chair (his seated clips are drawn one way).
+    if (this.actor.rooted) {
+      this.applyInteraction(target, verb);
+      return;
+    }
     const staging = target.walkTo ?? this.approachPoint(target, verb);
     if (!staging) {
       this.faceTarget(target);
@@ -2228,6 +2247,13 @@ export class GameScene extends Phaser.Scene {
 
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
     this.leaveLines();
+    // A seat is the room's it is in: he does not carry his chair through the door (a kept seat, errata 248).
+    if (this.seatedState !== null) {
+      if (this.state.moverState(this.actor.id) === this.seatedState) this.state.setMoverState(this.actor.id, undefined);
+      this.seatedState = null;
+      this.seatKept = null;
+      this.seatedFrom = null;
+    }
     // A picture held over a beat's lines stays in the room it was said in (ResponseRule.holds).
     if (this.spokenPose) this.actor.hold(null);
     this.spokenPose = null;
@@ -2406,6 +2432,7 @@ export class GameScene extends Phaser.Scene {
       this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id,
         ...(accost.completes ? { viaAction: true } : {}), ...(accost.duel ? { duel: accost.duel } : {}),
         ...(seat ? { seat: { facing: seat.facing, state: seat.state, ...(seat.sitAt ? { sitAt: seat.sitAt } : {}),
+          ...(seat.keepWhile ? { keepWhile: seat.keepWhile } : {}),
           from: { x: seat.x, y: seat.y } } } : {}) };
       // `approach`: he walks to the caller's stand first; the tree opens on arrival.
       if (seat) {

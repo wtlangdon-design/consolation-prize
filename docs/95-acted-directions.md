@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 36 · B 22 · C 89** — 146 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 36 · B 24 · C 91** — 151 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -139,7 +139,7 @@ Counts: **A 36 · B 22 · C 89** — 146 directions, every one flagged `"directi
 | 102 | C | pie_woman | The pie woman looks at his coat, then his boots, and prices him. | dialogue/amb-pie-woman root opening |  |  |  |  |  | Errata 218, doc 07's Opening stage line, now said when the conversation opens (it was kept only as a prompt nothing shows): "prices him" is the joke, and it is what she thinks, not a movement. |
 | 103 | C | map_seller | The map seller brightens considerably. | dialogue/amb-map-seller root opening |  |  |  |  |  | Errata 218, doc 07's Opening stage line, now said when the conversation opens (it was kept only as a prompt nothing shows): a change of manner, and "considerably" is the joke; no pose shows it. |
 | 104 | C | fanshawe | He gives Thad a map of the district. Claim Two is already circled. | dialogue/fanshawe FAN_A1 option 1 |  |  |  |  |  | Errata 228: the map arrived in the inventory with no line handing it over. As row 15: the circle is information only words carry. |
-| 105 | C | fanshawe | Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth. | dialogue/fanshawe FAN_A2 option 6 |  |  |  |  |  | Errata 228: doc 57 A10 beat 3, written and not played, so "Keep it. I have dozens." named nothing. No frame of either man knocks or catches a glass. |
+| 105 | C | fanshawe | Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth. | rooms/fanshawe_office contract CLOSE |  |  |  |  |  | Errata 228: doc 57 A10 beat 3, written and not played, so "Keep it. I have dozens." named nothing. No frame of either man knocks or catches a glass. Errata 248: said when the cover is put back over the contract (doc 120 I-1), not from option 6. |
 | 106 | C | winnie | She runs it at the window. It does not take long. | dialogue/winnie WIN_B2 option 1 |  |  |  |  |  | Errata 232: the assay is run on the spot instead of off screen. Her frames have no assaying pose, and the joke (it is quick because there is nothing in it) is in the words. |
 | 107 | C | procession_undertaker | low | rooms/boot_hill undertaker TALK TO (the stalled procession) |  |  |  |  |  | Errata 233, doc 110 section 2: a tone, as row 18's "warmly" is. The undertaker speaks low because the whole town is standing about at the gate. |
 | 108 | C | thad | Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up. | rooms/boot_hill hearse USE, OPEN (the ride up) |  |  |  |  |  | Errata 233, doc 110 section 2: printed over the gate, and then the ride goes over black, as row 101's ride home does. No clip of Thad climbs into anything, and the hearse and Grievance are one figure still to be drawn (reference/act3-hearse/brief.md); its frames have her head turning, not her ears coming up. |
@@ -181,6 +181,11 @@ Counts: **A 36 · B 22 · C 89** — 146 directions, every one flagged `"directi
 | 144 | C | thad | Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise. | combinations (tonic on eggs) |  |  |  |  |  | Errata 248, doc 120: in his hands, in the inventory. Told. |
 | 145 | C | thad | The egg goes in. There is a pause. The egg comes back out, at speed. | combinations (eggs on hole, improved) |  |  |  |  |  | Errata 248, doc 120: the egg and the pause are the joke, and the raccoon in the hole has no throw. Told. |
 | 146 | C | thad | Thad folds the obituary and tucks it under the ribbon, where a card goes. | combinations (obituary on wreath) |  |  |  |  |  | Errata 248, doc 120: in his hands, in the inventory. Told. |
+| 147 | C | thad | Thad drinks. The glass is full again before it reaches the cloth. | rooms/fanshawe_office my_glass USE |  |  |  |  |  | Errata 248, doc 120 I-1: the refilling nobody sees is the joke. Told. |
+| 148 | B | fanshawe | Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract. | rooms/fanshawe_office covered_dish OPEN |  |  |  |  |  | Errata 248, doc 120 I-1: physical, and the dish uncovered is not drawn yet (reference/act1-dinner/brief.md, picture 1). Told until it is (rule 4). |
+| 149 | C | thad | Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two. | rooms/fanshawe_office contract PUSH |  |  |  |  |  | Errata 248, doc 120 I-1: an inch and two inches at this size are not a picture. Told. |
+| 150 | B | thad | Thad puts the cover back over the contract. | rooms/fanshawe_office contract CLOSE |  |  |  |  |  | Errata 248, doc 120 I-1: physical; shown when the dish's two states are drawn (reference/act1-dinner/brief.md). Told until then (rule 4). |
+| 151 | C | fanshawe | He does not take the dish away. | dialogue/fanshawe FAN_A2 option 6 |  |  |  |  |  | Errata 248, doc 120 I-1: what he does not do. Told. |
 
 ## When a B pose is drawn
 

@@ -1117,7 +1117,7 @@
       "class": "C",
       "speaker": "fanshawe",
       "words": "Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.",
-      "where": "dialogue/fanshawe FAN_A2 option 6"
+      "where": "rooms/fanshawe_office contract CLOSE"
     },
     {
       "n": 106,
@@ -1438,6 +1438,41 @@
       "speaker": "thad",
       "words": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
       "where": "combinations (obituary on wreath)"
+    },
+    {
+      "n": 147,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad drinks. The glass is full again before it reaches the cloth.",
+      "where": "rooms/fanshawe_office my_glass USE"
+    },
+    {
+      "n": 148,
+      "class": "B",
+      "speaker": "fanshawe",
+      "words": "Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract.",
+      "where": "rooms/fanshawe_office covered_dish OPEN"
+    },
+    {
+      "n": 149,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two.",
+      "where": "rooms/fanshawe_office contract PUSH"
+    },
+    {
+      "n": 150,
+      "class": "B",
+      "speaker": "thad",
+      "words": "Thad puts the cover back over the contract.",
+      "where": "rooms/fanshawe_office contract CLOSE"
+    },
+    {
+      "n": 151,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "He does not take the dish away.",
+      "where": "dialogue/fanshawe FAN_A2 option 6"
     }
   ]
 }

@@ -74,13 +74,13 @@ Not built here. The design: the map is laid on her table as large as the screen.
 **LISTEN** 1 "A small note, when the bottle touches the rim. He plays it very well." · 2 "Wine, arriving. It does not glug. He would not allow it to glug." · 3 "Nothing. It is full, and full things are quiet."
 
 **THE GLASS, TRIED**
-- USE — *(Thad drinks. The glass is full again before it reaches the cloth.)* "One glass, by my count. By the glass's count, none." *(second)* "Two. I am keeping the tally on my fingers, under the table, where he cannot refill them." *(third)* "I have stopped counting. The glass never started."
+- USE — *(Thad drinks. The glass is full again before it reaches the cloth.)* "One glass, by my count. By the glass's count, none." *(second)* "Two. I am keeping the tally on my fingers, under the table, where he cannot refill them." "I have stopped counting. The glass never started."
 - PICK UP — "I have it. So has he, in every way that signifies."
 - PUSH — "I moved it away. He moved it back, with the air of a man returning my hat."
 
 **THE BOTTLE**
 **LOOK** 1 "A dark bottle with a label in French. It has been at this table longer than I have and knows the form." · 2 "It is never emptier. I am beginning to think there is a second one, and that they take turns." · 3 "The label has a château on it. The château has more windows than Consolation."
-**LISTEN** 1 "Nothing, while it stands. It is waiting to be useful to him." · 2 "A cork somewhere under the table, being managed." · 3 "The glass, ringing a little, the way a thing does when it knows what is coming."
+**LISTEN** 1 "Nothing, while it stands. It is biding his time for him." · 2 "A cork somewhere under the table, being managed." · 3 "The glass, ringing a little, the way a thing does when it knows what is coming."
 
 **THE BOTTLE, TRIED**
 - PICK UP — "He has it before I do. He has had it since before I thought of it."
@@ -107,6 +107,9 @@ Not built here. The design: the map is laid on her table as large as the screen.
 - PUSH — *(Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two.)* "It is nearer than when I began. I shall stop helping."
 - OPEN — "It is one page. There is nothing to open. It took him one page."
 - CLOSE — *(Thad puts the cover back over the contract.)* "I mean to work it myself." **FANSHAWE:** "Of course you do." → doc 57 A10, beat 3; `T_DINED`
+
+**BEAT 3** *(doc 57 A10, word for word; said after the CLOSE)*
+> **FANSHAWE:** *(Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.)* "Keep it. I have dozens."
 
 **`FAN_A2` option 6**, *"I mean to work it myself."* — **FANSHAWE:** "Of course you do." *(He does not take the dish away.)* *(second)* **FANSHAWE:** "Of course. Of course. Do try the fish."
 
