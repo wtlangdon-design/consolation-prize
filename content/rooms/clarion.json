@@ -596,7 +596,8 @@
         "PULL": [
           {
             "when": {
-              "T_NOTICE_SET": true
+              "T_NOTICE_SET": true,
+              "T_NOTICE_IN_HAND": false
             },
             "say": "Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet.",
             "direction": true,

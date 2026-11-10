@@ -205,7 +205,8 @@
    "head": "**THE PRESS** · *the Clarion*",
    "bullet": "- PULL, *the notice set*",
    "when": {
-    "T_NOTICE_SET": true
+    "T_NOTICE_SET": true,
+    "T_NOTICE_IN_HAND": false
    },
    "set": {
     "T_NOTICE_SET": false,
