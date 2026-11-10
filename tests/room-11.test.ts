@@ -68,10 +68,13 @@ test('A4: after the swindle he opens on FAN_A1, and either answer about the clai
   }
 });
 
-test('A10: holding the invitation, the table is laid and the dinner opens; option 6 ends it with the handkerchief', async () => {
+test('A10: holding the invitation, the table is laid and the dinner opens; nothing said ends it, and the cover put back does', async () => {
   const state = await inState('r11-b');
   assert.deepEqual(shownProps(state), ['dinner', 'dinner_drape'], 'the table laid absurdly well, its cloth to the floor');
-  assert.ok(state.findTarget('handkerchief'), 'his handkerchief is on the desk');
+  // Errata 248 (doc 120 I-1): the table stands over the desk for the dinner, so the desk's own things are not
+  // pointed at, and the table's are.
+  assert.equal(state.findTarget('handkerchief'), undefined, 'his handkerchief is under the table for now');
+  assert.ok(state.findTarget('covered_dish') && state.findTarget('my_glass') && state.findTarget('bottle'), 'the table can be tried');
   const accost = state.room.onEnter?.accost;
   assert.ok(accost?.whenAny?.some((when) => state.flags.test(when)), 'he opens on him as he comes in');
   state.dialogue.start(hostOf(state).tree as string);
@@ -85,16 +88,21 @@ test('A10: holding the invitation, the table is laid and the dinner opens; optio
   assert.ok(shown().includes(opt(state, '3')) && !shown().includes(opt(state, '6')), 'the first pitch brings the next, not the answer');
   state.dialogue.select(opt(state, '2'));
   assert.ok(shown().includes(opt(state, '4')) && shown().includes(opt(state, '6')), 'two deferred pitches bring the honest answer');
-  // The five that sell it are retained and change nothing.
+  // Everything he can say is said, the honest answer among them, and it changes nothing.
   const before = [...state.carried];
-  for (const suffix of ['1', '2', '3', '4', '5', '7']) state.dialogue.select(opt(state, suffix));
+  for (const suffix of ['1', '2', '3', '4', '5', '7', '6', '6']) state.dialogue.select(opt(state, suffix));
   assert.deepEqual(state.carried, before);
-  assert.ok(!state.puzzleComplete('A10'));
-  state.dialogue.select(opt(state, '6'));
+  assert.ok(!state.puzzleComplete('A10') && !state.flags.get('T_DINED'), 'said, agreed with, and the dish is still there');
+  state.dialogue.select(opt(state, 'x'));
+  assert.ok(!state.dialogue.isActive);
+  // The dinner is ended by hand: the cover lifted, the contract found, the cover put back.
+  state.interact(target(state, 'covered_dish'), 'OPEN');
+  assert.equal(state.findTarget('covered_dish'), undefined, 'the dish is the contract now');
+  state.interact(target(state, 'contract'), 'CLOSE');
   assert.ok(state.puzzleComplete('A10'));
   assert.ok(state.flags.get('T_DINED'));
   assert.ok(state.carried.includes('handkerchief'), 'pocketed, absently');
-  assert.ok(!state.dialogue.isActive, 'the dinner is over');
+  assert.ok(!state.carried.includes('invitation'), 'and the invitation left on the table');
   assert.deepEqual(shownProps(state), ['desk_bare'], 'the table cleared, and his handkerchief gone from it');
   assert.equal(state.findTarget('handkerchief'), undefined, 'not drawn from now on');
 });
@@ -113,11 +121,12 @@ test('A10: leaving the table early is his line, and the dinner waits for the nex
 
 test('A10 beat 4: the first way out after the dinner is the porch -- his two lines, then ACT 2 and its card', async () => {
   const state = await inState('r11-b');
-  state.dialogue.start(hostOf(state).tree as string);
-  state.dialogue.select(opt(state, '2'));
-  state.dialogue.select(opt(state, '6'));
-  const door = target(state, 'to_lobby') as Interactable & { transitScene?: { say?: string; then?: unknown[] }[] };
-  const scene = door.transitScene?.[0];
+  // Errata 248: the dinner is ended at the table (the cover put back over the contract), not by a line.
+  state.interact(target(state, 'covered_dish'), 'OPEN');
+  state.interact(target(state, 'contract'), 'CLOSE');
+  const door = target(state, 'to_lobby') as Interactable & { transitScene?: { when?: Record<string, unknown>; say?: string; then?: unknown[] }[] };
+  // The door's first beat is the Colonel's line for leaving the table early; beat 4 is the one that holds now.
+  const scene = door.transitScene?.find((rule) => state.flags.test(rule.when as never));
   assert.ok(scene?.say && scene.then?.length, 'doc 57 writes beat 4');
   const out = state.interact(door, 'WALK_TO');
   assert.equal(out.say, scene.say);
@@ -170,6 +179,9 @@ test('C4: on the funeral day he is up the hill; the log and the drawer give up w
 
 test('C4: with him in the room, neither the log nor the drawer can be taken', async () => {
   const state = await inState('r11-b');
+  // Errata 248: for the dinner the table stands over the desk and the log is not pointed at. With him in the room
+  // on any other day it is, so the dinner is over here.
+  state.flags.set('T_DINED', true);
   assert.ok(present(state));
   const said = state.interact(target(state, 'submission_log'), 'PICK_UP');
   const drawer = state.interact(target(state, 'stock_portrait_drawer'), 'OPEN');

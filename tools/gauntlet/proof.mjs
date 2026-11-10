@@ -56,6 +56,7 @@ import { resolve } from 'node:path';
 
 import { browser } from '../lib/chromium.mjs';
 import { ROOT, readJson, roomWidth } from '../lib/content.mjs';
+import { refuseAnothersServer, stopGroup } from './own-server.mjs';
 import { runRoute } from './route.mjs';
 
 // GAUNTLET_PORT moves it: two sessions proving at once each need their own
@@ -134,8 +135,10 @@ function git(...args) {
 }
 
 export async function serve() {
+  await refuseAnothersServer(`http://127.0.0.1:${PORT}`);
+  // Its own process group, so stopping it stops vite and not only the npm that started it.
   const child = spawn('npm', ['run', 'dev', '--', '--port', String(PORT), '--strictPort'],
-    { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'], detached: true });
   let said = '';
   child.stdout.on('data', (chunk) => { said += String(chunk); });
   child.stderr.on('data', (chunk) => { said += String(chunk); });
@@ -155,7 +158,7 @@ export async function serve() {
     }
     await new Promise((wake) => setTimeout(wake, 250));
   }
-  return { url, stop: () => child.kill('SIGTERM') };
+  return { url, stop: () => stopGroup(child) };
 }
 
 /* ------------------------------------------------------- measuring a frame */

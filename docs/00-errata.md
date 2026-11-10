@@ -6841,3 +6841,55 @@ Lesson:
 - `tools/check-pacing.mjs` counts the papers carried to the filing and fails if the number gets worse.
 - `tools/check-fixtures.mjs`: a state past C5 may not hold the log, and one past E0 may not hold A, B or D. It found four fixtures that did.
 - The full walkthrough expects each paper gone at the step it is left (C5.2, E0.2).
+
+---
+
+## 248 · Act I, by hand: Pike's grave, the dinner played, and three small things (doc 120; doc 114 I-2, I-1, X-1, X-2)
+
+Under errata 245's mandate. Doc 120 is the design and the lines. I-3 (the boundary walked) is designed there and not built: it needs the map drawn large (`reference/act1-dinner/brief.md`).
+
+### I-2 · Pike's grave
+
+- The first time he stands on Boot Hill he says why he came, once.
+- THE LETTER on PIKE'S MARKER: he holds it out to the board. Nothing is taken or written; the letter is wanted at the church in Act II.
+
+### I-1 · The dinner, played
+
+- **Before:** a list of things to say at the Colonel's table; "I mean to work it myself." ended it.
+- **Now:** he keeps his chair when the conversation closes, and the table can be tried from it: MY GLASS (it is always full), THE BOTTLE, THE COVERED DISH. **OPEN the dish and the contract is under it, on a warmed plate, with parsley. CLOSE the cover over it and the dinner ends:** his line, the Colonel's "Of course you do.", and doc 57 A10's beat 3 word for word (the glass, the handkerchief, `T_DINED`).
+- Option 6 is still said, and the Colonel still agrees. It ends nothing, and the dish is still there.
+- Leaving the conversation is not leaving the table. The Colonel's line for leaving ("Already? Then come back when you're hungry. The table will keep.") is said at the door, and the dinner starts again on the next entry, the dish covered.
+- CLOSE solves something for the first time (doc 114 X-1).
+- The desk's own handkerchief and submission log are not pointed at while the dinner table stands over the desk. They were: the pointer named THE HANDKERCHIEF over the silver cover.
+- **Not drawn yet:** the dish uncovered. Lifting the cover and putting it back are told (doc 95 rows 148 and 150, class B) until picture 1 of `reference/act1-dinner/brief.md` is in.
+
+### Three small things
+
+- **The eggs, improved.** DR. PURVIS'S TONIC on THE PICKLED EGGS at the claim (the third item on an item); the tonic is kept. The improved eggs at the hole have their own answer, and are spent.
+- **The card.** THE OBITUARY tucked under the ribbon of THE COLONEL'S WREATH (the fourth); it leaves his pocket with the wreath, and the undertaker has a second line when it is laid.
+- **The invitation** is left on the Colonel's table when the dinner is over.
+
+### Engine
+
+| | Before | Now |
+|---|---|---|
+| `accost.seat.keepWhile` | The conversation closing stood him up | He keeps the seat while the condition holds, does not walk, and reaches from the chair |
+| A verb done with his hands on a person | Answered from wherever he stood | He walks to that person first, as TALK TO does. He pushed the Colonel through his door from across Main Street |
+| A dev server already on the gauntlet's port | Taken for the run's own | Refused. A replay in one worktree was played against another worktree's content and reported five breaks that were not there (`tools/gauntlet/own-server.mjs`) |
+
+### The counts (`proofs/pacing.json`)
+
+| | Before the night | Now | Doc 116's target |
+|---|---|---|---|
+| Item on an item | 1 | 4 | 5 |
+| Taken from a room by hand | 9 | 16 | 15 |
+| Different item-on-the-world uses | 10 | 15 | 15 |
+| Objects among all items | 12 of 34 | 16 of 39 | half |
+| PUSH, PULL, CLOSE that solve something | 1, 0, 0 | 3, 1, 1 | 2 each |
+| Papers carried to the filing | 14 of 24 | 8 of 18 | under a third |
+
+Lesson:
+- The full walkthrough plays all of it (A1.4, A5.2b to A5.3b, A10.2 to A10.2d, E6b.1b), and the real build was played through the dinner and the collection before the full replay.
+- `tests/ozymandia-talk-to.test.ts`: a verb done with his hands walks him to the person; a look does not.
+- `tests/gauntlet-own-server.test.mjs`: a server already answering is refused; both gauntlets ask before they start one and stop it whole.
+- `tests/dinner.test.ts`: the dinner is not ended by anything said; nothing on the table ends it but the cover put back; the seat is kept until then.

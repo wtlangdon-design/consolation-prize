@@ -142,6 +142,7 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 *Room 11, at night. Doc 48 S1 with FAN_A2 (doc 04) and errata 68 B (only option 6 advances).*
 
 - **Trigger:** entering Room 11 holding THE INVITATION, until `T_DINED`. S1 beat 1 plays.
+- **Errata 248 (doc 120 I-1): the dinner is ended by hand.** He keeps his chair when the conversation closes; the table's things can be tried; under the silver cover is the contract; **CLOSE on it is what plays beat 3** below and writes `T_DINED`. Option 6 is said and agreed with, and ends nothing. The line for leaving the table is said at the door; the conversation closes on doc 120's.
 - **Not before the room** *(errata 220, Tyler: "1")*: until A2, the lobby's door to the office is not a way in, and Thad answers it himself:
 
 > **THE DOOR TO THE OFFICE** · walk through, *before A2* — "Not yet. I'd like a bed in this town before I call on the man who owns most of it."

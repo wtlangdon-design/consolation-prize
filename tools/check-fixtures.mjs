@@ -32,6 +32,8 @@ const PREREQUISITES = [
   // C5 IS SHOWN EVIDENCE (errata 66 A-B): complete only with C4 complete and the log held; the log is C4's.
   // ERRATA 247: C5 leaves the log with Winnie (T_LOG_WITH_WINNIE), so a state past C5 does not hold it -- and may not.
   { when: (f) => f.puzzles?.C5 === 'complete', puzzlesNeed: ['C4'], need: ['T_ASSAY_QUEUE', 'T_LOG_WITH_WINNIE'], forbidItems: ['padded_log'], why: 'C5 follows C1-C4, and leaves the submission log with Winnie -- docs/02-puzzle-graph.md:64-68; errata 247' },
+  // ERRATA 248: the invitation is left on the Colonel's table. Past the dinner it is not held.
+  { when: (f) => f.flags.T_DINED === true, forbidItems: ['invitation'], why: 'the invitation is left on the Colonel\'s table when the dinner is over (errata 248)' },
   // ERRATA 247: E0 lodges A, B and D for C. Past it none of the three is held.
   { when: (f) => f.puzzles?.E0 === 'complete' || f.flags.T_CLAIM1_BLANK === true, forbidItems: ['document_a', 'document_b', 'document_d'], why: 'Documents A, B and D are lodged with Sump at E0 for Document C (errata 247)' },
   { when: (f) => (f.inventory ?? []).includes('padded_log'), puzzlesNeed: ['C4'], need: ['T_ASSAY_QUEUE', 'T_BORDERS_MOTT'], why: 'the submission log is C4\'s, after C1 -- docs/02-puzzle-graph.md:64-67' },

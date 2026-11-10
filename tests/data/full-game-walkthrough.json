@@ -579,11 +579,10 @@
    "puzzle": "A10",
    "do": "choose",
    "choose": [
-    "fanshawe2",
-    "fanshawe6"
+    "fanshawe2"
    ],
    "leave": true,
-   "note": "Errata 248 (doc 120 I-1). Said, and agreed with; the dish is still there.",
+   "note": "Errata 248 (doc 120 I-1). A kindness accepted, and then the table.",
    "expect": {
     "flags": {
      "T_DINED": false
