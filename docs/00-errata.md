@@ -7143,3 +7143,14 @@ Asked again whether the game looks of a piece, Tyler was shown the two dawn plat
 
 Lesson: `tests/dawn.test.mjs` holds the two dawns together (the coach stop no darker than the street and no more than 16 lighter) and holds whoever stands in them graded. `tests/thad-light.test.mjs` now holds every day exterior to warming him. Doc 55 section 8: when a plate is relit, the next plate the player sees and the figures standing in both are relit with it.
 
+## 266 · The acted directions, watched in motion; and he no longer stands in front of the man who is acting
+
+Tyler, 2026-11-10, asked whether the game was ready to be played: told that nobody had watched the new poses move and that the whole route had not been played on the final build, "finish those two."
+
+- **The replay can film what is acted.** With `GAUNTLET_FILM=<dir>`, `npm run gauntlet:full` keeps a frame of the play area about five times a second for as long as any figure holds a frame of an acted direction (the probe's new `acting`), named by the step it fell in. `GAUNTLET_WALKTHROUGH=<file>` plays a walkthrough of one's own, for directions on options the route does not choose. Neither changes the game.
+- **Found by watching:** with the tuning fork used on the grog tent's fiddle, Thad walked to the fiddle and stood on the rule-keeper, whose two beats (the dust tipped onto the plank, the fiddle played) were acted half behind his back. At the plank and the watch he stood on the Deacon's shoulder, and to talk to the Deacon he covered the arm that polishes the glass.
+- **Fixed.** The fiddle's stand is to the left of its post (450, was 560); the plank's and the watch's are left of the Deacon (1000 and 1040); he talks to the Deacon from 1060 (was 1120).
+- **Seen and right:** the lookout reading and lowering the paper; the rule-keeper tapping his head; the Deacon polishing a glass; Madame Ozymandia at her table; the rod at the two passages; Pratt holding out his hand and writing with the chalk, and Thad chalking his own stake; the plate at the gate; the Registrar's stamps.
+
+Lesson: `tests/staging-clear.test.ts`, a new test in every built room: where he stands to do a thing, he is not in front of whoever acts because of it (no more than a quarter of the acting figure covered, in any frame of the act, measured on drawn pixels with Thad as wide as he is from the side he is seen). With the fiddle's stand put back it fails (25% of the rule-keeper in the frame he plays). Doc 55 section 8: a stand is checked against everyone who acts from it, not only whoever is talked to.
+
