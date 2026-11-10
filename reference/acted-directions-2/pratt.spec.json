@@ -1,0 +1,16 @@
+{
+ "assetId": "acted-directions-2",
+ "subject": "acted-directions-2-pratt",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-25-pratts-claim",
+ "promptFile": "reference/acted-directions-2/pratt.txt",
+ "out": "art/staging/acted-directions-2/pratt/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-2/pratt/template.png",
+  "art/staging/acted-directions-2/beside-thad-pratt.png",
+  "art/staging/acted-directions-2/pratt/objects.png"
+ ],
+ "derivedFrom": "art/actors/room-25-pratt-master.png"
+}

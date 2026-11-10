@@ -1,0 +1,15 @@
+{
+ "assetId": "acted-directions-2",
+ "subject": "acted-directions-2-rule-keeper",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-52-grog-tent",
+ "promptFile": "reference/acted-directions-2/rule-keeper.txt",
+ "out": "art/staging/acted-directions-2/rule-keeper/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-2/rule-keeper/template.png",
+  "art/staging/acted-directions-2/beside-thad-gulch_rule_keeper.png"
+ ],
+ "derivedFrom": "art/actors/room-52-rule-keeper.png"
+}

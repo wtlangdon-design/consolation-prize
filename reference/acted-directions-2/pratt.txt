@@ -1,0 +1,10 @@
+Image 1 is a TEMPLATE on magenta from my pixel-art adventure game, set in an 1850s gold-rush town. The FIRST figure is the hero, Thad: he is THE STANDARD -- his flat, soft shading and low texture -- and is shown at his true size beside this character. The SECOND figure is Mr. Pratt, a prospector (brown hat, black moustache, grey work shirt, braces, belt, dark trousers, boots), leaning on his wooden garden rake, exactly as drawn in the game. Image 2 is Mr. Pratt beside Thad in the room, at game size. Image 3 shows the things in his hands: the hero's blue-grey coat rolled into a bundle with a raccoon inside it, a little pile of coins, and a brown hen.
+
+Repaint Image 1. LEAVE THE FIRST TWO FIGURES EXACTLY AS THEY ARE. Repaint each of the other figures as the SAME Mr. Pratt -- the same face, hair, clothes, colours, build and height -- in a new pose, in this order:
+3. holding the bundled blue-grey coat in both hands at his chest and opening its folds a little, peering in; the rake leaning against his shoulder;
+4. the coat bundle tucked under one arm, counting coins from one palm with the other hand, one coin between finger and thumb, looking at the coins; the rake leaning against his shoulder;
+5. the coat bundle tucked under one arm, his other hand held out, open and palm up, toward the left of the picture; the rake leaning against his shoulder;
+6. the brown hen held in the crook of one arm, the empty blue-grey coat held out toward the left of the picture in his other hand, hanging open; the rake leaning against his shoulder;
+Nothing else is added to his or her hands.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as THAD -- NOT sharper, NOT more detailed. Every figure the same height and build as the figure it repaints, its feet (or its waist, for a figure cut off at a counter or table) on the same line. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No shadows, no ground, no furniture, no text, no numbers, no border.

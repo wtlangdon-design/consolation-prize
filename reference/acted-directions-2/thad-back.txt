@@ -1,0 +1,11 @@
+Image 1 is a TEMPLATE on magenta from my pixel-art adventure game, set in an 1850s gold-rush town: the hero, Thad (black hair, long blue-grey coat, brown waistcoat, dark trousers, boots), seen FROM BEHIND, six times. Image 2 shows the things in his hands: a brass divining rod, a stub of white chalk, a brown horse blanket.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other five as the SAME Thad, still seen FROM BEHIND, the same height, his feet on the same line, in these poses:
+2. holding the brass rod out ahead of him in both hands, pointed forward and to the LEFT of the picture, his shoulders tense;
+3. holding the brass rod out ahead of him in both hands, pointed forward and to the RIGHT of the picture, relaxed;
+4. stooping a little, writing with the stub of white chalk on something in front of him at the height of his waist (what he writes on is not drawn);
+5. both arms raised to the height of his shoulders, his left hand lifting one corner of the brown horse blanket (the horse is not drawn), the corner folding back in his hand;
+6. the same, but his right hand lifting the other corner, further to the right.
+Nothing else in his hands.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as THAD -- NOT sharper, NOT more detailed. Every figure the same height as the figure it repaints, its feet on the same line. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No shadows, no ground, no furniture, no text, no numbers, no border.

@@ -1,0 +1,15 @@
+{
+ "assetId": "acted-directions-2",
+ "subject": "acted-directions-2-deke",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-03-nugget",
+ "promptFile": "reference/acted-directions-2/deke.txt",
+ "out": "art/staging/acted-directions-2/deke/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-2/deke/template.png",
+  "art/staging/acted-directions-2/beside-thad-deke_vessel.png"
+ ],
+ "derivedFrom": "art/actors/deke-vessel.png"
+}

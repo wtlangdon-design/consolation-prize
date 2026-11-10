@@ -1,0 +1,15 @@
+{
+ "assetId": "acted-directions-2",
+ "subject": "acted-directions-2-panner",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-53-river",
+ "promptFile": "reference/acted-directions-2/panner.txt",
+ "out": "art/staging/acted-directions-2/panner/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-2/panner/template.png",
+  "art/staging/acted-directions-2/beside-thad-gulch_panner.png"
+ ],
+ "derivedFrom": "art/actors/room-53-panner.png"
+}
