@@ -532,6 +532,33 @@
     }
    ],
    "room": "gulch_river"
+  },
+  "R16-HUM": {
+   "why": "Doc 120 I-3 (errata 251): \"She holds the rod over it and hums.\" One held note a little under an A, stopping dead. Doc 122 P1; Tyler's pick by ear, 2026-11-10 (errata 257). A room sound, not a sting: it plays on the direction that says she hums, whatever comes of it.",
+   "play": [
+    {
+     "src": "audio/sfx/ozymandia-hum.wav",
+     "gain": 0.114
+    }
+   ]
+  },
+  "R09-PULL": {
+   "why": "Doc 118 O-2 (errata 249, 253): \"The press comes down, knocks, and gives up one sheet, wet.\" The bar, the platen, the knock on the return stroke its LISTEN has always described, and the sheet. Doc 122 P1; Tyler's pick by ear, 2026-11-10 (errata 257). The press's own noise, on the direction that says it.",
+   "play": [
+    {
+     "src": "audio/sfx/press-pull.wav",
+     "gain": 0.3
+    }
+   ]
+  },
+  "R14-NAIL": {
+   "why": "Doc 121 N-2 (errata 250): \"taps it into Mr. Pike's board with the tuning fork. Each tap is an A.\" Three taps, a tick and the board, a trace of the fork's exact 440 and gone. Doc 122 P1; Tyler, 2026-11-10: \"The rings should be much fainter and quicker\" (errata 257).",
+   "play": [
+    {
+     "src": "audio/sfx/nail-taps.wav",
+     "gain": 0.3
+    }
+   ]
   }
  },
  "verbs": [
@@ -1102,6 +1129,22 @@
   {
    "line": "That's what the fella whistled. Twelve years I've been getting it wrong.",
    "cue": "LIV-HUM"
+  },
+  {
+   "line": "She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move.",
+   "cue": "R16-HUM"
+  },
+  {
+   "line": "She hums. Thad moves the rod along the paper. She stops.",
+   "cue": "R16-HUM"
+  },
+  {
+   "line": "Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet.",
+   "cue": "R09-PULL"
+  },
+  {
+   "line": "Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A.",
+   "cue": "R14-NAIL"
   }
  ],
  "events": {
