@@ -1,6 +1,6 @@
 # The Last Claim in Consolation -- playthrough transcript
 
-Played in the real build (Chromium, dev server) by `npm run gauntlet:full -- --record`, 2026-11-10, at commit unknown.
+Played in the real build (Chromium, dev server) by `npm run gauntlet:full -- --record`, 2026-11-10, at commit 03e4c5c0.
 Every line the screen showed, in play order. `>` marks the player's action; option menus list every row offered, `[x]` the one picked, `(asked)` a row already chosen before. Directions are in parentheses as the game shows them; a direction marked *[acted, no words on screen]* is played by the figures and never printed (doc 95), and *[a silence is held]* is a written pause. Barks (remarks thrown in passing) and written sounds are marked.
 
 > **open.1** -- NEW GAME -- the opening plays
@@ -2381,3 +2381,62 @@ THAD: *(A piece of the wall comes away in his hand. It is much heavier than a pi
 **REVEREND SOWERBY:** Better still!
 *[acted, no words on screen]* COLONEL FANSHAWE: *(He puts on his hat.)*
 **COLONEL FANSHAWE:** Well played, Mr. Grubb.
+> **F5.1** -- goes to THE CLAIMS REGISTRAR
+> **F5.2** -- USE The certificate of my death ON THE COUNTER
+
+### THE CLAIMS REGISTRAR
+
+**REGISTRAR SUMP:** You are deceased.
+**THAD:** I was. I'd like to stop.
+**REGISTRAR SUMP:** Form 31-F. Notice of Return. It was printed in hope.
+REGISTRAR SUMP: *(Stamp. Thad is alive.)*
+> **F5.3** -- USE The deed to Prosperity ON THE COUNTER
+**REGISTRAR SUMP:** Claim Two. The adjoining holder.
+*[acted, no words on screen]* REGISTRAR SUMP: *(Stamp.)*
+> **F5.4** -- USE The Certificate of Contiguity ON THE COUNTER
+**REGISTRAR SUMP:** Contiguity. A neighbor holding a Certificate of Contiguity may file an amended location on behalf of an absent claimholder. Section nineteen, sub-section four.
+**REGISTRAR SUMP:** …
+**REGISTRAR SUMP:** Nobody has ever read sub-section four.
+**THAD:** I have.
+**REGISTRAR SUMP:** Yes. I saw you.
+> **F5.5** -- USE A piece of the rock under Prosperity ON THE COUNTER
+**WINNIE LEDGER:** Twenty-two hundred to the ton. Assayed this morning, at my window, by me.
+*[acted, no words on screen]* WINNIE LEDGER: *(She signs beside it.)*
+> **F5.6** -- TALK TO REGISTRAR SUMP
+**REGISTRAR SUMP:** Form 12-C, Amended. Location of Claim One. And the holder's name, in the holder's box.
+*Options (SUMP/SUM_F1):*
+- [x] Obadiah Mott.
+- [ ] Thaddeus Grubb.
+- [ ] Winnie Ledger.
+- [ ] The raccoon.
+- [ ] I am going to leave now, in a dignified manner.
+**THAD:** Obadiah Mott.
+**REGISTRAR SUMP:** …That's a very old claim number.
+**WINNIE LEDGER:** You're putting it in his name.
+**THAD:** Yes.
+**WINNIE LEDGER:** You understand you get nothing.
+**THAD:** I get to stop lying. I've only just learned how and I'm already tired of it.
+*[acted, no words on screen]* WINNIE LEDGER: *(stamping)*
+**WINNIE LEDGER:** …Certified.
+**REGISTRAR SUMP:** …
+REGISTRAR SUMP: *(reading, toneless)*
+**REGISTRAR SUMP:** Amended location, Claim One. Holder, Obadiah Mott. 'The strike lies at the place herein described.'
+**REGISTRAR SUMP:** …
+**REGISTRAR SUMP:** Which is now described.
+**REGISTRAR SUMP:** …
+**REGISTRAR SUMP:** Under statute, a claim must be worked by its holder within thirty days, or it reverts to the Territory.
+**THAD:** So Mr. Mott will have to come forward.
+**REGISTRAR SUMP:** In person. To this window. Within thirty days.
+*[acted, no words on screen]* REGISTRAR SUMP: *(He blots it.)*
+**REGISTRAR SUMP:** I shall look forward to it.
+> **END.1** -- WALK TO THE COACH STOP
+
+### THE COACH STOP
+
+**THAD:** Leave the mud.
+**THAD:** Dear Mother.
+**THAD:** I was robbed, and it was the making of me.
+**THAD:** The gold is real. The story is better. I will tell you both in the spring.
+**THAD:** — Your Thaddeus.
+
+**[ THE END (the title returns) ]**
