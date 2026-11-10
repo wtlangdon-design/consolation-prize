@@ -6731,3 +6731,7 @@ Lesson:
 - `tests/room-11.test.ts`: the swap is refused with the gilt on, and again with the spine whole.
 - `proofs/pacing.json` no longer lists "no item is used on another item"; the check fails if it comes back.
 
+**Five, not one (Tyler, 2026-11-09).** Told the handkerchief on the ledger was the game's first item used on an item, he asked how many Monkey Island had. Asked whether the plan should hold four or five: "Yes". Doc 114's standard 4 and row X-2 now say five, `tools/check-pacing.mjs` counts them on the played route, and `proofs/pacing.json` lists the shortfall (one of five).
+
+**III-1 is withdrawn by its author, for Tyler to overrule.** Doc 114 proposed "the archive, searched" before the room was read closely. Room 8 already gives three quiet clues (the dust at chest height, the one chair, the rota), using Hob's form on the file is the player's own deduction, and it stands beside lines invariant 3 says must never be marked. Steps added there would make it worse. CLOSE needs another home; the dinner (I-1) is where it will be looked for.
+
