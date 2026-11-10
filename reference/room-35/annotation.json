@@ -255,5 +255,35 @@
   ],
   "brightness": 0.8,
   "note": "Errata 109, from the pre-playthrough art audit: Thad is drawn in even light so he can go in every room, and here, where the room around him averages 20.6 (of 255) against his 57, he read as pasted on. Graded to about 46, the room's surround plus 25 -- the margin the lit rooms keep -- under a warm lamp multiply gentle enough to keep his coat blue, as the Nugget's (variant B, Tyler, 2026-11-01). A measurement, not a verdict: Tyler's playthrough decides."
- }
+ },
+ "docBullets": [
+  {
+   "hotspot": "champagne",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/123-five-more-things-to-find.md::### F-5 · The champagne: the lines",
+   "head": "**THE CHAMPAGNE** · *the Company's vault*",
+   "bullet": "- PICK UP, *the first time*",
+   "when": {
+    "T_CHAMPAGNE_TURNED": false
+   },
+   "set": {
+    "T_CHAMPAGNE_TURNED": true
+   }
+  },
+  {
+   "hotspot": "champagne",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/123-five-more-things-to-find.md::### F-5 · The champagne: the lines",
+   "head": "**THE CHAMPAGNE** · *the Company's vault*",
+   "bullet": "- PICK UP, *again*",
+   "when": {
+    "T_CHAMPAGNE_TURNED": true
+   }
+  }
+ ],
+ "docBulletsNote": "Errata 258, doc 123 F-5: the bottle turned to the lamp, once (T_CHAMPAGNE_TURNED)."
 }

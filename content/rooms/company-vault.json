@@ -246,6 +246,25 @@
               "Nothing. It has waited this long. It can wait for somebody else's day."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_CHAMPAGNE_TURNED": false
+            },
+            "say": "I have turned it to the lamp and laid it back in its own outline in the dust. FOR THE DAY. It is not for me to say which.",
+            "set": {
+              "T_CHAMPAGNE_TURNED": true
+            },
+            "sceneLine": "docs/123-five-more-things-to-find.md::### F-5 · The champagne: the lines · **THE CHAMPAGNE** · *the Company's vault* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_CHAMPAGNE_TURNED": true
+            },
+            "say": "Twelve years unopened. I will not be the man who spoils the run.",
+            "sceneLine": "docs/123-five-more-things-to-find.md::### F-5 · The champagne: the lines · **THE CHAMPAGNE** · *the Company's vault* - PICK UP, *again*"
+          }
         ]
       },
       "overrides": {

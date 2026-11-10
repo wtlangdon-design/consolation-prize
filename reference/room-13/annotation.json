@@ -211,5 +211,35 @@
    "startsWith": "**THE PRICE BOARD** · LOOK",
    "note": "Doc 94 (errata 127): the funeral costs more than Thad has, from E2 until E3."
   }
- ]
+ ],
+ "docBullets": [
+  {
+   "hotspot": "measuring_wall",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/123-five-more-things-to-find.md::### F-3 · The measuring wall: the lines",
+   "head": "**THE MEASURING WALL** · *the undertaker's*",
+   "bullet": "- USE, *the first time*",
+   "when": {
+    "T_WALL_MEASURED": false
+   },
+   "set": {
+    "T_WALL_MEASURED": true
+   }
+  },
+  {
+   "hotspot": "measuring_wall",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/123-five-more-things-to-find.md::### F-3 · The measuring wall: the lines",
+   "head": "**THE MEASURING WALL** · *the undertaker's*",
+   "bullet": "- USE, *again*",
+   "when": {
+    "T_WALL_MEASURED": true
+   }
+  }
+ ],
+ "docBulletsNote": "Errata 258, doc 123 F-3: he takes his own measure at the wall, once (T_WALL_MEASURED)."
 }

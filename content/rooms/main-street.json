@@ -254,6 +254,25 @@
               "Quiet. He's gone to sleep in the middle of my attention."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_DOG_SCRATCHED": false
+            },
+            "say": "I have scratched him behind the ear instead. He allowed it, the way he allows the town.",
+            "set": {
+              "T_DOG_SCRATCHED": true
+            },
+            "sceneLine": "docs/123-five-more-things-to-find.md::### F-1 · The dog: the lines · **A DOG** · *Main Street* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_DOG_SCRATCHED": true
+            },
+            "say": "Once was an introduction. He has gone back to waiting, and I would not interrupt a professional.",
+            "sceneLine": "docs/123-five-more-things-to-find.md::### F-1 · The dog: the lines · **A DOG** · *Main Street* - PICK UP, *again*"
+          }
         ]
       },
       "overrides": {

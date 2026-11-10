@@ -42,6 +42,25 @@
               "Not yet. At ten it will boil, and the diggings will set their watches by the smell."
             ]
           }
+        ],
+        "OPEN": [
+          {
+            "when": {
+              "T_COFFEE_SMELLED": false
+            },
+            "say": "I have lifted the lid and put it back. I shall tell people I drank a cup. It is the same reputation at a fraction of the cost.",
+            "set": {
+              "T_COFFEE_SMELLED": true
+            },
+            "sceneLine": "docs/123-five-more-things-to-find.md::### F-4 · The coffee pot: the lines · **THE COFFEE POT** · *Mr. Pratt's claim* - OPEN, *the first time*"
+          },
+          {
+            "when": {
+              "T_COFFEE_SMELLED": true
+            },
+            "say": "The lid stays on. Some things are best left punctual.",
+            "sceneLine": "docs/123-five-more-things-to-find.md::### F-4 · The coffee pot: the lines · **THE COFFEE POT** · *Mr. Pratt's claim* - OPEN, *again*"
+          }
         ]
       },
       "walkTo": {

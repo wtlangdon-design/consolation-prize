@@ -323,6 +323,25 @@
               "Nothing. It's waiting with the patience of a thing that always gets its man."
             ]
           }
+        ],
+        "PULL": [
+          {
+            "when": {
+              "T_CHAIR_TRIED": false
+            },
+            "say": "The lever. It went flat at once, like a trap, and came up again slowly, like a trap being set. I have learned the word 'reclines' from the outside. I gather that is a first.",
+            "set": {
+              "T_CHAIR_TRIED": true
+            },
+            "sceneLine": "docs/123-five-more-things-to-find.md::### F-2 · The chair: the lines · **THE CHAIR** · *the barber's* - PULL, *the first time*"
+          },
+          {
+            "when": {
+              "T_CHAIR_TRIED": true
+            },
+            "say": "It has shown me what it does. I do not need showing whom it does it to.",
+            "sceneLine": "docs/123-five-more-things-to-find.md::### F-2 · The chair: the lines · **THE CHAIR** · *the barber's* - PULL, *again*"
+          }
         ]
       },
       "overrides": {
