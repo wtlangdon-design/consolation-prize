@@ -6987,3 +6987,12 @@ Replayed in the real build: the survey (A7.1 to A7.4g), the burglary and the dra
 
 Lesson: `tests/not-done.test.ts` holds that the drawer is drawn shut exactly when it is shut, that the envelope is on the board exactly when the letter is delivered and is listed before the wreath, and that each of the seven has a cell and is no longer marked pending. With the envelope's prop removed from the room, its test fails. `tests/room-11.test.ts` names the shut drawer among what the office draws.
 
+## 255 · The Colonel on Boot Hill is no longer the one grey face (Tyler, 2026-11-10)
+
+Tyler, playing, of the man to the right of the obelisk: "a very different skin tone than everyone else in the scene and it makes him look sickly."
+
+- **Cause.** Errata 242 graded Fanshawe into the hill's night with a cool light and half his colour taken out. That was measured on his Duel Three sheet. Errata 246 replaced the sheet (hat in hand) and kept the grade, and on the new sheet it left his face 102/94/82, grey, beside the town's 135/107/75.
+- **Fixed.** The hill's `figureLight` is now a cool multiply (0.8, 0.9, 1), brightness 0.95, and nearly all his colour kept (saturate 0.92): his face measures 127/103/75. He is still dimmed into the night (`tools/check-figure-light.mjs` passes). Only he is named, as before.
+
+Lesson: `tests/skin-tone.test.mjs`. Every person a room grades is compared with the people in that room it does not grade: the colour left in his face after the grade must be within 30% of theirs. With errata 242's values put back, it fails on him (0.21 against 0.46). It also holds Deke and the fiddler in the Nugget and the claim-row man. And a row in doc 55 section 8: when a figure's sheet is replaced, the room's grade for him is measured again on the new sheet.
+

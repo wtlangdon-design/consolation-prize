@@ -2123,13 +2123,13 @@
       "memorial_fanshawe"
     ],
     "light": [
-      0.72,
-      0.86,
+      0.8,
+      0.9,
       1
     ],
-    "brightness": 0.9,
-    "saturate": 0.5,
-    "note": "Errata 242 (doc 113, C). Fanshawe's Duel Three sheet was drawn for Main Street's lamps (rest frame: mean luminance 51, 90th percentile 113, saturation 0.47, a warm 63/49/29); the hill's own cast is the moon's (Sowerby at the gate 42/85/0.21, the mourners 38/61/0.26). A cool light and half the colour bring him into the same night. Only he is named: every other figure on the hill is drawn exactly as before."
+    "brightness": 0.95,
+    "saturate": 0.92,
+    "note": "Errata 242 (doc 113, C), retuned by errata 255. The hill's own cast is the moon's (Sowerby at the gate, the mourners); Fanshawe's sheet is painted warmer and brighter, so the room cools and dims him. Errata 242 set this for his Duel Three sheet and took half his colour out; on the hat-in-hand sheet that replaced it (errata 246) that left his face grey beside everyone else's (Tyler, 2026-11-10: \"a very different skin tone than everyone else in the scene and it makes him look sickly\"). Now a cool multiply and nearly all his colour kept: his skin measures 127/103/75 against the town's 135/107/75 behind him. Only he is named."
   },
   "peopleResponses": {
     "memorial_fanshawe": {
