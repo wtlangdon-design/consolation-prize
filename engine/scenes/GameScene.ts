@@ -1760,7 +1760,9 @@ export class GameScene extends Phaser.Scene {
       this.applyInteraction(target, verb);
       return;
     }
-    const staging = target.walkTo ?? this.approachPoint(target, verb);
+    // A stand that holds only in some states (Interactable.walkToWhen): outside them he answers from where he is.
+    const declared = target.walkTo && this.state.flags.test(target.walkToWhen) ? target.walkTo : undefined;
+    const staging = declared ?? (target.walkTo ? null : this.approachPoint(target, verb));
     if (!staging) {
       this.faceTarget(target);
       this.applyInteraction(target, verb);

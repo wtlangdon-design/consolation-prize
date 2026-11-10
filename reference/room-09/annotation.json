@@ -185,7 +185,8 @@
  },
  "people": {
   "IGNATIUS FRAME": [
-   "frame"
+   "frame",
+   "frame_stood_back"
   ]
  },
  "headlines": {
@@ -215,7 +216,14 @@
    "grants": [
     "funeral_notice"
    ],
-   "completes": "C3"
+   "completes": "C3",
+   "holds": {
+    "clip": "haul",
+    "frames": [
+     1,
+     2
+    ]
+   }
   },
   {
    "hotspot": "press",
@@ -269,5 +277,16 @@
    }
   }
  ],
- "docBulletsNote": "Errata 249, doc 118 O-2: Frame sets the funeral notice (T_NOTICE_SET) and Thad pulls it off THE PRESS himself. PULL grants the notice and completes C3. Errata 250, doc 121 N-4: a worn capital B from the type case, once (T_B_TAKEN)."
+ "docBulletsNote": "Errata 249, doc 118 O-2: Frame sets the funeral notice (T_NOTICE_SET) and Thad pulls it off THE PRESS himself. PULL grants the notice and completes C3. Errata 250, doc 121 N-4: a worn capital B from the type case, once (T_B_TAKEN).",
+ "hotspotWalkTo": {
+  "press": {
+   "x": 1310,
+   "y": 765,
+   "facing": "right",
+   "when": {
+    "T_NOTICE_SET": true
+   }
+  }
+ },
+ "hotspotWalkToNote": "Errata 253: PULL on THE PRESS is done at the press, once the printer has stood back from it (frame_stood_back). At other times he answers from where he stands, since the printer is standing there."
 }

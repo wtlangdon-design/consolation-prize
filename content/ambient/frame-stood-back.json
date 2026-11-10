@@ -1,0 +1,108 @@
+{
+ "schema": 1,
+ "id": "frame_stood_back",
+ "name": "IGNATIUS FRAME",
+ "posture": "standing",
+ "room": "clarion",
+ "whenAny": [
+  {
+   "T_NOTICE_SET": true
+  },
+  {
+   "T_NOTICE_IN_HAND": true
+  }
+ ],
+ "x": 930,
+ "y": 717,
+ "zone": 2,
+ "approachRadius": 40,
+ "walkTo": {
+  "x": 1120,
+  "y": 790,
+  "facing": "left"
+ },
+ "walkToNote": "Thad is where he stood to ask; he turns to him.",
+ "tree": "FRAME",
+ "note": "IGNATIUS FRAME, stood back from his press with the funeral notice set (doc 118 O-2, errata 253): the same man, by his back editions with his arms folded, so that the press is Thad's to pull. He walks here from the press when his lines are over (`arrive`), and is here while the notice is set or wet in Thad's hand. reference/press-pull: operations 1 (the walk) and 2 (stood back).",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for Frame.",
+ "sprite": {
+  "sheet": "art/actors/room-09-frame-stood-back-idles.png",
+  "rate": 0.3,
+  "phase": 0.4,
+  "frames": [
+   [
+    2,
+    2,
+    201,
+    506
+   ],
+   [
+    205,
+    2,
+    201,
+    506
+   ],
+   [
+    408,
+    2,
+    201,
+    506
+   ]
+  ],
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 12,
+  "talkFrame": 0,
+  "frameNote": "0 stood back, three-quarter to the press, arms folded with his notebook under them · 1 breath (derived) · 2 taking a note, the pencil from behind his ear (frame 3 of his own sheet, on this sheet's sole row: tools/art/press-pull-stood-sheet.py). Breathing on 0 and 1; every `breakEvery` seconds the note (errata 77).",
+  "provenance": "reference/press-pull/handback.md"
+ },
+ "speaksAs": "frame",
+ "arrive": {
+  "path": [
+   [
+    1379,
+    717
+   ]
+  ],
+  "speed": 150,
+  "sheet": "art/actors/room-09-frame-walk.png",
+  "frames": [
+   [
+    2,
+    2,
+    269,
+    502
+   ],
+   [
+    273,
+    2,
+    269,
+    502
+   ],
+   [
+    544,
+    2,
+    269,
+    502
+   ],
+   [
+    815,
+    2,
+    269,
+    502
+   ]
+  ],
+  "fps": 6,
+  "strideRatio": 0.62,
+  "drawnFacing": "left",
+  "afterLines": true,
+  "note": "From his press, where `frame` stood until this moment, to his back editions: four frames of one stride, facing left (press-pull operation 1). After the lines that sent him, so he says his piece at the press and then steps away."
+ }
+}

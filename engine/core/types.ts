@@ -230,6 +230,11 @@ export interface Interactable {
    * be standing.
    */
   walkTo?: { x: number; y: number; facing: Facing };
+  /**
+   * The states in which `walkTo` is where he stands. Outside them he answers from where he is: the print shop's
+   * press is walked to only while its printer has stood back from it, since he is otherwise standing there.
+   */
+  walkToWhen?: Condition;
   responses?: Record<string, ResponseRule[]>;
   /**
    * Object-specific line for a verb this object has no written response to.
@@ -3274,6 +3279,11 @@ export interface PlaytestFixture {
 export interface AmbientExit {
   /** Floor points from where he stands (not repeated) to the door, in room pixels. */
   path: [number, number][];
+  /**
+   * As `arrive` only: he does not start until the lines being said are over. The printer says his piece at his press
+   * and then steps away from it (errata 253); without this he would set off as he began to speak.
+   */
+  afterLines?: boolean;
   /** Pixels per second along the path. */
   speed: number;
   sheet: string;
