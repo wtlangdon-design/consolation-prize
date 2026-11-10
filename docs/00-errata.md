@@ -7037,3 +7037,28 @@ Lesson: `tests/exit-skip.test.ts`. The rule, case by case; the Colonel's door re
 
 Lesson: `tests/sounds.test.ts`: each of the three sounds on a line that describes it and is fired by no verb and dips no score; a line that sounds may now be a pair's line, and must still be on screen word for word. `tools/check-sound-levels.mjs` holds their levels.
 
+## 258 · Five more things to find (doc 123; doc 122 P6. Tyler, 2026-11-10: "P6 - yes")
+
+Doc 122 P6 proposed "five more things to find that no route asks for, one per act, each a line or two: the kind of thing errata 250's wardrobe is... About ten lines, one voice, under a ruling." Tyler: "P6 - yes." That is the ruling, and it is the fourth exception to "never generate written content" (CLAUDE.md): **the ten lines of doc 123 and no others.**
+
+- **The five.** On Main Street the dog may be picked up, and is scratched behind the ear instead. At the barber's the chair's lever may be pulled. At the undertaker's he may use the measuring wall, and makes no mark. On Mr. Pratt's claim the coffee pot may be opened. In the Company's vault the champagne may be picked up, and is laid back in its dust.
+- **Each is worth nothing, by rule.** A verb the room never answered, on a thing that was always there; said once and then said differently. No item, no puzzle, no conversation, no direction for a figure to act, nothing the plate would have to show, no sound, no LISTEN. Each flag is read only by the same thing's second line.
+- Written in /docs (doc 123), one voice, to doc 59, and extracted.
+
+Lesson: `tests/five-finds.test.ts`. Each is doc 123's two lines and gives, completes and opens nothing; no other file in the game reads one of their flags; none is on LISTEN or in the sounds; played, none moves a puzzle, a pocket or the room. A sixth added as a clue fails it.
+
+## 259 · The title, stamped (doc 122 P7)
+
+Doc 122 P7 proposed one joke on the title card: it is filed, and a stamp comes down on it. Tyler asked for a mock-up and whether Monkey Island did it (it did not: the first game plays its title straight). Shown two wordings, he asked: "So the Filed and Seen stamps only come up after certain things happen in the game? But the first time you play there would be no stamp?" and then: **"Or maybe there's a trigger in the game that once you reach a certain point where the stamp is used, then the stamp comes down on the title card?"** Offered that with the stamp landing in front of the player and the word SEEN: **"Go."**
+
+- **A first title is clean.** Nothing is different for a new player.
+- **Earned in play.** The first time the Registrar's stamp comes down in the game (the cue `U-STAMP`: his counter in Act I, the filing, "Stamp. Thad is alive."), the machine remembers it.
+- **From then on** the title is stamped each time it shows: 2.2 seconds in, the approved stamp sounds (pad, then thump) and the mark lands with the thump and stays. Under THE END as well.
+- **The word is SEEN,** the one the Registrar stamps on Thad's three papers (doc 57), over CLAIMS REGISTRAR. Drawn in the game's own face from `content/ui/title.json` by `tools/art/title-stamp.py`; no word is in code, and no image operation was spent.
+- **The machine's, not a save's** (`MachineSettings`, doc 33 section 7.3): NEW GAME does not take it off.
+- Not a hint and not a mark: it says nothing about any line or puzzle (invariant 3), and nothing in the game reads it.
+
+Seen in the real build: a fresh machine's title is clean; an earned one is clean at one second and stamped at four, with the cue fired once (`renders/title-stamped-seen.png`).
+
+Lesson: `tests/title-stamp.test.ts`. A first title is clean and nothing lands under "Click to begin"; the sound leads the mark; what earns it is a cue something in play fires; the word is one the Registrar stamps and is typed in no tool or scene; a reset leaves it and no save carries it; the title's own stamp cannot earn the title's stamp.
+

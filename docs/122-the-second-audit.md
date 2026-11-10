@@ -83,6 +83,6 @@ Not built. Each is small, and each is a matter of taste that a script cannot set
 | P3 | "You decide" | **They are the score.** Each was approved by ear to ship. The word "placeholder" is off the README, the renderer and the proof, so nobody replaces an approved bed because a note called it temporary (errata 257) |
 | P4 | "You decide" | **The hill and his funeral keep one bed.** Consolation has one funeral in it, and plays it for a man nobody met and for a man who is standing there. That the town cannot tell the two occasions apart is the scene. A second statement would tell the player this one is the real one, and it is not (errata 257) |
 | P5 | "You decide" | **The fourth wall stays.** Doc 01's anachronism is in institutions, never in the frame; no line knows it is in a game (errata 257) |
-| P6 | "Yes" | Five more things to find: doc 123 |
-| P7 | "Give me an example and/or mock up; did MI do this?" | A mock-up was sent, with two wordings. Not built until he picks one. The first Monkey Island plays its title straight |
+| P6 | "Yes" | Written and built: doc 123, errata 258 |
+| P7 | "Give me an example and/or mock up; did MI do this?" Then: "maybe there's a trigger in the game that once you reach a certain point where the stamp is used, then the stamp comes down on the title card?" and "Go" | Built his way (errata 259): a first title is clean; once the Registrar's stamp has been seen in play, SEEN comes down on the title each time it shows. The first Monkey Island plays its title straight |
 
