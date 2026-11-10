@@ -2,7 +2,7 @@
 
 Written 2026-11-10 for errata 260. Tyler was shown a line-up of forty figures at one height (`cast-lineup-same-height.png`, beside this brief) and one frame of Thad in each room, with what stood out. **"Make all of the changes that you flagged. I want this game to be as close to perfect when I play through it."** What needed no drawing is done (errata 260). This is what needs the image key.
 
-**Budget: NOT SET. Do not spend an operation until Tyler names a number.** Proposed to him: ten operations under a new asset `final-look` in `art/staging/caps.json` (seven for the sections below, three in reserve). `caps.json` changes only on his instruction; quote it in the cap's `why`. Check `art/staging/ledger.json` before each operation and log each.
+**Budget: ten operations,** under the asset `final-look` in `art/staging/caps.json` (already recorded there). Tyler, 2026-11-10: "I defer to you on how big of a budget you think we need for the redraws." Seven are for the sections below and three are held in reserve for corrections against Thad. Check `art/staging/ledger.json` before each operation and log each. If the ten run out, stop and say what is left undone; do not raise the cap.
 
 **Nothing here may be written by the builder.** No lines. Do not touch `content/`. Never touch `wtlangdon-design/anchorage`.
 
