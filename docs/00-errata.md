@@ -7086,3 +7086,34 @@ Lesson:
 
 Nothing is built by this entry; the wiring of each hand-back will carry its own.
 
+## 262 · Each room a colour of its own (Tyler, 2026-11-10)
+
+Told that the game is dark and brown for a long time, and that the fix is variety between rooms rather than brightness, Tyler asked for a side-by-side. Shown four rooms graded beside themselves: **"I like the direction. I think it would be a nice way to differentiate different rooms from each other, so they don't all look exactly the same."**
+
+- **Thirteen interiors lean to a colour of their own** (`reference/room-grades.json`, with the reason for each): the hotel lobby green, the archive cold blue, the Registrar's grey-green, the Clarion ink blue, Thad's room teal, the laundry steam, the back room the green of its lamp, the schoolhouse slate, the boarding house rose, the barber's pale teal, the watchman's shack olive, and the church and the undertaker's lightly. Shadows and mid-tones lean; lamps and what they light stay warm.
+- **The lobby pulled back.** Shown all thirteen from the real build, Tyler: "The only one that maybe feels like you went a bit too far is the hotel lobby. It feels pretty green. But otherwise I think they all look great! Maybe pull the green back slightly in the hotel lobby and then merge?" Its strength went from 0.55 to 0.38 and its tint a little greyer.
+- **The warm rooms are left,** because they are what the others are told apart from: the Nugget, the mercantile, the livery, the Colonel's office and lobby. The night exteriors and the Gulch are not touched.
+- **No redrawing and no image operation.** One function of a pixel's own colour (`tools/art/room-grade.py`), applied to the plate and to every picture cut from it so that patches still match, always from the untouched originals kept in `reference/room-grade/originals/`. Taking a room off the list restores its plate. (The originals were first put under `art/staging/`, which git ignores: CI found the plates graded and no original to check them against. They are under `reference/`, tracked.)
+- Thad's light in each (errata 260) was read again from the graded plates.
+- Before and after from the real build: `renders/rooms-graded-before-after-1.png` and `-2.png`.
+
+Lesson: `tests/room-grades.test.mjs`: every graded picture is its original graded as the list says (a plate patched or regenerated without the tool fails), a grade is a lean and not a repaint, and the warm rooms stay off the list.
+
+## 263 · The final look and the first eleven poses, wired (reference/final-look, reference/acted-directions-2)
+
+The image session's two hand-backs. Six of `final-look`'s ten operations and five of `acted-directions-2`'s eighteen are spent.
+
+**The final look.**
+- **Mr. Pratt (both sheets), the rule-keeper, Madame Ozymandia at Prosperity and the pie woman** are redrawn at the cast's proportions, each on its own sheet, frame for frame. Mr. Pratt with his mallet is drawn 3.6% smaller so that the raised mallet fits its cell, and the pie woman 1% smaller for her raised hand: their heights are solved again on the new drawings (Pratt at Prosperity and at the Registrar's 405, the pie woman 166). A re-snap of Pratt's mallet sheet was tried and broke the handle from his hands; the sheet is as handed back, inside the 5% its level allows.
+- **Main Street at dawn** is the night street's own pixels under a first light: mean light 98.6 before, 63.9 now, against the night's 47.9. Every rect, walk box and exit sits where it sat.
+- **The washout** has its colour brought to the level of the ledge and the tents, by tool.
+
+**Eleven directions are acted that were printed** (doc 95, B to A): Mr. Pratt opening the coat, counting the money, holding out his hand, and giving back the coat (rows 120 to 123); Pratt on the claim holding out his hand and writing with the chalk (131); the rule-keeper tapping his head and tipping the dust (84, 90); the lookout reading the paper and folding it into his shirt (81, 82); the Deacon polishing a glass and pointing down the bank (87, 88). The new poses are frames after each sheet's last and are never an idle break.
+
+- Doc 95's count is **A 47 · B 10 · C 108**. (Its header said B 22 and C 107 since errata 253; the table has held 21 and 108, and the header is now counted from the table.)
+- **Ten rows are left,** and the image session cannot draw them: the game's overall image spend cap (`spendTokensTotal`, 4,000,000 billed tokens) was reached at 4,001,983. Raising it is Tyler's. Each of the ten has its prompt and specification written.
+
+Replayed in the real build: the lookout and the fiddle (G3.1 to G5.1), the chalk on the claim (D5.2c), the sale (E3.9).
+
+Lesson: none of these was a fix. Held by `tests/scale.test.ts` (the redrawn figures at their statures), `tests/one-level.test.mjs`, `tests/lessons.test.ts` (it refused the re-snapped mallet sheet: a figure in pieces), and the acted-directions tests (every acted row is performed by a figure in its room with frames it has).
+

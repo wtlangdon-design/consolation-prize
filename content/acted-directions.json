@@ -870,17 +870,34 @@
     },
     {
       "n": 81,
-      "class": "B",
+      "class": "A",
       "speaker": "gulch_lookout",
       "words": "He reads page one twice, moving his lips at the good part. Then he looks at Thad with something like envy.",
-      "where": "combinations (clarion on gulch_lookout, G3)"
+      "where": "combinations (clarion on gulch_lookout, G3)",
+      "performedBy": [
+        "gulch_lookout"
+      ],
+      "frames": [
+        5,
+        5,
+        6
+      ],
+      "seconds": 4.5
     },
     {
       "n": 82,
-      "class": "B",
+      "class": "A",
       "speaker": "gulch_lookout",
       "words": "He folds the paper into his shirt, over his heart, like a deed.",
-      "where": "combinations (clarion on gulch_lookout, G3)"
+      "where": "combinations (clarion on gulch_lookout, G3)",
+      "performedBy": [
+        "gulch_lookout"
+      ],
+      "frames": [
+        7
+      ],
+      "seconds": 2,
+      "holds": 7
     },
     {
       "n": 83,
@@ -891,10 +908,17 @@
     },
     {
       "n": 84,
-      "class": "B",
+      "class": "A",
       "speaker": "gulch_rule_keeper",
       "words": "He taps his head.",
-      "where": "dialogue/gulch-rule-keeper RUL_G1 option 1"
+      "where": "dialogue/gulch-rule-keeper RUL_G1 option 1",
+      "performedBy": [
+        "gulch_rule_keeper"
+      ],
+      "frames": [
+        7
+      ],
+      "seconds": 1.5
     },
     {
       "n": 85,
@@ -928,17 +952,31 @@
     },
     {
       "n": 87,
-      "class": "B",
+      "class": "A",
       "speaker": "gulch_deacon",
       "words": "He polishes a glass.",
-      "where": "dialogue/gulch-deacon DEA_G1 option 2"
+      "where": "dialogue/gulch-deacon DEA_G1 option 2",
+      "performedBy": [
+        "gulch_deacon"
+      ],
+      "frames": [
+        6
+      ],
+      "seconds": 2.5
     },
     {
       "n": 88,
-      "class": "B",
+      "class": "A",
       "speaker": "gulch_deacon",
       "words": "He points down the bank, at the bar.",
-      "where": "dialogue/gulch-deacon VES_G1 option 6"
+      "where": "dialogue/gulch-deacon VES_G1 option 6",
+      "performedBy": [
+        "gulch_deacon"
+      ],
+      "frames": [
+        7
+      ],
+      "seconds": 1.5
     },
     {
       "n": 89,
@@ -967,10 +1005,17 @@
     },
     {
       "n": 90,
-      "class": "B",
+      "class": "A",
       "speaker": "gulch_rule_keeper",
       "words": "He tips a pinch of dust onto the plank in front of Thad.",
-      "where": "combinations (tuning_fork on fiddle, G5)"
+      "where": "combinations (tuning_fork on fiddle, G5)",
+      "performedBy": [
+        "gulch_rule_keeper"
+      ],
+      "frames": [
+        8
+      ],
+      "seconds": 2
     },
     {
       "n": 91,
@@ -1226,31 +1271,60 @@
     },
     {
       "n": 120,
-      "class": "B",
+      "class": "A",
       "speaker": "pratt",
       "words": "He opens the coat a little and looks in.",
-      "where": "combinations (raccoon_in_coat on pratt, THE SALE)"
+      "where": "combinations (raccoon_in_coat on pratt, THE SALE)",
+      "performedBy": [
+        "pratt"
+      ],
+      "frames": [
+        7
+      ],
+      "seconds": 2
     },
     {
       "n": 121,
-      "class": "B",
+      "class": "A",
       "speaker": "pratt",
       "words": "He counts out the money, coin by coin.",
-      "where": "combinations (raccoon_in_coat on pratt, THE SALE)"
+      "where": "combinations (raccoon_in_coat on pratt, THE SALE)",
+      "performedBy": [
+        "pratt"
+      ],
+      "frames": [
+        8
+      ],
+      "seconds": 2.5
     },
     {
       "n": 122,
-      "class": "B",
+      "class": "A",
       "speaker": "pratt",
       "words": "He holds out his other hand.",
-      "where": "combinations (raccoon_in_coat on pratt, THE SALE)"
+      "where": "combinations (raccoon_in_coat on pratt, THE SALE)",
+      "performedBy": [
+        "pratt"
+      ],
+      "frames": [
+        9
+      ],
+      "seconds": 1.5,
+      "holds": 9
     },
     {
       "n": 123,
-      "class": "B",
+      "class": "A",
       "speaker": "pratt",
       "words": "Thad gives back the hen. Pratt gives back the coat, empty.",
-      "where": "combinations (raccoon_in_coat on pratt, THE SALE)"
+      "where": "combinations (raccoon_in_coat on pratt, THE SALE)",
+      "performedBy": [
+        "pratt"
+      ],
+      "frames": [
+        10
+      ],
+      "seconds": 2
     },
     {
       "n": 124,
@@ -1321,10 +1395,19 @@
     },
     {
       "n": 131,
-      "class": "B",
+      "class": "A",
       "speaker": "pratt_jump",
       "words": "Pratt holds out his hand. Thad gives him the chalk. Pratt writes underneath, slowly: 104.",
-      "where": "combinations (chalk on claim_marker, the turn)"
+      "where": "combinations (chalk on claim_marker, the turn)",
+      "performedBy": [
+        "pratt_jump"
+      ],
+      "frames": [
+        6,
+        7,
+        7
+      ],
+      "seconds": 4.5
     },
     {
       "n": 132,
