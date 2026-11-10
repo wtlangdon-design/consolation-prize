@@ -231,7 +231,37 @@
    "grants": [
     "blanket"
    ]
+  },
+  {
+   "hotspot": "grievance_s_feed_bin",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines",
+   "head": "**GRIEVANCE'S FEED BIN** · *the livery*",
+   "bullet": "- PICK UP, *the first time*",
+   "when": {
+    "T_OATS_TAKEN": false
+   },
+   "set": {
+    "T_OATS_TAKEN": true
+   },
+   "grants": [
+    "oats"
+   ]
+  },
+  {
+   "hotspot": "grievance_s_feed_bin",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines",
+   "head": "**GRIEVANCE'S FEED BIN** · *the livery*",
+   "bullet": "- PICK UP, *again*",
+   "when": {
+    "T_OATS_TAKEN": true
+   }
   }
  ],
- "docBulletsNote": "Errata 245 (doc 117 O-5, doc 118): the livery man gives leave (T_BLANKET_ALLOWED, LIV_A1 option 5) and Thad takes the blanket off her himself."
+ "docBulletsNote": "Errata 245 (doc 117 O-5, doc 118): the livery man gives leave (T_BLANKET_ALLOWED, LIV_A1 option 5) and Thad takes the blanket off her himself. Errata 250, doc 121 N-4: a handful of oats from her bin, once (T_OATS_TAKEN)."
 }

@@ -271,6 +271,28 @@
               "Nothing. She has stopped listening for me, which I take as a promotion."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_OATS_TAKEN": false
+            },
+            "say": "One handful, off the top. Grievance watched it go, and then the level, and then me. It has been entered.",
+            "set": {
+              "T_OATS_TAKEN": true
+            },
+            "grants": [
+              "oats"
+            ],
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **GRIEVANCE'S FEED BIN** · *the livery* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_OATS_TAKEN": true
+            },
+            "say": "She can count. I do not care to learn how high.",
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **GRIEVANCE'S FEED BIN** · *the livery* - PICK UP, *again*"
+          }
         ]
       },
       "walkTo": {

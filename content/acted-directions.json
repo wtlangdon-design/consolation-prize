@@ -1480,6 +1480,62 @@
       "speaker": "thad",
       "words": "Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet.",
       "where": "rooms/clarion press PULL"
+    },
+    {
+      "n": 153,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad slides the drawer home with one finger. It shuts like a bank.",
+      "where": "rooms/fanshawe_office stock_portrait_drawer CLOSE"
+    },
+    {
+      "n": 154,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A.",
+      "where": "combinations (letter on pike_s_marker, with a nail)"
+    },
+    {
+      "n": 155,
+      "class": "C",
+      "speaker": "thad",
+      "words": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+      "where": "combinations (oats on hen)"
+    },
+    {
+      "n": 156,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad lays the B on the lid, beside the name plate.",
+      "where": "combinations (capital_b on coffin)"
+    },
+    {
+      "n": 157,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad locks the wardrobe. The key fits, as it fits everything.",
+      "where": "combinations (room_key on wardrobe)"
+    },
+    {
+      "n": 158,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+      "where": "combinations (button on raccoon_in_coat)"
+    },
+    {
+      "n": 159,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+      "where": "combinations (pikes_collar on raccoon_in_coat)"
+    },
+    {
+      "n": 160,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad puts the sprig in the coat's lapel.",
+      "where": "combinations (parsley on raccoon_in_coat)"
     }
   ]
 }

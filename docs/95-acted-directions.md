@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 36 · B 23 · C 93** — 152 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 36 · B 23 · C 101** — 160 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -187,6 +187,14 @@ Counts: **A 36 · B 23 · C 93** — 152 directions, every one flagged `"directi
 | 150 | C | thad | Thad puts the cover back over the contract. | rooms/fanshawe_office contract CLOSE |  |  |  |  |  | Errata 248, doc 120 I-1: the dinner ends with it and the table goes; told. |
 | 151 | C | fanshawe | He does not take the dish away. | dialogue/fanshawe FAN_A2 option 6 |  |  |  |  |  | Errata 248, doc 120 I-1: what he does not do. Told. |
 | 152 | B | thad | Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet. | rooms/clarion press PULL |  |  |  |  |  | Errata 249, doc 118 O-2: physical; he has no pose hauling a bar. Told until one is drawn (rule 4). |
+| 153 | C | thad | Thad slides the drawer home with one finger. It shuts like a bank. | rooms/fanshawe_office stock_portrait_drawer CLOSE |  |  |  |  |  | Errata 250, doc 121 N-1: the drawer is drawn shut by its patch as this is said, once the patch is in (reference/objects-second-pass); he has no pose for one finger. Told. |
+| 154 | C | thad | Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A. | combinations (letter on pike_s_marker, with a nail) |  |  |  |  |  | Errata 250, doc 121 N-2: the taps are heard, in A; the envelope on the board is a patch asked for. Told until it is in. |
+| 155 | C | thad | The hen eats out of Thad's hand, briskly, like a clerk stamping forms. | combinations (oats on hen) |  |  |  |  |  | Errata 250, doc 121 N-4: the hen is in his pocket, an item. Nothing on screen to act it. Told. |
+| 156 | C | thad | Thad lays the B on the lid, beside the name plate. | combinations (capital_b on coffin) |  |  |  |  |  | Errata 250, doc 121 N-4: a lead letter on a coffin lid is two pixels at this size. Told. |
+| 157 | C | thad | Thad locks the wardrobe. The key fits, as it fits everything. | combinations (room_key on wardrobe) |  |  |  |  |  | Errata 250, doc 121 N-4: the second sentence is the joke, and a key turning is not a picture at this size. Told. |
+| 158 | C | thad | Thad works the button into the coat's empty top buttonhole. The raccoon permits it. | combinations (button on raccoon_in_coat) |  |  |  |  |  | Errata 250, doc 121 N-3: the raccoon in his coat is an item in his hands. Told. |
+| 159 | C | thad | Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct. | combinations (pikes_collar on raccoon_in_coat) |  |  |  |  |  | Errata 250, doc 121 N-3: as the button. Told. |
+| 160 | C | thad | Thad puts the sprig in the coat's lapel. | combinations (parsley on raccoon_in_coat) |  |  |  |  |  | Errata 250, doc 121 N-3: as the button. Told. |
 
 ## When a B pose is drawn
 

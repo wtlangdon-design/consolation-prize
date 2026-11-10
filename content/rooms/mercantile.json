@@ -761,6 +761,28 @@
               "The magnet clicking against the keg's rim as it sways."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_NAIL_TAKEN": false
+            },
+            "say": "One nail, on my account. He weighed it. It came to nothing, and he has written the nothing down.",
+            "set": {
+              "T_NAIL_TAKEN": true
+            },
+            "grants": [
+              "nail"
+            ],
+            "sceneLine": "docs/121-the-not-done-list.md::### N-2 · The letter: the lines · **THE NAILS** · *the mercantile* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_NAIL_TAKEN": true
+            },
+            "say": "One nail is a purchase. Two is carpentry, and I have nothing to build.",
+            "sceneLine": "docs/121-the-not-done-list.md::### N-2 · The letter: the lines · **THE NAILS** · *the mercantile* - PICK UP, *again*"
+          }
         ]
       },
       "overrides": {

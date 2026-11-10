@@ -261,5 +261,38 @@
    "defaultVerb": "WALK_TO",
    "note": "Doc 05: 'The path up the ridge starts at the door.' Up to the high ridge, Room 29 (errata 99 E)."
   }
- }
+ },
+ "docBullets": [
+  {
+   "hotspot": "collars",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines",
+   "head": "**THE COLLARS** · *the laundry*",
+   "bullet": "- PICK UP, *the first time*",
+   "when": {
+    "T_COLLAR_TAKEN": false
+   },
+   "set": {
+    "T_COLLAR_TAKEN": true
+   },
+   "grants": [
+    "pikes_collar"
+   ]
+  },
+  {
+   "hotspot": "collars",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines",
+   "head": "**THE COLLARS** · *the laundry*",
+   "bullet": "- PICK UP, *again*",
+   "when": {
+    "T_COLLAR_TAKEN": true
+   }
+  }
+ ],
+ "docBulletsNote": "Errata 250, doc 121 N-4: Mr. Pike's uncollected collar, once (T_COLLAR_TAKEN)."
 }

@@ -476,6 +476,28 @@
             ]
           }
         ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_PARSLEY_TAKEN": false
+            },
+            "say": "A man who picks up a contract at this table has as good as read it aloud. I have picked up the parsley.",
+            "set": {
+              "T_PARSLEY_TAKEN": true
+            },
+            "grants": [
+              "parsley"
+            ],
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **THE CONTRACT** · PICK UP *(in place of doc 120's line)* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_PARSLEY_TAKEN": true
+            },
+            "say": "I have left it on its plate. I have left the plate nothing else.",
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **THE CONTRACT** · PICK UP *(in place of doc 120's line)* - PICK UP, *again*"
+          }
+        ],
         "CLOSE": [
           {
             "when": {
@@ -539,12 +561,6 @@
           {
             "say": "He has not asked me to sign. He has only made it extremely convenient.",
             "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE CONTRACT, TRIED** - USE"
-          }
-        ],
-        "PICK_UP": [
-          {
-            "say": "A man who picks up a contract at this table has as good as read it aloud. I have left it on its plate.",
-            "sceneLine": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines · **THE CONTRACT, TRIED** - PICK UP"
           }
         ]
       },
@@ -675,7 +691,8 @@
             ],
             "say": "The drawer is full of the same gentleman. Dozens of him, stacked, all looking nobly at nothing. Every one of him is Obadiah Mott.",
             "set": {
-              "T_MOTT_FACE_UNKNOWN": true
+              "T_MOTT_FACE_UNKNOWN": true,
+              "T_DRAWER_OPEN": true
             },
             "grants": [
               "photograph"
@@ -701,7 +718,8 @@
             ],
             "say": "The drawer is full of the same gentleman. Dozens of him, stacked, all looking nobly at nothing. Every one of him is Obadiah Mott.",
             "set": {
-              "T_MOTT_FACE_UNKNOWN": true
+              "T_MOTT_FACE_UNKNOWN": true,
+              "T_DRAWER_OPEN": true
             },
             "grants": [
               "photograph"
@@ -715,6 +733,26 @@
             },
             "say": "Not with him in the room. He'd offer to help me carry it.",
             "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · Fanshawe present"
+          }
+        ],
+        "CLOSE": [
+          {
+            "when": {
+              "T_DRAWER_OPEN": true
+            },
+            "say": "Thad slides the drawer home with one finger. It shuts like a bank.",
+            "direction": true,
+            "then": [
+              "Thirty-nine Obadiah Motts, back in the dark. He will not count them. Nobody counts a thing he keeps forty of."
+            ],
+            "set": {
+              "T_DRAWER_OPEN": false
+            },
+            "sceneLine": "docs/121-the-not-done-list.md::### N-1 · The drawer: the lines · **THE STOCK PORTRAIT DRAWER** · *open, on the funeral day* - CLOSE, *open*"
+          },
+          {
+            "say": "It is shut. It was built shut. That is what the joinery was for.",
+            "sceneLine": "docs/121-the-not-done-list.md::### N-1 · The drawer: the lines · **THE STOCK PORTRAIT DRAWER** · *open, on the funeral day* - CLOSE, *shut*"
           }
         ]
       },
@@ -1031,6 +1069,14 @@
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "transitScene": [
+        {
+          "when": {
+            "T_DRAWER_OPEN": true
+          },
+          "say": "Not with that drawer hanging out like a tongue. He knows this room to the inch, and that is nine of them.",
+          "stays": true,
+          "sceneLine": "docs/121-the-not-done-list.md::### N-1 · The drawer: the lines · THE DOOR, THE DRAWER OPEN"
+        },
         {
           "when": {
             "T_BORDERS_MOTT": true,

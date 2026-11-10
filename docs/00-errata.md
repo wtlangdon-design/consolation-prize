@@ -6908,3 +6908,33 @@ Lesson:
 - The full walkthrough plays it (C3.7, C3.8), and the real build was played from the church to the notice on the wall.
 - `tests/press.test.ts`: nothing Frame says hands over the notice or completes C3; the press gives it only when the notice is set; a second is not to be had while he holds one.
 
+## 250 · The not-done list (doc 121): the drawer shut, the letter delivered, seven objects, the raccoon dressed, and the papers packed
+
+Tyler, 2026-11-10, on the list of what the night had left undone: **"Do all the Not Done things."** Doc 121 is the design and the lines; rows 20 to 24 of doc 119 are the changes, each reversible on its own.
+
+- **N-1 · The drawer, shut.** Taking the photograph leaves the stock portrait drawer open (`T_DRAWER_OPEN`). The office door refuses while it is. CLOSE shuts it. The second solving CLOSE (doc 116 Y5).
+- **N-2 · The letter, delivered.** One nail from the mercantile's keg. Once the memorial is booked, THE LETTER on PIKE'S MARKER (or the nail on it) fixes the letter to his board, sealed, tapped in with the tuning fork. Both leave. Doc 120's line at the board ("I may want an introduction yet") is what it answers.
+- **N-3 · The raccoon, dressed.** A BUTTON, MR. PIKE'S COLLAR and A SPRIG OF PARSLEY each go on THE RACCOON, IN MY COAT. Mr. Pratt's lines are unchanged.
+- **N-4 · Seven objects,** each taken by hand, once, and none needed: a nail (the mercantile), a handful of oats (the livery; the hen eats them), the parsley (off the contract at dinner), a capital B (the Clarion's type case; laid on his own coffin), Mr. Pike's collar (the laundry), a button (the church's collection plate), his room key (the hotel's rack; it locks the wardrobe).
+- **N-5 · Packed.** From Act IV the executor's form, the photograph and the third copy are not carried: the act opens with his case packed, in doc 57's own words. No new line.
+- **The press (errata 249) is not restaged yet.** Staging it properly means the printer steps away from his press, and nobody may pop in or out of view (Tyler, 2026-11-01), so it waits on three small sheets: `reference/press-pull/brief.md`. A first wiring without them is on the branch `press-staging-wip`.
+- **III-1 stays withdrawn by its author.** "Do all" is not read as overruling a withdrawal made to protect invariants 3 and 7; doc 121's last section says why, and it is built the day Tyler says "build III-1" in those words.
+
+### The counts (`proofs/pacing.json` now lists nothing)
+
+| | Before the night | After errata 249 | Now | Doc 116's target |
+|---|---|---|---|---|
+| Item on an item | 1 | 4 | 8 | 5 |
+| CLOSE that solves something | 0 | 1 | 2 | 2 |
+| Objects among all items | 12 of 34 | 16 of 39 | 23 of 46 | half |
+| Papers carried to the filing | 14 of 24 | 8 of 18 | 4 of 15 | under a third |
+| Four counters in a row | 1 run | 1 run | none | none |
+
+### Art asked for (`reference/objects-second-pass/brief.md`)
+
+Seven icons; the drawer shut; the envelope on Mr. Pike's board. Until they are in, each icon is its labelled box and the two patches are told.
+
+Lesson:
+- `tests/not-done.test.ts`: the door holds him while the drawer is open; the letter is kept until the church has had it and he has a nail; each new object is taken once; the game is won without touching one; the packed papers are gone only from Act IV, and the filing's are not.
+- The full walkthrough plays all of it.
+

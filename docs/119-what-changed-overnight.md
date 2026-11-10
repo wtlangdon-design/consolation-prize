@@ -25,3 +25,8 @@ Untouched throughout: CLAUDE.md's design invariants, the ending, the central rev
 | 17 | Act III, the obituary | Carried to the end | Tucked into the Colonel's wreath as its card, and buried with it | A paper out of his pocket, by a joke | 248 |
 | 18 | Act I, the invitation | Carried to the end | Left on the Colonel's table | A paper that only proved progress | 248 |
 | 19 | Act II, the funeral notice | Frame pulled it off the press and handed it over | Frame sets the type and stands back; Thad pulls it himself. The puzzle (C3) completes at the press | A second solving PULL, and the Clarion stops being a room where he only talks | 249 |
+| 20 | Act II, the burglary | He took the photograph and walked out with the drawer open | The door will not have it; he shuts the drawer first | A second solving CLOSE, and a burglar who tidies | 250 |
+| 21 | Act II, the letter of introduction | Carried to the end of the game | With a nail from the mercantile it is fixed to Mr. Pike's board, sealed, once the church has had its use of it | The paper he came with ends where it was addressed | 250 |
+| 22 | Act III, the raccoon | Sold to Mr. Pratt in a coat | And in Mr. Pike's collar, a button and the Colonel's parsley, if the player has them | Three things used on another thing; small objects that pay off an act or two later | 250 |
+| 23 | Seven rooms | — | Seven objects to take by hand: a nail, oats, parsley, a capital B, Mr. Pike's collar, a button, his room key. None is needed for anything | Pockets with things in them, not papers | 250 |
+| 24 | Act IV | Every paper carried to the filing | The executor's form, the photograph and the third copy are in his packed case | The last act's inventory is what the last act uses | 250 |

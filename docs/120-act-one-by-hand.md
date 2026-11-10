@@ -102,11 +102,12 @@ Not built here. The design: the map is laid on her table as large as the screen.
 **LISTEN** 1 "Paper, settling on hot china. It sounds comfortable there." · 2 "Nothing. It has said everything it means to, in small type." · 3 "The Colonel, not mentioning it. He is doing that quite loudly."
 
 **THE CONTRACT, TRIED**
-- PICK UP — "A man who picks up a contract at this table has as good as read it aloud. I have left it on its plate."
 - USE — "He has not asked me to sign. He has only made it extremely convenient."
 - PUSH — *(Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two.)* "It is nearer than when I began. I shall stop helping."
 - OPEN — "It is one page. There is nothing to open. It took him one page."
 - CLOSE — *(Thad puts the cover back over the contract.)* "I mean to work it myself." **FANSHAWE:** "Of course you do." → doc 57 A10, beat 3; `T_DINED`
+
+*(PICK UP on the contract is doc 121's: the parsley.)*
 
 **BEAT 3** *(doc 57 A10, word for word; said after the CLOSE)*
 > **FANSHAWE:** *(Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.)* "Keep it. I have dozens."

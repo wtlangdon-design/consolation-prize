@@ -2221,6 +2221,99 @@
     "room:fanshawe_office:covered_dish:OPEN"
    ],
    "note": "Doc 120 I-1 (errata 248): the cover is off the dish at the Colonel's table and the contract is on the plate. Cleared on every entry: a dinner left starts again."
+  },
+  {
+   "id": "T_NAIL_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:mercantile:nails:PICK_UP"
+   ],
+   "note": "Doc 121 N-2 (errata 250): Thad has taken his one nail from the mercantile's keg."
+  },
+  {
+   "id": "T_LETTER_DELIVERED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:letter:boot_hill:pike_s_marker",
+    "combination:nail:boot_hill:pike_s_marker"
+   ],
+   "note": "Doc 121 N-2 (errata 250): the letter of introduction is nailed to Pike's board, sealed. Nothing reads it but the pair itself."
+  },
+  {
+   "id": "T_OATS_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:livery:grievance_s_feed_bin:PICK_UP"
+   ],
+   "note": "Doc 121 N-4 (errata 250): a handful of Grievance's oats has been taken, once."
+  },
+  {
+   "id": "T_PARSLEY_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:fanshawe_office:contract:PICK_UP"
+   ],
+   "note": "Doc 121 N-4 (errata 250): the parsley is off the Colonel's contract."
+  },
+  {
+   "id": "T_B_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:type_case:PICK_UP"
+   ],
+   "note": "Doc 121 N-4 (errata 250): a worn capital B is out of the Clarion's type case."
+  },
+  {
+   "id": "T_COLLAR_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:laundry:collars:PICK_UP"
+   ],
+   "note": "Doc 121 N-4 (errata 250): Mr. Pike's uncollected collar has been called for."
+  },
+  {
+   "id": "T_KEY_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:hotel_lobby:key_rack:PICK_UP"
+   ],
+   "note": "Doc 121 N-4 (errata 250): his room key is off the rack."
+  },
+  {
+   "id": "T_WARDROBE_LOCKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:room_key:thads_room:wardrobe"
+   ],
+   "note": "Doc 121 N-4 (errata 250): the wardrobe that drifts open in the night is locked. Only the pair's second line reads it."
+  },
+  {
+   "id": "T_DRAWER_OPEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:fanshawe_office:stock_portrait_drawer:OPEN",
+    "room:fanshawe_office:stock_portrait_drawer:PICK_UP",
+    "room:fanshawe_office:stock_portrait_drawer:CLOSE"
+   ],
+   "note": "Doc 121 N-1 (errata 250): the stock portrait drawer has been left open by the burglary. The office door refuses while it is; CLOSE shuts it."
+  },
+  {
+   "id": "T_BUTTON_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:church:collection_plate:PICK_UP"
+   ],
+   "note": "Doc 121 N-4 (errata 250): the button is out of the church's collection plate."
   }
  ]
 }

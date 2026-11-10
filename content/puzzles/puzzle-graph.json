@@ -515,6 +515,7 @@
      ],
      "yields": [
       "f:T_MOTT_FACE_UNKNOWN=true",
+      "f:T_DRAWER_OPEN=true",
       "p:C4",
       "i:photograph"
      ]
@@ -528,6 +529,7 @@
      ],
      "yields": [
       "f:T_MOTT_FACE_UNKNOWN=true",
+      "f:T_DRAWER_OPEN=true",
       "p:C4",
       "i:photograph"
      ]

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "button",
+  "name": "A BUTTON",
+  "short": "A BUTTON",
+  "note": "EXTRACTED from docs/121-the-not-done-list.md (THE LINES) by tools/extract-content.mjs (errata 250). Do not edit: change doc 121 and re-run. Out of the church's bolted collection plate. It goes on the raccoon's coat in Act III.",
+  "iconPending": "reference/objects-second-pass/brief.md asks the image session for it (errata 250); the panel draws its labelled box meanwhile.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "A black bone button, out of the church's plate. Somebody gave it in place of a dime and felt every bit as generous.",
+        "repeat": [
+          "Four holes and no coat. It has been in and out of that plate for years, I should think, like a deacon.",
+          "In a poor light the Reverend would have banked it. In this town it very nearly is money."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Nothing. A button says what it has to say by being missing from somewhere.",
+        "repeat": [
+          "A click against the tuning fork. Bone.",
+          "Nothing. It is waiting for a coat."
+        ]
+      }
+    ]
+  }
+}

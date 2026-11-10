@@ -191,7 +191,14 @@
   "content/items/brass-rod.json",
   "content/items/clarion.json",
   "content/items/hymnal.json",
-  "content/items/wreath.json"
+  "content/items/wreath.json",
+  "content/items/nail.json",
+  "content/items/oats.json",
+  "content/items/parsley.json",
+  "content/items/capital-b.json",
+  "content/items/pikes-collar.json",
+  "content/items/button.json",
+  "content/items/room-key.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [

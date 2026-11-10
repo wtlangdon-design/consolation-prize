@@ -122,6 +122,28 @@
               "A last ring as the plate settles on its bolt. Fuller than it is, again."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_BUTTON_TAKEN": false
+            },
+            "say": "It is bolted down, which I take to be doctrine informed by experience. The button in it is not. I have taken the button and left the doctrine.",
+            "set": {
+              "T_BUTTON_TAKEN": true
+            },
+            "grants": [
+              "button"
+            ],
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **THE COLLECTION PLATE** · *the church* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_BUTTON_TAKEN": true
+            },
+            "say": "Bolted down, and empty now. We have each been relieved of something.",
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **THE COLLECTION PLATE** · *the church* - PICK UP, *again*"
+          }
         ]
       },
       "overrides": {

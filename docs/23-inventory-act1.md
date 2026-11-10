@@ -27,7 +27,7 @@
 **LISTEN** 1 "A. Four hundred and forty. Correct." · 2 "Still correct." · 3 "Correct. It is the only thing I own that is."
 
 ## THE LETTER
-*Two states, per ruling 19a. Flag: `T_PIKE_DEAD`.*
+*Two states, per ruling 19a. Flag: `T_PIKE_DEAD`. Gone after it is nailed to Mr. Pike's board, sealed (doc 121 N-2; errata 250); kept by a player who never does.*
 
 **Before** — **LOOK** 1 "A letter of introduction to Mr Ezra Pike of Consolation, in my father's hand, sealed." · 2 "My father wrote it in one sitting and would not let me read it." · 3 "Sealed. I have carried it three thousand miles without opening it, which I had thought was patience."
 **LISTEN** 1 "Nothing. Paper." · 2 "Nothing." · 3 "Nothing."
@@ -159,7 +159,7 @@
 **LISTEN** 1 "Nothing. It is too fine to make a sound in a pocket." · 2 "Nothing." · 3 "A faint smell of his cigars. It is still working for him."
 
 ## THE PHOTOGRAPH
-*C4, from the drawer in the empty office. Cannot be lost.*
+*C4, from the drawer in the empty office. Gone after Act IV opens: packed in his case (doc 121 N-5; errata 250).*
 
 **LOOK** 1 "A photograph of Obadiah Mott, discoverer of the Consolation strike. There were forty of him in the drawer." · 2 "He has a very good collar. Mr. Sheng has the same gentleman in his window, advertising the collar." · 3 "Nobody in Consolation knows what Mott looked like. This is what they have agreed to remember instead."
 **LISTEN** 1 "Card. Good card." · 2 "Nothing." · 3 "Nothing. He has the look of a man who would not say much, and he does not."
@@ -207,7 +207,7 @@
 **LISTEN** 1 "Newsprint." · 2 "Nothing." · 3 "Nothing. It is the only thing Frame has ever printed that I believe."
 
 ## THE EXECUTOR'S FORM
-*E6. Signed by Hob; accepted by Sump; admits Thad to the archive (E9). Cannot be lost.*
+*E6. Signed by Hob; accepted by Sump; admits Thad to the archive (E9). Gone after Act IV opens: packed in his case (doc 121 N-5; errata 250).*
 
 **LOOK** 1 "Form 31-E, Appointment of Executor. Signed 'Hob', and nothing else. Mr. Sump will want a surname." · 2 "A very neat hand. Small, upright, and in no hurry at all." · 3 "It names my executor 'and his agent, as he shall appoint.' He has appointed me. I am, in law, my own estate's errand boy."
 **LISTEN** 1 "Paper." · 2 "Nothing." · 3 "Nothing. It was signed by a man who says almost nothing, and it has taken after him."

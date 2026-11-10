@@ -23,5 +23,11 @@
         ]
       }
     ]
-  }
+  },
+  "lostWhen": {
+    "ACT": {
+      "atLeast": 4
+    }
+  },
+  "lostNote": "Packed (doc 121 N-5; errata 250): Act IV opens with his case packed on the bed (doc 57: \"there was less to pack than there was to leave\"), and a paper that is done with is in it. It leaves the inventory when ACT reaches 4."
 }
