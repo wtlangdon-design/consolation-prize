@@ -1,0 +1,16 @@
+{
+ "assetId": "final-look",
+ "subject": "final-look-ozymandia-prosperity",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-23-prosperity",
+ "promptFile": "reference/final-look/op-4.txt",
+ "out": "art/staging/final-look/ozymandia/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/final-look/ozymandia/template.png",
+  "art/staging/final-look/beside-thad-prosperity_ozymandia.png",
+  "art/staging/final-look/nugget-bar-men@3x.png"
+ ],
+ "derivedFrom": "art/actors/room-23-ozymandia.png"
+}

@@ -1,0 +1,16 @@
+{
+ "assetId": "final-look",
+ "subject": "final-look-rule-keeper",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-52-grog-tent",
+ "promptFile": "reference/final-look/op-3.txt",
+ "out": "art/staging/final-look/rule-keeper/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/final-look/rule-keeper/template.png",
+  "art/staging/final-look/beside-thad-gulch_rule_keeper.png",
+  "art/staging/final-look/cast-lineup-same-height.png"
+ ],
+ "derivedFrom": "art/actors/room-52-rule-keeper.png"
+}

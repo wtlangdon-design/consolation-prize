@@ -1,0 +1,16 @@
+{
+ "assetId": "final-look",
+ "subject": "final-look-pratt-jump",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-23-prosperity",
+ "promptFile": "reference/final-look/op-2.txt",
+ "out": "art/staging/final-look/pratt-jump/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/final-look/pratt-jump/template.png",
+  "art/staging/final-look/beside-thad-pratt_jump.png",
+  "art/staging/final-look/cast-lineup-same-height.png"
+ ],
+ "derivedFrom": "art/actors/room-25-pratt-jump-master.png"
+}

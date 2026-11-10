@@ -1,0 +1,16 @@
+{
+ "assetId": "final-look",
+ "subject": "final-look-pie-woman",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/final-look/op-6.txt",
+ "out": "art/staging/final-look/pie-woman/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/final-look/pie-woman/template.png",
+  "art/staging/final-look/beside-thad-pie_woman.png",
+  "art/staging/final-look/cast-lineup-same-height.png"
+ ],
+ "derivedFrom": "art/actors/ambient-pie-woman-master.png"
+}
