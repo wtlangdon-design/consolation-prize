@@ -64,10 +64,10 @@ Every line the screen showed, in play order. `>` marks the player's action; opti
 
 **THAD:** So this is Consolation.
 **THAD:** Half of it is two stories tall in front and one story deep.
+*(bark)* **THE PIE WOMAN:** Pie.
 **THAD:** The other half is real, and is doing better.
 **THAD:** Now. Mr. Ezra Pike, and my father's letter.
 **THAD:** The driver said ask the undertaker. An undertaker knows everybody, eventually.
-*(bark)* **THE PIE WOMAN:** Pie.
 > **A1.hob.1** -- goes to THE BACK ALLEY
 > **A1.hob.2** -- TALK TO HOB
 
@@ -153,6 +153,10 @@ THAD: *(Thad holds the letter out to the board, as one does to a butler.)*
 **THAD:** 'To Mr. Ezra Pike, by the hand of my son.' I am the hand. I regret to say he is the late.
 **THAD:** I cannot leave it with him. The wind would have it at the Improvement Company by morning, and I may want an introduction yet.
 > **A2.1** -- goes to HOTEL LOBBY
+
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** Pie.
 > **A2.2** -- TALK TO THE HOTEL CLERK
 
 ### HOTEL LOBBY
@@ -204,6 +208,8 @@ THAD: *(Thad holds the letter out to the board, as one does to a butler.)*
 > **A2.4** -- USE The tuning fork ON THE PARLOR PIANO
 **THAD:** Four minutes. It is the most honest work done in this building in some time.
 **THE HOTEL CLERK:** Top of the stairs, second door. The key sticks. You have to want it.
+> **A2.5** -- PICK UP THE KEY RACK
+**THAD:** Number three. Mine, by arrangement with a piano. The clerk watched it leave the rack as if it might not come back, which shows how little he knows of my alternatives.
 > **A3.1** -- goes to THE BOUNTIFUL NUGGET
 
 ### MAIN STREET
@@ -275,10 +281,6 @@ THAD: *(Thad holds the letter out to the board, as one does to a butler.)*
 **THAD:** Four minutes. C-sharp has come home, and nobody in this room has looked up.
 **THAD:** The barman has paid me. Neither of us has mentioned it. It is the most professional transaction of my life.
 > **A4.1** -- goes to FANSHAWE'S OFFICE
-
-### MAIN STREET
-
-*(bark)* **THE PIE WOMAN:** Pie. Half price for the newly poor.
 > **A4.2** -- TALK TO COLONEL FANSHAWE
 
 ### FANSHAWE'S OFFICE
@@ -333,6 +335,8 @@ COLONEL FANSHAWE: *(He gives Thad a map of the district. Claim Two is already ci
 > **A5.2a** -- PICK UP GRIEVANCE'S BLANKET
 THAD: *(Thad lifts the blanket off her, a corner at a time. Grievance watches each corner go.)*
 **THAD:** She has let me have it. I have been given to understand it is a loan and that she keeps accounts.
+> **A5.2a2** -- PICK UP GRIEVANCE'S FEED BIN
+**THAD:** One handful, off the top. Grievance watched it go, and then the level, and then me. It has been entered.
 > **A5.2b** -- goes to THE MERCANTILE
 
 ### LOWER STREET
@@ -350,6 +354,8 @@ THAD: *(Thad lifts the blanket off her, a corner at a time. Grievance watches ea
 **THAD:** One jar, on my account. I have an account now! I'm told that makes me a resident.
 > **A5.2d** -- PICK UP DR. PURVIS'S TONIC
 **THAD:** On account, with the eggs. It was wrapped for me as though it might go off, in either sense.
+> **A5.2e** -- PICK UP THE NAILS
+**THAD:** One nail, on my account. He weighed it. It came to nothing, and he has written the nothing down.
 > **A5.3** -- goes to PROSPERITY
 > **A5.3a** -- USE Dr. Purvis's Restorative Bile Tonic ON eggs
 
@@ -436,6 +442,32 @@ THAD: *(The egg goes in. There is a pause. The egg comes back out, at speed.)*
 **THAD:** It is two miles away and up a hill.
 **MADAME OZYMANDIA:** Then show me a picture of it.
 > **A7.4** -- USE The Improvement Company map ON MADAME OZYMANDIA
+MADAME OZYMANDIA: *(She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move.)*
+**MADAME OZYMANDIA:** The earth is shy today, darling. Take the rod. It only wants walking round the property.
+**THAD:** I am to do the divining.
+**MADAME OZYMANDIA:** You are to hold the stick. I shall do the divining. Commence.
+> **A7.4a** -- USE THE STAKE
+MADAME OZYMANDIA: *(Thad sets the tip of the rod on the stake.)*
+**MADAME OZYMANDIA:** Commencing at the stake. Thereabouts. The earth is not a pedant, darling. Now: which way does it go?
+> **A7.4b** -- USE THE CREEK
+**MADAME OZYMANDIA:** Not downhill. Water goes downhill. The earth has more self-respect.
+> **A7.4c** -- USE THE SLOPE
+MADAME OZYMANDIA: *(Thad draws the rod up the paper.)*
+**MADAME OZYMANDIA:** Thence uphill! With feeling, darling. More feeling than that.
+**THAD:** I am pushing a stick up a map.
+**MADAME OZYMANDIA:** And it shows.
+> **A7.4d** -- USE THE SMALLER ROCK
+**MADAME OZYMANDIA:** Not that one. Nobody surveys to the smaller rock. It would only get ideas.
+> **A7.4e** -- USE THE LARGER ROCK
+**MADAME OZYMANDIA:** To the larger of the two rocks. The earth has always had taste. And thence, hum with me, darling, along whatever line the rod prefers.
+> **A7.4f** -- USE THE SLOPE
+MADAME OZYMANDIA: *(She hums. Thad moves the rod along the paper. She stops.)*
+**MADAME OZYMANDIA:** There. Some forty feet.
+**THAD:** Forty feet of what?
+**MADAME OZYMANDIA:** Of preference, darling. Thence home.
+> **A7.4g** -- USE THE STAKE
+**MADAME OZYMANDIA:** Thence home.
+MADAME OZYMANDIA: *(She takes a Form 12-C from a stack of them and writes in purple ink.)*
 **MADAME OZYMANDIA:** The earth has spoken. The earth was brief.
 **THAD:** You keep Form 12-C?
 **MADAME OZYMANDIA:** The earth prefers them.
@@ -444,16 +476,16 @@ THAD: *(The egg goes in. There is a pause. The egg comes back out, at speed.)*
 ### THE LANE
 
 *(bark)* **THE MESSAGE BOY:** She does that to everyone.
-
-### MAIN STREET
-
-*(bark)* **THE PIE WOMAN:** That woman charged you two dollars to point at dirt. Pie.
 > **A8.3** -- USE The tuning fork ON THE PIANO
 
 ### THE BOUNTIFUL NUGGET
 
 **THAD:** Flat again. A man at the bar says the right note was making him nervous. Four minutes. Two dollars, on the bar, unmentioned. We have a routine.
 > **A9.1** -- goes to THE CLAIMS REGISTRAR
+
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** That woman charged you two dollars to point at dirt. Pie.
 > **A9.2** -- USE The deed to Prosperity ON THE COUNTER
 
 ### THE CLAIMS REGISTRAR
@@ -477,6 +509,10 @@ REGISTRAR SUMP: *(He goes into the back. He is gone some time.)*
 **THAD:** There aren't any in the slots.
 **REGISTRAR SUMP:** No applicant has ever asked for one.
 > **A10.1** -- goes to FANSHAWE'S OFFICE
+
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** Pie, Mr. Grubb. On the house. On the house today.
 
 ### FANSHAWE'S OFFICE
 
@@ -508,6 +544,8 @@ COLONEL FANSHAWE: *(Thad lifts the cover. On a warmed plate, with a sprig of par
 > **A10.2c** -- PUSH THE CONTRACT
 THAD: *(Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two.)*
 **THAD:** It is nearer than when I began. I shall stop helping.
+> **A10.2c2** -- PICK UP THE CONTRACT
+**THAD:** A man who picks up a contract at this table has as good as read it aloud. I have picked up the parsley.
 > **A10.2d** -- CLOSE THE CONTRACT
 THAD: *(Thad puts the cover back over the contract.)*
 **THAD:** I mean to work it myself.
@@ -638,6 +676,10 @@ IGNATIUS FRAME: *(he savors it)*
 
 **THAD:** C-sharp, home again. Two dollars, again. I am, by the narrowest definition, employed.
 > **G1.3** -- goes to MADAME OZYMANDIA'S TENT
+
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** Pie, Mr. Grubb. On the house. On the house today.
 
 ### THE LANE
 
@@ -1010,10 +1052,6 @@ THAD: *(Thad climbs on. Grievance considers it, then turns for home.)*
 ### THE LANE
 
 *(bark)* **THE MESSAGE BOY:** I heard. You were bad.
-
-### MAIN STREET
-
-*(bark)* **THE PIE WOMAN:** Pie. You'll want the big one.
 > **C3.2** -- TALK TO IGNATIUS FRAME
 
 ### THE CLARION OFFICE
@@ -1033,6 +1071,8 @@ THAD: *(Thad climbs on. Grievance considers it, then turns for home.)*
 - [ ] You've spelled my name wrong.
 - [x] Thank you. This has been clarifying.
 **THAD:** Thank you. This has been clarifying.
+> **C3.2b** -- PICK UP THE TYPE CASE
+**THAD:** The B is worn nearly flat, and my name has been spending it. I have taken one of the spent ones. I feel I have paid for it.
 > **C3.3** -- goes to CHURCH & MEETING HALL
 
 ### MAIN STREET
@@ -1087,6 +1127,8 @@ REVEREND SOWERBY: *(He brightens, and then remembers to be grave.)*
 **REVEREND SOWERBY:** Have it printed. Nobody comes to a funeral he hasn't read about.
 > **C3.5a** -- PICK UP THE HYMNAL
 **THAD:** One copy per pew, and nobody opens them. I have taken mine. It has my corrections in it, which makes it nearly my own work.
+> **C3.5b** -- PICK UP THE COLLECTION PLATE
+**THAD:** It is bolted down, which I take to be doctrine informed by experience. The button in it is not. I have taken the button and left the doctrine.
 > **D2.1** -- goes to PROSPERITY
 
 ### PROSPERITY
@@ -1219,11 +1261,9 @@ NICKEL PRATT: *(He does not consider this strange.)*
 - [ ] Do you ever take a day off?
 - [x] I should go.
 **THAD:** I should go.
+> **D3.2b** -- PICK UP THE COLLARS
+**THAD:** PIKE, E. At the back of the box, behind the important ones, starched, and never once collected. I am the nearest thing he has to a caller, so I have called for it.
 > **C3.6** -- goes to THE CLARION OFFICE
-
-### MAIN STREET
-
-*(bark)* **THE PIE WOMAN:** Pie. You'll want the big one.
 > **C3.7** -- TALK TO IGNATIUS FRAME
 
 ### THE CLARION OFFICE
@@ -1239,20 +1279,22 @@ NICKEL PRATT: *(He does not consider this strange.)*
 **IGNATIUS FRAME:** A FUNERAL!
 IGNATIUS FRAME: *(He has the type set before Thad has finished the name.)*
 **IGNATIUS FRAME:** 'MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS.' I've added refreshments. It doubles the turnout.
-IGNATIUS FRAME: *(He pulls a sheet off the press and hands it over, wet.)*
-**IGNATIUS FRAME:** Post it yourself, mystery man! I print. I do not walk.
+IGNATIUS FRAME: *(He locks the type, inks it, and stands back from the press with his arms folded.)*
+**IGNATIUS FRAME:** Pull it yourself, mystery man! I compose. I do not pull, and I do not walk.
 *Options (FRAME/FRA_A1):*
 - [ ] What do you know about Mott?
 - [ ] You knew Pike was dead.
 - [ ] You've spelled my name wrong.
 - [x] I've taken enough of your time. I'll be taking more later. (asked)
 **THAD:** I've taken enough of your time. I'll be taking more later.
+> **C3.8** -- PULL THE PRESS
+THAD: *(Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet.)*
+**THAD:** I am in print, by my own arm. I have kept the sleeve.
 > **C3.10** -- goes to MAIN STREET
 > **C3.11** -- USE THE FUNERAL NOTICE ON POSTED NOTICES
 
 ### MAIN STREET
 
-*(bark)* **THE PIE WOMAN:** Pie. You'll want the big one.
 THAD: *(Thad presses the notice to the board, over a claim for sale. It holds by its own ink.)*
 **THAD:** There. The whole town is now invited to mourn a man it has never met, and one man in it is certain to come.
 **THAD:** The street's quieter than usual. Everyone in town who owns a black coat is up the hill.
@@ -1288,6 +1330,11 @@ THAD: *(Thad lifts the log, lays the ledger where it lay, and moves it an inch.)
 **THAD:** From the door it is the same desk. He reads the room. I am counting on him not to read the books.
 > **C4.3** -- OPEN THE STOCK PORTRAIT DRAWER
 **THAD:** The drawer is full of the same gentleman. Dozens of him, stacked, all looking nobly at nothing. Every one of him is Obadiah Mott.
+> **C4.3b** -- WALK TO THE DOOR
+**THAD:** Not with that drawer hanging out like a tongue. He knows this room to the inch, and that is nine of them.
+> **C4.3c** -- CLOSE THE STOCK PORTRAIT DRAWER
+THAD: *(Thad slides the drawer home with one finger. It shuts like a bank.)*
+**THAD:** Thirty-nine Obadiah Motts, back in the dark. He will not count them. Nobody counts a thing he keeps forty of.
 > **D4.1** -- goes to BOOT HILL
 
 ### BOOT HILL
@@ -1312,6 +1359,10 @@ REVEREND SOWERBY: *(He takes hold of the rim.)*
 **THAD:** They are not bereaved. They never met him.
 REVEREND SOWERBY: *(He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.)*
 **REVEREND SOWERBY:** Nine funerals of linen. He starches with feeling.
+> **D4.1d** -- USE The letter of introduction ON PIKE'S MARKER
+THAD: *(Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A.)*
+**THAD:** Delivered. Sealed, as my father sent it, by the hand of his son. It is only late.
+**THAD:** I shall not be wanting an introduction now. The town has met me.
 > **D4.2** -- goes to SHENG'S LAUNDRY
 > **D4.3** -- TALK TO AH-LAM SHENG
 
@@ -1333,10 +1384,6 @@ REVEREND SOWERBY: *(He looks at the collection plate for a long time. Then he co
 - [x] I am going to leave now, in a dignified manner. (asked)
 **THAD:** I am going to leave now, in a dignified manner.
 > **C5.1** -- goes to THE ASSAY OFFICE
-
-### MAIN STREET
-
-*(bark)* **THE PIE WOMAN:** Pie. You'll want the big one.
 > **C5.2** -- USE The Improvement Company submission log ON WINNIE LEDGER
 
 ### THE ASSAY OFFICE
@@ -1583,10 +1630,6 @@ NICKEL PRATT: *(a very long pause)*
 **THAD:** It has been eleven days.
 **REGISTRAR SUMP:** The stamp did not ask.
 > **B6.1** -- goes to THE NUGGET BACK ROOM
-
-### MAIN STREET
-
-*(bark)* **THE PIE WOMAN:** Pie. You'll want the big one.
 > **B6.2** -- TALK TO DEKE VESSEL
 
 ### THE NUGGET BACK ROOM
@@ -1696,6 +1739,10 @@ REGISTRAR SUMP: *(He turns the glass over. The back of the sheet is blank.)*
 - [x] I should go. (asked)
 **THAD:** I should go.
 > **E0b.1** -- goes to FANSHAWE'S OFFICE
+
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** Beat Deke Vessel! Pie's still a nickel.
 
 ### FANSHAWE'S OFFICE
 
@@ -1910,9 +1957,21 @@ NICKEL PRATT: *(He hands Thad the hen. The hen looks at Thad as though the arran
 > **E3.6** -- USE THE HEN ON THE HOLE
 THAD: *(Thad sets the hen at the mouth of the hole. The hen considers the hole. The raccoon considers the hen. Half a raccoon comes out.)*
 **THAD:** Halfway. He is a careful animal.
+> **E3.6b** -- USE A HANDFUL OF OATS ON hen
+THAD: *(The hen eats out of Thad's hand, briskly, like a clerk stamping forms.)*
+**THAD:** She has taken the lot, and looked at the hand afterwards as though it had come up short.
 > **E3.7** -- USE THE RACCOON
 THAD: *(Thad takes off his coat and drops it over him. There is a great deal of coat, and then a great deal of raccoon.)*
 **THAD:** I have him. I am not sure which of us is winning.
+> **E3.7b** -- USE A BUTTON ON raccoon_in_coat
+THAD: *(Thad works the button into the coat's empty top buttonhole. The raccoon permits it.)*
+**THAD:** The coat has wanted that button since Sacramento. It took a raccoon to make me see to it.
+> **E3.7c** -- USE MR. PIKE'S COLLAR ON raccoon_in_coat
+THAD: *(Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.)*
+**THAD:** Mr. Pike's collar, on a caller at last. He has the neck for it.
+> **E3.7d** -- USE A SPRIG OF PARSLEY ON raccoon_in_coat
+THAD: *(Thad puts the sprig in the coat's lapel.)*
+**THAD:** A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table.
 > **E3.8** -- goes to PRATT'S CLAIM
 > **E3.9** -- USE THE RACCOON, IN MY COAT ON NICKEL PRATT
 
@@ -2070,14 +2129,14 @@ THE UNDERTAKER: *(low)*
 **REVEREND SOWERBY:** A hill? Anything can be blessed, sir. There is a rate.
 *(bark)* **REVEREND SOWERBY:** O Lord, who made the hills, and saw fit to set this one at an incline…
 **REVEREND SOWERBY:** …
-**REVEREND SOWERBY:** Hills are by the foot.
 *(bark)* **REVEREND SOWERBY:** …look down upon this creature, who has borne so many of our brothers upward…
+**REVEREND SOWERBY:** Hills are by the foot.
 **THAD:** It's a short hill.
 **REVEREND SOWERBY:** It is a long foot.
 *(bark)* **REVEREND SOWERBY:** …and give her strength to bear one more, though he weighs, by every account, very little…
 **REVEREND SOWERBY:** Let us bow our heads.
-> **E6b.4** -- USE THE HEARSE
 *(bark)* **REVEREND SOWERBY:** …and her mother before her, who was also a mule, and also of firm opinions…
+> **E6b.4** -- USE THE HEARSE
 THAD: *(Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up.)*
 **THAD:** Ahead of schedule.
 **THAD:** Grievance went through the gate before the amen.
@@ -2096,11 +2155,15 @@ THAD: *(Thad lays the wreath on his own coffin and straightens the ribbon.)*
 **THE UNDERTAKER:** Mm.
 **THE UNDERTAKER:** Card's spelled wrong.
 **THAD:** It is the correct wrong spelling.
+> **E7.1b** -- USE A CAPITAL B ON THE COFFIN
+THAD: *(Thad lays the B on the lid, beside the name plate.)*
+**THAD:** My name has had more B's out of this town than it ever had from my family. I return one, with the rest of me.
 > **E7.2** -- LOOK AT THE GRAVE
 **THAD:** Dug neat, in a good spot, uphill of the seepage — the undertaker does honest work for dishonest occasions. I am oddly touched by the drainage.
 > **E7.3** -- LOOK AT THE GRAVE
 **THAD:** Six feet, measured. I am two inches shorter than the hole, which is the first time this town has given me room.
 **HOB:** Good turnout.
+*(bark)* **REVEREND SOWERBY:** …a man of music, taken flat…
 **HOB:** Better than mine.
 > **E7.4** -- USE THE COFFIN
 **THAD:** This is the part of the plan where I lie down.
@@ -2202,6 +2265,10 @@ HOB: *(He looks at Thad for a long time.)*
 **THAD:** The hole is warm. It has been warm since the day I bought it: warm air, out of solid rock, all autumn.
 **THAD:** Air does not come out of rock. It comes through it.
 > **F1.3** -- goes to THE MERCANTILE
+
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** Thought you'd passed.
 > **F1.4** -- PICK UP THE PICKAXES
 
 ### THE MERCANTILE
@@ -2314,62 +2381,3 @@ THAD: *(A piece of the wall comes away in his hand. It is much heavier than a pi
 **REVEREND SOWERBY:** Better still!
 *[acted, no words on screen]* COLONEL FANSHAWE: *(He puts on his hat.)*
 **COLONEL FANSHAWE:** Well played, Mr. Grubb.
-> **F5.1** -- goes to THE CLAIMS REGISTRAR
-> **F5.2** -- USE The certificate of my death ON THE COUNTER
-
-### THE CLAIMS REGISTRAR
-
-**REGISTRAR SUMP:** You are deceased.
-**THAD:** I was. I'd like to stop.
-**REGISTRAR SUMP:** Form 31-F. Notice of Return. It was printed in hope.
-REGISTRAR SUMP: *(Stamp. Thad is alive.)*
-> **F5.3** -- USE The deed to Prosperity ON THE COUNTER
-**REGISTRAR SUMP:** Claim Two. The adjoining holder.
-*[acted, no words on screen]* REGISTRAR SUMP: *(Stamp.)*
-> **F5.4** -- USE The Certificate of Contiguity ON THE COUNTER
-**REGISTRAR SUMP:** Contiguity. A neighbor holding a Certificate of Contiguity may file an amended location on behalf of an absent claimholder. Section nineteen, sub-section four.
-**REGISTRAR SUMP:** …
-**REGISTRAR SUMP:** Nobody has ever read sub-section four.
-**THAD:** I have.
-**REGISTRAR SUMP:** Yes. I saw you.
-> **F5.5** -- USE A piece of the rock under Prosperity ON THE COUNTER
-**WINNIE LEDGER:** Twenty-two hundred to the ton. Assayed this morning, at my window, by me.
-*[acted, no words on screen]* WINNIE LEDGER: *(She signs beside it.)*
-> **F5.6** -- TALK TO REGISTRAR SUMP
-**REGISTRAR SUMP:** Form 12-C, Amended. Location of Claim One. And the holder's name, in the holder's box.
-*Options (SUMP/SUM_F1):*
-- [x] Obadiah Mott.
-- [ ] Thaddeus Grubb.
-- [ ] Winnie Ledger.
-- [ ] The raccoon.
-- [ ] I am going to leave now, in a dignified manner.
-**THAD:** Obadiah Mott.
-**REGISTRAR SUMP:** …That's a very old claim number.
-**WINNIE LEDGER:** You're putting it in his name.
-**THAD:** Yes.
-**WINNIE LEDGER:** You understand you get nothing.
-**THAD:** I get to stop lying. I've only just learned how and I'm already tired of it.
-*[acted, no words on screen]* WINNIE LEDGER: *(stamping)*
-**WINNIE LEDGER:** …Certified.
-**REGISTRAR SUMP:** …
-REGISTRAR SUMP: *(reading, toneless)*
-**REGISTRAR SUMP:** Amended location, Claim One. Holder, Obadiah Mott. 'The strike lies at the place herein described.'
-**REGISTRAR SUMP:** …
-**REGISTRAR SUMP:** Which is now described.
-**REGISTRAR SUMP:** …
-**REGISTRAR SUMP:** Under statute, a claim must be worked by its holder within thirty days, or it reverts to the Territory.
-**THAD:** So Mr. Mott will have to come forward.
-**REGISTRAR SUMP:** In person. To this window. Within thirty days.
-*[acted, no words on screen]* REGISTRAR SUMP: *(He blots it.)*
-**REGISTRAR SUMP:** I shall look forward to it.
-> **END.1** -- WALK TO THE COACH STOP
-
-### THE COACH STOP
-
-**THAD:** Leave the mud.
-**THAD:** Dear Mother.
-**THAD:** I was robbed, and it was the making of me.
-**THAD:** The gold is real. The story is better. I will tell you both in the spring.
-**THAD:** — Your Thaddeus.
-
-**[ THE END (the title returns) ]**
