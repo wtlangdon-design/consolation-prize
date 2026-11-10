@@ -145,7 +145,12 @@ export function check() {
     for (let i = 0; i < image.data.length; i += 4) {
       const alpha = image.data[i + 3];
       if (alpha < FAINT) continue;
-      const magenta = (image.data[i] + image.data[i + 2]) / 2 - image.data[i + 1];
+      // RED IS NOT MAGENTA (errata 264). The measure read a saturated red as the key: Grievance's blanket, drawn in
+      // Thad's hands in the red and cream of its own icon, is 143/51/26, which scores 33 and has almost no blue in it.
+      // Magenta is red AND blue over green, so a pixel whose blue is not over its green scores nothing. A true fringe
+      // still scores as before: the key adds red and blue alike, and lifts blue over green long before it reaches 30.
+      const magenta = image.data[i + 2] > image.data[i + 1]
+        ? (image.data[i] + image.data[i + 2]) / 2 - image.data[i + 1] : 0;
       if (alpha < VISIBLE) {
         if (magenta > FRINGE) faint += 1;
         if (magenta > faintWorst) faintWorst = magenta;

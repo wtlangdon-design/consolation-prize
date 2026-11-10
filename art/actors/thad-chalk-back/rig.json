@@ -1,0 +1,12 @@
+{
+  "source": "art/actors/thad-acted2-back.png",
+  "clip": "chalk",
+  "facing": "back",
+  "figure": [
+    182,
+    627
+  ],
+  "padding": 260,
+  "frames": 2,
+  "note": "Doc 118, the turn on the claim: 0 standing (his stand-back frame itself, so the clip is his full height and cannot pop at either end, as pick-fit is made), 1 chalking the figure on his own stake. Played only by its acted direction (doc 95 row 130). acted-directions-2, split here by tools/art/thad-acted2-split.py (errata 264)."
+}

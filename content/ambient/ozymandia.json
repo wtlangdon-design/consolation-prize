@@ -66,6 +66,12 @@
     223,
     183,
     231
+   ],
+   [
+    2,
+    456,
+    171,
+    248
    ]
   ],
   "rate": 0.24,
@@ -98,7 +104,7 @@
   ],
   "breakEvery": 6,
   "talkFrame": 3,
-  "frameNote": "0 fingertips to her temples, eyes closed · 1 breath (derived) · 2 humming, fingertips at her temples · 3 one hand raised high, pronouncing · 4 one hand held out palm up, for the fee · 5 leaning down to the box under the table, one arm out of sight · 6 upright, holding up the second rod (doc 95 row 100; cast-unify 88, errata 214). Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "frameNote": "0 fingertips to her temples, eyes closed · 1 breath (derived) · 2 humming, fingertips at her temples · 3 one hand raised high, pronouncing · 4 one hand held out palm up, for the fee · 5 leaning down to the box under the table, one arm out of sight · 6 upright, holding up the second rod (doc 95 row 100; cast-unify 88, errata 214). Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77). Errata 264 (reference/acted-directions-2): 7 one hand up to the hanging lamp's key, looking up. Acted only (doc 95 row 109). This cell is taller than her others: the raised arm.",
   "provenance": "reference/cast-unify-14.spec.json",
   "hands": "folded",
   "waistOn": 500,

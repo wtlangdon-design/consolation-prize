@@ -7117,3 +7117,18 @@ Replayed in the real build: the lookout and the fiddle (G3.1 to G5.1), the chalk
 
 Lesson: none of these was a fix. Held by `tests/scale.test.ts` (the redrawn figures at their statures), `tests/one-level.test.mjs`, `tests/lessons.test.ts` (it refused the re-snapped mallet sheet: a figure in pieces), and the acted-directions tests (every acted row is performed by a figure in its room with frames it has).
 
+## 264 · The last ten poses, wired: every direction that waited on a drawing is acted but one (reference/acted-directions-2)
+
+Tyler, 2026-11-10, on the spend cap that had stopped the image session: "I'll take your recommendation on raising the cap." `spendTokensTotal` went from 4,000,000 to 4,250,000 in the image session, with his words; the ledger stands at 4,100,461 across 412 attempts. Fourteen of `acted-directions-2`'s eighteen operations are spent.
+
+- **Nine more directions are acted** (doc 95, B to A): Madame Ozymandia turning the lamp down (row 109); Frame locking the type and inking it (132: the standing back that follows is his walk to his back editions); Deke raising his glass (70); the letter-writer putting his pen down, and keeping it down (69); the river panner's snort (96); and four of Thad's: the brass rod held out down each passage (80), the chalk on his own stake (130), Grievance's blanket lifted a corner at a time (136), and going down on his hands and knees at the séance (112).
+- **Thad's four are clips of his own** (`rod`, `chalk`, `blanket`, `crawl`), split from the two strips handed back by `tools/art/thad-acted2-split.py`. Each begins on his stand frame, byte for byte, as every clip an acted direction plays must, so none can pop.
+- **The river panner is another man** (Tyler, in the image session, shown him beside Thad, where he read as Thad in a hat: "Redraw him, 1 op"): older, grey-bearded, a brown check coat, a bowler.
+- **One row is left, on purpose:** Winnie producing the second ledger from under the floor (74). Her pose is drawn; the lifted board is not, and the direction says the floor.
+- Doc 95's count is **A 56 · B 1 · C 108**. It was A 36 · B 21 this morning.
+- **The key-fringe check read red as magenta.** Grievance's blanket in his hands is the red and cream of its own icon (143/51/26), which the measure scored at 33 against a limit of 30 though it has almost no blue in it. A pixel whose blue is not over its green now scores nothing; a true fringe scores as before. A few dozen pixels a frame that did carry the key were despilled in the split.
+
+For Tyler's eye, from the hand-back: Deke's glass goes to his face, which is more than "an inch"; Frame's ink roller could be taken for a small mallet; Thad's rod is paler than brass.
+
+Lesson: none of these was a fix but the check. `tools/check-key-fringe.mjs` is recorded in `proofs/check-friction.json`. The poses are held by `tests/acted-directions.test.ts`, which refused Thad's clips until each began on his stand frame.
+

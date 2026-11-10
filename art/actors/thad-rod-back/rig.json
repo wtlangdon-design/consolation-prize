@@ -1,0 +1,12 @@
+{
+  "source": "art/actors/thad-acted2-back.png",
+  "clip": "rod",
+  "facing": "back",
+  "figure": [
+    182,
+    627
+  ],
+  "padding": 260,
+  "frames": 4,
+  "note": "Doc 107, the brass rod at the two passages: 0 standing (his stand-back frame, byte for byte, as every clip an acted direction plays must begin: tests/acted-directions.test.ts), 1 held out down the left passage, 2 the same trembling (derived), 3 turned to the right passage, still. Played only by its acted direction (doc 95 row 80). acted-directions-2, split here by tools/art/thad-acted2-split.py (errata 264)."
+}

@@ -57,6 +57,12 @@
     2,
     160,
     380
+   ],
+   [
+    2,
+    384,
+    160,
+    380
    ]
   ],
   "rate": 0.45,
@@ -79,7 +85,7 @@
   "breakEvery": 9,
   "talkFrame": 5,
   "provenance": "art/staging/room-53/panner/panner.json",
-  "frameNote": "0 rest, panning · 1 breath · 2 the swirl · 3 a look upstream · 4 his hand closed against his chest · 5 talking, a finger raised.",
+  "frameNote": "0 rest, panning · 1 breath · 2 the swirl · 3 a look upstream · 4 his hand closed against his chest · 5 talking, a finger raised. Errata 264 (reference/acted-directions-2): 6 the snort, his head back. Acted only (doc 95 row 96). The whole sheet is redrawn as another man (Tyler, 2026-11-10, shown him beside Thad: he read as Thad in a hat. \"Redraw him, 1 op\"): older, grey-bearded, a brown check coat, a bowler.",
   "figureHeight": 350,
   "stature": 1,
   "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Crown to sole, under his low-pulled hat, read from his eyes and chin: 350, and the sheet re-snapped to one level there (tools/art/one-level.py; Tyler, 2026-11-09, \"2 - yes\"). Was 377, the hat's top to his soles (0.93 of Thad), then 361 as far as the old snap allowed (0.97)."

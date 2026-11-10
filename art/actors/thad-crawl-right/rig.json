@@ -1,0 +1,12 @@
+{
+  "source": "art/actors/thad-acted2-right.png",
+  "clip": "crawl",
+  "facing": "right",
+  "figure": [
+    143,
+    626
+  ],
+  "padding": 260,
+  "frames": 3,
+  "note": "Doc 111, the s\u00e9ance in the dark: 0 standing (his stand-right frame itself, so the clip is his full height), 1 going down on one knee, a hand to the floor, 2 crawling. Played only by its acted direction (doc 95 row 112). acted-directions-2, split here by tools/art/thad-acted2-split.py (errata 264)."
+}
