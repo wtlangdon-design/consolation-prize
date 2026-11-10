@@ -46097,6 +46097,7 @@
    "recordedAt": "2026-11-10T09:18:35.825Z"
   },
   {
+<<<<<<< HEAD
    "attempt": 4,
    "role": "derived-state",
    "assetId": "act1-dinner",
@@ -46104,6 +46105,14 @@
    "operation": "edit",
    "model": "gpt-image-2",
    "derivedFrom": 2,
+=======
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "press-pull",
+   "subject": "press-pull-frame-walk-left",
+   "operation": "edit",
+   "model": "gpt-image-2",
+>>>>>>> origin/main
    "parameters": {
     "size": "1536x1024",
     "quality": null,
@@ -46111,6 +46120,7 @@
     "partial_images": 2
    },
    "prompt": null,
+<<<<<<< HEAD
    "promptFile": "reference/act1-dinner/op-4.txt",
    "promptHash": "9cf57556e9db0b803929ac679afeac0e09d51ee4ba3909ad34160bac6e7304a4",
    "references": [
@@ -46127,6 +46137,24 @@
     {
      "path": "art/staging/act1-dinner/op-4/tent-grain@2x.png",
      "hash": "de2eff2d2a61c1b73df153fb2c6a21507dedb2a92c8249f2148389d824bc263d",
+=======
+   "promptFile": "reference/press-pull/op-1.txt",
+   "promptHash": "45696655809a43a499679be1baa2795464d9eeedfb5127b7c168e3a8fc786323",
+   "references": [
+    {
+     "path": "art/staging/press-pull/op-1/template.png",
+     "hash": "8c7fb222e1ae2dda0bc6331cc730f7f9734665941044dfda126f92d4eab4c0e2",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/press-pull/op-1/frame-sheet.png",
+     "hash": "87104f671536f61b616fd2982085d7df78ead87af3cca13baed0cbe31f504910",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/press-pull/op-1/thad-beside-frame-in-the-clarion.png",
+     "hash": "f7472c707c0caad2c27ced15f7027a01fdfb7d6966fbd1bac3f1794fed765922",
+>>>>>>> origin/main
      "transmitted": true
     },
     {
@@ -46156,7 +46184,11 @@
     }
    ],
    "baseline": {
+<<<<<<< HEAD
     "room": "room-16-tent",
+=======
+    "room": "room-09-clarion",
+>>>>>>> origin/main
     "purpose": "room-art",
     "visualType": "interior-public",
     "slots": [
@@ -46198,6 +46230,7 @@
     ]
    },
    "mask": null,
+<<<<<<< HEAD
    "sourceHash": "5698432a9d49c13dc021be2ad7e3b643d7e5b26a6a95058f122fb1e594858c21",
    "sourcePath": "art/staging/act1-dinner/op-4/layout-op-2.png",
    "out": "art/staging/act1-dinner/op-4/sheet.png",
@@ -46218,10 +46251,33 @@
    },
    "revisedPrompt": null,
    "at": "2026-11-10T15:45:29.457Z",
+=======
+   "sourceHash": "8c7fb222e1ae2dda0bc6331cc730f7f9734665941044dfda126f92d4eab4c0e2",
+   "sourcePath": "art/staging/press-pull/op-1/template.png",
+   "out": "art/staging/press-pull/op-1/sheet.png",
+   "outputHash": "a0d453a093f9ad466f1d54cf6d95c554ae4ccd2f70fa25f4abd3e4796e75396d",
+   "bytes": 1337350,
+   "usage": {
+    "input_tokens": 10883,
+    "input_tokens_details": {
+     "image_tokens": 10490,
+     "text_tokens": 393
+    },
+    "output_tokens": 691,
+    "output_tokens_details": {
+     "image_tokens": 691,
+     "text_tokens": 0
+    },
+    "total_tokens": 11574
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-10T12:34:03.192Z",
+>>>>>>> origin/main
    "auth": "environment network secret attached by the agent proxy; no key in the session",
    "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
    "gates": null,
    "promoted": false,
+<<<<<<< HEAD
    "recordedAt": "2026-11-10T15:45:29.471Z"
   },
   {
@@ -46232,6 +46288,17 @@
    "operation": "edit",
    "model": "gpt-image-2",
    "derivedFrom": "art/ui/item-icons.png",
+=======
+   "recordedAt": "2026-11-10T12:34:03.207Z"
+  },
+  {
+   "attempt": 2,
+   "role": "canonical-design",
+   "assetId": "press-pull",
+   "subject": "press-pull-frame-stood-back",
+   "operation": "edit",
+   "model": "gpt-image-2",
+>>>>>>> origin/main
    "parameters": {
     "size": "1536x1024",
     "quality": null,
@@ -46239,6 +46306,7 @@
     "partial_images": 2
    },
    "prompt": null,
+<<<<<<< HEAD
    "promptFile": "reference/objects-second-pass/op-1.txt",
    "promptHash": "ca4954e48e82d54bad13f5dfded6de1e472d81a287a0d38592109087ccf227f9",
    "references": [
@@ -46250,6 +46318,24 @@
     {
      "path": "art/staging/objects-second-pass/op-1/every-icon-x3.png",
      "hash": "34314371aadf45fc8419052df30779058db5728395ec7a9675abf2b4727f1a55",
+=======
+   "promptFile": "reference/press-pull/op-2.txt",
+   "promptHash": "420a0020a31d3957a97409e0061b340c1baff847dd7c563348772301b63f50fc",
+   "references": [
+    {
+     "path": "art/staging/press-pull/op-2/template.png",
+     "hash": "fd1174ca228ea9f1c91b16b3146adf12d1ab077c976fbb45c2a07067dc5dfb96",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/press-pull/op-2/frame-sheet.png",
+     "hash": "87104f671536f61b616fd2982085d7df78ead87af3cca13baed0cbe31f504910",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/press-pull/op-2/thad-beside-frame-in-the-clarion.png",
+     "hash": "f7472c707c0caad2c27ced15f7027a01fdfb7d6966fbd1bac3f1794fed765922",
+>>>>>>> origin/main
      "transmitted": true
     },
     {
@@ -46268,6 +46354,7 @@
      "transmitted": true
     },
     {
+<<<<<<< HEAD
      "path": "art/backgrounds/room-05-assay-office.png",
      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
      "transmitted": true
@@ -46275,6 +46362,10 @@
     {
      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+=======
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+>>>>>>> origin/main
      "transmitted": true
     },
     {
@@ -46284,9 +46375,15 @@
     }
    ],
    "baseline": {
+<<<<<<< HEAD
     "room": "room-02-main-street",
     "purpose": "room-art",
     "visualType": "exterior-street-night",
+=======
+    "room": "room-09-clarion",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+>>>>>>> origin/main
     "slots": [
      {
       "slot": "A",
@@ -46311,6 +46408,7 @@
      },
      {
       "slot": "D",
+<<<<<<< HEAD
       "role": "closest approved comparable (room-05-assay-office)",
       "path": "art/backgrounds/room-05-assay-office.png",
       "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
@@ -46321,6 +46419,11 @@
       "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
       "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
       "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+=======
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+>>>>>>> origin/main
       "transmitted": true
      },
      {
@@ -46333,6 +46436,7 @@
     ]
    },
    "mask": null,
+<<<<<<< HEAD
    "sourceHash": "831c880057a26b1e094eb562484135cd0880b6fe0bc91fdbcb4e0a8d342acd97",
    "sourcePath": "art/staging/objects-second-pass/op-1/canvas.png",
    "out": "art/staging/objects-second-pass/op-1/sheet.png",
@@ -46343,20 +46447,40 @@
     "input_tokens_details": {
      "image_tokens": 10918,
      "text_tokens": 380
+=======
+   "sourceHash": "fd1174ca228ea9f1c91b16b3146adf12d1ab077c976fbb45c2a07067dc5dfb96",
+   "sourcePath": "art/staging/press-pull/op-2/template.png",
+   "out": "art/staging/press-pull/op-2/sheet.png",
+   "outputHash": "ea0ad2b772354345c08356f74b1f75c81e0be1655af7c038bee53ee499493e8c",
+   "bytes": 1323739,
+   "usage": {
+    "input_tokens": 10849,
+    "input_tokens_details": {
+     "image_tokens": 10490,
+     "text_tokens": 359
+>>>>>>> origin/main
     },
     "output_tokens": 433,
     "output_tokens_details": {
      "image_tokens": 433,
      "text_tokens": 0
     },
+<<<<<<< HEAD
     "total_tokens": 11731
    },
    "revisedPrompt": null,
    "at": "2026-11-10T15:51:11.293Z",
+=======
+    "total_tokens": 11282
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-10T12:34:36.030Z",
+>>>>>>> origin/main
    "auth": "environment network secret attached by the agent proxy; no key in the session",
    "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
    "gates": null,
    "promoted": false,
+<<<<<<< HEAD
    "recordedAt": "2026-11-10T15:51:11.304Z"
   },
   {
@@ -46364,6 +46488,15 @@
    "role": "canonical-design",
    "assetId": "objects-second-pass",
    "subject": "objects-second-pass-drawer-shut",
+=======
+   "recordedAt": "2026-11-10T12:34:36.040Z"
+  },
+  {
+   "attempt": 3,
+   "role": "canonical-design",
+   "assetId": "press-pull",
+   "subject": "press-pull-thad-hauling-the-bar",
+>>>>>>> origin/main
    "operation": "edit",
    "model": "gpt-image-2",
    "parameters": {
@@ -46373,6 +46506,7 @@
     "partial_images": 2
    },
    "prompt": null,
+<<<<<<< HEAD
    "promptFile": "reference/objects-second-pass/op-2.txt",
    "promptHash": "7bd84757c929834ac2b21c98e76c72dc819c33afe92f275f954e99f26d0077cc",
    "references": [
@@ -46384,6 +46518,24 @@
     {
      "path": "art/staging/objects-second-pass/op-2/layout-guide.png",
      "hash": "a5c24fd559f085a822168c54a542d6bfd7a16084862bde8e37dd5b40d9310f9f",
+=======
+   "promptFile": "reference/press-pull/op-3.txt",
+   "promptHash": "1a8c31eb4fcd586551c61cbb13bda3611d2116c629a087ca62e2a0cae4194baa",
+   "references": [
+    {
+     "path": "art/staging/press-pull/op-3/template.png",
+     "hash": "6b17721c344d9677a6df6c7b89809e17598ec13d035df94d4c2f8bcb586613dd",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/press-pull/op-3/thad-beside-frame-in-the-clarion.png",
+     "hash": "f7472c707c0caad2c27ced15f7027a01fdfb7d6966fbd1bac3f1794fed765922",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/press-pull/op-3/frame-sheet.png",
+     "hash": "87104f671536f61b616fd2982085d7df78ead87af3cca13baed0cbe31f504910",
+>>>>>>> origin/main
      "transmitted": true
     },
     {
@@ -46413,7 +46565,11 @@
     }
    ],
    "baseline": {
+<<<<<<< HEAD
     "room": "room-11-fanshawe-office",
+=======
+    "room": "room-09-clarion",
+>>>>>>> origin/main
     "purpose": "room-art",
     "visualType": "interior-public",
     "slots": [
@@ -46454,6 +46610,7 @@
      }
     ]
    },
+<<<<<<< HEAD
    "mask": {
     "path": "art/staging/objects-second-pass/op-2/mask.png",
     "hash": "8f6ef9e952d6fcbd57d838253ba5d43c6c227bca3ae1f2fd6b8fe8985a1042fb"
@@ -46478,10 +46635,34 @@
    },
    "revisedPrompt": null,
    "at": "2026-11-10T15:52:34.374Z",
+=======
+   "mask": null,
+   "sourceHash": "6b17721c344d9677a6df6c7b89809e17598ec13d035df94d4c2f8bcb586613dd",
+   "sourcePath": "art/staging/press-pull/op-3/template.png",
+   "out": "art/staging/press-pull/op-3/sheet.png",
+   "outputHash": "cc16d2bcd52b245709213cfaaecd9feb59ad5f5d8c8670a3c42d86a2d03f882d",
+   "bytes": 1339342,
+   "usage": {
+    "input_tokens": 10888,
+    "input_tokens_details": {
+     "image_tokens": 10490,
+     "text_tokens": 398
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 11321
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-10T12:35:09.853Z",
+>>>>>>> origin/main
    "auth": "environment network secret attached by the agent proxy; no key in the session",
    "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
    "gates": null,
    "promoted": false,
+<<<<<<< HEAD
    "recordedAt": "2026-11-10T15:52:34.388Z"
   },
   {
@@ -46491,6 +46672,18 @@
    "subject": "objects-second-pass-pike-envelope",
    "operation": "edit",
    "model": "gpt-image-2",
+=======
+   "recordedAt": "2026-11-10T12:35:09.864Z"
+  },
+  {
+   "attempt": 4,
+   "role": "derived-state",
+   "assetId": "press-pull",
+   "subject": "press-pull-frame-walk-left",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+>>>>>>> origin/main
    "parameters": {
     "size": "1536x1024",
     "quality": null,
@@ -46498,6 +46691,7 @@
     "partial_images": 2
    },
    "prompt": null,
+<<<<<<< HEAD
    "promptFile": "reference/objects-second-pass/op-3.txt",
    "promptHash": "a14454faafbbf5bacfec5ca5c807cf08c4dd5be57c570a3cd31f4c54bb7f2a37",
    "references": [
@@ -46514,6 +46708,24 @@
     {
      "path": "art/staging/objects-second-pass/op-3/thad-at-the-marker.png",
      "hash": "2027f8911afa336ab06e788f6ad573c908daede4e49d772c79d88ec954c5204c",
+=======
+   "promptFile": "reference/press-pull/op-4.txt",
+   "promptHash": "063b930a7cf02b4b58e97d1f9c615539423b608f2a65f2a2325bfb0a243e387c",
+   "references": [
+    {
+     "path": "art/staging/press-pull/op-4/template.png",
+     "hash": "7257089d5c70d57217dd4cd10bc40d0167ec29666e74d506ab3fbfc52991e0a7",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/press-pull/op-4/thad-walk-left-poses.png",
+     "hash": "2330691dadb449f5271327a39129f1ac43ca443bf39405b4ec7badf86590cb89",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/press-pull/op-4/op-1-sheet.png",
+     "hash": "a0d453a093f9ad466f1d54cf6d95c554ae4ccd2f70fa25f4abd3e4796e75396d",
+>>>>>>> origin/main
      "transmitted": true
     },
     {
@@ -46532,15 +46744,29 @@
      "transmitted": true
     },
     {
+<<<<<<< HEAD
+=======
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+>>>>>>> origin/main
      "path": "reference/casting/room-01-casting-master.png",
      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
      "transmitted": true
     }
    ],
    "baseline": {
+<<<<<<< HEAD
     "room": "room-14-boot-hill",
     "purpose": "room-art",
     "visualType": "exterior-night",
+=======
+    "room": "room-09-clarion",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+>>>>>>> origin/main
     "slots": [
      {
       "slot": "A",
@@ -46565,9 +46791,15 @@
      },
      {
       "slot": "D",
+<<<<<<< HEAD
       "role": "closest approved comparable (room-01-stage-road)",
       "path": "art/backgrounds/room-01-stage-road.png",
       "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+=======
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+>>>>>>> origin/main
       "transmitted": true
      },
      {
@@ -46579,6 +46811,7 @@
      }
     ]
    },
+<<<<<<< HEAD
    "mask": {
     "path": "art/staging/objects-second-pass/op-3/mask.png",
     "hash": "52b168aebbef2334b9684f51d6594d0292706f8d7e413e902eaaa41e3cf2f08b"
@@ -46603,11 +46836,38 @@
    },
    "revisedPrompt": null,
    "at": "2026-11-10T15:55:07.164Z",
+=======
+   "mask": null,
+   "sourceHash": "7257089d5c70d57217dd4cd10bc40d0167ec29666e74d506ab3fbfc52991e0a7",
+   "sourcePath": "art/staging/press-pull/op-4/template.png",
+   "out": "art/staging/press-pull/op-4/sheet.png",
+   "outputHash": "772f4dd1e68c556de9e01da4b74d4310f1d815f2fa35d49202f6480c725bfa24",
+   "bytes": 1380956,
+   "usage": {
+    "input_tokens": 11789,
+    "input_tokens_details": {
+     "image_tokens": 11316,
+     "text_tokens": 473
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 12222
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-10T14:22:03.031Z",
+>>>>>>> origin/main
    "auth": "environment network secret attached by the agent proxy; no key in the session",
    "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
    "gates": null,
    "promoted": false,
+<<<<<<< HEAD
    "recordedAt": "2026-11-10T15:55:07.174Z"
+=======
+   "recordedAt": "2026-11-10T14:22:03.047Z"
+>>>>>>> origin/main
   }
  ],
  "promotions": [

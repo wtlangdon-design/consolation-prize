@@ -336,6 +336,8 @@ export class AmbientLayer {
       // and is latched present when he reaches his place.
       for (const npc of this.live) {
         if (!npc.arrive || present.has(npc.id) || this.arrivals.some((one) => one.npc.id === npc.id)) continue;
+        // Not while the lines that sent him are still being said (AmbientExit.afterLines): the same wait a fader keeps.
+        if (npc.arrive.afterLines && this.holdFades) continue;
         this.arrivals.push({ npc, exit: { ...npc.arrive, path: [...npc.arrive.path, [npc.x, npc.y]] }, startedAt: now });
       }
       for (const one of this.arrivals) {

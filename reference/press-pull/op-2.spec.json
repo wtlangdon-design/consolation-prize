@@ -1,0 +1,15 @@
+{
+ "assetId": "press-pull",
+ "subject": "press-pull-frame-stood-back",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-09-clarion",
+ "promptFile": "reference/press-pull/op-2.txt",
+ "out": "art/staging/press-pull/op-2/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/press-pull/op-2/template.png",
+  "art/staging/press-pull/op-2/frame-sheet.png",
+  "art/staging/press-pull/op-2/thad-beside-frame-in-the-clarion.png"
+ ]
+}

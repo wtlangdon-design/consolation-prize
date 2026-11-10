@@ -134,6 +134,9 @@ const CLIPS = [
   // facing front. 0 holding it, 1 a breath, 2 the pull. Played by the room while he holds it (Room.actorPoses) and
   // by the scene's acted directions (doc 95). tools/art/thad-plate-split.py.
   { id: 'plate', dir: 'plate', prefix: 'plate' },
+  // THE PRESS'S BAR IN HIS HANDS (doc 118 O-2; errata 253): hauling the Clarion's press, facing right. Held by the
+  // press's own PULL (a rule's `holds`). tools/art/thad-haul-split.py.
+  { id: 'haul', dir: 'haul', prefix: 'haul' },
   // THE COACH IS A MOVER, not a room layer. errata 38's `move` translates a
   // named mover; a hotspot's state image is drawn by drawPlate and cannot be
   // translated at all, so beat 6b could never have worked from one. Its two
@@ -160,11 +163,11 @@ const PARTIAL_STATES = {
   thad: {
     lookup: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'stand', 'sit', 'rise'],
     seated: ['walk', 'recoil', 'sit', 'rise', 'use-near', 'give-offer', 'shrug', 'pickup-low', 'alight-coach',
-      'aboard-coach', 'carry'],
+      'aboard-coach', 'carry', 'haul'],
     // At Fanshawe's table he only converses: the state is set when he reaches the chair and cleared as the
     // conversation ends, before anything can move him (the accost's `seat`, errata 197).
     dining: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'reach', 'sit', 'rise', 'use-near', 'give-offer', 'shrug',
-      'pickup-low', 'alight-coach', 'aboard-coach', 'carry', 'farwalk', 'pick-fit', 'deed', 'coat-bundle', 'plate'],
+      'pickup-low', 'alight-coach', 'aboard-coach', 'carry', 'farwalk', 'pick-fit', 'deed', 'coat-bundle', 'plate', 'haul'],
   },
   // THE DOOR IS CLOSED BY THE STAGING, NOT BY A MISSING VARIANT. Beat 6b
   // clears `door-open` BEFORE the move, so the driver shuts the door and then

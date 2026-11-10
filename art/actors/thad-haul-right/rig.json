@@ -1,0 +1,12 @@
+{
+  "source": "art/actors/thad-haul-right.png",
+  "clip": "haul",
+  "facing": "right",
+  "figure": [
+    143,
+    626
+  ],
+  "padding": 260,
+  "frames": 3,
+  "note": "Doc 118 O-2, the press pulled: 0 both hands on the bar, 1 his weight going back, 2 the bar home against his chest. press-pull operation 3, split here by tools/art/thad-haul-split.py. Held by the press's own PULL (a rule's `holds`; errata 253)."
+}
