@@ -6973,7 +6973,21 @@ On Tyler's "Do all the Not Done things" (2026-11-10). Doc 122 is the audit doc 1
 Lesson:
 - `tests/verb-keys.test.ts`: each verb has one letter of its own; the letters lie as the buttons lie; the scene names no key and takes none with the panel away, the menu open or a conversation running.
 
-<<<<<<< HEAD
+## 253 · The press, staged: the printer stands back and Thad hauls the bar (doc 118 O-2; errata 249, 250)
+
+Errata 249 made the funeral notice Thad's to pull. Until now he pulled it from across the room, with the printer standing at his own press. Staged with the image session's three sheets (`reference/press-pull/handback.md`, `reference/press-walk-six/handback.md`; four operations of `press-pull`'s four):
+
+- **The printer steps away.** When the notice is set he says his piece at the press, then walks to his back editions (six frames, one full cycle) and stands with his arms folded. He is there while the notice is set or wet in Thad's hand, and takes a note every twelve seconds (errata 77; the note frame is one from his own sheet, `tools/art/press-pull-stood-sheet.py`). Nobody pops in or out of view: the man at the press leaves by walking (`frame` `leaves`, `frame_stood_back` `arrive` with `afterLines`).
+- **Thad goes to the press to pull it.** THE PRESS has a stand at the bar that holds only while the notice is set (`walkToWhen`); at other times he answers from where he is, since the printer is standing there. PULL plays his haul clip under the printed direction and keeps the bar home through his line (the rule's `holds`). Doc 95 row 152 is class C: half of the direction is the press's, so it stays printed.
+- **Engine.** `Interactable.walkToWhen`; `AmbientExit.afterLines` (a walk in waits for the lines that sent him, as a fader does); a walk in is loaded at boot, as a walk out is.
+- **No line changed.** Nothing in doc 118 is touched.
+
+Replayed in the real build, C3.6 to C3.12: 0 breaks, 0 oddities.
+
+Lesson:
+- `tests/departure.test.ts`: every walk IN is loaded at boot. The first replay drew nothing where the printer should have been walking, because his sheet was never asked for. With the line removed from `engine/core/BootAssets.ts`, it fails.
+- The brief asked for a four-frame walk and `tests/walk-gait.test.mjs` refused it; the six were drawn. Doc 55 section 8 carries the row: a brief for a walk asks for six frames.
+
 ## 254 · The second pass of objects, drawn: seven icons, the drawer shut, the envelope on Pike's board; and the Company's map redrawn (doc 121; errata 250, 251)
 
 The image session's two hand-backs, wired (`reference/objects-second-pass/handback.md`, three operations of its four; `reference/act1-dinner/handback.md`, operation 4, on Tyler's "You can do another redraw on the map if you still need it").
@@ -6996,20 +7010,4 @@ Tyler, playing, of the man to the right of the obelisk: "a very different skin t
 - **Fixed.** The hill's `figureLight` is now a cool multiply (0.8, 0.9, 1), brightness 0.95, and nearly all his colour kept (saturate 0.92): his face measures 127/103/75. He is still dimmed into the night (`tools/check-figure-light.mjs` passes). Only he is named, as before.
 
 Lesson: `tests/skin-tone.test.mjs`. Every person a room grades is compared with the people in that room it does not grade: the colour left in his face after the grade must be within 30% of theirs. With errata 242's values put back, it fails on him (0.21 against 0.46). It also holds Deke and the fiddler in the Nugget and the claim-row man. And a row in doc 55 section 8: when a figure's sheet is replaced, the room's grade for him is measured again on the new sheet.
-=======
-## 253 · The press, staged: the printer stands back and Thad hauls the bar (doc 118 O-2; errata 249, 250)
-
-Errata 249 made the funeral notice Thad's to pull. Until now he pulled it from across the room, with the printer standing at his own press. Staged with the image session's three sheets (`reference/press-pull/handback.md`, `reference/press-walk-six/handback.md`; four operations of `press-pull`'s four):
-
-- **The printer steps away.** When the notice is set he says his piece at the press, then walks to his back editions (six frames, one full cycle) and stands with his arms folded. He is there while the notice is set or wet in Thad's hand, and takes a note every twelve seconds (errata 77; the note frame is one from his own sheet, `tools/art/press-pull-stood-sheet.py`). Nobody pops in or out of view: the man at the press leaves by walking (`frame` `leaves`, `frame_stood_back` `arrive` with `afterLines`).
-- **Thad goes to the press to pull it.** THE PRESS has a stand at the bar that holds only while the notice is set (`walkToWhen`); at other times he answers from where he is, since the printer is standing there. PULL plays his haul clip under the printed direction and keeps the bar home through his line (the rule's `holds`). Doc 95 row 152 is class C: half of the direction is the press's, so it stays printed.
-- **Engine.** `Interactable.walkToWhen`; `AmbientExit.afterLines` (a walk in waits for the lines that sent him, as a fader does); a walk in is loaded at boot, as a walk out is.
-- **No line changed.** Nothing in doc 118 is touched.
-
-Replayed in the real build, C3.6 to C3.12: 0 breaks, 0 oddities.
-
-Lesson:
-- `tests/departure.test.ts`: every walk IN is loaded at boot. The first replay drew nothing where the printer should have been walking, because his sheet was never asked for. With the line removed from `engine/core/BootAssets.ts`, it fails.
-- The brief asked for a four-frame walk and `tests/walk-gait.test.mjs` refused it; the six were drawn. Doc 55 section 8 carries the row: a brief for a walk asks for six frames.
->>>>>>> origin/main
 
