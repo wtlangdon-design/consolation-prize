@@ -1,0 +1,15 @@
+{
+ "assetId": "act2-papers",
+ "subject": "act2-papers-fanshawe-wreath",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/act2-papers/op-5.txt",
+ "out": "art/staging/act2-papers/op-5/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act2-papers/op-5/input.png",
+  "art/staging/act2-papers/op-5/side-by-side-with-thad.png"
+ ],
+ "derivedFrom": 1
+}

@@ -34,7 +34,7 @@ const give = (state: GameState, item: string) => (state as unknown as { inventor
 const rowGiving = (state: GameState, puzzle: string) => state.dialogue.presentOptions()
   .find((p) => p.option.puzzle?.[puzzle] === 'complete');
 
-test('E0: the certificate row is offered only holding all three documents, and keeps them', async () => {
+test('E0: the certificate row is offered only holding all three documents, and they are lodged for it', async () => {
   const { content, state, tree } = await inState('r7-c');
   const row = content.dialogue.get(tree)!.nodes.SUM_B1!.options.find((one) => one.puzzle?.E0)!;
   const papers = row.holds!;
@@ -54,7 +54,8 @@ test('E0: the certificate row is offered only holding all three documents, and k
   assert.equal(state.puzzleComplete('E0'), true);
   assert.equal(state.flags.get('T_CLAIM1_BLANK'), true, 'the back of the sheet is blank');
   for (const item of row.gives!) assert.ok(state.carried.includes(item), 'THE CERTIFICATE');
-  for (const paper of papers) assert.ok(state.carried.includes(paper), 'the three are kept');
+  // Errata 247: three papers for one. "That is the exchange rate here."
+  for (const paper of papers) assert.ok(!state.carried.includes(paper), 'the three are lodged');
 });
 
 test('E5: holding the death certificate, the Registrar records the decease, and the newspaper prints it', async () => {

@@ -397,9 +397,9 @@
         },
         {
           "id": "fanshawe6",
-          "tag": "PROGRESS",
+          "tag": "TOPIC",
           "text": "I mean to work it myself.",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "after": [
             "fanshawe2"
           ],
@@ -410,24 +410,11 @@
             },
             {
               "speaker": "fanshawe",
-              "line": "Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.",
+              "line": "He does not take the dish away.",
               "direction": true
-            },
-            {
-              "speaker": "fanshawe",
-              "line": "Keep it. I have dozens."
             }
           ],
-          "set": {
-            "T_DINED": true
-          },
-          "gives": [
-            "handkerchief"
-          ],
-          "puzzle": {
-            "A10": "complete"
-          },
-          "ends": true
+          "repeat": "Of course. Of course. Do try the fish."
         },
         {
           "id": "fanshawe7",
@@ -448,7 +435,7 @@
           "text": "I am going to leave now, in a dignified manner.",
           "universal": true,
           "ends": true,
-          "say": "Already? Then come back when you're hungry. The table will keep."
+          "say": "Eat, eat. I can talk enough for two, and frequently do."
         }
       ]
     },

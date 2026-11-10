@@ -6,6 +6,7 @@
     "docs/05-examine-layer.md::ROOM 11 — FANSHAWE'S OFFICE",
     "docs/54-batch-c.md::ROOM 11 · FANSHAWE'S OFFICE",
     "docs/113-act-two-scenes.md::A · The double",
+    "docs/120-act-one-by-hand.md::I-1 · The dinner: the lines",
     "docs/49-wrong-answers.md::ROOM 11 — FANSHAWE'S OFFICE"
   ],
   "subjects": [
@@ -205,6 +206,58 @@
         "PICK_UP": "It is doing my lying for me. I'll leave it to its work.",
         "OPEN": "If I crack the spine it will look consulted, and then he might consult it."
       }
+    },
+    {
+      "name": "MY GLASS",
+      "LOOK_AT": [
+        "My glass. It was full when I sat down and it has been full ever since, whatever I do to it.",
+        "The wine comes up to the same line each time, like a tide with a patron.",
+        "I have never seen him pour. I have only seen the bottle put down."
+      ],
+      "LISTEN_TO": [
+        "A small note, when the bottle touches the rim. He plays it very well.",
+        "Wine, arriving. It does not glug. He would not allow it to glug.",
+        "Nothing. It is full, and full things are quiet."
+      ]
+    },
+    {
+      "name": "THE BOTTLE",
+      "LOOK_AT": [
+        "A dark bottle with a label in French. It has been at this table longer than I have and knows the form.",
+        "It is never emptier. I am beginning to think there is a second one, and that they take turns.",
+        "The label has a château on it. The château has more windows than Consolation."
+      ],
+      "LISTEN_TO": [
+        "Nothing, while it stands. It is biding his time for him.",
+        "A cork somewhere under the table, being managed.",
+        "The glass, ringing a little, the way a thing does when it knows what is coming."
+      ]
+    },
+    {
+      "name": "THE COVERED DISH",
+      "LOOK_AT": [
+        "A silver cover the size of a saddle. Whatever is under it has been kept warm for me.",
+        "I can see the whole table in it, bent, and the Colonel at the middle of the bend.",
+        "Everything else has been pressed on me twice. This he has not mentioned once."
+      ],
+      "LISTEN_TO": [
+        "Nothing. A cover keeps the sound in with the heat.",
+        "A very small tick, as the silver cools. It is in no hurry and neither is he.",
+        "Nothing. It is the only quiet thing on the table, and I do not find that restful."
+      ]
+    },
+    {
+      "name": "THE CONTRACT",
+      "LOOK_AT": [
+        "'The undersigned, being of sound mind and well dined.' My name is in it already, spelled correctly, which in this town amounts to a warning.",
+        "It is very warm, and very short, and the parsley is fresh. He has gone to more trouble over this than over the soup.",
+        "There is a line at the bottom with nothing on it. The whole dinner has been walking me toward that line."
+      ],
+      "LISTEN_TO": [
+        "Paper, settling on hot china. It sounds comfortable there.",
+        "Nothing. It has said everything it means to, in small type.",
+        "The Colonel, not mentioning it. He is doing that quite loudly."
+      ]
     }
   ],
   "exitsAndUnplaced": {

@@ -1,0 +1,71 @@
+{
+ "schema": 1,
+ "note": "What of doc 114 section 1, standards 2 and 4, the played route still fails (tools/check-pacing.mjs). Each row is to be fixed by the row of doc 114 it names, and comes off this list when it is.",
+ "known": [
+  {
+   "what": "talk-run from C1.1: assay_office > claims_registrar > ozymandias_tent > clarion",
+   "row": "II-1 and II-5 (the start of the three papers; no row of doc 114 is aimed at it alone, and it is to be designed with them)"
+  },
+  {
+   "what": "CLOSE is used 1 time(s) on the route, not 2",
+   "row": "doc 116 Y5 (the first is the cover put back over the contract, doc 120 I-1; a second is to come naturally or not at all)"
+  },
+  {
+   "what": "an item is used on another item 4 time(s), not 5",
+   "row": "doc 114 X-2, widened by Tyler on 2026-11-09 to five: the handkerchief on the ledger, the tonic on the handkerchief, the tonic on the eggs and the obituary on the wreath are four; the fifth is to come naturally or not at all"
+  },
+  {
+   "what": "objects are 16 of 39 items, not half",
+   "row": "doc 116 Y1"
+  },
+  {
+   "what": "papers are 8 of the 18 things he carries to the filing, not under a third",
+   "row": "doc 116 Y1 and errata 247, 248 (it was 14 of 24: A, B and D are lodged, the log is Winnie's, the invitation is left at the dinner and the obituary goes with the wreath; the eight left are each a paper the plot or a joke turns on, so the rest comes from objects)"
+  }
+ ],
+ "yardstick": {
+  "note": "Doc 116's counts. `paper` and `money` are the items that are a document or coin; every other item is an object. `counters` are targets that are a counter and not a thing in the world. Targets are doc 116's.",
+  "paper": [
+   "clarion",
+   "company_ledger",
+   "company_map",
+   "death_certificate",
+   "deed",
+   "document_a",
+   "document_b",
+   "document_c",
+   "document_d",
+   "executor_form",
+   "invitation",
+   "letter",
+   "obituary",
+   "padded_log",
+   "photograph",
+   "survey",
+   "third_copy",
+   "funeral_notice"
+  ],
+  "money": [
+   "filing_fee",
+   "four_dollars",
+   "linen_money",
+   "loan",
+   "pratt_money"
+  ],
+  "counters": [
+   "counter"
+  ],
+  "handVerbs": [
+   "PICK_UP",
+   "OPEN",
+   "CLOSE",
+   "PUSH",
+   "PULL"
+  ],
+  "targets": {
+   "takenFromRooms": 15,
+   "itemOnWorld": 15,
+   "eachHandVerb": 2
+  }
+ }
+}

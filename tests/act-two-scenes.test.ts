@@ -63,7 +63,8 @@ test('B: nothing tried on the man on the claim or on the marker changes anything
     for (const key of WRITES) assert.equal(rule[key], undefined, `${owner} ${verb} writes ${key}`);
   }
   const pairs = content.combinations.pairs.filter((pair) => pair.room === JUMPER.room && pair.target === JUMPER.id);
-  assert.equal(pairs.length, 2);
+  // Errata 245: a third thing tried on him since (the chalk, before the figure is told) is held to the same rule.
+  assert.ok(pairs.length >= 2);
   for (const pair of pairs) for (const rule of pair.rules ?? []) for (const key of WRITES) assert.equal((rule as unknown as Rule)[key], undefined);
 });
 
@@ -76,7 +77,12 @@ test('C: whoever the arrival line puts on the hill is drawn on exactly the entri
   assert.equal(enter.set?.T_TOWN_ON_HILL, false, 'gone on the next entry');
   const sets = (enter.setWhen ?? []).filter((rule) => rule.set.T_TOWN_ON_HILL === true);
   assert.equal(sets.length, 1);
-  assert.deepEqual(sets[0]!.when, enter.sayWhen, 'there when, and only when, the line about them is said');
+  // Errata 246: the day now lasts until the plate is settled, so the town is there on every entry of the day and the
+  // line about it is said on the first of them (`saySet` marks it said; a new day clears the mark).
+  const said = Object.keys(enter.saySet ?? {});
+  assert.equal(said.length, 1, 'the line marks itself said, and nothing else');
+  assert.deepEqual(enter.sayWhen, { ...sets[0]!.when, [said[0]!]: false }, 'there on the funeral day, and the line about them said once that day');
+  assert.equal(enter.saySet?.[said[0]!], true);
   const spot = room.hotspots.find((one) => one.id === 'town_coming_down')!;
   assert.deepEqual(spot.when, { T_TOWN_ON_HILL: true });
 });

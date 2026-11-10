@@ -368,6 +368,8 @@ class ModelBuilder {
         target.whenAny?.length ? { any: target.whenAny.map(conditionReqs) } : null].filter(Boolean) };
     }
     if ((room.ambient ?? []).includes(targetId)) return { target: null, req: this.presence(roomId, targetId) };
+    // ANOTHER CARRIED ITEM (errata 244; doc 115's handkerchief on the ledger): there when he is in the room holding it.
+    if (this.items.has(targetId)) return { target: null, req: [tok(`r:${roomId}`), tok(`i:${targetId}`)] };
     return null;
   }
 

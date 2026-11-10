@@ -64,16 +64,25 @@ test('Act I: Pike\'s board, the nineteen read along, and nothing beside Pike yet
   assert.equal(once, row[0]);
 });
 
-test('the funeral day: walking up says the service is over, and the day ends', async () => {
+test('the funeral day: walking up says the service is over, once, and with no plate business the day ends', async () => {
   const state = await inState('r14-b');
   const entry = state.room.onEnter;
   assert.ok(entry?.say?.length, 'doc 57 C3 writes the line');
   assert.ok(state.flags.test(entry.sayWhen), 'it plays on the funeral day');
-  assert.equal(entry.saySet?.T_FUNERAL_DAY, false, 'and playing it ends the day');
-  // Errata 189: and readies Main Street's funeral-day line for the next one.
-  assert.equal(entry.saySet?.T_FUNERAL_STREET_SAID, false, 'the street line is owed again on the next funeral day');
+  // Errata 246: the line marks itself said (the day can outlast the entry now), and the entry ends the day itself
+  // when the plate is not at the gate.
   state.flags.applyWrites(entry.saySet);
-  assert.ok(!state.flags.test(entry.sayWhen), 'so the next entry is ordinary');
+  assert.ok(!state.flags.test(entry.sayWhen), 'said once a day');
+  const ends = (entry.setWhen ?? []).filter((rule) => rule.set.T_FUNERAL_DAY === false);
+  assert.equal(ends.length, 1, 'one rule ends the day on entering');
+  assert.equal(ends[0]!.when.T_PLATE_AT_GATE, false, 'only with no plate business open');
+  // Errata 189: and readies Main Street's funeral-day line for the next one.
+  assert.equal(ends[0]!.set.T_FUNERAL_STREET_SAID, false, 'the street line is owed again on the next funeral day');
+  const hill = state.roomId;
+  state.enterRoom(state.room.exits[0]!.to);
+  state.flags.set('T_FUNERAL_DAY', true);
+  state.enterRoom(hill);
+  assert.equal(state.flags.get('T_FUNERAL_DAY'), false, 'so the next entry is ordinary');
 });
 
 test('Act III, after the obituary: the plot beside Pike is dug, until the funeral', async () => {

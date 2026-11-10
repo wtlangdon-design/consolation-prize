@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "hotel_lamp",
+  "name": "THE HOTEL'S LAMP",
+  "short": "THE HOTEL'S LAMP",
+  "note": "EXTRACTED from docs/118-objects-the-lines.md (THE LINES) by tools/extract-content.mjs (errata 245). Do not edit: change doc 118 and re-run. Taken from Thad's room in Act IV for the dig; kept.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "The hotel's lamp, trimmed low by management and carried off by a guest. I mean to bring it back.",
+        "repeat": [
+          "Half a reservoir of oil. Enough for forty feet down, if I am not sentimental about the way up.",
+          "The notice was tacked beside it, not to it. I have complied with the notice."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "The flame, eating quietly. It has better manners than the pickaxe.",
+        "repeat": [
+          "Oil, moving in the glass when I walk.",
+          "A small flutter. It does not care for holes."
+        ]
+      }
+    ]
+  }
+}

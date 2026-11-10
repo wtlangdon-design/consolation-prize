@@ -252,5 +252,29 @@
    "floor_6": 0
   },
   "planes": []
- }
+ },
+ "docBullets": [
+  {
+   "hotspot": "lamp",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-7 · The lamp",
+   "head": "**THE LAMP** · *Thad's room, Act IV*",
+   "bullet": "- PICK UP",
+   "when": {
+    "ACT": {
+     "atLeast": 4
+    },
+    "T_LAMP_TAKEN": false
+   },
+   "set": {
+    "T_LAMP_TAKEN": true
+   },
+   "grants": [
+    "hotel_lamp"
+   ]
+  }
+ ],
+ "docBulletsNote": "Errata 245 (doc 117 O-7, doc 118): in Act IV the room's lamp is taken to the dig (T_LAMP_TAKEN), where doc 57 F1's line has always said it went."
 }

@@ -453,86 +453,35 @@
         {
           "id": "pratt4",
           "tag": "ASSAY",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "text": "Will you help me practice for the Assay?",
-          "set": {
-            "ASSAY_PAIR_10": true,
-            "ASSAY_PAIR_11": true,
-            "ASSAY_PAIR_12": true,
-            "ASSAY_PAIR_13": true,
-            "ASSAY_PAIR_14": true,
-            "ASSAY_PAIR_15": true
-          },
           "exchange": [
             {
               "speaker": "pratt",
               "line": "Try me."
-            },
-            {
-              "speaker": "thad",
-              "line": "There's more gold in my tailings than in your whole claim."
-            },
-            {
-              "speaker": "pratt",
-              "line": "There's more gold in my boot, and I would like it back."
-            },
-            {
-              "speaker": "thad",
-              "line": "My vein runs forty feet wide."
-            },
-            {
-              "speaker": "pratt",
-              "line": "So does the road, and it's about as productive."
-            },
-            {
-              "speaker": "thad",
-              "line": "I've dug through solid granite with my hands."
-            },
-            {
-              "speaker": "pratt",
-              "line": "I have shaken your hands. They disagree."
-            },
-            {
-              "speaker": "thad",
-              "line": "I hired forty men to work my claim."
-            },
-            {
-              "speaker": "pratt",
-              "line": "I've met them. They are still waiting to be paid and they have formed opinions."
-            },
-            {
-              "speaker": "thad",
-              "line": "The gold came up so fast it followed me home."
-            },
-            {
-              "speaker": "pratt",
-              "line": "Everything follows you home. That is not gold. That is the dog."
-            },
-            {
-              "speaker": "thad",
-              "line": "There's a mountain named for me."
-            },
-            {
-              "speaker": "pratt",
-              "line": "There's a hole named for you and I've fallen in it."
-            },
-            {
-              "speaker": "pratt",
-              "line": "…"
-            },
-            {
-              "speaker": "pratt",
-              "line": "Where'd that come from?"
-            },
-            {
-              "speaker": "thad",
-              "line": "You."
-            },
-            {
-              "speaker": "pratt",
-              "line": "Huh."
             }
-          ]
+          ],
+          "whenAny": [
+            {
+              "ASSAY_PAIR_10": false
+            },
+            {
+              "ASSAY_PAIR_11": false
+            },
+            {
+              "ASSAY_PAIR_12": false
+            },
+            {
+              "ASSAY_PAIR_14": false
+            },
+            {
+              "ASSAY_PAIR_15": false
+            },
+            {
+              "ASSAY_PAIR_13": false
+            }
+          ],
+          "goto": "PRA_SPAR"
         },
         {
           "id": "pratt5",
@@ -711,6 +660,154 @@
         },
         {
           "id": "pratt_e3x",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "PRA_SPAR": {
+      "id": "PRA_SPAR",
+      "noPrompt": true,
+      "exceptionReason": "Errata 243: a practice node, built from doc 03's pairs; doc 04 writes the row that opens it.",
+      "noComic": true,
+      "noComicReason": "Errata 243: every option is a boast and every answer is the joke; none is a side remark.",
+      "options": [
+        {
+          "id": "pratt_spar10",
+          "tag": "ASSAY",
+          "text": "There's more gold in my tailings than in your whole claim.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_10": false
+          },
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "There's more gold in my boot, and I would like it back."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_10": true
+          }
+        },
+        {
+          "id": "pratt_spar11",
+          "tag": "ASSAY",
+          "text": "My vein runs forty feet wide.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_11": false
+          },
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "So does the road, and it's about as productive."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_11": true
+          }
+        },
+        {
+          "id": "pratt_spar12",
+          "tag": "ASSAY",
+          "text": "I've dug through solid granite with my hands.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_12": false
+          },
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "I have shaken your hands. They disagree."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_12": true
+          }
+        },
+        {
+          "id": "pratt_spar14",
+          "tag": "ASSAY",
+          "text": "I hired forty men to work my claim.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_14": false
+          },
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "I've met them. They are still waiting to be paid and they have formed opinions."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_14": true
+          }
+        },
+        {
+          "id": "pratt_spar15",
+          "tag": "ASSAY",
+          "text": "The gold came up so fast it followed me home.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_15": false
+          },
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Everything follows you home. That is not gold. That is the dog."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_15": true
+          }
+        },
+        {
+          "id": "pratt_spar13",
+          "tag": "ASSAY",
+          "text": "There's a mountain named for me.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_13": false
+          },
+          "after": [
+            "pratt_spar10",
+            "pratt_spar11",
+            "pratt_spar12",
+            "pratt_spar14",
+            "pratt_spar15"
+          ],
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "There's a hole named for you and I've fallen in it."
+            },
+            {
+              "speaker": "pratt",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Where'd that come from?"
+            },
+            {
+              "speaker": "thad",
+              "line": "You."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Huh."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_13": true
+          },
+          "goto": "PRA_D6"
+        },
+        {
+          "id": "prattx",
           "tag": "EXIT",
           "text": "I should go.",
           "universal": true,

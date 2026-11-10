@@ -6671,3 +6671,240 @@ Lesson:
 - `tests/frame-rate.test.ts`: inert without the parameter, and the low is the worst of ten seconds.
 - Doc 55 §8, three rows.
 
+---
+
+## 243 · Doc 114 approved, all of it; the sparrings are played; the pace is held
+
+Tyler, 2026-11-09: "Merge and then make EVERYTHING in the game the best it can be. I don't want bandaids, I want perfection." Asked how the writing and the pictures should go, he chose "Design first, then I rule" and "Design for the best scene, brief the art". Doc 114 is that design. On its rows: **"All"**.
+
+**The writing exception this gives.** New lines for the rows of doc 114 section 4, and no others: in /docs, one voice, to doc 59, each row's lines in a document of its own, built and played before the next. Nothing in it touches a load-bearing line, an invariant, or a puzzle's answer outside its row. Pictures are briefed to the image session and made there.
+
+**What "best" is, so it can end** is doc 114 section 1: six standards. When they hold on the played route and Tyler has played it, the plan is done.
+
+### II-4 · The sparrings, played
+
+- **Before:** "Teach me to answer a boast." and "Will you help me practice for the Assay?" each performed every pair in one exchange the player watched: five boasts and answers with Winnie, six with Pratt.
+- **Now:** the row says its own reply ("Sit.", "Try me.") and opens a practice. Each boast is an option the player picks; the teacher answers it; that pair is his. The pair doc 03's own scene performs comes last, with that scene round it, and the practice ends back where it began.
+- Leaving part-way keeps what was learned. The row is offered again while any of its pairs is unlearned, and the practice then holds only those.
+- **No line is new.** Every boast and counter is doc 03 Part Two's, and both scenes are doc 03's, word for word. Doc 04's two rows say how they are played.
+
+### X-3 · The pace is held
+
+- `tools/check-pacing.mjs`, in `run-all`: on the played route, never more than three stops in a row of nothing but talk, every verb on the panel used, and one item used on another.
+- What still fails is listed in `proofs/pacing.json`, each with the row of doc 114 that is to fix it: one run of four counters at the start of the three papers, CLOSE and PULL never used, and no item on an item. A failure not on the list fails the check, and so does a listed one that has stopped failing.
+
+### A sheet that nothing is bringing says so
+
+Errata 242 could not say why the Nugget's barrel was late. A sheet wanted while the loader is idle now reports itself once, with whether its load failed, was asked for and never came, or was never asked for (`GameScene.sheetFor`).
+
+Lesson:
+- `tests/assay.test.ts`: each practice's boasts are doc 03's as the player reads them, one pair each, answered by the teacher first, gone once learned, the last one last. It fails on the old single exchange.
+- `tests/goto-opening.test.ts` reaches a row offered only after others by taking those first.
+- `tests/pacing.test.mjs`: the arithmetic, and the real route against its list.
+- The full walkthrough picks every boast (C6.4, D5.3).
+
+---
+
+## 244 · The three papers, to standard: the double earned, and Pratt stays (doc 115; doc 114 II-3, II-2)
+
+Under errata 243's ruling ("All"). Doc 115 is the design and the lines for doc 114's rows II-1, II-2, II-3 and II-5. Two of them need no picture and are built here. II-5 (the wreath) and II-1 (the collection) wait on `reference/act2-papers/brief.md`, four pictures for the image session.
+
+### II-3 · The double, earned
+
+- The swap (errata 242) now needs the ledger made ready, and until it is, the ledger on the log is refused and the refusal says what is wrong with it.
+  - **The gilt:** the Colonel's handkerchief used on the ledger rubs the year off its spine (`T_LEDGER_PLAIN`). The game's first item used on an item (doc 114 X-2).
+  - **The spine:** the ledger used on THE CHAIRS breaks it in at one place, as the log's is (`T_LEDGER_CRACKED`).
+  - Either order. Three wrong tries with the ledger (the sabre, the decanter, the portrait).
+- The puzzle model, the combinations check and both players (the test's and the browser's) now know an item can be used on a carried item.
+- No picture.
+
+### II-2 · Pratt stays on the claim until he is turned
+
+- **Before:** "That's my stake you're pulling up." sent him home, and the rest of Act II was said across his own claim. He was also drawn in both places at once.
+- **Now:** he stays on Prosperity. PRA_B1 is said there, the turn included ("For the mud." "For the mud."), standing on the mud. Turned, he walks home, and PRA_D6 is at his own claim as before.
+- The stake (errata 242) is there for every player, for all of that time.
+- The cut-away "Still on it?" is cut to Prosperity.
+- No line is new or changed. One trip to his claim comes out of the played route.
+
+Lesson:
+- The full walkthrough plays the refusal, the gilt, the spine and the swap (C4.2a to C4.2b), and the whole of D2 and the turn on Prosperity.
+- `tests/room-11.test.ts`: the swap is refused with the gilt on, and again with the spine whole.
+- `proofs/pacing.json` no longer lists "no item is used on another item"; the check fails if it comes back.
+
+**Five, not one (Tyler, 2026-11-09).** Told the handkerchief on the ledger was the game's first item used on an item, he asked how many Monkey Island had. Asked whether the plan should hold four or five: "Yes". Doc 114's standard 4 and row X-2 now say five, `tools/check-pacing.mjs` counts them on the played route, and `proofs/pacing.json` lists the shortfall (one of five).
+
+**III-1 is withdrawn by its author, for Tyler to overrule.** Doc 114 proposed "the archive, searched" before the room was read closely. Room 8 already gives three quiet clues (the dust at chest height, the one chair, the rota), using Hob's form on the file is the player's own deduction, and it stands beside lines invariant 3 says must never be marked. Steps added there would make it worse. CLOSE needs another home; the dinner (I-1) is where it will be looked for.
+
+
+---
+
+## 245 · Objects, first pass: five things done by hand (docs 116, 117, 118); the overnight mandate
+
+**Tyler, 2026-11-09.** Shown doc 117's rows O-1 to O-7: "All". Asked how the Monkey Island work gets done while he sleeps, and whether Claude may design, write and build without waiting for rulings: "Yes, build it all". Then: the inventory should lose papers and gain objects; "feel free to continue over night if you discover other things that would make the game better and in the style of MI"; and "Feel free to change the story too if changing it makes it better".
+
+**What that permission covers, as its author reads it.** New lines by one voice to doc 59, in /docs, for the rows of docs 114, 116 and 117 and for what those documents' standards turn up. It does not cover CLAUDE.md's design invariants, which stand untouched. The ending and the central reveal are kept; a case for changing either is written and left unbuilt. **Every change to the story or to how a puzzle is solved is listed with its before and after in `docs/119-what-changed-overnight.md`, so any one of them can be reversed.**
+
+### Built here (doc 118)
+
+| Row | Before | Now |
+|---|---|---|
+| **O-1 · The chalk** | Pratt is turned by choosing one line from a list | The chalk is taken from the Nugget's back room. Told the figure, Pratt has "heard numbers. Never seen one." Thad chalks it on his own stake; Pratt takes the chalk and does his sum under it. Doc 04's PRA_D5, word for word |
+| **O-2 · The notice** | Asking Frame starts the funeral day | Frame hands him the notice. The day starts when it is on the board on Main Street |
+| **O-4 · The tonic** | Taken in Act I, used on nothing a second time | On the handkerchief (item on item, the second), it takes the gilt off in one pass. Dry still works |
+| **O-5 · The blanket** | Appears in his hand | The livery man says yes; Thad takes it off the mule |
+| **O-7 · The lamp** | Narrated at the dig | Taken from his room in Act IV; the hole refuses the pickaxe without it |
+
+O-3 (the hymnal) and O-6 (the wreath) are built with doc 115's hill scenes.
+
+- Five icons from the image session placed on the sheet (`tools/art/act2-papers-icons-place.py`).
+- No dead end: the chalk is never spent, the tonic is a second way and not the only one, the lamp is in the room Act IV opens in. The traversal holds it.
+
+Lesson:
+- The full walkthrough plays every one of them (A5.2a, C3.8 to C3.11, C4.2c2, D5.0a, D5.0b, D5.2c, F1.0), and the model and the puzzle graph are derived from the same content.
+- `proofs/pacing.json`: item on item two of five, 12 taken by hand, 12 item-on-world uses. The check fails if any slips back.
+
+---
+
+## 246 · The wreath and the collection, built; the hymnal and the wreath taken (docs 115, 118; doc 114 II-5, II-1, X-1)
+
+Under errata 243's ruling ("All") and errata 245's mandate. The image session's four pictures are in (`reference/act2-papers/handback.md`), and the two scenes that waited on them are built.
+
+### II-5 · The wreath (Main Street)
+
+- On the funeral day the Colonel is in the Company's doorway behind his wreath (`wreath_fanshawe`), and the way in is him: "The door is full of Colonel."
+- **PUSH** puts him through (`T_COLONEL_OUT`). He thanks Thad for it, and goes when he has finished saying so. The game's second solving PUSH.
+- Posting the notice now comes back to the street at the notice board (an entrance of its own). It came back at the street's east edge.
+
+### II-1 · The collection (Boot Hill)
+
+- **Before:** arriving on the hill collected Sheng's linen money.
+- **Now:** the Reverend is asked and will not make change out of the plate while the town watches. With **a hymnal** from the church (O-3) Thad stands at the foot of the line; the plate comes down it and stops in his hands; the Reverend takes hold of the rim. **PULL** settles it, ending in doc 57 D4's own direction and line. The game's first solving PULL.
+- The plate is drawn: in a widow's hands in the line, in Thad's hands (his `plate` clip), and in the Reverend's when it is his again.
+- **The day lasts until the plate is settled.** It used to end on entering the hill, which would have sent a player without the hymnal round the notice again. With no plate business open it still ends on entering.
+- The Colonel is drawn hat in hand, as the arrival line has always said, and has his own LOOK, LISTEN and TALK TO.
+- PULL's first line changed in the building: doc 115 had a direction ("The town of Consolation watches two men hold a plate") where the picture now shows it, so Thad says it to the Reverend: "The whole town is watching two men hold a plate."
+
+### O-3 and O-6
+
+- **The hymnal** is taken from Thad's pew, once.
+- **The Colonel's wreath** is at Pike's marker from the time he is out of his door. It cannot be taken while the town is on the hill. In Act III it is laid on Thad's own coffin, and the undertaker has a line. Nothing depends on it.
+
+### Engine, four small things, each general
+
+| | Before | Now |
+|---|---|---|
+| `Room.actorPoses` | A rule's `holds` let go of his picture with its last line | The room says what he holds while a condition holds, and can keep him where he stands (`rooted`) |
+| A held frame | Another figure's acted beat let everybody go | Each figure keeps his own until his own next beat; a rule's picture of Thad stays through somebody else's beat |
+| A figure who fades | Began to fade as the rule that sends him away began | Begins when its lines are over |
+| `exitTransitScenes` | Only a merged room's ways could answer and keep him | Any room's can |
+
+Two defects found on the way and fixed with their checks:
+
+- **A room compiled from its own last output said a figure's written lines again each time** (the Colonel had three of everything by his third compile). The compiler now starts a figure the annotation writes with none.
+- **`tools/check-flag-order.mjs` did not count a verb on a person as a writer,** and called the wreath's gate unsatisfiable. It reads `peopleResponses` now.
+
+Lesson:
+- `tests/held-in-his-hands.test.ts`: the room's pose, the rooted way out, the held frames, the fade that waits, and no figure given one written line twice.
+- `tests/d4.test.ts` plays the collection: asked, refused, no place in the line without the hymnal, nothing but PULL settles it, and the day lasting until it does.
+- The full walkthrough plays all of it (C3.5a, C3.12, D4.1 to D4.1c, E6b.1a, E7.1a).
+- `proofs/pacing.json`: PUSH twice and PULL once on the route now; "verb never used: PULL" is off the list, and the check fails if it comes back.
+
+---
+
+## 247 · Papers that only prove progress stop sitting in his pocket
+
+**Tyler, 2026-11-09:** "the inventory still has tons of papers and documents. Are you changing the game so that the inventory list loses a lot of those and replaces them with the fun new inventory items?" Yes, under errata 245's mandate.
+
+At the filing he carried 24 things and 14 of them were paper. Counted along the whole played route it was between 55 and 75 paper in every hundred, from Act I to the end.
+
+### What leaves, and where
+
+| Paper | Before | Now |
+|---|---|---|
+| **Documents A, B and D** | Shown at E0 and kept to the end | Lodged with Sump at E0 for Document C. The Certificate's own LOOK already said it: "It took three pieces of paper to earn this one. That is the exchange rate here." |
+| **The submission log** | Shown to Winnie at C5 and kept (errata 66 A: "unless a later authored source consumes it") | She keeps it. She is reading it, and counting |
+
+No line is new. Each leaves by the flag its own scene already writes or now writes (`T_CLAIM1_BLANK`, `T_LOG_WITH_WINNIE`), as the linen money leaves.
+
+### What stays, and why
+
+- **The Company's map** stays: the claims are on the town map only while he holds it (doc 57 A4).
+- **The third copy** stays: it is the way through the mine (G2), and it is Tyler's own decision (doc 107).
+- **The deed, the letter, the death certificate, Document C, the executor's form, the photograph, the obituary:** each is a paper the plot or a joke turns on.
+- **The invitation** goes at the dinner, with doc 114's I-1.
+
+### Where that leaves the count
+
+10 of 20 at the filing. **That is under half and not under a third, which is what was promised.** The papers that are left cannot go without taking story with them, so the rest has to come from objects, and `tools/check-pacing.mjs` now counts it and lists the shortfall in `proofs/pacing.json` until it is met.
+
+Lesson:
+- `tools/check-pacing.mjs` counts the papers carried to the filing and fails if the number gets worse.
+- `tools/check-fixtures.mjs`: a state past C5 may not hold the log, and one past E0 may not hold A, B or D. It found four fixtures that did.
+- The full walkthrough expects each paper gone at the step it is left (C5.2, E0.2).
+
+---
+
+## 248 · Act I, by hand: Pike's grave, the dinner played, and three small things (doc 120; doc 114 I-2, I-1, X-1, X-2)
+
+Under errata 245's mandate. Doc 120 is the design and the lines. I-3 (the boundary walked) is designed there and not built. Its picture, the map drawn large, is in (`art/backgrounds/room-16-company-map.png`); what it still needs is the engine to hold a line the player draws.
+
+### I-2 · Pike's grave
+
+- The first time he stands on Boot Hill he says why he came, once.
+- THE LETTER on PIKE'S MARKER: he holds it out to the board. Nothing is taken or written; the letter is wanted at the church in Act II.
+
+### I-1 · The dinner, played
+
+- **Before:** a list of things to say at the Colonel's table; "I mean to work it myself." ended it.
+- **Now:** he keeps his chair when the conversation closes, and the table can be tried from it: MY GLASS (it is always full), THE BOTTLE, THE COVERED DISH. **OPEN the dish and the contract is under it, on a warmed plate, with parsley. CLOSE the cover over it and the dinner ends:** his line, the Colonel's "Of course you do.", and doc 57 A10's beat 3 word for word (the glass, the handkerchief, `T_DINED`).
+- Option 6 is still said, and the Colonel still agrees. It ends nothing, and the dish is still there.
+- Leaving the conversation is not leaving the table. The Colonel's line for leaving ("Already? Then come back when you're hungry. The table will keep.") is said at the door, and the dinner starts again on the next entry, the dish covered.
+- CLOSE solves something for the first time (doc 114 X-1).
+- The desk's own handkerchief and submission log are not pointed at while the dinner table stands over the desk. They were: the pointer named THE HANDKERCHIEF over the silver cover.
+- **The dish uncovered is drawn** (the image session's picture, in the same night: `reference/act1-dinner/handback.md`): the cover tipped beside its tray, the contract on the tray with its parsley. The table's own picture is swapped for it while the contract is served.
+
+### Three small things
+
+- **The eggs, improved.** DR. PURVIS'S TONIC on THE PICKLED EGGS at the claim (the third item on an item); the tonic is kept. The improved eggs at the hole have their own answer, and are spent.
+- **The card.** THE OBITUARY tucked under the ribbon of THE COLONEL'S WREATH (the fourth); it leaves his pocket with the wreath, and the undertaker has a second line when it is laid.
+- **The invitation** is left on the Colonel's table when the dinner is over.
+
+### Engine
+
+| | Before | Now |
+|---|---|---|
+| `accost.seat.keepWhile` | The conversation closing stood him up | He keeps the seat while the condition holds, does not walk, and reaches from the chair |
+| A verb done with his hands on a person | Answered from wherever he stood | He walks to that person first, as TALK TO does. He pushed the Colonel through his door from across Main Street |
+| A dev server already on the gauntlet's port | Taken for the run's own | Refused. A replay in one worktree was played against another worktree's content and reported five breaks that were not there (`tools/gauntlet/own-server.mjs`) |
+
+### The counts (`proofs/pacing.json`)
+
+| | Before the night | Now | Doc 116's target |
+|---|---|---|---|
+| Item on an item | 1 | 4 | 5 |
+| Taken from a room by hand | 9 | 16 | 15 |
+| Different item-on-the-world uses | 10 | 15 | 15 |
+| Objects among all items | 12 of 34 | 16 of 39 | half |
+| PUSH, PULL, CLOSE that solve something | 1, 0, 0 | 3, 1, 1 | 2 each |
+| Papers carried to the filing | 14 of 24 | 8 of 18 | under a third |
+
+Lesson:
+- The full walkthrough plays all of it (A1.4, A5.2b to A5.3b, A10.2 to A10.2d, E6b.1b), and the real build was played through the dinner and the collection before the full replay.
+- `tests/ozymandia-talk-to.test.ts`: a verb done with his hands walks him to the person; a look does not.
+- `tests/gauntlet-own-server.test.mjs`: a server already answering is refused; both gauntlets ask before they start one and stop it whole.
+- `tests/dinner.test.ts`: the dinner is not ended by anything said; nothing on the table ends it but the cover put back; the seat is kept until then.
+
+## 249 · He pulls his own notice (doc 118 O-2; doc 116 Y3)
+
+Under errata 245's mandate. One change, listed as row 19 of doc 119.
+
+- **Before:** asked for a funeral notice, Frame set it, pulled it off the press and handed it over. C3 completed in the conversation.
+- **Now:** Frame sets it, locks the type and stands back with his arms folded ("I compose. I do not pull, and I do not walk."). The notice is in the press (`T_NOTICE_SET`) until Thad uses **PULL on THE PRESS**. That grants THE FUNERAL NOTICE and completes C3. Doc 04's reply to the request is unchanged, word for word.
+- PULL on the press has a line when nothing is set and a line when he already holds one. Frame offers to set another only when nothing is set and none is in hand, so the day can be held again as before.
+- **No dead end.** The press does not leave the room and the flag is cleared only by the pull.
+- **Counts:** PULL solves something twice on the route (the collection plate, the press). Doc 116 Y3's standard for PULL is met and its row is off `proofs/pacing.json`.
+
+Lesson:
+- The full walkthrough plays it (C3.7, C3.8), and the real build was played from the church to the notice on the wall.
+- `tests/press.test.ts`: nothing Frame says hands over the notice or completes C3; the press gives it only when the notice is set; a second is not to be had while he holds one.
+

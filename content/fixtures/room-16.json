@@ -159,22 +159,18 @@
     "T_GROG_SEEN": true,
     "T_GULCH_MESSAGE_UP": true,
     "T_GULCH_MESSAGE_DOWN": true,
-    "T_SEANCE_ON": true
+    "T_SEANCE_ON": true,
+    "T_LOG_WITH_WINNIE": true
    },
    "inventory": [
     "letter",
     "tuning_fork",
     "company_map",
     "blanket",
-    "invitation",
     "third_copy",
     "handkerchief",
     "brass_rod",
-    "padded_log",
     "photograph",
-    "document_b",
-    "document_d",
-    "document_a",
     "watch",
     "document_c",
     "deed"
@@ -354,22 +350,18 @@
     "T_GULCH_MESSAGE_DOWN": true,
     "T_SEANCE_ON": true,
     "T_SEANCE_ARRIVED": true,
-    "T_SEANCE_DARK": true
+    "T_SEANCE_DARK": true,
+    "T_LOG_WITH_WINNIE": true
    },
    "inventory": [
     "letter",
     "tuning_fork",
     "company_map",
     "blanket",
-    "invitation",
     "third_copy",
     "handkerchief",
     "brass_rod",
-    "padded_log",
     "photograph",
-    "document_b",
-    "document_d",
-    "document_a",
     "watch",
     "document_c",
     "deed"

@@ -661,6 +661,60 @@
    "date": "2026-11-10",
    "kind": "reviewed",
    "why": "TUNED. All three entries were the same misfire: a new scene document that writes an item of its own (doc 109's Gulch, doc 111's sale, doc 113's ledger) had to be named in the test before its item could be read, and naming it replaces a line, which the diff rule counts as loosening. No assertion was ever weakened. The test now finds those documents itself, from the document each extracted item's note says it came from, so a new item document needs no edit here. Keep the test: it is the only one that holds an item's fate (spent, lodged, kept) to what the documents say."
+  },
+  {
+   "check": "tests/act-two-scenes.test.ts",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Not loosened: changed with the design, under Tyler's overnight mandate (errata 245). Errata 245 and 246. It counted exactly two things tried on the man on the claim; the chalk is a third and is held to the same rule (none writes anything), so the count is now at least two. It held that the town is on the hill exactly when the arrival line is said; the funeral day now lasts until the plate is settled, so the town is there on every entry of the day and the line is said on the first, which the test now states."
+  },
+  {
+   "check": "tests/assay.test.ts",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Not loosened: changed with the design, under Tyler's overnight mandate (errata 245). Errata 243: the sparrings are played, not listed. The test held Winnie's and Pratt's sparring pairs as rows granted by a dialogue option; they are practice rounds of the Assay now (WIN_SPAR, PRA_SPAR), and the test plays them there."
+  },
+  {
+   "check": "tests/c5.test.ts",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Not loosened: changed with the design, under Tyler's overnight mandate (errata 245). Errata 247: the submission log stays with Winnie at C5. The test held 'showing is not surrendering' (errata 66 A, which kept the log 'unless a later authored source consumes it'); this is that source, and the test now holds that she keeps it, that the one flag the pair writes is where the log is, and that no tree reads that flag."
+  },
+  {
+   "check": "tests/d4.test.ts",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Not loosened: changed with the design, under Tyler's overnight mandate (errata 245). Errata 246 (doc 115 II-1): arriving on the hill no longer pays the linen money. The test read the arrival scene and its hand-over; it now plays the collection (asked, refused, no place in the line without a hymnal, nothing but PULL settles it) and holds that the day lasts until it is settled. It is longer and stricter than the one it replaces."
+  },
+  {
+   "check": "tests/e0-e5.test.ts",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Not loosened: changed with the design, under Tyler's overnight mandate (errata 245). Errata 247: Documents A, B and D are lodged with Sump at E0 for Document C. The test held that the three are kept; it now holds that they are gone."
+  },
+  {
+   "check": "tests/room-25.test.ts",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Not loosened: changed with the design, under Tyler's overnight mandate (errata 245). Errata 244 (doc 115 II-2): Pratt stays on Prosperity until he is turned. The test held that PRA_D2 option 1 sends him home at a walk; it now holds that he stays, and that he walks home when he is turned."
+  },
+  {
+   "check": "tools/check-fixtures.mjs",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Not loosened: changed with the design, under Tyler's overnight mandate (errata 245). Errata 247: its rule that a state past C5 holds the submission log is reversed (such a state may not hold it, and needs T_LOG_WITH_WINNIE), and a rule is added that a state past E0 holds none of A, B and D. Tightened, on balance: it found four fixtures that broke the new rules."
+  },
+  {
+   "check": "tests/room-11.test.ts",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Not loosened: changed with the design, under Tyler's overnight mandate (errata 245). Errata 248 (doc 120 I-1): the dinner is ended by the cover put back over the contract, not by option 6. The test held that option 6 ends it; it now holds that nothing said ends it, that the table can be tried, and that OPEN then CLOSE does. Errata 244: the ledger must be made ready before the swap. Stricter than the one it replaces."
+  },
+  {
+   "check": "tests/room-11.test.ts",
+   "date": "2026-11-10",
+   "kind": "reviewed",
+   "why": "Tuned. It was rewritten three times because it named the act that ends the dinner (an option, then a hotspot and verb). It now finds the rule that completes A10 in the room's content and does what that rule asks, so moving the ending no longer edits the test; that nothing SAID ends the dinner is still held, and tests/dinner.test.ts holds the particulars. Not a candidate to retire."
   }
  ]
 }

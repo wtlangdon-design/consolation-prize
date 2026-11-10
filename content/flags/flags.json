@@ -864,8 +864,8 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "dialogue:FRAME:FRA_A1:frame6",
-    "room:boot_hill:onEnter"
+    "room:boot_hill:onEnter",
+    "combination:funeral_notice:main_street:posted_notices"
    ],
    "note": "Doc 57 C3: the funeral day, from FRA_A1 6 until Thad walks up Boot Hill. Read by Rooms 2, 11, 14, 17 and D4, not built."
   },
@@ -1283,7 +1283,7 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "dialogue:LIVERY_MAN:LIV_A1:livery_man5"
+    "room:livery:grievance_s_blanket:PICK_UP"
    ],
    "note": "Doc 04 LIV_A1 option 5: THE LIVERY BLANKET on loan (errata 88 D). While set the bin is drawn bare and GRIEVANCE'S BLANKET is not a subject; A5 (Rooms 23/24, not built) clears it when the blanket comes back (doc 23)."
   },
@@ -1480,6 +1480,7 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
+    "combination:chalk:prosperity:claim_marker",
     "dialogue:PRATT:PRA_B1:pratt7"
    ],
    "note": "Doc 57 D5: 'He signs' -- the quitclaim; Pratt gives up jumping Prosperity. Opens PRA_D6 (errata 97 B)."
@@ -2013,6 +2014,213 @@
     "room:boot_hill:onEnter"
    ],
    "note": "Doc 113, C (errata 242): the town is on Boot Hill, coming down, the Colonel in front, for the visit that ends the funeral day. Cleared on every entry, then set while the day holds, as T_PLATE_AT_GATE is."
+  },
+  {
+   "id": "T_LEDGER_PLAIN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:handkerchief:fanshawe_office:company_ledger",
+    "combination:company_ledger:fanshawe_office:handkerchief"
+   ],
+   "note": "Doc 115, II-3 (errata 244): the gilt date is rubbed off the ledger's spine with the Colonel's handkerchief. The swap needs it."
+  },
+  {
+   "id": "T_LEDGER_CRACKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:company_ledger:fanshawe_office:chairs"
+   ],
+   "note": "Doc 115, II-3 (errata 244): the ledger's spine is broken in at one place, as the log's is. The swap needs it."
+  },
+  {
+   "id": "T_CHALK_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:nugget_back:chalk:PICK_UP"
+   ],
+   "note": "Doc 118, O-1 (errata 245): the judges' chalk is in Thad's pocket. The tin gives one."
+  },
+  {
+   "id": "T_FIGURE_TOLD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PRATT_JUMP:PRA_B1:pratt7"
+   ],
+   "note": "Doc 118, O-1 (errata 245): Pratt has been told the Company's figure, and has never seen one. The chalk on the claim marker is then the turn."
+  },
+  {
+   "id": "T_NOTICE_IN_HAND",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:press:PULL",
+    "combination:funeral_notice:main_street:posted_notices"
+   ],
+   "note": "Doc 118, O-2 (errata 245, 249): Thad is holding a funeral notice he pulled off the press and has not yet posted it. Frame sets another only when this is false."
+  },
+  {
+   "id": "T_NOTICE_SET",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_A1:frame6",
+    "room:clarion:press:PULL"
+   ],
+   "note": "Doc 118, O-2 (errata 249): Frame has set the funeral notice and stood back. It is in the press until Thad pulls it."
+  },
+  {
+   "id": "T_HANDKERCHIEF_DOSED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:tonic:fanshawe_office:handkerchief",
+    "combination:handkerchief:fanshawe_office:tonic"
+   ],
+   "note": "Doc 118, O-4 (errata 245): Dr. Purvis's tonic is on the Colonel's handkerchief. It takes the gilt off the ledger in one pass."
+  },
+  {
+   "id": "T_BLANKET_ALLOWED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:LIVERY_MAN:LIV_A1:livery_man5"
+   ],
+   "note": "Doc 118, O-5 (errata 245): the livery man has said Thad may borrow Grievance's blanket. He takes it off her himself."
+  },
+  {
+   "id": "T_LAMP_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:thads_room:lamp:PICK_UP"
+   ],
+   "note": "Doc 118, O-7 (errata 245): the hotel's lamp has been taken from Thad's room for the dig."
+  },
+  {
+   "id": "T_COLONEL_OUT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:main_street:wreath_fanshawe:PUSH"
+   ],
+   "note": "Doc 115 II-5 (errata 246): Thad has pushed the Colonel and his wreath out of the Company's doorway on the funeral day; the way in is clear, and the wreath is left at Pike's marker."
+  },
+  {
+   "id": "T_LINEN_ASKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:sowerby_gate:TALK_TO"
+   ],
+   "note": "Doc 115 II-1 (errata 246): the Reverend has been asked for Sheng's linen money at the gate, and will not make change out of the plate while the town watches."
+  },
+  {
+   "id": "T_HOLDS_PLATE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter",
+    "room:boot_hill:town_coming_down:USE"
+   ],
+   "note": "Doc 115 II-1 (errata 246): the collection plate has stopped in Thad's hands and the Reverend has hold of its rim. Cleared on every entry to the hill."
+  },
+  {
+   "id": "T_FUNERAL_HILL_SAID",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter",
+    "combination:funeral_notice:posted_notices"
+   ],
+   "note": "Errata 246: the hill's arrival line for the funeral day has been said. The day now lasts until the plate is settled, so the line is said once a day; posting a notice clears it."
+  },
+  {
+   "id": "T_HYMNAL_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:church:hymnal:PICK_UP"
+   ],
+   "note": "Doc 118 O-3 (errata 246): Thad has a hymnal from the church. With it he can stand in the line of mourners."
+  },
+  {
+   "id": "T_WREATH_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:colonel_s_wreath:PICK_UP"
+   ],
+   "note": "Doc 118 O-6 (errata 246): the Colonel's wreath has been taken from Pike's marker."
+  },
+  {
+   "id": "T_WREATH_LAID",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:wreath:coffin"
+   ],
+   "note": "Doc 118 O-6 (errata 246): the Colonel's wreath is on Thad's own coffin. Nothing reads it."
+  },
+  {
+   "id": "T_LOG_WITH_WINNIE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:padded_log:winnie"
+   ],
+   "note": "Errata 247: the submission log has been shown to Winnie (C5) and she has kept it. The item leaves the inventory with this flag."
+  },
+  {
+   "id": "T_SEEN_BOOT_HILL",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter"
+   ],
+   "note": "Doc 120 I-2 (errata 248): Thad has stood on Boot Hill, and said why he came. The arrival lines are said once."
+  },
+  {
+   "id": "T_LETTER_OFFERED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:letter:pike_s_marker"
+   ],
+   "note": "Doc 120 I-2 (errata 248): the letter of introduction has been held out to Pike's board. Nothing reads it but the pair's own second line."
+  },
+  {
+   "id": "T_EGGS_IMPROVED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:tonic:eggs",
+    "combination:eggs:tonic"
+   ],
+   "note": "Doc 120 (errata 248): Dr. Purvis's tonic is in the jar of pickled eggs."
+  },
+  {
+   "id": "T_WREATH_CARDED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:obituary:wreath",
+    "combination:wreath:obituary"
+   ],
+   "note": "Doc 120 (errata 248): the obituary is under the ribbon of the Colonel's wreath, as its card."
+  },
+  {
+   "id": "T_CONTRACT_SERVED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:fanshawe_office:onEnter",
+    "room:fanshawe_office:covered_dish:OPEN"
+   ],
+   "note": "Doc 120 I-1 (errata 248): the cover is off the dish at the Colonel's table and the contract is on the plate. Cleared on every entry: a dinner left starts again."
   }
  ]
 }

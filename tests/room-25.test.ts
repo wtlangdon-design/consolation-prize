@@ -84,7 +84,7 @@ test('A5\'s fourth way: asked only while the hole is warm, and the bite after', 
   assert.ok(!shown(cold).includes(opt(cold, '1')), 'the hole gone cold: nothing to ask');
 });
 
-test('D2: on the first visit next door in Act II he is on it, and option 1 sends him home at a walk', async () => {
+test('D2: on the first visit next door in Act II he is on it, stays until he is turned, and then goes home at a walk', async () => {
   const state = await inState('r25-c');
   // The room where a man whose every conversation ends on an offer opens on
   // arrival: found by the content, not named.
@@ -112,7 +112,12 @@ test('D2: on the first visit next door in Act II he is on it, and option 1 sends
   state.dialogue.select(opt(state, '1'));
   assert.equal(state.puzzleProgress().D2, 'pending', 'D2 opens');
   layer.noteDepartures(0.1);
-  assert.ok(layer.departing.some((one) => one.npc.id === jumper.id), 'he goes home at a walk');
+  // Errata 244 (doc 115 II-2): he stays on the claim until he is turned, and everything he says he says standing on it.
+  assert.ok(!layer.departing.some((one) => one.npc.id === jumper.id) && layer.present.some((one) => one.id === jumper.id), 'he stays on it');
+  state.dialogue.end();
+  for (const [flag, value] of Object.entries(jumper.when ?? {})) if (typeof value === 'boolean') state.flags.set(flag, !value);
+  layer.noteDepartures(0.2);
+  assert.ok(layer.departing.some((one) => one.npc.id === jumper.id), 'turned, he goes home at a walk');
 });
 
 test('D2 and D5 at his claim: the refusal to attest, then the arithmetic, then PRA_D6', async () => {

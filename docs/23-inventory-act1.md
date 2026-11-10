@@ -94,7 +94,7 @@
 | padded_log | The Improvement Company submission log | THE SUBMISSION LOG |
 
 ## THE SUBMISSION LOG
-*Acquired C4. Shown to Winnie at C5 and kept. Never consumed.*
+*Acquired C4. Given to Winnie at C5: she reads it, and goes on counting. (Errata 247; errata 66 A kept it only until a later authored source consumed it.)*
 
 **LOOK** 1 "The Improvement Company's submission log. Two-thirds of these entries are the same sample under different names." · 2 "Same weights, same notation, same hand. Different claim numbers. Repeated until the queue became eight months long." · 3 "Nine years of delay, entered neatly enough to look like work."
 **LISTEN** 1 "Paper." · 2 "Nothing." · 3 "Nothing. It has already said enough."
@@ -115,7 +115,7 @@
 **LISTEN** 1 "Ticking. Slightly ahead of everything." · 2 "Still eleven minutes ahead." · 3 "Ticking. Eleven minutes into the future, and in no hurry about it."
 
 ## THE AFFIDAVIT
-*Document A. Acquired B6. Shown at E0; kept as a souvenir.*
+*Document A. Acquired B6. Lodged with Sump at E0, with B and D, for Document C. (Errata 247.)*
 
 **LOOK** 1 "Deke Vessel's sworn affidavit that he sold me a claim under false pretenses. Document A." · 2 "He has signed it with a flourish so large it runs into the margin and some way down it. He is proud of this too." · 3 "Under oath, Deke Vessel has told the truth. I have it in writing, which is the only place out here it would survive."
 **LISTEN** 1 "Paper." · 2 "Nothing." · 3 "Nothing. It is the quietest thing Deke Vessel has ever produced."
@@ -147,7 +147,7 @@
 **LISTEN** 1 "Paper. It smells of incense and two dollars." · 2 "Nothing." · 3 "Nothing. It has said what the rod told it to, and it has no further instructions."
 
 ## THE INVITATION
-*Handed over by Sump at the end of A9. Kept.*
+*Handed over by Sump at the end of A9. Gone after the dinner (A10): left on the Colonel's table. (Errata 248.)*
 
 **LOOK** 1 "'Colonel A. Fanshawe requests the pleasure of Mr. Grubb at dinner, this evening.' Engraved. The evening was printed before I was." · 2 "My name has been written in by hand, in a space left for whichever name it turned out to be." · 3 "It was waiting at the Registrar's before I had finished registering. I am trying to take that as a compliment."
 **LISTEN** 1 "Heavy card. It does not rustle. It announces." · 2 "Nothing." · 3 "Nothing. It has said 'this evening', and that was all it needed to say."
@@ -165,7 +165,7 @@
 **LISTEN** 1 "Card. Good card." · 2 "Nothing." · 3 "Nothing. He has the look of a man who would not say much, and he does not."
 
 ## THE ASSAY OF RECORD
-*Document B. Issued at C6. Kept.*
+*Document B. Issued at C6. Lodged with Sump at E0, with A and D, for Document C. (Errata 247.)*
 
 **LOOK** 1 "The Assay of Record for Claim Two. Document B. It says my claim contains nothing, in a hand nobody in the territory can argue with." · 2 "'Mud, rock, and a mineral recorded as disappointment.' She has signed it. It is the most authoritative thing anyone has ever said about me." · 3 "Worthless, certified. The form wanted an assay. It did not ask for a good one."
 **LISTEN** 1 "Paper." · 2 "Nothing." · 3 "Nothing. It has been weighed and found wanting, and it is very calm about it."
@@ -177,7 +177,7 @@
 **LISTEN** 1 "Coin, and a button." · 2 "Coin." · 3 "Nothing. It is somebody else's money and it is behaving accordingly."
 
 ## THE ATTESTATION
-*Document D. Sworn at D6. Kept.*
+*Document D. Sworn at D6. Lodged with Sump at E0, with A and B, for Document C. (Errata 247.)*
 
 **LOOK** 1 "Nickel Pratt's sworn attestation that I have occupied Claim Two for ninety days. Document D. I have occupied it for eleven." · 2 "He has signed with an X and then, underneath, his name in full, in case the X was misunderstood." · 3 "Notarized, stamped, accepted. It is false in every particular, and it is the soundest document I own."
 **LISTEN** 1 "Paper, with a stamp pressed into it." · 2 "Nothing." · 3 "Nothing. Perjury is very quiet once it has been notarized."
@@ -201,7 +201,7 @@
 **LISTEN** 1 "Paper." · 2 "Nothing." · 3 "Nothing. I keep expecting it to say something, as the subject."
 
 ## THE OBITUARY
-*E5, the Clarion's front page. Kept.*
+*E5, the Clarion's front page. Gone after it is tucked under the ribbon of the Colonel's wreath as its card (doc 120; errata 248); kept by a player who never does.*
 
 **LOOK** 1 "The Clarion's obituary of THADEUS GRUBBE, piano tuner, 'the only man in town who fixed anything.' Two errors in the name. None in the rest." · 2 "He has spelled it wrong in a new way, and done it carefully. It is the best one yet, and I find I mind it least." · 3 "Page one, above the fold, beside an advertisement for coffins. Frame has a sense of order I had not credited."
 **LISTEN** 1 "Newsprint." · 2 "Nothing." · 3 "Nothing. It is the only thing Frame has ever printed that I believe."

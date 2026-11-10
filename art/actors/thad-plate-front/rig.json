@@ -1,0 +1,12 @@
+{
+  "source": "art/actors/thad-plate-front.png",
+  "clip": "plate",
+  "facing": "front",
+  "figure": [
+    189,
+    626
+  ],
+  "padding": 260,
+  "frames": 3,
+  "note": "Doc 115 II-1, the collection on Boot Hill: the plate in both hands at his waist, his hat under his arm. 0 holding it, 1 a breath (derived), 2 the pull, arms out to the left and his weight on his heels. act2-papers operation 4, split here by tools/art/thad-plate-split.py. Played by the room while he holds the plate (Room.actorPoses) and by the scene's acted directions (doc 95; errata 246)."
+}

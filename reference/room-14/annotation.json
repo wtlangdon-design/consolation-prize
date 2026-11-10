@@ -165,10 +165,28 @@
    328
   ],
   "town_coming_down": [
-   690,
-   395,
-   680,
-   420
+   884,
+   397,
+   443,
+   403
+  ],
+  "collection_plate": [
+   958,
+   626,
+   84,
+   56
+  ],
+  "mr_pike_s_collection": [
+   590,
+   618,
+   100,
+   64
+  ],
+  "colonel_s_wreath": [
+   1562,
+   222,
+   80,
+   82
   ]
  },
  "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE NINETEEN is the scatter of boards between Mott's stone and Pike's (one hotspot, read along, doc 54). PIKE'S MARKER is the right-most board at the back, at the hill's crest; the plot beside it, to its right, is PIKE'S NEIGHBOR while it is dug and MY OWN PLOT after the funeral (errata 87 D). Errata 185: THE FENCE, the rails left of the gate. Errata 233 (doc 110 section 2): while the procession is stalled at the gate, THE HEARSE and GRIEVANCE, AT THE GATE over the hitch (content/ambient/procession-hearse.json, art/actors/room-14-hearse-grievance.png: reference/act3-hearse/handback.md), right of Mott's obelisk, REVEREND SOWERBY, AT THE GATE, THE UNDERTAKER and THE MOURNERS over their figures (procession_*).",
@@ -198,6 +216,19 @@
   },
   "town_coming_down": {
    "T_TOWN_ON_HILL": true
+  },
+  "collection_plate": {
+   "T_PLATE_AT_GATE": true,
+   "T_HOLDS_PLATE": false,
+   "T_LINEN_COLLECTED": false
+  },
+  "mr_pike_s_collection": {
+   "T_HOLDS_PLATE": true,
+   "T_LINEN_COLLECTED": false
+  },
+  "colonel_s_wreath": {
+   "T_COLONEL_OUT": true,
+   "T_WREATH_TAKEN": false
   }
  },
  "exitSubjects": {
@@ -206,7 +237,18 @@
    "to": "town_map",
    "defaultVerb": "WALK_TO",
    "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines. Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
-   "linesFrom": "docs/106-the-ways-out.md::## ROOM 14 · BOOT HILL"
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 14 · BOOT HILL",
+   "transitScene": [
+    {
+     "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+     "bold": "THE GATE",
+     "when": {
+      "T_HOLDS_PLATE": true,
+      "T_LINEN_COLLECTED": false
+     },
+     "stays": true
+    }
+   ]
   },
   "PIKE'S NEIGHBOR": {
    "id": "to_funeral",
@@ -286,7 +328,10 @@
   "undertaker": "LOOK_AT",
   "reverend_sowerby_at_the_gate": "LOOK_AT",
   "mourners": "LOOK_AT",
-  "town_coming_down": "LOOK_AT"
+  "town_coming_down": "LOOK_AT",
+  "collection_plate": "LOOK_AT",
+  "mr_pike_s_collection": "LOOK_AT",
+  "colonel_s_wreath": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every marker here is looked at on a bare click.",
  "occlusion": {
@@ -334,22 +379,58 @@
     "T_FUNERAL_DONE": true
    },
    "note": "Doc 05 Part Two-B: after the funeral, the headboard, the grass starting over it, a tuning peg on top. Composed from operations 4 and 5 (tools/art/room14-compose.py, errata 87 F)."
+  },
+  {
+   "id": "collection_plate",
+   "sheet": "art/props/room-14-collection-plate-in-line.png",
+   "x": 1000,
+   "y": 828,
+   "frame": [
+    0,
+    0,
+    69,
+    195
+   ],
+   "when": {
+    "T_PLATE_AT_GATE": true,
+    "T_HOLDS_PLATE": false,
+    "T_LINEN_COLLECTED": false
+   },
+   "note": "Doc 115 II-1 (errata 246): the plate in the line, in the widow's hands. The Reverend's own plate, lifted off his sheet (tools/art/act2-collection-sheet.py). Its base line is in front of the town's (y 800) so it is drawn over her hands; the rows under the plate are empty."
+  },
+  {
+   "id": "colonel_s_wreath",
+   "sheet": "art/props/room-14-colonels-wreath.png",
+   "x": 1602,
+   "y": 302,
+   "frame": [
+    0,
+    0,
+    70,
+    76
+   ],
+   "when": {
+    "T_COLONEL_OUT": true,
+    "T_WREATH_TAKEN": false
+   },
+   "note": "Doc 118 O-6 (errata 246): the Colonel's wreath against Pike's headboard. The wreath alone from his doorway sheet (frame 3), at the hill's far scale and in the hill's night (tools/art/act2-collection-sheet.py)."
   }
  ],
  "onEnterSay": {
   "fromRef": "docs/57-puzzle-completion.md::## C3 · Manufacture a funeral",
   "sayWhen": {
-   "T_FUNERAL_DAY": true
+   "T_FUNERAL_DAY": true,
+   "T_FUNERAL_HILL_SAID": false
   },
   "saySet": {
-   "T_FUNERAL_DAY": false,
-   "T_FUNERAL_STREET_SAID": false
+   "T_FUNERAL_HILL_SAID": true
   },
-  "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' The line plays and the day clears; it can be held again (errata 87 C)."
+  "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' Errata 246: the line is said once a day, and the day ends on entering only when no plate business is open (onEnterSetWhen); with the plate at the gate it lasts until the plate is settled (doc 115 II-1), so a player who goes back for the hymnal finds the town still on the hill."
  },
  "onEnterSet": {
   "T_PLATE_AT_GATE": false,
-  "T_TOWN_ON_HILL": false
+  "T_TOWN_ON_HILL": false,
+  "T_HOLDS_PLATE": false
  },
  "onEnterSetWhen": [
   {
@@ -372,6 +453,16 @@
   },
   {
    "when": {
+    "T_FUNERAL_DAY": true,
+    "T_PLATE_AT_GATE": false
+   },
+   "set": {
+    "T_FUNERAL_DAY": false,
+    "T_FUNERAL_STREET_SAID": false
+   }
+  },
+  {
+   "when": {
     "T_EXECUTOR_NAMED": true,
     "T_OBITUARY": true,
     "T_FUNERAL_DONE": false,
@@ -383,28 +474,22 @@
    }
   }
  ],
- "onEnterSetNote": "Doc 57 C3: 'If T_SHENG_TASK is set and D4 is not done, Sowerby is at the gate with the plate (D4). Then T_FUNERAL_DAY clears ... and Sowerby is back in his church.' He stands at the gate for the visit that ends the day (T_PLATE_AT_GATE), and is gone the next time. Errata 233 (doc 110 section 2, States and flags): until scene B is built, the first entry once the funeral can be reached (E6, the obituary, before the funeral and the ride) stalls the procession at the gate. Errata 242 (doc 113, C): T_TOWN_ON_HILL, the same way -- the town is on the hill for the visit that ends the funeral day and gone on the next entry.",
+ "onEnterSetNote": "Doc 57 C3: 'If T_SHENG_TASK is set and D4 is not done, Sowerby is at the gate with the plate (D4). Then T_FUNERAL_DAY clears ... and Sowerby is back in his church.' He stands at the gate for the visit that ends the day (T_PLATE_AT_GATE), and is gone the next time. Errata 233 (doc 110 section 2, States and flags): until scene B is built, the first entry once the funeral can be reached (E6, the obituary, before the funeral and the ride) stalls the procession at the gate. Errata 242 (doc 113, C): T_TOWN_ON_HILL, the same way -- the town is on the hill for the visit that ends the funeral day and gone on the next entry. Errata 246 (doc 115 II-1): the day ends on entering only when the plate is not at the gate; with it there, the day lasts until the plate is settled (the PULL clears it). T_HOLDS_PLATE is cleared on every entry.",
  "onEnterScenes": [
   {
-   "fromRef": "docs/57-puzzle-completion.md::## D4 · Sheng's task",
-   "speakers": {
-    "THAD": "thad",
-    "SOWERBY": "sowerby"
-   },
+   "fromRef": "docs/120-act-one-by-hand.md::### I-2 · Pike's grave: the lines",
+   "bold": "ARRIVING",
    "when": {
-    "T_FUNERAL_DAY": true,
-    "T_SHENG_TASK": true,
-    "T_LINEN_COLLECTED": false
+    "T_SEEN_BOOT_HILL": false,
+    "T_FUNERAL_DAY": false,
+    "T_OBITUARY": false
    },
    "after": {
     "set": {
-     "T_LINEN_COLLECTED": true
-    },
-    "gives": [
-     "linen_money"
-    ]
+     "T_SEEN_BOOT_HILL": true
+    }
    },
-   "note": "Doc 57 D4: on the funeral day the Reverend has a full plate, at the foot of Boot Hill -- the exchange, then THE LINEN MONEY. Plays after the day's own line. His figure is content/ambient/sowerby-gate.json."
+   "note": "Doc 120 I-2 (errata 248): the first time he stands on Boot Hill he says why he came. Not on a funeral day or once the plot is dug, which have their own arrivals."
   },
   {
    "fromRef": "docs/110-act-three-scenes.md::### THE LINES",
@@ -444,9 +529,29 @@
    "x": 500,
    "y": 852,
    "facing": "left"
+  },
+  "town_coming_down": {
+   "x": 640,
+   "y": 838,
+   "facing": "front"
+  },
+  "mr_pike_s_collection": {
+   "x": 640,
+   "y": 838,
+   "facing": "front"
+  },
+  "collection_plate": {
+   "x": 900,
+   "y": 850,
+   "facing": "right"
+  },
+  "colonel_s_wreath": {
+   "x": 1600,
+   "y": 640,
+   "facing": "back"
   }
  },
- "hotspotWalkToNote": "Errata 233: where Thad stands to examine the procession's figures, in front of the hitch and between the people, so he never stands on one.",
+ "hotspotWalkToNote": "Errata 233: where Thad stands to examine the procession's figures, in front of the hitch and between the people, so he never stands on one. Errata 246 (doc 115 II-1): THE TOWN, COMING DOWN is used from the foot of the line, between the Reverend at the gate and the Colonel; where the plate stops is where the Reverend's hand reaches (his sheet's reach ends 144 px right of his x, at 624; the plate's rim in Thad's clip is 19 px left of his centre, so he stands at 640).",
  "docBlocks": [
   {
    "hotspot": "undertaker",
@@ -548,17 +653,268 @@
   }
  ],
  "docBlocksNote": "Errata 233, doc 110 section 2, THE LINES: TALK TO each of the procession, the prayer asked for, and USE or OPEN THE HEARSE (refused with the town watching; during the prayer, Thad climbs in: T_RODE_UP, E6b, THE RIDE over black, and Room 31). The words are read from doc 110 by tools/compile-room.mjs (docBlock).",
- "figureLight": {
-  "figures": [
-   "memorial_fanshawe"
-  ],
-  "light": [
-   0.72,
-   0.86,
-   1.0
-  ],
-  "brightness": 0.9,
-  "saturate": 0.5,
-  "note": "Errata 242 (doc 113, C). Fanshawe's Duel Three sheet was drawn for Main Street's lamps (rest frame: mean luminance 51, 90th percentile 113, saturation 0.47, a warm 63/49/29); the hill's own cast is the moon's (Sowerby at the gate 42/85/0.21, the mourners 38/61/0.26). A cool light and half the colour bring him into the same night. Only he is named: every other figure on the hill is drawn exactly as before."
- }
+ "actorPoses": [
+  {
+   "when": {
+    "T_HOLDS_PLATE": true,
+    "T_LINEN_COLLECTED": false
+   },
+   "clip": "plate",
+   "frames": [
+    0,
+    1
+   ],
+   "rate": 0.5,
+   "rooted": true,
+   "note": "Doc 115 II-1 (errata 246): the plate stays in his hands, and he where he stands, until he pulls. The Reverend has the other side of it."
+  }
+ ],
+ "peopleExamine": {
+  "memorial_fanshawe": "docs/115-the-three-papers.md::### COLONEL FANSHAWE, HAT IN HAND"
+ },
+ "docBullets": [
+  {
+   "hotspot": "collection_plate",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE PLATE, IN THE LINE**",
+   "bullet": "- PICK UP"
+  },
+  {
+   "person": "sowerby_gate",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE REVEREND, AT THE GATE**",
+   "bullet": "- TALK TO, *the asking*",
+   "speakers": {
+    "SOWERBY": "sowerby_gate"
+   },
+   "when": {
+    "T_LINEN_ASKED": false,
+    "T_LINEN_COLLECTED": false
+   },
+   "set": {
+    "T_LINEN_ASKED": true
+   }
+  },
+  {
+   "person": "sowerby_gate",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE REVEREND, AT THE GATE**",
+   "bullet": "- TALK TO, *asked again*",
+   "speakers": {
+    "SOWERBY": "sowerby_gate"
+   },
+   "when": {
+    "T_LINEN_ASKED": true,
+    "T_HOLDS_PLATE": false,
+    "T_LINEN_COLLECTED": false
+   }
+  },
+  {
+   "person": "sowerby_gate",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE REVEREND, AT THE GATE**",
+   "bullet": "- TALK TO, *his hand on the plate*",
+   "speakers": {
+    "SOWERBY": "sowerby_gate"
+   },
+   "when": {
+    "T_HOLDS_PLATE": true,
+    "T_LINEN_COLLECTED": false
+   }
+  },
+  {
+   "person": "sowerby_gate",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE REVEREND, AT THE GATE**",
+   "bullet": "- TALK TO, *the plate his again*",
+   "speakers": {
+    "SOWERBY": "sowerby_gate"
+   },
+   "when": {
+    "T_LINEN_COLLECTED": true
+   }
+  },
+  {
+   "hotspot": "town_coming_down",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE LINE**",
+   "bullet": "- USE, *before the Reverend is asked*",
+   "when": {
+    "T_PLATE_AT_GATE": true,
+    "T_LINEN_ASKED": false
+   }
+  },
+  {
+   "hotspot": "town_coming_down",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-3 · The hymnal",
+   "head": "**THE TOWN, COMING DOWN** · USE",
+   "bullet": "- *without the hymnal*",
+   "when": {
+    "T_PLATE_AT_GATE": true,
+    "T_HOLDS_PLATE": false,
+    "T_LINEN_COLLECTED": false,
+    "T_LINEN_ASKED": true,
+    "T_HYMNAL_TAKEN": false
+   }
+  },
+  {
+   "hotspot": "town_coming_down",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE LINE**",
+   "bullet": "- USE, *after*",
+   "speakers": {
+    "SOWERBY": "sowerby_gate"
+   },
+   "when": {
+    "T_PLATE_AT_GATE": true,
+    "T_HOLDS_PLATE": false,
+    "T_LINEN_COLLECTED": false,
+    "T_LINEN_ASKED": true,
+    "T_HYMNAL_TAKEN": true
+   },
+   "set": {
+    "T_HOLDS_PLATE": true
+   },
+   "holds": {
+    "clip": "plate",
+    "frames": [
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "hotspot": "mr_pike_s_collection",
+   "verbs": [
+    "PUSH"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE PLATE, HELD**",
+   "bullet": "- PUSH"
+  },
+  {
+   "hotspot": "mr_pike_s_collection",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE PLATE, HELD**",
+   "bullet": "- USE"
+  },
+  {
+   "hotspot": "mr_pike_s_collection",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE PLATE, HELD**",
+   "bullet": "- PICK UP"
+  },
+  {
+   "hotspot": "mr_pike_s_collection",
+   "verbs": [
+    "PULL"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE PLATE, HELD**",
+   "bullet": "- PULL",
+   "speakers": {
+    "SOWERBY": "sowerby_gate"
+   },
+   "set": {
+    "T_LINEN_COLLECTED": true,
+    "T_HOLDS_PLATE": false,
+    "T_FUNERAL_DAY": false,
+    "T_FUNERAL_STREET_SAID": false
+   },
+   "grants": [
+    "linen_money"
+   ],
+   "holds": {
+    "clip": "plate",
+    "frames": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     0,
+     0
+    ]
+   },
+   "when": {
+    "T_LINEN_COLLECTED": false
+   }
+  },
+  {
+   "person": "memorial_fanshawe",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/115-the-three-papers.md::### COLONEL FANSHAWE, HAT IN HAND",
+   "head": "**THE COLONEL'S TRIES**",
+   "bullet": "- TALK TO",
+   "speakers": {
+    "FANSHAWE": "memorial_fanshawe"
+   }
+  },
+  {
+   "hotspot": "colonel_s_wreath",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-6 · The wreath",
+   "head": "**THE WREATH, AT THE MARKER**",
+   "bullet": "- PICK UP, *while the town is on the hill*",
+   "when": {
+    "T_TOWN_ON_HILL": true
+   }
+  },
+  {
+   "hotspot": "colonel_s_wreath",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-6 · The wreath",
+   "head": "**THE WREATH, AT THE MARKER**",
+   "bullet": "- PICK UP, *after*",
+   "when": {
+    "T_TOWN_ON_HILL": false
+   },
+   "set": {
+    "T_WREATH_TAKEN": true
+   },
+   "grants": [
+    "wreath"
+   ]
+  }
+ ],
+ "docBulletsNote": "Errata 246, doc 115 II-1 and doc 118 O-3 and O-6: the collection. The Reverend (sowerby_gate) is asked and refuses; THE TOWN, COMING DOWN used with a hymnal in hand puts the plate in Thad's hands (T_HOLDS_PLATE; Room.actorPoses); PULL on it is the game's solving PULL (doc 114 X-1) and pays the linen money, which arriving used to. The wreath is taken from Pike's marker once the town has gone."
 }

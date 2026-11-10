@@ -136,6 +136,8 @@ export class AmbientLayer {
   private departures: { npc: AmbientFile; exit: AmbientExit; startedAt: number }[] = [];
   /** Figures with an acted beat of theirs still to play: they do not walk out yet (see `present`). */
   holdLeavers: ReadonlySet<string> = new Set();
+  /** Lines are still being said: nobody begins to fade out of the scene that sends him away (errata 246). */
+  holdFades = false;
 
   /** Whoever's condition has just ended and who has a walk out he has not started: the figures `holdLeavers` can keep. */
   get leaving(): AmbientFile[] {
@@ -322,6 +324,8 @@ export class AmbientLayer {
       for (const [id, npc] of this.latched ?? new Map<string, AmbientFile>()) {
         if (!npc.leaves || npc.exit || liveIds.has(id)) continue;
         const began = this.fadings.get(id);
+        // The Colonel thanks Thad for pushing him out of his own door, and goes when he has said it.
+        if (began === undefined && this.holdFades) continue;
         if (began === undefined) this.fadings.set(id, now);
         else if (now - began >= npc.leaves.fade && npc.leaves.cue && !this.cued.has(id)) {
           this.cuesOwed.push(npc.leaves.cue);

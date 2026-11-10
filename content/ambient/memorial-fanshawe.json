@@ -1,23 +1,23 @@
 {
  "schema": 1,
  "id": "memorial_fanshawe",
- "name": "COLONEL FANSHAWE",
+ "name": "COLONEL FANSHAWE, HAT IN HAND",
  "posture": "standing",
  "room": "boot_hill",
  "when": {
   "T_TOWN_ON_HILL": true
  },
- "note": "FANSHAWE IN FRONT OF THE TOWN (doc 113, C; errata 242): doc 57 C3's arrival line, \"Colonel Fanshawe in front, holding his hat.\" His standing sheet from Duel Three, turned to face the gate (tools/art/mirror-cells.py) and brought into the hill's night by the room's figureLight; no sheet of him holds his hat, so the hat is tipped on a break and held in the line -- for Tyler's playthrough. No image operation. Examined through THE TOWN, COMING DOWN.",
- "x": 860,
+ "note": "FANSHAWE IN FRONT OF THE TOWN (doc 113, C; doc 115 II-1; errata 246): doc 57 C3's arrival line, \"Colonel Fanshawe in front, holding his hat.\" Drawn hat in hand for the hill by act2-papers operation 2 (reference/act2-papers/handback.md section 2), which replaces the Duel Three sheet that tipped a hat he was wearing. His own LOOK, LISTEN and TALK TO are doc 115's COLONEL FANSHAWE, HAT IN HAND.",
+ "x": 790,
  "y": 815,
  "zone": 1,
  "approachRadius": 0,
  "tree": "",
  "barks": {},
- "barksNote": "He is heard through THE TOWN, COMING DOWN.",
+ "barksNote": "He is heard through his own LISTEN lines (doc 115).",
  "speaksAs": "fanshawe",
  "sprite": {
-  "sheet": "art/actors/room-14-fanshawe-coming-down.png",
+  "sheet": "art/actors/room-14-fanshawe-hat-in-hand.png",
   "frames": [
    [
     2,
@@ -36,46 +36,30 @@
     2,
     271,
     400
-   ],
-   [
-    821,
-    2,
-    271,
-    400
-   ],
-   [
-    1094,
-    2,
-    271,
-    400
    ]
   ],
   "rate": 0.22,
   "phase": 0.5,
   "breaks": [
    [
-    4,
-    4,
-    0
-   ],
-   [
-    3,
-    0
-   ],
-   [
-    4,
-    4,
+    2,
+    2,
     0
    ]
   ],
   "breakEvery": 7,
-  "frameNote": "0 thumbs in his waistcoat · 1 breath (derived) · 2 a hand held out (not played here) · 3 the watch · 4 tipping his hat.",
-  "provenance": "reference/cast-unify-26.spec.json",
-  "figureHeight": 364,
+  "frameNote": "0 his top hat held at his chest in both gloved hands · 1 breath (derived) · 2 his watch out on its chain, the hat under his arm.",
+  "provenance": "reference/act2-papers/op-2.spec.json",
+  "figureHeight": 385,
   "stature": 1,
-  "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Crown to sole under his top hat, read from his eyes and chin: 364. Was 352 (tools/art/figure-height.py --hat, which counted his collar as the brim): 1.03 of Thad.",
-  "levelMan": 352,
-  "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs).",
-  "mirrored": "Each cell of art/actors/room-02-duel-fanshawe-standing.png mirrored about its own centre by tools/art/mirror-cells.py."
- }
+  "figureHeightNote": "Errata 246: bareheaded, hat in hand, so crown to sole is read from his pixels: 385 (tools/solve-figure-height.mjs). His Duel Three sheet was 364 under its hat.",
+  "levelMan": 395,
+  "levelManNote": "Errata 246: the image session snapped this sheet at 395 (tools/art/act2-papers-cut.py); drawn at 385 it is 2.5% off its level, inside the 5% tests/one-level.test.mjs holds."
+ },
+ "walkTo": {
+  "x": 690,
+  "y": 832,
+  "facing": "right"
+ },
+ "walkToNote": "Below him on the path, looking up the line."
 }

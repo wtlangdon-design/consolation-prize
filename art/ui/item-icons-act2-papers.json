@@ -1,0 +1,40 @@
+{
+  "sheet": "art/ui/item-icons-act2-papers.png",
+  "cell": [
+    60,
+    40
+  ],
+  "icons": {
+    "chalk": [
+      0,
+      0,
+      60,
+      40
+    ],
+    "funeral_notice": [
+      60,
+      0,
+      60,
+      40
+    ],
+    "hotel_lamp": [
+      120,
+      0,
+      60,
+      40
+    ],
+    "hymnal": [
+      180,
+      0,
+      60,
+      40
+    ],
+    "wreath": [
+      240,
+      0,
+      60,
+      40
+    ]
+  },
+  "note": "Doc 118's five icons (reference/act2-papers/brief.md section 5), act2-papers operation 6, cut by tools/art/act2-papers-icons-cut.py with tools/art/item-icons-cut.py's own reduction, at one factor. The main session moves the cells into the shipping sheet when it wires the items."
+}

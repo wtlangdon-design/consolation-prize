@@ -80,7 +80,10 @@ test('a room a goto hands on to is next door, like an exit\'s', async () => {
     }
   }
   // Found from the data: an item pair's goto (the ride) and a room file's own.
-  const pairRooms = (content.combinations?.pairs ?? []).filter((pair) => JSON.stringify(pair).includes('"goto"')).map((pair) => pair.room);
+  // A goto back into the room it is used in hands on to nowhere (errata 245: the notice posted on the street comes
+  // back to the street as the day then is), so it asks for nothing next door.
+  const pairRooms = (content.combinations?.pairs ?? [])
+    .filter((pair) => (pair.rules ?? []).some((rule) => rule.goto !== undefined && rule.goto !== pair.room)).map((pair) => pair.room);
   assert.ok(pairRooms.length > 0 && pairRooms.every((id) => gotoRooms(content, id).length > 0), 'a pair\'s goto counts for the room it is used in');
   assert.ok(checked > pairRooms.length, 'and a room file\'s own gotos count too');
 });

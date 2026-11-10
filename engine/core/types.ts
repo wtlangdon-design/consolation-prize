@@ -1622,6 +1622,14 @@ export interface RoomFile {
    */
   figureLightWhen?: { when: Condition; light: FigureLight; note?: string }[];
   /**
+   * WHAT HE HOLDS WHILE A CONDITION HOLDS (doc 115 II-1; errata 246). A rule's `holds` shows a clip of his over its own
+   * lines and lets go with the last; a thing that stays in his hands until the player does something about it needs a
+   * picture that stays too. While the first entry whose `when` holds does, and he stands still with nothing else
+   * holding a frame of his, he is drawn in `frames` of `clip`, taken in turn `rate` times a second (a rest and a
+   * breath). `rooted`: he does not walk while it holds -- somebody has the other side of what he is holding.
+   */
+  actorPoses?: { when: Condition; clip: string; frames: number[]; rate?: number; rooted?: boolean; note?: string }[];
+  /**
    * THE PLAYER IS NOT DRAWN, AND DOES NOT WALK, WHILE THIS HOLDS (errata 239). He is somewhere the room's picture
    * cannot show him: under a table's cloth, with no art of him there. He stays where he stood when it began, so he is
    * standing there again when it ends. While it holds a click does not walk him or take him through a door; a verb on
@@ -1772,6 +1780,12 @@ export interface RoomFile {
        * state `state` (his seated clips) as the conversation opens; it is cleared when it ends.
        */
       seat?: { x: number; y: number; facing: Facing; state: string; when?: Condition; note?: string;
+        /**
+         * HE KEEPS HIS SEAT WHILE THIS HOLDS (doc 120 I-1; errata 248): the conversation closing does not stand him up.
+         * He stays in the chair, in his seated clips, and does not walk, so what is on the table can be tried from
+         * it; he rises when this stops holding, or goes by the door.
+         */
+        keepWhile?: Condition;
         /** Where he is drawn once seated, when the chair is off the floor he walks (at a table's end). */
         sitAt?: { x: number; y: number } };
     };

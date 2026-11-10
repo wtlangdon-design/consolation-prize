@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "wreath_fanshawe",
+ "name": "THE COLONEL, IN HIS DOORWAY",
+ "posture": "standing",
+ "room": "main_street",
+ "when": {
+  "T_FUNERAL_DAY": true,
+  "T_COLONEL_OUT": false
+ },
+ "note": "THE COLONEL STUCK IN HIS OWN DOORWAY (doc 115 II-5; errata 246): on the funeral day, until Thad pushes him through, he stands in the Company's door on Main Street behind a wreath wider than it. act2-papers operations 1 and 5 (reference/act2-papers/handback.md section 1), every frame anchored on the wreath's ring. Examined and tried through doc 115's THE COLONEL, IN HIS DOORWAY; PUSH sets T_COLONEL_OUT and he goes when he has thanked Thad for it.",
+ "x": 689,
+ "y": 528,
+ "zone": 2,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "He is heard through his own LISTEN lines and his TALK TO (doc 115).",
+ "speaksAs": "fanshawe",
+ "walkTo": {
+  "x": 790,
+  "y": 560,
+  "facing": "left"
+ },
+ "walkToNote": "On the boardwalk at his right hand, a shoulder's reach from the wreath.",
+ "sprite": {
+  "sheet": "art/actors/room-02-fanshawe-wreath.png",
+  "frames": [
+   [
+    2,
+    2,
+    260,
+    398
+   ],
+   [
+    264,
+    2,
+    260,
+    398
+   ],
+   [
+    526,
+    2,
+    260,
+    398
+   ],
+   [
+    788,
+    2,
+    260,
+    398
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.3,
+  "breaks": [
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    0,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 5,
+  "frameNote": "0 pushing politely from inside, his face over the wreath · 1 breath (derived) · 2 a harder push, his hat askew · 3 the wreath alone (not played here).",
+  "provenance": "reference/act2-papers/op-5.spec.json",
+  "figureHeight": 371,
+  "stature": 1,
+  "figureHeightNote": "Errata 246: crown to sole under his top hat, read from his eyes and chin on the rest frame (content/scale-anchors.json): 371, by tools/solve-figure-height.mjs. Drawn at the street's man at his feet, as Thad is."
+ },
+ "leaves": {
+  "fade": 1.6,
+  "note": "Doc 115 II-5: \"He goes up the street with the wreath on his arm.\" He has no walk (errata 99 N), so he fades, once he has said his thanks (errata 246)."
+ }
+}

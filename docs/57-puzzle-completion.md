@@ -142,6 +142,7 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 *Room 11, at night. Doc 48 S1 with FAN_A2 (doc 04) and errata 68 B (only option 6 advances).*
 
 - **Trigger:** entering Room 11 holding THE INVITATION, until `T_DINED`. S1 beat 1 plays.
+- **Errata 248 (doc 120 I-1): the dinner is ended by hand.** He keeps his chair when the conversation closes; the table's things can be tried; under the silver cover is the contract; **CLOSE on it is what plays beat 3** below and writes `T_DINED`. Option 6 is said and agreed with, and ends nothing. The line for leaving the table is said at the door; the conversation closes on doc 120's.
 - **Not before the room** *(errata 220, Tyler: "1")*: until A2, the lobby's door to the office is not a way in, and Thad answers it himself:
 
 > **THE DOOR TO THE OFFICE** · walk through, *before A2* — "Not yet. I'd like a bed in this town before I call on the man who owns most of it."
@@ -243,6 +244,7 @@ Duel Two needs fourteen; Duel One, Winnie and Pratt guarantee fifteen. Tier 4 an
 > "The service is over. Mr. Pike has been remembered, six years late and very thoroughly. The town is coming back down the hill, Colonel Fanshawe in front, holding his hat."
 
   If `T_SHENG_TASK` is set and D4 is not done, Sowerby is at the gate with the plate (D4, below). Then `T_FUNERAL_DAY` clears, the Colonel is back at his desk, and Sowerby is back in his church.
+  *(Errata 246, doc 115 II-1: with the plate at the gate the day does not end on entering. It lasts until the plate is settled, so a player who goes back for something finds the town still on the hill. With no plate business open it ends on entering, as written here.)*
 
 - **Another service** if the day ended too soon: SOW_A1 option 7, an anniversary; FRA_A1 option 6 prints it again. Doc 02's dead-end audit: "further funerals can be arranged."
 
@@ -264,7 +266,7 @@ Duel Two needs fourteen; Duel One, Winnie and Pratt guarantee fifteen. Tier 4 an
 
 ## D2 · The only neighbor is Nickel Pratt
 
-*Rooms 23 and 25.* The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives. At Pratt's claim, PRA_B1 options 1–4 → `T_PRATT_PAID`; option 6 is the refusal to attest → **D2**.
+*Rooms 23 and 25.* The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives. *(Errata 244: he stays on Prosperity until he is turned.)* There, PRA_B1 options 1–4 → `T_PRATT_PAID`; option 6 is the refusal to attest → **D2**.
 
 ## D3 · Follow the money
 
@@ -272,7 +274,7 @@ Duel Two needs fourteen; Duel One, Winnie and Pratt guarantee fifteen. Tier 4 an
 
 ## D4 · Sheng's task
 
-*Rooms 17, 14, 28.* On an ordinary day the Reverend has no money (SOW_A1 option 6). On the funeral day he has a full plate, at the foot of Boot Hill:
+*Rooms 17, 14, 28.* On an ordinary day the Reverend has no money (SOW_A1 option 6). On the funeral day he has a full plate, at the foot of Boot Hill: *(Errata 246: these lines are no longer said on arriving. Doc 115 II-1 plays them: the first three when the Reverend is asked, the last when the plate is pulled.)*
 
 > **THAD:** "Reverend. Mr. Sheng's linens."
 > **SOWERBY:** "Today? Today of all days?"
@@ -283,7 +285,7 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 
 ## D5 · Turn Pratt
 
-*Room 25.* PRA_B1 option 7 → **PRA_D5** (doc 04; its first line now quotes the Company's books, which Thad has from Sheng, not the offer he will not hear until E0b). "He signs" is the quitclaim: Pratt gives up jumping Prosperity → `T_PRATT_TURNED` → **D5**. PRA_D6 follows; its option 4 is Pratt's sparring (pairs 10–15).
+*Room 23, then Room 25 (errata 244: the turn is on Prosperity; turned, he goes home, and PRA_D6 is said at his own claim).* PRA_B1 option 7 → **PRA_D5** (doc 04; its first line now quotes the Company's books, which Thad has from Sheng, not the offer he will not hear until E0b). "He signs" is the quitclaim: Pratt gives up jumping Prosperity → `T_PRATT_TURNED` → **D5**. PRA_D6 follows; its option 4 is Pratt's sparring (pairs 10–15).
 
 ## D6 · The attestation
 

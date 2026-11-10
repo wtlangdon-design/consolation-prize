@@ -105,11 +105,8 @@
             }
           ],
           "set": {
-            "T_BLANKET_BORROWED": true
-          },
-          "gives": [
-            "blanket"
-          ]
+            "T_BLANKET_ALLOWED": true
+          }
         },
         {
           "id": "livery_man6",

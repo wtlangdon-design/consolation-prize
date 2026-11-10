@@ -17,7 +17,7 @@ It is written from the whole game played in the real build tonight (errata 241, 
 | 1 | **Every goal is won by doing, not only by asking.** Each puzzle the player would name has at least one step done with his hands | Fails for the neighbor's paper (D2–D6), the survey's two visits to Sump, and the archive |
 | 2 | **Never more than three stops in a row where all he can do is choose a line** | Fails once: four in a row at the start of Act II. The back of Act II passes only narrowly after errata 242 |
 | 3 | **Nothing the player sets in motion happens out of his sight** | Fails for Pike's memorial and the collection from the Reverend |
-| 4 | **Every verb on the panel solves something somewhere** | Fails: PUSH, PULL and CLOSE solve nothing in the game, and no item is ever used on another item |
+| 4 | **Every verb on the panel solves something somewhere, and an item is used on another item at least five times** *(five: Tyler, 2026-11-09, "Yes")* | Fails: PUSH, PULL and CLOSE solve nothing in the game, and no item is ever used on another item |
 | 5 | **Each act has one scene a player would describe to a friend** | Act I has none of its own. Act II has the river. Act III has the hearse and the coffin. Act IV has the last duel |
 | 6 | **No scene is reachable only by accident** | Fails for the stake (errata 242), and for Winnie's sparring lesson |
 
@@ -85,7 +85,7 @@ Sizes: **lines** is new written lines, **art** is image operations in the image 
 | # | Proposal | Why | Lines | Art |
 |---|---|---|---|---|
 | **X-1** | **PUSH, PULL and CLOSE each solve one thing,** inside the scenes above where they fit naturally (the contract pushed back at dinner; the plate; the ledger pulled an inch) | Standard 4 | in the scenes | 0 |
-| **X-2** | **One item used on another.** The likeliest is in II-3 or III-1 | Standard 4 | in the scene | 0 |
+| **X-2** | **Five items used on another** *(was one; Tyler, 2026-11-09)*. The first is in II-3; the rest go where they come naturally, the dinner (I-1) and the plate (II-1) first | Standard 4 | in the scene | 0 |
 | **X-3** | **A pacing check in CI:** the six standards of §1, measured on the played route, so a later change cannot quietly bring back four counters in a row | So "best" stays true | 0 | 0 |
 
 ### Not proposed

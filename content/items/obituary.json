@@ -3,7 +3,7 @@
   "id": "obituary",
   "name": "The Clarion's obituary of me",
   "short": "THE OBITUARY",
-  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. E5, the Clarion's front page. Kept.",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. E5, the Clarion's front page. Gone after it is tucked under the ribbon of the Colonel's wreath as its card (doc 120; errata 248); kept by a player who never does.",
   "responses": {
     "LOOK_AT": [
       {

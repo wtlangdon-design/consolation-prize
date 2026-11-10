@@ -209,6 +209,26 @@
               "Nothing. It is the quietest thing in the stable, and it knows its worth."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_BLANKET_ALLOWED": true,
+              "T_BLANKET_BORROWED": false
+            },
+            "say": "Thad lifts the blanket off her, a corner at a time. Grievance watches each corner go.",
+            "direction": true,
+            "then": [
+              "She has let me have it. I have been given to understand it is a loan and that she keeps accounts."
+            ],
+            "set": {
+              "T_BLANKET_BORROWED": true
+            },
+            "grants": [
+              "blanket"
+            ],
+            "sceneLine": "docs/118-objects-the-lines.md::### O-5 · The blanket · **GRIEVANCE'S BLANKET** · PICK UP, *with leave* - PICK UP, *with leave*"
+          }
         ]
       },
       "overrides": {

@@ -3,7 +3,7 @@
   "id": "padded_log",
   "name": "The Improvement Company submission log",
   "short": "THE SUBMISSION LOG",
-  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Acquired C4. Shown to Winnie at C5 and kept. Never consumed. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Acquired C4. Given to Winnie at C5: she reads it, and goes on counting. (Errata 247; errata 66 A kept it only until a later authored source consumed it.)",
   "responses": {
     "LOOK_AT": [
       {
@@ -23,5 +23,9 @@
         ]
       }
     ]
-  }
+  },
+  "lostWhen": {
+    "T_LOG_WITH_WINNIE": true
+  },
+  "lostNote": "Given to Winnie at C5 (doc 23; errata 247): the pair that shows it to her writes T_LOG_WITH_WINNIE, and she is still counting. Errata 66 A kept it \"unless a later authored source consumes it\"; this is that source."
 }

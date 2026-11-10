@@ -56,6 +56,45 @@
    "puzzles": {
     "E10": "complete"
    }
+  },
+  {
+   "id": "r2-wreath",
+   "label": "R2-WREATH The funeral day on Main Street: the Colonel stuck in his own doorway behind his wreath (doc 115 II-5)",
+   "room": "main_street",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_FANSHAWE_FUNERALS": true,
+    "T_MEMORIAL_BOOKED": true,
+    "T_FUNERAL_DAY": true,
+    "ACT": 2,
+    "T_FUNERAL_STREET_SAID": true,
+    "T_SWINDLED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "watch"
+   ],
+   "puzzles": {
+    "A1": "complete",
+    "C3": "complete"
+   },
+   "derivedFrom": [
+    "docs/115-the-three-papers.md::II-5 · The wreath: the lines"
+   ],
+   "note": "Errata 246. The way into the Company is the Colonel; PUSH puts him through his door, and he goes when he has said his thanks."
   }
  ]
 }

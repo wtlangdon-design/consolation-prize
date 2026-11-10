@@ -353,7 +353,7 @@
               "ACT": {
                 "atLeast": 2
               },
-              "T_PRATT_STAKE": false
+              "T_PRATT_TURNED": false
             },
             "say": "I stood beside my stake, firmly. He stood beside his. Mine has the number. His has him.",
             "then": [
@@ -371,7 +371,7 @@
               "ACT": {
                 "atLeast": 2
               },
-              "T_PRATT_STAKE": false
+              "T_PRATT_TURNED": false
             },
             "say": "Carry it off and I have jumped my own claim. He would thank me, briefly.",
             "sceneLine": "docs/113-act-two-scenes.md::### B · The stake · **THE CLAIM MARKER** · *while Pratt is on the claim - PICK UP"
@@ -383,7 +383,7 @@
               "ACT": {
                 "atLeast": 2
               },
-              "T_PRATT_STAKE": false
+              "T_PRATT_TURNED": false
             },
             "say": "If I pull it up myself he has only to stand here. He is very good at standing here.",
             "sceneLine": "docs/113-act-two-scenes.md::### B · The stake · **THE CLAIM MARKER** · *while Pratt is on the claim - PULL"
@@ -395,7 +395,7 @@
               "ACT": {
                 "atLeast": 2
               },
-              "T_PRATT_STAKE": false
+              "T_PRATT_TURNED": false
             },
             "say": "Thad straightens his stake.",
             "by": "pratt_jump",

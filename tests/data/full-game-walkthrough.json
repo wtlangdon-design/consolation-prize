@@ -139,6 +139,23 @@
    }
   },
   {
+   "id": "A1.4",
+   "puzzle": "A1",
+   "do": "use",
+   "item": "letter",
+   "on": "pike_s_marker",
+   "note": "Errata 248 (doc 120). The letter held out to the board.",
+   "expect": {
+    "flags": {
+     "T_LETTER_OFFERED": true,
+     "T_SEEN_BOOT_HILL": true
+    },
+    "carrying": [
+     "letter"
+    ]
+   }
+  },
+  {
    "id": "A2.1",
    "puzzle": "A2",
    "do": "go",
@@ -288,8 +305,52 @@
    ],
    "leave": true,
    "expect": {
+    "flags": {
+     "T_BLANKET_ALLOWED": true
+    }
+   }
+  },
+  {
+   "id": "A5.2a",
+   "puzzle": "A5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "grievance_s_blanket",
+   "note": "Errata 245 (doc 118).",
+   "expect": {
     "carrying": [
      "blanket"
+    ]
+   }
+  },
+  {
+   "id": "A5.2b",
+   "puzzle": "A5",
+   "do": "go",
+   "room": "mercantile",
+   "note": "Errata 248 (doc 120). The eggs and the tonic, on account."
+  },
+  {
+   "id": "A5.2c",
+   "puzzle": "A5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "pickle_jar",
+   "expect": {
+    "carrying": [
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "A5.2d",
+   "puzzle": "A5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "dr_purvis_s_tonic",
+   "expect": {
+    "carrying": [
+     "tonic"
     ]
    }
   },
@@ -302,6 +363,39 @@
     "present": [
      "raccoon"
     ]
+   }
+  },
+  {
+   "id": "A5.3a",
+   "puzzle": "A5",
+   "do": "use",
+   "item": "tonic",
+   "on": "eggs",
+   "note": "Errata 248 (doc 120). The eggs, improved: an item on an item.",
+   "expect": {
+    "flags": {
+     "T_EGGS_IMPROVED": true
+    },
+    "carrying": [
+     "tonic",
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "A5.3b",
+   "puzzle": "A5",
+   "do": "use",
+   "item": "eggs",
+   "on": "hole",
+   "note": "Errata 248 (doc 120). The raccoon's opinion of them.",
+   "expect": {
+    "notCarrying": [
+     "eggs"
+    ],
+    "flags": {
+     "T_WARM_HOLE": false
+    }
    }
   },
   {
@@ -485,9 +579,66 @@
    "puzzle": "A10",
    "do": "choose",
    "choose": [
-    "fanshawe2",
-    "fanshawe6"
+    "fanshawe2"
    ],
+   "leave": true,
+   "note": "Errata 248 (doc 120 I-1). A kindness accepted, and then the table.",
+   "expect": {
+    "flags": {
+     "T_DINED": false
+    },
+    "dialogue": null
+   }
+  },
+  {
+   "id": "A10.2a",
+   "puzzle": "A10",
+   "do": "verb",
+   "verb": "USE",
+   "on": "my_glass",
+   "note": "Errata 248 (doc 120 I-1). The wine that takes itself.",
+   "expect": {
+    "flags": {
+     "T_DINED": false
+    }
+   }
+  },
+  {
+   "id": "A10.2b",
+   "puzzle": "A10",
+   "do": "verb",
+   "verb": "OPEN",
+   "on": "covered_dish",
+   "note": "Errata 248 (doc 120 I-1). The contract, served.",
+   "expect": {
+    "flags": {
+     "T_CONTRACT_SERVED": true
+    },
+    "targets": [
+     "contract"
+    ]
+   }
+  },
+  {
+   "id": "A10.2c",
+   "puzzle": "A10",
+   "do": "verb",
+   "verb": "PUSH",
+   "on": "contract",
+   "note": "Errata 248 (doc 120 I-1).",
+   "expect": {
+    "flags": {
+     "T_DINED": false
+    }
+   }
+  },
+  {
+   "id": "A10.2d",
+   "puzzle": "A10",
+   "do": "verb",
+   "verb": "CLOSE",
+   "on": "contract",
+   "note": "Errata 248 (doc 120 I-1). The game's solving CLOSE: the cover goes back on it.",
    "expect": {
     "puzzles": [
      "A10"
@@ -498,7 +649,9 @@
     "carrying": [
      "handkerchief"
     ],
-    "dialogue": null
+    "notCarrying": [
+     "invitation"
+    ]
    }
   },
   {
@@ -1003,6 +1156,22 @@
    }
   },
   {
+   "id": "C3.5a",
+   "puzzle": "C3",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "hymnal",
+   "note": "Errata 246 (docs 115, 118). A hymnal, for the line on the hill.",
+   "expect": {
+    "carrying": [
+     "hymnal"
+    ],
+    "flags": {
+     "T_HYMNAL_TAKEN": true
+    }
+   }
+  },
+  {
    "id": "D2.1",
    "puzzle": "D2",
    "do": "go",
@@ -1066,16 +1235,10 @@
    "npc": "pratt_jump"
   },
   {
-   "id": "D2.3",
-   "puzzle": "D2",
-   "do": "go",
-   "room": "pratts_claim"
-  },
-  {
    "id": "D2.4",
    "puzzle": "D2",
    "do": "talk",
-   "npc": "pratt",
+   "npc": "pratt_jump",
    "choose": [
     "pratt1",
     "pratt2",
@@ -1091,7 +1254,8 @@
     "flags": {
      "T_PRATT_PAID": true
     }
-   }
+   },
+   "note": "Errata 244 (doc 115, II-2): he stays on the claim; PRA_B1 is said there."
   },
   {
    "id": "D3.1",
@@ -1136,11 +1300,62 @@
    ],
    "leave": true,
    "expect": {
+    "flags": {
+     "T_NOTICE_SET": true,
+     "T_FUNERAL_DAY": false
+    }
+   }
+  },
+  {
+   "id": "C3.8",
+   "puzzle": "C3",
+   "do": "verb",
+   "verb": "PULL",
+   "on": "press",
+   "note": "Errata 249 (doc 118). He pulls his own notice.",
+   "expect": {
     "puzzles": [
      "C3"
     ],
+    "carrying": [
+     "funeral_notice"
+    ],
+    "flags": {
+     "T_NOTICE_IN_HAND": true,
+     "T_NOTICE_SET": false
+    }
+   }
+  },
+  {
+   "id": "C3.10",
+   "puzzle": "C3",
+   "do": "go",
+   "room": "main_street"
+  },
+  {
+   "id": "C3.11",
+   "puzzle": "C3",
+   "do": "use",
+   "item": "funeral_notice",
+   "on": "posted_notices",
+   "note": "Errata 245 (doc 118).",
+   "expect": {
     "flags": {
      "T_FUNERAL_DAY": true
+    },
+    "room": "main_street"
+   }
+  },
+  {
+   "id": "C3.12",
+   "puzzle": "C3",
+   "do": "verb",
+   "verb": "PUSH",
+   "on": "wreath_fanshawe",
+   "note": "Errata 246 (docs 115, 118). The Colonel is in his own doorway; the way in is him.",
+   "expect": {
+    "flags": {
+     "T_COLONEL_OUT": true
     }
    }
   },
@@ -1185,6 +1400,59 @@
    }
   },
   {
+   "id": "C4.2c",
+   "puzzle": "C4",
+   "do": "use",
+   "item": "company_ledger",
+   "on": "submission_log",
+   "note": "Errata 244 (doc 115, II-3): refused until the ledger is ready.",
+   "expect": {
+    "carrying": [
+     "company_ledger"
+    ],
+    "flags": {
+     "T_QUEUE_PADDED": false
+    }
+   }
+  },
+  {
+   "id": "C4.2c2",
+   "puzzle": "C4",
+   "do": "use",
+   "item": "tonic",
+   "on": "handkerchief",
+   "note": "Errata 245 (doc 118).",
+   "expect": {
+    "flags": {
+     "T_HANDKERCHIEF_DOSED": true
+    }
+   }
+  },
+  {
+   "id": "C4.2d",
+   "puzzle": "C4",
+   "do": "use",
+   "item": "handkerchief",
+   "on": "company_ledger",
+   "expect": {
+    "flags": {
+     "T_LEDGER_PLAIN": true
+    }
+   }
+  },
+  {
+   "id": "C4.2e",
+   "puzzle": "C4",
+   "do": "use",
+   "item": "company_ledger",
+   "on": "chairs",
+   "expect": {
+    "flags": {
+     "T_LEDGER_CRACKED": true
+    }
+   }
+  },
+  {
    "id": "C4.2b",
    "puzzle": "C4",
    "do": "use",
@@ -1223,17 +1491,65 @@
    "do": "go",
    "room": "boot_hill",
    "expect": {
+    "flags": {
+     "T_FUNERAL_DAY": true,
+     "T_LINEN_COLLECTED": false,
+     "T_PLATE_AT_GATE": true
+    },
+    "present": [
+     "memorial_town",
+     "memorial_fanshawe",
+     "sowerby_gate"
+    ],
+    "targets": [
+     "collection_plate"
+    ]
+   }
+  },
+  {
+   "id": "D4.1a",
+   "puzzle": "D4",
+   "do": "verb",
+   "verb": "TALK_TO",
+   "on": "sowerby_gate",
+   "note": "Errata 246 (docs 115, 118).",
+   "expect": {
+    "flags": {
+     "T_LINEN_ASKED": true
+    }
+   }
+  },
+  {
+   "id": "D4.1b",
+   "puzzle": "D4",
+   "do": "verb",
+   "verb": "USE",
+   "on": "town_coming_down",
+   "note": "Errata 246 (docs 115, 118).",
+   "expect": {
+    "flags": {
+     "T_HOLDS_PLATE": true
+    },
+    "targets": [
+     "mr_pike_s_collection"
+    ]
+   }
+  },
+  {
+   "id": "D4.1c",
+   "puzzle": "D4",
+   "do": "verb",
+   "verb": "PULL",
+   "on": "mr_pike_s_collection",
+   "note": "Errata 246 (docs 115, 118). The game's solving PULL.",
+   "expect": {
     "carrying": [
      "linen_money"
     ],
     "flags": {
-     "T_FUNERAL_DAY": false,
-     "T_LINEN_COLLECTED": true
-    },
-    "present": [
-     "memorial_town",
-     "memorial_fanshawe"
-    ]
+     "T_LINEN_COLLECTED": true,
+     "T_FUNERAL_DAY": false
+    }
    }
   },
   {
@@ -1278,10 +1594,11 @@
     ],
     "dialogue": "WINNIE",
     "node": "WIN_B2",
-    "carrying": [
+    "notCarrying": [
      "padded_log"
     ]
-   }
+   },
+   "note": "Errata 247: the papers that only prove progress are left where they are shown."
   },
   {
    "id": "C5.3",
@@ -1335,7 +1652,12 @@
    "puzzle": "C6",
    "do": "choose",
    "choose": [
-    "winnie1"
+    "winnie1",
+    "winnie_spar5",
+    "winnie_spar7",
+    "winnie_spar8",
+    "winnie_spar9",
+    "winnie_spar6"
    ],
    "leave": true,
    "expect": {
@@ -1349,26 +1671,88 @@
    }
   },
   {
+   "id": "D5.0a",
+   "puzzle": "D5",
+   "do": "go",
+   "room": "nugget_back",
+   "note": "Errata 245 (doc 118). The chalk."
+  },
+  {
+   "id": "D5.0b",
+   "puzzle": "D5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "chalk",
+   "expect": {
+    "carrying": [
+     "chalk"
+    ]
+   }
+  },
+  {
    "id": "D5.1",
    "puzzle": "D5",
    "do": "go",
-   "room": "pratts_claim"
+   "room": "prosperity",
+   "expect": {
+    "present": [
+     "pratt_jump"
+    ]
+   }
   },
   {
    "id": "D5.2",
    "puzzle": "D5",
    "do": "talk",
-   "npc": "pratt",
+   "npc": "pratt_jump",
    "choose": [
     "pratt7"
    ],
    "expect": {
+    "flags": {
+     "T_FIGURE_TOLD": true,
+     "T_PRATT_TURNED": false
+    }
+   },
+   "leave": true
+  },
+  {
+   "id": "D5.2c",
+   "puzzle": "D5",
+   "do": "use",
+   "item": "chalk",
+   "on": "claim_marker",
+   "note": "Errata 245 (doc 118).",
+   "expect": {
     "puzzles": [
      "D5"
     ],
+    "carrying": [
+     "chalk"
+    ],
     "flags": {
      "T_PRATT_TURNED": true
-    },
+    }
+   }
+  },
+  {
+   "id": "D5.2a",
+   "puzzle": "D5",
+   "do": "go",
+   "room": "pratts_claim",
+   "note": "Turned, he has gone home; PRA_D6 is said at his own claim.",
+   "expect": {
+    "present": [
+     "pratt"
+    ]
+   }
+  },
+  {
+   "id": "D5.2b",
+   "puzzle": "D5",
+   "do": "talk",
+   "npc": "pratt",
+   "expect": {
     "node": "PRA_D6"
    }
   },
@@ -1377,7 +1761,13 @@
    "puzzle": "D5",
    "do": "choose",
    "choose": [
-    "pratt4"
+    "pratt4",
+    "pratt_spar10",
+    "pratt_spar11",
+    "pratt_spar12",
+    "pratt_spar14",
+    "pratt_spar15",
+    "pratt_spar13"
    ],
    "expect": {
     "flags": {
@@ -1486,12 +1876,15 @@
      "T_CLAIM1_BLANK": true
     },
     "carrying": [
+     "document_c"
+    ],
+    "notCarrying": [
      "document_a",
      "document_b",
-     "document_d",
-     "document_c"
+     "document_d"
     ]
-   }
+   },
+   "note": "Errata 247: the papers that only prove progress are left where they are shown."
   },
   {
    "id": "E0b.1",
@@ -1951,6 +2344,38 @@
    }
   },
   {
+   "id": "E6b.1a",
+   "puzzle": "E6b",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "colonel_s_wreath",
+   "note": "Errata 246 (docs 115, 118). The Colonel's wreath, left at Pike's marker.",
+   "expect": {
+    "carrying": [
+     "wreath"
+    ]
+   }
+  },
+  {
+   "id": "E6b.1b",
+   "puzzle": "E6b",
+   "do": "use",
+   "item": "obituary",
+   "on": "wreath",
+   "note": "Errata 248 (doc 120). The card: an item on an item.",
+   "expect": {
+    "flags": {
+     "T_WREATH_CARDED": true
+    },
+    "notCarrying": [
+     "obituary"
+    ],
+    "carrying": [
+     "wreath"
+    ]
+   }
+  },
+  {
    "id": "E6b.2",
    "puzzle": "E6b",
    "do": "verb",
@@ -1998,6 +2423,19 @@
     "present": [
      "funeral_sowerby"
     ]
+   }
+  },
+  {
+   "id": "E7.1a",
+   "puzzle": "E7",
+   "do": "use",
+   "item": "wreath",
+   "on": "coffin",
+   "note": "Errata 246 (docs 115, 118). Laid on his own coffin.",
+   "expect": {
+    "flags": {
+     "T_WREATH_LAID": true
+    }
    }
   },
   {
@@ -2122,6 +2560,19 @@
     },
     "act": 4,
     "room": "thads_room"
+   }
+  },
+  {
+   "id": "F1.0",
+   "puzzle": "F1",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "lamp",
+   "note": "Errata 245 (doc 118).",
+   "expect": {
+    "carrying": [
+     "hotel_lamp"
+    ]
    }
   },
   {

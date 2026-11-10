@@ -260,16 +260,18 @@
    "id": "A10",
    "completedBy": [
     {
-     "site": "dialogue:FANSHAWE:FAN_A2:fanshawe6",
+     "site": "room:fanshawe_office:contract:CLOSE#0",
      "requires": [
-      "n:FANSHAWE/FAN_A2",
-      "o:FANSHAWE/FAN_A2/fanshawe2"
+      "r:fanshawe_office",
+      "T_BORDERS_MOTT=true",
+      "T_DINED=false",
+      "T_CONTRACT_SERVED=true",
+      "T_DINED=false"
      ],
      "yields": [
-      "o:FANSHAWE/FAN_A2/fanshawe6",
       "f:T_DINED=true",
-      "i:handkerchief",
-      "p:A10"
+      "p:A10",
+      "i:handkerchief"
      ]
     }
    ]
@@ -486,15 +488,17 @@
    "id": "C3",
    "completedBy": [
     {
-     "site": "dialogue:FRAME:FRA_A1:frame6",
+     "site": "room:clarion:press:PULL#0",
      "requires": [
-      "n:FRAME/FRA_A1",
-      "T_MEMORIAL_BOOKED=true"
+      "r:clarion",
+      "T_NOTICE_SET=true",
+      "T_NOTICE_IN_HAND=false"
      ],
      "yields": [
-      "o:FRAME/FRA_A1/frame6",
-      "f:T_FUNERAL_DAY=true",
-      "p:C3"
+      "f:T_NOTICE_SET=false",
+      "f:T_NOTICE_IN_HAND=true",
+      "p:C3",
+      "i:funeral_notice"
      ]
     }
    ]
@@ -543,6 +547,7 @@
      ],
      "yields": [
       "p:C5",
+      "f:T_LOG_WITH_WINNIE=true",
       "t:WINNIE"
      ]
     }
@@ -623,6 +628,17 @@
       "o:PRATT/PRA_B1/pratt6",
       "p:D2"
      ]
+    },
+    {
+     "site": "dialogue:PRATT_JUMP:PRA_B1:pratt6",
+     "requires": [
+      "n:PRATT_JUMP/PRA_B1",
+      "T_NINETY_DAYS=true"
+     ],
+     "yields": [
+      "o:PRATT_JUMP/PRA_B1/pratt6",
+      "p:D2"
+     ]
     }
    ]
   },
@@ -663,6 +679,20 @@
   {
    "id": "D5",
    "completedBy": [
+    {
+     "site": "with:prosperity:claim_marker:chalk#0",
+     "requires": [
+      "i:chalk",
+      "r:prosperity",
+      "ACT={\"atLeast\":2}",
+      "T_PRATT_TURNED=false",
+      "T_FIGURE_TOLD=true"
+     ],
+     "yields": [
+      "f:T_PRATT_TURNED=true",
+      "p:D5"
+     ]
+    },
     {
      "site": "dialogue:PRATT:PRA_B1:pratt7",
      "requires": [

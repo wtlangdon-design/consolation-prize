@@ -173,7 +173,7 @@ Its opening is said straight after WIN_B2 option 1 *(errata 232, Tyler, 2026-11-
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Teach me to answer a boast." | `[ASSAY · remove]` | "Sit." → **the Sparring** (doc 03): she drills him through all five of hers, flatly, until he can say them without apologizing | pairs 5–9 |
+| 1 | "Teach me to answer a boast." | `[ASSAY · remove]` | "Sit." → **the Sparring** (doc 03), *played (errata 243)*: each of her five is a boast the player picks and she answers, flatly; the one doc 03's scene performs comes last, with that scene, and he can say them without apologizing | pairs 5–9 |
 | 2 | "So my claim is worthless." | `[TOPIC · retain]` | "Comprehensively. It's certified. It's the most certain thing you own." *(second)* "Certified worthless. Asking twice won't lower it. Nothing could." | — |
 | 3 | "Thank you." | `[TOPIC · retain]` | "Don't thank me for a form. Thank me for something I chose." *(second)* "Still a form." | — |
 | 4 | "Was it the raccoon?" | `[COMIC · retain]` | "The raccoon is not an assayable substance. I have told you this." *(second)* "I have told you this twice now. I'm keeping count." | — |
@@ -605,7 +605,7 @@ The quitclaim signed, the arithmetic done, the offers continuing regardless.
 | 1 | "Who was the second man who paid you?" | `[PROGRESS · remove]` | "Never saw him. Money came under the laundry door." *(beat)* "Sheng's door. Thursdays." → corroborates D3; the trail runs through the Thursday ledger |
 | 2 | "What will you do now?" | `[TOPIC · retain]` | "Keep the claim next to yours tidy." *(It is not his claim either. Nobody has ever had the heart to tell him, and by now it is his the way anything is anybody's here: by upkeep.)* *(second)* "Keep it tidy. Somebody ought to." |
 | 3 | "Twenty dollars and the hen." | `[COMIC · retain]` | *(a long, respectful pause)* "…You're learning the market." *(second)* *(He considers it.)* "Hen's not for sale." |
-| 4 | "Will you help me practice for the Assay?" | `[ASSAY · remove]` | → **the Sparring** (doc 03): "Try me." He answers every boast Thad has, without effort, and is astonished each time. *(pairs 10–15; errata 75)* |
+| 4 | "Will you help me practice for the Assay?" | `[ASSAY · remove]` | → **the Sparring** (doc 03): "Try me." *Played (errata 243): the player picks each boast.* He answers every boast Thad has, without effort, and is astonished each time. *(pairs 10–15; errata 75)* |
 | 5 | "Will you swear to the ninety days now?" | `[PROGRESS · remove]` | "Yep." *(He puts his hat on.)* "Sump closes at four." *(→ D6, in Room 7; errata 75)* |
 
 ## `PRA_D5` — the turn

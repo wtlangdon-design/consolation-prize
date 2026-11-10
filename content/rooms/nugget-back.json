@@ -135,6 +135,28 @@
               "It speaks once a duel, on slate, and then it's done."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_CHALK_TAKEN": false
+            },
+            "say": "Only the judges may touch it. Nobody has ever said who may take it. I have left the tin, so that nobody need be alarmed.",
+            "set": {
+              "T_CHALK_TAKEN": true
+            },
+            "grants": [
+              "chalk"
+            ],
+            "sceneLine": "docs/118-objects-the-lines.md::### O-1 · The chalk · **THE CHALK** · *the Nugget's back room* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_CHALK_TAKEN": true
+            },
+            "say": "The tin is empty and has its lid on. It will be a whole duel before anyone knows.",
+            "sceneLine": "docs/118-objects-the-lines.md::### O-1 · The chalk · **THE CHALK** · *the Nugget's back room* - PICK UP, *again*"
+          }
         ]
       },
       "walkTo": {

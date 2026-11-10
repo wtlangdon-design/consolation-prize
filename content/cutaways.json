@@ -38,9 +38,10 @@
     },
     {
       "id": "pratts_voice",
-      "room": "pratts_claim",
+      "room": "prosperity",
       "when": {
-        "T_PRATT_STAKE": true
+        "T_PRATT_STAKE": true,
+        "T_PRATT_TURNED": false
       },
       "done": "T_CUTAWAY_PRATT",
       "lines": [
@@ -49,7 +50,7 @@
           "line": "Still on it?"
         },
         {
-          "speaker": "pratt",
+          "speaker": "pratt_jump",
           "line": "Yep."
         },
         {
@@ -57,7 +58,7 @@
           "line": "And the Easterner?"
         },
         {
-          "speaker": "pratt",
+          "speaker": "pratt_jump",
           "line": "Says it's his claim."
         },
         {
@@ -65,15 +66,15 @@
           "line": "Keep standing on it."
         },
         {
-          "speaker": "pratt",
+          "speaker": "pratt_jump",
           "line": "Who is this?"
         },
         {
-          "speaker": "pratt",
+          "speaker": "pratt_jump",
           "line": "…"
         },
         {
-          "speaker": "pratt",
+          "speaker": "pratt_jump",
           "line": "Nobody ever says."
         }
       ]

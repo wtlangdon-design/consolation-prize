@@ -3,7 +3,7 @@
   "id": "document_d",
   "name": "Nickel Pratt's attestation of occupancy",
   "short": "THE ATTESTATION",
-  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Document D. Sworn at D6. Kept.",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Document D. Sworn at D6. Lodged with Sump at E0, with A and B, for Document C. (Errata 247.)",
   "responses": {
     "LOOK_AT": [
       {
@@ -23,5 +23,9 @@
         ]
       }
     ]
-  }
+  },
+  "lostWhen": {
+    "T_CLAIM1_BLANK": true
+  },
+  "lostNote": "Lodged with Sump at E0 (doc 23; errata 247): SUM_B1's Document C option takes A, B and D together and issues C, and writes T_CLAIM1_BLANK. It leaves the inventory with that flag. \"It took three pieces of paper to earn this one.\""
 }

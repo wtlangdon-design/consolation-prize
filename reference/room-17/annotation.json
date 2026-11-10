@@ -231,5 +231,38 @@
    "PULL": "reach"
   }
  },
- "reactionsNote": "Verb -> Thad's clip, played before the line (engine/scenes/GameScene.ts). The bell rope's PULL plays `reach`, which lands on its downstroke (content/actors/thad.json `landsAt`), so the line and the bell come as his fists come down. Brief: reference/room-17/rope-pull/brief.md."
+ "reactionsNote": "Verb -> Thad's clip, played before the line (engine/scenes/GameScene.ts). The bell rope's PULL plays `reach`, which lands on its downstroke (content/actors/thad.json `landsAt`), so the line and the bell come as his fists come down. Brief: reference/room-17/rope-pull/brief.md.",
+ "docBullets": [
+  {
+   "hotspot": "hymnal",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-3 · The hymnal",
+   "head": "**THE HYMNAL** · *in the church*",
+   "bullet": "- PICK UP, *the first time*",
+   "when": {
+    "T_HYMNAL_TAKEN": false
+   },
+   "set": {
+    "T_HYMNAL_TAKEN": true
+   },
+   "grants": [
+    "hymnal"
+   ]
+  },
+  {
+   "hotspot": "hymnal",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-3 · The hymnal",
+   "head": "**THE HYMNAL** · *in the church*",
+   "bullet": "- PICK UP, *again*",
+   "when": {
+    "T_HYMNAL_TAKEN": true
+   }
+  }
+ ],
+ "docBulletsNote": " Errata 246, doc 118 O-3: THE HYMNAL can be taken, once (T_HYMNAL_TAKEN); with it Thad can stand in the line of mourners on the hill (doc 115 II-1)."
 }

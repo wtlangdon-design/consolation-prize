@@ -376,6 +376,15 @@
    ],
    "facing": "right",
    "note": "Errata 161: back out of the Lane through the alley."
+  },
+  {
+   "from": "main_street",
+   "at": [
+    1193,
+    678
+   ],
+   "facing": "front",
+   "note": "Errata 246 (doc 118 O-2): posting the funeral notice comes back to the street as the day then is (the pair's goto), and he is where he put it up, at the notice board, turned from it to the street. Without this he came back at the street's east edge."
   }
  ],
  "onEnterSay": {
@@ -600,6 +609,92 @@
     }
    },
    "note": "Errata 189: doc 57 C3's funeral day, 'Main Street, first entry that day'. Four of the street's townspeople are up the hill that day (their files' `when`); Boot Hill's line ends the day and clears T_FUNERAL_STREET_SAID with it."
+  },
+  {
+   "fromRef": "docs/115-the-three-papers.md::### II-5 · The wreath: the lines",
+   "bold": "ARRIVING",
+   "when": {
+    "T_FUNERAL_DAY": true,
+    "T_FUNERAL_STREET_SAID": false,
+    "T_COLONEL_OUT": false
+   },
+   "note": "Errata 246, doc 115 II-5: said after the street's own line on the first entry of the funeral day, while the Colonel is in his doorway."
   }
- ]
+ ],
+ "peopleExamine": {
+  "wreath_fanshawe": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY"
+ },
+ "docBullets": [
+  {
+   "person": "wreath_fanshawe",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY",
+   "head": "**THE TRIES**",
+   "bullet": "- TALK TO",
+   "speakers": {
+    "FANSHAWE": "wreath_fanshawe"
+   }
+  },
+  {
+   "person": "wreath_fanshawe",
+   "verbs": [
+    "PULL"
+   ],
+   "ref": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY",
+   "head": "**THE TRIES**",
+   "bullet": "- PULL"
+  },
+  {
+   "person": "wreath_fanshawe",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY",
+   "head": "**THE TRIES**",
+   "bullet": "- PICK UP"
+  },
+  {
+   "person": "wreath_fanshawe",
+   "verbs": [
+    "USE",
+    "OPEN",
+    "CLOSE"
+   ],
+   "ref": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY",
+   "head": "**THE TRIES**",
+   "bullet": "- USE"
+  },
+  {
+   "person": "wreath_fanshawe",
+   "verbs": [
+    "PUSH"
+   ],
+   "ref": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY",
+   "head": "**THE TRIES**",
+   "bullet": "- PUSH",
+   "speakers": {
+    "FANSHAWE": "wreath_fanshawe"
+   },
+   "set": {
+    "T_COLONEL_OUT": true
+   }
+  }
+ ],
+ "docBulletsNote": "Errata 246, doc 115 II-5: THE COLONEL, IN HIS DOORWAY is the figure wreath_fanshawe, on the funeral day until he is pushed through (T_COLONEL_OUT). His tries are read from doc 115's THE TRIES; PUSH is the one that does it, the game's second solving PUSH (doc 114 X-1).",
+ "exitTransitScenes": {
+  "to_company": [
+   {
+    "ref": "docs/115-the-three-papers.md::### II-5 · The wreath: the lines",
+    "bold": "THE COMPANY'S DOOR",
+    "when": {
+     "T_FUNERAL_DAY": true,
+     "T_COLONEL_OUT": false
+    },
+    "stays": true
+   }
+  ]
+ },
+ "exitTransitScenesNote": "Errata 246, doc 115 II-5: while the Colonel is in the Company's doorway the way in is him."
 }

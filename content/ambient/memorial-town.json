@@ -8,7 +8,7 @@
   "T_TOWN_ON_HILL": true
  },
  "note": "THE TOWN ON THE HILL (doc 113, C; errata 242). Doc 57 C3's arrival line on the funeral day says \"The town is coming back down the hill, Colonel Fanshawe in front\", and the hill was drawn empty. Room 31's seven mourners, the sheet the stalled procession uses, turned to face the gate at the left (tools/art/mirror-cells.py), part-way down the hill for the visit that ends the day (T_TOWN_ON_HILL, set and cleared on entry as T_PLATE_AT_GATE is). No image operation. Examined through THE TOWN, COMING DOWN.",
- "x": 1180,
+ "x": 1105,
  "y": 800,
  "zone": 1,
  "approachRadius": 0,

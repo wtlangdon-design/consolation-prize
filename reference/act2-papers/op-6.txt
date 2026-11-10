@@ -1,0 +1,10 @@
+Image 1 is a blank magenta canvas. Image 2 is every item icon already in my pixel-art adventure game, on the inventory's dark panel: soft-shaded, a dark outline, low texture, readable at a small size -- that style is the one to match. Image 3 is the funeral wreath as it is drawn in the game.
+
+On the magenta canvas, draw FIVE new item icons in ONE ROW, evenly spaced, each centred in its own fifth of the canvas's width, each about the same size, with clear magenta around each and nothing touching. Left to right:
+1. CHALK: a stub of white chalk worn down to the shape of a thumb, lying on its side.
+2. THE FUNERAL NOTICE: a small printed handbill, a single sheet, its black ink still wet and glistening, ONE WORD across it in much larger type than the few lines of small print below it (the large word a dark bold block, not readable letters).
+3. THE HOTEL LAMP: a small brass oil lamp with a clear glass chimney, its flame turned low, a small warm glow inside the glass.
+4. THE HYMNAL: a small dark cloth-bound hymn book, closed, nearly black, with a thin red ribbon marker hanging out of the bottom of its pages.
+5. THE WREATH: the funeral wreath of Image 3 -- a ring of white lilies with a black ribbon across it lettered in gilt (the gilt only suggested at this size, no readable words).
+
+Each must be told at a glance from every icon in Image 2: the hymnal must not look like the brown book already there (it is small, nearly black, with the red ribbon), and the notice must not look like the other papers (it is a single handbill with one big black word). The same soft, flat shading, dark outline and low texture as Image 2 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) everywhere around them. No shadows, no table, no readable text, no numbers, no border.

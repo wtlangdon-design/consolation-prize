@@ -5,6 +5,7 @@ import { resolve } from 'node:path';
 import { browser } from '../lib/chromium.mjs';
 
 import { readJson, ROOT } from '../lib/content.mjs';
+import { refuseAnothersServer, stopGroup } from './own-server.mjs';
 import { clickPoint, validateScript } from './schema.mjs';
 import { titleMusic } from './title-music.mjs';
 
@@ -121,8 +122,10 @@ async function main() {
  * calls. This prints the output, which is where the answer was the whole time.
  */
 async function serve(mode, port) {
+  // Never somebody else's server, and ours is stopped whole (tools/gauntlet/proof.mjs, refuseAnothersServer).
+  await refuseAnothersServer(`http://127.0.0.1:${port}`);
   const child = spawn('npm', ['run', mode, '--', '--port', String(port), '--strictPort'],
-    { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'], detached: true });
   let said = '';
   const keep = (chunk) => { said += String(chunk); };
   child.stdout.on('data', keep);
@@ -148,7 +151,7 @@ async function serve(mode, port) {
     }
     await new Promise((wake) => setTimeout(wake, 250));
   }
-  return { url, stop: () => child.kill('SIGTERM') };
+  return { url, stop: () => stopGroup(child) };
 }
 
 /* -------------------------------------------------------------- the script */

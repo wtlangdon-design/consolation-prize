@@ -85,7 +85,8 @@ export function check() {
     if (pair.puzzle) doing += 1;
 
     const room = targets.get(pair.room);
-    if (!room || !room.has(pair.target)) {
+    // One carried item on another (errata 244): the target is the item, wherever the pair's room is.
+    if ((!room || !room.has(pair.target)) && !items.has(pair.target)) {
       pending.push(`${where}${pair.targetPending ? ` -- ${pair.targetPending}` : ''}`);
       // Not a failure. A pair whose line is written and whose target is not
       // built yet is the correct state for a game with 39 rooms outstanding;

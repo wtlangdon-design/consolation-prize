@@ -1,0 +1,17 @@
+{
+ "assetId": "act2-papers",
+ "subject": "act2-papers-fanshawe-hat-in-hand",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-14-boot-hill",
+ "promptFile": "reference/act2-papers/op-2.txt",
+ "out": "art/staging/act2-papers/op-2/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act2-papers/op-2/template.png",
+  "art/staging/act2-papers/op-2/current.png",
+  "art/staging/act2-papers/op-2/the-light-on-the-hill.png",
+  "art/staging/act3-hearse/op-1/thad-in-room-14.png"
+ ],
+ "derivedFrom": "art/actors/room-02-duel-fanshawe-standing.png"
+}

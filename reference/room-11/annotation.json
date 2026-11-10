@@ -144,18 +144,61 @@
    484,
    100,
    46
+  ],
+  "my_glass": [
+   1224,
+   462,
+   34,
+   58
+  ],
+  "bottle": [
+   1083,
+   435,
+   34,
+   94
+  ],
+  "covered_dish": [
+   858,
+   490,
+   94,
+   60
+  ],
+  "contract": [
+   858,
+   490,
+   94,
+   60
   ]
  },
  "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE STOCK PORTRAIT DRAWER is the sideboard with its drawer not quite closed; THE DECANTER stands on it. THE HANDKERCHIEF and THE SUBMISSION LOG are the linen and the green book on the desk; Fanshawe stands between them. The desk itself is no subject.",
  "hotspotWhen": {
-  "handkerchief": {
+  "ledger_on_the_desk": {
+   "T_QUEUE_PADDED": true
+  },
+  "my_glass": {
+   "T_BORDERS_MOTT": true,
    "T_DINED": false
+  },
+  "bottle": {
+   "T_BORDERS_MOTT": true,
+   "T_DINED": false
+  },
+  "covered_dish": {
+   "T_BORDERS_MOTT": true,
+   "T_DINED": false,
+   "T_CONTRACT_SERVED": false
+  },
+  "contract": {
+   "T_BORDERS_MOTT": true,
+   "T_DINED": false,
+   "T_CONTRACT_SERVED": true
+  },
+  "handkerchief": {
+   "T_DINED": false,
+   "T_BORDERS_MOTT": false
   },
   "submission_log": {
    "T_QUEUE_PADDED": false
-  },
-  "ledger_on_the_desk": {
-   "T_QUEUE_PADDED": true
   }
  },
  "exitSubjects": {
@@ -164,6 +207,16 @@
    "to": "company_lobby",
    "defaultVerb": "WALK_TO",
    "transitScene": [
+    {
+     "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+     "bold": "THE DOOR",
+     "speaker": "fanshawe",
+     "when": {
+      "T_BORDERS_MOTT": true,
+      "T_DINED": false
+     },
+     "whole": true
+    },
     {
      "ref": "docs/57-puzzle-completion.md::## A10 · Survive dinner at Fanshawe's",
      "bullet": "Beat 4",
@@ -243,7 +296,11 @@
   "decanter": "LOOK_AT",
   "stock_portrait_drawer": "LOOK_AT",
   "safe": "LOOK_AT",
-  "ledger_on_the_desk": "LOOK_AT"
+  "ledger_on_the_desk": "LOOK_AT",
+  "my_glass": "LOOK_AT",
+  "bottle": "LOOK_AT",
+  "covered_dish": "LOOK_AT",
+  "contract": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
  "occlusion": {
@@ -283,10 +340,13 @@
     "T_BORDERS_MOTT": true,
     "T_DINED": false
    },
-   "note": "Doc 48 S1 beat 1, 'Thad seated; the table laid absurdly well': for the dinner only, he walks to the chair at the table's free end and sits there, facing Fanshawe, until the conversation ends (errata 197; the state `dining`, tools/rig/cut-dinner.py). Drawn at `sitAt`, in from the table's end, so his forearms rest on the cloth (Tyler, 2026-11-08: \"sitting very awkwardly at the table with his hands out on nothing\").",
+   "note": "Doc 48 S1 beat 1, 'Thad seated; the table laid absurdly well': for the dinner only, he walks to the chair at the table's free end and sits there, facing Fanshawe, until the conversation ends (errata 197; the state `dining`, tools/rig/cut-dinner.py). Drawn at `sitAt`, in from the table's end, so his forearms rest on the cloth (Tyler, 2026-11-08: \"sitting very awkwardly at the table with his hands out on nothing\"). Errata 248 (doc 120 I-1): he keeps the chair after the conversation closes, until the dinner is over (`keepWhile`), so the table can be tried from it.",
    "sitAt": {
     "x": 1352,
     "y": 702
+   },
+   "keepWhile": {
+    "T_DINED": false
    }
   }
  },
@@ -400,9 +460,28 @@
    ],
    "when": {
     "T_BORDERS_MOTT": true,
-    "T_DINED": false
+    "T_DINED": false,
+    "T_CONTRACT_SERVED": false
    },
-   "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 attempt 9's table, its two places moved by hand to where the two men sit (tools/art/room11-dinner-relay.py; Tyler: \"the place settings are setup in the wrong places for their dinner\"); this is its top, above the cloth's front edge, drawn behind a seated Thad (tools/art/room11-dinner-drape.py). Drawn while Thad holds THE INVITATION, until the dinner ends."
+   "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 attempt 9's table, its two places moved by hand to where the two men sit (tools/art/room11-dinner-relay.py; Tyler: \"the place settings are setup in the wrong places for their dinner\"); this is its top, above the cloth's front edge, drawn behind a seated Thad (tools/art/room11-dinner-drape.py). Drawn while Thad holds THE INVITATION, until the dinner ends. Errata 248: while the dish is covered; uncovered, `dinner_uncovered` is drawn in its place."
+  },
+  {
+   "id": "dinner_uncovered",
+   "sheet": "art/props/room-11-dinner-uncovered.png",
+   "x": 1087,
+   "y": 550,
+   "frame": [
+    0,
+    0,
+    598,
+    152
+   ],
+   "when": {
+    "T_BORDERS_MOTT": true,
+    "T_DINED": false,
+    "T_CONTRACT_SERVED": true
+   },
+   "note": "Doc 120 I-1 (errata 248): the same table with the silver cover lifted and set down beside its tray, and on the tray the contract, with parsley. act1-dinner operation 3 (reference/act1-dinner/handback.md), cut by tools/art/act1-dinner-uncovered-cut.py, which asserts that no pixel outside that corner differs from the table's own picture. Drawn in place of `dinner` while the contract is served."
   },
   {
    "id": "dinner_drape",
@@ -523,7 +602,182 @@
    "when": {
     "T_FUNERAL_DAY": true
    }
+  },
+  {
+   "hotspot": "my_glass",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE GLASS, TRIED**",
+   "bullet": "- USE"
+  },
+  {
+   "hotspot": "my_glass",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE GLASS, TRIED**",
+   "bullet": "- PICK UP"
+  },
+  {
+   "hotspot": "my_glass",
+   "verbs": [
+    "PUSH",
+    "PULL"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE GLASS, TRIED**",
+   "bullet": "- PUSH"
+  },
+  {
+   "hotspot": "bottle",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE BOTTLE, TRIED**",
+   "bullet": "- PICK UP"
+  },
+  {
+   "hotspot": "bottle",
+   "verbs": [
+    "USE",
+    "OPEN"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE BOTTLE, TRIED**",
+   "bullet": "- USE"
+  },
+  {
+   "hotspot": "bottle",
+   "verbs": [
+    "CLOSE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE BOTTLE, TRIED**",
+   "bullet": "- CLOSE"
+  },
+  {
+   "hotspot": "covered_dish",
+   "verbs": [
+    "OPEN",
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE DISH, TRIED**",
+   "bullet": "- OPEN",
+   "speakers": {
+    "FANSHAWE": "fanshawe"
+   },
+   "set": {
+    "T_CONTRACT_SERVED": true
+   }
+  },
+  {
+   "hotspot": "covered_dish",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE DISH, TRIED**",
+   "bullet": "- PICK UP"
+  },
+  {
+   "hotspot": "covered_dish",
+   "verbs": [
+    "PUSH",
+    "PULL"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE DISH, TRIED**",
+   "bullet": "- PUSH"
+  },
+  {
+   "hotspot": "covered_dish",
+   "verbs": [
+    "CLOSE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE DISH, TRIED**",
+   "bullet": "- CLOSE"
+  },
+  {
+   "hotspot": "contract",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE CONTRACT, TRIED**",
+   "bullet": "- PICK UP"
+  },
+  {
+   "hotspot": "contract",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE CONTRACT, TRIED**",
+   "bullet": "- USE"
+  },
+  {
+   "hotspot": "contract",
+   "verbs": [
+    "PUSH",
+    "PULL"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE CONTRACT, TRIED**",
+   "bullet": "- PUSH"
+  },
+  {
+   "hotspot": "contract",
+   "verbs": [
+    "OPEN"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE CONTRACT, TRIED**",
+   "bullet": "- OPEN"
+  },
+  {
+   "hotspot": "contract",
+   "verbs": [
+    "CLOSE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-1 · The dinner: the lines",
+   "head": "**THE CONTRACT, TRIED**",
+   "bullet": "- CLOSE",
+   "speakers": {
+    "FANSHAWE": "fanshawe"
+   },
+   "thenBlock": "BEAT 3",
+   "when": {
+    "T_DINED": false
+   },
+   "set": {
+    "T_DINED": true
+   },
+   "grants": [
+    "handkerchief"
+   ],
+   "completes": "A10"
   }
  ],
- "docBulletsNote": "Errata 242 (doc 113, A · The double; Tyler, 2026-11-09: \"Let's build the act 2 scenes you recommended\"). On the funeral day the log is not lifted bare: PICK UP refuses and says why, THE LEDGERS give A COMPANY LEDGER once (T_LEDGER_TAKEN), and the ledger used on the log is the swap (a pair, content/combinations.json). After it the green book on the desk is THE LEDGER ON THE DESK (T_QUEUE_PADDED), the same rect."
+ "docBulletsNote": "Errata 242 (doc 113, A · The double; Tyler, 2026-11-09: \"Let's build the act 2 scenes you recommended\"). On the funeral day the log is not lifted bare: PICK UP refuses and says why, THE LEDGERS give A COMPANY LEDGER once (T_LEDGER_TAKEN), and the ledger used on the log is the swap (a pair, content/combinations.json). After it the green book on the desk is THE LEDGER ON THE DESK (T_QUEUE_PADDED), the same rect. Errata 248, doc 120 I-1: the dinner's table. OPEN the covered dish serves the contract; CLOSE on the contract ends the dinner (doc 57 A10's beat 3, T_DINED, the handkerchief, A10) -- the game's solving CLOSE (doc 114 X-1).",
+ "hotspotWhenAny": {
+  "submission_log": [
+   {
+    "T_BORDERS_MOTT": false
+   },
+   {
+    "T_DINED": true
+   }
+  ]
+ },
+ "hotspotWhenAnyNote": "Errata 248 (doc 120 I-1): while the dinner table is laid (T_BORDERS_MOTT, until T_DINED) it stands over the desk, and the desk's handkerchief and submission log are not there to be pointed at; the table's own things are.",
+ "onEnterSet": {
+  "T_CONTRACT_SERVED": false
+ },
+ "onEnterSetNote": "Errata 248 (doc 120 I-1): a dinner left by the door starts again, and the dish is covered again (\"The table will keep.\")."
 }

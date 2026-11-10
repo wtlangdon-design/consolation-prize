@@ -187,18 +187,34 @@ function performDirections(tree) {
   const index = replyCells();
   for (const [nodeId, node] of Object.entries(tree.nodes ?? {})) {
     for (const option of node.options ?? []) {
-      if (!option.text || option.beat || option.rephrase) continue;
+      // LINES ANOTHER DOCUMENT ADDS AFTER THE REPLY (errata 245: doc 118's notice handed over after doc 04's reply) are
+      // laid on once doc 04's own directions are in, so the reply is still compared with its own cell.
+      const tail = option.thenAfter;
+      delete option.thenAfter;
+      performOne(tree, nodeId, option, index);
+      if (tail?.length) {
+        option.exchange = [...(option.exchange ?? (option.say ? [{ speaker: tree.speaker ?? '', line: option.say }] : [])), ...tail];
+        delete option.say;
+      }
+    }
+  }
+  return tree;
+}
+function performOne(tree, nodeId, option, index) {
+  {
+    {
+      if (!option.text || option.beat || option.rephrase) return;
       const cell = index.get(`${nodeId}::${option.text}`) ?? index.get(`${tree.id}/${nodeId}::${option.text}`);
-      if (!cell) continue;
+      if (!cell) return;
       const npc = tree.speaker ?? '';
       const sequence = performedSequence(cell, npc);
-      if (!sequence.some((one) => one.staged)) continue;
+      if (!sequence.some((one) => one.staged)) return;
       const existing = option.exchange ?? (option.say ? [{ speaker: npc, line: option.say }] : []);
       const spoken = sequence.filter((one) => !one.staged);
       const agrees = spoken.length === existing.length && spoken.every((one, at) => one.line === existing[at].line);
       if (!agrees) {
         directionReport.push(`${tree.id}/${nodeId}/${option.id}: its extractor reads the reply differently; directions left off`);
-        continue;
+        return;
       }
       let at = 0;
       const merged = sequence.map((one) => {
@@ -209,7 +225,6 @@ function performDirections(tree) {
       option.exchange = merged;
     }
   }
-  return tree;
 }
 
 /** Strips markdown emphasis, leaving the words and their punctuation. */
@@ -1117,7 +1132,9 @@ function combinations() {
       // nothing points at. Gated on C4 the right item on the right person was
       // refused with "That accomplishes nothing I can see."
       requiresFlags: { T_QUEUE_PADDED: true }, completes: 'C5', opens: 'WINNIE',
-      note: 'ERRATA 66 A-C: SHOW / USE the submission log on Winnie is C5. The target is the room\'s ambient character, not a hotspot. No `say`: the pair\'s line is WIN_B2\'s opening, which the action launches at once. The log is kept. With C5 complete the pair yields to the ordinary pools (doc 36 Q113).',
+      // SHE KEEPS IT (errata 247): she is reading it, and counting. The item follows this flag (GIVEN_AWAY).
+      set: { T_LOG_WITH_WINNIE: true },
+      note: 'ERRATA 66 A-C: SHOW / USE the submission log on Winnie is C5. The target is the room\'s ambient character, not a hotspot. No `say`: the pair\'s line is WIN_B2\'s opening, which the action launches at once. She keeps the log (errata 247). With C5 complete the pair yields to the ordinary pools (doc 36 Q113).',
     },
   };
   const pairs = [];
@@ -1204,7 +1221,7 @@ function combinations() {
   }
 
   // Pairs a later block adds (doc 57's, doc 54 A5's bait and smoke, doc 108's rod at the line) are not doc 24's.
-  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 110 |^Doc 111 |^Doc 113 /.test(pair.note ?? '')).length;
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 110 |^Doc 111 |^Doc 113 |^Doc 115 |^Doc 118 |^Doc 120 /.test(pair.note ?? '')).length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
@@ -1598,8 +1615,10 @@ function combinations() {
       item: 'pickaxe', room: 'prosperity', target: 'hole', puzzle: 'F1', say: pick('after F1'),
       note: 'Doc 57 F1: the pickaxe on the hole, after the draught is understood: three days, forty feet. "Room 34 opens below the hole": the line is read and he is in Room 34, and the hole is the way down from then on (T_DUG_DOWN, errata 99 H).',
       rules: [
-        { case: 'after F1', when: { T_DRAUGHT: true }, say: pick('after F1'), ...(afterRest.length ? { then: afterRest } : {}),
+        // Errata 245 (doc 117 O-7): with the hotel's lamp in hand; without it, doc 118's line sends him for it.
+        { case: 'after F1', when: { T_DRAUGHT: true }, holds: ['hotel_lamp'], say: pick('after F1'), ...(afterRest.length ? { then: afterRest } : {}),
           set: { T_DUG_DOWN: true }, goto: 'under_prosperity' },
+        { case: 'after F1, without the lamp', when: { T_DRAUGHT: true }, ...objectsRule('- *without the lamp* — ') },
         { case: 'before F1', when: { T_DRAUGHT: false }, say: pick('before F1') },
       ],
     });
@@ -1789,7 +1808,11 @@ function combinations() {
   // Act III's estate sale (doc 111, C; errata 237): its item tries, and the money at the undertaker's.
   rebuilt.push(...estateSalePairs(e3, undertakerSays));
   // Act II's three papers (doc 113; errata 242): the swap in Fanshawe's office, and the deed and the fork on Pratt.
-  rebuilt.push(...papersPairs());
+  // Objects, first pass (doc 118; errata 245): the chalked turn, the notice posted, the tonic on the handkerchief.
+  const objects = objectsPairs(prattTurnLines());
+  rebuilt.push(...papersPairs(objects), ...objects.pairs);
+  // Act I, by hand (doc 120; errata 248): the letter at Pike's board, the eggs improved, the card in the wreath.
+  actOnePairs(rebuilt);
   return write('content/combinations.json', {
     ...existing, pairs: rebuilt, itemPools, areaPools: mine.areaPools, targetPools: giving.targetPools, globalPool: global,
   });
@@ -3413,7 +3436,7 @@ function actTwoItems() {
       // Errata 66 A is the submission log's ruling, and was stamped on every
       // item here -- the loan and the linen money among them, which are spent
       // and given (the items audit, errata 140).
-      note: `EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. ${acquired}${id === 'padded_log' ? ' Errata 66 ruling A: shown to the character at C5 and kept; never consumed.' : ''}`,
+      note: `EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. ${acquired}`,
       responses,
       ...held,
       ...(FILED_AT_F5.has(id) ? { lostWhen: { T_FILED: true }, lostNote: FILED_NOTE } : {}),
@@ -3440,9 +3463,19 @@ const FILED_AT_F5 = new Set(['death_certificate', 'document_c', 'sample']);
  * doc 57 D4: "SHE_D1 option 1′ — Sheng takes it", which writes T_PRATT_TRAIL.
  * It stayed in the inventory to the end of the game (the items audit, errata 140).
  */
+const LODGED_AT_E0 = 'Lodged with Sump at E0 (doc 23; errata 247): SUM_B1\'s Document C option takes A, B and D together and issues C, '
+  + 'and writes T_CLAIM1_BLANK. It leaves the inventory with that flag. "It took three pieces of paper to earn this one."';
 const GIVEN_AWAY = {
   linen_money: { lostWhen: { T_PRATT_TRAIL: true },
     lostNote: 'Given to Sheng at SHE_D1 option 1′ (doc 23; doc 57 D4), which writes T_PRATT_TRAIL: it leaves the inventory with that flag (errata 140).' },
+  // PAPERS THAT ONLY PROVE PROGRESS STOP SITTING IN THE INVENTORY (errata 247; Tyler, 2026-11-09).
+  document_a: { lostWhen: { T_CLAIM1_BLANK: true }, lostNote: LODGED_AT_E0 },
+  document_b: { lostWhen: { T_CLAIM1_BLANK: true }, lostNote: LODGED_AT_E0 },
+  document_d: { lostWhen: { T_CLAIM1_BLANK: true }, lostNote: LODGED_AT_E0 },
+  invitation: { lostWhen: { T_DINED: true },
+    lostNote: 'Left on the Colonel\'s table (doc 23; doc 120; errata 248): it leaves the inventory when the dinner is over, with T_DINED.' },
+  padded_log: { lostWhen: { T_LOG_WITH_WINNIE: true },
+    lostNote: 'Given to Winnie at C5 (doc 23; errata 247): the pair that shows it to her writes T_LOG_WITH_WINNIE, and she is still counting. Errata 66 A kept it "unless a later authored source consumes it"; this is that source.' },
 };
 const FILED_NOTE = 'Laid on the counter at the filing (doc 57 F5) and on file after it: it leaves the inventory '
   + 'with T_FILED (Tyler agreed, 2026-11-06; errata 133).';
@@ -3740,7 +3773,9 @@ function frameTree() {
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
   const ROUTE = {
     'FRA_A1:1': { goto: 'FRA_B1' },
-    'FRA_A1:6': { set: { T_FUNERAL_DAY: true }, puzzle: { C3: 'complete' } },
+    // Errata 245 (doc 117 O-2): the funeral day begins when Thad posts the notice (a pair on Main Street). Errata 249: Frame
+    // sets it and stands back; the notice, and C3, are the press's, pulled by Thad (reference/room-09 docBullets).
+    'FRA_A1:6': { set: { T_NOTICE_SET: true } },
     'FRA_A1:7': { set: { ASSAY_PAIR_16: true } },
     'FRA_B1:1': { puzzle: { B1: 'complete' } },
     'FRA_B1:2': { puzzle: { B1: 'complete' }, sameAs: 1 },
@@ -3866,6 +3901,14 @@ function frameTree() {
       option.gives = [...(option.gives ?? []), 'clarion'];
     }
   }
+  // THE NOTICE, SET (errata 245, 249; doc 118 O-2): after doc 04's reply he locks the type and stands back. Offered while
+  // nothing is set and Thad is not already holding one, so the day can be held again as before.
+  {
+    const notice = nodes.FRA_A1?.options.find((option) => option.set?.T_NOTICE_SET);
+    if (!notice) throw new Error('doc 04 FRA_A1: no option sets the funeral notice');
+    notice.thenAfter = objectsBlock('**`FRA_A1` option, "I need a funeral notice printed."**', { FRAME: SPEAKER });
+    notice.when = { ...notice.when, T_NOTICE_IN_HAND: false, T_NOTICE_SET: false };
+  }
   const entries = Object.entries(ENTRY).filter(([node]) => nodes[node]).map(([node, when]) => ({ when, node }));
   for (const note of unplayed) process.stderr.write(`  doc 04 FRAME: ${note}\n`);
   return write('content/dialogue/frame.json', {
@@ -3917,6 +3960,7 @@ function frameTree() {
  * Nothing is invented: every string below is the document's.
  */
 function winnieTree() {
+  const sparringNodes = [];
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('# WINNIE LEDGER');
   const to = doc.indexOf('# COLONEL ABSALOM FANSHAWE');
@@ -4114,7 +4158,10 @@ function winnieTree() {
       }
       // THE SPARRING (doc 57 C6): WIN_B4's teaching row, doc 03's exchange and pairs.
       if (tag === 'ASSAY' && /\bpairs? \d/.test(`${responseCell} ${state}`)) {
+        option.backTo = id;
         teachingRow(option, `${responseCell} | ${state}`, { teacher: 'Winnie', owner: SPEAKER, sparring: 'Winnie' });
+        sparringNodes.push(option.sparringNode);
+        delete option.sparringNode;
       } else if (state && !opens && !sets && !req && !unless && !puzzleWrite && state !== '—') {
         unplayed.push(`${id} option ${number} state "${state}" names no flag; nothing set`);
       }
@@ -4156,6 +4203,11 @@ function winnieTree() {
       ...(opening.length ? { opening } : {}), options };
   }
 
+  // The practice node its teaching row opens (errata 243), with the pool's way out.
+  for (const spar of sparringNodes) {
+    nodes[spar.id] = { ...spar, options: [...spar.options, { id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[poolIndex % POOL.length], universal: true, ends: true }] };
+    poolIndex += 1;
+  }
   if (!nodes.WIN_A1) throw new Error('doc 04: WIN_A1 was not extracted');
   for (const [node, { once, onOpen }] of Object.entries(ON_OPEN)) {
     if (nodes[node]) Object.assign(nodes[node], { openingOnce: once, onOpen });
@@ -4640,10 +4692,41 @@ function teachingRow(option, cells, { teacher, owner, sparring }) {
     if (!pairs.some((pair) => pair.n >= first && pair.n <= last && performed(pair))) {
       throw new Error(`doc 03: ${heading(sparring)} performs none of pairs ${first}-${last}`);
     }
-    option.exchange = opensOnReply
-      ? [exchange[0], ...run, ...exchange.slice(1)]
-      : [...reply, ...run, ...exchange];
+    // PLAYED, NOT WATCHED (errata 243; doc 114 II-4, Tyler, 2026-11-09: "All"). The row used to perform every pair in one
+    // long exchange the player sat through. It now opens a practice node: each boast is an option the player picks, the
+    // teacher answers it, and that pair is his; the pair doc 03's sparring itself performs comes last, with the scene
+    // doc 03 wrote round it. Every word is doc 03's, as before -- only who picks has changed. `run` is boast, counter,
+    // boast, counter; the row's own reply ("Sit.", "Try me.") is all the row says now.
+    const flagOf = (n) => `ASSAY_PAIR_${String(n).padStart(2, '0')}`;
+    const stem = option.id.replace(/\d+$/, '');
+    const drills = [];
+    for (let n = first; n <= last; n += 1) {
+      const pair = pairs.find((one) => one.n === n);
+      if (performed(pair)) continue;
+      drills.push({ id: `${stem}_spar${n}`, tag: 'ASSAY', text: pair.boast, afterUse: 'remove', when: { [flagOf(n)]: false },
+        exchange: [{ speaker: owner, line: pair.counter }], set: { [flagOf(n)]: true } });
+    }
+    const shown = pairs.filter((pair) => pair.n >= first && pair.n <= last && performed(pair));
+    if (shown.length !== 1) throw new Error(`doc 03: ${heading(sparring)} performs ${shown.length} of pairs ${first}-${last}, not one`);
+    // The scene doc 03 wrote: after the teacher's opening line where the row has already said it (Pratt's "Try me."),
+    // and less Thad's own boast where the scene begins on it, since choosing the option says it.
+    let scene = opensOnReply ? exchange.slice(1) : exchange;
+    if (scene[0].speaker === 'thad' && shown[0].boast.startsWith(scene[0].line.replace(/\s*[—–-]+\s*$/, ''))) scene = scene.slice(1);
+    const nodeId = `${sparring.toUpperCase().slice(0, 3)}_SPAR`;
+    const finale = { id: `${stem}_spar${shown[0].n}`, tag: 'ASSAY', text: shown[0].boast, afterUse: 'remove',
+      when: { [flagOf(shown[0].n)]: false }, after: drills.map((one) => one.id), exchange: scene,
+      set: { [flagOf(shown[0].n)]: true }, goto: option.backTo };
+    delete option.backTo;
+    option.exchange = opensOnReply ? [exchange[0]] : reply;
     delete option.say;
+    delete option.set;
+    option.afterUse = 'retain';
+    option.whenAny = [...drills, finale].map((one) => one.when);
+    option.goto = nodeId;
+    option.sparringNode = { id: nodeId, noPrompt: true,
+      exceptionReason: 'Errata 243: a practice node, built from doc 03\'s pairs; doc 04 writes the row that opens it.',
+      noComic: true, noComicReason: 'Errata 243: every option is a boast and every answer is the joke; none is a side remark.',
+      options: [...drills, finale] };
   }
   return option;
 }
@@ -5020,6 +5103,21 @@ function fanshaweTree() {
   const turn = /\*\*The turn:\*\*[^*]*\*"([^"]+)"\*/.exec(body)?.[1];
   if (!turn) throw new Error('doc 04 FAN_C1: Thad\'s aside ("The turn") was not found');
   const SPEAKER = 'fanshawe';
+  // DOC 120 I-1, the two FAN_A2 rows it rewrites, read from its THE LINES.
+  const dinner = (() => {
+    const rows = read('docs/120-act-one-by-hand.md').split('\n');
+    const after = (start) => {
+      const row = rows.find((one) => one.startsWith(start));
+      if (!row) throw new Error(`doc 120: no line starting ${start}`);
+      return row.slice(row.indexOf(' — ') + 3);
+    };
+    const six = scenesBCWords(after('**`FAN_A2` option 6**'), 'thad', { FANSHAWE: SPEAKER });
+    const closing = scenesBCWords(after('**`FAN_A2`, leaving the conversation**'), 'thad', { FANSHAWE: SPEAKER }).first;
+    if (six.first.length !== 2 || !six.first[1].direction || six.second.length !== 1 || closing.length !== 1) {
+      throw new Error('doc 120 I-1: FAN_A2 option 6 or its closing does not read');
+    }
+    return { six: { then: [six.first[1]], repeat: six.second[0].line }, closing: closing[0].line };
+  })();
   const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
   const ROUTE = {
@@ -5029,15 +5127,19 @@ function fanshaweTree() {
     'FAN_A1:2': { gives: ['company_map'], puzzle: { A4: 'complete' } },
     // THE HANDKERCHIEF ARRIVES ON SCREEN (errata 228): doc 57's knocked glass is played before "Keep it. I have
     // dozens.", which otherwise named an object nobody had seen.
-    'FAN_A2:6': { then: [...(beat3Staging ? [{ speaker: SPEAKER, ...beat3Staging, ...(beat3Staging.direction ? {} : {}) }] : []),
-      { speaker: SPEAKER, line: beat3 }], gives: ['handkerchief'], set: { T_DINED: true },
-      puzzle: { A10: 'complete' }, ends: true },
+    // THE DINNER IS ENDED BY HAND (doc 120 I-1; errata 248): the cover put back over the contract (Room 11's CLOSE)
+    // is what carries doc 57's beat 3, THE HANDKERCHIEF, T_DINED and A10 now. Option 6 is said, the Colonel agrees,
+    // and the dish is still there: it stays on the menu and answers again (`dinner.six`).
+    'FAN_A2:6': { then: dinner.six.then, retain: true, repeat: dinner.six.repeat },
     'FAN_B1:1': { goto: 'FAN_B2' },
     // THE WAR'S PAYOFF (errata 184): "available in Act III with all five" (doc 04, THE WAR).
     'FAN_B1:6': { when: { ACT: { atLeast: 3 }, WAR_CONTRADICTIONS: { atLeast: 5 } } },
     'FAN_C1:1': { then: [{ speaker: 'thad', line: turn }], set: { ACT: 3, ...(actOpenings()[3] ? { [actOpenings()[3].due]: true } : {}) }, puzzle: { E0b: 'complete' } },
   };
-  const EXIT_SAY = { FAN_A2: leaving };
+  // Leaving the conversation is no longer leaving the table (doc 120 I-1): doc 57's line for leaving is said at the
+  // door (Room 11's transit), and the conversation closes on doc 120's.
+  const EXIT_SAY = { FAN_A2: dinner.closing };
+  void leaving;
   const ENTRY = [
     ['FAN_C1', { T_CLAIM1_BLANK: true, T_EXCAVATION_CLAUSE: false }],
     ['FAN_A2', { T_BORDERS_MOTT: true, T_DINED: false }],
@@ -5118,6 +5220,8 @@ function fanshaweTree() {
       if (route.gives) option.gives = route.gives;
       if (route.puzzle) option.puzzle = route.puzzle;
       if (route.ends) option.ends = true;
+      if (route.retain) { option.afterUse = 'retain'; option.tag = 'TOPIC'; }
+      if (route.repeat) option.repeat = route.repeat;
       options.push(option);
     }
     if (!hasExit) {
@@ -5290,7 +5394,8 @@ function liveryTree() {
   const SPEAKER = 'livery_man';
   const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
   const ROUTE = {
-    5: { gives: ['blanket'], set: { T_BLANKET_BORROWED: true } },
+    // Errata 245 (doc 117 O-5): he gives leave; Thad takes it off her himself (Room 15's hotspot).
+    5: { set: { T_BLANKET_ALLOWED: true } },
     6: { puzzle: { B2: 'complete' } },
     7: { set: { ASSAY_PAIR_20: true } },
   };
@@ -5592,6 +5697,7 @@ function raccoonTree() {
  * the italic stage directions are logged and not drawn, as in every tree.
  */
 function prattTree() {
+  const sparringNodes = [];
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('# NICKEL PRATT');
   const to = doc.indexOf('\n# ', from + 5);
@@ -5656,7 +5762,10 @@ function prattTree() {
       if (route.goto) option.goto = route.goto;
       // THE SPARRING (doc 57 D5): PRA_D6's teaching row, doc 03's exchange and pairs.
       if (tag[1] === 'ASSAY' && /\bpairs? \d/.test(responseCell)) {
+        option.backTo = id;
         teachingRow(option, responseCell, { teacher: 'Pratt', owner: SPEAKER, sparring: 'Pratt' });
+        sparringNodes.push(option.sparringNode);
+        delete option.sparringNode;
       }
       options.push(option);
     }
@@ -5679,11 +5788,18 @@ function prattTree() {
     write('content/dialogue/pratt.json', {
       aftermathAuthored: true, schema: 1, id: 'PRATT', speaker: SPEAKER, name: 'NICKEL PRATT', note,
       entries: [E3.entry, { when: { T_PRATT_TURNED: true }, node: 'PRA_D6' }, { when: { ACT: { atLeast: 2 } }, node: 'PRA_B1' }],
-      start: 'PRA_A1', closing, nodes: { PRA_A1: A1, PRA_B1: B1, PRA_D6: D6, PRA_E3: E3.node },
+      start: 'PRA_A1', closing, nodes: { PRA_A1: A1, PRA_B1: B1, PRA_D6: D6, PRA_E3: E3.node,
+        // The practice node PRA_D6's teaching row opens (errata 243), with the pool's way out.
+        ...Object.fromEntries(sparringNodes.map((spar) => [spar.id, { ...spar, options: [...spar.options, { id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[0], universal: true, ends: true }] }])) },
     }),
     write('content/dialogue/pratt-jump.json', {
       aftermathAuthored: true, schema: 1, id: 'PRATT_JUMP', speaker: SPEAKER, name: 'NICKEL PRATT', note,
-      start: 'PRA_D2', closing, nodes: { PRA_D2: D2 },
+      // HE STAYS ON THE CLAIM UNTIL HE IS TURNED (errata 244; doc 114 II-2, doc 115). PRA_D2 option 1 used to send him
+      // home; now everything doc 04 has him say in Act II before the turn is said standing on Prosperity. PRA_B1 is
+      // doc 04's own node, word for word; its turning row no longer walks the conversation on to PRA_D6, because that
+      // node is said at his own claim, where he goes once he is turned.
+      entries: [{ when: { T_PRATT_STAKE: true }, node: 'PRA_B1' }],
+      start: 'PRA_D2', closing, nodes: { PRA_D2: D2, PRA_B1: { ...B1, options: B1.options.map((option) => (option.goto === 'PRA_D6' ? toldTheFigure(option) : option)) } },
     }),
   ];
 }
@@ -6293,7 +6409,10 @@ function cutaways() {
     // After the swindle, which is the edition GRUBBS (errata 9).
     1: { id: 'clarion_press', room: 'clarion', when: { T_SWINDLED: true }, done: 'T_CUTAWAY_CLARION' },
     // After Thad has caught him pulling up the stake: D2 is open.
-    2: { id: 'pratts_voice', room: 'pratts_claim', when: { T_PRATT_STAKE: true }, done: 'T_CUTAWAY_PRATT' },
+    // Errata 244: cut to Prosperity, where he is in fact still on it (doc 115 II-2), and only while he is.
+    // The figure who says it there is the one drawn there, on the claim (pratt_jump), not the one at his own.
+    2: { id: 'pratts_voice', room: 'prosperity', when: { T_PRATT_STAKE: true, T_PRATT_TURNED: false }, done: 'T_CUTAWAY_PRATT',
+      speakers: { pratt: 'pratt_jump' } },
     // Part Three, and only Part Three: E0b writes ACT 3. He is in his office
     // only on a day that is not a funeral day (content/ambient/fanshawe.json).
     3: { id: 'fanshawe_chairs', room: 'fanshawe_office', when: { ACT: { atLeast: 3, atMost: 3 }, T_FUNERAL_DAY: false },
@@ -6330,8 +6449,9 @@ function cutaways() {
     for (const row of part.split('\n')) {
       const cell = row.match(/^\| (\d+) \| ([A-Z]+) \| "(.+)" \|$/);
       if (!cell) continue;
-      const speaker = SPEAKER[cell[2]];
-      if (!speaker) throw new Error(`doc 96 section ${number} row ${cell[1]}: unknown speaker ${cell[2]}`);
+      const named = SPEAKER[cell[2]];
+      if (!named) throw new Error(`doc 96 section ${number} row ${cell[1]}: unknown speaker ${cell[2]}`);
+      const speaker = route.speakers?.[named] ?? named;
       lines.push({ speaker, line: cell[3] });
     }
     if (!lines.length) throw new Error(`doc 96 section ${number}: no lines`);
@@ -6339,7 +6459,8 @@ function cutaways() {
     // REPOSITORY, so the game never waits in the dark on a file that does not
     // exist; when the image session's frames land, re-extracting adds it, and
     // --check calls this file stale until somebody does.
-    const { closeup, ...rest } = route;
+    const { closeup, speakers, ...rest } = route;
+    void speakers;
     const drawn = closeup && closeup.frames.every((path) => existsSync(resolve(ROOT, path)));
     // The blink is the third frame, and only once it too is drawn.
     const { blink, ...shape } = closeup ?? {};
@@ -6710,15 +6831,17 @@ function estateSalePairs(e3, undertakerSays) {
  * Which flag each state is and which item each name is are routing, authored here as every ROUTE table is.
  */
 const PAPERS_DOC = 'docs/113-act-two-scenes.md';
-function papersLines() {
-  const doc = read(PAPERS_DOC);
+function papersLines(path = PAPERS_DOC) {
+  const doc = read(path);
   const at = doc.indexOf('\n## THE LINES\n');
-  if (at < 0) throw new Error('doc 113: no "## THE LINES"');
-  return doc.slice(at + 1).split('\n');
+  if (at < 0) throw new Error(`${path}: no "## THE LINES"`);
+  const rest = doc.slice(at + 1);
+  const end = rest.indexOf('\n---\n');
+  return (end < 0 ? rest : rest.slice(0, end)).split('\n');
 }
-function papersBullet(start) {
-  const found = papersLines().filter((one) => one.startsWith(start));
-  if (found.length !== 1) throw new Error(`doc 113: ${found.length} lines start ${start}`);
+function papersBullet(start, path = PAPERS_DOC) {
+  const found = papersLines(path).filter((one) => one.startsWith(start));
+  if (found.length !== 1) throw new Error(`${path}: ${found.length} lines start ${start}`);
   const [words] = found[0].slice(start.length).split('→');
   return words;
 }
@@ -6747,9 +6870,12 @@ function papersItems() {
     responses: { LOOK_AT: run('LOOK'), LISTEN_TO: run('LISTEN') },
   })];
 }
-function papersPairs() {
+function papersPairs(objects) {
   const NOTE = 'Doc 113 (THE LINES; errata 242)';
   const out = [];
+  const NOTE_115 = 'Doc 115 (THE LINES, II-3; errata 244)';
+  const office = { T_FUNERAL_DAY: true, T_QUEUE_PADDED: false };
+  const refused = (start) => papersRule(papersBullet(start, 'docs/115-the-three-papers.md'));
   // THE SWAP. Doc 54's line for the log is said between the direction and the scene's closing line, unchanged.
   const c4 = read('docs/54-batch-c.md').split('\n').find((one) => one.startsWith('> **THE SUBMISSION LOG** · PICK UP, *empty office* — '));
   const logLine = c4 && quoted(c4)[0];
@@ -6759,8 +6885,41 @@ function papersPairs() {
   out.push({ item: 'company_ledger', room: 'fanshawe_office', target: 'submission_log', otherwise: 'pool', puzzle: 'C4', say: swap.say,
     note: `${NOTE}, THE SWAP: the ledger laid where the log lay, and the log taken (THE SUBMISSION LOG, T_QUEUE_PADDED). Doc 54's `
       + 'empty-office line for the log is said after the direction, as doc 113 says.',
-    rules: [{ case: 'empty office', when: { T_FUNERAL_DAY: true, T_QUEUE_PADDED: false }, say: swap.say, direction: true,
-      then: [logLine, ...swap.then], takes: ['company_ledger'], items: ['padded_log'], set: { T_QUEUE_PADDED: true } }] });
+    rules: [{ case: 'empty office', when: { ...office, T_LEDGER_PLAIN: true, T_LEDGER_CRACKED: true }, say: swap.say, direction: true,
+      then: [logLine, ...swap.then], takes: ['company_ledger'], items: ['padded_log'], set: { T_QUEUE_PADDED: true } },
+    // DOC 115, II-3 (errata 244): until the ledger is made ready it is refused, and the refusal says what is wrong.
+    { case: 'refused: the gilt and the spine', when: { ...office, T_LEDGER_PLAIN: false, T_LEDGER_CRACKED: false }, ...refused('- *with the gilt on it and the spine whole* — ') },
+    { case: 'refused: the spine', when: { ...office, T_LEDGER_PLAIN: true, T_LEDGER_CRACKED: false }, ...refused('- *with the gilt gone and the spine whole* — ') },
+    { case: 'refused: the gilt', when: { ...office, T_LEDGER_PLAIN: false, T_LEDGER_CRACKED: true }, ...refused('- *with the spine broken and the gilt on it* — ') }] });
+  // THE GILT (doc 115): the Colonel's handkerchief on the ledger, the game's first item on an item; written both ways
+  // round (tests/items.test.ts), in his office, where the ledger is taken and left.
+  const gilt = refused('- USE THE HANDKERCHIEF — ');
+  const giltAgain = refused('- USE THE HANDKERCHIEF, *again* — ');
+  for (const [item, target] of [['handkerchief', 'company_ledger'], ['company_ledger', 'handkerchief']]) {
+    out.push({ item, room: 'fanshawe_office', target, otherwise: 'pool', say: gilt.say,
+      note: `${NOTE_115}, THE GILT: the gilt date rubbed off the ledger's spine with the handkerchief (T_LEDGER_PLAIN).`,
+      rules: [{ case: 'the gilt, with the tonic', when: { T_LEDGER_PLAIN: false, T_HANDKERCHIEF_DOSED: true }, ...objects.dosedGilt, set: { T_LEDGER_PLAIN: true } },
+        { case: 'the gilt', when: { T_LEDGER_PLAIN: false }, ...gilt, set: { T_LEDGER_PLAIN: true } },
+        { case: 'again', when: { T_LEDGER_PLAIN: true }, ...giltAgain }] });
+  }
+  // THE TONIC ON THE HANDKERCHIEF (doc 118, O-4): a second way to the gilt, in the same office; both ways round.
+  for (const [item, target] of [['tonic', 'handkerchief'], ['handkerchief', 'tonic']]) {
+    out.push({ item, room: 'fanshawe_office', target, otherwise: 'pool', say: objects.dose.say,
+      note: 'Doc 118 (THE LINES, O-4; errata 245): Dr. Purvis on the Colonel\'s handkerchief (T_HANDKERCHIEF_DOSED); the bottle is spent.',
+      rules: [{ case: 'dosed', when: { T_HANDKERCHIEF_DOSED: false }, ...objects.dose, takes: ['tonic'], set: { T_HANDKERCHIEF_DOSED: true } }] });
+  }
+  // THE SPINE (doc 115): the ledger on the chairs.
+  const spine = refused('- USE A COMPANY LEDGER — ');
+  out.push({ item: 'company_ledger', room: 'fanshawe_office', target: 'chairs', otherwise: 'pool', say: spine.say,
+    note: `${NOTE_115}, THE SPINE: the ledger's spine broken in on a chair (T_LEDGER_CRACKED).`,
+    rules: [{ case: 'the spine', when: { T_LEDGER_CRACKED: false }, ...spine, set: { T_LEDGER_CRACKED: true } },
+      { case: 'again', when: { T_LEDGER_CRACKED: true }, ...refused('- USE A COMPANY LEDGER, *again* — ') }] });
+  for (const [start, target] of [['- **THE SABRE** · USE A COMPANY LEDGER — ', 'sabre'], ['- **THE DECANTER** · USE A COMPANY LEDGER — ', 'decanter'],
+    ['- **THE PORTRAIT** · USE A COMPANY LEDGER — ', 'portrait']]) {
+    const rule = refused(start);
+    out.push({ item: 'company_ledger', room: 'fanshawe_office', target, say: rule.say,
+      note: `${NOTE_115}, THE WRONG TRIES: ${start.slice(2, -3).replace(/\*\*/g, '')}.`, rules: [{ case: 'any time', ...rule }] });
+  }
   const back = papersRule(papersBullet('- **THE LEDGERS** · USE A COMPANY LEDGER — '));
   out.push({ item: 'company_ledger', room: 'fanshawe_office', target: 'ledgers', say: back.say,
     note: `${NOTE}, THE WRONG TRIES: the ledger back on its shelf.`, rules: [{ case: 'any time', ...back }] });
@@ -6771,6 +6930,193 @@ function papersPairs() {
       note: `${NOTE}, B · The stake: ${start.slice(2, -3)} on Pratt, on the claim.`, rules: [{ case: 'on the claim', ...rule }] });
   }
   return out;
+}
+
+/**
+ * OBJECTS, FIRST PASS (doc 117 rows O-1 to O-7; doc 118, THE LINES; errata 245). Tyler, 2026-11-09: "All". What is not a
+ * room's own hotspot lines is read here from doc 118, never typed: the items and their LOOK and LISTEN, the pairs, and
+ * the two tree rows that change (PRA_B1 option 7 on the claim, FRA_A1's notice). Flags and ids are routing.
+ */
+const OBJECTS_DOC = 'docs/118-objects-the-lines.md';
+const objectsRule = (start, speakers = {}) => papersRule(papersBullet(start, OBJECTS_DOC), speakers);
+/** The `> ` lines under the line starting `head`, as an exchange; a line that is only a direction is the last speaker's. */
+function objectsBlock(head, speakers = {}, doc = OBJECTS_DOC) {
+  const rows = papersLines(doc);
+  const at = rows.findIndex((one) => one.startsWith(head));
+  if (at < 0) throw new Error(`doc 118: no line starting ${head}`);
+  const block = [];
+  for (const row of rows.slice(at + 1)) {
+    if (!row.startsWith('> ')) { if (block.length) break; continue; }
+    block.push(row.slice(2));
+  }
+  if (!block.length) throw new Error(`doc 118: ${head} has no lines`);
+  const nameOf = (body) => /^\*\*([A-Z][A-Z.' -]*):\*\*/.exec(body)?.[1];
+  const who = (name) => (name === 'THAD' ? 'thad' : speakers[name]);
+  const out = [];
+  block.forEach((body, n) => {
+    const name = nameOf(body);
+    const words = scenesBCWords(body.replace(/^\*\*THAD:\*\* /, ''), 'thad', speakers).first;
+    const spoken = /"/.test(body.replace(/\*\([^)]*\)\*/g, ''));
+    if (spoken) { out.push(...words); return; }
+    // No words of anyone's: a direction or a pause, by whoever is named next (or last, at the end).
+    const next = block.slice(n + 1).map(nameOf).find(Boolean) ?? block.slice(0, n).map(nameOf).filter(Boolean).at(-1);
+    const by = (next && who(next)) || 'thad';
+    out.push(...words.map((one) => ({ ...one, speaker: by })));
+    void name;
+  });
+  return out;
+}
+/** PRA_B1 option 7 on the claim (doc 118, O-1): the figure told, and Pratt has never seen one. The turn is the chalk's. */
+function toldTheFigure(option) {
+  const said = objectsBlock('**`PRA_B1` option 7**', { PRATT: 'pratt' });
+  const turn = option.exchange ?? [];
+  if (said[0].line !== turn[0]?.line) throw new Error('doc 118 O-1: its first line is not doc 04 PRA_D5\'s first line');
+  const { goto, set, puzzle, ...rest } = option;
+  return { ...rest, afterUse: 'retain', exchange: said, repeat: said.at(-1).line, set: { T_FIGURE_TOLD: true } };
+}
+/** Doc 04's PRA_D5, the turn and what follows "He signs", as an exchange in order. */
+function prattTurnLines() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('## `PRA_D5`');
+  if (from < 0) throw new Error('doc 04: no PRA_D5');
+  const body = doc.slice(from, doc.indexOf('\n---', from));
+  const out = [];
+  for (const row of body.split('\n').filter((one) => one.startsWith('> '))) {
+    const spoken = /^> \*\*([A-Z]+):\*\* (.+)$/.exec(row);
+    if (!spoken) continue;
+    const speaker = spoken[1] === 'THAD' ? 'thad' : 'pratt';
+    for (const d of spoken[2].matchAll(/\*\(([^)]+)\)\*/g)) {
+      const shown = performedDirection(d[1]);
+      // As PRA_B1's own extraction has it: a held beat is said ("…"); a staging note on a line is not shown.
+      if (shown && !shown.direction) out.push({ speaker, line: shown.line });
+    }
+    const said = quoted(spoken[2].replace(/\*\([^)]*\)\*/g, ''));
+    if (said.length !== 1) throw new Error(`doc 04 PRA_D5: "${spoken[2]}" is not one line`);
+    out.push({ speaker, line: said[0] });
+  }
+  if (out.length < 8) throw new Error('doc 04 PRA_D5: the turn does not read');
+  return out;
+}
+function objectsItems() {
+  const rows = papersLines(OBJECTS_DOC);
+  const item = (heading, id, name, about) => {
+    const at = rows.findIndex((one) => one === `**${heading}** *(item)*`);
+    if (at < 0) throw new Error(`doc 118: no **${heading}** *(item)*`);
+    const run = (label) => {
+      const row = rows.slice(at + 1, at + 3).find((one) => one.startsWith(`**${label}** `));
+      const said = row ? [...row.matchAll(/\d "([^"]+)"/g)].map((m) => m[1]) : [];
+      if (said.length !== 3) throw new Error(`doc 118: ${heading} ${label} has ${said.length} lines, not 3`);
+      return [{ say: said[0], repeat: said.slice(1) }];
+    };
+    return write(`content/items/${id.replace(/_/g, '-')}.json`, {
+      schema: 1, id, name: heading, short: heading,
+      note: `EXTRACTED from ${OBJECTS_DOC} (THE LINES) by tools/extract-content.mjs (errata 245). Do not edit: change doc 118 and re-run. ${about}`,
+      responses: { LOOK_AT: run('LOOK'), LISTEN_TO: run('LISTEN') },
+    });
+  };
+  return [
+    item('A STUB OF CHALK', 'chalk', 'A STUB OF CHALK', 'Taken from its tin in the Nugget\'s back room. What the turn of Pratt is written with, on Thad\'s own stake; kept.'),
+    item('THE FUNERAL NOTICE', 'funeral_notice', 'THE FUNERAL NOTICE', 'Handed over by Frame; posted on Main Street, which begins the funeral day.'),
+    item('THE HOTEL\'S LAMP', 'hotel_lamp', 'THE HOTEL\'S LAMP', 'Taken from Thad\'s room in Act IV for the dig; kept.'),
+    item('A HYMNAL', 'hymnal', 'A HYMNAL', 'Taken from his pew in the church (errata 246). With it he can stand in the line of mourners on the hill; kept.'),
+    item('THE COLONEL\'S WREATH', 'wreath', 'THE COLONEL\'S WREATH', 'Taken from Pike\'s marker once the town has gone down (errata 246); laid on his own coffin in Act III. Nothing depends on it.'),
+  ];
+}
+/**
+ * ACT I, BY HAND (doc 120, THE LINES; errata 248). The small rows that are item pairs, read from doc 120 and never typed:
+ *  - THE LETTER held out to PIKE'S MARKER (I-2): a beat; nothing is taken.
+ *  - DR. PURVIS'S TONIC on THE PICKLED EGGS, either way round, at the hole: the eggs improved (the tonic is kept), and
+ *    the improved eggs at the hole, ahead of the egg's own answer there.
+ *  - THE OBITUARY tucked under THE COLONEL'S WREATH's ribbon, either way round, where the wreath is carried; and the
+ *    undertaker's second line when it is laid with its card in.
+ * Flags and ids are routing.
+ */
+const ACT_ONE_DOC = 'docs/120-act-one-by-hand.md';
+function actOnePairs(pairs) {
+  const NOTE = 'Doc 120 (THE LINES; errata 248)';
+  const rule = (start, speakers = {}) => papersRule(papersBullet(start, ACT_ONE_DOC), speakers);
+  pairs.push({ item: 'letter', room: 'boot_hill', target: 'pike_s_marker', say: rule('- USE THE LETTER, *the first time* — ').say,
+    note: `${NOTE}, I-2: the letter of introduction held out to Pike's board. Nothing is written but that it was done; the letter stays (C3 wants it).`,
+    rules: [{ case: 'the first time', when: { T_LETTER_OFFERED: false }, ...rule('- USE THE LETTER, *the first time* — '), set: { T_LETTER_OFFERED: true } },
+      { case: 'again', when: { T_LETTER_OFFERED: true }, ...rule('- USE THE LETTER, *again* — ') }] });
+  const improve = rule('- USE DR. PURVIS\'S TONIC — ');
+  for (const [item, target] of [['tonic', 'eggs'], ['eggs', 'tonic']]) {
+    pairs.push({ item, room: 'prosperity', target, otherwise: 'pool', say: improve.say,
+      note: `${NOTE}: Dr. Purvis's tonic on the pickled eggs, either way round, at the claim. The tonic is not spent (doc 118's handkerchief wants it later).`,
+      rules: [{ case: 'improved', when: { T_EGGS_IMPROVED: false }, ...improve, set: { T_EGGS_IMPROVED: true } }] });
+  }
+  const atHole = pairs.find((one) => one.item === 'eggs' && one.target === 'hole' && one.room === 'prosperity');
+  if (!atHole) throw new Error('doc 120: no pair for the eggs at the hole to put the improved eggs ahead of');
+  const meeting = atHole.rules.findIndex((one) => one.takes?.includes('eggs'));
+  if (meeting < 0) throw new Error('doc 120: the eggs at the hole have no rule that spends them');
+  atHole.rules.splice(meeting, 0, { case: 'improved, with the raccoon in', when: { ...atHole.rules[meeting].when, T_EGGS_IMPROVED: true },
+    ...rule('- USE THE PICKLED EGGS, *improved* — '), takes: ['eggs'] });
+  const card = rule('- USE THE OBITUARY — ');
+  for (const room of ['boot_hill', 'funeral']) {
+    for (const [item, target] of [['obituary', 'wreath'], ['wreath', 'obituary']]) {
+      pairs.push({ item, room, target, otherwise: 'pool', say: card.say,
+        note: `${NOTE}: the obituary tucked under the wreath's ribbon, where a card goes, either way round. It leaves with the wreath.`,
+        rules: [{ case: 'the card', when: { T_WREATH_CARDED: false }, ...card, takes: ['obituary'], set: { T_WREATH_CARDED: true } }] });
+    }
+  }
+  const laid = pairs.find((one) => one.item === 'wreath' && one.target === 'coffin');
+  if (!laid) throw new Error('doc 120: no pair lays the wreath on the coffin');
+  const more = objectsBlock('**THE COFFIN** · USE THE COLONEL\'S WREATH, *with the card in it*', { 'THE UNDERTAKER': 'funeral_undertaker' }, ACT_ONE_DOC);
+  const [bare] = laid.rules;
+  laid.rules = [{ ...bare, case: 'laid, with its card', when: { T_WREATH_CARDED: true },
+    then: [...(bare.then ?? []), ...more.map((one) => (one.speaker === 'thad' ? one.line : one))] },
+  { ...bare, when: { T_WREATH_CARDED: false } }];
+}
+function objectsPairs(prattTurn) {
+  const NOTE = 'Doc 118 (THE LINES; errata 245)';
+  const out = [];
+  // O-1 THE TURN, CHALKED. Doc 04's PRA_D5 from "For the mud." on, word for word, with doc 118's two directions: the
+  // first in place of the figure (said already, at option 7), the second before Pratt's sum.
+  const [figure, ...turn] = prattTurn;
+  const written = objectsBlock('**THE CLAIM MARKER** · USE A STUB OF CHALK, *after that, Pratt on the claim*', { PRATT: 'pratt_jump' });
+  const directions = written.filter((one) => one.direction && !/pause/.test(one.line));
+  if (directions.length !== 2) throw new Error(`doc 118 O-1: ${directions.length} directions in the chalked turn, not 2`);
+  const sum = turn.findIndex((one) => /hundred and four/.test(one.line));
+  if (sum < 0 || !figure) throw new Error('doc 04 PRA_D5: no sum to chalk');
+  const who = (one) => (one.speaker === 'pratt' ? { ...one, speaker: 'pratt_jump' } : one);
+  const lines = [...turn.slice(0, sum).map(who), { ...directions[1], speaker: 'pratt_jump' }, ...turn.slice(sum).map(who)];
+  for (const one of written.filter((w) => !w.direction && w.line !== '…')) {
+    if (!turn.some((t) => t.line === one.line)) throw new Error(`doc 118 O-1: "${one.line}" is not doc 04 PRA_D5's`);
+  }
+  const on = { ACT: { atLeast: 2 }, T_PRATT_TURNED: false };
+  out.push({ item: 'chalk', room: 'prosperity', target: 'claim_marker', otherwise: 'pool', puzzle: 'D5', say: directions[0].line,
+    note: `${NOTE}, O-1: the figure chalked on Thad's own stake, and Pratt's sum under it -- doc 04's PRA_D5, word for word, with the arithmetic where both can see it (T_PRATT_TURNED, D5).`,
+    rules: [{ case: 'the turn', when: { ...on, T_FIGURE_TOLD: true }, say: directions[0].line, direction: true,
+      then: lines.map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one)), set: { T_PRATT_TURNED: true }, completes: 'D5' },
+    { case: 'before the figure is told', when: { ...on, T_FIGURE_TOLD: false }, ...objectsRule('- USE A STUB OF CHALK — ') }] });
+  for (const [start, target] of [['- **NICKEL PRATT** · USE A STUB OF CHALK — ', 'pratt_jump'], ['- **THE HOLE** · USE A STUB OF CHALK — ', 'hole']]) {
+    const rule = objectsRule(start, { PRATT: 'pratt_jump' });
+    out.push({ item: 'chalk', room: 'prosperity', target, ...(target === 'pratt_jump' ? { otherwise: 'pool' } : {}), say: rule.say,
+      note: `${NOTE}, O-1, THE WRONG TRIES: ${start.slice(2, -3).replace(/\*\*/g, '')}.`, rules: [{ case: 'any time', ...rule }] });
+  }
+  // O-2 THE NOTICE, POSTED: the funeral day begins, and the street is come back to as it then is.
+  const posted = objectsBlock('**THE POSTED NOTICES** · USE THE FUNERAL NOTICE');
+  out.push({ item: 'funeral_notice', room: 'main_street', target: 'posted_notices', say: posted[0].line,
+    note: `${NOTE}, O-2: the notice put up on Main Street begins the funeral day (T_FUNERAL_DAY), which Frame's printing used to.`,
+    rules: [{ case: 'posted', say: posted[0].line, direction: true, then: posted.slice(1).map((one) => one.line),
+      takes: ['funeral_notice'], set: { T_FUNERAL_DAY: true, T_NOTICE_IN_HAND: false, T_FUNERAL_HILL_SAID: false }, goto: 'main_street' }] });
+  // The notice shown to the Reverend, before it is up (THE WRONG TRIES).
+  const shown = objectsRule('- **REVEREND SOWERBY** · USE THE FUNERAL NOTICE — ', { SOWERBY: 'sowerby' });
+  out.push({ item: 'funeral_notice', room: 'church', target: 'sowerby', otherwise: 'pool', say: shown.say,
+    note: `${NOTE}, O-2, THE WRONG TRIES: REVEREND SOWERBY · USE THE FUNERAL NOTICE.`, rules: [{ case: 'any time', ...shown }] });
+  // O-6 THE WREATH on his own coffin (errata 246). Nothing depends on it; the undertaker has a line.
+  const laid = objectsBlock('**THE COFFIN** · USE THE COLONEL\'S WREATH', { 'THE UNDERTAKER': 'funeral_undertaker' });
+  out.push({ item: 'wreath', room: 'funeral', target: 'coffin', say: laid[0].line,
+    note: 'Doc 118 (THE LINES; errata 246), O-6: the Colonel\'s wreath laid on Thad\'s own coffin. Nothing reads T_WREATH_LAID.',
+    rules: [{ case: 'laid', say: laid[0].line, direction: true, then: laid.slice(1).map((one) => (one.speaker === 'thad' ? one.line : one)),
+      takes: ['wreath'], set: { T_WREATH_LAID: true } }] });
+  // II-1 (doc 115): the fork rung against the plate as it goes by.
+  const rung = papersRule(papersBullet('- USE THE TUNING FORK — ', 'docs/115-the-three-papers.md'), {});
+  out.push({ item: 'tuning_fork', room: 'boot_hill', target: 'collection_plate', say: rung.say,
+    note: 'Doc 115 (THE LINES; errata 246), II-1: the tuning fork on the collection plate in the line.', rules: [{ case: 'any time', ...rung }] });
+  // O-4 THE TONIC on the handkerchief, both ways round, wherever he stands; then the dosed handkerchief on the ledger.
+  const dose = objectsRule('- USE DR. PURVIS\'S TONIC — ');
+  return { pairs: out, dose, dosedGilt: objectsRule('- USE THE HANDKERCHIEF, *dosed* — ') };
 }
 
 /**
@@ -6877,7 +7223,7 @@ function hearseScene() {
   return out;
 }
 
-const written = [opening(), stageDriver(), combinations(), seanceTree(), ...estateSaleItems(), ...papersItems(), ...hearseScene(), ...rooms0507(), ...room02Exits(),
+const written = [opening(), stageDriver(), combinations(), seanceTree(), ...estateSaleItems(), ...papersItems(), ...objectsItems(), ...hearseScene(), ...rooms0507(), ...room02Exits(),
   ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), hobRunning(), ozymandiaAtProsperity(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...gulchItems(), ...gulchPeople(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways(), ...waysOut()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);

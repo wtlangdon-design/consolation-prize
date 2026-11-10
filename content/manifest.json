@@ -167,7 +167,10 @@
   "content/items/document-b.json",
   "content/items/document-c.json",
   "content/items/document-d.json",
+  "content/items/chalk.json",
   "content/items/company-ledger.json",
+  "content/items/funeral-notice.json",
+  "content/items/hotel-lamp.json",
   "content/items/death-certificate.json",
   "content/items/survey.json",
   "content/items/invitation.json",
@@ -186,7 +189,9 @@
   "content/items/sample.json",
   "content/items/third-copy.json",
   "content/items/brass-rod.json",
-  "content/items/clarion.json"
+  "content/items/clarion.json",
+  "content/items/hymnal.json",
+  "content/items/wreath.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [
@@ -273,6 +278,7 @@
   "content/ambient/gulch-man-upstream.json",
   "content/ambient/procession-undertaker.json",
   "content/ambient/procession-sowerby.json",
+  "content/ambient/wreath-fanshawe.json",
   "content/ambient/memorial-fanshawe.json",
   "content/ambient/memorial-town.json",
   "content/ambient/procession-mourners.json",
@@ -369,7 +375,8 @@
       ]
      }
     ],
-    "fiddleNote": "Errata 168 (Tyler, 2026-11-07, choosing to keep the piano leading with the fiddle louder): the fiddle layer at 0.95, about 1 dB under the piano (piano stem -16.3 dB RMS at 0.75; fiddle stem -19.4 dB at 0.95). It was 0.7, nearly 4 dB under. The piano still leads, because its flat C-sharp is the A8 clue.", "why": "Doc 28 Room 3: CONSOLATION played diegetically on the room's own piano, broken C-sharp and all, until Thad tunes it. The fiddler joins it with the theme's own fiddle part while he is in the room (doc 07 #11; doc 28: 'Piano-led, fiddle joining'; errata 116).",
+    "fiddleNote": "Errata 168 (Tyler, 2026-11-07, choosing to keep the piano leading with the fiddle louder): the fiddle layer at 0.95, about 1 dB under the piano (piano stem -16.3 dB RMS at 0.75; fiddle stem -19.4 dB at 0.95). It was 0.7, nearly 4 dB under. The piano still leads, because its flat C-sharp is the A8 clue.",
+    "why": "Doc 28 Room 3: CONSOLATION played diegetically on the room's own piano, broken C-sharp and all, until Thad tunes it. The fiddler joins it with the theme's own fiddle part while he is in the room (doc 07 #11; doc 28: 'Piano-led, fiddle joining'; errata 116).",
     "layers": [
      {
       "src": "audio/consolation-nugget-fiddle.wav",
@@ -459,7 +466,11 @@
     "gain": 0.55,
     "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument. In tune by T_IN_TUNE, not by the stem."
    },
-   "coach_stop_dawn": {"src": "audio/consolation-dawn.wav", "gain": 0.55, "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument -- carried on to the coach stop, Room 36's close (errata 121 B): the same file, so it continues rather than restarting."},
+   "coach_stop_dawn": {
+    "src": "audio/consolation-dawn.wav",
+    "gain": 0.55,
+    "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument -- carried on to the coach stop, Room 36's close (errata 121 B): the same file, so it continues rather than restarting."
+   },
    "mercantile": {
     "src": "audio/consolation-dawn.wav",
     "gain": 0.55,

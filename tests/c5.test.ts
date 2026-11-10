@@ -60,12 +60,13 @@ test('the pair is live in the ready state, and not before its puzzles or after i
   assert.equal(state.evidencePairFor('tuning_fork', npc.id), null, 'an unrelated item has no pair here');
 });
 
-test('contact commits C5 exactly once, keeps the item, and the tree then opens through the action', async () => {
+test('contact commits C5 exactly once, leaves the item with her, and the tree then opens through the action', async () => {
   const { state, npc, pair, tree } = await setup('r5-c');
   assert.deepEqual(state.dialogue.openingOf(tree), state.dialogue.openingOf(tree, true), 'before C5 the greeting is the same either way');
   state.commitEvidence(pair);
   assert.equal(state.puzzleComplete('C5'), true);
-  assert.ok(state.carried.includes(pair.item), 'showing is not surrendering');
+  // Errata 247: she keeps it. Errata 66 A held the log "unless a later authored source consumes it"; this is that source.
+  assert.ok(!state.carried.includes(pair.item), 'she keeps it, and goes on counting');
   assert.equal(state.evidencePairFor(pair.item, npc.id), null, 'the pair does not fire again');
   const opening = state.dialogue.openingOf(tree, true);
   assert.equal(opening.length, 4, 'WIN_B2\'s four-line opening, for the action');
@@ -106,13 +107,20 @@ test('WIN_B2\'s rows move the world as doc 04 says, through W1, and the states s
   state.dialogue.select('winnie4');
   assert.ok(state.dialogue.presentOptions().some((p) => p.option.id === 'winnie4' && p.exhausted), 'the comic is retained and greyed');
   assert.equal(state.puzzleComplete('C5'), true, 'C5 stays complete');
-  assert.ok(state.carried.includes(pair.item), 'the log is still held');
+  assert.ok(!state.carried.includes(pair.item), 'the log stays with her (errata 247)');
   // Apart: puzzle progress, topic flags, inventory, counts.
   assert.deepEqual(Object.keys(state.puzzleProgress()).sort(), ['C1', 'C2', 'C3', 'C4', 'C5', 'C6']);
   // T_QUEUE_PADDED is the log's -- written when it is taken from the empty
   // office (doc 57 C4, Room 11), before the window ever sees it, and what the pair
   // now waits on (errata 124) -- so no flag stands in for C5: C5 is puzzle progress.
-  assert.equal(Object.keys(content.combinations?.pairs.find((one) => one.completes === 'C5')?.set ?? {}).length, 0, 'the pair writes no topic flag for C5');
+  // Errata 247: the pair writes one flag, and it says where the log is (the item follows it), not that C5 is done.
+  // Nothing in any tree may read it: it is no topic.
+  const wrote = Object.keys(content.combinations?.pairs.find((one) => one.completes === 'C5')?.set ?? {});
+  assert.equal(wrote.length, 1, 'one flag: where the log is');
+  assert.deepEqual(content.items.get(pair.item)?.lostWhen, { [wrote[0]!]: true }, 'the log follows it');
+  for (const one of content.dialogue.values()) {
+    assert.ok(!JSON.stringify(one).includes(`"${wrote[0]}"`), `${one.id} reads ${wrote[0]}: no flag stands in for C5`);
+  }
   assert.deepEqual(state.dialogue.progressSnapshot()[tree], { 'WIN_B1:winnie1': 1, 'WIN_B2:winnie1': 1, 'WIN_B2:winnie2': 1, 'WIN_B2:winnie3': 1, 'WIN_B2:winnie4': 1 });
 });
 
