@@ -1613,6 +1613,23 @@ export interface RoomFile {
    */
   figureLight?: FigureLight;
   /**
+   * THE ROOM'S LIGHT ON ITS FIGURES, BY STATE (errata 239; Tyler, 2026-11-09, on the tent's dark not reaching Thad:
+   * "Fix all the things that are rough"). A room whose picture changes with the story (`plateWhen`) changes its
+   * figures' light with it: the first entry whose condition holds is the room's grade while it holds, in place of
+   * `figureLight`; none holding, `figureLight` is, as before. Each entry is a whole grade and names its own figures,
+   * so a figure whose sheet is already painted for the state (a `spriteWhen` sheet) is simply not named.
+   * Renderer.roomFigureLight resolves it, and tools/check-figure-light.mjs measures each state.
+   */
+  figureLightWhen?: { when: Condition; light: FigureLight; note?: string }[];
+  /**
+   * THE PLAYER IS NOT DRAWN, AND DOES NOT WALK, WHILE THIS HOLDS (errata 239). He is somewhere the room's picture
+   * cannot show him: under a table's cloth, with no art of him there. He stays where he stood when it began, so he is
+   * standing there again when it ends. While it holds a click does not walk him or take him through a door; a verb on
+   * a subject is answered from where he is (GameState.playerHidden, engine/core/Standing.ts hiddenClick). `actor:
+   * 'hidden'` is the whole-room form, for a timeline room; this is the form for a state of an ordinary one.
+   */
+  actorHiddenWhen?: { when: Condition; note?: string };
+  /**
    * FURNITURE A PERSON CAN STAND IN FRONT OF OR BEHIND. Tyler, 2026-11-01:
    * a whiskey barrel beside Deke so he is not standing in an empty floor. A
    * thing painted into the plate is always behind Thad; a prop is drawn in
@@ -2174,7 +2191,7 @@ export interface DialogueNode {
    * is spoken line by line on arrival, by the speaker each line names, and
    * the list opens when it is over. `prompt` remains the caption.
    */
-  opening?: { speaker: string; line: string }[];
+  opening?: { speaker: string; line: string; direction?: boolean }[];
   /**
    * The flag that records this node's opening has been played, when it is
    * played on the first conversation only (doc 57 B4). Set by the runner when

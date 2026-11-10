@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "ozymandias_tent",
  "roomWidth": 1920,
- "branch": "scenes-bc-art",
- "commit": "1be8e8aa18909081affdebb5e6609d5b972de5f6",
+ "branch": "seance-polish",
+ "commit": "ec9c25f076f2a684a07e2b55c05ead6069b79c3b",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -44,7 +44,7 @@
    ],
    "reportedHeight": 449,
    "expected": 449,
-   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     1227,
     307,
@@ -52,8 +52,8 @@
     496
    ],
    "order": 0,
-   "renderedHeight": 449,
-   "renderedBottom": 755,
+   "renderedHeight": 450,
+   "renderedBottom": 756,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
   {
@@ -81,7 +81,7 @@
    ],
    "reportedHeight": 518,
    "expected": 518,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
    "bounds": [
     775,
     339,
@@ -89,8 +89,8 @@
     572
    ],
    "order": 0,
-   "renderedHeight": 518,
-   "renderedBottom": 856,
+   "renderedHeight": 519,
+   "renderedBottom": 857,
    "file": "raw-captures-ignored/panel-c-mud_near-near.png"
   }
  ],
@@ -118,7 +118,7 @@
     "height": 510,
     "bottom": 811,
     "right": 1398,
-    "changed": 136602
+    "changed": 137351
    },
    "props": []
   }
@@ -127,7 +127,7 @@
   {
    "panel": "B",
    "room": "ozymandias_tent",
-   "clock": 10.0039,
+   "clock": 10.3064,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -341,15 +341,15 @@
    "controlWrites": [
     "enter(ozymandias_tent)"
    ],
-   "capturedAt": "2026-11-09T23:51:24.891Z",
+   "capturedAt": "2026-11-10T00:33:35.823Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "28bd87bd1225a354475fc03ac9c0a59cdca27b1482073da878cd3010143b89ce"
+   "hash": "e474d6e37cd022b4cbcb73b71e4af87bacfa849362146dc5745a57a9d10cac2b"
   },
   {
    "panel": "A",
    "room": "ozymandias_tent",
-   "clock": 10.8873,
+   "clock": 11.223,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -559,15 +559,15 @@
     "enter(ozymandias_tent)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T23:51:25.797Z",
+   "capturedAt": "2026-11-10T00:33:36.735Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "05b1ca3f9ee7917de22b59a5b6133c44fcf72a6025c0fddeaac8e2da365e244d"
+   "hash": "bd27b29c0f890b7021dfd102cd9f85f6be12218e8856b7b7e01115b0b910d4db"
   },
   {
    "panel": "D",
    "room": "ozymandias_tent",
-   "clock": 21.6368,
+   "clock": 22.3059,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -737,20 +737,15 @@
      "height": 479,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-03.png",
-     "bounds": [
-      186,
-      321,
-      507,
-      529
-     ],
-     "order": 0,
+     "from": null,
+     "bounds": null,
+     "order": -1,
      "clipLevel": 0,
      "fallback": false
     }
    },
    "says": "thad",
-   "options": 5,
+   "options": 0,
    "assets": [
     {
      "key": "bg:ozymandias_tent",
@@ -792,10 +787,10 @@
     "cast(true)",
     "bystanders(true)"
    ],
-   "capturedAt": "2026-11-09T23:51:36.525Z",
-   "intent": "principal changed state: USE THE SÉANCE TABLE in the dark (doc 111): T_UNDER_TABLE, and THE SÉANCE begins. Visible consequence: his direction going under the cloth over the dark tent, SEA_E1 offered beneath. The rest of THE SÉANCE is queued behind the open conversation and the route cannot read it on (errata 238 reports it); Frame writing as the table turns is held by tests/scenes-bc-art.test.ts.",
+   "capturedAt": "2026-11-10T00:33:47.843Z",
+   "intent": "principal changed state: USE THE SÉANCE TABLE in the dark (doc 111): T_UNDER_TABLE. Visible consequence: his direction going under the cloth over the dark tent, Thad no longer drawn (the tent's actorHiddenWhen), and no list of options under the line: SEA_E1 is owed until the lines and THE SÉANCE have been read (errata 239).",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "e83126a91e805b0cad594b0c29eead8f181491715797ad5168c986ab70d16563",
+   "hash": "2e930e1745a4482bb52d5c1ff69f162a9e5f72b034624d55dec8719717e332f4",
    "changedBy": "flags"
   }
  ],
@@ -826,11 +821,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T23:51:36.525Z",
+ "at": "2026-11-10T00:33:47.843Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 230406,
+  "bytes": 217528,
   "panels": 5,
   "scale": 0.5
  }

@@ -34,6 +34,11 @@ export interface InteractionResult {
   arrives?: boolean;
   pause?: number;
   enteredDialogue: boolean;
+  /**
+   * THE TREE THIS RESPONSE OPENS, ONCE ITS LINES HAVE BEEN READ (errata 239). Absent when the tree is already open:
+   * a response that says nothing of its own opens its tree at once, as before. See GameState.owesTree.
+   */
+  opens?: string;
   changedRoom: boolean;
   /** Which written line `say` was (ResolvedAction.variant), for the sounds doc 45 ties to one. */
   variant?: number;
@@ -156,6 +161,7 @@ export class Interaction {
       ...(this.resolution.goesTo ? { goesTo: this.resolution.goesTo } : {}),
       ...(this.resolution.arrives ? { arrives: true, ...(this.resolution.pause ? { pause: this.resolution.pause } : {}) } : {}),
       enteredDialogue: this.resolution.dialogue !== null,
+      ...(this.resolution.dialogue !== null && this.state.owesTree(this.resolution) ? { opens: this.resolution.dialogue } : {}),
       changedRoom: this.resolution.destination !== null,
       ...(this.resolution.action.variant ? { variant: this.resolution.action.variant } : {}),
       room: this.resolution.room,
@@ -1110,10 +1116,48 @@ export class GameState {
 
     // A response that opens a tree hands control over AFTER its own line and
     // its own writes, never during them.
-    if (resolution.dialogue) this.dialogue.start(resolution.dialogue);
+    // (Errata 239: where there is something to read first, the tree is OWED, and whoever shows the lines opens it
+    // when the last has been read. See owesTree.)
+    if (resolution.dialogue && !this.owesTree(resolution)) this.dialogue.start(resolution.dialogue);
     // One save, at the stable state, carrying the whole result. Doc 31
     // section 5.1's settle step -- "persist at the stable state".
     if (resolution.destination) this.autosave();
+  }
+
+  /**
+   * WHETHER A RESPONSE'S TREE WAITS FOR ITS LINES (errata 239; Tyler, 2026-11-09: "Fix all the things that are rough").
+   *
+   * "A response that opens a tree hands control over AFTER its own line" has been the rule since doc 34, and the tree
+   * was started in the same breath as the line was handed over: the séance's ten lines were queued and SEA_E1's list
+   * was already up underneath them (errata 238 D). The list is now owed, not open, while there is something to read
+   * before it:
+   *
+   *   - the response's own words (`say`, `then`), or
+   *   - an opening the tree's node says once and has not yet said (`openingOnce`): a scene, heard before its choice.
+   *
+   * The result names the tree (`InteractionResult.opens`); the scene says the lines, then the node's opening, and
+   * starts the tree when the last is read, as it does for a greeting (GameScene.pendingTree). A response with nothing
+   * to say opens its tree at once, as before.
+   */
+  owesTree(resolution: Pick<InteractionResolution, 'dialogue' | 'say' | 'then'>): boolean {
+    if (!resolution.dialogue) return false;
+    if (resolution.say !== null || (resolution.then?.length ?? 0) > 0) return true;
+    return this.dialogue.opensOnce(resolution.dialogue);
+  }
+
+  /**
+   * THE PLAYER IS HIDDEN (RoomFile.actor 'hidden', or actorHiddenWhen while its condition holds; errata 239): not
+   * drawn, and not walked. See engine/core/Standing.ts hiddenClick.
+   */
+  get playerHidden(): boolean {
+    const room = this.room;
+    return room.actor === 'hidden' || (room.actorHiddenWhen !== undefined && this.flags.test(room.actorHiddenWhen.when));
+  }
+
+  /** He is hidden by a state of the room, and stays where he is until it ends (RoomFile.actorHiddenWhen). */
+  get playerStays(): boolean {
+    const hidden = this.room.actorHiddenWhen;
+    return hidden !== undefined && this.flags.test(hidden.when);
   }
 
   /**

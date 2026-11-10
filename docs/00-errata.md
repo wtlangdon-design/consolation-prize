@@ -6517,3 +6517,78 @@ Errata 237 built doc 111's séance and estate sale with stand-ins until `act3-se
 - **The crystal ball's sliver** shows by her hand (see 238 A).
 
 Lesson: none -- wiring delivered art into built scenes. `tests/scenes-bc-art.test.ts` fails if the séance figure, the hen or the raccoon's emerging sheet is removed or shows in the wrong state. It also fails if her standing figure shows during the séance, the group stops covering the plate's table, a subject leaves what is drawn, a stand is in front of the group, the floor runs under it, the lamp or the plate is wrong for the flags, the group's acted turn is lost, the coat stops holding his clip, the raccoon's size drifts from the sitting one's, the grade drops a sheet, or an icon goes pending again.
+
+
+# 239 · THE SÉANCE'S ROUGH EDGES, FIXED — TYLER, 2026-11-09 ("Fix all the things that are rough")
+
+Errata 238 D listed what was still rough in Room 16's séance after its art was wired. Tyler, shown the list (2026-11-09): "Fix all the things that are rough". Four things are fixed here. No line was written and no image operation was spent: every line is still doc 111's, extracted.
+
+## 239 A · The tent's dark reaches Thad
+
+- **What was wrong.** With the lamp turned down (`T_SEANCE_DARK`) the plate and the group went dark, and Thad stood in his own even light.
+- **The mechanism.** A room's grade for its figures can now change with a state: `RoomFile.figureLightWhen`, a list of `{ when, light }`. The first entry whose condition holds is the room's grade while it holds, in place of `figureLight`; with none holding, `figureLight` is, as before. Each entry is a whole grade and names its own figures (`Renderer.roomFigureLight`). Nothing in the engine knows the tent.
+- **The tent's entry** (`reference/room-16/annotation.json`) names Thad only, while the séance is on and dark: a multiply of 0.40, 0.36, 0.29. That is what the group's dark sheet is against its lit one, on the sitters away from the candle. The group is not named, because its dark sheet is painted dark already.
+- **The check understands the state** (`tools/check-figure-light.mjs`):
+  - A sheet drawn while a condition holds is measured in the light of that state, for the figure and for Thad beside it. The dark group is 0.75 of Thad dark, and 0.74 of him lit.
+  - A room that goes dark takes Thad with it. Where a plate chosen by state is under 0.8 of the room's own plate in mean luminance, Thad as drawn in that state must be at least halfway down with it. The tent's dark plate is 0.44 of its own, and Thad is 0.36 of himself. Without the entry he is 1.00 and the check fails.
+
+## 239 B · Under the table he is not drawn, and does not walk
+
+- **What was wrong.** Under the cloth (`T_UNDER_TABLE`) he was still drawn standing at the table's end, and after SEA_E1's way out he could be walked about the tent while the story had him under the table.
+- **The mechanism.** `RoomFile.actorHiddenWhen`, a condition on the room. While it holds:
+  - he is not drawn (`GameState.playerHidden`, read by the renderer where `actor: 'hidden'` already was);
+  - a click on the floor, a walk to anything, a door, a person to walk up to and the map do nothing (`engine/core/Standing.ts hiddenClick`, `GameState.playerStays`);
+  - a verb on a subject is answered from where he is, with no walk to it. That keeps the state leavable.
+- **There is no crawl art.** He walks to the table's end (x 440, y 800), the direction is printed as before (doc 95 row 112 stays B), and he is then not drawn. Nothing moves him while he is hidden, so he is standing in the same place when it ends.
+- **The tent's condition** is `T_UNDER_TABLE` and `T_SEANCE_ON` together, so he is never hidden without the table that lets him out.
+- **Both ways out bring him back.**
+  - SEA_E1's fourth option clears `T_UNDER_TABLE` as it always did, after LEAVING THE TABLE's lines ("The lamp comes up.").
+  - SEA_E1's universal exit now clears it too. This changes one decision of errata 237, which kept him under the cloth after the way out; he could not stay there once he is not drawn there.
+- **Taken up again.** USE THE SÉANCE TABLE after the way out takes him under again and opens SEA_E1 with nothing said, as errata 237 decided. The séance is not replayed (239 C).
+- **No dead end.**
+  - Under the cloth with no conversation open can only be a save made in the moment he went under. USE THE SÉANCE TABLE answers from where he is and opens SEA_E1, with THE SÉANCE first if it was not heard through.
+  - Walking into the tent clears `T_UNDER_TABLE` (`onEnter.setWhen`). A save made before this errata could have him out of the tent with the flag still set.
+  - The traversal is unchanged: 53/53 from a fresh save, the win reachable, 0 dead ends.
+- **Saves.** No migration, so `SAVE_VERSION` is unchanged.
+
+## 239 C · The séance is heard through before the list is offered
+
+- **What was wrong.** USE THE SÉANCE TABLE in the dark queued THE SÉANCE's lines and opened SEA_E1 at once, so the options showed under the first line and each further line came only on a click (errata 238 D).
+- **The cause was the engine's, not the tent's.** A response that opens a tree started the tree in the same step as it handed over its own line.
+- **The rule now** (`GameState.owesTree`). A response's tree is owed, not open, while there is something to read before it: the response's own words, or an opening the tree's node says once and has not yet said. The result names the tree (`InteractionResult.opens`). The scene holds it as it holds a greeting: the conversation has the interface, each line is read as a conversation's line is, and the list opens when the last comes down. A response with nothing to say opens its tree at once, as before.
+- **THE SÉANCE is SEA_E1's opening**, said once (`openingOnce`, the new flag `T_SEANCE_HEARD`). It was the table's own answer (`thenBlock`). `tools/extract-content.mjs` reads it from the same block of doc 111, word for word; a node's opening may now carry a direction ("A silence is held.").
+- **In order:** his direction going under, "Ten feet, and now twelve.", then her three calls and the silences, the rod, "busy", Frame's line, and then the list.
+- **`tools/check-flag-order.mjs`** now counts a node's `openingOnce` as a writer. Nothing had gated on one before.
+- **The harness room** (`harness_a`) has the only other response with words and a tree. It follows the same rule, and `tests/save-load.test.ts` opens its tree after the line.
+
+## 239 D · The crystal ball's sliver
+
+- **What was wrong.** About 15 px of the plate's crystal ball showed between the medium's right hand, the rod and her sleeve (x 928-942, y 466-480).
+- **Moving the group does not cover it.** Every offset within 24 px that hides the sliver uncovers more of the ball, the box or the teapot somewhere else, measured on every frame of both sheets.
+- **So the tent has a plate for the séance**, `art/backgrounds/room-16-tent-seance.png`, chosen by state (`plateWhen`) while the séance is on. It is the shipping plate with one 20 px square (`reference/room-16/seance-plate.json`) filled with the plate's own curtain from 26 px to its left. `tools/art/room16-seance-plate.py` writes it; nothing is drawn.
+- **The dark plate** is that plate dimmed, as before (`tools/art/room16-seance-dark.py`, x0.44), so the sliver is gone in both states.
+- **The shipping plate is not edited**, and is the tent's plate again when the séance is over.
+- **The proofs' panels A and C show the patch** as a notch in the ball's left edge. Those panels suppress the cast, so the group is not over it. In play the séance plate is shown only while the group is drawn (both are on `T_SEANCE_ON`).
+
+## 239 E · The checks and the proofs
+
+- **`tests/seance-polish.test.ts`**, eleven tests. Each was run against its defect put back and failed:
+  - the tent's `figureLightWhen` removed (Thad at full brightness in the dark);
+  - the tent's `actorHiddenWhen` removed, and SEA_E1's way out no longer clearing `T_UNDER_TABLE`;
+  - `GameState.applyInteraction` starting the tree at once, and THE SÉANCE moved back out of the opening;
+  - the lit séance drawn over the shipping plate.
+  - It also saves and loads in each state: lit, dark, under the table with the list up, out by the way out, and after the dead have spoken.
+- **`tests/scenes-bc.test.ts` and `tests/scenes-bc-art.test.ts`** changed with the design: the way out brings him out, the séance is the node's opening, and the lit séance has its own plate. `proofs/check-friction.json` records each.
+- **The walkthrough** is unchanged: 175 steps.
+- **The proofs** (`tools/gauntlet/proof.mjs --spec`), from a clean tree:
+  - `renders/proofs/seance-lit/`: the lamp put out by asking her.
+  - `renders/proofs/seance-dark/`: Thad dark in the dark tent, then going under.
+  - `renders/proofs/seance-under/` (new, `proofs/spec/seance-under.json`): THE SÉANCE read through, then SEA_E1's list, and Thad not drawn.
+
+## 239 F · For Tyler
+
+- **Thad's grade in the dark is a number to look at**, not a verdict. He takes the sitters' own darkening. If he reads too blue or too light beside them, the three numbers in the tent's `figureLightWhen` are the place to change it.
+- **His words still come from where he stood**, over the table's left end, while he is under it.
+- **Left alone, as asked:** the survey puzzle (A7) is unavailable during the séance, and MR. PRATT'S TWO DOLLARS AND SIXTY CENTS has no icon yet.
+
+Lesson: `tests/seance-polish.test.ts` (each test proved by putting its defect back), and `tools/check-figure-light.mjs`, which now fails a room that goes dark by state and leaves Thad lit.

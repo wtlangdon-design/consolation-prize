@@ -146,9 +146,11 @@ test('scene B: with the lamp lit the table is refused; put out, he goes under, h
   const under = player.verb(table, 'USE');
   assert.equal(state.flags.get('T_UNDER_TABLE'), true, 'under the cloth');
   for (const line of said(under)) assert.ok(written(line), `"${line}" is doc 111's`);
-  assert.ok(said(under).length >= 8, 'and the séance is heard from under it');
   assert.equal(state.dialogue.isActive, true);
   assert.equal(node(state), 'SEA_E1');
+  // The séance is heard from under it: the node's opening, said before the list (errata 239; tests/seance-polish.test.ts).
+  const heard = content.dialogue.get(state.dialogue.activeTreeId!)!.nodes.SEA_E1!.opening ?? [];
+  assert.ok(heard.length >= 8 && heard.every((one) => written(one.line)), 'and the séance is heard from under it');
   // A comic try answers, and answers again differently; the try that empties two chairs goes; the dead speak.
   const seance = content.dialogue.get(state.dialogue.activeTreeId!)!;
   const options = seance.nodes.SEA_E1!.options;
@@ -177,7 +179,7 @@ test('scene B: with the lamp lit the table is refused; put out, he goes under, h
   assert.notEqual(node(state), 'OZY_E1');
 });
 
-test('scene B: under the table, the way out keeps him there, and the table takes him back to the same choice', () => {
+test('scene B: under the table, the way out brings him out from under it, and the table takes him back to the same choice', () => {
   const { state, player } = inFixture(DARK);
   const table = seanceSubjects(state).find((id) => state.room.hotspots.find((one) => one.id === id)!.responses?.USE)!;
   player.verb(table, 'USE');
@@ -187,8 +189,10 @@ test('scene B: under the table, the way out keeps him there, and the table takes
   assert.ok(away, 'the conversation has a way out');
   player.choose(away.option.id);
   assert.equal(state.dialogue.isActive, false);
-  assert.equal(state.flags.get('T_UNDER_TABLE'), true, 'still under the cloth');
+  // Errata 239: he is not drawn under the cloth, so the way out brings him out from under it.
+  assert.equal(state.flags.get('T_UNDER_TABLE'), false, 'out from under the cloth');
   const back = player.verb(table, 'USE');
+  assert.equal(state.flags.get('T_UNDER_TABLE'), true, 'and under it again');
   assert.equal(back.say, null, 'nothing said: the séance is not heard twice');
   assert.equal(node(state), 'SEA_E1', 'the voice of the dead again');
   const spoken = state.dialogue.presentOptions().find((one) => one.option.set?.T_MOTT_SPOKE);

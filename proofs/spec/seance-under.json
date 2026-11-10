@@ -1,0 +1,43 @@
+{
+ "schema": 1,
+ "room": "ozymandias_tent",
+ "note": "ROOM 16 WITH THAD UNDER THE SÉANCE TABLE (doc 111 B; errata 239), proved apart from the room's main spec (node tools/gauntlet/proof.mjs ozymandias_tent --spec proofs/spec/seance-under.json --out renders/proofs/seance-under). It starts from fixture r16-seance-b, the lamp already down, and says so. The principal change is the whole of going under: USE THE SÉANCE TABLE, his two lines, THE SÉANCE read through line by line, and only then SEA_E1's list. Panel D is taken with the list up: the tent dark, the group in its dark sheet, and Thad not drawn, because he is under the cloth.",
+ "fixture": "r16-seance-b",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "USE THE SÉANCE TABLE in the dark (doc 111): T_UNDER_TABLE, THE SÉANCE heard, then SEA_E1 offered. Visible consequence: Thad is not drawn (the tent's actorHiddenWhen), and the list is up only after every line of THE SÉANCE has been read (T_SEANCE_HEARD is written when the tree opens). The route reads the lines on by clicking, as a player does; a list already up under them would have ended the wait at once.",
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "USE"
+   },
+   {
+    "do": "click",
+    "on": "seance_table",
+    "why": "under the cloth"
+   },
+   {
+    "do": "waitFor",
+    "flag": "T_UNDER_TABLE",
+    "upTo": 60,
+    "why": "under the cloth"
+   },
+   {
+    "do": "waitFor",
+    "flag": "T_SEANCE_HEARD",
+    "upTo": 120,
+    "why": "THE SÉANCE read through: the tree opens only then"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 30,
+    "why": "SEA_E1's list, after the scene"
+   },
+   {
+    "do": "wait",
+    "seconds": 1
+   }
+  ]
+ }
+}

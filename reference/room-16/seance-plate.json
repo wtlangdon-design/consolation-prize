@@ -1,0 +1,5 @@
+{
+ "note": "Errata 239: the one rectangle in which the tent's séance plate (art/backgrounds/room-16-tent-seance.png) differs from the shipping plate, and how it is filled (tools/art/room16-seance-plate.py). The gap between the medium's right hand, the rod and her sleeve is x 928-942, y 466-480 in every frame of both of the group's sheets; the patch is that gap with a margin, each pixel the shipping plate's own curtain `shift` columns to its left. Read by the script and by tests/seance-polish.test.ts.",
+ "patch": [926, 464, 20, 20],
+ "shift": 26
+}

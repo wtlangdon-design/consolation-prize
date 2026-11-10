@@ -967,6 +967,17 @@
           },
           {
             "when": {
+              "T_SEANCE_DARK": true,
+              "T_SEANCE_HEARD": true,
+              "T_UNDER_TABLE": false
+            },
+            "dialogue": "SEANCE",
+            "set": {
+              "T_UNDER_TABLE": true
+            }
+          },
+          {
+            "when": {
               "T_SEANCE_DARK": false
             },
             "say": "Not in this light. Five people would see a grown man go under a table, and one of them would print it.",
@@ -975,52 +986,13 @@
           {
             "when": {
               "T_SEANCE_DARK": true,
-              "T_UNDER_TABLE": false
+              "T_UNDER_TABLE": false,
+              "T_SEANCE_HEARD": false
             },
             "say": "Thad goes down on his hands and knees and under the cloth.",
             "direction": true,
             "then": [
-              "Ten feet, and now twelve.",
-              {
-                "speaker": "ozymandia",
-                "line": "We call upon the spirit of Obadiah Mott."
-              },
-              {
-                "speaker": "ozymandia",
-                "line": "A silence is held.",
-                "direction": true
-              },
-              {
-                "speaker": "ozymandia",
-                "line": "Obadiah Mott. The town is waiting."
-              },
-              {
-                "speaker": "ozymandia",
-                "line": "A silence is held.",
-                "direction": true
-              },
-              {
-                "speaker": "ozymandia",
-                "line": "Obadiah Mott — two dollars a head —"
-              },
-              {
-                "speaker": "ozymandia",
-                "line": "A silence is held.",
-                "direction": true
-              },
-              {
-                "speaker": "ozymandia",
-                "line": "She consults the rod.",
-                "direction": true
-              },
-              {
-                "speaker": "ozymandia",
-                "line": "The spirits say he is… busy."
-              },
-              {
-                "speaker": "seance_frame",
-                "line": "BUSY? Twelve years dead and BUSY?"
-              }
+              "Ten feet, and now twelve."
             ],
             "set": {
               "T_UNDER_TABLE": true
@@ -1619,6 +1591,14 @@
         "set": {
           "T_SEANCE_ON": false
         }
+      },
+      {
+        "when": {
+          "T_UNDER_TABLE": true
+        },
+        "set": {
+          "T_UNDER_TABLE": false
+        }
       }
     ],
     "sayWhen": {
@@ -1632,7 +1612,8 @@
     ]
   },
   "plates": {
-    "seance_dark": "art/backgrounds/room-16-tent-seance-dark.png"
+    "seance_dark": "art/backgrounds/room-16-tent-seance-dark.png",
+    "seance": "art/backgrounds/room-16-tent-seance.png"
   },
   "plateWhen": [
     {
@@ -1641,6 +1622,12 @@
         "T_SEANCE_DARK": true
       },
       "plate": "seance_dark"
+    },
+    {
+      "when": {
+        "T_SEANCE_ON": true
+      },
+      "plate": "seance"
     }
   ],
   "props": [
@@ -1678,5 +1665,32 @@
       },
       "note": "Errata 238: the same lamp turned down to a bead (doc 111, OZY_E1 option 2), over the dimmed plate's lamp."
     }
-  ]
+  ],
+  "figureLightWhen": [
+    {
+      "when": {
+        "T_SEANCE_ON": true,
+        "T_SEANCE_DARK": true
+      },
+      "light": {
+        "figures": [
+          "thad"
+        ],
+        "light": [
+          0.4,
+          0.36,
+          0.29
+        ],
+        "note": "The tent's dark on Thad. The group's dark sheet against its lit one, on the sitters away from the candle (the woman in the bonnet, whom he stands beside, and the bald man): red x0.36-0.39, green x0.32-0.35, blue x0.25-0.30. He takes the same, as a multiply, so he is as far below his lit self as they are below theirs. The group is not named: its dark sheet is painted dark already (content/ambient/seance-group.json spriteWhen)."
+      },
+      "note": "Errata 239 (Tyler, 2026-11-09: \"Fix all the things that are rough\"): with the lamp turned down the plate and the group went dark and Thad stood in his own even light (errata 238 D). RoomFile.figureLightWhen grades the figures it names while its condition holds; tools/check-figure-light.mjs holds that a room whose plate goes dark by state takes Thad with it."
+    }
+  ],
+  "actorHiddenWhen": {
+    "when": {
+      "T_UNDER_TABLE": true,
+      "T_SEANCE_ON": true
+    },
+    "note": "Errata 239: under the séance table's cloth he is not drawn (doc 111: \"heard from under the table; Thad sees only feet\"; there is no crawl art) and is not walked about. He went under at the table's end (hotspotWalkTo seance_table) and is standing there again when it ends: SEA_E1's way out and its fourth option both clear T_UNDER_TABLE. Only while the séance is on, so the table that lets him out is always there."
+  }
 }

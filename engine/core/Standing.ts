@@ -48,3 +48,21 @@ export function clearOfFigures(
   }
   return at;
 }
+
+/**
+ * A CLICK WHILE THE PLAYER IS HIDDEN (RoomFile.actorHiddenWhen; errata 239). He is under a table's cloth and there is
+ * no art of him there, so he is not drawn; and a man nobody can see must not be walked about the room, or he would
+ * reappear somewhere he never went. So while it holds:
+ *
+ *   - a click on the floor, or a walk to anything, does nothing (`stay`);
+ *   - a door is not gone through (`stay`): he comes out from under the cloth first;
+ *   - a person is not walked up to and talked to (`stay`);
+ *   - a verb on a subject is answered from where he is, with no walk to it (`answer`). That is what keeps the state
+ *     leavable: the subject that put him there answers, and its conversation lets him out.
+ *
+ * Phaser-free and named, so the rule has a test (tests/seance-polish.test.ts), as `playfieldClick` has.
+ */
+export function hiddenClick(click: { target: boolean; walk: boolean; transit: boolean; person: boolean }): 'stay' | 'answer' {
+  if (click.person || !click.target || click.walk || click.transit) return 'stay';
+  return 'answer';
+}

@@ -4,7 +4,7 @@ OZY_E1 option 2: "She turns the lamp down to a bead." The tent has no plate in t
 handback (reference/act3-seance/handback.md) checked its dark group against "the plate simply dimmed"
 (renders/room-16-seance-table-dark-check.png) and left how the room darkens to the wiring. The engine's way for a
 room's picture to change with the story is a whole-frame plate chosen by state (RoomFile.plates and plateWhen, as Room
-31's night and Room 19's Act IV morning are), so this writes that plate: the shipping plate times DIM, every pixel, the
+31's night and Room 19's Act IV morning are), so this writes that plate: the tent's séance plate (the shipping plate with one sliver filled, errata 239) times DIM, every pixel, the
 same uniform dimming the handback's check used (0.44 measured on its chart, wall, floor and stove). No image operation,
 no pixel drawn: the plate darkened, nothing added. The lamp turned down to a bead is its own prop over the dimmed lamp
 (art/props/room-16-seance-lamp.png), and the candle's light is in the dark group's own sheet.
@@ -18,7 +18,9 @@ import numpy as np
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PLATE = os.path.join(ROOT, 'art/backgrounds/room-16-tent.png')
+# Errata 239: from the tent's seance plate (tools/art/room16-seance-plate.py), which is the shipping plate with the
+# crystal ball's sliver behind the medium's hand filled with the plate's own curtain. Run that first.
+PLATE = os.path.join(ROOT, 'art/backgrounds/room-16-tent-seance.png')
 OUT = os.path.join(ROOT, 'art/backgrounds/room-16-tent-seance-dark.png')
 DIM = 0.44
 

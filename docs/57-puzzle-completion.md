@@ -516,7 +516,8 @@ Asking anyone else to be executor is answered by the interest rule:
 | `T_SEANCE_ON` | the Lane and Room 16, on the way in, in Act III until `T_MOTT_SPOKE` *(doc 111; errata 237)* | the séance, its sign, OZY_E1 |
 | `T_SEANCE_ARRIVED` | Room 16's ARRIVING, once *(doc 111)* | — |
 | `T_SEANCE_DARK` | OZY_E1 2 *(doc 111)* | THE SÉANCE TABLE · USE |
-| `T_UNDER_TABLE` | THE SÉANCE TABLE · USE, in the dark *(doc 111)* | SEA_E1, opened again from the table |
+| `T_UNDER_TABLE` | THE SÉANCE TABLE · USE, in the dark *(doc 111)*; cleared by SEA_E1 4, by SEA_E1's way out and on the way into Room 16 *(errata 239)* | Thad not drawn and not walked in Room 16 while the séance is on; SEA_E1, opened again from the table |
+| `T_SEANCE_HEARD` | SEA_E1's opening, THE SÉANCE, once *(doc 111; errata 239)* | THE SÉANCE TABLE · USE: under again with nothing said |
 | `T_MOTT_SPOKE` | SEA_E1 4 *(doc 111)* | SUM_E1 1‴ (E1) |
 | `T_RACCOON_WANTED` | PRA_E3 1 *(doc 111)* | THE RACCOON and THE HOLE at Prosperity, the fork and the hen there |
 | `T_RACCOON_BACK_SEEN` | Prosperity's ARRIVING, once *(doc 111)* | — |

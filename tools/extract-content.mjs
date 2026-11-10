@@ -6509,9 +6509,24 @@ function seanceTree() {
   // The séance is over: the lamp comes up, the town goes home, and he comes out from under the table.
   spoken.set = { ...spoken.set, T_UNDER_TABLE: false, T_SEANCE_ON: false };
   spoken.ends = true;
-  // Doc 04's universal exit, "available at every node": a tree is always leavable (errata 57). Leaving keeps him under the
-  // cloth (T_UNDER_TABLE), and USE THE SÉANCE TABLE opens SEA_E1 again (reference/room-16/annotation.json).
-  options.push({ id: 'seancex', tag: 'EXIT', text: POOL[0], universal: true, ends: true });
+  // Doc 04's universal exit, "available at every node": a tree is always leavable (errata 57). Leaving brings him out
+  // from under the cloth (errata 239: he is not drawn while he is under it, and must not be left there), and USE THE
+  // SÉANCE TABLE takes him under and opens SEA_E1 again (reference/room-16/annotation.json).
+  options.push({ id: 'seancex', tag: 'EXIT', text: POOL[0], universal: true, ends: true, set: { T_UNDER_TABLE: false } });
+  // THE SÉANCE, heard from under the table, is the node's opening (errata 239): said through before the list is
+  // offered, and once (T_SEANCE_HEARD). It was the table's own answer, queued while the list was already up (errata
+  // 238 D). A line that is only a direction is the last named speaker's ("*(A silence is held.)*" after her call).
+  const opening = [];
+  let last = SPEAKER;
+  for (const row of scenesBCBlock('**THE SÉANCE**')) {
+    if (!row.startsWith('> ')) continue;
+    const said = scenesBCWords(row.slice(2), 'thad', speakers).first;
+    const named = /^\*\*[A-Z][A-Z.' -]*:\*\*/.test(row.slice(2));
+    const quotes = /"/.test(row.replace(/\*\([^)]*\)\*/g, ''));
+    for (const word of said) opening.push(!named && !quotes && word.direction ? { ...word, speaker: last } : word);
+    if (named) last = said.at(-1).speaker;
+  }
+  if (opening.length < 5 || opening.some((one) => one.speaker === 'thad')) throw new Error('doc 111: THE SÉANCE does not read as her calls and his line');
   return write('content/dialogue/seance.json', {
     aftermathAuthored: true,
     schema: 1,
@@ -6519,15 +6534,16 @@ function seanceTree() {
     speaker: SPEAKER,
     note: 'EXTRACTED from docs/111-scenes-b-and-c.md (THE LINES, B: SEA_E1 and LEAVING THE TABLE) by tools/extract-content.mjs '
       + '(errata 237). Do not edit: change doc 111 and re-run. Opened by USE THE SÉANCE TABLE in the dark (Room 16), after THE '
-      + 'SÉANCE is heard from under it. Thad speaks the options as the voice of the dead; FRAME is `seance_frame`, his voice at '
+      + 'SÉANCE is heard from under it: the node\'s opening, said once (T_SEANCE_HEARD; errata 239). Thad speaks the options as the voice of the dead; FRAME is `seance_frame`, his voice at '
       + 'the table (the tent\'s `voices`), not the Clarion\'s figure. Option 4 is always offered, so the séance can always be '
       + 'finished: it writes T_MOTT_SPOKE, ends the séance (T_SEANCE_ON, T_UNDER_TABLE) and plays LEAVING THE TABLE. Doc 04\'s '
-      + 'universal exit leaves him under the cloth, and the table opens SEA_E1 again.',
+      + 'universal exit brings him out from under the cloth (errata 239), and the table takes him back to SEA_E1.',
     entries: [],
     start: 'SEA_E1',
     nodes: { SEA_E1: { id: 'SEA_E1', noPrompt: true,
-      exceptionReason: 'Doc 111 SEA_E1: the séance before it (THE SÉANCE, heard from under the table) is said as he goes under, '
-        + 'by the table\'s USE; the node opens on his choice of what the dead will say.', options } },
+      exceptionReason: 'Doc 111 SEA_E1: the séance before it (THE SÉANCE, heard from under the table) is its opening, said '
+        + 'once as he goes under; the list has no caption, and opens on his choice of what the dead will say.',
+      opening, openingOnce: 'T_SEANCE_HEARD', options } },
   });
 }
 

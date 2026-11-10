@@ -40,6 +40,14 @@ function collectWrites(content) {
   for (const { option } of allDialogueOptions(content)) {
     record(option.set, option.add);
   }
+  // A NODE'S OPENING IS A WRITER TOO (errata 239): the runner sets `openingOnce` when the tree opens on the node, and
+  // performs `onOpen.set` with it. Nothing gated on one until the tent's table asked whether the séance had been heard.
+  for (const { data } of content.dialogue) {
+    for (const node of Object.values(data.nodes ?? {})) {
+      if (node.openingOnce) record({ [node.openingOnce]: true }, undefined);
+      if (node.openingOnce && node.onOpen?.set) record(node.onOpen.set, undefined);
+    }
+  }
   // A sequence beat is a writer like any other. Doc 17 v3 took the driver's
   // tree away, and with it the only content-side writer for the coach
   // departing and Hob crossing -- both of which Room 1 gates hotspots on. The
