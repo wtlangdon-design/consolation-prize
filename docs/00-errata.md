@@ -6568,6 +6568,7 @@ Errata 238 D listed what was still rough in Room 16's séance after its art was 
 - **So the tent has a plate for the séance**, `art/backgrounds/room-16-tent-seance.png`, chosen by state (`plateWhen`) while the séance is on. It is the shipping plate with one 20 px square (`reference/room-16/seance-plate.json`) filled with the plate's own curtain from 26 px to its left. `tools/art/room16-seance-plate.py` writes it; nothing is drawn.
 - **The dark plate** is that plate dimmed, as before (`tools/art/room16-seance-dark.py`, x0.44), so the sliver is gone in both states.
 - **The shipping plate is not edited**, and is the tent's plate again when the séance is over.
+- **The proofs' panels A and C show the patch** as a notch in the ball's left edge. Those panels suppress the cast, so the group is not over it. In play the séance plate is shown only while the group is drawn (both are on `T_SEANCE_ON`).
 
 ## 239 E · The checks and the proofs
 
