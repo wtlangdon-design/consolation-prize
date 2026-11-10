@@ -1,0 +1,7 @@
+Image 1 is a TEMPLATE: Colonel Fanshawe, a portly, prosperous man in a black frock coat, a brown waistcoat with a watch chain, and a black top hat, EXACTLY as he is drawn in my pixel-art adventure game, three times in a row on magenta, turned toward the LEFT. Image 2 is his whole current sheet, for his face, moustache and clothes. Image 3 is the Reverend and the town's mourners at night on the cemetery hill, for the light. Image 4 is the hero Thad on that hill at night.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other two as the SAME man, KEEPING HIS FIGURE -- the same height, the same head size, the same coat, his feet on the same line and in the same place, still turned toward the LEFT -- at a funeral, wearing BLACK GLOVES:
+2. his top hat OFF, held against his chest in both gloved hands, his grey hair bare, his face solemn;
+3. the hat tucked under one arm, his gold pocket watch taken out on its chain and held up in his other hand, looking down at it.
+
+Night light under the moon, cool, as in Images 3 and 4. The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No glow, no shadows, no ground, no text, no numbers, no border.

@@ -1,0 +1,8 @@
+Image 1 is a sheet from my pixel-art adventure game: Colonel Fanshawe four times on magenta -- standing; behind a funeral wreath of white lilies, pushing it; pushing harder, his hat askew; and the wreath alone. Image 2 shows the wreath row at the size it is in the game, beside the hero Thad, enlarged so it can be seen: the wreath is MUCH SHARPER and busier than Thad -- fine petal detail and crisp contrast that read as a different game.
+
+Repaint Image 1, keeping everything the same -- the same man, the same poses, the same places, the same sizes, the wreath the same size and in the same position in figures 2, 3 and 4 -- except these three things:
+1. THE RIBBON'S LETTERING: the gilt letters on the black ribbon read SINCERELY, in plain capitals, and the ribbon runs on round behind the wreath at the right, so that it is plainly longer than the word, the rest out of sight. No other words anywhere.
+2. In figures 2 and 3 the Colonel STANDS BEHIND the wreath: through the round hole in the middle of the wreath we see his dark coat and waistcoat, not the background. In figure 4, the wreath alone, the hole shows the magenta background.
+3. THE LILIES drawn the way Thad is drawn: flat, soft shading, a few large simple petal shapes, low texture, gentle contrast -- NOT sharper, NOT more detailed than Thad.
+
+The same size of square pixel and dark outline as the Colonel. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No doorway, no glow, no shadows, no ground, no border.
