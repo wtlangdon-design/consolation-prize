@@ -54,4 +54,8 @@ test('every ambient exit sheet is loaded at boot', async () => {
   const exits = [...content.ambient.values()].filter((npc) => npc.exit);
   assert.ok(exits.length > 0, 'at least one character walks out');
   for (const npc of exits) assert.ok(required.has(npc.exit!.sheet), `${npc.id}'s walk ${npc.exit!.sheet} is loaded at boot`);
+  // And a walk IN (errata 253): the press's replay drew nothing while the editor's arrive sheet was never asked for.
+  for (const npc of content.ambient.values()) {
+    if (npc.arrive?.sheet) assert.ok(required.has(npc.arrive.sheet), `${npc.id}'s walk in ${npc.arrive.sheet} is loaded at boot`);
+  }
 });

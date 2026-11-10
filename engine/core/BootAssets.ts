@@ -267,6 +267,9 @@ export function planBoot(bundle: ContentBundle, opening: string = bundle.manifes
     // at the deal's last line and gone the next frame, the thing the walk exists to
     // prevent, because his walk sheet had never been asked for.
     if (npc.exit) required.set(npc.exit.sheet, { key: npc.exit.sheet, path: npc.exit.sheet });
+    // AND HIS WALK IN (AmbientFile.arrive), for the same reason: he is walking the moment his condition holds. Left
+    // off, the press's replay drew nothing where the editor should have been walking (errata 253).
+    if (npc.arrive?.sheet) required.set(npc.arrive.sheet, { key: npc.arrive.sheet, path: npc.arrive.sheet });
     // And the door he goes out by, open: drawn the moment he nears it.
     if (npc.exit?.door) required.set(npc.exit.door.sheet, { key: npc.exit.door.sheet, path: npc.exit.door.sheet });
     // AND HIS LOOP (AmbientFile.loop): a walker is drawn walking from the first
