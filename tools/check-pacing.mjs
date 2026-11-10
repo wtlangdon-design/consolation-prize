@@ -67,6 +67,32 @@ export function check() {
   // an item a handful of times, and this game had none.
   const onItems = steps.filter((step) => step.do === 'use' && items.has(step.on)).length;
   if (onItems < ITEM_ON_ITEM) found.push(`an item is used on another item ${onItems} time(s), not ${ITEM_ON_ITEM}`);
+  // THE MONKEY ISLAND YARDSTICK (doc 116; Tyler, 2026-11-09: "it's all stuff I want done at some point"). Counted, each
+  // against doc 116's target, and listed while it falls short like the rest.
+  const yard = ledger.yardstick;
+  const paper = new Set([...yard.paper, ...yard.money]);
+  const all = readJson('content/manifest.json').items.map((file) => readJson(file).id);
+  for (const id of paper) if (!all.includes(id)) report.fail(`proofs/pacing.json calls "${id}" paper or money and there is no such item`);
+  const objects = all.filter((id) => !paper.has(id)).length;
+  if (objects * 2 < all.length) found.push(`objects are ${objects} of ${all.length} items, not half`);
+  const rooms = readJson('content/manifest.json').rooms.map((file) => readJson(file));
+  const takeable = new Set();
+  for (const room of rooms) {
+    for (const spot of room.hotspots ?? []) {
+      for (const rules of Object.values(spot.responses ?? {})) {
+        for (const rule of rules) for (const item of [...(rule.grants ?? []), ...(rule.items ?? [])]) takeable.add(item);
+      }
+    }
+  }
+  if (takeable.size < yard.targets.takenFromRooms) found.push(`${takeable.size} item(s) are taken from a room by hand, not ${yard.targets.takenFromRooms}`);
+  const people = new Set(readJson('content/manifest.json').ambient.map((file) => readJson(file).id));
+  const onWorld = new Set(steps.filter((step) => step.do === 'use' && !items.has(step.on) && !people.has(step.on) && !yard.counters.includes(step.on))
+    .map((step) => `${step.item} on ${step.on}`));
+  if (onWorld.size < yard.targets.itemOnWorld) found.push(`${onWorld.size} different item-on-the-world uses on the route, not ${yard.targets.itemOnWorld}`);
+  for (const verb of yard.handVerbs) {
+    const times = steps.filter((step) => step.do === 'verb' && step.verb === verb).length;
+    if (times > 0 && times < yard.targets.eachHandVerb) found.push(`${verb} is used ${times} time(s) on the route, not ${yard.targets.eachHandVerb}`);
+  }
   for (const what of found) {
     const row = known.get(what);
     if (row) report.note(`known, to be fixed by doc 114 ${row.row}: ${what}`);
