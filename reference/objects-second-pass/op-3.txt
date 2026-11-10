@@ -1,0 +1,7 @@
+Image 1 is a crop of a finished pixel-art game scene (a hillside graveyard at night under a deep blue sky) at exactly 2x, nearest-neighbour. Near the top right stands Mr. Pike's grave marker: a plain upright weathered wooden headboard with a cross carved in its upper part. Image 2 is the same picture with a layout marked on it in coloured boxes. Image 3 is the scene at game size with the hero standing below the markers, for scale.
+
+Return image 1 with ONE change, made only inside the YELLOW box of image 2, and with no boxes, labels or marks of any kind in the result:
+
+- On the face of THAT headboard, inside the GREEN box, a small sealed cream envelope is fixed to the wood by ONE nail through its top corner, hanging a little crooked (tilted a few degrees). A plain envelope: its flap and a dark seal suggested, NO writing, no readable marks. The nail's small dark head shows at the corner. It is small, about a third of the board's width.
+
+Night light, exactly as the rest of the picture: the envelope is a dim, cool, blue-tinted cream, not bright white, with a soft shadow on the board below its lower edge. Everything outside the yellow box stays EXACTLY as in image 1, pixel for pixel: the board's edges and carving where not covered, the other markers, the grass, the sky. Same chunky 2x pixel grain, the same soft, flat shading. No text, no people.

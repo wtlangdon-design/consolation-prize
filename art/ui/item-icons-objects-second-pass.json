@@ -1,0 +1,52 @@
+{
+  "sheet": "art/ui/item-icons-objects-second-pass.png",
+  "cell": [
+    60,
+    40
+  ],
+  "icons": {
+    "nail": [
+      0,
+      0,
+      60,
+      40
+    ],
+    "oats": [
+      60,
+      0,
+      60,
+      40
+    ],
+    "parsley": [
+      120,
+      0,
+      60,
+      40
+    ],
+    "capital_b": [
+      180,
+      0,
+      60,
+      40
+    ],
+    "pikes_collar": [
+      240,
+      0,
+      60,
+      40
+    ],
+    "button": [
+      300,
+      0,
+      60,
+      40
+    ],
+    "room_key": [
+      360,
+      0,
+      60,
+      40
+    ]
+  },
+  "note": "Doc 121's seven icons (reference/objects-second-pass/brief.md section 1), objects-second-pass operation 1, cut by tools/art/objects-second-pass-icons-cut.py with tools/art/item-icons-cut.py's own reduction, at one factor. The main session moves the cells into the shipping sheet when it wires the items."
+}

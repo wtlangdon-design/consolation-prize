@@ -1,0 +1,8 @@
+Image 1 is a crop of a finished pixel-art game room (an 1850s office at night) at exactly 2x, nearest-neighbour. In the middle is a low wooden sideboard: a long top drawer, and below it two drawers side by side. The lower RIGHT drawer is pulled OPEN, sticking out toward us, its dark inside showing. Image 2 is the same picture with a layout marked on it in coloured boxes.
+
+Return image 1 with ONE change, made only inside the YELLOW box of image 2, and with no boxes, labels or marks of any kind in the result:
+
+- The lower right drawer is SHUT: pushed all the way in, its front flush with the sideboard, filling the opening marked by the GREEN box exactly, the same height as the lower LEFT drawer beside it (the BLUE box) and level with it, with the same wood, the same thin bright edge moulding, and one brass handle in its middle like the others. No dark gap, no inside showing, nothing sticking out.
+- Below it, where the open drawer used to hang, is the sideboard's plain lower rail and shadow, as on the left half.
+
+Everything outside the yellow box stays EXACTLY as in image 1, pixel for pixel: the top drawer, the left drawer, the sideboard's top and sides, the decanter and glass, the books, the desk and lamp, the safe, the carpet. Same chunky 2x pixel grain, the same soft, flat shading and muted warm colours, the same dim lamplight. No text, no people.

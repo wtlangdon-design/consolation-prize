@@ -1,0 +1,15 @@
+{
+ "plate": "art/backgrounds/room-14-boot-hill.png",
+ "crop": [
+  1152,
+  0
+ ],
+ "op": "art/staging/objects-second-pass/op-3/sheet.png",
+ "box": [
+  1546,
+  168,
+  1622,
+  266
+ ],
+ "out": "art/props/room-14-pike-envelope.png"
+}
