@@ -1,0 +1,16 @@
+{
+  "sheet": "art/ui/item-icons-act3-polish.png",
+  "cell": [
+    60,
+    40
+  ],
+  "icons": {
+    "pratt_money": [
+      0,
+      0,
+      60,
+      40
+    ]
+  },
+  "note": "Mr. Pratt's two dollars and sixty cents (reference/act3-polish/brief.md), act3-estate-sale operation 3, cut by tools/art/act3-money-icon-cut.py with tools/art/item-icons-cut.py's own reduction. The id is this tool's name; the main session names the item and moves the cell into the shipping sheet."
+}
