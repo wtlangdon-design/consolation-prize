@@ -50,7 +50,7 @@
           "line": "Still on it?"
         },
         {
-          "speaker": "pratt",
+          "speaker": "pratt_jump",
           "line": "Yep."
         },
         {
@@ -58,7 +58,7 @@
           "line": "And the Easterner?"
         },
         {
-          "speaker": "pratt",
+          "speaker": "pratt_jump",
           "line": "Says it's his claim."
         },
         {
@@ -66,15 +66,15 @@
           "line": "Keep standing on it."
         },
         {
-          "speaker": "pratt",
+          "speaker": "pratt_jump",
           "line": "Who is this?"
         },
         {
-          "speaker": "pratt",
+          "speaker": "pratt_jump",
           "line": "…"
         },
         {
-          "speaker": "pratt",
+          "speaker": "pratt_jump",
           "line": "Nobody ever says."
         }
       ]

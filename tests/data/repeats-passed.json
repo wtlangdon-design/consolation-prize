@@ -75,7 +75,7 @@
   }
  ],
  "comicExempt": {
-  "why": "Errata 178: every [COMIC] option that stays on its menu answers differently the second time, except these. Hob: his forty words (errata 174). The raccoon: its tree is Thad narrating a naming, not a conversation. The harness tree is the test fixture. PRATT:pratt4 and PRATT:pratt5 are \"How's the bite?\" -- \"Healing wrong.\", which doc 04 says is the answer \"every time, for the rest of the game, in every act, including the ending.\"",
+  "why": "Errata 178: every [COMIC] option that stays on its menu answers differently the second time, except these. Hob: his forty words (errata 174). The raccoon: its tree is Thad narrating a naming, not a conversation. The harness tree is the test fixture. PRATT:pratt4 and PRATT:pratt5 are \"How's the bite?\" -- \"Healing wrong.\", which doc 04 says is the answer \"every time, for the rest of the game, in every act, including the ending.\" PRATT_JUMP:pratt5 is the same question asked on Prosperity, where PRA_B1 is said since errata 244.",
   "trees": [
    "HOB",
    "RACCOON",
@@ -83,7 +83,8 @@
   ],
   "options": [
    "PRATT:pratt4",
-   "PRATT:pratt5"
+   "PRATT:pratt5",
+   "PRATT_JUMP:pratt5"
   ]
  }
 }

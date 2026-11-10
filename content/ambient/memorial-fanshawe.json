@@ -50,11 +50,11 @@
   "breakEvery": 7,
   "frameNote": "0 his top hat held at his chest in both gloved hands · 1 breath (derived) · 2 his watch out on its chain, the hat under his arm.",
   "provenance": "reference/act2-papers/op-2.spec.json",
-  "figureHeight": 364,
+  "figureHeight": 385,
   "stature": 1,
-  "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Crown to sole under his top hat, read from his eyes and chin: 364. Was 352 (tools/art/figure-height.py --hat, which counted his collar as the brim): 1.03 of Thad.",
-  "levelMan": 352,
-  "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs)."
+  "figureHeightNote": "Errata 246: bareheaded, hat in hand, so crown to sole is read from his pixels: 385 (tools/solve-figure-height.mjs). His Duel Three sheet was 364 under its hat.",
+  "levelMan": 395,
+  "levelManNote": "Errata 246: the image session snapped this sheet at 395 (tools/art/act2-papers-cut.py); drawn at 385 it is 2.5% off its level, inside the 5% tests/one-level.test.mjs holds."
  },
  "walkTo": {
   "x": 690,

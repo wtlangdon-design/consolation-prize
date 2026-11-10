@@ -643,6 +643,24 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 239: not loosened, changed with the design. It held that SEA_E1's way out keeps him under the cloth (errata 237); he is not drawn under the cloth now, so the way out brings him out (T_UNDER_TABLE cleared) and the table takes him under again, still with nothing said. It counted THE SÉANCE's lines in the table's own answer (at least 8); they are SEA_E1's opening now, said before the list, and it reads them there with the same count. tests/seance-polish.test.ts holds the new behaviour, each test proved against its defect. Changed in the same way and for the same reason, though this ledger's diff rule does not flag them: tests/scenes-bc-art.test.ts (the lit séance has its own plate) and tests/save-load.test.ts (the harness response's tree is opened after its line)."
+  },
+  {
+   "check": "tests/items.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 242: not loosened, widened with the design. Doc 113 writes one new item (A COMPANY LEDGER) in the form doc 109 writes the Gulch's, so the test reads doc 113 with doc 109 where it used to read doc 109 alone; the line it replaced is the one the diff rule flags. Every assertion stands, and the new item is held to all of them."
+  },
+  {
+   "check": "tests/room-11.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 242: not loosened, changed with the design. It held that PICK UP on the submission log takes it; doc 113's double makes that a refusal (he will not leave a bare desk), and the log is taken by laying a Company ledger where it lay. The test now plays that: refused, the ledger taken once from the shelf, the swap, the ledger left on the desk and the log in hand. tests/act-two-scenes.test.ts holds the rest of the scene."
+  },
+  {
+   "check": "tests/items.test.ts",
+   "date": "2026-11-10",
+   "kind": "reviewed",
+   "why": "TUNED. All three entries were the same misfire: a new scene document that writes an item of its own (doc 109's Gulch, doc 111's sale, doc 113's ledger) had to be named in the test before its item could be read, and naming it replaces a line, which the diff rule counts as loosening. No assertion was ever weakened. The test now finds those documents itself, from the document each extracted item's note says it came from, so a new item document needs no edit here. Keep the test: it is the only one that holds an item's fate (spent, lodged, kept) to what the documents say."
   }
  ]
 }

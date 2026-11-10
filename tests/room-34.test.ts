@@ -61,6 +61,9 @@ test('the pickaxe on the hole after F1 leads down, and the hole is the way down 
   state.enterRoom(above);
   assert.ok(!state.targets.some((one) => (one as { to?: string }).to === ROOM), 'no way down before the digging');
   const hole = state.findTarget('hole')!;
+  // Errata 245 (doc 118 O-7): he digs by the lamp from his room.
+  const pockets = (state as unknown as { inventory: string[] }).inventory;
+  if (!pockets.includes('hotel_lamp')) pockets.push('hotel_lamp');
   state.holdItem(null);
   state.holdItem('pickaxe');
   const dug = state.interact(hole, 'USE');

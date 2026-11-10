@@ -84,6 +84,10 @@ test('the blanket on loan: the bin is bare and the blanket is no subject while i
   assert.ok(blanket, 'the blanket is on the bin');
   state.dialogue.start(hostOf(state).tree as string);
   state.dialogue.select(opt(state, '5'));
+  // Errata 245 (doc 118 O-5): leave is given; he takes it off her himself.
+  assert.ok(!state.carried.includes('blanket'), 'leave is not the blanket');
+  state.dialogue.end();
+  state.interact(state.findTarget(blanket.id)!, 'PICK_UP');
   assert.ok(state.carried.includes('blanket'), 'THE LIVERY BLANKET, on loan');
   assert.deepEqual(shownProps(state), ['bin_bare']);
   assert.ok(!state.targets.some((one) => one.id === blanket.id), 'not drawn, not clickable');

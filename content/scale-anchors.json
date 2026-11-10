@@ -535,10 +535,10 @@
    "note": "A GROUP, measured by its tallest adult: procession_mourners' sheet turned back to face the gate (errata 242), the young man at the left, hatless. Columns 12-58 hold him alone, as for funeral_mourners."
   },
   {
-   "figure": "memorial_fanshawe",
-   "eyeRow": 70,
-   "chinRow": 108,
-   "note": "duel_fanshawe's sheet, each cell mirrored (errata 242): the rows are that sheet's. Hatted: eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
+   "figure": "wreath_fanshawe",
+   "eyeRow": 60,
+   "chinRow": 97,
+   "note": "Hatted, behind his wreath (errata 246): eye and chin rows read from the rest frame; the crown is 0.9 of the eyes-to-chin above the eyes (tools/audit-scale-vs-thad.mjs)."
   }
  ],
  "figuresNote": "EVERY FIGURE BESIDE THAD, AS DRAWN (errata 234; Tyler, 2026-11-09: \"the screenshot you sent shows Thad looking much smaller than everyone else. It all needs to be scaled correctly. Similarly through the whole game.\"). tests/scale-vs-thad.test.mjs measures every visible figure's crown-to-sole IN SCREEN PIXELS, through the engine's own scale, against Thad's at the same soles (tools/audit-scale-vs-thad.mjs). A standing adult is held to 0.97-1.03 of Thad (errata 235; 0.95-1.05 under errata 234). An entry here says how to read a figure the pixels cannot: `eyeRow` and `chinRow` (a hatted head: its crown is 0.9 of the eyes-to-chin above the eyes, the share measured on the hatless cast), `crownRow` and `soleRow` (declared rows), `columns` (a group's tallest adult, which also needs `held`), `groundY` (the floor a man is held to when he is not standing on it: a man up a ladder). `expect` replaces 0.97-1.03 and must cite a ruling (`ruling`, `by`). `knownWrong` is a measured failure recorded for Tyler: printed on every run, and the test fails when it is fixed and the entry is left in. `room` limits an entry to one placement."

@@ -16,6 +16,7 @@ import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer, SaidLately, spokenBreakKey } from '../core/Ambient.ts';
+import { watch } from '../dev/Watch.ts';
 import { actOf, heldThrough, performedLine, performersWith, shownText, type HeldPose } from '../core/ActedDirections.ts';
 import { StepTriggers, type StepEvent } from '../core/StepTriggers.ts';
 import { DialoguePerformance, barkHold, holdTimingFor, readingHold, type HoldTiming, type Utterance } from '../core/DialoguePerformance.ts';
@@ -259,6 +260,8 @@ export class GameScene extends Phaser.Scene {
     back?: { x: number; y: number; facing: Facing }; closeup?: boolean; cutIn?: boolean; showFrom?: number } | null = null;
   /** Assets the loader could not fetch: a room waits for each to arrive OR fail, never for ever. */
   private readonly loadFailed = new Set<string>();
+  /** Sheets reported once as wanted with nothing bringing them (sheetFor). */
+  private readonly stranded = new Set<string>();
   /** One figure, one line, once a walk past (errata 242). */
   private readonly saidLately = new SaidLately();
   /** Scene seconds when the close's last line came down; null until it has. */
@@ -1147,6 +1150,13 @@ export class GameScene extends Phaser.Scene {
 
   /** A loaded character sheet, keyed by the content path that named it. */
   private sheetFor(path: string): CanvasImageSource | null {
+    // A PICTURE WANTED THAT NOTHING IS BRINGING (errata 243). A sheet still on its way is ordinary on arrival; one that is
+    // not here while the loader is idle will never come, and says so once, with what is known of it, so a played run
+    // that draws nothing where a prop should be can say why (two did on 2026-11-09, and could not).
+    if (!this.textures.exists(path) && !this.load.isLoading() && !this.stranded.has(path)) {
+      this.stranded.add(path);
+      watch.record('graybox:not-loaded', path, `wanted with the loader idle: ${this.loadFailed.has(path) ? 'its load failed' : this.nearAsked.has(path) ? 'asked for and never arrived' : 'never asked for'}`);
+    }
     return this.textures.exists(path)
       ? (this.textures.get(path).getSourceImage() as CanvasImageSource)
       : null;

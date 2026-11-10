@@ -69,9 +69,9 @@
   "breakEvery": 5,
   "frameNote": "0 pushing politely from inside, his face over the wreath · 1 breath (derived) · 2 a harder push, his hat askew · 3 the wreath alone (not played here).",
   "provenance": "reference/act2-papers/op-5.spec.json",
-  "figureHeight": 364,
+  "figureHeight": 371,
   "stature": 1,
-  "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Crown to sole under his top hat, read from his eyes and chin: 364. Was 352 (tools/art/figure-height.py --hat, which counted his collar as the brim): 1.03 of Thad."
+  "figureHeightNote": "Errata 246: crown to sole under his top hat, read from his eyes and chin on the rest frame (content/scale-anchors.json): 371, by tools/solve-figure-height.mjs. Drawn at the street's man at his feet, as Thad is."
  },
  "leaves": {
   "fade": 1.6,

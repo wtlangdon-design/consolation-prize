@@ -6384,7 +6384,9 @@ function cutaways() {
     1: { id: 'clarion_press', room: 'clarion', when: { T_SWINDLED: true }, done: 'T_CUTAWAY_CLARION' },
     // After Thad has caught him pulling up the stake: D2 is open.
     // Errata 244: cut to Prosperity, where he is in fact still on it (doc 115 II-2), and only while he is.
-    2: { id: 'pratts_voice', room: 'prosperity', when: { T_PRATT_STAKE: true, T_PRATT_TURNED: false }, done: 'T_CUTAWAY_PRATT' },
+    // The figure who says it there is the one drawn there, on the claim (pratt_jump), not the one at his own.
+    2: { id: 'pratts_voice', room: 'prosperity', when: { T_PRATT_STAKE: true, T_PRATT_TURNED: false }, done: 'T_CUTAWAY_PRATT',
+      speakers: { pratt: 'pratt_jump' } },
     // Part Three, and only Part Three: E0b writes ACT 3. He is in his office
     // only on a day that is not a funeral day (content/ambient/fanshawe.json).
     3: { id: 'fanshawe_chairs', room: 'fanshawe_office', when: { ACT: { atLeast: 3, atMost: 3 }, T_FUNERAL_DAY: false },
@@ -6421,8 +6423,9 @@ function cutaways() {
     for (const row of part.split('\n')) {
       const cell = row.match(/^\| (\d+) \| ([A-Z]+) \| "(.+)" \|$/);
       if (!cell) continue;
-      const speaker = SPEAKER[cell[2]];
-      if (!speaker) throw new Error(`doc 96 section ${number} row ${cell[1]}: unknown speaker ${cell[2]}`);
+      const named = SPEAKER[cell[2]];
+      if (!named) throw new Error(`doc 96 section ${number} row ${cell[1]}: unknown speaker ${cell[2]}`);
+      const speaker = route.speakers?.[named] ?? named;
       lines.push({ speaker, line: cell[3] });
     }
     if (!lines.length) throw new Error(`doc 96 section ${number}: no lines`);
@@ -6430,7 +6433,8 @@ function cutaways() {
     // REPOSITORY, so the game never waits in the dark on a file that does not
     // exist; when the image session's frames land, re-extracting adds it, and
     // --check calls this file stale until somebody does.
-    const { closeup, ...rest } = route;
+    const { closeup, speakers, ...rest } = route;
+    void speakers;
     const drawn = closeup && closeup.frames.every((path) => existsSync(resolve(ROOT, path)));
     // The blink is the third frame, and only once it too is drawn.
     const { blink, ...shape } = closeup ?? {};
