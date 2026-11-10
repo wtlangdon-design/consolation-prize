@@ -678,17 +678,34 @@
     },
     {
       "n": 69,
-      "class": "B",
+      "class": "A",
       "speaker": "letter_writer",
       "words": "He puts his pen down.",
-      "where": "dialogue/amb-letter-writer root option 4"
+      "where": "dialogue/amb-letter-writer root option 4",
+      "performedBy": [
+        "letter_writer"
+      ],
+      "frames": [
+        5
+      ],
+      "seconds": 2,
+      "holds": 5
     },
     {
       "n": 70,
-      "class": "B",
+      "class": "A",
       "speaker": "deke_vessel",
       "words": "He raises his glass an inch.",
-      "where": "dialogue/deke-vessel root option 9"
+      "where": "dialogue/deke-vessel root option 9",
+      "performedBy": [
+        "deke_vessel"
+      ],
+      "frames": [
+        6,
+        7,
+        7
+      ],
+      "seconds": 2.3
     },
     {
       "n": 71,
@@ -863,10 +880,24 @@
     },
     {
       "n": 80,
-      "class": "B",
+      "class": "A",
       "speaker": "thad",
       "words": "He holds the rod out down the left passage. It trembles in his hands like a plucked string. He turns it to the right passage. It goes still.",
-      "where": "combinations (brass_rod on left_passage and right_passage, at the line, first)"
+      "where": "combinations (brass_rod on left_passage and right_passage, at the line, first)",
+      "performedBy": [
+        "thad:rod/back"
+      ],
+      "frames": [
+        1,
+        2,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "seconds": 2
     },
     {
       "n": 81,
@@ -1078,10 +1109,17 @@
     },
     {
       "n": 96,
-      "class": "B",
+      "class": "A",
       "speaker": "gulch_panner",
       "words": "He snorts.",
-      "where": "dialogue/gulch-panner PAN_G1 option 7"
+      "where": "dialogue/gulch-panner PAN_G1 option 7",
+      "performedBy": [
+        "gulch_panner"
+      ],
+      "frames": [
+        6
+      ],
+      "seconds": 1
     },
     {
       "n": 97,
@@ -1187,10 +1225,17 @@
     },
     {
       "n": 109,
-      "class": "B",
+      "class": "A",
       "speaker": "ozymandia",
       "words": "She turns the lamp down to a bead.",
-      "where": "dialogue/ozymandia OZY_E1 option 2"
+      "where": "dialogue/ozymandia OZY_E1 option 2",
+      "performedBy": [
+        "ozymandia"
+      ],
+      "frames": [
+        7
+      ],
+      "seconds": 2
     },
     {
       "n": 110,
@@ -1208,10 +1253,18 @@
     },
     {
       "n": 112,
-      "class": "B",
+      "class": "A",
       "speaker": "thad",
       "words": "Thad goes down on his hands and knees and under the cloth.",
-      "where": "rooms/ozymandias_tent seance_table USE (in the dark)"
+      "where": "rooms/ozymandias_tent seance_table USE (in the dark)",
+      "performedBy": [
+        "thad:crawl/right"
+      ],
+      "frames": [
+        1,
+        2
+      ],
+      "seconds": 1.6
     },
     {
       "n": 113,
@@ -1388,10 +1441,17 @@
     },
     {
       "n": 130,
-      "class": "B",
+      "class": "A",
       "speaker": "thad",
       "words": "Thad chalks it on his own stake, under the number: $11,000.",
-      "where": "combinations (chalk on claim_marker, the turn)"
+      "where": "combinations (chalk on claim_marker, the turn)",
+      "performedBy": [
+        "thad:chalk/back"
+      ],
+      "frames": [
+        1
+      ],
+      "seconds": 3
     },
     {
       "n": 131,
@@ -1411,10 +1471,18 @@
     },
     {
       "n": 132,
-      "class": "B",
+      "class": "A",
       "speaker": "frame",
       "words": "He locks the type, inks it, and stands back from the press with his arms folded.",
-      "where": "dialogue/frame FRA_A1 option 6"
+      "where": "dialogue/frame FRA_A1 option 6",
+      "performedBy": [
+        "frame"
+      ],
+      "frames": [
+        7,
+        8
+      ],
+      "seconds": 3
     },
     {
       "n": 133,
@@ -1439,10 +1507,18 @@
     },
     {
       "n": 136,
-      "class": "B",
+      "class": "A",
       "speaker": "thad",
       "words": "Thad lifts the blanket off her, a corner at a time. Grievance watches each corner go.",
-      "where": "rooms/livery grievance_s_blanket PICK_UP (with leave)"
+      "where": "rooms/livery grievance_s_blanket PICK_UP (with leave)",
+      "performedBy": [
+        "thad:blanket/back"
+      ],
+      "frames": [
+        1,
+        2
+      ],
+      "seconds": 3
     },
     {
       "n": 137,

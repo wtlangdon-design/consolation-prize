@@ -1,0 +1,8 @@
+Image 1 is a TEMPLATE on magenta from my pixel-art adventure game, set in an 1850s gold-rush town: the hero, Thad (black hair, long blue-grey coat, dark trousers, boots), seen FROM BEHIND, three times. Image 2 is the horse blanket in the game: RED AND CREAM STRIPED wool. Image 3 is the last try: its two blanket figures (on the right) are wrong -- he holds the whole blanket up by both corners at once, and it is brown check, not red and cream stripes.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other two as the SAME Thad from behind, the same height, his feet on the same line. He is lifting a blanket off a horse ONE CORNER AT A TIME; the horse is not drawn, and only the corner he holds is drawn, a short triangle of red-and-cream striped wool folded back over his hand:
+2. his LEFT hand raised to the height of his shoulder, out to the left, lifting one corner of the striped blanket; his right arm down at his side, empty;
+3. his RIGHT hand raised to the height of his shoulder, out to the right, lifting the other corner of the striped blanket; his left arm down at his side, empty.
+Nothing else in his hands.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the first figure -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No shadows, no ground, no horse, no text, no numbers, no border.

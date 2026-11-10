@@ -733,6 +733,12 @@
    "date": "2026-11-10",
    "kind": "loosened",
    "why": "Errata 260. Not loosened in what it holds: its copy of the renderer's grade now reads a figure's own light (`perFigure.light`), which the renderer has always applied and the type now declares, so the map seller is measured in the light he is drawn in rather than the street's. The 30% bound is unchanged, and it refused this change's first grade for duel judge 1."
+  },
+  {
+   "check": "tools/check-key-fringe.mjs",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Errata 264. It misfired on real art: Grievance's blanket, drawn in Thad's hands in the red and cream of its own icon (143/51/26), scored 33 on (r+b)/2-g against the limit of 30 with almost no blue in it, and so did his skin in two new poses. Magenta is red AND blue over green, so a pixel whose blue is not over its green now scores nothing. A true key fringe still scores as it did (the key lifts blue over green long before the score reaches 30), and the pixels in the same frames that did carry the key were despilled, not excused."
   }
  ]
 }

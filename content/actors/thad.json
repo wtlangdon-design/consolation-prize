@@ -42,7 +42,8 @@
       "alight-coach",
       "aboard-coach",
       "carry",
-      "haul"
+      "haul",
+      "crawl"
     ],
     "dining": [
       "walk",
@@ -65,7 +66,11 @@
       "deed",
       "coat-bundle",
       "plate",
-      "haul"
+      "haul",
+      "rod",
+      "chalk",
+      "blanket",
+      "crawl"
     ]
   },
   "clips": [
@@ -906,6 +911,62 @@
         "art/actors/thad-haul-right/haul-00.png",
         "art/actors/thad-haul-right/haul-01.png",
         "art/actors/thad-haul-right/haul-02.png"
+      ],
+      "figureHeight": 626,
+      "anchor": [
+        332,
+        626
+      ]
+    },
+    {
+      "id": "rod",
+      "facing": "back",
+      "frames": [
+        "art/actors/thad-rod-back/rod-00.png",
+        "art/actors/thad-rod-back/rod-01.png",
+        "art/actors/thad-rod-back/rod-02.png",
+        "art/actors/thad-rod-back/rod-03.png"
+      ],
+      "figureHeight": 627,
+      "anchor": [
+        351,
+        627
+      ]
+    },
+    {
+      "id": "chalk",
+      "facing": "back",
+      "frames": [
+        "art/actors/thad-chalk-back/chalk-00.png",
+        "art/actors/thad-chalk-back/chalk-01.png"
+      ],
+      "figureHeight": 627,
+      "anchor": [
+        351,
+        627
+      ]
+    },
+    {
+      "id": "blanket",
+      "facing": "back",
+      "frames": [
+        "art/actors/thad-blanket-back/blanket-00.png",
+        "art/actors/thad-blanket-back/blanket-01.png",
+        "art/actors/thad-blanket-back/blanket-02.png"
+      ],
+      "figureHeight": 627,
+      "anchor": [
+        351,
+        627
+      ]
+    },
+    {
+      "id": "crawl",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-crawl-right/crawl-00.png",
+        "art/actors/thad-crawl-right/crawl-01.png",
+        "art/actors/thad-crawl-right/crawl-02.png"
       ],
       "figureHeight": 626,
       "anchor": [

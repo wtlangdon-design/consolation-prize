@@ -1,0 +1,16 @@
+{
+ "assetId": "acted-directions-2",
+ "subject": "acted-directions-2-thad-back",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-15-livery",
+ "promptFile": "reference/acted-directions-2/thad-blanket.txt",
+ "out": "art/staging/acted-directions-2/thad-blanket/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-2/thad-blanket/template.png",
+  "art/staging/acted-directions-2/thad-blanket/blanket.png",
+  "art/staging/acted-directions-2/thad-blanket/last-try.png"
+ ],
+ "derivedFrom": 11
+}
