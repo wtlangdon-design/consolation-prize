@@ -53,7 +53,14 @@ for (const section of doc23.split(/^## /m).slice(1)) {
  * copied into doc 23): `**NAME** *(item)*` and its LOOK and LISTEN runs, checked word for word as doc 23's are.
  */
 // Doc 113's one item (errata 242) is written in the same form, and is read with them.
-const doc109 = `${readFileSync(resolve(ROOT, 'docs/109-fiddlers-gulch-lines.md'), 'utf8')}\n${readFileSync(resolve(ROOT, 'docs/113-act-two-scenes.md'), 'utf8')}`;
+// WHICH DOCUMENTS WRITE ITEMS IN THAT FORM IS READ FROM THE ITEMS (the friction review of 2026-11-10): each extracted
+// item's note names the document it was extracted from, and every such document that writes a `**NAME** *(item)*`
+// block is read here. A new scene document with an item of its own (doc 113's ledger, doc 118's objects) used to
+// mean editing this line, which the friction ledger counted as loosening the test three times in a fortnight.
+const itemDocs = [...new Set(items.map((item) => /docs\/[\w.-]+\.md/.exec((item as { note?: string }).note ?? '')?.[0])
+  .filter((path): path is string => Boolean(path)))].sort()
+  .map((path) => readFileSync(resolve(ROOT, path), 'utf8')).filter((text) => /^\*\*[^*]+\*\* \*\(item\)\*/m.test(text));
+const doc109 = itemDocs.join('\n');
 const doc109Sections = new Map<string, Record<string, string[][]>>();
 for (const block of doc109.split(/^(?=\*\*[^*]+\*\* \*\(item\)\*)/m).slice(1)) {
   const head = /^\*\*([^*]+)\*\*/.exec(block)![1]!;
