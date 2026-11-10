@@ -7011,3 +7011,29 @@ Tyler, playing, of the man to the right of the obelisk: "a very different skin t
 
 Lesson: `tests/skin-tone.test.mjs`. Every person a room grades is compared with the people in that room it does not grade: the colour left in his face after the grade must be within 30% of theirs. With errata 242's values put back, it fails on him (0.21 against 0.46). It also holds Deke and the fiddler in the Nugget and the claim-row man. And a row in doc 55 section 8: when a figure's sheet is replaced, the room's grade for him is measured again on the new sheet.
 
+## 256 · A second click on a way out goes at once (doc 122 P2; Tyler, 2026-11-10: "P2 - yes")
+
+Backtracking is most of an adventure game's minutes, and Main Street is nineteen seconds end to end. The town map has let a click skip a road he has walked before since errata 163. A room did not.
+
+- **The rule.** The first click on a way out walks him to it, as always. A second click on the same way out, while he is walking to it, cuts to the next room.
+- **Not a door that is a beat.** A way out with a line at the door in this state (`transitScene`: the Colonel's door with the drawer open, a scene played as he leaves) or one that holds its travel for a scene (`travelWhenTold`) is never cut. He is walked there and it plays where it stands. So nobody is seen to jump: where the cut happens, the room changes in the same frame.
+- **Only the same way out.** A click anywhere else is the change of mind it always was.
+- Engine only (`engine/core/Standing.ts` `secondExitClick`, `GameState.leavesAtOnce`). No content.
+
+Tried in the real build, in the livery: one click and he is still walking 1.2 seconds later; the second click and he is in the street.
+
+Lesson: `tests/exit-skip.test.ts`. The rule, case by case; the Colonel's door refuses the cut with the drawer open and takes it with the drawer shut; no way out that travels when told is cut; and the scene asks the rule before it places him.
+
+## 257 · Three sounds for things described and not heard; and three rulings on the score and the frame (doc 122 P1, P3, P4, P5)
+
+**P1, by ear.** Tyler asked to hear them. Two of each were played. "The hums and press are good." Of the nail: "like the ring of hitting glass. The rings should be much fainter and quicker"; of the second pair, "Those are both good."
+
+- `R16-HUM`: Madame Ozymandia's hum over the map, a little under an A, stopping dead. On the two directions in which she hums.
+- `R09-PULL`: the press pulled, with the knock on the return stroke its LISTEN has always described.
+- `R14-NAIL`: three taps of the fork on the nail. A tick and the board, and a trace of the fork's A.
+- Each plays on the direction that describes it (`sounds.json` `lines`). None dips the score, none is a LISTEN's sound, none marks a line or a solution (invariant 3). `tools/audio/render-second-audit-sfx.py` renders every candidate in the order he heard them and writes the three picked; its output is the files he approved, byte for byte.
+
+**P3, P4, P5: "you decide."** Decided, with reasons, in doc 122 section 6. The five beds called "placeholder" are the score, and the word is off them. The hill and his own funeral keep one bed. The fourth wall stays.
+
+Lesson: `tests/sounds.test.ts`: each of the three sounds on a line that describes it and is fired by no verb and dips no score; a line that sounds may now be a pair's line, and must still be on screen word for word. `tools/check-sound-levels.mjs` holds their levels.
+

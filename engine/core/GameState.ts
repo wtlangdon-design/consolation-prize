@@ -1234,6 +1234,18 @@ export class GameState {
   }
 
   /**
+   * Would this verb on this target simply take him to another room, now: an exit, a verb that travels, no beat at the
+   * door in this state (`transitScene`) and no travel held for a scene (`travelWhenTold`). What a second click on a
+   * way out needs to know before it cuts the walk (engine/core/Standing.ts secondExitClick; errata 256).
+   */
+  leavesAtOnce(target: Interactable, verb: string): boolean {
+    if (!this.transitDestination(target, verb)) return false;
+    const exit = target as Partial<Exit>;
+    if (exit.travelWhenTold) return false;
+    return !exit.transitScene?.some((rule) => this.flags.test(rule.when));
+  }
+
+  /**
    * An exit transits only on a transit verb. Every other verb examines it in
    * place, so LOOK AT on a doorway describes the doorway rather than
    * teleporting the player through it mid-sentence.

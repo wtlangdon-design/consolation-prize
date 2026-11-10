@@ -721,6 +721,12 @@
    "date": "2026-11-10",
    "kind": "loosened",
    "why": "Errata 251 (doc 120 I-3). 'No prop paints the plate over a figure behind it' is about furniture cut from a plate. The Company's map unrolled for the survey is a picture laid over the whole view and hides everyone on purpose; the check misread its dark edge as the tent's wall over the séance's sitters, who are never there with it. A prop the size of the room is now passed only when the room says it covers it (actorHiddenWhen.covers), and fails otherwise."
+  },
+  {
+   "check": "tests/sounds.test.ts",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Errata 257 (doc 122 P1). 'Every line that sounds is a line the game shows, word for word' looked only in rooms and trees. The nail's three taps sound on a direction of an item used on a thing, which is a pair's line (content/combinations.json), so the search now includes the pairs. It is wider, not laxer: a sounding line must still be on screen word for word, in one more place it can truly be."
   }
  ]
 }

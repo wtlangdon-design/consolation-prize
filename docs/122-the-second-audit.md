@@ -73,3 +73,16 @@ Not built. Each is small, and each is a matter of taste that a script cannot set
 ## 5 · Built with this audit
 
 **Errata 252: every verb has a key.** Q W E, A S D, Z X C, laid out as the panel is. The keys are content (`content/ui/verbs.json`), not code. A key selects its verb exactly as a click on its button does, and only where that click would land: not under the menu, in a conversation, during a cutscene, on the map, or in Room 32, which has no interface and must not be given one by a keypress.
+
+## 6 · Tyler's rulings (2026-11-10)
+
+| # | Ruling | What happened |
+|---|---|---|
+| P1 | "Can you give these to me to listen to?" Two of each were played. "The hums and press are good." Of the nails: "like the ring of hitting glass. The rings should be much fainter and quicker", and of the second pair, "Those are both good" | The three are in the game: `R16-HUM`, `R09-PULL`, `R14-NAIL` (errata 257; doc 45) |
+| P2 | "Yes" | Built: a second click on a way out goes at once (errata 256) |
+| P3 | "You decide" | **They are the score.** Each was approved by ear to ship. The word "placeholder" is off the README, the renderer and the proof, so nobody replaces an approved bed because a note called it temporary (errata 257) |
+| P4 | "You decide" | **The hill and his funeral keep one bed.** Consolation has one funeral in it, and plays it for a man nobody met and for a man who is standing there. That the town cannot tell the two occasions apart is the scene. A second statement would tell the player this one is the real one, and it is not (errata 257) |
+| P5 | "You decide" | **The fourth wall stays.** Doc 01's anachronism is in institutions, never in the frame; no line knows it is in a game (errata 257) |
+| P6 | "Yes" | Five more things to find: doc 123 |
+| P7 | "Give me an example and/or mock up; did MI do this?" | A mock-up was sent, with two wordings. Not built until he picks one. The first Monkey Island plays its title straight |
+

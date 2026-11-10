@@ -48,7 +48,7 @@ import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, isRest, waitsForClick } from '../core/SpeechPolicy.ts';
 import { bootsToBeginCard, endingAt, titleItems, titleStampAt, TITLE_STAMPED, type TitleItem } from '../core/Bookends.ts';
 import { roomPose } from '../core/RoomPose.ts';
-import { clearOfFigures, hiddenClick } from '../core/Standing.ts';
+import { clearOfFigures, hiddenClick, secondExitClick } from '../core/Standing.ts';
 import {
   CYCLING_OPTION,
   MUSIC_OPTION,
@@ -387,6 +387,8 @@ export class GameScene extends Phaser.Scene {
   private spokenBreak: string | null = null;
   private soundedBreak: string | null = null;
   /** Errata 163: the map's Thad on his way to a place; travel happens when he arrives. */
+  /** The way out he is walking to on a first click (errata 256): a second click on it goes at once. */
+  private exitWalk: { id: string; room: string; at: { x: number; y: number } } | null = null;
   private mapWalk: { walk: MapWalk; startedAt: number; location: import('../core/types.ts').MapLocation } | null = null;
   private barkAt: { x: number; y: number } | null = null;
   /** Errata 169: who said the bark, so it is drawn in his colour. */
@@ -1516,6 +1518,25 @@ export class GameScene extends Phaser.Scene {
     // to the walk and interact code either -- control is `none` during an
     // automatic beat and a click cannot start the player moving under it.
     if (verdict === 'consume') return;
+    // A SECOND CLICK ON THE WAY OUT GOES AT ONCE (errata 256; engine/core/Standing.ts secondExitClick).
+    if (this.exitWalk && this.sequence.isRunning && this.exitWalk.room === this.state.roomId) {
+      const under = this.targetUnder(this.state.toWorld(x), y);
+      const asked = this.state.verbs.verbFor(under, secondary);
+      const transit = under !== undefined && (under as Partial<Exit>).to !== undefined && this.state.verbs.isTransit(asked);
+      if (under && secondExitClick({
+        walkingTo: this.exitWalk.id, clicked: under.id, transit, atOnce: transit && this.state.leavesAtOnce(under, asked),
+      }) === 'cut') {
+        const at = this.exitWalk.at;
+        this.exitWalk = null;
+        this.sequence.cancel();
+        this.world.abandonActor(this.actors.playerId);
+        // He is where the walk was taking him, and the room changes in the same frame: nobody sees him arrive.
+        this.actor.placeAt(at.x, at.y);
+        this.applyInteraction(under, asked);
+        return;
+      }
+    }
+    this.exitWalk = null;
     // A CHANGE OF MIND ABOUT A CONVERSATION. He was walking to talk and the
     // player clicked elsewhere: doc 22's deterministic cancellation, the
     // interaction stops where it is. Without this the walk was redirected
@@ -1774,6 +1795,9 @@ export class GameScene extends Phaser.Scene {
       this.applyInteraction(target, verb);
       return;
     }
+    // A way out he is walking to is remembered, so a second click on it can cut the walk (errata 256).
+    this.exitWalk = (target as Partial<Exit>).to !== undefined && this.state.verbs.isTransit(verb)
+      ? { id: target.id, room: this.state.roomId, at: { x: staging.x, y: staging.y } } : null;
     const actor = this.state.content.actor.id;
     const steps: SequenceStep[] = [
       { kind: 'walk', actor, x: staging.x, y: staging.y },
