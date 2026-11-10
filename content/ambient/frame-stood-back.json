@@ -61,7 +61,10 @@
   "breakEvery": 12,
   "talkFrame": 0,
   "frameNote": "0 stood back, three-quarter to the press, arms folded with his notebook under them · 1 breath (derived) · 2 taking a note, the pencil from behind his ear (frame 3 of his own sheet, on this sheet's sole row: tools/art/press-pull-stood-sheet.py). Breathing on 0 and 1; every `breakEvery` seconds the note (errata 77).",
-  "provenance": "reference/press-pull/handback.md"
+  "provenance": "reference/press-pull/handback.md",
+  "figureHeight": 502,
+  "stature": 1.0,
+  "figureHeightNote": "His own height, as `frame`'s sheet declares it: the same man, drawn at the room's man where he stands."
  },
  "speaksAs": "frame",
  "arrive": {
@@ -71,7 +74,7 @@
     717
    ]
   ],
-  "speed": 150,
+  "speed": 200,
   "sheet": "art/actors/room-09-frame-walk.png",
   "frames": [
    [
@@ -115,6 +118,7 @@
   "strideRatio": 0.62,
   "drawnFacing": "left",
   "afterLines": true,
-  "note": "From his press, where `frame` stood until this moment, to his back editions: six frames of one full cycle, facing left (press-pull operation 4; reference/press-walk-six). After the lines that sent him, so he says his piece at the press and then steps away."
+  "note": "From his press, where `frame` stood until this moment, to his back editions: six frames of one full cycle, facing left (press-pull operation 4; reference/press-walk-six). After the lines that sent him, so he says his piece at the press and then steps away.",
+  "figureHeight": 502
  }
 }
