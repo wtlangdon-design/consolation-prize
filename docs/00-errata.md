@@ -6605,3 +6605,17 @@ The two rough spots of errata 238 and 233 that needed pictures. The brief is `re
 - **For Tyler:** at game size the shut eyes are a few pixels. What reads as prayer is the raised chin and the lifted hand (the handback says so).
 
 Lesson: `tests/hearse.test.ts`, the praying figure's test, fails with his prayer sheet taken away (proved by taking it away).
+
+---
+
+## 241 · The whole game audited after the three scenes (doc 112)
+
+Tyler, 2026-11-09: "Can you do a full, new audit to see how everything lands now and if we still need to add more scenes like we just added to make it feel fun, funny and MI esque?"
+
+- **Played.** `npm run gauntlet:full`, recorded, on main after errata 240: NEW GAME to THE END, 0 breaks, 2 oddities, 5,862 s. `renders/playthrough/transcript.md` and the four contact sheets are that run's.
+- **Read and looked at.** The transcript end to end and all 232 frames. The findings and the proposals are `docs/112-audit-after-the-three-scenes.md`.
+- **The verdict.** Acts I, III and IV land. The back of Act II (C1 to D6, the three papers) is the weak stretch: fifteen stops, four things done by hand, and the memorial, the burglary and the collection all happen out of the player's sight or by themselves.
+- **Proposed, not built.** A room puzzle for the burglary in Fanshawe's office (P1), the stake at Prosperity (P2), the town on the hill at the collection (P3). P1 and P2 need new lines, which need Tyler's ruling; none is written.
+- **The two oddities.** `whiskey_barrel_finished` (A3.2) and `desk_bare` (E0b.2) were wanted before their pictures had loaded. Both files exist and are preloaded. Cause not established; doc 112 §5 row 4.
+
+Lesson: none -- an audit and its record; nothing is fixed here.
