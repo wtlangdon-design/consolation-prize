@@ -385,9 +385,17 @@
    "set": {
     "T_SEANCE_ON": false
    }
+  },
+  {
+   "when": {
+    "T_UNDER_TABLE": true
+   },
+   "set": {
+    "T_UNDER_TABLE": false
+   }
   }
  ],
- "onEnterSetWhenNote": "Errata 237 (doc 111, B): the séance is on from the evening after Fanshawe's offer (E0b, which makes ACT 3) until Mott has spoken (T_MOTT_SPOKE). Set on the way in here and in the Lane, the only way here; a player who never sat in finds it over in Act IV.",
+ "onEnterSetWhenNote": "Errata 237 (doc 111, B): the séance is on from the evening after Fanshawe's offer (E0b, which makes ACT 3) until Mott has spoken (T_MOTT_SPOKE). Set on the way in here and in the Lane, the only way here; a player who never sat in finds it over in Act IV. Errata 239: nobody walks into the tent under its table. T_UNDER_TABLE is cleared on the way in, for a save made before errata 239, when SEA_E1's way out left him under the cloth and he could then walk out of the tent.",
  "onEnterSay": {
   "fromRef": "docs/111-scenes-b-and-c.md::#### B · In Ozymandia's tent",
   "bold": "ARRIVING",
@@ -428,17 +436,13 @@
    "bullet": "- *in the dark*",
    "when": {
     "T_SEANCE_DARK": true,
-    "T_UNDER_TABLE": false
+    "T_UNDER_TABLE": false,
+    "T_SEANCE_HEARD": false
    },
    "set": {
     "T_UNDER_TABLE": true
    },
-   "thenBlock": "THE SÉANCE",
-   "dialogue": "SEANCE",
-   "speakers": {
-    "OZYMANDIA": "ozymandia",
-    "FRAME": "seance_frame"
-   }
+   "dialogue": "SEANCE"
   },
   {
    "hotspot": "mr_frame_at_the_table",
@@ -452,7 +456,7 @@
    }
   }
  ],
- "docBulletsNote": "Errata 237, doc 111 B, THE LINES: USE THE SÉANCE TABLE is refused while the lamp is lit; in the dark Thad goes under the cloth (T_UNDER_TABLE), THE SÉANCE is heard from under it, and SEA_E1 opens (content/dialogue/seance.json). TALK TO Mr. Frame at the table is his wrong try. Read from doc 111 by tools/compile-room.mjs (docBullet).",
+ "docBulletsNote": "Errata 237, doc 111 B, THE LINES: USE THE SÉANCE TABLE is refused while the lamp is lit; in the dark Thad goes under the cloth (T_UNDER_TABLE) and SEA_E1 is owed (content/dialogue/seance.json). TALK TO Mr. Frame at the table is his wrong try. Read from doc 111 by tools/compile-room.mjs (docBullet). Errata 239: THE SÉANCE, heard from under the table, is no longer this rule's own words (`thenBlock`), which queued behind SEA_E1's open list; it is SEA_E1's opening, said once (T_SEANCE_HEARD) before the list is offered, and the engine holds the tree until this rule's two lines and that opening have been read (GameState.owesTree).",
  "verbRules": [
   {
    "hotspot": "seance_table",
@@ -463,7 +467,23 @@
     "T_UNDER_TABLE": true
    },
    "dialogue": "SEANCE",
-   "note": "Errata 237: under the table and not yet spoken -- he took SEA_E1's way out (doc 04's universal exit, \"available at every node\") and is still under the cloth -- USE THE SÉANCE TABLE opens SEA_E1 again with nothing said, so the séance can always be finished."
+   "note": "Errata 237, kept by errata 239 for one case: under the cloth with no conversation open, which only a save loaded from the moment he went under can be. USE THE SÉANCE TABLE opens SEA_E1, with THE SÉANCE first if it was not heard through (the node's opening, once), so the séance can always be finished."
+  },
+  {
+   "hotspot": "seance_table",
+   "verbs": [
+    "USE"
+   ],
+   "when": {
+    "T_SEANCE_DARK": true,
+    "T_SEANCE_HEARD": true,
+    "T_UNDER_TABLE": false
+   },
+   "set": {
+    "T_UNDER_TABLE": true
+   },
+   "dialogue": "SEANCE",
+   "note": "Errata 239: he has heard the séance and come out from under the cloth by SEA_E1's way out (which now clears T_UNDER_TABLE: he is not drawn under it, and must not be left there). USE THE SÉANCE TABLE takes him under again and opens SEA_E1 with nothing said and the séance not replayed, as errata 237 decided."
   },
   {
    "hotspot": "madame_ozymandia_presiding",
@@ -543,7 +563,8 @@
   }
  ],
  "plates": {
-  "seance_dark": "art/backgrounds/room-16-tent-seance-dark.png"
+  "seance_dark": "art/backgrounds/room-16-tent-seance-dark.png",
+  "seance": "art/backgrounds/room-16-tent-seance.png"
  },
  "plateWhen": [
   {
@@ -552,7 +573,40 @@
     "T_SEANCE_DARK": true
    },
    "plate": "seance_dark"
+  },
+  {
+   "when": {
+    "T_SEANCE_ON": true
+   },
+   "plate": "seance"
   }
  ],
- "platesNote": "Errata 238: the tent with the lamp turned down (doc 111, OZY_E1 option 2) is the shipping plate dimmed (tools/art/room16-seance-dark.py, x0.44, the handback's own check), chosen by state as Room 31's night is. Once the séance is over the lamp comes up and the plate is the tent's own. Thad is not darkened with it: the engine grades a figure by room, not by state."
+ "platesNote": "Errata 238: the tent with the lamp turned down (doc 111, OZY_E1 option 2) is its plate dimmed (tools/art/room16-seance-dark.py, x0.44, the handback's own check), chosen by state as Room 31's night is. Once the séance is over the lamp comes up and the plate is the tent's own. Errata 239: while the séance sits, lit or dark, the plate is the tent's séance plate (tools/art/room16-seance-plate.py): the shipping plate with one 20 px rectangle of its own curtain over the sliver of the crystal ball that showed between the medium's hand, the rod and her sleeve (reference/room-16/seance-plate.json). The dark plate is that one dimmed. The first entry that holds wins, so the dark state is listed first. Thad is darkened with the tent now: `figureLightWhen`.",
+ "figureLightWhen": [
+  {
+   "when": {
+    "T_SEANCE_ON": true,
+    "T_SEANCE_DARK": true
+   },
+   "light": {
+    "figures": [
+     "thad"
+    ],
+    "light": [
+     0.4,
+     0.36,
+     0.29
+    ],
+    "note": "The tent's dark on Thad. The group's dark sheet against its lit one, on the sitters away from the candle (the woman in the bonnet, whom he stands beside, and the bald man): red x0.36-0.39, green x0.32-0.35, blue x0.25-0.30. He takes the same, as a multiply, so he is as far below his lit self as they are below theirs. The group is not named: its dark sheet is painted dark already (content/ambient/seance-group.json spriteWhen)."
+   },
+   "note": "Errata 239 (Tyler, 2026-11-09: \"Fix all the things that are rough\"): with the lamp turned down the plate and the group went dark and Thad stood in his own even light (errata 238 D). RoomFile.figureLightWhen grades the figures it names while its condition holds; tools/check-figure-light.mjs holds that a room whose plate goes dark by state takes Thad with it."
+  }
+ ],
+ "actorHiddenWhen": {
+  "when": {
+   "T_UNDER_TABLE": true,
+   "T_SEANCE_ON": true
+  },
+  "note": "Errata 239: under the séance table's cloth he is not drawn (doc 111: \"heard from under the table; Thad sees only feet\"; there is no crawl art) and is not walked about. He went under at the table's end (hotspotWalkTo seance_table) and is standing there again when it ends: SEA_E1's way out and its fourth option both clear T_UNDER_TABLE. Only while the séance is on, so the table that lets him out is always there."
+ }
 }

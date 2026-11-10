@@ -46,7 +46,7 @@ import {
 import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, isRest, waitsForClick } from '../core/SpeechPolicy.ts';
 import { bootsToBeginCard, endingAt, titleItems, type TitleItem } from '../core/Bookends.ts';
-import { clearOfFigures } from '../core/Standing.ts';
+import { clearOfFigures, hiddenClick } from '../core/Standing.ts';
 import {
   CYCLING_OPTION,
   MUSIC_OPTION,
@@ -346,6 +346,11 @@ export class GameScene extends Phaser.Scene {
      * once -- Room 32's lid into HOB_C1.
      */
     viaAction?: boolean;
+    /**
+     * OWED BY A RESPONSE (errata 239): a verb's answer opens this tree when its lines have been read. He is where
+     * he was when he acted, so nobody is turned to face anything as it opens.
+     */
+    owed?: boolean;
   } | null = null;
   /** How long the evidence is held before her before it lands: contact, then the line. */
   private static readonly EVIDENCE_BEAT_SECONDS = 1.1;
@@ -934,8 +939,9 @@ export class GameScene extends Phaser.Scene {
       }
       if (!(evidence && !evidence.committed) && this.sayLines.length === 0 && this.pendingSay.length === 0) {
         const called = this.pendingTree.duel;
+        const owedByAction = this.pendingTree.owed === true;
         this.pendingTree = null;
-        this.actor.faceToward(at.x, at.y);
+        if (!owedByAction) this.actor.faceToward(at.x, at.y);
         if (called) this.state.dialogue.startDuel(tree, called);
         else this.state.dialogue.start(tree);
         this.markDirty();
@@ -1484,6 +1490,24 @@ export class GameScene extends Phaser.Scene {
     // coordinates, so a hotspot is clicked exactly where it is drawn.
     const wx = this.state.toWorld(x);
 
+    // HE IS HIDDEN, AND STAYS WHERE HE IS (RoomFile.actorHiddenWhen; errata 239): under the table's cloth nobody
+    // walks him about. A verb on a subject is answered from where he is; everything that would move him is not.
+    if (this.state.playerStays) {
+      const under = this.targetUnder(wx, y);
+      const asked = this.state.verbs.verbFor(under, secondary);
+      const verdict = hiddenClick({
+        target: under !== undefined,
+        walk: asked === this.state.verbs.walkVerbId,
+        transit: under !== undefined && (under as Partial<Exit>).to !== undefined && this.state.verbs.isTransit(asked),
+        person: this.personAt(wx, y, this.state.verbs.selectedVerb) !== undefined,
+      });
+      if (verdict === 'answer' && under) {
+        this.lastClick = { x: wx, y };
+        this.applyInteraction(under, asked);
+      }
+      return;
+    }
+
     // An ambient character is talked to, never examined -- they are not
     // hotspots and doc 07 is clear that none of them gates anything.
     // AN AMBIENT CHARACTER WITH A TREE IS TALKED TO -- AND WALKED TO FIRST.
@@ -1886,6 +1910,12 @@ export class GameScene extends Phaser.Scene {
     // new action interrupts the old in SCUMM: with the queue now playing on
     // its own, the old lines would otherwise follow the new answer.
     if (result.say || result.then?.length) this.pendingSay = [];
+    // THE TREE IT OPENS IS OWED UNTIL ITS LINES ARE READ (errata 239; GameState.owesTree). It is held as a greeting
+    // is -- the conversation has the interface, each line is read as a conversation's line is, and the list opens
+    // when the last comes down -- and it is set before the first line goes up, so that line is read the same way.
+    // The node's own opening (THE SÉANCE, heard once) is said after the response's words.
+    const owed = result.opens && this.state.content.dialogue.has(result.opens) ? result.opens : null;
+    if (owed) this.pendingTree = { tree: owed, at: { x: this.actor.x, y: this.actor.y }, greeted: true, owed: true };
     // A RULE THAT IS ALL DIRECTION AND IS ACTED (doc 95) plays from the queue, where acting is done.
     if (result.direction && result.say && actOf(this.performers(), result.say)) {
       this.setSay(null);
@@ -1917,6 +1947,12 @@ export class GameScene extends Phaser.Scene {
           ? { speaker: who, line } : { speaker: line.speaker, line: line.line, ...(line.overBlack ? { overBlack: true } : {}),
             ...(line.direction ? { direction: true } : {}) }), ...(pose ? { pose } : {}) };
       }));
+    }
+    if (owed) {
+      this.pendingSay.push(...this.state.dialogue.openingOf(owed, true).map((spoken) => ({ speaker: spoken.speaker,
+        line: spoken.line, ...(spoken.direction ? { direction: true } : {}) })));
+      // Nothing of its own on screen (a response that only opens a tree with an opening to hear): the first goes up now.
+      if (this.sayLines.length === 0 && this.sayingActor === null) this.advanceSay();
     }
     // SHE ANSWERS, AFTER HIS LINE, EVERY TIME (errata 192): her bark, in her voice, over her head.
     if (this.personTarget?.target.id === target.id) {
@@ -2507,6 +2543,8 @@ export class GameScene extends Phaser.Scene {
    * it must be able to close it without going anywhere.
    */
   private toggleMap(): void {
+    // Not from under the table (RoomFile.actorHiddenWhen; errata 239): the map is a way out of the room.
+    if (!this.state.isMap && this.state.playerStays) return;
     this.mapWalk = null;
     const target = this.state.isMap ? this.state.previousRoomId : this.mapRoomId();
     if (!target || !this.state.content.rooms.has(target)) return;

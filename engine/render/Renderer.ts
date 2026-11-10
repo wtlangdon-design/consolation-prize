@@ -18,7 +18,7 @@ export function stateImagePath(shown: { image?: string; imageByState?: Record<st
   const state = askedState();
   return (state && shown.imageByState?.[state]) || shown.image;
 }
-import type { ActorFile, AmbientFile, FigureLight, Interactable, OverlayFile, RoomLamp, RoomProp } from '../core/types.ts';
+import type { ActorFile, AmbientFile, Condition, FigureLight, Interactable, OverlayFile, RoomLamp, RoomProp } from '../core/types.ts';
 import { ActorSprite, type DrawnFrame } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
 import type { DrawRecord } from '../dev/Probe.ts';
@@ -629,6 +629,17 @@ export function figureGrade(light: FigureLight | undefined, id: string, sheet?: 
   if (!light || (!light.figures.includes(id) && !bySheet)) return null;
   const own = { ...(light.figures.includes(id) ? light.perFigure?.[id] ?? {} : {}), ...(bySheet ? light.perFigure?.[sheet!] ?? {} : {}) };
   return Object.keys(own).length ? { ...light, ...own } : light;
+}
+
+/**
+ * THE ROOM'S FIGURE GRADE NOW (RoomFile.figureLightWhen; errata 239): the first state's light whose condition holds, or
+ * the room's own. `holds` is the flag store's test; a check passes the state it is measuring.
+ */
+export function roomFigureLight(
+  room: { figureLight?: FigureLight; figureLightWhen?: { when: Condition; light: FigureLight }[] },
+  holds: (when: Condition) => boolean,
+): FigureLight | undefined {
+  return room.figureLightWhen?.find((entry) => holds(entry.when))?.light ?? room.figureLight;
 }
 
 export function gradeFilter(grade: FigureLight): string {
@@ -1593,7 +1604,8 @@ export class Renderer {
     if (this.castHidden) return;
     // ERRATA 70 G: a room that hides the player (Room 32 -- he is lying in
     // the dark he is looking at) draws everyone but him.
-    const playerHidden = this.state.room.actor === 'hidden';
+    // AND A ROOM THAT HIDES HIM WHILE A STATE HOLDS (RoomFile.actorHiddenWhen; errata 239): under the table's cloth.
+    const playerHidden = this.state.playerHidden;
     const moversHidden = this.moversHidden;
     const props = (this.state.room.props ?? []).filter((prop) => this.state.flags.test(prop.when));
     // A figure on a loop is drawn where its walk has reached, not standing.
@@ -2075,7 +2087,7 @@ export class Renderer {
 
   /** The room's figure grade, if it names this figure. Null otherwise: drawn exactly as before. */
   private gradeFor(id: string, sheet?: string): FigureLight | null {
-    return figureGrade(this.state.room.figureLight, id, sheet);
+    return figureGrade(roomFigureLight(this.state.room, (when) => this.state.flags.test(when)), id, sheet);
   }
 
   /** A lamp is live unless a flag condition or an object-state condition says otherwise. */

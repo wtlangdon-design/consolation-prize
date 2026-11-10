@@ -1154,9 +1154,20 @@
    "initial": false,
    "writtenBy": [
     "room:ozymandias_tent:seance_table:USE",
-    "dialogue:SEANCE:SEA_E1:seance4"
+    "room:ozymandias_tent:onEnter",
+    "dialogue:SEANCE:SEA_E1:seance4",
+    "dialogue:SEANCE:SEA_E1:seancex"
    ],
-   "note": "Doc 111, B, the séance (errata 237): Thad is under the séance table's cloth (USE in the dark); THE SÉANCE is heard and SEA_E1 opens. Cleared when Mott has spoken. While it holds, USE THE SÉANCE TABLE opens SEA_E1 again, so the séance can always be finished."
+   "note": "Doc 111, B, the séance (errata 237): Thad is under the séance table's cloth (USE in the dark); THE SÉANCE is heard and SEA_E1 opens. Cleared when Mott has spoken. Errata 239: while it holds and the séance is on he is not drawn and does not walk (the tent's actorHiddenWhen), so SEA_E1's way out clears it too, and so does walking into the tent; USE THE SÉANCE TABLE takes him under again."
+  },
+  {
+   "id": "T_SEANCE_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SEANCE:SEA_E1 openingOnce"
+   ],
+   "note": "Doc 111, B, the séance (errata 239): THE SÉANCE has been heard from under the table. It is SEA_E1's opening, said once (the node's openingOnce) before the list is offered; after it, USE THE SÉANCE TABLE takes him under and opens SEA_E1 with nothing said."
   },
   {
    "id": "T_MOTT_SPOKE",

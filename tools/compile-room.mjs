@@ -1552,7 +1552,8 @@ for (const spec of [...(ann.verbRules ?? [])].reverse()) {
   if (!hotspot) fail(`verbRules: no hotspot "${spec.hotspot}" in this room`);
   let rule;
   if (spec.dialogue) {
-    rule = { when: spec.when, dialogue: spec.dialogue };
+    // It may write as it opens (errata 239: back under the table's cloth, with nothing said).
+    rule = { when: spec.when, dialogue: spec.dialogue, ...(spec.set ? { set: spec.set } : {}) };
   } else {
     const [path, heading] = spec.ref.split('::');
     const text = read(path);
@@ -2422,6 +2423,9 @@ for (const [id, entry] of examineEntries) {
   else delete built.tally;
   // Tyler, 2026-11-01: the room's light on the figures drawn apart from it.
   if (ann.figureLight) built.figureLight = ann.figureLight;
+  // The figures' light by state, and the player hidden while a state holds (errata 239).
+  if (ann.figureLightWhen) built.figureLightWhen = ann.figureLightWhen;
+  if (ann.actorHiddenWhen) built.actorHiddenWhen = ann.actorHiddenWhen;
   if (ann.props) built.props = ann.props;
   // Whole-plate animation, where a room declares it.
   if (ann.backgroundFrames) {

@@ -397,7 +397,15 @@ export class DialogueRunner {
    * list and does not replay the confrontation. Flag-gated and start
    * openings are unchanged -- Act I's greeting plays on every visit.
    */
-  openingOf(treeId: string, viaAction = false): { speaker: string; line: string }[] {
+  /** Whether the node this tree would open on has an opening it says once and has not yet said (errata 239). */
+  opensOnce(treeId: string): boolean {
+    const tree = this.trees.get(treeId);
+    if (!tree) throw new Error(`Unknown dialogue tree: ${treeId}`);
+    const node = tree.nodes[this.opensOn(tree)];
+    return Boolean(node?.openingOnce && node.opening?.length && this.flags.get(node.openingOnce) !== true);
+  }
+
+  openingOf(treeId: string, viaAction = false): { speaker: string; line: string; direction?: boolean }[] {
     const tree = this.trees.get(treeId);
     if (!tree) throw new Error(`Unknown dialogue tree: ${treeId}`);
     const entry = this.entryFor(tree);

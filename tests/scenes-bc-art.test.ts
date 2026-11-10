@@ -195,7 +195,9 @@ test('scene B art: the lamp and the tent are as the flags say', () => {
     const drawn = (state.room.props ?? []).filter((prop) => state.flags.test(prop.when));
     assert.equal(drawn.length, 1, `${id}: one lamp`);
     const plate = (state.room.plateWhen ?? []).find((one) => state.flags.test(one.when));
-    assert.equal(plate === undefined, lit, `${id}: the tent is ${lit ? 'its own plate' : 'darkened'}`);
+    // Errata 239: lit, it is the tent's séance plate (the shipping plate, the ball's sliver filled); dark, that dimmed.
+    assert.ok(plate, `${id}: a plate for the séance`);
+    assert.equal(state.flags.test(plate.when) && plate.when.T_SEANCE_DARK === true, !lit, `${id}: the tent is ${lit ? 'lit' : 'darkened'}`);
     const lantern = (state.room.lamps ?? []).filter((lamp) => lamp.at[1] < 300 && state.flags.test(lamp.when));
     assert.equal(lantern.length, lit ? 1 : 0, `${id}: the lantern ${lit ? 'breathes' : 'is turned down to a bead'}`);
     if (plate) assert.ok(state.room.plates?.[plate.plate], 'a plate the room declares');

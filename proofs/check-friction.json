@@ -631,6 +631,12 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 238: not loosened, changed with the art. It reached OZY_E1 by TALK TO on Ozymandia's standing figure; while the séance is on she is drawn seated at its head instead, so TALK TO goes through MADAME OZYMANDIA, PRESIDING, and her standing figure is talked to again after re-entering. The subjects' wrong-try loop skips a TALK TO that opens a tree (the presiding medium's), which it played separately above. Every assertion it made still holds."
+  },
+  {
+   "check": "tools/check-flag-order.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 239: it misfired on a flag a node's opening writes. The runner sets a node's `openingOnce` flag when the tree opens on it, and nothing had ever gated on one, so the check did not count it as a writer and reported the tent's gate on T_SEANCE_HEARD as unsatisfiable. A node's `openingOnce` (and its `onOpen.set`) is now a writer, as tools/lib/puzzle-model.mjs already had it."
   }
  ]
 }

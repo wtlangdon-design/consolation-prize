@@ -293,7 +293,10 @@ export class HeadlessPlayer {
     return this.present().find((npc) => npc.id === id);
   }
 
-  private afterInteraction(result: { goesTo?: string; changedRoom: boolean }, from: string): void {
+  private afterInteraction(result: { goesTo?: string; changedRoom: boolean; opens?: string }, from: string): void {
+    // A TREE OWED UNTIL THE RESPONSE'S LINES ARE READ (GameScene.applyInteraction's `owed`; errata 239): a headless
+    // run has no clock, so the lines are read at once, and the tree opens as the scene opens it.
+    if (result.opens && !this.state.dialogue.isActive) this.state.dialogue.start(result.opens);
     if (result.changedRoom) this.arrival(from);
     if (result.goesTo) this.travelAfterSay = result.goesTo;
     this.settle();

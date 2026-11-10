@@ -28,7 +28,11 @@ function advance(state: GameState): void {
   state.interact(state.findTarget('hs_beta')!, state.verbs.verbFor(state.findTarget('hs_beta')!)); // -> 2
 
   state.verbs.selectVerb('TALK_TO');
-  state.interact(state.findTarget('hs_alpha')!, state.verbs.verbFor(state.findTarget('hs_alpha')!)); // opens harness_tree at HARN_1
+  // Owes harness_tree: the response has a line of its own, and its tree opens when that has been read (errata 239).
+  const talked = state.interact(state.findTarget('hs_alpha')!, state.verbs.verbFor(state.findTarget('hs_alpha')!));
+  assert.equal(state.dialogue.isActive, false, 'the list is not up while the response is being read');
+  assert.ok(talked.opens, 'the response names the tree it owes');
+  state.dialogue.start(talked.opens); // opens harness_tree at HARN_1
 
   state.dialogue.select('opt_topic'); // exhausts one option, stays on HARN_1
   state.dialogue.select('opt_unlock'); // sets T_HARNESS_UNLOCKED, moves to HARN_2

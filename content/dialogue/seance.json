@@ -3,14 +3,57 @@
   "schema": 1,
   "id": "SEANCE",
   "speaker": "ozymandia",
-  "note": "EXTRACTED from docs/111-scenes-b-and-c.md (THE LINES, B: SEA_E1 and LEAVING THE TABLE) by tools/extract-content.mjs (errata 237). Do not edit: change doc 111 and re-run. Opened by USE THE SÉANCE TABLE in the dark (Room 16), after THE SÉANCE is heard from under it. Thad speaks the options as the voice of the dead; FRAME is `seance_frame`, his voice at the table (the tent's `voices`), not the Clarion's figure. Option 4 is always offered, so the séance can always be finished: it writes T_MOTT_SPOKE, ends the séance (T_SEANCE_ON, T_UNDER_TABLE) and plays LEAVING THE TABLE. Doc 04's universal exit leaves him under the cloth, and the table opens SEA_E1 again.",
+  "note": "EXTRACTED from docs/111-scenes-b-and-c.md (THE LINES, B: SEA_E1 and LEAVING THE TABLE) by tools/extract-content.mjs (errata 237). Do not edit: change doc 111 and re-run. Opened by USE THE SÉANCE TABLE in the dark (Room 16), after THE SÉANCE is heard from under it: the node's opening, said once (T_SEANCE_HEARD; errata 239). Thad speaks the options as the voice of the dead; FRAME is `seance_frame`, his voice at the table (the tent's `voices`), not the Clarion's figure. Option 4 is always offered, so the séance can always be finished: it writes T_MOTT_SPOKE, ends the séance (T_SEANCE_ON, T_UNDER_TABLE) and plays LEAVING THE TABLE. Doc 04's universal exit brings him out from under the cloth (errata 239), and the table takes him back to SEA_E1.",
   "entries": [],
   "start": "SEA_E1",
   "nodes": {
     "SEA_E1": {
       "id": "SEA_E1",
       "noPrompt": true,
-      "exceptionReason": "Doc 111 SEA_E1: the séance before it (THE SÉANCE, heard from under the table) is said as he goes under, by the table's USE; the node opens on his choice of what the dead will say.",
+      "exceptionReason": "Doc 111 SEA_E1: the séance before it (THE SÉANCE, heard from under the table) is its opening, said once as he goes under; the list has no caption, and opens on his choice of what the dead will say.",
+      "opening": [
+        {
+          "speaker": "ozymandia",
+          "line": "We call upon the spirit of Obadiah Mott."
+        },
+        {
+          "speaker": "ozymandia",
+          "line": "A silence is held.",
+          "direction": true
+        },
+        {
+          "speaker": "ozymandia",
+          "line": "Obadiah Mott. The town is waiting."
+        },
+        {
+          "speaker": "ozymandia",
+          "line": "A silence is held.",
+          "direction": true
+        },
+        {
+          "speaker": "ozymandia",
+          "line": "Obadiah Mott — two dollars a head —"
+        },
+        {
+          "speaker": "ozymandia",
+          "line": "A silence is held.",
+          "direction": true
+        },
+        {
+          "speaker": "ozymandia",
+          "line": "She consults the rod.",
+          "direction": true
+        },
+        {
+          "speaker": "ozymandia",
+          "line": "The spirits say he is… busy."
+        },
+        {
+          "speaker": "seance_frame",
+          "line": "BUSY? Twelve years dead and BUSY?"
+        }
+      ],
+      "openingOnce": "T_SEANCE_HEARD",
       "options": [
         {
           "id": "seance1",
@@ -128,7 +171,10 @@
           "tag": "EXIT",
           "text": "I should go.",
           "universal": true,
-          "ends": true
+          "ends": true,
+          "set": {
+            "T_UNDER_TABLE": false
+          }
         }
       ]
     }

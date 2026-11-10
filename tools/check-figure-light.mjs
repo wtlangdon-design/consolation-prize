@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 
 import { heightIn, WalkBoxes } from '../engine/core/WalkBoxes.ts';
 import { moverTint } from '../engine/render/LightFields.ts';
-import { figureGrade } from '../engine/render/Renderer.ts';
+import { figureGrade, roomFigureLight } from '../engine/render/Renderer.ts';
 import { Report, ROOT } from './lib/content.mjs';
 import { readPng } from './lib/png.mjs';
 
@@ -55,11 +55,23 @@ import { readPng } from './lib/png.mjs';
  * and a suggested fix, printed on every run; the check fails on a new one, and
  * on a listed one that has stopped being flagged (take it out of the list).
  *
+ * A ROOM'S LIGHT BY STATE (RoomFile.figureLightWhen; errata 239, Tyler, 2026-11-09: "Fix all the things that are
+ * rough"). The tent's lamp is turned down for the séance: the plate and the group went dark and Thad stood in his own
+ * even light. Two things follow here.
+ *   - A sheet drawn while a condition holds (`spriteWhen`) is measured in the light of THAT state: the room's
+ *     `figureLightWhen` entry the sheet's own condition implies, for the figure and for Thad beside it.
+ *   - A ROOM THAT GOES DARK TAKES THAD WITH IT (`darkStates`). Where a plate chosen by state (`plateWhen`) is under
+ *     DARK_PLATE of the room's own plate in mean luminance, Thad as the engine draws him in that state must be at
+ *     least halfway down with it: no more than 1 - (1 - plate ratio) / 2 of himself in the room's ordinary light.
+ *     Half, because how dark a man reads beside a dark wall is Tyler's to judge, and a man not darkened at all is not.
+ *
  * Out of scope: rooms whose plate is daylight by ruling (reference/global-baseline.json
  * `daylight`), where there is no night to be brighter than, and candidate rooms.
  */
 export const LIMIT = 1.12;
 export const LAMP_GAIN = 1.5;
+/** A plate chosen by state under this share of the room's own plate's luminance is the room gone dark. */
+export const DARK_PLATE = 0.8;
 
 const read = (path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
 const pngs = new Map();
@@ -72,8 +84,53 @@ const png = (path) => {
  * The room's grade for a figure drawn from a sheet, as Renderer.gradeFor resolves it (figureGrade): null when it names
  * neither that id nor that sheet (FigureLight.sheets; errata 238).
  */
-export function gradeFor(room, id, sheet) {
-  return figureGrade(room.figureLight, id, sheet);
+export function gradeFor(room, id, sheet, state = {}) {
+  return figureGrade(lightIn(room, state), id, sheet);
+}
+
+/** Whether a condition is known to hold in a state given as the flags a `when` names: every flag it asks, as asked. */
+export function impliedBy(when, state) {
+  return Object.entries(when ?? {}).every(([flag, value]) => flag in state && JSON.stringify(state[flag]) === JSON.stringify(value));
+}
+
+/** The room's figure grade in a state (RoomFile.figureLightWhen), as Renderer.roomFigureLight resolves it from flags. */
+export function lightIn(room, state = {}) {
+  return roomFigureLight(room, (when) => impliedBy(when, state));
+}
+
+/** A whole plate's mean luminance. */
+function plateLuma(path) {
+  const image = png(path);
+  let sum = 0;
+  for (let i = 0; i < image.pixels.length; i += 4) sum += 0.2126 * image.pixels[i] + 0.7152 * image.pixels[i + 1] + 0.0722 * image.pixels[i + 2];
+  return sum / (image.pixels.length / 4);
+}
+
+/**
+ * Every plate a room shows by state that is the room gone dark, with Thad's drawn luminance in that state against his
+ * own in the room's ordinary light. `overrides` replaces a room's fields by id, as measureCast's does.
+ */
+export function darkStates({ rooms: roomOverrides = {} } = {}) {
+  const manifest = read('content/manifest.json');
+  const thad = thadFrame();
+  const found = [];
+  for (const path of manifest.rooms) {
+    const file = read(path);
+    const room = { ...file, ...(roomOverrides[file.id] ?? {}) };
+    if (room.candidateOf !== undefined || !room.background || !room.plateWhen?.length) continue;
+    const own = plateLuma(room.background);
+    const ordinary = meanDrawnLuma(thad.image, thad.rect, gradeFor(room, 'thad'));
+    for (const entry of room.plateWhen) {
+      const plate = room.plates?.[entry.plate];
+      if (!plate) continue;
+      const ratio = plateLuma(plate) / own;
+      if (ratio >= DARK_PLATE) continue;
+      const drawn = meanDrawnLuma(thad.image, thad.rect, gradeFor(room, 'thad', undefined, entry.when));
+      const limit = 1 - (1 - ratio) / 2;
+      found.push({ room: room.id, when: entry.when, plate, plateRatio: ratio, playerRatio: drawn / ordinary, limit, flagged: drawn / ordinary > limit });
+    }
+  }
+  return found;
 }
 
 /** One pixel through the grade (CSS brightness, contrast, saturate, then the multiply), and the tint. */
@@ -190,10 +247,11 @@ export function measureCast({ ambient: ambientOverrides = {}, rooms: roomOverrid
       // AND EVERY OTHER SHEET IT IS DRAWN FROM WHILE A CONDITION HOLDS (AmbientFile.spriteWhen; errata 238): the
       // raccoon halfway out of the hole and the hen were painted in daylight, and the séance in the dark is its own
       // sheet. Each is measured as the engine draws it, under its own name.
-      const sheets = [{ sprite: own, as: npc.id }].concat(at === npc ? (npc.spriteWhen ?? [])
+      // Each in the light of the state it is drawn in (RoomFile.figureLightWhen; errata 239).
+      const sheets = [{ sprite: own, as: npc.id, state: {} }].concat(at === npc ? (npc.spriteWhen ?? [])
         .filter((variant) => variant.sprite.sheet)
-        .map((variant) => ({ sprite: { ...own, ...variant.sprite }, as: `${npc.id} (${variant.sprite.sheet})` })) : []);
-      for (const { sprite, as } of sheets) {
+        .map((variant) => ({ sprite: { ...own, ...variant.sprite }, as: `${npc.id} (${variant.sprite.sheet})`, state: variant.when ?? {} })) : []);
+      for (const { sprite, as, state } of sheets) {
         const image = png(sprite.sheet);
         // The rest frame, or the first that draws anything (a figure that is empty until it acts).
         const frame = sprite.frames.find((one) => meanDrawnLuma(image, one) !== null);
@@ -201,8 +259,8 @@ export function measureCast({ ambient: ambientOverrides = {}, rooms: roomOverrid
         const x = at.x ?? npc.x;
         const y = at.y ?? npc.y;
         const tint = moverTint(room.lamps, x, y, null);
-        const figure = meanDrawnLuma(image, frame, gradeFor(room, npc.id, sprite.sheet), tint);
-        const reference = meanDrawnLuma(thad.image, thad.rect, gradeFor(room, 'thad'), tint);
+        const figure = meanDrawnLuma(image, frame, gradeFor(room, npc.id, sprite.sheet, state), tint);
+        const reference = meanDrawnLuma(thad.image, thad.rect, gradeFor(room, 'thad', undefined, state), tint);
         const allowance = lampAllowance(room.lamps, drawnRect(room, x, y, sprite, frame));
         const ratio = figure / reference;
         measured.push({
@@ -235,6 +293,13 @@ export function check() {
     if (!flagged.some((one) => keyOf(one) === keyOf(entry))) {
       report.fail(`${entry.figure} in ${entry.room} is no longer brighter than its night: take it out of reference/figure-light-known.json`);
     }
+  }
+  // A ROOM THAT GOES DARK TAKES THAD WITH IT (errata 239).
+  const dark = darkStates();
+  for (const one of dark) {
+    const says = `${one.room} while ${JSON.stringify(one.when)}: the plate is ${one.plateRatio.toFixed(2)} of the room's own, and Thad is drawn at ${one.playerRatio.toFixed(2)} of himself`;
+    if (one.flagged) report.fail(`${says}; he must be at most ${one.limit.toFixed(2)} -- grade him with the room in that state (\`figureLightWhen\`)`);
+    else report.note(`${says} (limit ${one.limit.toFixed(2)})`);
   }
   for (const line of skipped) report.note(line);
   report.note(`${measured.length} placed figure(s) measured; ${flagged.length} brighter than the limit, ${known.length} of them known`);
