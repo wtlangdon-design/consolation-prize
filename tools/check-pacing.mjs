@@ -9,7 +9,7 @@
  *  2  Never more than three stops in a row where all he can do is choose a line. A stop is a room in which the route
  *     does anything at all; it is hands-on if the route uses a verb, an item, a duel, a tap or a wait there.
  *  4  Every verb on the panel solves something somewhere: each is used by the route at least once. And one item is
- *     used on another somewhere.
+ *     used on another five times (Tyler, 2026-11-09).
  *
  * WHAT IS STILL FAILING IS WRITTEN DOWN, in proofs/pacing.json, each with the row of doc 114 that is to fix it. A
  * failure not on that list fails the check: a later change cannot quietly bring back four counters in a row. And a
@@ -24,6 +24,7 @@ import { Report, readJson, runCheck } from './lib/content.mjs';
 const HANDS = new Set(['verb', 'use', 'duel', 'tap', 'wait', 'opening']);
 const TALK_VERB = 'TALK_TO';
 const LIMIT = 3;
+const ITEM_ON_ITEM = 5;
 
 /** The route as stops: each room he does something in, in order, and whether he does anything there with his hands. */
 export function stopsOf(steps) {
@@ -62,7 +63,10 @@ export function check() {
   if (steps.some((step) => step.do === 'talk')) used.add(TALK_VERB);
   for (const verb of verbs) if (!used.has(verb)) found.push(`verb never used: ${verb}`);
   const items = new Set(readJson('content/manifest.json').items.map((file) => readJson(file).id));
-  if (!steps.some((step) => step.do === 'use' && items.has(step.on))) found.push('no item is used on another item');
+  // FIVE, NOT ONE (Tyler, 2026-11-09, asked whether to hold four or five: "Yes"): the first Monkey Island used an item on
+  // an item a handful of times, and this game had none.
+  const onItems = steps.filter((step) => step.do === 'use' && items.has(step.on)).length;
+  if (onItems < ITEM_ON_ITEM) found.push(`an item is used on another item ${onItems} time(s), not ${ITEM_ON_ITEM}`);
   for (const what of found) {
     const row = known.get(what);
     if (row) report.note(`known, to be fixed by doc 114 ${row.row}: ${what}`);

@@ -13,6 +13,10 @@
   {
    "what": "verb never used: PULL",
    "row": "X-1"
+  },
+  {
+   "what": "an item is used on another item 1 time(s), not 5",
+   "row": "X-2, widened by Tyler on 2026-11-09 to five: to be placed in I-1 (the dinner), II-1 (the plate) and where else it comes naturally"
   }
  ]
 }
