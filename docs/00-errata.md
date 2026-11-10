@@ -7076,4 +7076,5 @@ Lesson:
 - `tests/skin-tone.test.mjs` now reads a figure's own light, and holds the two regraded faces.
 - `tests/hurry.test.ts`: the rule, case by case; the factor is content and under 1.8; the scene moves nobody and cancels nothing; a new walk begins at his own pace.
 - Doc 55 section 8: a figure cut apart from a plate is graded into the plate's light when the room is built, the protagonist included.
+- **Found on the way, and mine:** `art/staging/caps.json` and `art/staging/ledger.json` went to main with merge-conflict markers in them (PR 336: a conflicted merge committed before it was resolved; the two documents were put right and these two records were not). Nothing in the game reads them, so nothing failed; the image session would have, at its next operation. Both are whole again, with every entry from both sides (392 attempts; `press-pull` and `objects-second-pass` both capped). `tests/no-conflict-markers.test.mjs` now opens every tracked file for a marker and parses both records.
 
