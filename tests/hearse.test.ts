@@ -303,3 +303,21 @@ test('at the gate the group turns toward the hearse on its right', async () => {
   assert.ok(bowed && mirrored(bowed.sheet!, 'art/actors/room-14-mourners-bowed.png', bowed.frames!),
     'and bowed for the prayer, the same way');
 });
+
+/**
+ * HE PRAYS WITH HIS EYES SHUT (Tyler, 2026-11-09: "Fix all the things that are rough"; errata 240). The line said
+ * during the prayer has his eyes shut, so while it runs he is drawn praying, on frames the size of his own so he
+ * does not shift; without it he is as he was.
+ */
+test('while the prayer runs the one praying is drawn praying, and not otherwise', async () => {
+  const { ambient } = await inFixture('r14-stall-b', { T_HILL_PRAYER: true });
+  ambient.arrived();
+  const praying = ambient.present.find((npc) => npc.id === 'procession_sowerby')!.sprite!;
+  const { ambient: before } = await inFixture('r14-stall-b', { T_HILL_PRAYER: false });
+  before.arrived();
+  const standing = before.present.find((npc) => npc.id === 'procession_sowerby')!.sprite!;
+  assert.notEqual(praying.sheet, standing.sheet, 'a sheet of his own for the prayer');
+  assert.ok(existsSync(resolve(ROOT, praying.sheet)), 'and it is drawn');
+  assert.deepEqual(praying.frames[0]!.slice(2), standing.frames[0]!.slice(2), 'the same size, so he does not shift');
+  assert.ok((praying.breaksThatSpeak ?? []).length > 0, 'and the prayer is still said on his breaks');
+});

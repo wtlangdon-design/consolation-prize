@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "boot_hill",
  "roomWidth": 1920,
- "branch": "mourners-face-hearse",
- "commit": "9819b2ab3a6635765a28011dc600b2aca0bb750a",
+ "branch": "act3-polish-wire",
+ "commit": "524a5a0c6c7acfd14e87f39de36a15e4634f755c",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -44,7 +44,7 @@
    ],
    "reportedHeight": 285,
    "expected": 285,
-   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     1636,
     276,
@@ -118,7 +118,7 @@
     "height": 302,
     "bottom": 820,
     "right": 1842,
-    "changed": 13325
+    "changed": 13342
    },
    "props": []
   },
@@ -144,7 +144,7 @@
     "height": 315,
     "bottom": 855,
     "right": 1400,
-    "changed": 25166
+    "changed": 24887
    },
    "props": []
   },
@@ -164,13 +164,13 @@
     "height": 405
    },
    "seen": {
-    "x": 151,
-    "y": 417,
-    "width": 364,
-    "height": 323,
+    "x": 150,
+    "y": 415,
+    "width": 366,
+    "height": 325,
     "bottom": 739,
-    "right": 514,
-    "changed": 74228
+    "right": 515,
+    "changed": 74961
    },
    "props": []
   },
@@ -196,7 +196,7 @@
     "height": 389,
     "bottom": 793,
     "right": 1689,
-    "changed": 160535
+    "changed": 193072
    },
    "props": []
   }
@@ -205,7 +205,7 @@
   {
    "panel": "B",
    "room": "boot_hill",
-   "clock": 10.587,
+   "clock": 13.104700000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -248,7 +248,7 @@
     "ACT": 3,
     "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
-    "HILL_PRAYER_SAID": 0,
+    "HILL_PRAYER_SAID": 1,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
     "HOB_RUNNING": 0,
@@ -325,12 +325,12 @@
      "hash": "d30055d9fc94c162408be9e96d48943942682fcef35d21c2ca65a11e69778e70"
     },
     {
-     "key": "art/actors/room-31-sowerby-master.png",
-     "path": "art/actors/room-31-sowerby-master.png",
-     "drawn": "art/actors/room-31-sowerby-master.png",
+     "key": "art/actors/room-14-sowerby-praying.png",
+     "path": "art/actors/room-14-sowerby-praying.png",
+     "drawn": "art/actors/room-14-sowerby-praying.png",
      "candidate": false,
      "loaded": true,
-     "hash": "cbd09ef0e7d05e4842ab243ff53a422421b39f787f51f0e39036d2466eaf07bf"
+     "hash": "4c52f93e4cddc14635201f1896135495852fbf715f56c742b742d080d5171ad6"
     },
     {
      "key": "art/actors/room-31-undertaker-master.png",
@@ -346,15 +346,15 @@
    "controlWrites": [
     "enter(boot_hill)"
    ],
-   "capturedAt": "2026-11-09T22:11:34.447Z",
+   "capturedAt": "2026-11-10T01:14:43.203Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "91bb8239d6616a10a6dee4cd2f44fcc6f01386248717d7ac90aac41be73bf9a5"
+   "hash": "42b2478b53b57c7f09c1ffbb5746b34e6c950357266850594a1cbf762cb144cf"
   },
   {
    "panel": "A",
    "room": "boot_hill",
-   "clock": 11.620299999999999,
+   "clock": 14.1547,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -397,7 +397,7 @@
     "ACT": 3,
     "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
-    "HILL_PRAYER_SAID": 0,
+    "HILL_PRAYER_SAID": 1,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
     "HOB_RUNNING": 0,
@@ -469,12 +469,12 @@
      "hash": "d30055d9fc94c162408be9e96d48943942682fcef35d21c2ca65a11e69778e70"
     },
     {
-     "key": "art/actors/room-31-sowerby-master.png",
-     "path": "art/actors/room-31-sowerby-master.png",
-     "drawn": "art/actors/room-31-sowerby-master.png",
+     "key": "art/actors/room-14-sowerby-praying.png",
+     "path": "art/actors/room-14-sowerby-praying.png",
+     "drawn": "art/actors/room-14-sowerby-praying.png",
      "candidate": false,
      "loaded": true,
-     "hash": "cbd09ef0e7d05e4842ab243ff53a422421b39f787f51f0e39036d2466eaf07bf"
+     "hash": "4c52f93e4cddc14635201f1896135495852fbf715f56c742b742d080d5171ad6"
     },
     {
      "key": "art/actors/room-31-undertaker-master.png",
@@ -491,15 +491,15 @@
     "enter(boot_hill)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T22:11:35.543Z",
+   "capturedAt": "2026-11-10T01:14:44.205Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "58aae0a85c9568ff6724be8574e344e9b26158edc73ded3b469ed3d9da2f7592"
+   "hash": "05b51944a47012ab387eba914dc38997ee13f9cc4aea65be4e10abb5404ba3d9"
   },
   {
    "panel": "D",
    "room": "boot_hill",
-   "clock": 52.7853,
+   "clock": 55.6863,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -542,7 +542,7 @@
     "ACT": 3,
     "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
-    "HILL_PRAYER_SAID": 2,
+    "HILL_PRAYER_SAID": 8,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
     "HOB_RUNNING": 0,
@@ -579,7 +579,7 @@
      "height": 305,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       1018,
       551,
@@ -619,12 +619,12 @@
      "hash": "d30055d9fc94c162408be9e96d48943942682fcef35d21c2ca65a11e69778e70"
     },
     {
-     "key": "art/actors/room-31-sowerby-master.png",
-     "path": "art/actors/room-31-sowerby-master.png",
-     "drawn": "art/actors/room-31-sowerby-master.png",
+     "key": "art/actors/room-14-sowerby-praying.png",
+     "path": "art/actors/room-14-sowerby-praying.png",
+     "drawn": "art/actors/room-14-sowerby-praying.png",
      "candidate": false,
      "loaded": true,
-     "hash": "cbd09ef0e7d05e4842ab243ff53a422421b39f787f51f0e39036d2466eaf07bf"
+     "hash": "4c52f93e4cddc14635201f1896135495852fbf715f56c742b742d080d5171ad6"
     },
     {
      "key": "art/actors/room-31-undertaker-master.png",
@@ -650,10 +650,10 @@
     "cast(true)",
     "bystanders(true)"
    ],
-   "capturedAt": "2026-11-09T22:12:16.676Z",
+   "capturedAt": "2026-11-10T01:15:25.598Z",
    "intent": "principal changed state: THE PRAYER (doc 110 section 2): Sowerby's barks while T_HILL_PRAYER holds, said on his speaking breaks, in turn (HILL_PRAYER_SAID counts them); then TALK TO him mid-prayer. Visible consequence: Thad, at Sowerby's side, saying he has never had a better chance at anything, the town's heads bowed.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "77fe60155c26759c6f0b73a0563aa3a0e02e2cf793dcbdbe168fc3ba2c31c854",
+   "hash": "ac07760bfb7f5f47485ce0dae227cdb2f34f0e2bfbe567cd8259d60b33b77df0",
    "changedBy": "counters"
   }
  ],
@@ -684,11 +684,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T22:12:16.676Z",
+ "at": "2026-11-10T01:15:25.598Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 447824,
+  "bytes": 463192,
   "panels": 5,
   "scale": 0.5
  }

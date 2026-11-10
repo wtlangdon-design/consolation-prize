@@ -6592,3 +6592,16 @@ Errata 238 D listed what was still rough in Room 16's séance after its art was 
 - **Left alone, as asked:** the survey puzzle (A7) is unavailable during the séance, and MR. PRATT'S TWO DOLLARS AND SIXTY CENTS has no icon yet.
 
 Lesson: `tests/seance-polish.test.ts` (each test proved by putting its defect back), and `tools/check-figure-light.mjs`, which now fails a room that goes dark by state and leaves Thad lit.
+
+---
+
+# 240 · THE MONEY'S ICON AND THE REVEREND PRAYING — TYLER, 2026-11-09 ("Fix all the things that are rough")
+
+The two rough spots of errata 238 and 233 that needed pictures. The brief is `reference/act3-polish/brief.md`; the image session's handback is `reference/act3-polish/handback.md`.
+
+- **MR. PRATT'S TWO DOLLARS AND SIXTY CENTS has its icon** (`act3-estate-sale` operation 3): two silver dollars in a square stack and a smaller stack beside them. `tools/art/act3-polish-icon-place.py` appends the cell to `art/ui/item-icons.png` as the hen's and the coat's were, and the item's `iconPending` is gone. No item is pending an icon now.
+- **The Reverend prays with his eyes shut at Boot Hill's gate** (`art/actors/room-14-sowerby-praying.png`). While `T_HILL_PRAYER` holds, `procession_sowerby` is drawn from it: eyes shut, chin raised, his open hand lifted, and his mouth open on the breaks that say the prayer. The frames are the size of his own and registered on his legs, so he does not shift.
+- **The cap.** The brief said `act3-hearse` had two operations held. It had none: its third and fourth went on Grievance's ears. Tyler, 2026-11-10, in the image session: "Raise hearse cap to 5 (Recommended)". `art/staging/caps.json` records it; `attemptsTotal` is 423.
+- **For Tyler:** at game size the shut eyes are a few pixels. What reads as prayer is the raised chin and the lifted hand (the handback says so).
+
+Lesson: `tests/hearse.test.ts`, the praying figure's test, fails with his prayer sheet taken away (proved by taking it away).

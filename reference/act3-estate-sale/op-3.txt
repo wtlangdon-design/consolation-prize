@@ -1,0 +1,9 @@
+Image 1 is a blank magenta canvas. Image 2 is every item icon in my pixel-art adventure game, on the inventory's dark panel: their style -- soft-shaded, a dark outline, low texture, readable at a small size -- is the style to match.
+
+In the middle of the magenta canvas, draw ONE new item icon, large, filling about half the canvas: MR. PRATT'S TWO DOLLARS AND SIXTY CENTS, the money a very tidy man has counted out exactly.
+- Two clean silver dollars STACKED one exactly on top of the other in a neat short upright column, and beside them a smaller neat upright column of a few small coins (silver and one copper), both columns squared up side by side, perfectly tidy, edges aligned, as a fussy man would leave them on a table.
+- Clean, bright coins; nothing loose, nothing scattered.
+
+It must NOT look like any icon already in Image 2. In particular it must not be a loose pile of coins, a pair of loose coins lying flat, a cloth sack of coins, or a scatter of copper coins with a button: those are other items. Tidy upright stacks are this icon's whole idea.
+
+The same soft, flat shading, dark outline and low texture as Image 2 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) everywhere around it. No shadow, no table, no text, no numbers, no border.

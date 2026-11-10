@@ -15,6 +15,5 @@
         "say": "Quiet. Mr. Pratt's money has never had much to say."
       }
     ]
-  },
-  "iconPending": "No icon is drawn for it yet: act3-estate-sale's brief asks for one (reference/act3-estate-sale/brief.md, \"an item icon or two\"); until it lands the panel draws its labelled box (Renderer.drawInventory)."
+  }
 }

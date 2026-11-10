@@ -1,0 +1,8 @@
+Image 1 is a TEMPLATE: the Reverend Sowerby, an elderly preacher with grey hair and beard in a long black frock coat, EXACTLY as he is drawn in my pixel-art adventure game, three times in a row on magenta. Image 2 is his whole current sheet, for his face, hair and clothes only. Image 3 is the hero Thad at night at the cemetery gate where the Reverend stands, for the light and the style.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other two as the SAME man, KEEPING HIS FIGURE -- the same height, the same head size, the same shoulders and coat, his feet on the same line and in the same place -- and changing only his head, his face and his raised arm. He is praying aloud over the town:
+2. his EYES SHUT, his chin raised a little toward the sky, his raised hand now OPEN, palm lifted, in the middle of a prayer; his mouth closed;
+3. the same -- eyes shut, chin a little raised, the open hand lifted -- with his MOUTH OPEN on a long word.
+His other hand stays at his side as it is.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No glow, no blur, no shadows, no ground, no text, no numbers, no border.
