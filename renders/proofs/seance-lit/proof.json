@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "ozymandias_tent",
  "roomWidth": 1920,
- "branch": "scenes-bc-art",
- "commit": "7002ce648133050d8fb1c4343be0d2023a1e3981",
+ "branch": "seance-polish",
+ "commit": "88a9ee5c8b95a93da07b63eec66870aae1e323c0",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -45,7 +45,7 @@
    ],
    "reportedHeight": 449,
    "expected": 449,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
     1227,
     307,
@@ -82,7 +82,7 @@
    ],
    "reportedHeight": 518,
    "expected": 518,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
    "bounds": [
     775,
     339,
@@ -119,7 +119,7 @@
     "height": 515,
     "bottom": 812,
     "right": 1398,
-    "changed": 255103
+    "changed": 253385
    },
    "props": []
   }
@@ -128,7 +128,7 @@
   {
    "panel": "B",
    "room": "ozymandias_tent",
-   "clock": 9.7448,
+   "clock": 12.1256,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -341,15 +341,15 @@
    "controlWrites": [
     "enter(ozymandias_tent)"
    ],
-   "capturedAt": "2026-11-09T23:50:40.899Z",
+   "capturedAt": "2026-11-10T00:32:04.707Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "428b58934205db5667a2a3d73c0dbd619324e8fad4343b30db91241a33b619c1"
+   "hash": "832cc47f1e6deb1f7bd63ca09666dc12160adca8e31100b0828a4986bc8f3d4e"
   },
   {
    "panel": "A",
    "room": "ozymandias_tent",
-   "clock": 10.6614,
+   "clock": 13.192200000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -558,15 +558,15 @@
     "enter(ozymandias_tent)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T23:50:41.832Z",
+   "capturedAt": "2026-11-10T00:32:05.767Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "342c8358d0cc1af6b0e2811ec90f44c84939b687cb016c4a1c3844d24c285e62"
+   "hash": "df60dea78edfd92cf62503b0c13429a4c08b7a304ff8beba7888af2470d68513"
   },
   {
    "panel": "D",
    "room": "ozymandias_tent",
-   "clock": 33.9771,
+   "clock": 38.4078,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -735,7 +735,7 @@
      "height": 479,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-left/idle-break-01.png",
+     "from": "art/actors/thad-idlebreak-left/idle-break-08.png",
      "bounds": [
       1236,
       321,
@@ -790,10 +790,10 @@
     "cast(true)",
     "bystanders(true)"
    ],
-   "capturedAt": "2026-11-09T23:51:05.111Z",
+   "capturedAt": "2026-11-10T00:32:30.802Z",
    "intent": "principal changed state: OZY_E1 option 2 (doc 111): whether the dead mind the light. Visible consequence: her answer over her head at the table, and when the exchange ends the lamp turned down to a bead, the tent and the group in the dark (T_SEANCE_DARK).",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "1bfb5215efe76bd39632448e177fe30518b8889ead260f408dcbb5dd55d87e8a",
+   "hash": "94e60253a7070385bb0ba0c8c89f2d47628965b807a017da83273dd3d5ca9ac5",
    "changedBy": "flags"
   }
  ],
@@ -824,11 +824,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T23:51:05.111Z",
+ "at": "2026-11-10T00:32:30.802Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 331390,
+  "bytes": 330532,
   "panels": 5,
   "scale": 0.5
  }
