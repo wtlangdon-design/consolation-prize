@@ -1,0 +1,16 @@
+{
+ "assetId": "act3-hearse",
+ "subject": "act3-hearse-sowerby-praying",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-14-boot-hill",
+ "promptFile": "reference/act3-hearse/op-5.txt",
+ "out": "art/staging/act3-hearse/op-5/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act3-hearse/op-5/template.png",
+  "art/staging/act3-hearse/op-5/current.png",
+  "art/staging/act3-hearse/op-1/thad-in-room-14.png"
+ ],
+ "derivedFrom": "art/actors/room-31-sowerby-master.png"
+}
