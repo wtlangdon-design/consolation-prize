@@ -1,0 +1,8 @@
+Image 1 is a TEMPLATE on magenta from my pixel-art adventure game, set in an 1850s gold-rush town: the hero, Thad (black hair, long blue-grey coat, brown waistcoat, dark trousers, boots), in profile facing RIGHT, three times.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other two as the SAME Thad, facing RIGHT, the same size, his knees and feet on the same ground line:
+2. going down onto his hands and knees: one knee on the ground, one hand reaching down to the floor in front of him;
+3. on his hands and knees, crawling forward to the right, his head low, his coat tails over his legs.
+Nothing in his hands.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as THAD -- NOT sharper, NOT more detailed. Every figure the same height as the figure it repaints, its feet on the same line. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No shadows, no ground, no furniture, no text, no numbers, no border.

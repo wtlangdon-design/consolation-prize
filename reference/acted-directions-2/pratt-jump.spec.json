@@ -1,0 +1,16 @@
+{
+ "assetId": "acted-directions-2",
+ "subject": "acted-directions-2-pratt-jump",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-23-prosperity",
+ "promptFile": "reference/acted-directions-2/pratt-jump.txt",
+ "out": "art/staging/acted-directions-2/pratt-jump/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-2/pratt-jump/template.png",
+  "art/staging/acted-directions-2/beside-thad-pratt_jump.png",
+  "art/staging/acted-directions-2/pratt-jump/objects.png"
+ ],
+ "derivedFrom": "art/actors/room-25-pratt-jump-master.png"
+}

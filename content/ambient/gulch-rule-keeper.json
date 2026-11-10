@@ -66,6 +66,18 @@
     2,
     239,
     346
+   ],
+   [
+    2,
+    350,
+    239,
+    346
+   ],
+   [
+    243,
+    350,
+    239,
+    346
    ]
   ],
   "rate": 0.4,
@@ -88,7 +100,7 @@
   "breakEvery": 11,
   "talkFrame": 4,
   "provenance": "art/staging/room-52/rule-keeper/rule-keeper.json",
-  "frameNote": "0 rest, glass and pebble bag · 1 breath · 2 drinking · 3 the pebble bag at his ear · 4 a rule, finger up · 5 playing, the bow one way · 6 the other.",
+  "frameNote": "0 rest, glass and pebble bag · 1 breath · 2 drinking · 3 the pebble bag at his ear · 4 a rule, finger up · 5 playing, the bow one way · 6 the other. Errata 263 (reference/final-look, reference/acted-directions-2): 7 a finger tapping his temple, the glass on his knee · 8 leaning forward, the bag tipped, a pinch of dust falling. Acted only (doc 95 rows 84 and 90). The whole sheet redrawn at the cast's proportions; still stout.",
   "figureHeight": 338,
   "stature": 0.85,
   "figureHeightNote": "Seated at 0.85 of the room's man at his feet (soles y 731, just off the floor), so that his lap sits on the keg's top at y 626: cut and snapped there by tools/art/interiors-people.py.",

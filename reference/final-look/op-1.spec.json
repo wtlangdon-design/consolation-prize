@@ -1,0 +1,16 @@
+{
+ "assetId": "final-look",
+ "subject": "final-look-pratt",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-25-pratts-claim",
+ "promptFile": "reference/final-look/op-1.txt",
+ "out": "art/staging/final-look/pratt/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/final-look/pratt/template.png",
+  "art/staging/final-look/beside-thad-pratt.png",
+  "art/staging/final-look/cast-lineup-same-height.png"
+ ],
+ "derivedFrom": "art/actors/room-25-pratt-master.png"
+}

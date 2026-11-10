@@ -7099,3 +7099,21 @@ Told that the game is dark and brown for a long time, and that the fix is variet
 
 Lesson: `tests/room-grades.test.mjs`: every graded picture is its original graded as the list says (a plate patched or regenerated without the tool fails), a grade is a lean and not a repaint, and the warm rooms stay off the list.
 
+## 263 · The final look and the first eleven poses, wired (reference/final-look, reference/acted-directions-2)
+
+The image session's two hand-backs. Six of `final-look`'s ten operations and five of `acted-directions-2`'s eighteen are spent.
+
+**The final look.**
+- **Mr. Pratt (both sheets), the rule-keeper, Madame Ozymandia at Prosperity and the pie woman** are redrawn at the cast's proportions, each on its own sheet, frame for frame. Mr. Pratt with his mallet is drawn 3.6% smaller so that the raised mallet fits its cell, and the pie woman 1% smaller for her raised hand: their heights are solved again on the new drawings (Pratt at Prosperity and at the Registrar's 405, the pie woman 166). A re-snap of Pratt's mallet sheet was tried and broke the handle from his hands; the sheet is as handed back, inside the 5% its level allows.
+- **Main Street at dawn** is the night street's own pixels under a first light: mean light 98.6 before, 63.9 now, against the night's 47.9. Every rect, walk box and exit sits where it sat.
+- **The washout** has its colour brought to the level of the ledge and the tents, by tool.
+
+**Eleven directions are acted that were printed** (doc 95, B to A): Mr. Pratt opening the coat, counting the money, holding out his hand, and giving back the coat (rows 120 to 123); Pratt on the claim holding out his hand and writing with the chalk (131); the rule-keeper tapping his head and tipping the dust (84, 90); the lookout reading the paper and folding it into his shirt (81, 82); the Deacon polishing a glass and pointing down the bank (87, 88). The new poses are frames after each sheet's last and are never an idle break.
+
+- Doc 95's count is **A 47 · B 10 · C 108**. (Its header said B 22 and C 107 since errata 253; the table has held 21 and 108, and the header is now counted from the table.)
+- **Ten rows are left,** and the image session cannot draw them: the game's overall image spend cap (`spendTokensTotal`, 4,000,000 billed tokens) was reached at 4,001,983. Raising it is Tyler's. Each of the ten has its prompt and specification written.
+
+Replayed in the real build: the lookout and the fiddle (G3.1 to G5.1), the chalk on the claim (D5.2c), the sale (E3.9).
+
+Lesson: none of these was a fix. Held by `tests/scale.test.ts` (the redrawn figures at their statures), `tests/one-level.test.mjs`, `tests/lessons.test.ts` (it refused the re-snapped mallet sheet: a figure in pieces), and the acted-directions tests (every acted row is performed by a figure in its room with frames it has).
+

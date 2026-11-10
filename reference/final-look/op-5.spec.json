@@ -1,0 +1,15 @@
+{
+ "assetId": "final-look",
+ "subject": "final-look-main-street-dawn",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/final-look/op-5.txt",
+ "out": "art/staging/final-look/dawn/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/final-look/dawn/input.png",
+  "art/staging/final-look/dawn/rooms-with-dawn.png"
+ ],
+ "derivedFrom": "art/backgrounds/room-02-main-street.png"
+}

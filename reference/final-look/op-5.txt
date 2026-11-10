@@ -1,0 +1,10 @@
+Image 1 is the whole main street of my pixel-art adventure game's 1850s gold town, AT NIGHT, shrunk to fit a band across the middle of the picture: false-fronted wooden buildings, the Consolation Improvement Company, the church steeple behind, the saloon with its lit doorway, the mud of the street with puddles, mountains and a starry sky behind. Image 2 shows other rooms of the game, all at night or lamplight, for how dark, soft and low in contrast the game's pictures are.
+
+Redraw Image 1 as the same street at the very FIRST LIGHT of dawn, a quiet, cold morning before the sun is up -- STILL A DIM PICTURE, nearly as dark as the night one:
+- the sky above the mountains pale and lightening near the horizon (a soft pale gold low down, a cold grey-blue higher up), no stars;
+- the mountains dark, soft and simple, slate blue-grey silhouettes with little detail, NOT bright and NOT sharp;
+- the buildings in cool grey-blue shadow, the first faint warm light only on their highest edges;
+- every lamp and window OUT: no orange glow anywhere, the saloon's doorway dark, no lamplight on the mud;
+- the mud the same mud, dark and wet, the puddles a little paler with the sky.
+
+KEEP EVERYTHING ELSE EXACTLY: every building, sign, window, door, porch, barrel, trough and puddle in the same place, the same size and the same shape, the band in the same place in the picture, the same chunky square pixels, the same soft, flat shading and the same LOW level of detail and contrast as Image 1. Do not add detail, do not sharpen, do not brighten the town. No people, no animals, no text other than the existing sign.
