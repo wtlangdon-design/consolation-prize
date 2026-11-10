@@ -6846,7 +6846,7 @@ Lesson:
 
 ## 248 · Act I, by hand: Pike's grave, the dinner played, and three small things (doc 120; doc 114 I-2, I-1, X-1, X-2)
 
-Under errata 245's mandate. Doc 120 is the design and the lines. I-3 (the boundary walked) is designed there and not built: it needs the map drawn large (`reference/act1-dinner/brief.md`).
+Under errata 245's mandate. Doc 120 is the design and the lines. I-3 (the boundary walked) is designed there and not built. Its picture, the map drawn large, is in (`art/backgrounds/room-16-company-map.png`); what it still needs is the engine to hold a line the player draws.
 
 ### I-2 · Pike's grave
 
@@ -6861,7 +6861,7 @@ Under errata 245's mandate. Doc 120 is the design and the lines. I-3 (the bounda
 - Leaving the conversation is not leaving the table. The Colonel's line for leaving ("Already? Then come back when you're hungry. The table will keep.") is said at the door, and the dinner starts again on the next entry, the dish covered.
 - CLOSE solves something for the first time (doc 114 X-1).
 - The desk's own handkerchief and submission log are not pointed at while the dinner table stands over the desk. They were: the pointer named THE HANDKERCHIEF over the silver cover.
-- **Not drawn yet:** the dish uncovered. Lifting the cover and putting it back are told (doc 95 rows 148 and 150, class B) until picture 1 of `reference/act1-dinner/brief.md` is in.
+- **The dish uncovered is drawn** (the image session's picture, in the same night: `reference/act1-dinner/handback.md`): the cover tipped beside its tray, the contract on the tray with its parsley. The table's own picture is swapped for it while the contract is served.
 
 ### Three small things
 

@@ -1448,7 +1448,7 @@
     },
     {
       "n": 148,
-      "class": "B",
+      "class": "C",
       "speaker": "fanshawe",
       "words": "Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract.",
       "where": "rooms/fanshawe_office covered_dish OPEN"
@@ -1462,7 +1462,7 @@
     },
     {
       "n": 150,
-      "class": "B",
+      "class": "C",
       "speaker": "thad",
       "words": "Thad puts the cover back over the contract.",
       "where": "rooms/fanshawe_office contract CLOSE"
