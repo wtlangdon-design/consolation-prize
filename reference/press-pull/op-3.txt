@@ -1,0 +1,8 @@
+Image 1 is a TEMPLATE: Thad, the young hero of my pixel-art adventure game -- black hair, a long blue-grey coat over a brown waistcoat, dark trousers, brown boots -- EXACTLY as he is drawn in the game, four times in a row on magenta, in profile facing RIGHT. Image 2 is Thad beside the printer Ignatius Frame in his print shop, at game size, for how soft and flat the game's drawing is. Image 3 is the printer's sheet, drawn to the same standard.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other THREE as the SAME young man, KEEPING HIS FIGURE -- the same height, the same head size, the same coat and clothes, his soles on the same line -- still in profile facing RIGHT, hauling on the long iron handle-bar of an old hand printing press, which reaches out from the right toward him: BOTH HANDS gripping the bar at chest height, one coat sleeve pushed up clear of the bar. Draw only the bar, a dark iron rod about as long as his forearm and hand together, in his hands; no press, no machine.
+2. hands on the bar, arms out in front of him, the bar level, standing square;
+3. weight going back: leaning back from the ankles, arms straightening, the bar drawn toward him, his front heel lifting a little;
+4. the bar home: pulled in close to his chest, elbows bent behind him, upright again, the job done.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the first figure -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure and its bar separated by clear magenta, nothing touching. No shadows, no ground, no text, no numbers, no border.
