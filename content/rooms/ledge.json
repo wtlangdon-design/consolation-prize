@@ -534,5 +534,16 @@
     "sky": 0,
     "ground": 6
   },
-  "horizon": 120
+  "horizon": 120,
+  "figureLight": {
+    "figures": [
+      "thad"
+    ],
+    "light": [
+      1,
+      0.95,
+      0.86
+    ],
+    "note": "Errata 265 (Tyler, 2026-11-10, on the Gulch: \"I defer to you\"). In the Gulch's daylight Thad was the one cool, dark thing on a warm tan ground, apart from the Gulch's own men, who are painted in it. A warm light and nothing else: his coat stays blue and takes the sun."
+  }
 }

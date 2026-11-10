@@ -10,10 +10,21 @@
  ],
  "figureLight": {
   "figures": [
-   "sign_painter"
+   "sign_painter",
+   "thad"
   ],
-  "brightness": 0.95,
-  "note": "Errata 235. Re-cut at his own height with a shorter ladder, the man on the ladder is more shirt and less ladder, and his rest frame measured 1.15 of Thad's luminance in the same first light (tools/check-figure-light.mjs; the limit 1.12). Dimmed a little to stand in the same dawn as Thad; nothing else in the room is graded."
+  "brightness": 0.9,
+  "note": "Errata 235. Re-cut at his own height with a shorter ladder, the man on the ladder is more shirt and less ladder, and his rest frame measured 1.15 of Thad's luminance in the same first light (tools/check-figure-light.mjs; the limit 1.12). Dimmed a little to stand in the same dawn as Thad; nothing else in the room is graded. Errata 265: the plate is relit to follow the street's first light (tools/art/coach-stop-first-light.py, 102.5 to 74.0), and the two figures on it follow the plate: a cold light, 0.9, Thad with the painter. The painter keeps errata 235's 0.95 of whatever Thad has (0.855).",
+  "light": [
+   0.93,
+   0.96,
+   1
+  ],
+  "perFigure": {
+   "sign_painter": {
+    "brightness": 0.855
+   }
+  }
  },
  "interface": "none",
  "endsGame": true,
