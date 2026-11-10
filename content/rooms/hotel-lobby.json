@@ -428,6 +428,29 @@
               "Brass on wood, faintly, when the door goes."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_KEY_TAKEN": false,
+              "T_ROOM_GRANTED": true
+            },
+            "say": "Number three. Mine, by arrangement with a piano. The clerk watched it leave the rack as if it might not come back, which shows how little he knows of my alternatives.",
+            "set": {
+              "T_KEY_TAKEN": true
+            },
+            "grants": [
+              "room_key"
+            ],
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **THE KEY RACK** · *the hotel lobby, once he has a room* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_KEY_TAKEN": true
+            },
+            "say": "The other two belong to men I have never seen. I shall leave them their mystery.",
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **THE KEY RACK** · *the hotel lobby, once he has a room* - PICK UP, *again*"
+          }
         ]
       },
       "overrides": {

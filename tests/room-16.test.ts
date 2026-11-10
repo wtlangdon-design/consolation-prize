@@ -55,6 +55,20 @@ const ruleOf = (state: GameState, item: string, label: string) => {
   return rule;
 };
 
+/**
+ * Walks the survey as the room's own rules order it: at each leg, the subject whose rule waits on that leg. Read from
+ * the content, so the order is not typed here.
+ */
+function walkTheBoundary(state: GameState): void {
+  const LEG = 'SURVEY_LEG';
+  for (let guard = 0; guard < 8 && state.playerStays; guard += 1) {
+    const leg = state.flags.get(LEG);
+    const next = state.targets.find((one) => (one.responses?.USE ?? []).some((rule) => (rule.when as Record<string, unknown> | undefined)?.[LEG] === leg));
+    assert.ok(next, `nothing on the map takes the rod at leg ${String(leg)}`);
+    state.interact(next, 'USE');
+  }
+}
+
 test('A7: no boundary until the survey is wanted; then her price', async () => {
   const state = await inState('r16-a');
   state.flags.set('T_SURVEY_NEEDED', false);
@@ -79,8 +93,11 @@ test('A7: the map before the fee is asked for in advance; the fee, then the map,
   assert.deepEqual(fee.then, paid.then);
   assert.ok(!state.carried.includes('filing_fee'), 'the fee is spent');
   assert.ok(state.flags.get('T_OZY_PAID'));
+  // Errata 251 (doc 120 I-3): the map unrolled, he is given the rod and walks the boundary on it; home is the survey.
   const map = useOn(state, 'company_map');
-  assert.equal(map.say, ruleOf(state, 'company_map', 'after T_OZY_PAID').say);
+  assert.equal(map.say, ruleOf(state, 'company_map', 'the map unrolled').say);
+  assert.ok(state.playerStays && !state.carried.includes('survey'), 'the survey is not handed over for the asking');
+  walkTheBoundary(state);
   assert.ok(state.carried.includes('survey'), 'THE SURVEY, on Form 12-C');
   assert.ok(state.carried.includes('company_map'), 'she hands back the map');
   assert.ok(state.puzzleComplete('A7'));

@@ -458,7 +458,8 @@ export class GameState {
    */
   get targets(): Interactable[] {
     const room = this.room;
-    return [...room.exits, ...room.hotspots].filter(
+    // Under a paper that fills the frame (actorHiddenWhen.covers) the ways out are not pointed at either.
+    return [...(this.roomCovered ? [] : room.exits), ...room.hotspots].filter(
       // An object the actor owns is not in the room. Doc 22 item 9: taking
       // something is an ownership change, so it leaves the room the same way
       // a gated hotspot does -- filtered out entirely, not drawn dim.
@@ -1156,13 +1157,23 @@ export class GameState {
    */
   get playerHidden(): boolean {
     const room = this.room;
-    return room.actor === 'hidden' || (room.actorHiddenWhen !== undefined && this.flags.test(room.actorHiddenWhen.when));
+    return room.actor === 'hidden' || this.playerStays;
   }
 
   /** He is hidden by a state of the room, and stays where he is until it ends (RoomFile.actorHiddenWhen). */
   get playerStays(): boolean {
     const hidden = this.room.actorHiddenWhen;
-    return hidden !== undefined && this.flags.test(hidden.when);
+    if (hidden === undefined) return false;
+    return this.flags.test(hidden.when) || (hidden.whenAny ?? []).some((one) => this.flags.test(one));
+  }
+
+  /**
+   * What hides him is laid over the whole room (RoomFile.actorHiddenWhen.covers): a paper filling the frame. The
+   * people under it are not pointed at, and only what is on it is.
+   */
+  get roomCovered(): boolean {
+    const covers = this.room.actorHiddenWhen?.covers;
+    return covers !== undefined && this.flags.test(covers);
   }
 
   /**

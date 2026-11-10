@@ -1221,7 +1221,7 @@ function combinations() {
   }
 
   // Pairs a later block adds (doc 57's, doc 54 A5's bait and smoke, doc 108's rod at the line) are not doc 24's.
-  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 110 |^Doc 111 |^Doc 113 |^Doc 115 |^Doc 118 |^Doc 120 /.test(pair.note ?? '')).length;
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 110 |^Doc 111 |^Doc 113 |^Doc 115 |^Doc 118 |^Doc 120 |^Doc 121 /.test(pair.note ?? '')).length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
@@ -1483,8 +1483,13 @@ function combinations() {
       // keeps it at A9, and with no bound here the map on her again handed
       // a second survey back after the first was on file. After that she has
       // no case, and the map's own pool answers.
-      { case: 'after T_OZY_PAID', when: { T_OZY_PAID: true, T_SURVEY_LODGED: false }, ...spokenBy(a7.map), items: ['survey'], completes: 'A7' },
+      // THE BOUNDARY, WALKED (doc 120 I-3; errata 251): she unrolls the map and gives him the rod. The survey, and A7,
+      // are the map's own now (reference/room-16 docBullets: the stake, home), in doc 57's three lines; `a7.map` is
+      // still read here so that a change to them in doc 57 is seen (boundaryWalked).
+      boundaryWalked(a7.map),
       { case: 'not yet paid', when: { T_OZY_PAID: false }, ...spokenBy(a7.unpaid) },
+      { case: 'the survey drawn', when: { T_OZY_PAID: true },
+        ...papersRule(papersBullet('- USE THE COMPANY MAP, *the survey drawn* — ', 'docs/120-act-one-by-hand.md'), { OZYMANDIA: 'ozymandia' }) },
     ],
   });
   // DOC 57 E6: THE EXECUTOR'S FORM (errata 93 G). HOB_E6 option 1 gives it
@@ -1813,6 +1818,8 @@ function combinations() {
   rebuilt.push(...papersPairs(objects), ...objects.pairs);
   // Act I, by hand (doc 120; errata 248): the letter at Pike's board, the eggs improved, the card in the wreath.
   actOnePairs(rebuilt);
+  // The not-done list (doc 121; errata 250): the letter delivered, the raccoon dressed, and where seven objects go.
+  notDonePairs(rebuilt);
   return write('content/combinations.json', {
     ...existing, pairs: rebuilt, itemPools, areaPools: mine.areaPools, targetPools: giving.targetPools, globalPool: global,
   });
@@ -2292,6 +2299,7 @@ function gulchItems() {
       note: 'EXTRACTED from docs/109-fiddlers-gulch-lines.md (THE CHANGES IN CONSOLATION) by tools/extract-content.mjs. '
         + 'Do not edit: change doc 109 and re-run.',
       responses,
+      ...(GIVEN_AWAY[id] ?? {}),
     });
   });
 }
@@ -3477,6 +3485,9 @@ const GIVEN_AWAY = {
   padded_log: { lostWhen: { T_LOG_WITH_WINNIE: true },
     lostNote: 'Given to Winnie at C5 (doc 23; errata 247): the pair that shows it to her writes T_LOG_WITH_WINNIE, and she is still counting. Errata 66 A kept it "unless a later authored source consumes it"; this is that source.' },
 };
+const PACKED_AT_ACT_FOUR = 'Packed (doc 121 N-5; errata 250): Act IV opens with his case packed on the bed (doc 57: "there was less to pack than there '
+  + 'was to leave"), and a paper that is done with is in it. It leaves the inventory when ACT reaches 4.';
+for (const id of ['executor_form', 'photograph', 'third_copy']) GIVEN_AWAY[id] = { lostWhen: { ACT: { atLeast: 4 } }, lostNote: PACKED_AT_ACT_FOUR };
 const FILED_NOTE = 'Laid on the counter at the filing (doc 57 F5) and on file after it: it leaves the inventory '
   + 'with T_FILED (Tyler agreed, 2026-11-06; errata 133).';
 
@@ -7023,6 +7034,107 @@ function objectsItems() {
   ];
 }
 /**
+ * THE BOUNDARY, WALKED (doc 120 I-3, THE LINES; errata 251): the rule that begins it, on the pair of the map and Madame
+ * Ozymandia. Doc 57 A7's direction as far as the rod not moving, then her handing him the rod. It holds until A7 is
+ * done, so a save that already has its survey is never sent round again. Doc 120's home line must end in doc 57's
+ * three lines, word for word.
+ */
+function boundaryWalked(doc57Lines) {
+  const DOC = 'docs/120-act-one-by-hand.md';
+  const [lead, ...rest] = objectsBlock('**MADAME OZYMANDIA** · USE THE COMPANY MAP, *once she is paid*', { OZYMANDIA: 'ozymandia' }, DOC);
+  const a7 = read('docs/57-puzzle-completion.md');
+  if (!a7.includes(lead.line)) throw new Error('doc 120 I-3: the unrolling is not doc 57 A7\'s own direction, word for word');
+  const home = papersBullet('- USE, *home* — ', DOC);
+  for (const one of doc57Lines) if (!home.includes(`"${one.line}"`)) throw new Error(`doc 120 I-3: home does not end in doc 57 A7's "${one.line}"`);
+  return { case: 'the map unrolled', when: { T_OZY_PAID: true, T_SURVEYING: false }, untilPuzzles: ['A7'],
+    say: lead.line, direction: true, by: 'ozymandia', then: rest.map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one)),
+    set: { T_SURVEYING: true, SURVEY_LEG: 0 } };
+}
+/**
+ * THE NOT-DONE LIST (doc 121, THE LINES; errata 250). Seven objects, each `**NAME** *(item)*` with its LOOK and LISTEN
+ * runs, and the places they go, read from doc 121 and never typed. Flags and ids are routing.
+ */
+const NOT_DONE_DOC = 'docs/121-the-not-done-list.md';
+const NOT_DONE_ITEMS = [
+  ['A NAIL', 'nail', 'One nail from the mercantile\'s keg. With it the letter of introduction is fixed to Pike\'s board; it leaves with the letter.'],
+  ['A HANDFUL OF OATS', 'oats', 'From Grievance\'s feed bin at the livery. The hen eats them.'],
+  ['A SPRIG OF PARSLEY', 'parsley', 'Off the contract at the Colonel\'s dinner. It goes in the raccoon\'s lapel in Act III.'],
+  ['A CAPITAL B', 'capital_b', 'A worn sort from the Clarion\'s type case. Laid on his own coffin.'],
+  ['MR. PIKE\'S COLLAR', 'pikes_collar', 'Six years uncollected at the laundry. It goes round the raccoon\'s neck in Act III.'],
+  ['A BUTTON', 'button', 'Out of the church\'s bolted collection plate. It goes on the raccoon\'s coat in Act III.'],
+  ['MY ROOM KEY', 'room_key', 'Off the hotel\'s key rack once he has a room. It locks the wardrobe; kept.'],
+];
+function notDoneItems() {
+  const rows = papersLines(NOT_DONE_DOC);
+  return NOT_DONE_ITEMS.map(([heading, id, about]) => {
+    const at = rows.findIndex((one) => one === `**${heading}** *(item)*`);
+    if (at < 0) throw new Error(`doc 121: no **${heading}** *(item)*`);
+    const run = (label) => {
+      const row = rows.slice(at + 1, at + 3).find((one) => one.startsWith(`**${label}** `));
+      const said = row ? [...row.matchAll(/\d "([^"]+)"/g)].map((m) => m[1]) : [];
+      if (said.length !== 3) throw new Error(`doc 121: ${heading} ${label} has ${said.length} lines, not 3`);
+      return [{ say: said[0], repeat: said.slice(1) }];
+    };
+    return write(`content/items/${id.replace(/_/g, '-')}.json`, {
+      schema: 1, id, name: heading, short: heading,
+      note: `EXTRACTED from ${NOT_DONE_DOC} (THE LINES) by tools/extract-content.mjs (errata 250). Do not edit: change doc 121 and re-run. ${about}`,
+      iconPending: 'reference/objects-second-pass/brief.md asks the image session for it (errata 250); the panel draws its labelled box meanwhile.',
+      responses: { LOOK_AT: run('LOOK'), LISTEN_TO: run('LISTEN') },
+    });
+  });
+}
+/** Where the raccoon is carried in his coat: the claim, Mr. Pratt's, and the ground between. */
+const RACCOON_ROOMS = ['prosperity', 'pratts_claim', 'claim_row', 'claims_road'];
+function notDonePairs(pairs) {
+  const NOTE = 'Doc 121 (THE LINES; errata 250)';
+  const rule = (start, speakers = {}) => papersRule(papersBullet(start, NOT_DONE_DOC), speakers);
+  // N-2 THE LETTER, DELIVERED: with a nail in hand and the memorial booked, ahead of doc 120's beat at the board.
+  const board = pairs.find((one) => one.item === 'letter' && one.target === 'pike_s_marker' && one.room === 'boot_hill');
+  if (!board) throw new Error('doc 121: no pair holds the letter out to Pike\'s board (doc 120) to put the delivery ahead of');
+  const ready = { T_MEMORIAL_BOOKED: true, T_NAIL_TAKEN: true, T_LETTER_DELIVERED: false };
+  const delivered = { case: 'delivered, with a nail', when: ready, ...rule('- USE THE LETTER, *with a nail* — '),
+    takes: ['letter', 'nail'], set: { T_LETTER_DELIVERED: true } };
+  board.rules.unshift(delivered);
+  const idle = rule('- USE A NAIL — ');
+  pairs.push({ item: 'nail', room: 'boot_hill', target: 'pike_s_marker', say: idle.say,
+    note: `${NOTE}, N-2: the nail on Pike's board. With the letter done with at the church, it is the delivery, either way round.`,
+    rules: [delivered, { case: 'without the letter\'s leave', ...idle }] });
+  const posted = rule('- **THE POSTED NOTICES** · USE A NAIL — ');
+  pairs.push({ item: 'nail', room: 'main_street', target: 'posted_notices', say: posted.say,
+    note: `${NOTE}, N-2, THE WRONG TRIES: THE POSTED NOTICES · USE A NAIL.`, rules: [{ case: 'any time', ...posted }] });
+  // N-4 THE OATS on the hen, either way round, where she is carried.
+  const fed = rule('- USE A HANDFUL OF OATS — ');
+  for (const room of RACCOON_ROOMS) {
+    for (const [item, target] of [['oats', 'hen'], ['hen', 'oats']]) {
+      pairs.push({ item, room, target, otherwise: 'pool', say: fed.say,
+        note: `${NOTE}, N-4: the oats fed to the hen, either way round. They leave.`, rules: [{ case: 'fed', ...fed, takes: ['oats'] }] });
+    }
+  }
+  // N-3 THE RACCOON, DRESSED: three things on the raccoon in his coat, either way round, once each.
+  for (const [start, item] of [['- USE A BUTTON — ', 'button'], ['- USE MR. PIKE\'S COLLAR — ', 'pikes_collar'], ['- USE A SPRIG OF PARSLEY — ', 'parsley']]) {
+    const dressed = rule(start);
+    for (const room of RACCOON_ROOMS) {
+      for (const [a, b] of [[item, 'raccoon_in_coat'], ['raccoon_in_coat', item]]) {
+        pairs.push({ item: a, room, target: b, otherwise: 'pool', say: dressed.say,
+          note: `${NOTE}, N-3: ${start.slice(6, -3)} on the raccoon in his coat, either way round. It leaves with him.`,
+          rules: [{ case: 'dressed', ...dressed, takes: [item] }] });
+      }
+    }
+  }
+  // N-4 THE B on his own coffin, and shown to the man who wore it out.
+  const buried = rule('- USE A CAPITAL B — ');
+  pairs.push({ item: 'capital_b', room: 'funeral', target: 'coffin', say: buried.say,
+    note: `${NOTE}, N-4: the worn B laid on his own coffin. It leaves. Nothing reads it.`, rules: [{ case: 'laid', ...buried, takes: ['capital_b'] }] });
+  const kept = rule('- **IGNATIUS FRAME** · USE A CAPITAL B — ', { FRAME: 'frame' });
+  pairs.push({ item: 'capital_b', room: 'clarion', target: 'frame', otherwise: 'pool', say: kept.say,
+    note: `${NOTE}, N-4, THE WRONG TRIES: IGNATIUS FRAME · USE A CAPITAL B.`, rules: [{ case: 'any time', ...kept }] });
+  // N-4 THE KEY in the wardrobe.
+  pairs.push({ item: 'room_key', room: 'thads_room', target: 'wardrobe', say: rule('- USE MY ROOM KEY, *the first time* — ').say,
+    note: `${NOTE}, N-4: his room key locks the wardrobe that drifts open in the night. Nothing reads T_WARDROBE_LOCKED but the second line.`,
+    rules: [{ case: 'the first time', when: { T_WARDROBE_LOCKED: false }, ...rule('- USE MY ROOM KEY, *the first time* — '), set: { T_WARDROBE_LOCKED: true } },
+      { case: 'again', when: { T_WARDROBE_LOCKED: true }, ...rule('- USE MY ROOM KEY, *again* — ') }] });
+}
+/**
  * ACT I, BY HAND (doc 120, THE LINES; errata 248). The small rows that are item pairs, read from doc 120 and never typed:
  *  - THE LETTER held out to PIKE'S MARKER (I-2): a beat; nothing is taken.
  *  - DR. PURVIS'S TONIC on THE PICKLED EGGS, either way round, at the hole: the eggs improved (the tonic is kept), and
@@ -7223,7 +7335,7 @@ function hearseScene() {
   return out;
 }
 
-const written = [opening(), stageDriver(), combinations(), seanceTree(), ...estateSaleItems(), ...papersItems(), ...objectsItems(), ...hearseScene(), ...rooms0507(), ...room02Exits(),
+const written = [opening(), stageDriver(), combinations(), seanceTree(), ...estateSaleItems(), ...papersItems(), ...objectsItems(), ...notDoneItems(), ...hearseScene(), ...rooms0507(), ...room02Exits(),
   ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), hobRunning(), ozymandiaAtProsperity(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...gulchItems(), ...gulchPeople(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways(), ...waysOut()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);

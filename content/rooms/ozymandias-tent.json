@@ -105,7 +105,8 @@
         42
       ],
       "when": {
-        "T_SEANCE_ON": false
+        "T_SEANCE_ON": false,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -141,6 +142,153 @@
       }
     },
     {
+      "id": "smaller_rock",
+      "name": "THE SMALLER ROCK",
+      "rect": [
+        972,
+        192,
+        66,
+        48
+      ],
+      "when": {
+        "T_SURVEYING": true
+      },
+      "defaultVerb": "USE",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The smaller rock. It sits a little apart, like a man who was not asked.",
+            "repeat": [
+              "No shading. Whoever drew this map had a favorite, and this was not it.",
+              "It is hardly a rock. In fairness, I am hardly a prospector."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing, and from the smaller rock I had expected less.",
+            "repeat": [
+              "The humming drops when the rod passes over it. Even the earth cannot spare it the time.",
+              "Nothing. It is being brave about it."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "say": "Not that one. Nobody surveys to the smaller rock. It would only get ideas.",
+            "by": "ozymandia",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **THE SMALLER ROCK, WITH THE ROD** - USE"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1005,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stake",
+      "name": "THE STAKE",
+      "rect": [
+        1100,
+        452,
+        80,
+        76
+      ],
+      "when": {
+        "T_SURVEYING": true
+      },
+      "defaultVerb": "USE",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A post with a dot on it, at the corner of my claim.",
+            "repeat": [
+              "Somebody drew it with one stroke and did not go back. I know the feeling.",
+              "The stake. Everything I have starts there, thereabouts."
+            ],
+            "then": [
+              "On paper it is the most definite thing I own."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper, under the tip of the rod. A dry little scratch.",
+            "repeat": [
+              "Madame Ozymandia, humming on one note. It is nearly an A, and nearly is the trouble.",
+              "Nothing from the stake. It has made its point."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "SURVEY_LEG": 0
+            },
+            "say": "Thad sets the tip of the rod on the stake.",
+            "by": "ozymandia",
+            "direction": true,
+            "then": [
+              {
+                "speaker": "ozymandia",
+                "line": "Commencing at the stake. Thereabouts. The earth is not a pedant, darling. Now: which way does it go?"
+              }
+            ],
+            "set": {
+              "SURVEY_LEG": 1
+            },
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **THE STAKE, WITH THE ROD** - USE, *commencing*"
+          },
+          {
+            "when": {
+              "SURVEY_LEG": 4,
+              "T_SURVEY_DRAWN": false
+            },
+            "say": "Thence home.",
+            "by": "ozymandia",
+            "then": [
+              {
+                "speaker": "ozymandia",
+                "line": "She takes a Form 12-C from a stack of them and writes in purple ink.",
+                "direction": true
+              },
+              {
+                "speaker": "ozymandia",
+                "line": "The earth has spoken. The earth was brief."
+              },
+              "You keep Form 12-C?",
+              {
+                "speaker": "ozymandia",
+                "line": "The earth prefers them."
+              }
+            ],
+            "set": {
+              "SURVEY_LEG": 5,
+              "T_SURVEYING": false,
+              "T_SURVEY_DRAWN": true
+            },
+            "grants": [
+              "survey"
+            ],
+            "completes": "A7",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **THE STAKE, WITH THE ROD** - USE, *home*"
+          },
+          {
+            "say": "Not home yet, darling. Nobody goes home from the doorstep.",
+            "by": "ozymandia",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **THE STAKE, WITH THE ROD** - USE, *too soon*"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1140,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
       "id": "money_box",
       "name": "THE MONEY BOX",
       "rect": [
@@ -150,7 +298,8 @@
         72
       ],
       "when": {
-        "T_SEANCE_ON": false
+        "T_SEANCE_ON": false,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -195,7 +344,8 @@
         98
       ],
       "when": {
-        "T_SEANCE_ON": false
+        "T_SEANCE_ON": false,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -228,6 +378,66 @@
       }
     },
     {
+      "id": "larger_rock",
+      "name": "THE LARGER ROCK",
+      "rect": [
+        818,
+        160,
+        128,
+        88
+      ],
+      "when": {
+        "T_SURVEYING": true
+      },
+      "defaultVerb": "USE",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The larger of two rocks. It has been drawn with shading, which the other has not.",
+            "repeat": [
+              "A rock, on a map, where a careful man would put a monument. This district puts rocks.",
+              "It is the only thing above my claim with a shadow. I take it for a landmark, having no choice."
+            ],
+            "then": [
+              "Rank tells, even in geology."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is a drawing of a rock, and has the reticence of both.",
+            "repeat": [
+              "The lamp, ticking overhead. The rock makes no comment.",
+              "Her humming goes up a little when the rod comes near it. I think she likes this one."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "SURVEY_LEG": 2
+            },
+            "say": "To the larger of the two rocks. The earth has always had taste. And thence, hum with me, darling, along whatever line the rod prefers.",
+            "by": "ozymandia",
+            "set": {
+              "SURVEY_LEG": 3
+            },
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **THE LARGER ROCK, WITH THE ROD** - USE, *to the rock*"
+          },
+          {
+            "say": "In its turn, darling. A rock will wait. It is their whole gift.",
+            "by": "ozymandia",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **THE LARGER ROCK, WITH THE ROD** - USE, *out of turn*"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 882,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
       "id": "price_list",
       "name": "THE PRICE LIST",
       "rect": [
@@ -236,6 +446,9 @@
         64,
         192
       ],
+      "when": {
+        "T_SURVEYING": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -276,7 +489,8 @@
         130
       ],
       "when": {
-        "T_SEANCE_ON": false
+        "T_SEANCE_ON": false,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -321,6 +535,52 @@
       }
     },
     {
+      "id": "claim_two",
+      "name": "CLAIM TWO",
+      "rect": [
+        979,
+        321,
+        121,
+        131
+      ],
+      "when": {
+        "T_SURVEYING": true
+      },
+      "defaultVerb": "USE",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Claim Two, in a red circle. Somebody marked it before I ever came, and I should like to know whether that is a welcome or a target.",
+            "repeat": [
+              "A square with a 2 in it. I paid four dollars and a watch for that numeral.",
+              "Prosperity, from above. It looks drier."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The red ink has a ridge to it. The rod catches on my own claim.",
+            "repeat": [
+              "Her humming, steady, directly over my property. I am being billed for that.",
+              "Nothing. At this scale my mud is silent, which is an improvement."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "say": "One does not survey the middle, darling. One surveys the edge, and trusts the middle to follow.",
+            "by": "ozymandia",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **CLAIM TWO, WITH THE ROD** - USE"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1040,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
       "id": "second_rod",
       "name": "THE SECOND ROD",
       "rect": [
@@ -330,7 +590,8 @@
         64
       ],
       "when": {
-        "T_SEANCE_ON": false
+        "T_SEANCE_ON": false,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -372,7 +633,8 @@
         182
       ],
       "when": {
-        "T_SEANCE_ON": false
+        "T_SEANCE_ON": false,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -414,7 +676,8 @@
         182
       ],
       "when": {
-        "T_SEANCE_ON": true
+        "T_SEANCE_ON": true,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -460,7 +723,8 @@
         312
       ],
       "when": {
-        "T_SEANCE_ON": false
+        "T_SEANCE_ON": false,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -493,6 +757,52 @@
       }
     },
     {
+      "id": "claim_one",
+      "name": "CLAIM ONE",
+      "rect": [
+        801,
+        321,
+        178,
+        164
+      ],
+      "when": {
+        "T_SURVEYING": true
+      },
+      "defaultVerb": "USE",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Claim One. Beside mine, and the same size, and nobody has circled it.",
+            "repeat": [
+              "A square with a 1 in it. It got here first, which in this territory is most of the law.",
+              "It shares a line with mine. I have looked for a difference between the two, and the map does not record one."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. A numeral in a box.",
+            "repeat": [
+              "The rod goes quiet over it, or she does. With her I cannot always tell which.",
+              "Nothing. Whatever is said about Claim One is not said on this map."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "say": "The rod declines to trespass, darling. It is the only thing in the district with the scruple.",
+            "by": "ozymandia",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **CLAIM ONE, WITH THE ROD** - USE"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 890,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
       "id": "incense_burner",
       "name": "THE INCENSE BURNER",
       "rect": [
@@ -501,6 +811,9 @@
         92,
         322
       ],
+      "when": {
+        "T_SURVEYING": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -541,7 +854,8 @@
         200
       ],
       "when": {
-        "T_SEANCE_ON": true
+        "T_SEANCE_ON": true,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -591,6 +905,9 @@
         186,
         255
       ],
+      "when": {
+        "T_SURVEYING": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -631,7 +948,8 @@
         330
       ],
       "when": {
-        "T_SEANCE_ON": false
+        "T_SEANCE_ON": false,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -670,7 +988,8 @@
         320
       ],
       "when": {
-        "T_SEANCE_ON": true
+        "T_SEANCE_ON": true,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -729,7 +1048,8 @@
         215
       ],
       "when": {
-        "T_SEANCE_ON": false
+        "T_SEANCE_ON": false,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -770,6 +1090,9 @@
         1920,
         42
       ],
+      "when": {
+        "T_SURVEYING": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -810,7 +1133,8 @@
         190
       ],
       "when": {
-        "T_SEANCE_ON": false
+        "T_SEANCE_ON": false,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -849,6 +1173,55 @@
       }
     },
     {
+      "id": "creek",
+      "name": "THE CREEK",
+      "rect": [
+        360,
+        530,
+        1200,
+        92
+      ],
+      "when": {
+        "T_SURVEYING": true
+      },
+      "defaultVerb": "USE",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The creek, in three wavering lines.",
+            "repeat": [
+              "It runs past the foot of both claims and stops for neither.",
+              "A creek and, beyond it, a road. Two ways out of the district, drawn with great care."
+            ],
+            "then": [
+              "It is the best-drawn thing on the sheet, and it is leaving."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. She does not hum over water. I gather it interferes.",
+            "repeat": [
+              "The rod, crossing the lines. Three ticks, like a man counting his change.",
+              "Nothing. It is a drawing of a noise."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "say": "Not downhill. Water goes downhill. The earth has more self-respect.",
+            "by": "ozymandia",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **THE CREEK, WITH THE ROD** - USE"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 960,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
       "id": "tent_walls",
       "name": "THE TENT WALLS",
       "rect": [
@@ -857,6 +1230,9 @@
         330,
         380
       ],
+      "when": {
+        "T_SURVEYING": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -896,6 +1272,9 @@
         192,
         700
       ],
+      "when": {
+        "T_SURVEYING": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -933,7 +1312,8 @@
         300
       ],
       "when": {
-        "T_SEANCE_ON": true
+        "T_SEANCE_ON": true,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -1021,6 +1401,9 @@
         322,
         500
       ],
+      "when": {
+        "T_SURVEYING": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -1058,6 +1441,104 @@
       }
     },
     {
+      "id": "slope",
+      "name": "THE SLOPE",
+      "rect": [
+        440,
+        90,
+        1060,
+        220
+      ],
+      "when": {
+        "T_SURVEYING": true
+      },
+      "defaultVerb": "USE",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Hatching, to show the ground going up.",
+            "repeat": [
+              "Uphill of my claim, in pencil. It looks steeper drawn than I hope it is walked.",
+              "A good deal of slope with nothing on it. That is what the Company calls prospect."
+            ],
+            "then": [
+              "The draughtsman tired about halfway, and so, I expect, does the hill."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The rod's tip, crossing the hatching.",
+            "repeat": [
+              "Her bracelets, when she leans in. The earth's voice has a quantity of brass in it.",
+              "Nothing. Drawn hills are quiet. I have no evidence about the real one."
+            ],
+            "then": [
+              "It ticks on every stroke, like a stick along a fence."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "SURVEY_LEG": 1
+            },
+            "say": "Thad draws the rod up the paper.",
+            "by": "ozymandia",
+            "direction": true,
+            "then": [
+              {
+                "speaker": "ozymandia",
+                "line": "Thence uphill! With feeling, darling. More feeling than that."
+              },
+              "I am pushing a stick up a map.",
+              {
+                "speaker": "ozymandia",
+                "line": "And it shows."
+              }
+            ],
+            "set": {
+              "SURVEY_LEG": 2
+            },
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **THE SLOPE, WITH THE ROD** - USE, *uphill*"
+          },
+          {
+            "when": {
+              "SURVEY_LEG": 3
+            },
+            "say": "She hums. Thad moves the rod along the paper. She stops.",
+            "by": "ozymandia",
+            "direction": true,
+            "then": [
+              {
+                "speaker": "ozymandia",
+                "line": "There. Some forty feet."
+              },
+              "Forty feet of what?",
+              {
+                "speaker": "ozymandia",
+                "line": "Of preference, darling. Thence home."
+              }
+            ],
+            "set": {
+              "SURVEY_LEG": 4
+            },
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **THE SLOPE, WITH THE ROD** - USE, *the line the rod preferred*"
+          },
+          {
+            "say": "Not the hill just now, darling. The earth keeps to an order. It is nearly the only thing here that does.",
+            "by": "ozymandia",
+            "sceneLine": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines · **THE SLOPE, WITH THE ROD** - USE, *out of turn*"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 970,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
       "id": "sitters",
       "name": "THE SITTERS",
       "rect": [
@@ -1067,7 +1548,8 @@
         515
       ],
       "when": {
-        "T_SEANCE_ON": true
+        "T_SEANCE_ON": true,
+        "T_SURVEYING": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -1664,6 +2146,98 @@
         "T_SEANCE_DARK": true
       },
       "note": "Errata 238: the same lamp turned down to a bead (doc 111, OZY_E1 option 2), over the dimmed plate's lamp."
+    },
+    {
+      "id": "survey_map",
+      "sheet": "art/backgrounds/room-16-company-map.png",
+      "x": 960,
+      "y": 864,
+      "frame": [
+        0,
+        0,
+        1920,
+        864
+      ],
+      "when": {
+        "T_SURVEYING": true
+      },
+      "note": "Doc 120 I-3 (errata 251): the Company's map unrolled over the table and filling the view while the boundary is walked. Drawn in front of everyone (its base line is the frame's foot)."
+    },
+    {
+      "id": "survey_line_1",
+      "sheet": "art/props/room-16-survey-line-1.png",
+      "x": 960,
+      "y": 865,
+      "frame": [
+        0,
+        0,
+        1920,
+        864
+      ],
+      "when": {
+        "T_SURVEYING": true,
+        "SURVEY_LEG": {
+          "atLeast": 2
+        }
+      },
+      "note": "Doc 120 I-3: the boundary as far as he has walked it, in her purple ink, drawn by tools/art/survey-line.py over the map."
+    },
+    {
+      "id": "survey_line_2",
+      "sheet": "art/props/room-16-survey-line-2.png",
+      "x": 960,
+      "y": 866,
+      "frame": [
+        0,
+        0,
+        1920,
+        864
+      ],
+      "when": {
+        "T_SURVEYING": true,
+        "SURVEY_LEG": {
+          "atLeast": 3
+        }
+      },
+      "note": "Doc 120 I-3: the boundary as far as he has walked it, in her purple ink, drawn by tools/art/survey-line.py over the map."
+    },
+    {
+      "id": "survey_line_3",
+      "sheet": "art/props/room-16-survey-line-3.png",
+      "x": 960,
+      "y": 867,
+      "frame": [
+        0,
+        0,
+        1920,
+        864
+      ],
+      "when": {
+        "T_SURVEYING": true,
+        "SURVEY_LEG": {
+          "atLeast": 4
+        }
+      },
+      "note": "Doc 120 I-3: the boundary as far as he has walked it, in her purple ink, drawn by tools/art/survey-line.py over the map."
+    },
+    {
+      "id": "survey_line_4",
+      "sheet": "art/props/room-16-survey-line-4.png",
+      "x": 960,
+      "y": 868,
+      "frame": [
+        0,
+        0,
+        1920,
+        864
+      ],
+      "when": {
+        "T_SURVEYING": true,
+        "SURVEY_LEG": {
+          "atLeast": 5
+        }
+      },
+      "note": "Doc 120 I-3: the boundary as far as he has walked it, in her purple ink, drawn by tools/art/survey-line.py over the map."
     }
   ],
   "figureLightWhen": [
@@ -1691,6 +2265,14 @@
       "T_UNDER_TABLE": true,
       "T_SEANCE_ON": true
     },
-    "note": "Errata 239: under the séance table's cloth he is not drawn (doc 111: \"heard from under the table; Thad sees only feet\"; there is no crawl art) and is not walked about. He went under at the table's end (hotspotWalkTo seance_table) and is standing there again when it ends: SEA_E1's way out and its fourth option both clear T_UNDER_TABLE. Only while the séance is on, so the table that lets him out is always there."
+    "note": "Errata 239: under the séance table's cloth he is not drawn (doc 111: \"heard from under the table; Thad sees only feet\"; there is no crawl art) and is not walked about. He went under at the table's end (hotspotWalkTo seance_table) and is standing there again when it ends: SEA_E1's way out and its fourth option both clear T_UNDER_TABLE. Only while the séance is on, so the table that lets him out is always there. Errata 251 (doc 120 I-3): and while the map is unrolled over the view for the survey; then it covers the room, and nobody under it is pointed at.",
+    "whenAny": [
+      {
+        "T_SURVEYING": true
+      }
+    ],
+    "covers": {
+      "T_SURVEYING": true
+    }
   }
 }

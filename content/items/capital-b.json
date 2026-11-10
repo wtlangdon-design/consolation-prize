@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "capital_b",
+  "name": "A CAPITAL B",
+  "short": "A CAPITAL B",
+  "note": "EXTRACTED from docs/121-the-not-done-list.md (THE LINES) by tools/extract-content.mjs (errata 250). Do not edit: change doc 121 and re-run. A worn sort from the Clarion's type case. Laid on his own coffin.",
+  "iconPending": "reference/objects-second-pass/brief.md asks the image session for it (errata 250); the panel draws its labelled box meanwhile.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "A capital B, in lead, cast backward and worn nearly flat. It has been in every edition I have.",
+        "repeat": [
+          "Backward, it looks like nothing at all. That is the whole secret of the trade.",
+          "Lead. It is the weightiest remark the Clarion has made about me."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Nothing. It has been pressed into my name so often it has no more to say.",
+        "repeat": [
+          "A dull click against the tuning fork. Lead does not ring. It was never meant to.",
+          "Nothing. One letter is not yet an opinion."
+        ]
+      }
+    ]
+  }
+}

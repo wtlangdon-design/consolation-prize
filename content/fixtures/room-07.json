@@ -478,24 +478,21 @@
     "T_WREATH_CARDED": true
    },
    "inventory": [
-    "letter",
     "tuning_fork",
+    "room_key",
     "company_map",
     "blanket",
     "handkerchief",
-    "photograph",
+    "brass_rod",
+    "hymnal",
+    "chalk",
     "watch",
     "document_c",
     "death_certificate",
-    "executor_form",
+    "hotel_lamp",
     "pickaxe",
     "sample",
-    "deed",
-    "brass_rod",
-    "third_copy",
-    "chalk",
-    "hotel_lamp",
-    "hymnal"
+    "deed"
    ],
    "derivedFrom": [
     "docs/04-dialogue-trees.md:170-176 (WIN_F1 after T_STRIKE_FOUND; 'Run it.' -- she runs it at the window, the first assay the player watches)",

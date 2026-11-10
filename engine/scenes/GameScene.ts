@@ -565,6 +565,8 @@ export class GameScene extends Phaser.Scene {
     // Ctrl+S and Ctrl+L, both preventDefault so the browser does not take
     // them. Convenience only -- everything they do is on the menu.
     this.input.keyboard?.on('keydown', this.onModifiedKey, this);
+    // A verb by its key (VerbDefinition.key; errata 252): the panel's buttons, under the left hand.
+    this.input.keyboard?.on('keydown', this.onVerbKey, this);
 
     // The warp happens BEFORE beginOpening, which is what makes it skip the
     // opening rather than fight it: the opening declines to run anywhere but
@@ -1204,6 +1206,8 @@ export class GameScene extends Phaser.Scene {
    */
   /** The person under a point with a verb selected (AmbientLayer.personAt: the sentence line's and the click's one rule). */
   private personAt(wx: number, y: number, verb: string | null): AmbientFile | undefined {
+    // Nobody under a paper that fills the frame (RoomFile.actorHiddenWhen.covers).
+    if (this.state.roomCovered) return undefined;
     return this.ambient.personAt(wx, y, verb);
   }
 
@@ -3282,6 +3286,23 @@ export class GameScene extends Phaser.Scene {
     if (this.state.dialogue.isActive || this.beginCard || this.cut !== null || this.arrivalHold.holding) return;
     this.state.menu.escape();
     this.afterMenu();
+  }
+
+  /**
+   * A VERB'S OWN KEY SELECTS IT (errata 252), exactly as a click on its button does and only when that click would
+   * land: not under the menu, a conversation, a cutscene or a card, and not while the panel is away (Room 32 has no
+   * interface, and a key must not give it one).
+   */
+  private onVerbKey(event: KeyboardEvent): void {
+    if (event.ctrlKey || event.metaKey || event.altKey || event.repeat) return;
+    if (this.panelHidden || this.state.menu.isOpen || this.state.dialogue.isActive || this.state.isMap) return;
+    if (this.actCardUntil !== null || this.beginCard || this.roomFade !== null || this.entry !== null || this.cut !== null
+      || this.carriedCutscene() || this.arrivalHold.holding) return;
+    const pressed = event.key.toUpperCase();
+    const verb = this.state.content.verbs.verbs.find((one) => one.key !== undefined && one.key.toUpperCase() === pressed);
+    if (!verb) return;
+    this.state.verbs.selectVerb(verb.id);
+    this.markDirty();
   }
 
   private onModifiedKey(event: KeyboardEvent): void {

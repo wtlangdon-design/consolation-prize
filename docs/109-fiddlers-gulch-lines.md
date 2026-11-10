@@ -411,6 +411,8 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 **LOOK** 1 "My copy of the survey, the third, in Mr. Sump's own hand: 'Commencing at the stake, thereabouts; thence uphill, with feeling…'" · 2 "'…to the larger of the two rocks; thence along the line the rod preferred, some forty feet, until the humming stopped; thence home.'" · 3 "Mr. Sump says no applicant ever asked for the third copy. I'm the first. I may frame it."
 **LISTEN** 1 "Paper, crisp. Nobody's folded it before me." · 2 "It crackles. It's the best-kept thing I own." · 3 "Quiet. It's official now. It doesn't need to say anything."
 
+*THE THIRD COPY leaves inventory when Act IV opens: packed in his case (doc 121 N-5; errata 250).*
+
 ### G1 · THE ROD, HIRED *(Room 16, a new OZY_A1 option, from Act II)*
 | # | Option | Tag | Response |
 |---|---|---|---|

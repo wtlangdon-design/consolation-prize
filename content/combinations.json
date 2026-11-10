@@ -560,27 +560,32 @@
       "note": "Doc 57 A7: the map divined -- THE SURVEY, on Form 12-C. She hands the map back.",
       "rules": [
         {
-          "case": "after T_OZY_PAID",
+          "case": "the map unrolled",
           "when": {
             "T_OZY_PAID": true,
-            "T_SURVEY_LODGED": false
+            "T_SURVEYING": false
           },
+          "untilPuzzles": [
+            "A7"
+          ],
+          "say": "She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move.",
+          "direction": true,
           "by": "ozymandia",
-          "say": "The earth has spoken. The earth was brief.",
           "then": [
             {
-              "speaker": "thad",
-              "line": "You keep Form 12-C?"
+              "speaker": "ozymandia",
+              "line": "The earth is shy today, darling. Take the rod. It only wants walking round the property."
             },
+            "I am to do the divining.",
             {
               "speaker": "ozymandia",
-              "line": "The earth prefers them."
+              "line": "You are to hold the stick. I shall do the divining. Commence."
             }
           ],
-          "items": [
-            "survey"
-          ],
-          "completes": "A7"
+          "set": {
+            "T_SURVEYING": true,
+            "SURVEY_LEG": 0
+          }
         },
         {
           "case": "not yet paid",
@@ -589,6 +594,14 @@
           },
           "by": "ozymandia",
           "say": "The earth will read your map — two dollars — the earth reads everything — in advance —"
+        },
+        {
+          "case": "the survey drawn",
+          "when": {
+            "T_OZY_PAID": true
+          },
+          "say": "The earth has spoken once, darling. It does not repeat itself for the same two dollars.",
+          "by": "ozymandia"
         }
       ]
     },
@@ -2281,6 +2294,27 @@
       "note": "Doc 120 (THE LINES; errata 248), I-2: the letter of introduction held out to Pike's board. Nothing is written but that it was done; the letter stays (C3 wants it).",
       "rules": [
         {
+          "case": "delivered, with a nail",
+          "when": {
+            "T_MEMORIAL_BOOKED": true,
+            "T_NAIL_TAKEN": true,
+            "T_LETTER_DELIVERED": false
+          },
+          "say": "Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A.",
+          "direction": true,
+          "then": [
+            "Delivered. Sealed, as my father sent it, by the hand of his son. It is only late.",
+            "I shall not be wanting an introduction now. The town has met me."
+          ],
+          "takes": [
+            "letter",
+            "nail"
+          ],
+          "set": {
+            "T_LETTER_DELIVERED": true
+          }
+        },
+        {
           "case": "the first time",
           "when": {
             "T_LETTER_OFFERED": false
@@ -2457,6 +2491,790 @@
           "set": {
             "T_WREATH_CARDED": true
           }
+        }
+      ]
+    },
+    {
+      "item": "nail",
+      "room": "boot_hill",
+      "target": "pike_s_marker",
+      "say": "Into a dead man's board, for nothing? I should want something to hang on it first.",
+      "note": "Doc 121 (THE LINES; errata 250), N-2: the nail on Pike's board. With the letter done with at the church, it is the delivery, either way round.",
+      "rules": [
+        {
+          "case": "delivered, with a nail",
+          "when": {
+            "T_MEMORIAL_BOOKED": true,
+            "T_NAIL_TAKEN": true,
+            "T_LETTER_DELIVERED": false
+          },
+          "say": "Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A.",
+          "direction": true,
+          "then": [
+            "Delivered. Sealed, as my father sent it, by the hand of his son. It is only late.",
+            "I shall not be wanting an introduction now. The town has met me."
+          ],
+          "takes": [
+            "letter",
+            "nail"
+          ],
+          "set": {
+            "T_LETTER_DELIVERED": true
+          }
+        },
+        {
+          "case": "without the letter's leave",
+          "say": "Into a dead man's board, for nothing? I should want something to hang on it first."
+        }
+      ]
+    },
+    {
+      "item": "nail",
+      "room": "main_street",
+      "target": "posted_notices",
+      "say": "They hold by habit. A nail would only encourage them.",
+      "note": "Doc 121 (THE LINES; errata 250), N-2, THE WRONG TRIES: THE POSTED NOTICES · USE A NAIL.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "They hold by habit. A nail would only encourage them."
+        }
+      ]
+    },
+    {
+      "item": "oats",
+      "room": "prosperity",
+      "target": "hen",
+      "otherwise": "pool",
+      "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+      "note": "Doc 121 (THE LINES; errata 250), N-4: the oats fed to the hen, either way round. They leave.",
+      "rules": [
+        {
+          "case": "fed",
+          "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+          "direction": true,
+          "then": [
+            "She has taken the lot, and looked at the hand afterwards as though it had come up short."
+          ],
+          "takes": [
+            "oats"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "hen",
+      "room": "prosperity",
+      "target": "oats",
+      "otherwise": "pool",
+      "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+      "note": "Doc 121 (THE LINES; errata 250), N-4: the oats fed to the hen, either way round. They leave.",
+      "rules": [
+        {
+          "case": "fed",
+          "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+          "direction": true,
+          "then": [
+            "She has taken the lot, and looked at the hand afterwards as though it had come up short."
+          ],
+          "takes": [
+            "oats"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "oats",
+      "room": "pratts_claim",
+      "target": "hen",
+      "otherwise": "pool",
+      "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+      "note": "Doc 121 (THE LINES; errata 250), N-4: the oats fed to the hen, either way round. They leave.",
+      "rules": [
+        {
+          "case": "fed",
+          "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+          "direction": true,
+          "then": [
+            "She has taken the lot, and looked at the hand afterwards as though it had come up short."
+          ],
+          "takes": [
+            "oats"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "hen",
+      "room": "pratts_claim",
+      "target": "oats",
+      "otherwise": "pool",
+      "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+      "note": "Doc 121 (THE LINES; errata 250), N-4: the oats fed to the hen, either way round. They leave.",
+      "rules": [
+        {
+          "case": "fed",
+          "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+          "direction": true,
+          "then": [
+            "She has taken the lot, and looked at the hand afterwards as though it had come up short."
+          ],
+          "takes": [
+            "oats"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "oats",
+      "room": "claim_row",
+      "target": "hen",
+      "otherwise": "pool",
+      "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+      "note": "Doc 121 (THE LINES; errata 250), N-4: the oats fed to the hen, either way round. They leave.",
+      "rules": [
+        {
+          "case": "fed",
+          "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+          "direction": true,
+          "then": [
+            "She has taken the lot, and looked at the hand afterwards as though it had come up short."
+          ],
+          "takes": [
+            "oats"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "hen",
+      "room": "claim_row",
+      "target": "oats",
+      "otherwise": "pool",
+      "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+      "note": "Doc 121 (THE LINES; errata 250), N-4: the oats fed to the hen, either way round. They leave.",
+      "rules": [
+        {
+          "case": "fed",
+          "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+          "direction": true,
+          "then": [
+            "She has taken the lot, and looked at the hand afterwards as though it had come up short."
+          ],
+          "takes": [
+            "oats"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "oats",
+      "room": "claims_road",
+      "target": "hen",
+      "otherwise": "pool",
+      "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+      "note": "Doc 121 (THE LINES; errata 250), N-4: the oats fed to the hen, either way round. They leave.",
+      "rules": [
+        {
+          "case": "fed",
+          "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+          "direction": true,
+          "then": [
+            "She has taken the lot, and looked at the hand afterwards as though it had come up short."
+          ],
+          "takes": [
+            "oats"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "hen",
+      "room": "claims_road",
+      "target": "oats",
+      "otherwise": "pool",
+      "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+      "note": "Doc 121 (THE LINES; errata 250), N-4: the oats fed to the hen, either way round. They leave.",
+      "rules": [
+        {
+          "case": "fed",
+          "say": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
+          "direction": true,
+          "then": [
+            "She has taken the lot, and looked at the hand afterwards as though it had come up short."
+          ],
+          "takes": [
+            "oats"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "button",
+      "room": "prosperity",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A BUTTON on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+          "direction": true,
+          "then": [
+            "The coat has wanted that button since Sacramento. It took a raccoon to make me see to it."
+          ],
+          "takes": [
+            "button"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "prosperity",
+      "target": "button",
+      "otherwise": "pool",
+      "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A BUTTON on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+          "direction": true,
+          "then": [
+            "The coat has wanted that button since Sacramento. It took a raccoon to make me see to it."
+          ],
+          "takes": [
+            "button"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "button",
+      "room": "pratts_claim",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A BUTTON on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+          "direction": true,
+          "then": [
+            "The coat has wanted that button since Sacramento. It took a raccoon to make me see to it."
+          ],
+          "takes": [
+            "button"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "pratts_claim",
+      "target": "button",
+      "otherwise": "pool",
+      "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A BUTTON on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+          "direction": true,
+          "then": [
+            "The coat has wanted that button since Sacramento. It took a raccoon to make me see to it."
+          ],
+          "takes": [
+            "button"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "button",
+      "room": "claim_row",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A BUTTON on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+          "direction": true,
+          "then": [
+            "The coat has wanted that button since Sacramento. It took a raccoon to make me see to it."
+          ],
+          "takes": [
+            "button"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "claim_row",
+      "target": "button",
+      "otherwise": "pool",
+      "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A BUTTON on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+          "direction": true,
+          "then": [
+            "The coat has wanted that button since Sacramento. It took a raccoon to make me see to it."
+          ],
+          "takes": [
+            "button"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "button",
+      "room": "claims_road",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A BUTTON on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+          "direction": true,
+          "then": [
+            "The coat has wanted that button since Sacramento. It took a raccoon to make me see to it."
+          ],
+          "takes": [
+            "button"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "claims_road",
+      "target": "button",
+      "otherwise": "pool",
+      "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A BUTTON on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
+          "direction": true,
+          "then": [
+            "The coat has wanted that button since Sacramento. It took a raccoon to make me see to it."
+          ],
+          "takes": [
+            "button"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "pikes_collar",
+      "room": "prosperity",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: MR. PIKE'S COLLAR on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+          "direction": true,
+          "then": [
+            "Mr. Pike's collar, on a caller at last. He has the neck for it."
+          ],
+          "takes": [
+            "pikes_collar"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "prosperity",
+      "target": "pikes_collar",
+      "otherwise": "pool",
+      "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: MR. PIKE'S COLLAR on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+          "direction": true,
+          "then": [
+            "Mr. Pike's collar, on a caller at last. He has the neck for it."
+          ],
+          "takes": [
+            "pikes_collar"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "pikes_collar",
+      "room": "pratts_claim",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: MR. PIKE'S COLLAR on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+          "direction": true,
+          "then": [
+            "Mr. Pike's collar, on a caller at last. He has the neck for it."
+          ],
+          "takes": [
+            "pikes_collar"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "pratts_claim",
+      "target": "pikes_collar",
+      "otherwise": "pool",
+      "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: MR. PIKE'S COLLAR on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+          "direction": true,
+          "then": [
+            "Mr. Pike's collar, on a caller at last. He has the neck for it."
+          ],
+          "takes": [
+            "pikes_collar"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "pikes_collar",
+      "room": "claim_row",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: MR. PIKE'S COLLAR on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+          "direction": true,
+          "then": [
+            "Mr. Pike's collar, on a caller at last. He has the neck for it."
+          ],
+          "takes": [
+            "pikes_collar"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "claim_row",
+      "target": "pikes_collar",
+      "otherwise": "pool",
+      "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: MR. PIKE'S COLLAR on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+          "direction": true,
+          "then": [
+            "Mr. Pike's collar, on a caller at last. He has the neck for it."
+          ],
+          "takes": [
+            "pikes_collar"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "pikes_collar",
+      "room": "claims_road",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: MR. PIKE'S COLLAR on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+          "direction": true,
+          "then": [
+            "Mr. Pike's collar, on a caller at last. He has the neck for it."
+          ],
+          "takes": [
+            "pikes_collar"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "claims_road",
+      "target": "pikes_collar",
+      "otherwise": "pool",
+      "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: MR. PIKE'S COLLAR on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
+          "direction": true,
+          "then": [
+            "Mr. Pike's collar, on a caller at last. He has the neck for it."
+          ],
+          "takes": [
+            "pikes_collar"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "parsley",
+      "room": "prosperity",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad puts the sprig in the coat's lapel.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A SPRIG OF PARSLEY on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad puts the sprig in the coat's lapel.",
+          "direction": true,
+          "then": [
+            "A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table."
+          ],
+          "takes": [
+            "parsley"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "prosperity",
+      "target": "parsley",
+      "otherwise": "pool",
+      "say": "Thad puts the sprig in the coat's lapel.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A SPRIG OF PARSLEY on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad puts the sprig in the coat's lapel.",
+          "direction": true,
+          "then": [
+            "A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table."
+          ],
+          "takes": [
+            "parsley"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "parsley",
+      "room": "pratts_claim",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad puts the sprig in the coat's lapel.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A SPRIG OF PARSLEY on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad puts the sprig in the coat's lapel.",
+          "direction": true,
+          "then": [
+            "A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table."
+          ],
+          "takes": [
+            "parsley"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "pratts_claim",
+      "target": "parsley",
+      "otherwise": "pool",
+      "say": "Thad puts the sprig in the coat's lapel.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A SPRIG OF PARSLEY on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad puts the sprig in the coat's lapel.",
+          "direction": true,
+          "then": [
+            "A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table."
+          ],
+          "takes": [
+            "parsley"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "parsley",
+      "room": "claim_row",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad puts the sprig in the coat's lapel.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A SPRIG OF PARSLEY on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad puts the sprig in the coat's lapel.",
+          "direction": true,
+          "then": [
+            "A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table."
+          ],
+          "takes": [
+            "parsley"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "claim_row",
+      "target": "parsley",
+      "otherwise": "pool",
+      "say": "Thad puts the sprig in the coat's lapel.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A SPRIG OF PARSLEY on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad puts the sprig in the coat's lapel.",
+          "direction": true,
+          "then": [
+            "A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table."
+          ],
+          "takes": [
+            "parsley"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "parsley",
+      "room": "claims_road",
+      "target": "raccoon_in_coat",
+      "otherwise": "pool",
+      "say": "Thad puts the sprig in the coat's lapel.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A SPRIG OF PARSLEY on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad puts the sprig in the coat's lapel.",
+          "direction": true,
+          "then": [
+            "A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table."
+          ],
+          "takes": [
+            "parsley"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "raccoon_in_coat",
+      "room": "claims_road",
+      "target": "parsley",
+      "otherwise": "pool",
+      "say": "Thad puts the sprig in the coat's lapel.",
+      "note": "Doc 121 (THE LINES; errata 250), N-3: A SPRIG OF PARSLEY on the raccoon in his coat, either way round. It leaves with him.",
+      "rules": [
+        {
+          "case": "dressed",
+          "say": "Thad puts the sprig in the coat's lapel.",
+          "direction": true,
+          "then": [
+            "A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table."
+          ],
+          "takes": [
+            "parsley"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "capital_b",
+      "room": "funeral",
+      "target": "coffin",
+      "say": "Thad lays the B on the lid, beside the name plate.",
+      "note": "Doc 121 (THE LINES; errata 250), N-4: the worn B laid on his own coffin. It leaves. Nothing reads it.",
+      "rules": [
+        {
+          "case": "laid",
+          "say": "Thad lays the B on the lid, beside the name plate.",
+          "direction": true,
+          "then": [
+            "My name has had more B's out of this town than it ever had from my family. I return one, with the rest of me."
+          ],
+          "takes": [
+            "capital_b"
+          ]
+        }
+      ]
+    },
+    {
+      "item": "capital_b",
+      "room": "clarion",
+      "target": "frame",
+      "otherwise": "pool",
+      "say": "Keep it! I've a drawer of B's on order! You're the best thing that ever happened to the letter!",
+      "note": "Doc 121 (THE LINES; errata 250), N-4, THE WRONG TRIES: IGNATIUS FRAME · USE A CAPITAL B.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "Keep it! I've a drawer of B's on order! You're the best thing that ever happened to the letter!",
+          "by": "frame"
+        }
+      ]
+    },
+    {
+      "item": "room_key",
+      "room": "thads_room",
+      "target": "wardrobe",
+      "say": "Thad locks the wardrobe. The key fits, as it fits everything.",
+      "note": "Doc 121 (THE LINES; errata 250), N-4: his room key locks the wardrobe that drifts open in the night. Nothing reads T_WARDROBE_LOCKED but the second line.",
+      "rules": [
+        {
+          "case": "the first time",
+          "when": {
+            "T_WARDROBE_LOCKED": false
+          },
+          "say": "Thad locks the wardrobe. The key fits, as it fits everything.",
+          "direction": true,
+          "then": [
+            "Locked. It may check on somebody else tonight."
+          ],
+          "set": {
+            "T_WARDROBE_LOCKED": true
+          }
+        },
+        {
+          "case": "again",
+          "when": {
+            "T_WARDROBE_LOCKED": true
+          },
+          "say": "It is locked. I heard it try the door a moment ago, from the inside, and give up."
         }
       ]
     }

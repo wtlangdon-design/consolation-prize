@@ -462,6 +462,28 @@
               "Nothing. Several thousand words in that case, and not one of them in order."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_B_TAKEN": false
+            },
+            "say": "The B is worn nearly flat, and my name has been spending it. I have taken one of the spent ones. I feel I have paid for it.",
+            "set": {
+              "T_B_TAKEN": true
+            },
+            "grants": [
+              "capital_b"
+            ],
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **THE TYPE CASE** · *the Clarion* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_B_TAKEN": true
+            },
+            "say": "One B is a keepsake. Two is how he spells me already.",
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **THE TYPE CASE** · *the Clarion* - PICK UP, *again*"
+          }
         ]
       },
       "overrides": {

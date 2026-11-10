@@ -262,7 +262,37 @@
    "when": {
     "T_HYMNAL_TAKEN": true
    }
+  },
+  {
+   "hotspot": "collection_plate",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines",
+   "head": "**THE COLLECTION PLATE** · *the church*",
+   "bullet": "- PICK UP, *the first time*",
+   "when": {
+    "T_BUTTON_TAKEN": false
+   },
+   "set": {
+    "T_BUTTON_TAKEN": true
+   },
+   "grants": [
+    "button"
+   ]
+  },
+  {
+   "hotspot": "collection_plate",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines",
+   "head": "**THE COLLECTION PLATE** · *the church*",
+   "bullet": "- PICK UP, *again*",
+   "when": {
+    "T_BUTTON_TAKEN": true
+   }
   }
  ],
- "docBulletsNote": " Errata 246, doc 118 O-3: THE HYMNAL can be taken, once (T_HYMNAL_TAKEN); with it Thad can stand in the line of mourners on the hill (doc 115 II-1)."
+ "docBulletsNote": " Errata 246, doc 118 O-3: THE HYMNAL can be taken, once (T_HYMNAL_TAKEN); with it Thad can stand in the line of mourners on the hill (doc 115 II-1). Errata 250, doc 121 N-4: the button out of the bolted collection plate, once (T_BUTTON_TAKEN)."
 }

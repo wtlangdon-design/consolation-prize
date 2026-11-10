@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "room_key",
+  "name": "MY ROOM KEY",
+  "short": "MY ROOM KEY",
+  "note": "EXTRACTED from docs/121-the-not-done-list.md (THE LINES) by tools/extract-content.mjs (errata 250). Do not edit: change doc 121 and re-run. Off the hotel's key rack once he has a room. It locks the wardrobe; kept.",
+  "iconPending": "reference/objects-second-pass/brief.md asks the image session for it (errata 250); the panel draws its labelled box meanwhile.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "The key to number three, on a brass tag the size of a saucer, so that no guest may forget whose it is.",
+        "repeat": [
+          "It would open any door in the hotel. I tried it in the wrong one, by accident, and it was delighted.",
+          "A key, to a room, with my things in it. I had not expected to find that affecting."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "It swings against its tag. A small, landed sound.",
+        "repeat": [
+          "Nothing. Brass keeps its counsel.",
+          "A chime against the tuning fork. Flat, naturally."
+        ]
+      }
+    ]
+  }
+}

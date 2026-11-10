@@ -209,8 +209,12 @@ export class VerbSystem {
         && !candidate.opens,
     );
     // THE FIRST CASE WHOSE CIRCUMSTANCES HOLD (CombinationPair.rules).
+    // Bounded by a puzzle as a room's own rules are (ResponseRule.untilPuzzles): the map is unrolled for the survey
+    // until the survey is done, whichever build of the game the save did it in.
     const rule = pair?.rules?.find((one) => this.flags.test(one.when)
-      && (one.holds ?? []).every((item) => carried.includes(item)));
+      && (one.holds ?? []).every((item) => carried.includes(item))
+      && (one.afterPuzzles ?? []).every((puzzle) => this.reached(puzzle))
+      && !(one.untilPuzzles ?? []).some((puzzle) => this.reached(puzzle)));
     if (pair && rule) {
       const prefix = `with/${roomId}/${target.id}/${itemId}`;
       return {

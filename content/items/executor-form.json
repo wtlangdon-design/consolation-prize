@@ -3,7 +3,7 @@
   "id": "executor_form",
   "name": "Form 31-E, Appointment of Executor",
   "short": "THE EXECUTOR'S FORM",
-  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. E6. Signed by Hob; accepted by Sump; admits Thad to the archive (E9). Cannot be lost.",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. E6. Signed by Hob; accepted by Sump; admits Thad to the archive (E9). Gone after Act IV opens: packed in his case (doc 121 N-5; errata 250).",
   "responses": {
     "LOOK_AT": [
       {
@@ -23,5 +23,11 @@
         ]
       }
     ]
-  }
+  },
+  "lostWhen": {
+    "ACT": {
+      "atLeast": 4
+    }
+  },
+  "lostNote": "Packed (doc 121 N-5; errata 250): Act IV opens with his case packed on the bed (doc 57: \"there was less to pack than there was to leave\"), and a paper that is done with is in it. It leaves the inventory when ACT reaches 4."
 }

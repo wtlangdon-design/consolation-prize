@@ -204,6 +204,19 @@
    }
   },
   {
+   "id": "A2.5",
+   "puzzle": "A2",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "key_rack",
+   "note": "Errata 250 (doc 121). His room key.",
+   "expect": {
+    "carrying": [
+     "room_key"
+    ]
+   }
+  },
+  {
    "id": "A3.1",
    "puzzle": "A3",
    "do": "go",
@@ -324,6 +337,19 @@
    }
   },
   {
+   "id": "A5.2a2",
+   "puzzle": "A5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "grievance_s_feed_bin",
+   "note": "Errata 250 (doc 121). A handful of oats.",
+   "expect": {
+    "carrying": [
+     "oats"
+    ]
+   }
+  },
+  {
    "id": "A5.2b",
    "puzzle": "A5",
    "do": "go",
@@ -351,6 +377,19 @@
    "expect": {
     "carrying": [
      "tonic"
+    ]
+   }
+  },
+  {
+   "id": "A5.2e",
+   "puzzle": "A5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "nails",
+   "note": "Errata 250 (doc 121). One nail.",
+   "expect": {
+    "carrying": [
+     "nail"
     ]
    }
   },
@@ -481,13 +520,108 @@
    "item": "company_map",
    "on": "ozymandia",
    "expect": {
+    "flags": {
+     "T_SURVEYING": true
+    }
+   }
+  },
+  {
+   "id": "A7.4a",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "stake",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 1
+    }
+   }
+  },
+  {
+   "id": "A7.4b",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "creek",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 1
+    }
+   }
+  },
+  {
+   "id": "A7.4c",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "slope",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 2
+    }
+   }
+  },
+  {
+   "id": "A7.4d",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "smaller_rock",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 2
+    }
+   }
+  },
+  {
+   "id": "A7.4e",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "larger_rock",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 3
+    }
+   }
+  },
+  {
+   "id": "A7.4f",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "slope",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 4
+    }
+   }
+  },
+  {
+   "id": "A7.4g",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "stake",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
     "puzzles": [
      "A7"
     ],
     "carrying": [
      "survey",
      "company_map"
-    ]
+    ],
+    "flags": {
+     "T_SURVEYING": false,
+     "T_SURVEY_DRAWN": true
+    }
    }
   },
   {
@@ -627,6 +761,22 @@
    "on": "contract",
    "note": "Errata 248 (doc 120 I-1).",
    "expect": {
+    "flags": {
+     "T_DINED": false
+    }
+   }
+  },
+  {
+   "id": "A10.2c2",
+   "puzzle": "A10",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "contract",
+   "note": "Errata 250 (doc 121). The parsley.",
+   "expect": {
+    "carrying": [
+     "parsley"
+    ],
     "flags": {
      "T_DINED": false
     }
@@ -1118,6 +1268,19 @@
    }
   },
   {
+   "id": "C3.2b",
+   "puzzle": "C3",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "type_case",
+   "note": "Errata 250 (doc 121). A worn capital B.",
+   "expect": {
+    "carrying": [
+     "capital_b"
+    ]
+   }
+  },
+  {
    "id": "C3.3",
    "puzzle": "C3",
    "do": "go",
@@ -1169,6 +1332,19 @@
     "flags": {
      "T_HYMNAL_TAKEN": true
     }
+   }
+  },
+  {
+   "id": "C3.5b",
+   "puzzle": "C3",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "collection_plate",
+   "note": "Errata 250 (doc 121). The button.",
+   "expect": {
+    "carrying": [
+     "button"
+    ]
    }
   },
   {
@@ -1282,6 +1458,19 @@
      "T_SHENG_TASK": true,
      "ASSAY_PAIR_18": true
     }
+   }
+  },
+  {
+   "id": "D3.2b",
+   "puzzle": "D3",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "collars",
+   "note": "Errata 250 (doc 121). Mr. Pike's collar.",
+   "expect": {
+    "carrying": [
+     "pikes_collar"
+    ]
    }
   },
   {
@@ -1486,6 +1675,33 @@
    }
   },
   {
+   "id": "C4.3b",
+   "puzzle": "C4",
+   "do": "verb",
+   "verb": "WALK_TO",
+   "on": "to_lobby",
+   "note": "Errata 250 (doc 121). The door will not have the drawer open.",
+   "expect": {
+    "room": "fanshawe_office",
+    "flags": {
+     "T_DRAWER_OPEN": true
+    }
+   }
+  },
+  {
+   "id": "C4.3c",
+   "puzzle": "C4",
+   "do": "verb",
+   "verb": "CLOSE",
+   "on": "stock_portrait_drawer",
+   "note": "Errata 250 (doc 121). The second solving CLOSE.",
+   "expect": {
+    "flags": {
+     "T_DRAWER_OPEN": false
+    }
+   }
+  },
+  {
    "id": "D4.1",
    "puzzle": "D4",
    "do": "go",
@@ -1549,6 +1765,23 @@
     "flags": {
      "T_LINEN_COLLECTED": true,
      "T_FUNERAL_DAY": false
+    }
+   }
+  },
+  {
+   "id": "D4.1d",
+   "puzzle": "D4",
+   "do": "use",
+   "item": "letter",
+   "on": "pike_s_marker",
+   "note": "Errata 250 (doc 121). The letter, delivered.",
+   "expect": {
+    "notCarrying": [
+     "letter",
+     "nail"
+    ],
+    "flags": {
+     "T_LETTER_DELIVERED": true
     }
    }
   },
@@ -2121,6 +2354,22 @@
    }
   },
   {
+   "id": "E3.6b",
+   "puzzle": "E3",
+   "do": "use",
+   "item": "oats",
+   "on": "hen",
+   "note": "Errata 250 (doc 121).",
+   "expect": {
+    "notCarrying": [
+     "oats"
+    ],
+    "carrying": [
+     "hen"
+    ]
+   }
+  },
+  {
    "id": "E3.7",
    "puzzle": "E3",
    "do": "verb",
@@ -2136,6 +2385,48 @@
     ],
     "noTargets": [
      "raccoon"
+    ]
+   }
+  },
+  {
+   "id": "E3.7b",
+   "puzzle": "E3",
+   "do": "use",
+   "item": "button",
+   "on": "raccoon_in_coat",
+   "note": "Errata 250 (doc 121).",
+   "expect": {
+    "notCarrying": [
+     "button"
+    ]
+   }
+  },
+  {
+   "id": "E3.7c",
+   "puzzle": "E3",
+   "do": "use",
+   "item": "pikes_collar",
+   "on": "raccoon_in_coat",
+   "note": "Errata 250 (doc 121).",
+   "expect": {
+    "notCarrying": [
+     "pikes_collar"
+    ]
+   }
+  },
+  {
+   "id": "E3.7d",
+   "puzzle": "E3",
+   "do": "use",
+   "item": "parsley",
+   "on": "raccoon_in_coat",
+   "note": "Errata 250 (doc 121).",
+   "expect": {
+    "notCarrying": [
+     "parsley"
+    ],
+    "carrying": [
+     "raccoon_in_coat"
     ]
    }
   },
@@ -2436,6 +2727,19 @@
     "flags": {
      "T_WREATH_LAID": true
     }
+   }
+  },
+  {
+   "id": "E7.1b",
+   "puzzle": "E7",
+   "do": "use",
+   "item": "capital_b",
+   "on": "coffin",
+   "note": "Errata 250 (doc 121).",
+   "expect": {
+    "notCarrying": [
+     "capital_b"
+    ]
    }
   },
   {

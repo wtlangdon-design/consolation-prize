@@ -260,5 +260,39 @@
     "note": "The open register on the desk, the book's whole outline (tools/art/room18-clerk.py). Assigned to the clerk by his ambient record's clipPlane."
    }
   ]
- }
+ },
+ "docBullets": [
+  {
+   "hotspot": "key_rack",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines",
+   "head": "**THE KEY RACK** · *the hotel lobby, once he has a room*",
+   "bullet": "- PICK UP, *the first time*",
+   "when": {
+    "T_KEY_TAKEN": false,
+    "T_ROOM_GRANTED": true
+   },
+   "set": {
+    "T_KEY_TAKEN": true
+   },
+   "grants": [
+    "room_key"
+   ]
+  },
+  {
+   "hotspot": "key_rack",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines",
+   "head": "**THE KEY RACK** · *the hotel lobby, once he has a room*",
+   "bullet": "- PICK UP, *again*",
+   "when": {
+    "T_KEY_TAKEN": true
+   }
+  }
+ ],
+ "docBulletsNote": "Errata 250, doc 121 N-4: his room key off the rack once he has a room (T_KEY_TAKEN); before that the rack's own line."
 }

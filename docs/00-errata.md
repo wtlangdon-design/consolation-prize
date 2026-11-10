@@ -6908,3 +6908,68 @@ Lesson:
 - The full walkthrough plays it (C3.7, C3.8), and the real build was played from the church to the notice on the wall.
 - `tests/press.test.ts`: nothing Frame says hands over the notice or completes C3; the press gives it only when the notice is set; a second is not to be had while he holds one.
 
+## 250 · The not-done list (doc 121): the drawer shut, the letter delivered, seven objects, the raccoon dressed, and the papers packed
+
+Tyler, 2026-11-10, on the list of what the night had left undone: **"Do all the Not Done things."** Doc 121 is the design and the lines; rows 20 to 24 of doc 119 are the changes, each reversible on its own.
+
+- **N-1 · The drawer, shut.** Taking the photograph leaves the stock portrait drawer open (`T_DRAWER_OPEN`). The office door refuses while it is. CLOSE shuts it. The second solving CLOSE (doc 116 Y5).
+- **N-2 · The letter, delivered.** One nail from the mercantile's keg. Once the memorial is booked, THE LETTER on PIKE'S MARKER (or the nail on it) fixes the letter to his board, sealed, tapped in with the tuning fork. Both leave. Doc 120's line at the board ("I may want an introduction yet") is what it answers.
+- **N-3 · The raccoon, dressed.** A BUTTON, MR. PIKE'S COLLAR and A SPRIG OF PARSLEY each go on THE RACCOON, IN MY COAT. Mr. Pratt's lines are unchanged.
+- **N-4 · Seven objects,** each taken by hand, once, and none needed: a nail (the mercantile), a handful of oats (the livery; the hen eats them), the parsley (off the contract at dinner), a capital B (the Clarion's type case; laid on his own coffin), Mr. Pike's collar (the laundry), a button (the church's collection plate), his room key (the hotel's rack; it locks the wardrobe).
+- **N-5 · Packed.** From Act IV the executor's form, the photograph and the third copy are not carried: the act opens with his case packed, in doc 57's own words. No new line.
+- **The press (errata 249) is not restaged yet.** Staging it properly means the printer steps away from his press, and nobody may pop in or out of view (Tyler, 2026-11-01). The image session drew the three sheets asked for (`reference/press-pull/handback.md`), and the wiring is done on the branch `press-staging`: he says his piece at the press, walks to his back editions and folds his arms, and Thad hauls the bar. **It cannot merge yet:** the brief asked for his walk as four frames and the game's standard for a walk is six (`tests/walk-gait.test.mjs`). The mistake was the brief's. The six are asked for in `reference/press-walk-six/brief.md`, from the operation `press-pull` held in reserve.
+- **III-1 stays withdrawn by its author.** "Do all" is not read as overruling a withdrawal made to protect invariants 3 and 7; doc 121's last section says why, and it is built the day Tyler says "build III-1" in those words.
+
+### The counts (`proofs/pacing.json` now lists nothing)
+
+| | Before the night | After errata 249 | Now | Doc 116's target |
+|---|---|---|---|---|
+| Item on an item | 1 | 4 | 8 | 5 |
+| CLOSE that solves something | 0 | 1 | 2 | 2 |
+| Objects among all items | 12 of 34 | 16 of 39 | 23 of 46 | half |
+| Papers carried to the filing | 14 of 24 | 8 of 18 | 4 of 15 | under a third |
+| Four counters in a row | 1 run | 1 run | none | none |
+
+### Art asked for (`reference/objects-second-pass/brief.md`)
+
+Seven icons; the drawer shut; the envelope on Mr. Pike's board. Until they are in, each icon is its labelled box and the two patches are told.
+
+Lesson:
+- `tests/not-done.test.ts`: the door holds him while the drawer is open; the letter is kept until the church has had it and he has a nail; each new object is taken once; the game is won without touching one; the packed papers are gone only from Act IV, and the filing's are not.
+- The full walkthrough plays all of it.
+
+## 251 · I-3, the boundary walked (doc 120; doc 114 I-3)
+
+On Tyler's "Do all the Not Done things" (2026-11-10). Row 25 of doc 119.
+
+- **The first design is withdrawn.** Doc 120 had the player draw any line and Sump record it. The survey's words are fixed: doc 57 A7 writes them, Sump reads them at A9, THE THIRD COPY quotes them, and doc 108's mine is crossed by them ("Stake, uphill, big rock, the still one"). So the player walks that boundary and no other.
+- **Now:** THE COMPANY MAP on Madame Ozymandia, once she is paid, plays doc 57 A7's own direction (which the game had never shown): she unrolls it, hums, and the rod does not move. She gives Thad the rod. The Company's map fills the view (`T_SURVEYING`) and seven things on it can be looked at, listened to and pointed at: THE STAKE, THE SLOPE, THE LARGER ROCK, THE SMALLER ROCK, CLAIM ONE, CLAIM TWO, THE CREEK.
+- USE points the rod. In the survey's order each leg is announced by her as the earth's, and each announcement cues the next; anywhere else gets her answer and moves nothing. The line appears on the map as he goes, in her purple ink (`tools/art/survey-line.py`; drawn by script).
+- Home: "Thence home.", doc 57 A7's direction and three lines word for word, THE SURVEY and **A7**. The extraction fails if doc 120's home line stops ending in doc 57's.
+- He cannot leave the table while the map is out, and nothing can be got wrong for good. A save that already has its survey is not sent round again.
+- Nothing about Claim One is said on the map that A9 has not yet said.
+
+### Engine
+
+| | Before | Now |
+|---|---|---|
+| `actorHiddenWhen` | One state hides him (under the séance table) | `whenAny` adds others; `covers` says what hides him is laid over the whole room, so nobody under it and no way out is pointed at |
+| A pair's rule | Bounded by flags | Also by puzzles (`untilPuzzles`, `afterPuzzles`), as a room's rules are. The map on her was unrolled a second time after the survey was lodged; the items test caught it |
+
+Lesson:
+- `tests/boundary.test.ts`: asking does not hand the survey over; the legs come in doc 57's order and are announced in the form's own phrases; a wrong place moves nothing at any leg; while the map is out only the map answers; a save keeps its place.
+- `tests/items.test.ts`: the map on her after the survey is lodged does not begin the walk again.
+- `tests/lessons.test.ts`: a prop the size of the room passes only when the room says it covers it.
+- Played in the real build from the fee to the survey before merging.
+
+## 252 · Every verb has a key (doc 122, the second audit)
+
+On Tyler's "Do all the Not Done things" (2026-11-10). Doc 122 is the audit doc 116 said was owed: music and sound, feel in the hand, and jokes that break the frame. It builds one thing and proposes seven (P1 to P7), which are his to rule on.
+
+- **Built:** Q W E / A S D / Z X C select the nine verbs, laid out on the keyboard as the panel lays them out, as the first Monkey Island did. The key is each verb's own (`content/ui/verbs.json` `key`); no key is named in a `.ts` file.
+- A key does what a click on its button does, and only where that click would land: not under the menu, in a conversation, during a cutscene or a card, on the map, or in Room 32 (invariant 2: no interface, and a key must not give it one).
+- **Not built, and why:** the audit could not hear the game or hold it. Its proposals are a second click on an exit going at once (P2), three cues for things described and not heard (P1), the word "placeholder" on five approved beds (P3), the hill's bed at his own funeral (P4), keeping the fourth wall (P5), five more things to find (P6) and a stamp on the title card (P7).
+
+Lesson:
+- `tests/verb-keys.test.ts`: each verb has one letter of its own; the letters lie as the buttons lie; the scene names no key and takes none with the panel away, the menu open or a conversation running.
+

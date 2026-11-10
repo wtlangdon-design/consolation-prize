@@ -387,6 +387,28 @@
               "A box lid settling. Somebody's dignity, put away for the week."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_COLLAR_TAKEN": false
+            },
+            "say": "PIKE, E. At the back of the box, behind the important ones, starched, and never once collected. I am the nearest thing he has to a caller, so I have called for it.",
+            "set": {
+              "T_COLLAR_TAKEN": true
+            },
+            "grants": [
+              "pikes_collar"
+            ],
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **THE COLLARS** · *the laundry* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_COLLAR_TAKEN": true
+            },
+            "say": "The other hundred and ninety-nine have owners with a pulse.",
+            "sceneLine": "docs/121-the-not-done-list.md::### N-3 and N-4 · The objects: the lines · **THE COLLARS** · *the laundry* - PICK UP, *again*"
+          }
         ]
       },
       "walkTo": {

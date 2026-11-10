@@ -461,6 +461,14 @@ test('no prop paints the plate over a figure behind it', () => {
       const img = readPng(readFileSync(resolve(ROOT, prop.sheet)));
       const [fx, fy, fw, fh] = prop.frame as [number, number, number, number];
       const px0 = Math.round(prop.x - fw / 2); const py0 = prop.y - fh;
+      // A PICTURE LAID OVER THE WHOLE VIEW is not furniture cut from the plate, and hides everyone on purpose: the
+      // Company's map unrolled for the survey (errata 251). It must say so (RoomFile.actorHiddenWhen.covers), so that a
+      // prop the size of the room cannot get past this by accident.
+      if (fw === plate.width && fh === plate.height) {
+        const covers = (room as { actorHiddenWhen?: { covers?: unknown } }).actorHiddenWhen?.covers;
+        if (!covers) misses.push(`${room.id}: ${prop.id} is the size of the room and the room does not say it covers it`);
+        continue;
+      }
       for (const npc of ambient.filter((one) => one.room === room.id && one.sprite && !one.sprite.figureHeight && one.y < prop.y)) {
         // The frames he shows WHILE this prop is drawn: the sheet a `spriteWhen` gives under the prop's own
         // condition, else his own.

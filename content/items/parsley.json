@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "parsley",
+  "name": "A SPRIG OF PARSLEY",
+  "short": "A SPRIG OF PARSLEY",
+  "note": "EXTRACTED from docs/121-the-not-done-list.md (THE LINES) by tools/extract-content.mjs (errata 250). Do not edit: change doc 121 and re-run. Off the contract at the Colonel's dinner. It goes in the raccoon's lapel in Act III.",
+  "iconPending": "reference/objects-second-pass/brief.md asks the image session for it (errata 250); the panel draws its labelled box meanwhile.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "The parsley off the Colonel's contract. It is the only part of that dinner I got away with.",
+        "repeat": [
+          "Fresh, and curled, and grown under glass somewhere at great expense, to sit on a legal document.",
+          "It has not wilted. Nothing of the Colonel's does."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Nothing. It was a garnish. It was never asked its views.",
+        "repeat": [
+          "A small green squeak, between my fingers.",
+          "Nothing. It is keeping fresh out of spite."
+        ]
+      }
+    ]
+  }
+}
