@@ -1532,7 +1532,16 @@ function docBullet(spec) {
     sceneLine: `${spec.ref} · ${spec.head ? `${spec.head} ` : ''}${spec.bullet}`,
   };
 }
+// A BULLET MAY ANSWER FOR A PERSON (doc 113, B: `**NICKEL PRATT** · *on the claim*`): `person` names the ambient figure
+// instead of a hotspot, and the rule goes ahead of that figure's own lines (peopleResponses), which are gathered
+// further down; so these are kept and laid in once they exist.
+const personBullets = [];
 for (const spec of [...(ann.docBullets ?? [])].reverse()) {
+  if (spec.person) {
+    if (!(ann.ambient ?? built.ambient ?? []).includes(spec.person)) fail(`docBullets: no figure "${spec.person}" in this room`);
+    personBullets.push([spec, docBullet(spec)]);
+    continue;
+  }
   const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
   if (!hotspot) fail(`docBullets: no hotspot "${spec.hotspot}" in this room`);
   const rule = docBullet(spec);
@@ -1946,6 +1955,9 @@ for (const [id, entry] of examineEntries) {
     if (lines.length !== 3) fail(`peopleExamine: ${ref} ${label} has ${lines.length} lines, not 3`);
     (((built.peopleResponses ??= {})[id] ??= {})[verb] ??= []).push({ ...(entry.when ? { when: entry.when } : {}), say: lines[0], repeat: lines.slice(1) });
   }
+}
+for (const [spec, rule] of personBullets) {
+  for (const verb of spec.verbs) ((((built.peopleResponses ??= {})[spec.person] ??= {})[verb] ??= [])).unshift({ ...rule });
 }
 // THE FLOOR, THE APPROACH POINTS, AND WHY THE HEIGHTS ARE THE CANON ONES.
 //

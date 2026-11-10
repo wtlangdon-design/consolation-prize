@@ -408,9 +408,105 @@
      3
     ]
    }
+  },
+  {
+   "hotspot": "claim_marker",
+   "verbs": [
+    "PUSH"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### B · The stake",
+   "head": "**THE CLAIM MARKER** · *while Pratt is on the claim",
+   "bullet": "- PUSH",
+   "when": {
+    "ACT": {
+     "atLeast": 2
+    },
+    "T_PRATT_STAKE": false
+   },
+   "speakers": {
+    "PRATT": "pratt_jump"
+   }
+  },
+  {
+   "hotspot": "claim_marker",
+   "verbs": [
+    "PULL"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### B · The stake",
+   "head": "**THE CLAIM MARKER** · *while Pratt is on the claim",
+   "bullet": "- PULL",
+   "when": {
+    "ACT": {
+     "atLeast": 2
+    },
+    "T_PRATT_STAKE": false
+   }
+  },
+  {
+   "hotspot": "claim_marker",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### B · The stake",
+   "head": "**THE CLAIM MARKER** · *while Pratt is on the claim",
+   "bullet": "- PICK UP",
+   "when": {
+    "ACT": {
+     "atLeast": 2
+    },
+    "T_PRATT_STAKE": false
+   }
+  },
+  {
+   "hotspot": "claim_marker",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### B · The stake",
+   "head": "**THE CLAIM MARKER** · *while Pratt is on the claim",
+   "bullet": "- USE",
+   "when": {
+    "ACT": {
+     "atLeast": 2
+    },
+    "T_PRATT_STAKE": false
+   },
+   "speakers": {
+    "PRATT": "pratt_jump"
+   }
+  },
+  {
+   "person": "pratt_jump",
+   "verbs": [
+    "PUSH"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### B · The stake",
+   "head": "**NICKEL PRATT** · *on the claim",
+   "bullet": "- PUSH"
+  },
+  {
+   "person": "pratt_jump",
+   "verbs": [
+    "PULL"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### B · The stake",
+   "head": "**NICKEL PRATT** · *on the claim",
+   "bullet": "- PULL"
+  },
+  {
+   "person": "pratt_jump",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### B · The stake",
+   "head": "**NICKEL PRATT** · *on the claim",
+   "bullet": "- PICK UP",
+   "speakers": {
+    "PRATT": "pratt_jump"
+   }
   }
  ],
- "docBulletsNote": "Errata 237, doc 111 C, THE RACCOON in the hole once Pratt wants him (T_RACCOON_WANTED): a hand in the hole is refused, and so is the coat over the hole before the hen; with him halfway out (the hen at the hole, T_RACCOON_OUT, a pair in content/combinations.json) a hand is refused again, and USE drops the coat over him: THE RACCOON, IN MY COAT (T_RACCOON_IN_COAT). Read from doc 111 by tools/compile-room.mjs (docBullet). The fork and the hen are item pairs (tools/extract-content.mjs). Errata 238: the coat's USE holds Thad's coat-bundle clip over its two lines (ResponseRule.holds; art/actors/thad-coat-bundle-front, reference/act3-estate-sale/handback.md operation 2): frame 2, the bundle lurching left, over the direction, and frame 3, the paw swiping out, over his line. The direction stays printed (doc 95 row 119, class C: the words carry the joke).",
+ "docBulletsNote": "Errata 237, doc 111 C, THE RACCOON in the hole once Pratt wants him (T_RACCOON_WANTED): a hand in the hole is refused, and so is the coat over the hole before the hen; with him halfway out (the hen at the hole, T_RACCOON_OUT, a pair in content/combinations.json) a hand is refused again, and USE drops the coat over him: THE RACCOON, IN MY COAT (T_RACCOON_IN_COAT). Read from doc 111 by tools/compile-room.mjs (docBullet). The fork and the hen are item pairs (tools/extract-content.mjs). Errata 238: the coat's USE holds Thad's coat-bundle clip over its two lines (ResponseRule.holds; art/actors/thad-coat-bundle-front, reference/act3-estate-sale/handback.md operation 2): frame 2, the bundle lurching left, over the direction, and frame 3, the paw swiping out, over his line. The direction stays printed (doc 95 row 119, class C: the words carry the joke). Errata 242 (doc 113, B · The stake): while Pratt is on the claim (Act II on, until PRA_D2 sends him home, T_PRATT_STAKE) the marker's PUSH, PULL, PICK UP and USE and Pratt's own PUSH, PULL and PICK UP are the scene's; nothing is set and nothing is solved.",
  "onEnterSay": {
   "fromRef": "docs/111-scenes-b-and-c.md::### C · The estate sale",
   "bold": "ARRIVING",

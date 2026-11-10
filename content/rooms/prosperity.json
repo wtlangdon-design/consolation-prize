@@ -346,6 +346,77 @@
               "Wind again. It comes through here on its way to somewhere better."
             ]
           }
+        ],
+        "USE": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 2
+              },
+              "T_PRATT_STAKE": false
+            },
+            "say": "I stood beside my stake, firmly. He stood beside his. Mine has the number. His has him.",
+            "then": [
+              {
+                "speaker": "pratt_jump",
+                "line": "Yep."
+              }
+            ],
+            "sceneLine": "docs/113-act-two-scenes.md::### B · The stake · **THE CLAIM MARKER** · *while Pratt is on the claim - USE"
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 2
+              },
+              "T_PRATT_STAKE": false
+            },
+            "say": "Carry it off and I have jumped my own claim. He would thank me, briefly.",
+            "sceneLine": "docs/113-act-two-scenes.md::### B · The stake · **THE CLAIM MARKER** · *while Pratt is on the claim - PICK UP"
+          }
+        ],
+        "PULL": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 2
+              },
+              "T_PRATT_STAKE": false
+            },
+            "say": "If I pull it up myself he has only to stand here. He is very good at standing here.",
+            "sceneLine": "docs/113-act-two-scenes.md::### B · The stake · **THE CLAIM MARKER** · *while Pratt is on the claim - PULL"
+          }
+        ],
+        "PUSH": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 2
+              },
+              "T_PRATT_STAKE": false
+            },
+            "say": "Thad straightens his stake.",
+            "by": "pratt_jump",
+            "direction": true,
+            "then": [
+              {
+                "speaker": "pratt_jump",
+                "line": "Leans."
+              },
+              {
+                "speaker": "pratt_jump",
+                "line": "Pratt drives his own, one stroke.",
+                "direction": true
+              },
+              {
+                "speaker": "pratt_jump",
+                "line": "Mine don't."
+              }
+            ],
+            "sceneLine": "docs/113-act-two-scenes.md::### B · The stake · **THE CLAIM MARKER** · *while Pratt is on the claim - PUSH"
+          }
         ]
       },
       "overrides": {
@@ -1028,6 +1099,32 @@
             "No fee today, Madame?",
             "I'll leave you to it, then."
           ]
+        }
+      ]
+    },
+    "pratt_jump": {
+      "PICK_UP": [
+        {
+          "say": "May I see your mallet?",
+          "then": [
+            {
+              "speaker": "pratt_jump",
+              "line": "You're seeing it."
+            }
+          ],
+          "sceneLine": "docs/113-act-two-scenes.md::### B · The stake · **NICKEL PRATT** · *on the claim - PICK UP"
+        }
+      ],
+      "PULL": [
+        {
+          "say": "I took hold of his sleeve. He looked at my hand until I took it back.",
+          "sceneLine": "docs/113-act-two-scenes.md::### B · The stake · **NICKEL PRATT** · *on the claim - PULL"
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "He is planted deeper than the stake.",
+          "sceneLine": "docs/113-act-two-scenes.md::### B · The stake · **NICKEL PRATT** · *on the claim - PUSH"
         }
       ]
     }

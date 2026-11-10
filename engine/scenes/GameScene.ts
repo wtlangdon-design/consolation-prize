@@ -7,7 +7,7 @@ import type { AmbientFile, Cutaway, Exit, Facing, Interactable, CombinationPair,
 import { Actor } from '../core/Actor.ts';
 import { ArrivalHold } from '../core/ArrivalHold.ts';
 import { personLines } from '../core/PersonLines.ts';
-import { planNear, planRoom } from '../core/BootAssets.ts';
+import { planCut, planRoom } from '../core/BootAssets.ts';
 import { MapWalk, homeLocation, mapPath, placePoint } from '../core/MapWalk.ts';
 import { Music } from '../core/Music.ts';
 import { ambienceFor } from '../core/Ambience.ts';
@@ -15,7 +15,7 @@ import { RoomActors } from '../core/RoomActors.ts';
 import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
-import { AmbientLayer, spokenBreakKey } from '../core/Ambient.ts';
+import { AmbientLayer, SaidLately, spokenBreakKey } from '../core/Ambient.ts';
 import { actOf, heldThrough, performedLine, performersWith, shownText, type HeldPose } from '../core/ActedDirections.ts';
 import { StepTriggers, type StepEvent } from '../core/StepTriggers.ts';
 import { DialoguePerformance, barkHold, holdTimingFor, readingHold, type HoldTiming, type Utterance } from '../core/DialoguePerformance.ts';
@@ -258,6 +258,8 @@ export class GameScene extends Phaser.Scene {
     back?: { x: number; y: number; facing: Facing }; closeup?: boolean; cutIn?: boolean; showFrom?: number } | null = null;
   /** Assets the loader could not fetch: a room waits for each to arrive OR fail, never for ever. */
   private readonly loadFailed = new Set<string>();
+  /** One figure, one line, once a walk past (errata 242). */
+  private readonly saidLately = new SaidLately();
   /** Scene seconds when the close's last line came down; null until it has. */
   private endingFrom: number | null = null;
   /** The close's bed is playing out to its end; the title does not start another over it. */
@@ -623,7 +625,8 @@ export class GameScene extends Phaser.Scene {
   private readonly nearAsked = new Set<string>();
 
   private loadNear(heading: string | null = null): void {
-    const near = planNear(this.state.content, this.state.roomId, heading);
+    // The room a cut-away left is kept until it is come back to (planCut, errata 242).
+    const near = planCut(this.state.content, this.state.roomId, this.state.cutawayHome, heading);
     const keep = new Set(near.map((asset) => asset.key));
     for (const key of [...this.nearAsked]) {
       if (keep.has(key) || !this.textures.exists(key)) continue;
@@ -849,7 +852,9 @@ export class GameScene extends Phaser.Scene {
           : null;
       if (fired?.cue) this.fireCue(fired.cue);
       if (fired?.exchange) this.showBarkExchange(fired.exchange);
-      else if (fired?.line) this.showBark(fired.npc.id, fired.line, fired.npc.x, this.barkFoot(fired.npc));
+      else if (fired?.line && this.mayCallOut(fired.npc.id, fired.line)) {
+        this.showBark(fired.npc.id, fired.line, fired.npc.x, this.barkFoot(fired.npc));
+      }
     }
     // The tree opens when the walk that was started for it finishes.
     if (this.linesOnArrival && !this.actor.isWalking) {
@@ -3359,6 +3364,8 @@ export class GameScene extends Phaser.Scene {
       entering: this.entry?.phase ?? null,
       black: this.fadeBlack,
       whole: this.roomWhole(),
+      unarrived: planRoom(this.state.content, this.state.roomId)
+        .filter((asset) => !this.textures.exists(asset.key) && !this.loadFailed.has(asset.key)).map((asset) => asset.key),
       cutaway: this.cut ? { id: this.cut.cutaway.id, phase: this.cut.phase } : null,
       // Due AND the scene would let it start (bar the arrival's settle): never true inside a conversation.
       cutawayDue: !this.cut && this.quietForCutaway(Number.MAX_SAFE_INTEGER) && this.state.content.cutaways.some((one) => one.room !== this.state.roomId
@@ -3831,6 +3838,15 @@ export class GameScene extends Phaser.Scene {
         this.load.image(path, new URL(path, document.baseURI).toString());
         queued += 1;
       }
+      // ITS ROOM TOO, under the same fade (errata 242): nothing asked for it until the screen was already black, so the
+      // black held for the whole fetch. Nothing is let go here; `loadNear` does that once the cut is made.
+      for (const { key, path } of planRoom(this.state.content, due.room)) {
+        if (this.textures.exists(key) || this.nearAsked.has(key) || this.loadFailed.has(key)) continue;
+        this.load.image(key, new URL(resolveAssetPath(path, askedCandidates()), document.baseURI).toString());
+        this.load.once(`filecomplete-image-${key}`, () => this.markDirty());
+        this.nearAsked.add(key);
+        queued += 1;
+      }
       if (queued) this.load.start();
       this.cut = { cutaway: due, phase: 'out', at: now };
       this.markDirty();
@@ -4070,6 +4086,11 @@ export class GameScene extends Phaser.Scene {
       black: timing?.endingBlackSeconds ?? 2 };
   }
 
+  /** Whether this figure may call this line out now: not the line she called out under a minute ago (SaidLately). */
+  private mayCallOut(id: string, line: string): boolean {
+    return this.saidLately.allow(id, line, this.time.now / 1000);
+  }
+
   /**
    * An ambient character whose break is a shout, shouting.
    *
@@ -4097,7 +4118,8 @@ export class GameScene extends Phaser.Scene {
       this.spokenBreak = token;
       // His reputation's bark, or the next of his turns (doc 110's prayer, errata 233).
       const line = this.ambient.breakLine(npc);
-      if (line) this.showBark(npc.id, line, npc.x, this.barkFoot(npc));
+      // Not the line she said to his face a moment ago, or will not say again in a moment (SaidLately, errata 242).
+      if (line && this.mayCallOut(npc.id, line)) this.showBark(npc.id, line, npc.x, this.barkFoot(npc));
     }
   }
 

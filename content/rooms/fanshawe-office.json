@@ -20,6 +20,9 @@
         100,
         46
       ],
+      "when": {
+        "T_QUEUE_PADDED": false
+      },
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -46,14 +49,11 @@
               "T_FUNERAL_DAY": true,
               "T_QUEUE_PADDED": false
             },
-            "say": "Nine years of priority submissions, filed one day a month, every month, in one hand. Winnie is going to want to see this, and she is not going to enjoy it.",
-            "set": {
-              "T_QUEUE_PADDED": true
-            },
-            "items": [
-              "padded_log"
+            "say": "He knows where this book lies to the inch. A bare patch of desk would be read before he had his gloves off.",
+            "repeat": [
+              "Not and leave a gap. Something has to lie there when he comes back, and it has to be green."
             ],
-            "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · empty office"
+            "sceneLine": "docs/113-act-two-scenes.md::### A · The double · **THE SUBMISSION LOG** · *on the funeral day - PICK UP"
           },
           {
             "when": {
@@ -66,12 +66,86 @@
         "OPEN": [
           {
             "when": {
+              "T_FUNERAL_DAY": true,
+              "T_QUEUE_PADDED": false
+            },
+            "say": "Nine years, one day a month, in one hand. I could read it here until the hymns ran out, and Miss Ledger would still have only my word for it. She does not take words.",
+            "sceneLine": "docs/113-act-two-scenes.md::### A · The double · **THE SUBMISSION LOG** · *on the funeral day - OPEN"
+          },
+          {
+            "when": {
               "T_FUNERAL_DAY": false
             },
             "say": "Not with him in the room. He'd offer to help me carry it.",
             "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · Fanshawe present"
           }
+        ],
+        "PUSH": [
+          {
+            "when": {
+              "T_FUNERAL_DAY": true,
+              "T_QUEUE_PADDED": false
+            },
+            "say": "I moved it an inch, and then I moved it back, and now I am not certain it is the right inch.",
+            "sceneLine": "docs/113-act-two-scenes.md::### A · The double · **THE SUBMISSION LOG** · *on the funeral day - PUSH, *or* PULL"
+          }
+        ],
+        "PULL": [
+          {
+            "when": {
+              "T_FUNERAL_DAY": true,
+              "T_QUEUE_PADDED": false
+            },
+            "say": "I moved it an inch, and then I moved it back, and now I am not certain it is the right inch.",
+            "sceneLine": "docs/113-act-two-scenes.md::### A · The double · **THE SUBMISSION LOG** · *on the funeral day - PUSH, *or* PULL"
+          }
         ]
+      },
+      "walkTo": {
+        "x": 1265,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ledger_on_the_desk",
+      "name": "THE LEDGER ON THE DESK",
+      "rect": [
+        1215,
+        484,
+        100,
+        46
+      ],
+      "when": {
+        "T_QUEUE_PADDED": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Eighteen fifty-one, lying where the log lay, an inch off true, as he likes it.",
+            "repeat": [
+              "The spine is not cracked. I am trusting that a man who opens a book every day has stopped looking at it.",
+              "The only truthful book in the room, and it is here under a false name."
+            ],
+            "then": [
+              "From his chair it is the same green book."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It has never been opened, and it lies there as if it means to keep that up.",
+            "repeat": [
+              "Nothing. A year of the Company's business, holding its breath.",
+              "A cover, easing down into somebody else's place."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It is doing my lying for me. I'll leave it to its work.",
+        "OPEN": "If I crack the spine it will look consulted, and then he might consult it."
       },
       "walkTo": {
         "x": 1265,
@@ -149,6 +223,7 @@
         ]
       },
       "overrides": {
+        "USE": "Not on duty. In this office I am always, improbably, on duty.",
         "OPEN": "It is always already open. Generosity, pre-loaded."
       },
       "walkTo": {
@@ -317,6 +392,40 @@
               "The shelf creaks under them. They are heavier than the business they describe.",
               "Nothing. The particular quiet of a book that has never been audited."
             ]
+          }
+        ],
+        "OPEN": [
+          {
+            "when": {
+              "T_FUNERAL_DAY": true
+            },
+            "say": "Income, outgoings, and a balance so reasonable it could run for office.",
+            "sceneLine": "docs/113-act-two-scenes.md::### A · The double · **THE LEDGERS** · *on the funeral day - OPEN"
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_FUNERAL_DAY": true,
+              "T_QUEUE_PADDED": false,
+              "T_LEDGER_TAKEN": false
+            },
+            "say": "Eighteen fifty-one. Green, gilt, and exactly as thick as every other year. The shelf closes over the gap without being asked.",
+            "set": {
+              "T_LEDGER_TAKEN": true
+            },
+            "grants": [
+              "company_ledger"
+            ],
+            "sceneLine": "docs/113-act-two-scenes.md::### A · The double · **THE LEDGERS** · *on the funeral day - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_FUNERAL_DAY": true,
+              "T_LEDGER_TAKEN": true
+            },
+            "say": "One year is all I need. They are all the same year.",
+            "sceneLine": "docs/113-act-two-scenes.md::### A · The double · **THE LEDGERS** · *on the funeral day - PICK UP, *with the ledger taken*"
           }
         ]
       },
@@ -514,6 +623,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "OPEN": "Locked, and painted with roses. He keeps his money where it can be admired."
       },
       "walkTo": {
         "x": 1615,

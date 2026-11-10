@@ -1673,6 +1673,101 @@
           "by": "sheng"
         }
       ]
+    },
+    {
+      "item": "company_ledger",
+      "room": "fanshawe_office",
+      "target": "submission_log",
+      "otherwise": "pool",
+      "puzzle": "C4",
+      "say": "Thad lifts the log, lays the ledger where it lay, and moves it an inch.",
+      "note": "Doc 113 (THE LINES; errata 242), THE SWAP: the ledger laid where the log lay, and the log taken (THE SUBMISSION LOG, T_QUEUE_PADDED). Doc 54's empty-office line for the log is said after the direction, as doc 113 says.",
+      "rules": [
+        {
+          "case": "empty office",
+          "when": {
+            "T_FUNERAL_DAY": true,
+            "T_QUEUE_PADDED": false
+          },
+          "say": "Thad lifts the log, lays the ledger where it lay, and moves it an inch.",
+          "direction": true,
+          "then": [
+            "Nine years of priority submissions, filed one day a month, every month, in one hand. Winnie is going to want to see this, and she is not going to enjoy it.",
+            "From the door it is the same desk. He reads the room. I am counting on him not to read the books."
+          ],
+          "takes": [
+            "company_ledger"
+          ],
+          "items": [
+            "padded_log"
+          ],
+          "set": {
+            "T_QUEUE_PADDED": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "company_ledger",
+      "room": "fanshawe_office",
+      "target": "ledgers",
+      "say": "It has one more thing to do before it goes home.",
+      "note": "Doc 113 (THE LINES; errata 242), THE WRONG TRIES: the ledger back on its shelf.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "It has one more thing to do before it goes home."
+        }
+      ]
+    },
+    {
+      "item": "deed",
+      "room": "prosperity",
+      "target": "pratt_jump",
+      "otherwise": "pool",
+      "say": "This is the deed.",
+      "note": "Doc 113 (THE LINES; errata 242), B · The stake: USE THE DEED TO PROSPERITY on Pratt, on the claim.",
+      "rules": [
+        {
+          "case": "on the claim",
+          "say": "This is the deed.",
+          "then": [
+            {
+              "speaker": "pratt_jump",
+              "line": "Paper."
+            },
+            {
+              "speaker": "pratt_jump",
+              "line": "Pratt drives his stake, one stroke.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt_jump",
+              "line": "Stake."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item": "tuning_fork",
+      "room": "prosperity",
+      "target": "pratt_jump",
+      "otherwise": "pool",
+      "say": "I struck an A for him. He waited for it to finish.",
+      "note": "Doc 113 (THE LINES; errata 242), B · The stake: USE THE TUNING FORK on Pratt, on the claim.",
+      "rules": [
+        {
+          "case": "on the claim",
+          "say": "I struck an A for him. He waited for it to finish.",
+          "then": [
+            {
+              "speaker": "pratt_jump",
+              "line": "Done?"
+            }
+          ]
+        }
+      ]
     }
   ],
   "itemPools": {

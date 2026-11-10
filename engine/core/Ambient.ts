@@ -97,6 +97,25 @@ export function breakAt(clock: number, every: number, phase: number, lengths: re
  * and a break's first frame lasts 0.34 s, so a first frame that straddled a second boundary said the line twice,
  * about 90 ms apart -- the pie woman's "Pie, Mr. Grubb. On the house." three times in one pass.
  */
+/**
+ * THE SAME LINE IS NOT SAID TWICE ON ONE WALK PAST (errata 242). A figure whose break shouts says her line for Thad's
+ * reputation on a timer, and says the same line once to his face the first time he passes in that reputation. The two
+ * are separate clocks, so now and then they landed seconds apart and the line came out twice running (the whole game
+ * played, 2026-11-09: three times). Whichever comes second inside `within` seconds is not shown; a different line, or
+ * the same one later, is.
+ */
+export class SaidLately {
+  private readonly last = new Map<string, { line: string; at: number }>();
+
+  /** True if `speaker` may say `line` now, and it is then counted as said; false if she said it under `within` seconds ago. */
+  allow(speaker: string, line: string, now: number, within = 60): boolean {
+    const before = this.last.get(speaker);
+    if (before && before.line === line && now - before.at < within) return false;
+    this.last.set(speaker, { line, at: now });
+    return true;
+  }
+}
+
 export function spokenBreakKey(npcId: string, playing: { cycle: number }): string {
   return npcId + ':' + String(playing.cycle);
 }

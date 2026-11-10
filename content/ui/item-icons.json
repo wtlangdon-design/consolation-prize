@@ -198,10 +198,17 @@
       280,
       60,
       40
+    ],
+    "company_ledger": [
+      0,
+      320,
+      60,
+      40
     ]
   },
   "errata146": "Redrawn at slot size: 60x40 cells, drawn at a whole x2 into the 180x80 inventory slot (tests/item-icons-scale.test.ts). Cut by tools/art/item-icons-cut.py from art/staging/item-icons/sheet-01.png, item-icons attempt 1; one factor for all 26 (4.395 source pixels to an art pixel).",
   "gulch": "Fiddler's Gulch: third_copy, brass_rod and clarion, cut by tools/art/gulch-icons-cut.py from art/staging/gulch-icons/sheet-01.png (gulch-reserve attempt 1), appended after the 27; 8.632 source pixels to an art pixel.",
   "act3Estate": "Act III scene C: raccoon_in_coat and hen, cut by tools/art/act3-coat-cut.py (act3-estate-sale operation 2) at slot size and moved in by tools/art/act3-estate-icons-place.py, appended after the Gulch's three (errata 238).",
-  "act3Polish": "Act III polish: pratt_money, cut by tools/art/act3-money-icon-cut.py (act3-estate-sale operation 3) at slot size and moved in by tools/art/act3-polish-icon-place.py (errata 240)."
+  "act3Polish": "Act III polish: pratt_money, cut by tools/art/act3-money-icon-cut.py (act3-estate-sale operation 3) at slot size and moved in by tools/art/act3-polish-icon-place.py (errata 240).",
+  "act2Ledger": "Act II, the double: company_ledger, derived from padded_log's cell by tools/art/act2-ledger-icon.py (green morocco, two gilt bands; no image operation) and appended after the money (errata 242)."
 }

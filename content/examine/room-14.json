@@ -6,6 +6,7 @@
     "docs/05-examine-layer.md::ROOM 14 — BOOT HILL#1",
     "docs/54-batch-c.md::ROOM 14 · BOOT HILL",
     "docs/110-act-three-scenes.md::THE LINES",
+    "docs/113-act-two-scenes.md::C · The town on the hill",
     "docs/05-examine-layer.md::ROOM 14 — BOOT HILL#2",
     "docs/49-wrong-answers.md::ROOM 14 — BOOT HILL"
   ],
@@ -198,6 +199,22 @@
       ],
       "overrides": {
         "PICK_UP": "He would charge for it."
+      }
+    },
+    {
+      "name": "THE TOWN, COMING DOWN",
+      "LOOK_AT": [
+        "Every black coat in Consolation, coming down from a funeral for a man none of them knew. They look as if it did them good.",
+        "Colonel Fanshawe leads, grieving handsomely. He has been out of his office for an hour, which I have reason to know.",
+        "Nobody is in a hurry. Refreshments were promised, and nobody has yet asked where."
+      ],
+      "LISTEN_TO": [
+        "Boots on the hill path, and somebody still humming the hymn a little behind the rest.",
+        "'A lovely service.' 'Who was he?' 'A lovely service.'",
+        "Black cloth, moving. A town makes very little noise when it has been told to be sorry."
+      ],
+      "overrides": {
+        "TALK_TO": "They have just been spoken to for an hour. I'll let them recover."
       }
     }
   ],

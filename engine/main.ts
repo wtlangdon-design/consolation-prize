@@ -5,6 +5,7 @@ import { GameScene } from './scenes/GameScene.ts';
 import { NATIVE_HEIGHT, NATIVE_WIDTH } from './render/Screen.ts';
 import { setAssertionChecking } from './core/Assertions.ts';
 import { installGauntlet, type Probeable } from './dev/Probe.ts';
+import { installFrameRate } from './dev/FrameRate.ts';
 import './style.css';
 
 // Doc 34 section 4.6's illegal-state assertions run in development and fold
@@ -14,6 +15,8 @@ import './style.css';
 // content or player errors, so shipping them live would only convert an
 // engine bug into a crash in front of a player.
 setAssertionChecking(import.meta.env.DEV);
+// `?fps`: the frame-rate reading, for the Chromebook check (engine/dev/FrameRate.ts). Nothing without the parameter.
+installFrameRate();
 
 /**
  * ERRATA 54 VOIDS THE INTEGER UPSCALE, and this file cannot keep it.

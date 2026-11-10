@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 33 · B 17 · C 73** — 123 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 35 · B 17 · C 75** — 127 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -158,6 +158,10 @@ Counts: **A 33 · B 17 · C 73** — 123 directions, every one flagged `"directi
 | 121 | B | pratt | He counts out the money, coin by coin. | combinations (raccoon_in_coat on pratt, THE SALE) |  |  |  |  |  | Errata 237, scene C: physical, and Pratt has no counting pose, so it stays printed until one is drawn (rule 4). |
 | 122 | B | pratt | He holds out his other hand. | combinations (raccoon_in_coat on pratt, THE SALE) |  |  |  |  |  | Errata 237, scene C: physical, and Pratt has no pose with a hand held out, so it stays printed until one is drawn (rule 4). |
 | 123 | B | pratt | Thad gives back the hen. Pratt gives back the coat, empty. | combinations (raccoon_in_coat on pratt, THE SALE) |  |  |  |  |  | Errata 237, scene C: physical. Errata 238: the hen and the coat are drawn (the hen at the hole, the coat in Thad's arms there), but neither man has a pose that hands them over, so it stays printed until they are drawn (rule 4). |
+| 124 | C | thad | Thad lifts the log, lays the ledger where it lay, and moves it an inch. | combinations (company_ledger on submission_log, THE SWAP) |  |  |  |  |  | Errata 242, doc 113 A: the inch is the joke, and it answers the log's own LOOK ("He has moved it an inch since I last looked"). Thad has no clip that lifts a book; told. |
+| 125 | C | pratt_jump | Thad straightens his stake. | rooms/prosperity claim_marker PUSH (Pratt on the claim) |  |  |  |  |  | Errata 242, doc 113 B: Thad has no clip that sets a stake straight, and the stake is the plate's. Told, so Pratt's "Leans." has something to answer. |
+| 126 | A | pratt_jump | Pratt drives his own, one stroke. | rooms/prosperity claim_marker PUSH (Pratt on the claim) | pratt_jump | 3 4 0 | 1.2 |  |  | Errata 242, doc 113 B: his mallet raised (3) and struck down on his stake (4), the stroke his idle breaks with, once. |
+| 127 | A | pratt_jump | Pratt drives his stake, one stroke. | combinations (deed on pratt_jump, on the claim) | pratt_jump | 3 4 0 | 1.2 |  |  | Errata 242, doc 113 B: the same stroke, between "Paper." and "Stake." |
 
 ## When a B pose is drawn
 

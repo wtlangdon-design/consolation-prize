@@ -18,6 +18,7 @@ import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import type { Interactable } from '../engine/core/types.ts';
+import { HeadlessPlayer } from './lib/headless-player.ts';
 
 // PLAYS: A10, C4, E0b
 
@@ -134,11 +135,20 @@ test('C4: on the funeral day he is up the hill; the log and the drawer give up w
   const state = await inState('r11-c');
   assert.ok(!present(state), 'the office is drawn without him');
   assert.ok(state.room.onEnter?.say?.length && state.flags.test(state.room.onEnter.sayWhen), 'the empty office is remarked on');
+  // Errata 242 (doc 113, A): not bare. A ledger off the shelf goes where the log lay.
   const log = target(state, 'submission_log');
-  const took = state.interact(log, 'PICK_UP');
-  assert.equal(took.say, lineOf(log.responses?.PICK_UP?.[0]));
+  const refused = state.interact(log, 'PICK_UP');
+  assert.equal(refused.say, lineOf(log.responses?.PICK_UP?.[0]));
+  assert.ok(!state.carried.includes('padded_log'), 'he will not leave a bare desk');
+  state.interact(target(state, 'ledgers'), 'PICK_UP');
+  assert.ok(state.carried.includes('company_ledger'));
+  state.interact(target(state, 'ledgers'), 'PICK_UP');
+  assert.equal(state.carried.filter((item) => item === 'company_ledger').length, 1, 'the shelf gives one');
+  new HeadlessPlayer(state).use('company_ledger', 'submission_log');
   assert.ok(state.carried.includes('padded_log'));
+  assert.ok(!state.carried.includes('company_ledger'), 'the ledger stays on the desk');
   assert.ok(state.flags.get('T_QUEUE_PADDED'));
+  assert.ok(!state.findTarget('submission_log') && state.findTarget('ledger_on_the_desk'), 'the book on the desk is the double now');
   const drawer = target(state, 'stock_portrait_drawer');
   state.interact(drawer, 'OPEN');
   assert.ok(state.carried.includes('photograph'));

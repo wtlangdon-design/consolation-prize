@@ -1,0 +1,16 @@
+{
+ "schema": 1,
+ "room": "boot_hill",
+ "note": "ROOM 14 WITH THE TOWN ON THE HILL (doc 113, C; errata 242), proved apart from the room's main spec (node tools/gauntlet/proof.mjs boot_hill --spec proofs/spec/boot-hill-town.json --out renders/proofs/boot-hill-town). It starts from fixture r14-b, on the funeral day, and says so; the way there is played in the full walkthrough (D4.1). The principal change is the town looked at.",
+ "fixture": "r14-b",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "LOOK AT THE TOWN, COMING DOWN (doc 113, C). Visible consequence: Thad's line about the black coats.",
+  "flags": {},
+  "actions": [
+   { "do": "verb", "verb": "LOOK_AT" },
+   { "do": "click", "on": "town_coming_down", "why": "the town looked at" },
+   { "do": "waitFor", "says": "thad", "upTo": 30 }
+  ]
+ }
+}

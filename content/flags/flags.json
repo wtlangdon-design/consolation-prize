@@ -1051,9 +1051,9 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "room:fanshawe_office:submission_log:PICK_UP"
+    "combination:company_ledger:fanshawe_office:submission_log"
    ],
-   "note": "Doc 57 C4: the padded log taken from the empty office on the funeral day."
+   "note": "Doc 57 C4: the padded log taken from the empty office on the funeral day. Errata 242: written by the swap (doc 113, A), the ledger laid where the log lay."
   },
   {
    "id": "T_EMPTY_OFFICE_SEEN",
@@ -1995,6 +1995,24 @@
     "dialogue:MAN_UPSTREAM:UPS_G1:gulch_man_upstream6"
    ],
    "note": "Doc 109, G8: the man upstream's answer and his own boast, to carry back down (UPS_G1 option 6). Offers PAN_G1 option 7, and ends the panner's option 6: his message has been carried."
+  },
+  {
+   "id": "T_LEDGER_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:fanshawe_office:ledgers:PICK_UP"
+   ],
+   "note": "Doc 113, A (errata 242): A COMPANY LEDGER has been taken from THE LEDGERS in Fanshawe's empty office. The shelf gives one, once."
+  },
+  {
+   "id": "T_TOWN_ON_HILL",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter"
+   ],
+   "note": "Doc 113, C (errata 242): the town is on Boot Hill, coming down, the Colonel in front, for the visit that ends the funeral day. Cleared on every entry, then set while the day holds, as T_PLATE_AT_GATE is."
   }
  ]
 }

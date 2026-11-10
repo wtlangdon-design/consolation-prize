@@ -163,6 +163,12 @@
    410,
    360,
    328
+  ],
+  "town_coming_down": [
+   690,
+   395,
+   680,
+   420
   ]
  },
  "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE NINETEEN is the scatter of boards between Mott's stone and Pike's (one hotspot, read along, doc 54). PIKE'S MARKER is the right-most board at the back, at the hill's crest; the plot beside it, to its right, is PIKE'S NEIGHBOR while it is dug and MY OWN PLOT after the funeral (errata 87 D). Errata 185: THE FENCE, the rails left of the gate. Errata 233 (doc 110 section 2): while the procession is stalled at the gate, THE HEARSE and GRIEVANCE, AT THE GATE over the hitch (content/ambient/procession-hearse.json, art/actors/room-14-hearse-grievance.png: reference/act3-hearse/handback.md), right of Mott's obelisk, REVEREND SOWERBY, AT THE GATE, THE UNDERTAKER and THE MOURNERS over their figures (procession_*).",
@@ -189,6 +195,9 @@
   },
   "mourners": {
    "T_PROCESSION_STALLED": true
+  },
+  "town_coming_down": {
+   "T_TOWN_ON_HILL": true
   }
  },
  "exitSubjects": {
@@ -276,7 +285,8 @@
   "grievance_at_the_gate": "LOOK_AT",
   "undertaker": "LOOK_AT",
   "reverend_sowerby_at_the_gate": "LOOK_AT",
-  "mourners": "LOOK_AT"
+  "mourners": "LOOK_AT",
+  "town_coming_down": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every marker here is looked at on a bare click.",
  "occlusion": {
@@ -338,9 +348,18 @@
   "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' The line plays and the day clears; it can be held again (errata 87 C)."
  },
  "onEnterSet": {
-  "T_PLATE_AT_GATE": false
+  "T_PLATE_AT_GATE": false,
+  "T_TOWN_ON_HILL": false
  },
  "onEnterSetWhen": [
+  {
+   "when": {
+    "T_FUNERAL_DAY": true
+   },
+   "set": {
+    "T_TOWN_ON_HILL": true
+   }
+  },
   {
    "when": {
     "T_FUNERAL_DAY": true,
@@ -364,7 +383,7 @@
    }
   }
  ],
- "onEnterSetNote": "Doc 57 C3: 'If T_SHENG_TASK is set and D4 is not done, Sowerby is at the gate with the plate (D4). Then T_FUNERAL_DAY clears ... and Sowerby is back in his church.' He stands at the gate for the visit that ends the day (T_PLATE_AT_GATE), and is gone the next time. Errata 233 (doc 110 section 2, States and flags): until scene B is built, the first entry once the funeral can be reached (E6, the obituary, before the funeral and the ride) stalls the procession at the gate.",
+ "onEnterSetNote": "Doc 57 C3: 'If T_SHENG_TASK is set and D4 is not done, Sowerby is at the gate with the plate (D4). Then T_FUNERAL_DAY clears ... and Sowerby is back in his church.' He stands at the gate for the visit that ends the day (T_PLATE_AT_GATE), and is gone the next time. Errata 233 (doc 110 section 2, States and flags): until scene B is built, the first entry once the funeral can be reached (E6, the obituary, before the funeral and the ride) stalls the procession at the gate. Errata 242 (doc 113, C): T_TOWN_ON_HILL, the same way -- the town is on the hill for the visit that ends the funeral day and gone on the next entry.",
  "onEnterScenes": [
   {
    "fromRef": "docs/57-puzzle-completion.md::## D4 · Sheng's task",
@@ -528,5 +547,18 @@
    }
   }
  ],
- "docBlocksNote": "Errata 233, doc 110 section 2, THE LINES: TALK TO each of the procession, the prayer asked for, and USE or OPEN THE HEARSE (refused with the town watching; during the prayer, Thad climbs in: T_RODE_UP, E6b, THE RIDE over black, and Room 31). The words are read from doc 110 by tools/compile-room.mjs (docBlock)."
+ "docBlocksNote": "Errata 233, doc 110 section 2, THE LINES: TALK TO each of the procession, the prayer asked for, and USE or OPEN THE HEARSE (refused with the town watching; during the prayer, Thad climbs in: T_RODE_UP, E6b, THE RIDE over black, and Room 31). The words are read from doc 110 by tools/compile-room.mjs (docBlock).",
+ "figureLight": {
+  "figures": [
+   "memorial_fanshawe"
+  ],
+  "light": [
+   0.72,
+   0.86,
+   1.0
+  ],
+  "brightness": 0.9,
+  "saturate": 0.5,
+  "note": "Errata 242 (doc 113, C). Fanshawe's Duel Three sheet was drawn for Main Street's lamps (rest frame: mean luminance 51, 90th percentile 113, saturation 0.47, a warm 63/49/29); the hill's own cast is the moon's (Sowerby at the gate 42/85/0.21, the mourners 38/61/0.26). A cool light and half the colour bring him into the same night. Only he is named: every other figure on the hill is drawn exactly as before."
+ }
 }

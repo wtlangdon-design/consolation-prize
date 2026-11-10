@@ -52,7 +52,8 @@ for (const section of doc23.split(/^## /m).slice(1)) {
  * FIDDLER'S GULCH'S ITEMS ARE DOC 109'S (reference/fiddlers-gulch/brief.md: extracted from doc 109 directly, never
  * copied into doc 23): `**NAME** *(item)*` and its LOOK and LISTEN runs, checked word for word as doc 23's are.
  */
-const doc109 = readFileSync(resolve(ROOT, 'docs/109-fiddlers-gulch-lines.md'), 'utf8');
+// Doc 113's one item (errata 242) is written in the same form, and is read with them.
+const doc109 = `${readFileSync(resolve(ROOT, 'docs/109-fiddlers-gulch-lines.md'), 'utf8')}\n${readFileSync(resolve(ROOT, 'docs/113-act-two-scenes.md'), 'utf8')}`;
 const doc109Sections = new Map<string, Record<string, string[][]>>();
 for (const block of doc109.split(/^(?=\*\*[^*]+\*\* \*\(item\)\*)/m).slice(1)) {
   const head = /^\*\*([^*]+)\*\*/.exec(block)![1]!;
