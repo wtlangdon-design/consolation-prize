@@ -39,6 +39,18 @@ Read first: `CLAUDE.md` (the character style gate), `docs/55-full-game-build.md`
 - **Two frames:** holding it; holding it with his arms drawn back and his weight on his heels (the pull).
 - Cut and sized exactly as his `coat-bundle` clip was (`tools/build-actor-record.mjs`, errata 238), so it drops in as a clip.
 
+## 5 · Five item icons (doc 118)
+
+One more operation, **a sheet of five 60×40 cells** in the style and at the pixel size of `art/ui/item-icons.png` (attach it; see `reference/item-icons/brief.md` and how `tools/art/act3-coat-cut.py` cut the last ones). So the budget asked for is **five operations and two in reserve**.
+
+- `chalk`: a stub of white chalk worn to the shape of a thumb.
+- `funeral_notice`: a small printed handbill, the ink wet, one word in much larger type than the rest.
+- `hotel_lamp`: a small brass oil lamp with a glass chimney, turned low.
+- `hymnal`: a small dark cloth-bound hymn book with a ribbon marker.
+- `wreath`: a funeral wreath of white lilies with a black ribbon lettered in gilt.
+
+Each must be told at a glance from every cell already on the sheet (`tools/check-item-names.mjs`). Hand them back as a small sheet beside the shipping one, as the hen and the coat were.
+
 ## Handing it back
 
 Commit the cut-outs under `art/actors/` with their ledger rows on a branch named `act2-papers-art`, with a `reference/act2-papers/handback.md` saying what each sheet is and how its frames are laid out. Push it and tell the main session the branch name. The main session wires them in.

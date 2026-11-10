@@ -1,8 +1,9 @@
 # Act II's three papers: the art, handed back (reference/act2-papers/brief.md)
 
-**Budget.** `act2-papers` was set at 6 (Tyler, 2026-11-10: four operations and two in reserve; `art/staging/caps.json`).
-Five are spent (`art/staging/ledger.json`, attempts 1-5): one for each picture, and **one correction, operation 5**,
-for the wreath. **Operation 6 is held.** Every sheet below is cut by `tools/art/act2-papers-cut.py` (re-runnable from
+**Budget.** `act2-papers` was set at 6 (Tyler, 2026-11-10: four operations and two in reserve), then raised to 7 for
+the brief's section 5 ("five plus two in reserve"; `art/staging/caps.json`). Six are spent (`art/staging/ledger.json`,
+attempts 1-6): one for each of the four pictures, **one correction, operation 5**, for the wreath, and operation 6 for
+the five icons. **Operation 7 is held.** Every sheet below is cut by `tools/art/act2-papers-cut.py` (re-runnable from
 staging), despilled, snapped to one level. Frames are laid out as every ambient sheet is: side by side, 2 px apart,
 `[2 + i*(w+2), 2, w, h]`, bottom-centred.
 
@@ -53,6 +54,16 @@ taken off.
 `art/actors/thad-plate-front/plate-00.png` .. `-02.png` with a `rig.json` like coat-bundle's (`figure: [189, 626]`,
 `padding: 260`, `facing: front`), as `tools/art/thad-coat-bundle-split.py` did, and add the clip to
 `tools/build-actor-record.mjs`.
+
+## 5 · `art/ui/item-icons-act2-papers.png` (+ `.json`) -- five item icons (doc 118)
+
+Operation 6. Five 60 x 40 cells in a row, `[60 i, 0, 60, 40]`, under doc 118's ids: `chalk` (a worn white stub),
+`funeral_notice` (a handbill, one big black word over small print), `hotel_lamp` (a small brass lamp, glass chimney,
+turned low), `hymnal` (small, nearly black, a red ribbon marker -- not the brown book already in the set), `wreath`
+(the scene's wreath of lilies with its black ribbon; at this size the gilt lettering is not drawn). Cut by
+`tools/art/act2-papers-icons-cut.py` with `item-icons-cut.py`'s own reduction at ONE factor for all five, as the
+Gulch's three were, so the chalk is small. The tool refuses a cell pixel-identical to any cell of the shipping sheet
+or the side sheets. A separate small sheet beside the shipping one; the main session moves the cells in.
 
 ## For the wiring
 

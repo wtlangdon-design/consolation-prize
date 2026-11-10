@@ -1,0 +1,16 @@
+{
+ "assetId": "act2-papers",
+ "subject": "act2-papers-five-icons",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/act2-papers/op-6.txt",
+ "out": "art/staging/act2-papers/op-6/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act2-papers/op-6/canvas.png",
+  "art/staging/act2-papers/op-6/every-icon-x3.png",
+  "art/staging/act2-papers/op-6/the-wreath.png"
+ ],
+ "derivedFrom": "art/ui/item-icons.png"
+}
