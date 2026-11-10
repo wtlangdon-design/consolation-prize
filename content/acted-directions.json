@@ -1536,6 +1536,41 @@
       "speaker": "thad",
       "words": "Thad puts the sprig in the coat's lapel.",
       "where": "combinations (parsley on raccoon_in_coat)"
+    },
+    {
+      "n": 161,
+      "class": "C",
+      "speaker": "ozymandia",
+      "words": "She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move.",
+      "where": "combinations (company_map on ozymandia, once she is paid)"
+    },
+    {
+      "n": 162,
+      "class": "C",
+      "speaker": "ozymandia",
+      "words": "Thad sets the tip of the rod on the stake.",
+      "where": "rooms/ozymandias_tent stake USE"
+    },
+    {
+      "n": 163,
+      "class": "C",
+      "speaker": "ozymandia",
+      "words": "Thad draws the rod up the paper.",
+      "where": "rooms/ozymandias_tent slope USE"
+    },
+    {
+      "n": 164,
+      "class": "C",
+      "speaker": "ozymandia",
+      "words": "She hums. Thad moves the rod along the paper. She stops.",
+      "where": "rooms/ozymandias_tent slope USE"
+    },
+    {
+      "n": 165,
+      "class": "C",
+      "speaker": "ozymandia",
+      "words": "She takes a Form 12-C from a stack of them and writes in purple ink.",
+      "where": "rooms/ozymandias_tent stake USE"
     }
   ]
 }

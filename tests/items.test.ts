@@ -268,9 +268,12 @@ test('the map on the diviner after the survey is lodged does not hand back a sec
   const player = new HeadlessPlayer(replay);
   playThrough(player, walkthrough.steps.slice(0, walkthrough.steps.findIndex((step) => step.id === 'A9.4') + 1));
   assert.ok(replay.flags.test({ T_SURVEY_LODGED: true }) && !replay.carried.includes('survey'));
-  const divining = pairs.find((pair) => pair.rules?.some((rule) => rule.items?.includes('survey')))!;
+  // The pair that begins the divining: it handed the survey over itself until errata 251, and now unrolls the map for
+  // the boundary to be walked. Either way it is the one A7 pair that is not the fee.
+  const divining = pairs.find((pair) => pair.puzzle === 'A7' && pair.rules?.some((rule) => rule.items?.includes('survey') || rule.untilPuzzles?.includes('A7')))!;
   player.go(divining.room);
   player.use(divining.item, divining.target);
+  assert.ok(!replay.playerStays, 'the boundary is being walked a second time');
   assert.ok(!replay.carried.includes('survey'), 'the survey came back after it was lodged');
   assert.ok(state.puzzleComplete('A7'));
 });

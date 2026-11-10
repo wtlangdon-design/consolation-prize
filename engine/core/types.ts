@@ -1178,6 +1178,9 @@ export interface PairRule {
   when?: Condition;
   /** Items he must be carrying for this case to answer. */
   holds?: string[];
+  /** The case answers only once these puzzles are complete, and only until those are: as ResponseRule's. */
+  afterPuzzles?: string[];
+  untilPuzzles?: string[];
   say: string;
   /**
    * WHO SAYS `say`, when it is not Thad. Doc 57 A9: USE THE SURVEY on the
@@ -1636,7 +1639,17 @@ export interface RoomFile {
    * a subject is answered from where he is (GameState.playerHidden, engine/core/Standing.ts hiddenClick). `actor:
    * 'hidden'` is the whole-room form, for a timeline room; this is the form for a state of an ordinary one.
    */
-  actorHiddenWhen?: { when: Condition; note?: string };
+  actorHiddenWhen?: {
+    when: Condition;
+    /** Other states that hide him the same way: he is hidden while `when` holds or any of these does. */
+    whenAny?: Condition[];
+    /**
+     * While this holds, what hides him is laid over the whole room: a map unrolled to fill the frame. The people
+     * under it are not pointed at or clicked, so only what is drawn on it answers.
+     */
+    covers?: Condition;
+    note?: string;
+  };
   /**
    * FURNITURE A PERSON CAN STAND IN FRONT OF OR BEHIND. Tyler, 2026-11-01:
    * a whiskey barrel beside Deke so he is not standing in an empty floor. A

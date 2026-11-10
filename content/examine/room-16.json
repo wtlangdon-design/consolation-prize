@@ -8,6 +8,7 @@
     "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT",
     "docs/111-scenes-b-and-c.md::B · In Ozymandia's tent",
     "docs/111-scenes-b-and-c.md::B · The wrong tries, at the séance",
+    "docs/120-act-one-by-hand.md::I-3 · The boundary: the lines",
     "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT#2",
     "docs/49-wrong-answers.md::ROOM 16 — OZYMANDIA'S TENT"
   ],
@@ -375,6 +376,97 @@
         "PULL": "If I take the rod, she will have to listen with her hands, and she charges extra for that.",
         "PICK_UP": "She would charge me for the lift."
       }
+    },
+    {
+      "name": "THE STAKE",
+      "LOOK_AT": [
+        "A post with a dot on it, at the corner of my claim. On paper it is the most definite thing I own.",
+        "Somebody drew it with one stroke and did not go back. I know the feeling.",
+        "The stake. Everything I have starts there, thereabouts."
+      ],
+      "LISTEN_TO": [
+        "Paper, under the tip of the rod. A dry little scratch.",
+        "Madame Ozymandia, humming on one note. It is nearly an A, and nearly is the trouble.",
+        "Nothing from the stake. It has made its point."
+      ]
+    },
+    {
+      "name": "THE SLOPE",
+      "LOOK_AT": [
+        "Hatching, to show the ground going up. The draughtsman tired about halfway, and so, I expect, does the hill.",
+        "Uphill of my claim, in pencil. It looks steeper drawn than I hope it is walked.",
+        "A good deal of slope with nothing on it. That is what the Company calls prospect."
+      ],
+      "LISTEN_TO": [
+        "The rod's tip, crossing the hatching. It ticks on every stroke, like a stick along a fence.",
+        "Her bracelets, when she leans in. The earth's voice has a quantity of brass in it.",
+        "Nothing. Drawn hills are quiet. I have no evidence about the real one."
+      ]
+    },
+    {
+      "name": "THE LARGER ROCK",
+      "LOOK_AT": [
+        "The larger of two rocks. It has been drawn with shading, which the other has not. Rank tells, even in geology.",
+        "A rock, on a map, where a careful man would put a monument. This district puts rocks.",
+        "It is the only thing above my claim with a shadow. I take it for a landmark, having no choice."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It is a drawing of a rock, and has the reticence of both.",
+        "The lamp, ticking overhead. The rock makes no comment.",
+        "Her humming goes up a little when the rod comes near it. I think she likes this one."
+      ]
+    },
+    {
+      "name": "THE SMALLER ROCK",
+      "LOOK_AT": [
+        "The smaller rock. It sits a little apart, like a man who was not asked.",
+        "No shading. Whoever drew this map had a favorite, and this was not it.",
+        "It is hardly a rock. In fairness, I am hardly a prospector."
+      ],
+      "LISTEN_TO": [
+        "Nothing, and from the smaller rock I had expected less.",
+        "The humming drops when the rod passes over it. Even the earth cannot spare it the time.",
+        "Nothing. It is being brave about it."
+      ]
+    },
+    {
+      "name": "CLAIM ONE",
+      "LOOK_AT": [
+        "Claim One. Beside mine, and the same size, and nobody has circled it.",
+        "A square with a 1 in it. It got here first, which in this territory is most of the law.",
+        "It shares a line with mine. I have looked for a difference between the two, and the map does not record one."
+      ],
+      "LISTEN_TO": [
+        "Nothing. A numeral in a box.",
+        "The rod goes quiet over it, or she does. With her I cannot always tell which.",
+        "Nothing. Whatever is said about Claim One is not said on this map."
+      ]
+    },
+    {
+      "name": "CLAIM TWO",
+      "LOOK_AT": [
+        "Claim Two, in a red circle. Somebody marked it before I ever came, and I should like to know whether that is a welcome or a target.",
+        "A square with a 2 in it. I paid four dollars and a watch for that numeral.",
+        "Prosperity, from above. It looks drier."
+      ],
+      "LISTEN_TO": [
+        "The red ink has a ridge to it. The rod catches on my own claim.",
+        "Her humming, steady, directly over my property. I am being billed for that.",
+        "Nothing. At this scale my mud is silent, which is an improvement."
+      ]
+    },
+    {
+      "name": "THE CREEK",
+      "LOOK_AT": [
+        "The creek, in three wavering lines. It is the best-drawn thing on the sheet, and it is leaving.",
+        "It runs past the foot of both claims and stops for neither.",
+        "A creek and, beyond it, a road. Two ways out of the district, drawn with great care."
+      ],
+      "LISTEN_TO": [
+        "Nothing. She does not hum over water. I gather it interferes.",
+        "The rod, crossing the lines. Three ticks, like a man counting his change.",
+        "Nothing. It is a drawing of a noise."
+      ]
     }
   ],
   "exitsAndUnplaced": {

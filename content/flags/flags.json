@@ -2314,6 +2314,37 @@
     "room:church:collection_plate:PICK_UP"
    ],
    "note": "Doc 121 N-4 (errata 250): the button is out of the church's collection plate."
+  },
+  {
+   "id": "T_SURVEYING",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:company_map:ozymandias_tent:ozymandia",
+    "room:ozymandias_tent:stake:USE"
+   ],
+   "note": "Doc 120 I-3 (errata 251): the Company's map is unrolled over the view and the boundary is being walked with the rod."
+  },
+  {
+   "id": "SURVEY_LEG",
+   "type": "integer",
+   "initial": 0,
+   "writtenBy": [
+    "combination:company_map:ozymandias_tent:ozymandia",
+    "room:ozymandias_tent:stake:USE",
+    "room:ozymandias_tent:slope:USE",
+    "room:ozymandias_tent:larger_rock:USE"
+   ],
+   "note": "Doc 120 I-3 (errata 251): how far round the survey he has walked the rod: 0 nothing, 1 the stake, 2 uphill, 3 the larger rock, 4 the line the rod preferred, 5 home."
+  },
+  {
+   "id": "T_SURVEY_DRAWN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:ozymandias_tent:stake:USE"
+   ],
+   "note": "Doc 120 I-3 (errata 251): the boundary has been walked home and the survey written."
   }
  ]
 }

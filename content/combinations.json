@@ -560,27 +560,32 @@
       "note": "Doc 57 A7: the map divined -- THE SURVEY, on Form 12-C. She hands the map back.",
       "rules": [
         {
-          "case": "after T_OZY_PAID",
+          "case": "the map unrolled",
           "when": {
             "T_OZY_PAID": true,
-            "T_SURVEY_LODGED": false
+            "T_SURVEYING": false
           },
+          "untilPuzzles": [
+            "A7"
+          ],
+          "say": "She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move.",
+          "direction": true,
           "by": "ozymandia",
-          "say": "The earth has spoken. The earth was brief.",
           "then": [
             {
-              "speaker": "thad",
-              "line": "You keep Form 12-C?"
+              "speaker": "ozymandia",
+              "line": "The earth is shy today, darling. Take the rod. It only wants walking round the property."
             },
+            "I am to do the divining.",
             {
               "speaker": "ozymandia",
-              "line": "The earth prefers them."
+              "line": "You are to hold the stick. I shall do the divining. Commence."
             }
           ],
-          "items": [
-            "survey"
-          ],
-          "completes": "A7"
+          "set": {
+            "T_SURVEYING": true,
+            "SURVEY_LEG": 0
+          }
         },
         {
           "case": "not yet paid",
@@ -589,6 +594,14 @@
           },
           "by": "ozymandia",
           "say": "The earth will read your map — two dollars — the earth reads everything — in advance —"
+        },
+        {
+          "case": "the survey drawn",
+          "when": {
+            "T_OZY_PAID": true
+          },
+          "say": "The earth has spoken once, darling. It does not repeat itself for the same two dollars.",
+          "by": "ozymandia"
         }
       ]
     },

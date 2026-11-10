@@ -186,9 +186,51 @@
    298,
    210,
    200
+  ],
+  "stake": [
+   1100,
+   452,
+   80,
+   76
+  ],
+  "larger_rock": [
+   818,
+   160,
+   128,
+   88
+  ],
+  "smaller_rock": [
+   972,
+   192,
+   66,
+   48
+  ],
+  "claim_one": [
+   801,
+   321,
+   178,
+   164
+  ],
+  "claim_two": [
+   979,
+   321,
+   121,
+   131
+  ],
+  "creek": [
+   360,
+   530,
+   1200,
+   92
+  ],
+  "slope": [
+   440,
+   90,
+   1060,
+   220
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE CURTAIN is its left fall, beside her, so a LOOK at her is not the curtain's; THE TENT WALLS the painted canvas between the rod and the chart; THE GROUND the strip of bare earth behind the walk band; THE SECOND ROD the long box under the table. Errata 237 (doc 111, B, the séance): while the séance is on (T_SEANCE_ON), THE SÉANCE TABLE over her table and THE LAMP over the hanging lantern take their places (MADAME OZYMANDIA'S TABLE and THE LANTERN, RED are gated off), MADAME OZYMANDIA, PRESIDING is over her own figure, THE SITTERS round the table and MR. FRAME, AT THE TABLE at its front. Errata 238 (act3-seance's art, reference/act3-seance/handback.md): the séance is drawn (content/ambient/seance-group.json, over the plate's own table, 518-1399 x 298-812), and its five subjects are over what is drawn: THE SÉANCE TABLE over the cloth, THE SITTERS over the whole group (the largest, so every smaller subject over a sitter wins), MADAME OZYMANDIA, PRESIDING over her at the head, MR. FRAME, AT THE TABLE over him in the front-left chair, and THE LAMP over the hanging lamp, drawn over the plate's own in both its states (`props`). What the group covers, or holds, gives way while the séance is on: THE CRYSTAL BALL, THE MONEY BOX, THE CARDS, THE TEA SERVICE and THE SECOND ROD are under it, the rod is across her palms, and THE CURTAIN and THE CUSHIONS lie behind the sitters, where their rects would answer for a sitter.",
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE CURTAIN is its left fall, beside her, so a LOOK at her is not the curtain's; THE TENT WALLS the painted canvas between the rod and the chart; THE GROUND the strip of bare earth behind the walk band; THE SECOND ROD the long box under the table. Errata 237 (doc 111, B, the séance): while the séance is on (T_SEANCE_ON), THE SÉANCE TABLE over her table and THE LAMP over the hanging lantern take their places (MADAME OZYMANDIA'S TABLE and THE LANTERN, RED are gated off), MADAME OZYMANDIA, PRESIDING is over her own figure, THE SITTERS round the table and MR. FRAME, AT THE TABLE at its front. Errata 238 (act3-seance's art, reference/act3-seance/handback.md): the séance is drawn (content/ambient/seance-group.json, over the plate's own table, 518-1399 x 298-812), and its five subjects are over what is drawn: THE SÉANCE TABLE over the cloth, THE SITTERS over the whole group (the largest, so every smaller subject over a sitter wins), MADAME OZYMANDIA, PRESIDING over her at the head, MR. FRAME, AT THE TABLE over him in the front-left chair, and THE LAMP over the hanging lamp, drawn over the plate's own in both its states (`props`). What the group covers, or holds, gives way while the séance is on: THE CRYSTAL BALL, THE MONEY BOX, THE CARDS, THE TEA SERVICE and THE SECOND ROD are under it, the rod is across her palms, and THE CURTAIN and THE CUSHIONS lie behind the sitters, where their rects would answer for a sitter. Errata 251: seven subjects on the map itself (stake, slope, the two rocks, the two claims, the creek), present only while T_SURVEYING, read off the picture's own pixels (reference/act1-dinner/handback.md); every other subject is absent while it is.",
  "people": {
   "MADAME OZYMANDIA": [
    "ozymandia"
@@ -299,7 +341,14 @@
   "lamp": "LOOK_AT",
   "sitters": "LOOK_AT",
   "mr_frame_at_the_table": "LOOK_AT",
-  "madame_ozymandia_presiding": "LOOK_AT"
+  "madame_ozymandia_presiding": "LOOK_AT",
+  "stake": "USE",
+  "larger_rock": "USE",
+  "smaller_rock": "USE",
+  "claim_one": "USE",
+  "claim_two": "USE",
+  "creek": "USE",
+  "slope": "USE"
  },
  "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
  "occlusion": {
@@ -319,49 +368,106 @@
  },
  "hotspotWhen": {
   "madame_ozymandia_s_table": {
-   "T_SEANCE_ON": false
+   "T_SEANCE_ON": false,
+   "T_SURVEYING": false
   },
   "lantern_red": {
-   "T_SEANCE_ON": false
+   "T_SEANCE_ON": false,
+   "T_SURVEYING": false
   },
   "seance_table": {
-   "T_SEANCE_ON": true
+   "T_SEANCE_ON": true,
+   "T_SURVEYING": false
   },
   "lamp": {
-   "T_SEANCE_ON": true
+   "T_SEANCE_ON": true,
+   "T_SURVEYING": false
   },
   "sitters": {
-   "T_SEANCE_ON": true
+   "T_SEANCE_ON": true,
+   "T_SURVEYING": false
   },
   "mr_frame_at_the_table": {
-   "T_SEANCE_ON": true
+   "T_SEANCE_ON": true,
+   "T_SURVEYING": false
   },
   "madame_ozymandia_presiding": {
-   "T_SEANCE_ON": true
+   "T_SEANCE_ON": true,
+   "T_SURVEYING": false
   },
   "crystal_ball": {
-   "T_SEANCE_ON": false
+   "T_SEANCE_ON": false,
+   "T_SURVEYING": false
   },
   "money_box": {
-   "T_SEANCE_ON": false
+   "T_SEANCE_ON": false,
+   "T_SURVEYING": false
   },
   "cards": {
-   "T_SEANCE_ON": false
+   "T_SEANCE_ON": false,
+   "T_SURVEYING": false
   },
   "tea_service": {
-   "T_SEANCE_ON": false
+   "T_SEANCE_ON": false,
+   "T_SURVEYING": false
   },
   "second_rod": {
-   "T_SEANCE_ON": false
+   "T_SEANCE_ON": false,
+   "T_SURVEYING": false
   },
   "brass_rod": {
-   "T_SEANCE_ON": false
+   "T_SEANCE_ON": false,
+   "T_SURVEYING": false
   },
   "curtain": {
-   "T_SEANCE_ON": false
+   "T_SEANCE_ON": false,
+   "T_SURVEYING": false
   },
   "cushions": {
-   "T_SEANCE_ON": false
+   "T_SEANCE_ON": false,
+   "T_SURVEYING": false
+  },
+  "price_list": {
+   "T_SURVEYING": false
+  },
+  "testimonial_board": {
+   "T_SURVEYING": false
+  },
+  "incense_burner": {
+   "T_SURVEYING": false
+  },
+  "chart": {
+   "T_SURVEYING": false
+  },
+  "stove": {
+   "T_SURVEYING": false
+  },
+  "tent_walls": {
+   "T_SURVEYING": false
+  },
+  "ground": {
+   "T_SURVEYING": false
+  },
+  "stake": {
+   "T_SURVEYING": true
+  },
+  "larger_rock": {
+   "T_SURVEYING": true
+  },
+  "smaller_rock": {
+   "T_SURVEYING": true
+  },
+  "claim_one": {
+   "T_SURVEYING": true
+  },
+  "claim_two": {
+   "T_SURVEYING": true
+  },
+  "creek": {
+   "T_SURVEYING": true
+  },
+  "slope": {
+   "T_SURVEYING": true
   }
  },
  "onEnterSetWhen": [
@@ -454,9 +560,190 @@
    "speakers": {
     "FRAME": "seance_frame"
    }
+  },
+  {
+   "hotspot": "stake",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**THE STAKE, WITH THE ROD**",
+   "bullet": "- USE, *commencing*",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   },
+   "when": {
+    "SURVEY_LEG": 0
+   },
+   "set": {
+    "SURVEY_LEG": 1
+   }
+  },
+  {
+   "hotspot": "stake",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**THE STAKE, WITH THE ROD**",
+   "bullet": "- USE, *home*",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   },
+   "when": {
+    "SURVEY_LEG": 4,
+    "T_SURVEY_DRAWN": false
+   },
+   "set": {
+    "SURVEY_LEG": 5,
+    "T_SURVEYING": false,
+    "T_SURVEY_DRAWN": true
+   },
+   "grants": [
+    "survey"
+   ],
+   "completes": "A7"
+  },
+  {
+   "hotspot": "stake",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**THE STAKE, WITH THE ROD**",
+   "bullet": "- USE, *too soon*",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   }
+  },
+  {
+   "hotspot": "slope",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**THE SLOPE, WITH THE ROD**",
+   "bullet": "- USE, *uphill*",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   },
+   "when": {
+    "SURVEY_LEG": 1
+   },
+   "set": {
+    "SURVEY_LEG": 2
+   }
+  },
+  {
+   "hotspot": "slope",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**THE SLOPE, WITH THE ROD**",
+   "bullet": "- USE, *the line the rod preferred*",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   },
+   "when": {
+    "SURVEY_LEG": 3
+   },
+   "set": {
+    "SURVEY_LEG": 4
+   }
+  },
+  {
+   "hotspot": "slope",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**THE SLOPE, WITH THE ROD**",
+   "bullet": "- USE, *out of turn*",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   }
+  },
+  {
+   "hotspot": "larger_rock",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**THE LARGER ROCK, WITH THE ROD**",
+   "bullet": "- USE, *to the rock*",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   },
+   "when": {
+    "SURVEY_LEG": 2
+   },
+   "set": {
+    "SURVEY_LEG": 3
+   }
+  },
+  {
+   "hotspot": "larger_rock",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**THE LARGER ROCK, WITH THE ROD**",
+   "bullet": "- USE, *out of turn*",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   }
+  },
+  {
+   "hotspot": "smaller_rock",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**THE SMALLER ROCK, WITH THE ROD**",
+   "bullet": "- USE",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   }
+  },
+  {
+   "hotspot": "claim_one",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**CLAIM ONE, WITH THE ROD**",
+   "bullet": "- USE",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   }
+  },
+  {
+   "hotspot": "claim_two",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**CLAIM TWO, WITH THE ROD**",
+   "bullet": "- USE",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   }
+  },
+  {
+   "hotspot": "creek",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/120-act-one-by-hand.md::### I-3 · The boundary: the lines",
+   "head": "**THE CREEK, WITH THE ROD**",
+   "bullet": "- USE",
+   "speakers": {
+    "OZYMANDIA": "ozymandia"
+   }
   }
  ],
- "docBulletsNote": "Errata 237, doc 111 B, THE LINES: USE THE SÉANCE TABLE is refused while the lamp is lit; in the dark Thad goes under the cloth (T_UNDER_TABLE) and SEA_E1 is owed (content/dialogue/seance.json). TALK TO Mr. Frame at the table is his wrong try. Read from doc 111 by tools/compile-room.mjs (docBullet). Errata 239: THE SÉANCE, heard from under the table, is no longer this rule's own words (`thenBlock`), which queued behind SEA_E1's open list; it is SEA_E1's opening, said once (T_SEANCE_HEARD) before the list is offered, and the engine holds the tree until this rule's two lines and that opening have been read (GameState.owesTree).",
+ "docBulletsNote": "Errata 237, doc 111 B, THE LINES: USE THE SÉANCE TABLE is refused while the lamp is lit; in the dark Thad goes under the cloth (T_UNDER_TABLE) and SEA_E1 is owed (content/dialogue/seance.json). TALK TO Mr. Frame at the table is his wrong try. Read from doc 111 by tools/compile-room.mjs (docBullet). Errata 239: THE SÉANCE, heard from under the table, is no longer this rule's own words (`thenBlock`), which queued behind SEA_E1's open list; it is SEA_E1's opening, said once (T_SEANCE_HEARD) before the list is offered, and the engine holds the tree until this rule's two lines and that opening have been read (GameState.owesTree). Errata 251, doc 120 I-3: the boundary walked. While T_SURVEYING the map fills the view and its seven subjects are the room's; USE on them in the survey's order (SURVEY_LEG 0 to 4: the stake, the slope, the larger rock, the slope, the stake) draws the line, and home grants THE SURVEY and completes A7 in doc 57's own three lines.",
  "verbRules": [
   {
    "hotspot": "seance_table",
@@ -560,6 +847,98 @@
     "T_SEANCE_DARK": true
    },
    "note": "Errata 238: the same lamp turned down to a bead (doc 111, OZY_E1 option 2), over the dimmed plate's lamp."
+  },
+  {
+   "id": "survey_map",
+   "sheet": "art/backgrounds/room-16-company-map.png",
+   "x": 960,
+   "y": 864,
+   "frame": [
+    0,
+    0,
+    1920,
+    864
+   ],
+   "when": {
+    "T_SURVEYING": true
+   },
+   "note": "Doc 120 I-3 (errata 251): the Company's map unrolled over the table and filling the view while the boundary is walked. Drawn in front of everyone (its base line is the frame's foot)."
+  },
+  {
+   "id": "survey_line_1",
+   "sheet": "art/props/room-16-survey-line-1.png",
+   "x": 960,
+   "y": 865,
+   "frame": [
+    0,
+    0,
+    1920,
+    864
+   ],
+   "when": {
+    "T_SURVEYING": true,
+    "SURVEY_LEG": {
+     "atLeast": 2
+    }
+   },
+   "note": "Doc 120 I-3: the boundary as far as he has walked it, in her purple ink, drawn by tools/art/survey-line.py over the map."
+  },
+  {
+   "id": "survey_line_2",
+   "sheet": "art/props/room-16-survey-line-2.png",
+   "x": 960,
+   "y": 866,
+   "frame": [
+    0,
+    0,
+    1920,
+    864
+   ],
+   "when": {
+    "T_SURVEYING": true,
+    "SURVEY_LEG": {
+     "atLeast": 3
+    }
+   },
+   "note": "Doc 120 I-3: the boundary as far as he has walked it, in her purple ink, drawn by tools/art/survey-line.py over the map."
+  },
+  {
+   "id": "survey_line_3",
+   "sheet": "art/props/room-16-survey-line-3.png",
+   "x": 960,
+   "y": 867,
+   "frame": [
+    0,
+    0,
+    1920,
+    864
+   ],
+   "when": {
+    "T_SURVEYING": true,
+    "SURVEY_LEG": {
+     "atLeast": 4
+    }
+   },
+   "note": "Doc 120 I-3: the boundary as far as he has walked it, in her purple ink, drawn by tools/art/survey-line.py over the map."
+  },
+  {
+   "id": "survey_line_4",
+   "sheet": "art/props/room-16-survey-line-4.png",
+   "x": 960,
+   "y": 868,
+   "frame": [
+    0,
+    0,
+    1920,
+    864
+   ],
+   "when": {
+    "T_SURVEYING": true,
+    "SURVEY_LEG": {
+     "atLeast": 5
+    }
+   },
+   "note": "Doc 120 I-3: the boundary as far as he has walked it, in her purple ink, drawn by tools/art/survey-line.py over the map."
   }
  ],
  "plates": {
@@ -607,6 +986,14 @@
    "T_UNDER_TABLE": true,
    "T_SEANCE_ON": true
   },
-  "note": "Errata 239: under the séance table's cloth he is not drawn (doc 111: \"heard from under the table; Thad sees only feet\"; there is no crawl art) and is not walked about. He went under at the table's end (hotspotWalkTo seance_table) and is standing there again when it ends: SEA_E1's way out and its fourth option both clear T_UNDER_TABLE. Only while the séance is on, so the table that lets him out is always there."
+  "note": "Errata 239: under the séance table's cloth he is not drawn (doc 111: \"heard from under the table; Thad sees only feet\"; there is no crawl art) and is not walked about. He went under at the table's end (hotspotWalkTo seance_table) and is standing there again when it ends: SEA_E1's way out and its fourth option both clear T_UNDER_TABLE. Only while the séance is on, so the table that lets him out is always there. Errata 251 (doc 120 I-3): and while the map is unrolled over the view for the survey; then it covers the room, and nobody under it is pointed at.",
+  "whenAny": [
+   {
+    "T_SURVEYING": true
+   }
+  ],
+  "covers": {
+   "T_SURVEYING": true
+  }
  }
 }

@@ -10,7 +10,7 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 |---|---|---|---|
 | **I-2 · Pike's grave** | Boot Hill, Act I | He arrives in silence. The reason he came is two LOOK lines | He says why he came as he arrives, and can hold the letter out to the board. It is the last thing he does as a man with an errand |
 | **I-1 · The dinner, played** | Fanshawe's office | A list of things to say; one of them ends it | He is at the table and the table can be tried. Under the silver cover is the contract, served. He ends the dinner by putting the cover back on it |
-| **I-3 · The boundary, walked** | Madame Ozymandia's tent | She divines from the map while he watches | Designed here, built when its picture is drawn (brief below) |
+| **I-3 · The boundary, walked** | Madame Ozymandia's tent | She divines from the map while he watches | She hands him the rod. He walks the boundary on the map, leg by leg, and she takes the credit for each (errata 251) |
 | **The eggs, improved** | Prosperity, Act I | Two things to try on the raccoon | A third: the tonic on the eggs, and the raccoon's opinion of it |
 | **The card** | Act III | The wreath goes on his coffin bare | The obituary goes under its ribbon first, where a card goes, and leaves his pocket with it |
 | **The invitation** | Act I | Carried to the end of the game | Left on the Colonel's table |
@@ -41,7 +41,15 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 
 ### I-3 · The boundary, walked
 
-Not built here. The design: the map is laid on her table as large as the screen. The rod is the pointer. The player draws the line "the rod preferred" from the stake, and Sump reads back at A9 exactly what was drawn: uphill "with feeling" if the line climbs, "to the larger of the two rocks" if it reaches them. Any line passes; the joke is that it is recorded faithfully. It needs the map drawn large, and the engine to hold a line the player made, so it waits for both.
+*Built 2026-11-10 (errata 251), on Tyler's "Do all the Not Done things." The first design here had the player draw any line and Sump record it faithfully. That was wrong: the survey's words are fixed (doc 57 A7), Sump reads them at A9, the third copy quotes them, and doc 108's mine is walked by them. So the player walks that boundary, and no other.*
+
+- THE COMPANY MAP on Madame Ozymandia, once she is paid: she unrolls it (doc 57's own direction), hums, and the rod does not move. She gives Thad the rod. The map fills the view (`T_SURVEYING`).
+- He points the rod at things on the map, and she announces each leg as the earth's: **the stake; uphill; the larger of the two rocks; along the line the rod preferred; home.** Each of her lines cues the next. A wrong place gets her answer and nothing else.
+- The line is drawn on the map as he goes.
+- Home: doc 57 A7's three lines, word for word, the form, THE SURVEY, **A7**.
+- He cannot leave the table mid-survey, and there is nothing to get wrong for good.
+- It is the first time the player walks "stake, uphill, big rock, the still one." The second is in the dark, in Act II, with nobody announcing it (doc 108).
+- **Art:** the map large is in (`art/backgrounds/room-16-company-map.png`). The line is drawn by script (`tools/art/survey-line.py`).
 
 ### The small things
 
@@ -118,6 +126,73 @@ Not built here. The design: the map is laid on her table as large as the screen.
 
 **THE DOOR** *(from the table, before the dinner is over)* — doc 04's line for leaving, word for word: "Already? Then come back when you're hungry. The table will keep."
 
+### I-3 · The boundary: the lines
+
+*Madame Ozymandia's tent, the map unrolled and filling the view, the rod in Thad's hand.*
+
+**MADAME OZYMANDIA** · USE THE COMPANY MAP, *once she is paid* — doc 57 A7's direction as far as "The rod does not move.", then:
+> *(She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move.)*
+> **OZYMANDIA:** "The earth is shy today, darling. Take the rod. It only wants walking round the property."
+> **THAD:** "I am to do the divining."
+> **OZYMANDIA:** "You are to hold the stick. I shall do the divining. Commence."
+
+**THE MAP, AGAIN**
+- USE THE COMPANY MAP, *the survey drawn* — **OZYMANDIA:** "The earth has spoken once, darling. It does not repeat itself for the same two dollars."
+
+**THE STAKE**
+**LOOK** 1 "A post with a dot on it, at the corner of my claim. On paper it is the most definite thing I own." · 2 "Somebody drew it with one stroke and did not go back. I know the feeling." · 3 "The stake. Everything I have starts there, thereabouts."
+**LISTEN** 1 "Paper, under the tip of the rod. A dry little scratch." · 2 "Madame Ozymandia, humming on one note. It is nearly an A, and nearly is the trouble." · 3 "Nothing from the stake. It has made its point."
+
+**THE STAKE, WITH THE ROD**
+- USE, *commencing* — *(Thad sets the tip of the rod on the stake.)* **OZYMANDIA:** "Commencing at the stake. Thereabouts. The earth is not a pedant, darling. Now: which way does it go?"
+- USE, *home* — **OZYMANDIA:** "Thence home." *(She takes a Form 12-C from a stack of them and writes in purple ink.)* "The earth has spoken. The earth was brief." *"You keep Form 12-C?"* **OZYMANDIA:** "The earth prefers them." → THE SURVEY, **A7**
+- USE, *too soon* — **OZYMANDIA:** "Not home yet, darling. Nobody goes home from the doorstep."
+
+**THE SLOPE**
+**LOOK** 1 "Hatching, to show the ground going up. The draughtsman tired about halfway, and so, I expect, does the hill." · 2 "Uphill of my claim, in pencil. It looks steeper drawn than I hope it is walked." · 3 "A good deal of slope with nothing on it. That is what the Company calls prospect."
+**LISTEN** 1 "The rod's tip, crossing the hatching. It ticks on every stroke, like a stick along a fence." · 2 "Her bracelets, when she leans in. The earth's voice has a quantity of brass in it." · 3 "Nothing. Drawn hills are quiet. I have no evidence about the real one."
+
+**THE SLOPE, WITH THE ROD**
+- USE, *uphill* — *(Thad draws the rod up the paper.)* **OZYMANDIA:** "Thence uphill! With feeling, darling. More feeling than that." *"I am pushing a stick up a map."* **OZYMANDIA:** "And it shows."
+- USE, *the line the rod preferred* — *(She hums. Thad moves the rod along the paper. She stops.)* **OZYMANDIA:** "There. Some forty feet." *"Forty feet of what?"* **OZYMANDIA:** "Of preference, darling. Thence home."
+- USE, *out of turn* — **OZYMANDIA:** "Not the hill just now, darling. The earth keeps to an order. It is nearly the only thing here that does."
+
+**THE LARGER ROCK**
+**LOOK** 1 "The larger of two rocks. It has been drawn with shading, which the other has not. Rank tells, even in geology." · 2 "A rock, on a map, where a careful man would put a monument. This district puts rocks." · 3 "It is the only thing above my claim with a shadow. I take it for a landmark, having no choice."
+**LISTEN** 1 "Nothing. It is a drawing of a rock, and has the reticence of both." · 2 "The lamp, ticking overhead. The rock makes no comment." · 3 "Her humming goes up a little when the rod comes near it. I think she likes this one."
+
+**THE LARGER ROCK, WITH THE ROD**
+- USE, *to the rock* — **OZYMANDIA:** "To the larger of the two rocks. The earth has always had taste. And thence, hum with me, darling, along whatever line the rod prefers."
+- USE, *out of turn* — **OZYMANDIA:** "In its turn, darling. A rock will wait. It is their whole gift."
+
+**THE SMALLER ROCK**
+**LOOK** 1 "The smaller rock. It sits a little apart, like a man who was not asked." · 2 "No shading. Whoever drew this map had a favorite, and this was not it." · 3 "It is hardly a rock. In fairness, I am hardly a prospector."
+**LISTEN** 1 "Nothing, and from the smaller rock I had expected less." · 2 "The humming drops when the rod passes over it. Even the earth cannot spare it the time." · 3 "Nothing. It is being brave about it."
+
+**THE SMALLER ROCK, WITH THE ROD**
+- USE — **OZYMANDIA:** "Not that one. Nobody surveys to the smaller rock. It would only get ideas."
+
+**CLAIM ONE**
+**LOOK** 1 "Claim One. Beside mine, and the same size, and nobody has circled it." · 2 "A square with a 1 in it. It got here first, which in this territory is most of the law." · 3 "It shares a line with mine. I have looked for a difference between the two, and the map does not record one."
+**LISTEN** 1 "Nothing. A numeral in a box." · 2 "The rod goes quiet over it, or she does. With her I cannot always tell which." · 3 "Nothing. Whatever is said about Claim One is not said on this map."
+
+**CLAIM ONE, WITH THE ROD**
+- USE — **OZYMANDIA:** "The rod declines to trespass, darling. It is the only thing in the district with the scruple."
+
+**CLAIM TWO**
+**LOOK** 1 "Claim Two, in a red circle. Somebody marked it before I ever came, and I should like to know whether that is a welcome or a target." · 2 "A square with a 2 in it. I paid four dollars and a watch for that numeral." · 3 "Prosperity, from above. It looks drier."
+**LISTEN** 1 "The red ink has a ridge to it. The rod catches on my own claim." · 2 "Her humming, steady, directly over my property. I am being billed for that." · 3 "Nothing. At this scale my mud is silent, which is an improvement."
+
+**CLAIM TWO, WITH THE ROD**
+- USE — **OZYMANDIA:** "One does not survey the middle, darling. One surveys the edge, and trusts the middle to follow."
+
+**THE CREEK**
+**LOOK** 1 "The creek, in three wavering lines. It is the best-drawn thing on the sheet, and it is leaving." · 2 "It runs past the foot of both claims and stops for neither." · 3 "A creek and, beyond it, a road. Two ways out of the district, drawn with great care."
+**LISTEN** 1 "Nothing. She does not hum over water. I gather it interferes." · 2 "The rod, crossing the lines. Three ticks, like a man counting his change." · 3 "Nothing. It is a drawing of a noise."
+
+**THE CREEK, WITH THE ROD**
+- USE — **OZYMANDIA:** "Not downhill. Water goes downhill. The earth has more self-respect."
+
 ### The eggs, improved
 
 **DR. PURVIS'S TONIC** · USE *on THE PICKLED EGGS*
@@ -139,4 +214,4 @@ Not built here. The design: the map is laid on her table as large as the screen.
 
 ## The art brief
 
-Written to `reference/act1-dinner/brief.md` for the image session: one prop for the dinner (the dish uncovered, the contract on its plate), and the map large for I-3.
+Written to `reference/act1-dinner/brief.md` for the image session: one prop for the dinner (the dish uncovered, the contract on its plate), and the map large for I-3. Both are in.

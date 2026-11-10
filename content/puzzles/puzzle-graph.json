@@ -187,15 +187,24 @@
    "id": "A7",
    "completedBy": [
     {
-     "site": "with:ozymandias_tent:ozymandia:company_map#0",
+     "site": "room:ozymandias_tent:stake:USE#1",
      "requires": [
-      "i:company_map",
       "r:ozymandias_tent",
-      "T_SEANCE_ON=false",
-      "T_OZY_PAID=true",
-      "T_SURVEY_LODGED=false"
+      "T_SURVEYING=true",
+      "SURVEY_LEG=4",
+      "T_SURVEY_DRAWN=false",
+      {
+       "any": [
+        [
+         "not SURVEY_LEG=0"
+        ]
+       ]
+      }
      ],
      "yields": [
+      "f:SURVEY_LEG=5",
+      "f:T_SURVEYING=false",
+      "f:T_SURVEY_DRAWN=true",
       "p:A7",
       "i:survey"
      ]

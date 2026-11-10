@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 36 · B 23 · C 101** — 160 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 36 · B 23 · C 106** — 165 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -195,6 +195,11 @@ Counts: **A 36 · B 23 · C 101** — 160 directions, every one flagged `"direct
 | 158 | C | thad | Thad works the button into the coat's empty top buttonhole. The raccoon permits it. | combinations (button on raccoon_in_coat) |  |  |  |  |  | Errata 250, doc 121 N-3: the raccoon in his coat is an item in his hands. Told. |
 | 159 | C | thad | Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct. | combinations (pikes_collar on raccoon_in_coat) |  |  |  |  |  | Errata 250, doc 121 N-3: as the button. Told. |
 | 160 | C | thad | Thad puts the sprig in the coat's lapel. | combinations (parsley on raccoon_in_coat) |  |  |  |  |  | Errata 250, doc 121 N-3: as the button. Told. |
+| 161 | C | ozymandia | She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move. | combinations (company_map on ozymandia, once she is paid) |  |  |  |  |  | Errata 251, doc 120 I-3: doc 57 A7's own direction, which the game never showed. The map fills the view as soon as it is said; she has no pose with the rod over a map. Told. |
+| 162 | C | ozymandia | Thad sets the tip of the rod on the stake. | rooms/ozymandias_tent stake USE |  |  |  |  |  | Errata 251, doc 120 I-3: the map fills the view and neither of them is drawn. The line appears on the map in its place. |
+| 163 | C | ozymandia | Thad draws the rod up the paper. | rooms/ozymandias_tent slope USE |  |  |  |  |  | Errata 251, doc 120 I-3: as the stake. The line is drawn uphill as it is said. |
+| 164 | C | ozymandia | She hums. Thad moves the rod along the paper. She stops. | rooms/ozymandias_tent slope USE |  |  |  |  |  | Errata 251, doc 120 I-3: as the stake. Her hum is not a sound yet (doc 45 has no cue for it); told. |
+| 165 | C | ozymandia | She takes a Form 12-C from a stack of them and writes in purple ink. | rooms/ozymandias_tent stake USE |  |  |  |  |  | Errata 251, doc 120 I-3: doc 57 A7's own direction. Under the map; told. |
 
 ## When a B pose is drawn
 

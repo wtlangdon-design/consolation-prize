@@ -1204,6 +1204,8 @@ export class GameScene extends Phaser.Scene {
    */
   /** The person under a point with a verb selected (AmbientLayer.personAt: the sentence line's and the click's one rule). */
   private personAt(wx: number, y: number, verb: string | null): AmbientFile | undefined {
+    // Nobody under a paper that fills the frame (RoomFile.actorHiddenWhen.covers).
+    if (this.state.roomCovered) return undefined;
     return this.ambient.personAt(wx, y, verb);
   }
 

@@ -520,13 +520,108 @@
    "item": "company_map",
    "on": "ozymandia",
    "expect": {
+    "flags": {
+     "T_SURVEYING": true
+    }
+   }
+  },
+  {
+   "id": "A7.4a",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "stake",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 1
+    }
+   }
+  },
+  {
+   "id": "A7.4b",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "creek",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 1
+    }
+   }
+  },
+  {
+   "id": "A7.4c",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "slope",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 2
+    }
+   }
+  },
+  {
+   "id": "A7.4d",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "smaller_rock",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 2
+    }
+   }
+  },
+  {
+   "id": "A7.4e",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "larger_rock",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 3
+    }
+   }
+  },
+  {
+   "id": "A7.4f",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "slope",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
+    "flags": {
+     "SURVEY_LEG": 4
+    }
+   }
+  },
+  {
+   "id": "A7.4g",
+   "puzzle": "A7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "stake",
+   "note": "Errata 251 (doc 120 I-3). The boundary, walked.",
+   "expect": {
     "puzzles": [
      "A7"
     ],
     "carrying": [
      "survey",
      "company_map"
-    ]
+    ],
+    "flags": {
+     "T_SURVEYING": false,
+     "T_SURVEY_DRAWN": true
+    }
    }
   },
   {

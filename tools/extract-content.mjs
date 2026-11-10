@@ -1483,8 +1483,13 @@ function combinations() {
       // keeps it at A9, and with no bound here the map on her again handed
       // a second survey back after the first was on file. After that she has
       // no case, and the map's own pool answers.
-      { case: 'after T_OZY_PAID', when: { T_OZY_PAID: true, T_SURVEY_LODGED: false }, ...spokenBy(a7.map), items: ['survey'], completes: 'A7' },
+      // THE BOUNDARY, WALKED (doc 120 I-3; errata 251): she unrolls the map and gives him the rod. The survey, and A7,
+      // are the map's own now (reference/room-16 docBullets: the stake, home), in doc 57's three lines; `a7.map` is
+      // still read here so that a change to them in doc 57 is seen (boundaryWalked).
+      boundaryWalked(a7.map),
       { case: 'not yet paid', when: { T_OZY_PAID: false }, ...spokenBy(a7.unpaid) },
+      { case: 'the survey drawn', when: { T_OZY_PAID: true },
+        ...papersRule(papersBullet('- USE THE COMPANY MAP, *the survey drawn* — ', 'docs/120-act-one-by-hand.md'), { OZYMANDIA: 'ozymandia' }) },
     ],
   });
   // DOC 57 E6: THE EXECUTOR'S FORM (errata 93 G). HOB_E6 option 1 gives it
@@ -7027,6 +7032,23 @@ function objectsItems() {
     item('A HYMNAL', 'hymnal', 'A HYMNAL', 'Taken from his pew in the church (errata 246). With it he can stand in the line of mourners on the hill; kept.'),
     item('THE COLONEL\'S WREATH', 'wreath', 'THE COLONEL\'S WREATH', 'Taken from Pike\'s marker once the town has gone down (errata 246); laid on his own coffin in Act III. Nothing depends on it.'),
   ];
+}
+/**
+ * THE BOUNDARY, WALKED (doc 120 I-3, THE LINES; errata 251): the rule that begins it, on the pair of the map and Madame
+ * Ozymandia. Doc 57 A7's direction as far as the rod not moving, then her handing him the rod. It holds until A7 is
+ * done, so a save that already has its survey is never sent round again. Doc 120's home line must end in doc 57's
+ * three lines, word for word.
+ */
+function boundaryWalked(doc57Lines) {
+  const DOC = 'docs/120-act-one-by-hand.md';
+  const [lead, ...rest] = objectsBlock('**MADAME OZYMANDIA** · USE THE COMPANY MAP, *once she is paid*', { OZYMANDIA: 'ozymandia' }, DOC);
+  const a7 = read('docs/57-puzzle-completion.md');
+  if (!a7.includes(lead.line)) throw new Error('doc 120 I-3: the unrolling is not doc 57 A7\'s own direction, word for word');
+  const home = papersBullet('- USE, *home* — ', DOC);
+  for (const one of doc57Lines) if (!home.includes(`"${one.line}"`)) throw new Error(`doc 120 I-3: home does not end in doc 57 A7's "${one.line}"`);
+  return { case: 'the map unrolled', when: { T_OZY_PAID: true, T_SURVEYING: false }, untilPuzzles: ['A7'],
+    say: lead.line, direction: true, by: 'ozymandia', then: rest.map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one)),
+    set: { T_SURVEYING: true, SURVEY_LEG: 0 } };
 }
 /**
  * THE NOT-DONE LIST (doc 121, THE LINES; errata 250). Seven objects, each `**NAME** *(item)*` with its LOOK and LISTEN
