@@ -6973,3 +6973,17 @@ On Tyler's "Do all the Not Done things" (2026-11-10). Doc 122 is the audit doc 1
 Lesson:
 - `tests/verb-keys.test.ts`: each verb has one letter of its own; the letters lie as the buttons lie; the scene names no key and takes none with the panel away, the menu open or a conversation running.
 
+## 254 · The second pass of objects, drawn: seven icons, the drawer shut, the envelope on Pike's board; and the Company's map redrawn (doc 121; errata 250, 251)
+
+The image session's two hand-backs, wired (`reference/objects-second-pass/handback.md`, three operations of its four; `reference/act1-dinner/handback.md`, operation 4, on Tyler's "You can do another redraw on the map if you still need it").
+
+- **Seven icons.** The nail, the oats, the parsley, the capital B, Mr. Pike's collar, the button and the room key have their own cells in the panel (`tools/art/objects-second-pass-icons-place.py`); `iconPending` is off all seven, and the extractor marks an object pending only while the sheet has no cell for it.
+- **The drawer, shut.** The plate draws the sideboard's drawer open. A patch draws it shut until he opens it and again once he has shut it (`drawer_shut`, while `T_DRAWER_OPEN` is false). The shutting was told; now it is seen.
+- **The envelope.** Once the letter is delivered it hangs by its nail on Mr. Pike's board (`pike_s_envelope`, while `T_LETTER_DELIVERED`), drawn behind the Colonel's wreath where both are there.
+- **The Company's map** is redrawn in the plates' pixel grain, its layout kept (the tool asserts the red circle within 12 px); the survey's hotspots and its purple line sit where they sat.
+- No line changed.
+
+Replayed in the real build: the survey (A7.1 to A7.4g), the burglary and the drawer (C4.1 to C4.3c), the hill and the letter (D4.1 to D4.2). 0 breaks, 0 oddities.
+
+Lesson: `tests/not-done.test.ts` holds that the drawer is drawn shut exactly when it is shut, that the envelope is on the board exactly when the letter is delivered and is listed before the wreath, and that each of the seven has a cell and is no longer marked pending. With the envelope's prop removed from the room, its test fails. `tests/room-11.test.ts` names the shut drawer among what the office draws.
+
