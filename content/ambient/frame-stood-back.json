@@ -23,7 +23,7 @@
  },
  "walkToNote": "Thad is where he stood to ask; he turns to him.",
  "tree": "FRAME",
- "note": "IGNATIUS FRAME, stood back from his press with the funeral notice set (doc 118 O-2, errata 253): the same man, by his back editions with his arms folded, so that the press is Thad's to pull. He walks here from the press when his lines are over (`arrive`), and is here while the notice is set or wet in Thad's hand. reference/press-pull: operations 1 (the walk) and 2 (stood back).",
+ "note": "IGNATIUS FRAME, stood back from his press with the funeral notice set (doc 118 O-2, errata 253): the same man, by his back editions with his arms folded, so that the press is Thad's to pull. He walks here from the press when his lines are over (`arrive`), and is here while the notice is set or wet in Thad's hand. reference/press-pull: operations 4 (the walk, six frames) and 2 (stood back).",
  "barks": {},
  "barksNote": "Doc 07 writes no barks for Frame.",
  "sprite": {
@@ -77,25 +77,37 @@
    [
     2,
     2,
-    269,
+    327,
     502
    ],
    [
-    273,
+    331,
     2,
-    269,
+    327,
     502
    ],
    [
-    544,
+    660,
     2,
-    269,
+    327,
     502
    ],
    [
-    815,
+    989,
     2,
-    269,
+    327,
+    502
+   ],
+   [
+    1318,
+    2,
+    327,
+    502
+   ],
+   [
+    1647,
+    2,
+    327,
     502
    ]
   ],
@@ -103,6 +115,6 @@
   "strideRatio": 0.62,
   "drawnFacing": "left",
   "afterLines": true,
-  "note": "From his press, where `frame` stood until this moment, to his back editions: four frames of one stride, facing left (press-pull operation 1). After the lines that sent him, so he says his piece at the press and then steps away."
+  "note": "From his press, where `frame` stood until this moment, to his back editions: six frames of one full cycle, facing left (press-pull operation 4; reference/press-walk-six). After the lines that sent him, so he says his piece at the press and then steps away."
  }
 }
