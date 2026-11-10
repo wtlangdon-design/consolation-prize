@@ -33,6 +33,12 @@ test('every row that goes to a node with an opening says the opening after its o
           else if (want && typeof want === 'object' && 'atLeast' in want) state.flags.set(flag, (want as { atLeast: number }).atLeast);
         }
         state.dialogue.restore({}, { tree: treeId, node: nodeId });
+        // A row offered only after others (errata 243: a practice's last boast) is reached by taking those first.
+        for (const earlier of option.after ?? []) {
+          const first = node.options.find((one) => one.id === earlier)!;
+          for (const [flag, want] of Object.entries(first.when ?? {})) if (typeof want === 'boolean') state.flags.set(flag, want);
+          state.dialogue.select(earlier);
+        }
         const said = state.dialogue.select(option.id);
         const lines = [said.say, ...said.rest.map((line) => line.line)];
         for (const line of target.opening) {

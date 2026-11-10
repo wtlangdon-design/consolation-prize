@@ -583,72 +583,31 @@
           "id": "winnie1",
           "tag": "ASSAY",
           "text": "Teach me to answer a boast.",
-          "afterUse": "remove",
-          "set": {
-            "ASSAY_PAIR_05": true,
-            "ASSAY_PAIR_06": true,
-            "ASSAY_PAIR_07": true,
-            "ASSAY_PAIR_08": true,
-            "ASSAY_PAIR_09": true
-          },
+          "afterUse": "retain",
           "exchange": [
             {
               "speaker": "winnie",
               "line": "Sit."
-            },
-            {
-              "speaker": "thad",
-              "line": "My strike was so rich the assayer wept."
-            },
-            {
-              "speaker": "winnie",
-              "line": "He weeps at everything. It's why we stopped inviting him."
-            },
-            {
-              "speaker": "thad",
-              "line": "I turned down ten thousand dollars for my claim."
-            },
-            {
-              "speaker": "winnie",
-              "line": "I was there. He offered four, and you cried."
-            },
-            {
-              "speaker": "thad",
-              "line": "I've never filed a claim that didn't pay."
-            },
-            {
-              "speaker": "winnie",
-              "line": "You've never filed a claim."
-            },
-            {
-              "speaker": "thad",
-              "line": "Every man in this territory owes me money."
-            },
-            {
-              "speaker": "winnie",
-              "line": "Every man in this territory owes someone money. You have described the territory."
-            },
-            {
-              "speaker": "winnie",
-              "line": "Say it again. And don't apologize in the middle of it."
-            },
-            {
-              "speaker": "thad",
-              "line": "I've had three fortunes and lost —"
-            },
-            {
-              "speaker": "winnie",
-              "line": "No. You've had one fortune and told it twice. That's the answer. Say the answer."
-            },
-            {
-              "speaker": "thad",
-              "line": "Why do you know this so well?"
-            },
-            {
-              "speaker": "winnie",
-              "line": "Because I sign the paper that says whether men are lying, Mr. Grubb, and I have never once been asked."
             }
-          ]
+          ],
+          "whenAny": [
+            {
+              "ASSAY_PAIR_05": false
+            },
+            {
+              "ASSAY_PAIR_07": false
+            },
+            {
+              "ASSAY_PAIR_08": false
+            },
+            {
+              "ASSAY_PAIR_09": false
+            },
+            {
+              "ASSAY_PAIR_06": false
+            }
+          ],
+          "goto": "WIN_SPAR"
         },
         {
           "id": "winnie2",
@@ -908,6 +867,135 @@
         },
         "text": "I'll see you at the Registrar's."
       }
+    },
+    "WIN_SPAR": {
+      "id": "WIN_SPAR",
+      "noPrompt": true,
+      "exceptionReason": "Errata 243: a practice node, built from doc 03's pairs; doc 04 writes the row that opens it.",
+      "noComic": true,
+      "noComicReason": "Errata 243: every option is a boast and every answer is the joke; none is a side remark.",
+      "options": [
+        {
+          "id": "winnie_spar5",
+          "tag": "ASSAY",
+          "text": "My strike was so rich the assayer wept.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_05": false
+          },
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "He weeps at everything. It's why we stopped inviting him."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_05": true
+          }
+        },
+        {
+          "id": "winnie_spar7",
+          "tag": "ASSAY",
+          "text": "I turned down ten thousand dollars for my claim.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_07": false
+          },
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "I was there. He offered four, and you cried."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_07": true
+          }
+        },
+        {
+          "id": "winnie_spar8",
+          "tag": "ASSAY",
+          "text": "I've never filed a claim that didn't pay.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_08": false
+          },
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "You've never filed a claim."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_08": true
+          }
+        },
+        {
+          "id": "winnie_spar9",
+          "tag": "ASSAY",
+          "text": "Every man in this territory owes me money.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_09": false
+          },
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "Every man in this territory owes someone money. You have described the territory."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_09": true
+          }
+        },
+        {
+          "id": "winnie_spar6",
+          "tag": "ASSAY",
+          "text": "I've had three fortunes and lost two.",
+          "afterUse": "remove",
+          "when": {
+            "ASSAY_PAIR_06": false
+          },
+          "after": [
+            "winnie_spar5",
+            "winnie_spar7",
+            "winnie_spar8",
+            "winnie_spar9"
+          ],
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "Say it again. And don't apologize in the middle of it."
+            },
+            {
+              "speaker": "thad",
+              "line": "I've had three fortunes and lost —"
+            },
+            {
+              "speaker": "winnie",
+              "line": "No. You've had one fortune and told it twice. That's the answer. Say the answer."
+            },
+            {
+              "speaker": "thad",
+              "line": "Why do you know this so well?"
+            },
+            {
+              "speaker": "winnie",
+              "line": "Because I sign the paper that says whether men are lying, Mr. Grubb, and I have never once been asked."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_06": true
+          },
+          "goto": "WIN_B4"
+        },
+        {
+          "id": "winniex",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
     }
   }
 }

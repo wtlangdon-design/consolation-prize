@@ -1,0 +1,22 @@
+{
+ "schema": 1,
+ "note": "What of doc 114 section 1, standards 2 and 4, the played route still fails (tools/check-pacing.mjs). Each row is to be fixed by the row of doc 114 it names, and comes off this list when it is.",
+ "known": [
+  {
+   "what": "talk-run from C1.1: assay_office > claims_registrar > ozymandias_tent > clarion",
+   "row": "II-1 and II-5 (the start of the three papers; no row of doc 114 is aimed at it alone, and it is to be designed with them)"
+  },
+  {
+   "what": "verb never used: CLOSE",
+   "row": "X-1"
+  },
+  {
+   "what": "verb never used: PULL",
+   "row": "X-1"
+  },
+  {
+   "what": "no item is used on another item",
+   "row": "X-2"
+  }
+ ]
+}

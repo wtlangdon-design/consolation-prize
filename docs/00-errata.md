@@ -6671,3 +6671,35 @@ Lesson:
 - `tests/frame-rate.test.ts`: inert without the parameter, and the low is the worst of ten seconds.
 - Doc 55 §8, three rows.
 
+---
+
+## 243 · Doc 114 approved, all of it; the sparrings are played; the pace is held
+
+Tyler, 2026-11-09: "Merge and then make EVERYTHING in the game the best it can be. I don't want bandaids, I want perfection." Asked how the writing and the pictures should go, he chose "Design first, then I rule" and "Design for the best scene, brief the art". Doc 114 is that design. On its rows: **"All"**.
+
+**The writing exception this gives.** New lines for the rows of doc 114 section 4, and no others: in /docs, one voice, to doc 59, each row's lines in a document of its own, built and played before the next. Nothing in it touches a load-bearing line, an invariant, or a puzzle's answer outside its row. Pictures are briefed to the image session and made there.
+
+**What "best" is, so it can end** is doc 114 section 1: six standards. When they hold on the played route and Tyler has played it, the plan is done.
+
+### II-4 · The sparrings, played
+
+- **Before:** "Teach me to answer a boast." and "Will you help me practice for the Assay?" each performed every pair in one exchange the player watched: five boasts and answers with Winnie, six with Pratt.
+- **Now:** the row says its own reply ("Sit.", "Try me.") and opens a practice. Each boast is an option the player picks; the teacher answers it; that pair is his. The pair doc 03's own scene performs comes last, with that scene round it, and the practice ends back where it began.
+- Leaving part-way keeps what was learned. The row is offered again while any of its pairs is unlearned, and the practice then holds only those.
+- **No line is new.** Every boast and counter is doc 03 Part Two's, and both scenes are doc 03's, word for word. Doc 04's two rows say how they are played.
+
+### X-3 · The pace is held
+
+- `tools/check-pacing.mjs`, in `run-all`: on the played route, never more than three stops in a row of nothing but talk, every verb on the panel used, and one item used on another.
+- What still fails is listed in `proofs/pacing.json`, each with the row of doc 114 that is to fix it: one run of four counters at the start of the three papers, CLOSE and PULL never used, and no item on an item. A failure not on the list fails the check, and so does a listed one that has stopped failing.
+
+### A sheet that nothing is bringing says so
+
+Errata 242 could not say why the Nugget's barrel was late. A sheet wanted while the loader is idle now reports itself once, with whether its load failed, was asked for and never came, or was never asked for (`GameScene.sheetFor`).
+
+Lesson:
+- `tests/assay.test.ts`: each practice's boasts are doc 03's as the player reads them, one pair each, answered by the teacher first, gone once learned, the last one last. It fails on the old single exchange.
+- `tests/goto-opening.test.ts` reaches a row offered only after others by taking those first.
+- `tests/pacing.test.mjs`: the arithmetic, and the real route against its list.
+- The full walkthrough picks every boast (C6.4, D5.3).
+

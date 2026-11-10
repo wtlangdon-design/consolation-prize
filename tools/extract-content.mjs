@@ -3917,6 +3917,7 @@ function frameTree() {
  * Nothing is invented: every string below is the document's.
  */
 function winnieTree() {
+  const sparringNodes = [];
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('# WINNIE LEDGER');
   const to = doc.indexOf('# COLONEL ABSALOM FANSHAWE');
@@ -4114,7 +4115,10 @@ function winnieTree() {
       }
       // THE SPARRING (doc 57 C6): WIN_B4's teaching row, doc 03's exchange and pairs.
       if (tag === 'ASSAY' && /\bpairs? \d/.test(`${responseCell} ${state}`)) {
+        option.backTo = id;
         teachingRow(option, `${responseCell} | ${state}`, { teacher: 'Winnie', owner: SPEAKER, sparring: 'Winnie' });
+        sparringNodes.push(option.sparringNode);
+        delete option.sparringNode;
       } else if (state && !opens && !sets && !req && !unless && !puzzleWrite && state !== '—') {
         unplayed.push(`${id} option ${number} state "${state}" names no flag; nothing set`);
       }
@@ -4156,6 +4160,11 @@ function winnieTree() {
       ...(opening.length ? { opening } : {}), options };
   }
 
+  // The practice node its teaching row opens (errata 243), with the pool's way out.
+  for (const spar of sparringNodes) {
+    nodes[spar.id] = { ...spar, options: [...spar.options, { id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[poolIndex % POOL.length], universal: true, ends: true }] };
+    poolIndex += 1;
+  }
   if (!nodes.WIN_A1) throw new Error('doc 04: WIN_A1 was not extracted');
   for (const [node, { once, onOpen }] of Object.entries(ON_OPEN)) {
     if (nodes[node]) Object.assign(nodes[node], { openingOnce: once, onOpen });
@@ -4640,10 +4649,41 @@ function teachingRow(option, cells, { teacher, owner, sparring }) {
     if (!pairs.some((pair) => pair.n >= first && pair.n <= last && performed(pair))) {
       throw new Error(`doc 03: ${heading(sparring)} performs none of pairs ${first}-${last}`);
     }
-    option.exchange = opensOnReply
-      ? [exchange[0], ...run, ...exchange.slice(1)]
-      : [...reply, ...run, ...exchange];
+    // PLAYED, NOT WATCHED (errata 243; doc 114 II-4, Tyler, 2026-11-09: "All"). The row used to perform every pair in one
+    // long exchange the player sat through. It now opens a practice node: each boast is an option the player picks, the
+    // teacher answers it, and that pair is his; the pair doc 03's sparring itself performs comes last, with the scene
+    // doc 03 wrote round it. Every word is doc 03's, as before -- only who picks has changed. `run` is boast, counter,
+    // boast, counter; the row's own reply ("Sit.", "Try me.") is all the row says now.
+    const flagOf = (n) => `ASSAY_PAIR_${String(n).padStart(2, '0')}`;
+    const stem = option.id.replace(/\d+$/, '');
+    const drills = [];
+    for (let n = first; n <= last; n += 1) {
+      const pair = pairs.find((one) => one.n === n);
+      if (performed(pair)) continue;
+      drills.push({ id: `${stem}_spar${n}`, tag: 'ASSAY', text: pair.boast, afterUse: 'remove', when: { [flagOf(n)]: false },
+        exchange: [{ speaker: owner, line: pair.counter }], set: { [flagOf(n)]: true } });
+    }
+    const shown = pairs.filter((pair) => pair.n >= first && pair.n <= last && performed(pair));
+    if (shown.length !== 1) throw new Error(`doc 03: ${heading(sparring)} performs ${shown.length} of pairs ${first}-${last}, not one`);
+    // The scene doc 03 wrote: after the teacher's opening line where the row has already said it (Pratt's "Try me."),
+    // and less Thad's own boast where the scene begins on it, since choosing the option says it.
+    let scene = opensOnReply ? exchange.slice(1) : exchange;
+    if (scene[0].speaker === 'thad' && shown[0].boast.startsWith(scene[0].line.replace(/\s*[—–-]+\s*$/, ''))) scene = scene.slice(1);
+    const nodeId = `${sparring.toUpperCase().slice(0, 3)}_SPAR`;
+    const finale = { id: `${stem}_spar${shown[0].n}`, tag: 'ASSAY', text: shown[0].boast, afterUse: 'remove',
+      when: { [flagOf(shown[0].n)]: false }, after: drills.map((one) => one.id), exchange: scene,
+      set: { [flagOf(shown[0].n)]: true }, goto: option.backTo };
+    delete option.backTo;
+    option.exchange = opensOnReply ? [exchange[0]] : reply;
     delete option.say;
+    delete option.set;
+    option.afterUse = 'retain';
+    option.whenAny = [...drills, finale].map((one) => one.when);
+    option.goto = nodeId;
+    option.sparringNode = { id: nodeId, noPrompt: true,
+      exceptionReason: 'Errata 243: a practice node, built from doc 03\'s pairs; doc 04 writes the row that opens it.',
+      noComic: true, noComicReason: 'Errata 243: every option is a boast and every answer is the joke; none is a side remark.',
+      options: [...drills, finale] };
   }
   return option;
 }
@@ -5592,6 +5632,7 @@ function raccoonTree() {
  * the italic stage directions are logged and not drawn, as in every tree.
  */
 function prattTree() {
+  const sparringNodes = [];
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('# NICKEL PRATT');
   const to = doc.indexOf('\n# ', from + 5);
@@ -5656,7 +5697,10 @@ function prattTree() {
       if (route.goto) option.goto = route.goto;
       // THE SPARRING (doc 57 D5): PRA_D6's teaching row, doc 03's exchange and pairs.
       if (tag[1] === 'ASSAY' && /\bpairs? \d/.test(responseCell)) {
+        option.backTo = id;
         teachingRow(option, responseCell, { teacher: 'Pratt', owner: SPEAKER, sparring: 'Pratt' });
+        sparringNodes.push(option.sparringNode);
+        delete option.sparringNode;
       }
       options.push(option);
     }
@@ -5679,7 +5723,9 @@ function prattTree() {
     write('content/dialogue/pratt.json', {
       aftermathAuthored: true, schema: 1, id: 'PRATT', speaker: SPEAKER, name: 'NICKEL PRATT', note,
       entries: [E3.entry, { when: { T_PRATT_TURNED: true }, node: 'PRA_D6' }, { when: { ACT: { atLeast: 2 } }, node: 'PRA_B1' }],
-      start: 'PRA_A1', closing, nodes: { PRA_A1: A1, PRA_B1: B1, PRA_D6: D6, PRA_E3: E3.node },
+      start: 'PRA_A1', closing, nodes: { PRA_A1: A1, PRA_B1: B1, PRA_D6: D6, PRA_E3: E3.node,
+        // The practice node PRA_D6's teaching row opens (errata 243), with the pool's way out.
+        ...Object.fromEntries(sparringNodes.map((spar) => [spar.id, { ...spar, options: [...spar.options, { id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[0], universal: true, ends: true }] }])) },
     }),
     write('content/dialogue/pratt-jump.json', {
       aftermathAuthored: true, schema: 1, id: 'PRATT_JUMP', speaker: SPEAKER, name: 'NICKEL PRATT', note,

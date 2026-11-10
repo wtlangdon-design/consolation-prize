@@ -1335,7 +1335,12 @@
    "puzzle": "C6",
    "do": "choose",
    "choose": [
-    "winnie1"
+    "winnie1",
+    "winnie_spar5",
+    "winnie_spar7",
+    "winnie_spar8",
+    "winnie_spar9",
+    "winnie_spar6"
    ],
    "leave": true,
    "expect": {
@@ -1377,7 +1382,13 @@
    "puzzle": "D5",
    "do": "choose",
    "choose": [
-    "pratt4"
+    "pratt4",
+    "pratt_spar10",
+    "pratt_spar11",
+    "pratt_spar12",
+    "pratt_spar14",
+    "pratt_spar15",
+    "pratt_spar13"
    ],
    "expect": {
     "flags": {

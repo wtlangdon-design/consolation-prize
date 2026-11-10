@@ -212,30 +212,41 @@ test('the repeat of pair 1 offers the counter just written down, and Duel One st
   assert.equal(fresh.offered().length, 4, 'Duel Two is unchanged: what he knows is offered');
 });
 
-test('the sparrings perform every pair they grant, each boast by him and each counter by the teacher, in doc 03\'s words (errata 136 C)', async () => {
-  // Tyler, 2026-11-06 ("Sparrings show every pair"): Winnie's granted five
-  // pairs and performed one, Pratt's six and one.
+test('the sparrings are played: each pair is a boast the player picks, answered by the teacher in doc 03\'s words, and his when it is (errata 136 C, 243)', async () => {
+  // Tyler, 2026-11-06 ("Sparrings show every pair"): Winnie's granted five pairs and performed one, Pratt's six and
+  // one. Errata 243 (doc 114 II-4): they were then all performed in one exchange the player watched. Now the row
+  // opens a practice node and the player throws each boast himself.
   const content = await loadContent(fsReader);
   const file = await assayFile();
-  let rows = 0;
+  let practices = 0;
   for (const tree of content.dialogue.values()) {
-    for (const node of Object.values(tree.nodes)) {
-      for (const option of node.options) {
-        const taught = Object.keys(option.set ?? {}).filter((flag) => flag.startsWith('ASSAY_PAIR_'));
-        if (taught.length < 2 || !option.exchange) continue;
-        rows += 1;
-        const lines = option.exchange;
-        for (const flag of taught) {
-          const pair = file.pairs.find((p) => p.flag === flag)!;
-          const at = lines.findIndex((l) => l.speaker === content.actor.id
-            && l.line.length > 0 && pair.boast.startsWith(l.line.replace(/\s*[—–-]+\s*$/, '')));
-          assert.ok(at >= 0, `${tree.id} ${option.id}: pair ${pair.n}'s boast is never said`);
-          assert.equal(lines[at + 1]?.speaker, tree.speaker, `${tree.id} ${option.id}: pair ${pair.n} is answered by the teacher`);
+    for (const [nodeId, node] of Object.entries(tree.nodes)) {
+      for (const row of node.options) {
+        const practice = row.goto ? tree.nodes[row.goto] : undefined;
+        const boasts = (practice?.options ?? []).filter((one) => Object.keys(one.set ?? {}).some((flag) => flag.startsWith('ASSAY_PAIR_')));
+        if (row.tag !== 'ASSAY' || boasts.length < 2) continue;
+        practices += 1;
+        assert.equal(Object.keys(row.set ?? {}).length, 0, `${tree.id} ${row.id}: the row itself teaches nothing; the boasts do`);
+        assert.equal(row.whenAny?.length, boasts.length, `${tree.id} ${row.id}: offered while any of its pairs is unlearned`);
+        const last = boasts.filter((one) => one.after?.length);
+        assert.equal(last.length, 1, `${tree.id}: one boast comes last, with doc 03's scene`);
+        assert.deepEqual([...last[0]!.after!].sort(), boasts.filter((one) => one !== last[0]).map((one) => one.id).sort());
+        assert.equal(last[0]!.goto, nodeId, 'and the practice ends where it began');
+        for (const boast of boasts) {
+          const flags = Object.keys(boast.set ?? {});
+          assert.equal(flags.length, 1, `${boast.id}: one boast, one pair`);
+          const pair = file.pairs.find((p) => p.flag === flags[0])!;
+          assert.equal(boast.text, pair.boast, `${boast.id}: the boast is doc 03's, as the player reads it`);
+          assert.deepEqual(boast.when, { [flags[0]!]: false }, `${boast.id}: gone once it is his`);
+          const said = boast.exchange ?? [];
+          assert.ok(said.some((line) => line.speaker === tree.speaker && line.line === pair.counter) || boast === last[0],
+            `${boast.id}: pair ${pair.n} is answered by the teacher with its counter`);
+          assert.equal(said[0]?.speaker, tree.speaker, `${boast.id}: the teacher answers first`);
         }
       }
     }
   }
-  assert.equal(rows, 2, 'the two sparrings doc 03 writes');
+  assert.equal(practices, 2, 'the two sparrings doc 03 writes');
 });
 
 test('the slate chalks the score: the runner says who each point is for, and Room 4\'s slate holds five marks a side (errata 136 A)', async () => {
