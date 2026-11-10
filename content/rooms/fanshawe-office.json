@@ -1474,6 +1474,22 @@
         "T_DINED": true
       },
       "note": "Doc 57 A10: after the dinner the handkerchief is Thad's, and Room 11's own is not drawn. The plate's own leather laid over it (tools/art/room11-props.py)."
+    },
+    {
+      "id": "drawer_shut",
+      "sheet": "art/props/room-11-drawer-shut.png",
+      "x": 1523,
+      "y": 641,
+      "frame": [
+        0,
+        0,
+        155,
+        142
+      ],
+      "when": {
+        "T_DRAWER_OPEN": false
+      },
+      "note": "Doc 121 N-1 (errata 250, 254): the plate draws the sideboard's lower right drawer pulled open. This is the same drawer pushed home, drawn until he opens it and again once he has shut it (objects-second-pass operation 2; tools/art/objects-second-pass-patches.py, which asserts it changes nothing outside its box)."
     }
   ],
   "onEnter": {

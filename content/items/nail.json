@@ -4,7 +4,6 @@
   "name": "A NAIL",
   "short": "A NAIL",
   "note": "EXTRACTED from docs/121-the-not-done-list.md (THE LINES) by tools/extract-content.mjs (errata 250). Do not edit: change doc 121 and re-run. One nail from the mercantile's keg. With it the letter of introduction is fixed to Pike's board; it leaves with the letter.",
-  "iconPending": "reference/objects-second-pass/brief.md asks the image session for it (errata 250); the panel draws its labelled box meanwhile.",
   "responses": {
     "LOOK_AT": [
       {

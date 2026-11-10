@@ -7078,7 +7078,8 @@ function notDoneItems() {
     return write(`content/items/${id.replace(/_/g, '-')}.json`, {
       schema: 1, id, name: heading, short: heading,
       note: `EXTRACTED from ${NOT_DONE_DOC} (THE LINES) by tools/extract-content.mjs (errata 250). Do not edit: change doc 121 and re-run. ${about}`,
-      iconPending: 'reference/objects-second-pass/brief.md asks the image session for it (errata 250); the panel draws its labelled box meanwhile.',
+      // Pending only while the shipping sheet has no cell for it (errata 238's rule; the seven arrived with errata 254).
+      ...(JSON.parse(readFileSync(resolve(ROOT, 'content/ui/item-icons.json'), 'utf8')).icons[id] ? {} : { iconPending: 'reference/objects-second-pass/brief.md asks the image session for it (errata 250); the panel draws its labelled box meanwhile.' }),
       responses: { LOOK_AT: run('LOOK'), LISTEN_TO: run('LISTEN') },
     });
   });

@@ -1,0 +1,12 @@
+Image 1 is a blank magenta canvas. Image 2 is every item icon already in my pixel-art adventure game, on the inventory's dark panel: soft-shaded, a dark outline, low texture, readable at a small size -- that style is the one to match.
+
+On the magenta canvas, draw SEVEN new item icons in ONE ROW, evenly spaced, each centred in its own seventh of the canvas's width, each about the same size, with clear magenta around each and nothing touching. Left to right:
+1. A NAIL: one cut iron nail with a square head, lying on its side, dark grey iron.
+2. OATS: a small loose handful of pale golden oat grains in a little heap.
+3. PARSLEY: one fresh curled sprig of bright green parsley.
+4. A CAPITAL B: a single piece of lead printing type, a small grey metal block standing up, its face showing a raised capital B drawn BACKWARDS (mirror-image), the metal worn and dull.
+5. MR. PIKE'S COLLAR: a starched white detachable shirt collar, standing up stiff in a ring, with its two points folded down at the front.
+6. A BUTTON: one black bone button, round, with four holes.
+7. THE ROOM KEY: an old iron door key on a ring with a large oval brass tag, the number 3 stamped on the tag.
+
+Each must be told at a glance from every icon in Image 2. The same soft, flat shading, dark outline and low texture as Image 2 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) everywhere around them. No shadows, no table, no words, no numbers except the 3 on the key's tag and the backward B on the type, no border.

@@ -62,3 +62,23 @@ stake and the rocks.
    from the stake can reach them, and it can, across open paper.
 4. **The stake is small** (about 4 x 22 px): a post with a dot, as the brief asked. If the rod's line should start from
    something easier to see, the wiring can draw a marker there; that is the engine's, not the art's.
+
+## Later: the map redrawn in the plates' style (operation 4)
+
+Tyler, 2026-11-10, on decision 1 above: "You can do another redraw on the map if you still need it." `act1-dinner` is
+raised 3 -> 4 in `art/staging/caps.json`, and **operation 4 is spent** (ledger: act1-dinner attempt 4, derived from
+attempt 2). It was given operation 2's map as the layout to keep, and the tent plate (whole, and a 2x crop for its
+pixels) as the style.
+
+- `art/backgrounds/room-16-company-map.png` is now **pixel art in the tent plate's grain**: square pixels, stepped
+  shades, dark pixel outlines on the weights and the paper's edge, one- and two-pixel ink lines. Nothing on it changed
+  but the drawing: the same claims, "1" and "2", red circle, stake, two rocks, hill strokes, creek and road, the same
+  lamp from the upper left. `tools/art/act1-company-map-large.py` builds it from operation 4 with no further
+  pixelation (operation 2's coarsening and posterising are gone), and the cloth carried out at the sides is now rolled
+  tile by tile and falls off into the tent's dark, so it no longer stripes.
+- **The layout held.** The red circle measures 960-1156, 326-490 (operation 2's: 962-1160, 325-487), and the tool
+  now asserts it stays within 12 px, because the I-3 wiring (errata 251, on the branch `notdone`) points at this
+  picture: its hotspots for the stake, both rocks, both claims and the creek, drawn on the new map in
+  `renders/room-16-company-map-with-the-survey-hotspots.png`, each still on its feature. Its survey-line overlays
+  (`tools/art/survey-line.py`) are drawn to the same places.
+- Beside the tent: `renders/room-16-company-map-beside-the-tent.png`.

@@ -92,7 +92,7 @@ test('A4: after the swindle he opens on FAN_A1, and either answer about the clai
 
 test('A10: holding the invitation, the table is laid and the dinner opens; nothing said ends it, and the cover put back does', async () => {
   const state = await inState('r11-b');
-  assert.deepEqual(shownProps(state), ['dinner', 'dinner_drape'], 'the table laid absurdly well, its cloth to the floor');
+  assert.deepEqual(shownProps(state), ['dinner', 'dinner_drape', 'drawer_shut'], 'the table laid absurdly well, its cloth to the floor (and the sideboard\'s drawer shut: errata 254)');
   // Errata 248 (doc 120 I-1): the table stands over the desk for the dinner, so the desk's own things are not
   // pointed at, and the table's are.
   assert.equal(state.findTarget('handkerchief'), undefined, 'his handkerchief is under the table for now');
@@ -123,7 +123,7 @@ test('A10: holding the invitation, the table is laid and the dinner opens; nothi
   assert.ok(state.flags.get('T_DINED'));
   assert.ok(state.carried.includes('handkerchief'), 'pocketed, absently');
   assert.ok(!state.carried.includes('invitation'), 'and the invitation left on the table');
-  assert.deepEqual(shownProps(state), ['desk_bare'], 'the table cleared, and his handkerchief gone from it');
+  assert.deepEqual(shownProps(state), ['desk_bare', 'drawer_shut'], 'the table cleared, and his handkerchief gone from it');
   assert.equal(state.findTarget('handkerchief'), undefined, 'not drawn from now on');
 });
 

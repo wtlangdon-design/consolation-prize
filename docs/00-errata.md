@@ -6988,3 +6988,26 @@ Lesson:
 - `tests/departure.test.ts`: every walk IN is loaded at boot. The first replay drew nothing where the printer should have been walking, because his sheet was never asked for. With the line removed from `engine/core/BootAssets.ts`, it fails.
 - The brief asked for a four-frame walk and `tests/walk-gait.test.mjs` refused it; the six were drawn. Doc 55 section 8 carries the row: a brief for a walk asks for six frames.
 
+## 254 · The second pass of objects, drawn: seven icons, the drawer shut, the envelope on Pike's board; and the Company's map redrawn (doc 121; errata 250, 251)
+
+The image session's two hand-backs, wired (`reference/objects-second-pass/handback.md`, three operations of its four; `reference/act1-dinner/handback.md`, operation 4, on Tyler's "You can do another redraw on the map if you still need it").
+
+- **Seven icons.** The nail, the oats, the parsley, the capital B, Mr. Pike's collar, the button and the room key have their own cells in the panel (`tools/art/objects-second-pass-icons-place.py`); `iconPending` is off all seven, and the extractor marks an object pending only while the sheet has no cell for it.
+- **The drawer, shut.** The plate draws the sideboard's drawer open. A patch draws it shut until he opens it and again once he has shut it (`drawer_shut`, while `T_DRAWER_OPEN` is false). The shutting was told; now it is seen.
+- **The envelope.** Once the letter is delivered it hangs by its nail on Mr. Pike's board (`pike_s_envelope`, while `T_LETTER_DELIVERED`), drawn behind the Colonel's wreath where both are there.
+- **The Company's map** is redrawn in the plates' pixel grain, its layout kept (the tool asserts the red circle within 12 px); the survey's hotspots and its purple line sit where they sat.
+- No line changed.
+
+Replayed in the real build: the survey (A7.1 to A7.4g), the burglary and the drawer (C4.1 to C4.3c), the hill and the letter (D4.1 to D4.2). 0 breaks, 0 oddities.
+
+Lesson: `tests/not-done.test.ts` holds that the drawer is drawn shut exactly when it is shut, that the envelope is on the board exactly when the letter is delivered and is listed before the wreath, and that each of the seven has a cell and is no longer marked pending. With the envelope's prop removed from the room, its test fails. `tests/room-11.test.ts` names the shut drawer among what the office draws.
+
+## 255 · The Colonel on Boot Hill is no longer the one grey face (Tyler, 2026-11-10)
+
+Tyler, playing, of the man to the right of the obelisk: "a very different skin tone than everyone else in the scene and it makes him look sickly."
+
+- **Cause.** Errata 242 graded Fanshawe into the hill's night with a cool light and half his colour taken out. That was measured on his Duel Three sheet. Errata 246 replaced the sheet (hat in hand) and kept the grade, and on the new sheet it left his face 102/94/82, grey, beside the town's 135/107/75.
+- **Fixed.** The hill's `figureLight` is now a cool multiply (0.8, 0.9, 1), brightness 0.95, and nearly all his colour kept (saturate 0.92): his face measures 127/103/75. He is still dimmed into the night (`tools/check-figure-light.mjs` passes). Only he is named, as before.
+
+Lesson: `tests/skin-tone.test.mjs`. Every person a room grades is compared with the people in that room it does not grade: the colour left in his face after the grade must be within 30% of theirs. With errata 242's values put back, it fails on him (0.21 against 0.46). It also holds Deke and the fiddler in the Nugget and the claim-row man. And a row in doc 55 section 8: when a figure's sheet is replaced, the room's grade for him is measured again on the new sheet.
+

@@ -1,0 +1,15 @@
+{
+ "assetId": "objects-second-pass",
+ "subject": "objects-second-pass-seven-icons",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/objects-second-pass/op-1.txt",
+ "out": "art/staging/objects-second-pass/op-1/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/objects-second-pass/op-1/canvas.png",
+  "art/staging/objects-second-pass/op-1/every-icon-x3.png"
+ ],
+ "derivedFrom": "art/ui/item-icons.png"
+}

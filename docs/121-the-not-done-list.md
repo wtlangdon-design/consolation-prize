@@ -27,14 +27,14 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, Room 32, Act
 - Opening the drawer (or taking from it) on the funeral day leaves it open (`T_DRAWER_OPEN`).
 - The door, with the drawer open: his line, and he stays.
 - CLOSE the drawer: shut, and the door is a door again.
-- **Art (brief `reference/objects-second-pass`):** the plate draws the drawer open at all times. A patch draws it shut until he opens it and again once he has shut it. Until the patch is in, the shutting is told.
+- **Art (brief `reference/objects-second-pass`):** the plate draws the drawer open at all times. A patch draws it shut until he opens it and again once he has shut it. The patch is in (errata 254).
 
 ### N-2 · The letter, delivered
 
 - THE NAILS at the mercantile give one nail, once.
 - THE LETTER on PIKE'S MARKER (or A NAIL on it), with both in hand and the memorial booked: the letter is fixed to the board with the nail, driven with the tuning fork. Both leave.
 - Before the memorial is booked, doc 120's lines hold: the church still wants the letter.
-- **Art:** a small patch, the envelope on the board. Until it is in, told.
+- **Art:** a small patch, the envelope on the board. It is in (errata 254), and hangs behind the Colonel's wreath when both are there.
 
 ### N-3 · The raccoon, dressed
 
