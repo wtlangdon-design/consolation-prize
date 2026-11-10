@@ -7132,3 +7132,14 @@ For Tyler's eye, from the hand-back: Deke's glass goes to his face, which is mor
 
 Lesson: none of these was a fix but the check. `tools/check-key-fringe.mjs` is recorded in `proofs/check-friction.json`. The poses are held by `tests/acted-directions.test.ts`, which refused Thad's clips until each began on his stand frame.
 
+## 265 · The dawn, fixed; and Thad takes the sun in the Gulch (Tyler, 2026-11-10)
+
+Asked again whether the game looks of a piece, Tyler was shown the two dawn plates one above the other, and told the Gulch is five tan rooms in which Thad is the one cool thing. **"Fix the dawn. I defer to you on the Gulch."**
+
+- **The coach stop follows the street.** Errata 263 relit Main Street at dawn to the very first light (mean 63.9); the coach stop, the next screen and the last in the game, was still a bright later morning (102.5). It is relit by tool from its untouched original (`tools/art/coach-stop-first-light.py`; `reference/coach-stop-dawn/original.png`): mean 74.0, a little on from the street, its colour down by a fifth, its shadows leaned to the street's cold. No image operation.
+- **The figures in the first light are graded into it.** Thad and the dog on the dawn street, Thad and the sign painter at the coach stop: a cold light, a little dimmer. The dog was an orange lamp on a dim street.
+- **The Gulch, decided:** Thad takes a warm light in its five daylight rooms (the washout, the ledge, the tents, the river, upstream), so that he stands in the sun the Gulch's own men are painted in. **The Gulch's plates are left.** They are one place at one hour, they differ in what they show (a ravine, a camp, a river, a claim), and the lean that told the town's interiors apart works on shadow, of which daylight has little.
+- `renders/the-two-dawns-street-coach-stop-before-after.png`; `renders/dawn-and-gulch-figures-before-after.png`.
+
+Lesson: `tests/dawn.test.mjs` holds the two dawns together (the coach stop no darker than the street and no more than 16 lighter) and holds whoever stands in them graded. `tests/thad-light.test.mjs` now holds every day exterior to warming him. Doc 55 section 8: when a plate is relit, the next plate the player sees and the figures standing in both are relit with it.
+

@@ -50,3 +50,17 @@ test('a grade for Thad is a tint and a dimming, never a recolouring', () => {
     assert.ok(saturate >= 0.75 && saturate <= 1.1, `${room.id}: saturate ${saturate} takes his colour out, or adds one`);
   }
 });
+
+test('in the Gulch\'s daylight he takes the sun: every day exterior warms him (errata 265)', () => {
+  let days = 0;
+  for (const room of rooms) {
+    const kind = baseline[basename(room.background, '.png')]?.visualType ?? '';
+    if (kind !== 'exterior-day') continue;
+    days += 1;
+    const grade = room.figureLight;
+    assert.ok(grade?.figures?.includes('thad'), `${room.id}: a day exterior in which Thad is the one cool, dark thing`);
+    const light = grade.perFigure?.thad?.light ?? grade.light ?? [1, 1, 1];
+    assert.ok(light[0] > light[2], `${room.id}: his light there is not warm`);
+  }
+  assert.ok(days >= 5, `only ${days} day exteriors found: the baseline's kinds have moved`);
+});
