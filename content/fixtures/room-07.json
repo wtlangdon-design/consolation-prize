@@ -470,7 +470,8 @@
     "T_LINEN_ASKED": true,
     "T_WREATH_TAKEN": true,
     "T_WREATH_LAID": true,
-    "T_FUNERAL_HILL_SAID": true
+    "T_FUNERAL_HILL_SAID": true,
+    "T_LOG_WITH_WINNIE": true
    },
    "inventory": [
     "letter",
@@ -479,11 +480,7 @@
     "blanket",
     "invitation",
     "handkerchief",
-    "padded_log",
     "photograph",
-    "document_b",
-    "document_d",
-    "document_a",
     "watch",
     "document_c",
     "death_certificate",

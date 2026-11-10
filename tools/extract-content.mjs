@@ -1132,7 +1132,9 @@ function combinations() {
       // nothing points at. Gated on C4 the right item on the right person was
       // refused with "That accomplishes nothing I can see."
       requiresFlags: { T_QUEUE_PADDED: true }, completes: 'C5', opens: 'WINNIE',
-      note: 'ERRATA 66 A-C: SHOW / USE the submission log on Winnie is C5. The target is the room\'s ambient character, not a hotspot. No `say`: the pair\'s line is WIN_B2\'s opening, which the action launches at once. The log is kept. With C5 complete the pair yields to the ordinary pools (doc 36 Q113).',
+      // SHE KEEPS IT (errata 247): she is reading it, and counting. The item follows this flag (GIVEN_AWAY).
+      set: { T_LOG_WITH_WINNIE: true },
+      note: 'ERRATA 66 A-C: SHOW / USE the submission log on Winnie is C5. The target is the room\'s ambient character, not a hotspot. No `say`: the pair\'s line is WIN_B2\'s opening, which the action launches at once. She keeps the log (errata 247). With C5 complete the pair yields to the ordinary pools (doc 36 Q113).',
     },
   };
   const pairs = [];
@@ -3432,7 +3434,7 @@ function actTwoItems() {
       // Errata 66 A is the submission log's ruling, and was stamped on every
       // item here -- the loan and the linen money among them, which are spent
       // and given (the items audit, errata 140).
-      note: `EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. ${acquired}${id === 'padded_log' ? ' Errata 66 ruling A: shown to the character at C5 and kept; never consumed.' : ''}`,
+      note: `EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. ${acquired}`,
       responses,
       ...held,
       ...(FILED_AT_F5.has(id) ? { lostWhen: { T_FILED: true }, lostNote: FILED_NOTE } : {}),
@@ -3459,9 +3461,17 @@ const FILED_AT_F5 = new Set(['death_certificate', 'document_c', 'sample']);
  * doc 57 D4: "SHE_D1 option 1′ — Sheng takes it", which writes T_PRATT_TRAIL.
  * It stayed in the inventory to the end of the game (the items audit, errata 140).
  */
+const LODGED_AT_E0 = 'Lodged with Sump at E0 (doc 23; errata 247): SUM_B1\'s Document C option takes A, B and D together and issues C, '
+  + 'and writes T_CLAIM1_BLANK. It leaves the inventory with that flag. "It took three pieces of paper to earn this one."';
 const GIVEN_AWAY = {
   linen_money: { lostWhen: { T_PRATT_TRAIL: true },
     lostNote: 'Given to Sheng at SHE_D1 option 1′ (doc 23; doc 57 D4), which writes T_PRATT_TRAIL: it leaves the inventory with that flag (errata 140).' },
+  // PAPERS THAT ONLY PROVE PROGRESS STOP SITTING IN THE INVENTORY (errata 247; Tyler, 2026-11-09).
+  document_a: { lostWhen: { T_CLAIM1_BLANK: true }, lostNote: LODGED_AT_E0 },
+  document_b: { lostWhen: { T_CLAIM1_BLANK: true }, lostNote: LODGED_AT_E0 },
+  document_d: { lostWhen: { T_CLAIM1_BLANK: true }, lostNote: LODGED_AT_E0 },
+  padded_log: { lostWhen: { T_LOG_WITH_WINNIE: true },
+    lostNote: 'Given to Winnie at C5 (doc 23; errata 247): the pair that shows it to her writes T_LOG_WITH_WINNIE, and she is still counting. Errata 66 A kept it "unless a later authored source consumes it"; this is that source.' },
 };
 const FILED_NOTE = 'Laid on the counter at the filing (doc 57 F5) and on file after it: it leaves the inventory '
   + 'with T_FILED (Tyler agreed, 2026-11-06; errata 133).';

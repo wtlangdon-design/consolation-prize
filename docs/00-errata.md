@@ -6808,3 +6808,36 @@ Lesson:
 - `tests/d4.test.ts` plays the collection: asked, refused, no place in the line without the hymnal, nothing but PULL settles it, and the day lasting until it does.
 - The full walkthrough plays all of it (C3.5a, C3.12, D4.1 to D4.1c, E6b.1a, E7.1a).
 - `proofs/pacing.json`: PUSH twice and PULL once on the route now; "verb never used: PULL" is off the list, and the check fails if it comes back.
+
+---
+
+## 247 · Papers that only prove progress stop sitting in his pocket
+
+**Tyler, 2026-11-09:** "the inventory still has tons of papers and documents. Are you changing the game so that the inventory list loses a lot of those and replaces them with the fun new inventory items?" Yes, under errata 245's mandate.
+
+At the filing he carried 24 things and 14 of them were paper. Counted along the whole played route it was between 55 and 75 paper in every hundred, from Act I to the end.
+
+### What leaves, and where
+
+| Paper | Before | Now |
+|---|---|---|
+| **Documents A, B and D** | Shown at E0 and kept to the end | Lodged with Sump at E0 for Document C. The Certificate's own LOOK already said it: "It took three pieces of paper to earn this one. That is the exchange rate here." |
+| **The submission log** | Shown to Winnie at C5 and kept (errata 66 A: "unless a later authored source consumes it") | She keeps it. She is reading it, and counting |
+
+No line is new. Each leaves by the flag its own scene already writes or now writes (`T_CLAIM1_BLANK`, `T_LOG_WITH_WINNIE`), as the linen money leaves.
+
+### What stays, and why
+
+- **The Company's map** stays: the claims are on the town map only while he holds it (doc 57 A4).
+- **The third copy** stays: it is the way through the mine (G2), and it is Tyler's own decision (doc 107).
+- **The deed, the letter, the death certificate, Document C, the executor's form, the photograph, the obituary:** each is a paper the plot or a joke turns on.
+- **The invitation** goes at the dinner, with doc 114's I-1.
+
+### Where that leaves the count
+
+10 of 20 at the filing. **That is under half and not under a third, which is what was promised.** The papers that are left cannot go without taking story with them, so the rest has to come from objects, and `tools/check-pacing.mjs` now counts it and lists the shortfall in `proofs/pacing.json` until it is met.
+
+Lesson:
+- `tools/check-pacing.mjs` counts the papers carried to the filing and fails if the number gets worse.
+- `tools/check-fixtures.mjs`: a state past C5 may not hold the log, and one past E0 may not hold A, B or D. It found four fixtures that did.
+- The full walkthrough expects each paper gone at the step it is left (C5.2, E0.2).

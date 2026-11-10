@@ -2154,6 +2154,15 @@
     "combination:wreath:coffin"
    ],
    "note": "Doc 118 O-6 (errata 246): the Colonel's wreath is on Thad's own coffin. Nothing reads it."
+  },
+  {
+   "id": "T_LOG_WITH_WINNIE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:padded_log:winnie"
+   ],
+   "note": "Errata 247: the submission log has been shown to Winnie (C5) and she has kept it. The item leaves the inventory with this flag."
   }
  ]
 }

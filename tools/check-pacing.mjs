@@ -75,6 +75,13 @@ export function check() {
   for (const id of paper) if (!all.includes(id)) report.fail(`proofs/pacing.json calls "${id}" paper or money and there is no such item`);
   const objects = all.filter((id) => !paper.has(id)).length;
   if (objects * 2 < all.length) found.push(`objects are ${objects} of ${all.length} items, not half`);
+  // PAPERS IN HIS POCKET AT THE FILING (Tyler, 2026-11-09: "the inventory still has tons of papers and documents"). The
+  // fullest inventory of the game is the one he carries to the last counter: fixture r7-f5-held, which
+  // tests/items.test.ts holds to exactly what the walkthrough carries there. Money is not counted either way.
+  const held = (readJson('content/fixtures/room-07.json').fixtures.find((one) => one.id === 'r7-f5-held')?.inventory ?? [])
+    .filter((id) => !yard.money.includes(id));
+  const papers = held.filter((id) => yard.paper.includes(id));
+  if (papers.length * 3 >= held.length) found.push(`papers are ${papers.length} of the ${held.length} things he carries to the filing, not under a third`);
   const rooms = readJson('content/manifest.json').rooms.map((file) => readJson(file));
   const takeable = new Set();
   for (const room of rooms) {

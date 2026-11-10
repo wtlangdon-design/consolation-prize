@@ -17,3 +17,5 @@ Untouched throughout: CLAUDE.md's design invariants, the ending, the central rev
 | 9 | Act II, the linen money | Collected by arriving on the hill | Asked for and refused; with a hymnal from the church Thad joins the line, the plate stops with him, and he pulls | A solving PULL, an object carried two rooms, and a scene where there was a sentence | 246 |
 | 10 | Act II, the funeral day | Ends on entering the hill | Lasts until the plate is settled (still ends on entering when there is no plate business) | A player who goes back for the hymnal is not made to post the notice again | 246 |
 | 11 | Acts II and III, the wreath | No wreath | Left at Pike's marker; taken later; laid on Thad's own coffin | A joke that pays off an act later. Nothing depends on it | 246 |
+| 12 | Act II, the submission log | Shown to Winnie and kept to the end | Winnie keeps it | A paper that only proved progress; she is the one counting from it | 247 |
+| 13 | Act III, Documents A, B and D | Shown to Sump and kept to the end | Lodged with Sump for Document C | Three papers that only proved progress; "that is the exchange rate here" | 247 |

@@ -1458,10 +1458,11 @@
     ],
     "dialogue": "WINNIE",
     "node": "WIN_B2",
-    "carrying": [
+    "notCarrying": [
      "padded_log"
     ]
-   }
+   },
+   "note": "Errata 247: the papers that only prove progress are left where they are shown."
   },
   {
    "id": "C5.3",
@@ -1739,12 +1740,15 @@
      "T_CLAIM1_BLANK": true
     },
     "carrying": [
+     "document_c"
+    ],
+    "notCarrying": [
      "document_a",
      "document_b",
-     "document_d",
-     "document_c"
+     "document_d"
     ]
-   }
+   },
+   "note": "Errata 247: the papers that only prove progress are left where they are shown."
   },
   {
    "id": "E0b.1",

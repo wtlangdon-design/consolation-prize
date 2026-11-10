@@ -545,6 +545,7 @@
      ],
      "yields": [
       "p:C5",
+      "f:T_LOG_WITH_WINNIE=true",
       "t:WINNIE"
      ]
     }

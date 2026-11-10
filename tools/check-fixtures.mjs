@@ -30,7 +30,10 @@ const PREREQUISITES = [
   // The watch is traded at A3 and the four dollars spent -- docs/02-puzzle-graph.md:26,129-130: neither is held once swindled.
   { when: (f) => f.flags.T_SWINDLED === true, forbidItems: ['four_dollars'], why: 'the four dollars are spent at A3, before the swindle' },
   // C5 IS SHOWN EVIDENCE (errata 66 A-B): complete only with C4 complete and the log held; the log is C4's.
-  { when: (f) => f.puzzles?.C5 === 'complete', puzzlesNeed: ['C4'], items: ['padded_log'], need: ['T_ASSAY_QUEUE'], why: 'C5 follows C1-C4 with the submission log in hand -- docs/02-puzzle-graph.md:64-68' },
+  // ERRATA 247: C5 leaves the log with Winnie (T_LOG_WITH_WINNIE), so a state past C5 does not hold it -- and may not.
+  { when: (f) => f.puzzles?.C5 === 'complete', puzzlesNeed: ['C4'], need: ['T_ASSAY_QUEUE', 'T_LOG_WITH_WINNIE'], forbidItems: ['padded_log'], why: 'C5 follows C1-C4, and leaves the submission log with Winnie -- docs/02-puzzle-graph.md:64-68; errata 247' },
+  // ERRATA 247: E0 lodges A, B and D for C. Past it none of the three is held.
+  { when: (f) => f.puzzles?.E0 === 'complete' || f.flags.T_CLAIM1_BLANK === true, forbidItems: ['document_a', 'document_b', 'document_d'], why: 'Documents A, B and D are lodged with Sump at E0 for Document C (errata 247)' },
   { when: (f) => (f.inventory ?? []).includes('padded_log'), puzzlesNeed: ['C4'], need: ['T_ASSAY_QUEUE', 'T_BORDERS_MOTT'], why: 'the submission log is C4\'s, after C1 -- docs/02-puzzle-graph.md:64-67' },
   // C6 pending is WIN_B2's first row, after C5 -- docs/04-dialogue-trees.md:124; errata 66 F.
   { when: (f) => f.puzzles?.C6 !== undefined, puzzlesNeed: ['C5'], why: 'C6 follows C5' },
