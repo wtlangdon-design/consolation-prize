@@ -1,0 +1,16 @@
+{
+ "assetId": "act2-papers",
+ "subject": "act2-papers-thad-plate",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-14-boot-hill",
+ "promptFile": "reference/act2-papers/op-4.txt",
+ "out": "art/staging/act2-papers/op-4/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act2-papers/op-4/template.png",
+  "art/staging/act2-papers/op-4/thad-idle-front.png",
+  "art/staging/act3-hearse/op-1/thad-in-room-14.png"
+ ],
+ "derivedFrom": "art/actors/thad-stand-front/stand-00.png"
+}
