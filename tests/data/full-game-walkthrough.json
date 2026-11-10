@@ -1838,6 +1838,32 @@
    }
   },
   {
+   "id": "E6.1",
+   "puzzle": "E6",
+   "do": "go",
+   "room": "back_alley",
+   "expect": {
+    "present": [
+     "hob"
+    ]
+   }
+  },
+  {
+   "id": "E6.2",
+   "puzzle": "E6",
+   "do": "talk",
+   "npc": "hob",
+   "choose": [
+    "hob1"
+   ],
+   "leave": true,
+   "expect": {
+    "carrying": [
+     "executor_form"
+    ]
+   }
+  },
+  {
    "id": "E5.1",
    "puzzle": "E5",
    "do": "go",
@@ -1856,6 +1882,24 @@
     "flags": {
      "T_DECEASED": true
     }
+   }
+  },
+  {
+   "id": "E6.4",
+   "puzzle": "E6",
+   "do": "use",
+   "item": "executor_form",
+   "on": "sump",
+   "expect": {
+    "puzzles": [
+     "E6"
+    ],
+    "flags": {
+     "T_EXECUTOR_NAMED": true
+    },
+    "carrying": [
+     "executor_form"
+    ]
    }
   },
   {
@@ -1883,56 +1927,6 @@
     "flags": {
      "T_OBITUARY": true
     }
-   }
-  },
-  {
-   "id": "E6.1",
-   "puzzle": "E6",
-   "do": "go",
-   "room": "back_alley",
-   "expect": {
-    "present": [
-     "hob"
-    ]
-   }
-  },
-  {
-   "id": "E6.2",
-   "puzzle": "E6",
-   "do": "talk",
-   "npc": "hob",
-   "choose": [
-    "hob1"
-   ],
-   "leave": true,
-   "expect": {
-    "carrying": [
-     "executor_form"
-    ]
-   }
-  },
-  {
-   "id": "E6.3",
-   "puzzle": "E6",
-   "do": "go",
-   "room": "claims_registrar"
-  },
-  {
-   "id": "E6.4",
-   "puzzle": "E6",
-   "do": "use",
-   "item": "executor_form",
-   "on": "sump",
-   "expect": {
-    "puzzles": [
-     "E6"
-    ],
-    "flags": {
-     "T_EXECUTOR_NAMED": true
-    },
-    "carrying": [
-     "executor_form"
-    ]
    }
   },
   {
