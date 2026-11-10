@@ -185,7 +185,8 @@
  },
  "people": {
   "IGNATIUS FRAME": [
-   "frame"
+   "frame",
+   "frame_stood_back"
   ]
  },
  "headlines": {
@@ -239,5 +240,16 @@
    "bullet": "- PULL, *nothing set*"
   }
  ],
- "docBulletsNote": "Errata 249, doc 118 O-2: Frame sets the funeral notice (T_NOTICE_SET) and Thad pulls it off THE PRESS himself. PULL grants the notice and completes C3."
+ "docBulletsNote": "Errata 249, doc 118 O-2: Frame sets the funeral notice (T_NOTICE_SET) and Thad pulls it off THE PRESS himself. PULL grants the notice and completes C3.",
+ "hotspotWalkTo": {
+  "press": {
+   "x": 1310,
+   "y": 765,
+   "facing": "right",
+   "when": {
+    "T_NOTICE_SET": true
+   }
+  }
+ },
+ "hotspotWalkToNote": "Errata 250: PULL on THE PRESS is done at the press. The floor's right edge, beside it, with the printer stood back (frame_stood_back)."
 }

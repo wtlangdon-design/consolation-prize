@@ -4,6 +4,11 @@
  "name": "IGNATIUS FRAME",
  "posture": "standing",
  "room": "clarion",
+ "when": {
+  "T_NOTICE_SET": false,
+  "T_NOTICE_IN_HAND": false
+ },
+ "whenNote": "Errata 250: while the funeral notice is set, and while Thad has it wet in his hand, he has stood back from his press (frame_stood_back), so that Thad can get at it.",
  "x": 1379,
  "y": 717,
  "zone": 2,
@@ -101,5 +106,9 @@
   "figureHeight": 502,
   "stature": 1.0,
   "figureHeightNote": "Crown to sole of the rest frame (tools/art/figure-height.py); the engine draws him at the room's man there."
+ },
+ "leaves": {
+  "fade": 0.8,
+  "note": "Doc 118 O-2: 'stands back from the press with his arms folded.' He has no walk (errata 99 N), so he fades from the press and is by his desk (frame_stood_back), once he has said his line."
  }
 }

@@ -230,6 +230,11 @@ export interface Interactable {
    * be standing.
    */
   walkTo?: { x: number; y: number; facing: Facing };
+  /**
+   * The states in which `walkTo` is where he stands. Outside them he answers from where he is: the print shop's
+   * press is walked to only while its printer has stood back from it, since he is otherwise standing there.
+   */
+  walkToWhen?: Condition;
   responses?: Record<string, ResponseRule[]>;
   /**
    * Object-specific line for a verb this object has no written response to.

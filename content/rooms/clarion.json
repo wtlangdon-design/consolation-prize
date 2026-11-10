@@ -630,6 +630,14 @@
       "overrides": {
         "USE": "Frame offered to let me. Then he described the last man's sleeve. I withdrew the request and he printed that I had.",
         "TALK_TO": "It has told more of this town's story than anyone alive, most of it invented. I keep my remarks neutral."
+      },
+      "walkTo": {
+        "x": 1310,
+        "y": 765,
+        "facing": "right"
+      },
+      "walkToWhen": {
+        "T_NOTICE_SET": true
       }
     }
   ],
@@ -677,7 +685,8 @@
     }
   ],
   "ambient": [
-    "frame"
+    "frame",
+    "frame_stood_back"
   ],
   "size": [
     1920,
@@ -735,6 +744,28 @@
   ],
   "peopleResponses": {
     "frame": {
+      "PICK_UP": [
+        {
+          "say": "He would print it. He would print it on the front page, and he would spell it GRUBBE."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "He is already leaning toward the next sentence. He does not need help."
+        }
+      ],
+      "USE": [
+        {
+          "say": "Everybody in town uses him. He calls it circulation."
+        }
+      ],
+      "GIVE": [
+        {
+          "say": "Anything I hand him becomes a story. I am being careful what I hand him."
+        }
+      ]
+    },
+    "frame_stood_back": {
       "PICK_UP": [
         {
           "say": "He would print it. He would print it on the front page, and he would spell it GRUBBE."

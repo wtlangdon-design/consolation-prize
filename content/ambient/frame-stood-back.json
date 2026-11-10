@@ -1,0 +1,118 @@
+{
+ "schema": 1,
+ "id": "frame_stood_back",
+ "name": "IGNATIUS FRAME",
+ "posture": "standing",
+ "room": "clarion",
+ "whenAny": [
+  {
+   "T_NOTICE_SET": true
+  },
+  {
+   "T_NOTICE_IN_HAND": true
+  }
+ ],
+ "x": 930,
+ "y": 717,
+ "zone": 2,
+ "approachRadius": 40,
+ "walkTo": {
+  "x": 1120,
+  "y": 790,
+  "facing": "left"
+ },
+ "walkToNote": "Thad is where he stood to ask; he turns to him.",
+ "tree": "FRAME",
+ "note": "IGNATIUS FRAME, stood back from his press with the funeral notice set (doc 118 O-2, errata 250): the same man and the same sheet as `frame`, by his back editions, so that the press is Thad's to pull. He is here only between the asking and the pull.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for Frame.",
+ "sprite": {
+  "sheet": "art/actors/room-09-frame-master.png",
+  "frames": [
+   [
+    2,
+    2,
+    201,
+    502
+   ],
+   [
+    205,
+    2,
+    201,
+    502
+   ],
+   [
+    408,
+    2,
+    201,
+    502
+   ],
+   [
+    611,
+    2,
+    201,
+    502
+   ],
+   [
+    814,
+    2,
+    201,
+    502
+   ],
+   [
+    2,
+    506,
+    231,
+    502
+   ],
+   [
+    235,
+    506,
+    281,
+    502
+   ]
+  ],
+  "rate": 0.3,
+  "phase": 0.4,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 5,
+  "talkFrame": 2,
+  "frameNote": "0 rest, his notebook at his side · 1 breath (derived) · 2 talking, a hand out · 3 taking a quote in his notebook, the pencil from behind his ear · 4 leaning in · 5 the Clarion lifted from his side, his notebook under the other arm · 6 the Clarion thrust out to his left, at Thad (doc 95 row 98; cast-unify 87, errata 214). Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "provenance": "reference/cast-unify-16.spec.json",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 18 (reference/cast-unify-16.txt), full figure, holding his own thing in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet. Its own file: the sheet it replaces is written by an earlier cut.",
+  "figureHeight": 502,
+  "stature": 1.0,
+  "figureHeightNote": "Crown to sole of the rest frame (tools/art/figure-height.py); the engine draws him at the room's man there."
+ },
+ "speaksAs": "frame",
+ "leaves": {
+  "fade": 0.8,
+  "note": "The notice posted, he is back at his press when Thad next comes in."
+ }
+}
