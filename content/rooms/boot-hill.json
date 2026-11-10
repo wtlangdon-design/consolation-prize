@@ -1966,6 +1966,22 @@
       "note": "Doc 115 II-1 (errata 246): the plate in the line, in the widow's hands. The Reverend's own plate, lifted off his sheet (tools/art/act2-collection-sheet.py). Its base line is in front of the town's (y 800) so it is drawn over her hands; the rows under the plate are empty."
     },
     {
+      "id": "pike_s_envelope",
+      "sheet": "art/props/room-14-pike-envelope.png",
+      "x": 1580,
+      "y": 258,
+      "frame": [
+        0,
+        0,
+        67,
+        91
+      ],
+      "when": {
+        "T_LETTER_DELIVERED": true
+      },
+      "note": "Doc 121 N-2 (errata 250, 254): the letter of introduction, nailed by one corner to Mr. Pike's board once he has delivered it (objects-second-pass operation 3). Listed before the Colonel's wreath, which leans in front of it."
+    },
+    {
       "id": "colonel_s_wreath",
       "sheet": "art/props/room-14-colonels-wreath.png",
       "x": 1602,
