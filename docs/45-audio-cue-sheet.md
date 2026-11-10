@@ -409,6 +409,16 @@ These sounds are required, but placing them in a room or inventing an action wou
 
 # 3 · GLOBAL RULES
 
+## THREE SOUNDS FOR THINGS DESCRIBED AND NOT HEARD *(errata 257; doc 122 P1)*
+
+Each is the noise of something the screen says is happening, fired by the direction that says it (`content/audio/sounds.json` `lines`). None is a sting: none dips the score, none is fired by LISTEN, and none plays because a puzzle moved. Picked by ear, Tyler, 2026-11-10.
+
+| Cue | Trigger | Music | Layer | In | Out | Next | Loop |
+|---|---|---|---|---|---|---|---|
+| `R16-HUM` | Madame Ozymandia hums over the Company's map (doc 120 I-3: she unrolls it; and the rod moved along the line it prefers) | Carry | SFX: one held hummed note, 35 cents under an A, closed mouth; it stops dead | Cold | Cut, as she stops | Active room mix | No |
+| `R09-PULL` | THE PRESS pulled (doc 118 O-2) | Carry | SFX: the bar round, the platen down, the bar back, the knock on the return stroke, one sheet peeled | Cold | Natural tail | Active room mix | No |
+| `R14-NAIL` | The letter nailed to Mr. Pike's board with the tuning fork (doc 121 N-2) | Carry | SFX: three taps, a tick and the board, a trace of the fork's exact A440 (off the bus, doc 45 0.2), gone at once | Cold | Natural tail | Active room mix | No |
+
 ## 3.1 Dialogue and text
 
 | Situation | Music | SFX | Ducking |

@@ -91,8 +91,8 @@ const STEMS = [
   { file: 'thaddeus-room-01.wav', piece: 'THADDEUS_LA', loops: 4,
     note: 'O-02-M — THADDEUS, Room 1. Four bars of 3/4, solo, unaccompanied.' },
   { file: 'thaddeus-complete-room-33.wav', piece: 'THADDEUS_COMPLETE_LA', loops: 4,
-    note: 'R33-M — THADDEUS, complete (errata 70 C): the fourth bar resolves. Placeholder composition by the builder.' },
-  // ERRATA 102: the other four themes, placeholder compositions by the builder.
+    note: 'R33-M — THADDEUS, complete (errata 70 C): the fourth bar resolves. Composed by the builder; the score (errata 257).' },
+  // ERRATA 102: the other four themes, composed by the builder; the score (errata 257).
   // Theme statements, named for the theme rather than a room: the room mixes
   // doc 28 Part Three asks for are arrangements OF these, and come after Tyler
   // has heard the themes themselves.

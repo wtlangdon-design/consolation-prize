@@ -66,3 +66,30 @@ export function hiddenClick(click: { target: boolean; walk: boolean; transit: bo
   if (click.person || !click.target || click.walk || click.transit) return 'stay';
   return 'answer';
 }
+
+/**
+ * A SECOND CLICK ON THE WAY OUT GOES AT ONCE (errata 256; doc 122 P2. Tyler, 2026-11-10: "P2 - yes").
+ *
+ * Backtracking is most of an adventure game's minutes, and Main Street is nineteen seconds end to end. The map already
+ * lets a click skip a road he has walked before (errata 163). In a room: the first click on a way out walks him to it,
+ * as always. A second click on the SAME way out, while he is still walking to it, cuts to the next room.
+ *
+ * Only a way that would simply let him through. A door that is a beat (`transitScene`: a line said at the door, a
+ * refusal, a scene that plays as he leaves) is walked to and played where it stands, because cutting there would put
+ * him at the door in one frame. And only the same way out: a click anywhere else is the change of mind it always was.
+ *
+ * Phaser-free and named, so the rule has a test (tests/exit-skip.test.ts), as `hiddenClick` has.
+ */
+export function secondExitClick(click: {
+  /** The way out he is walking to because of the first click, if any. */
+  walkingTo: string | null;
+  /** What this click is on, if anything. */
+  clicked: string | null;
+  /** This click asks to go through it (an exit, and a verb that travels). */
+  transit: boolean;
+  /** Going through it now would simply change the room: no beat at the door, no held travel. */
+  atOnce: boolean;
+}): 'cut' | 'walk' {
+  if (!click.walkingTo || click.clicked !== click.walkingTo) return 'walk';
+  return click.transit && click.atOnce ? 'cut' : 'walk';
+}

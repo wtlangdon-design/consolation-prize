@@ -52,11 +52,13 @@ test('every cue a verb or a door fires is defined, and every step trigger\'s cue
 });
 
 test('every line that sounds is a line the game shows, word for word', () => {
-  const everything = ['content/rooms', 'content/dialogue']
-    .flatMap((dir) => readdirSync(resolve(ROOT, dir)).map((file) => readFileSync(resolve(ROOT, dir, file), 'utf8')))
+  // Rooms, trees, and (errata 257) the pairs: the nail's taps are a direction of an item used on a thing.
+  const everything = [...['content/rooms', 'content/dialogue']
+    .flatMap((dir) => readdirSync(resolve(ROOT, dir)).map((file) => readFileSync(resolve(ROOT, dir, file), 'utf8'))),
+  readFileSync(resolve(ROOT, 'content/combinations.json'), 'utf8')]
     .join('\n');
   for (const rule of sounds.lines ?? []) {
-    assert.ok(everything.includes(JSON.stringify(rule.line)), `"${rule.line}" (${rule.cue}) is in no room or tree: the doc changed it`);
+    assert.ok(everything.includes(JSON.stringify(rule.line)), `"${rule.line}" (${rule.cue}) is in no room, tree or pair: the doc changed it`);
   }
 });
 
@@ -123,4 +125,18 @@ test('no load-bearing LISTEN has a sound of its own: the timesheet plays what ot
   const elsewhere = new Set(sounds.verbs.filter((rule) => rule.cue !== timesheet.cue)
     .flatMap((rule) => (sounds.cues[rule.cue]!.play ?? []).map((part) => part.src)));
   for (const src of own) assert.ok(elsewhere.has(src), `${src} is heard only on the timesheet`);
+});
+
+test('the three sounds of errata 257 play on the directions that describe them, and on nothing that solves or marks', () => {
+  // Doc 122 P1. Each is the noise of a thing the screen says is happening: her hum, the press, the taps.
+  const by = (cue: string) => (sounds.lines ?? []).filter((rule) => rule.cue === cue).map((rule) => rule.line);
+  assert.equal(by('R16-HUM').length, 2, 'she hums when she unrolls the map and when the rod is moved along the line');
+  assert.ok(by('R16-HUM').every((line) => /\bhums\b/.test(line)), 'the hum sounds on a line in which nobody hums');
+  assert.ok(by('R09-PULL').length === 1 && /The press comes down/.test(by('R09-PULL')[0]!));
+  assert.ok(by('R14-NAIL').length === 1 && /Each tap is an A/.test(by('R14-NAIL')[0]!));
+  // None is a LISTEN's sound: no verb rule fires them, so no LISTEN line (load-bearing or not) is marked by one.
+  for (const cue of ['R16-HUM', 'R09-PULL', 'R14-NAIL']) {
+    assert.ok(!sounds.verbs.some((rule) => rule.cue === cue), `${cue} is fired by a verb`);
+    assert.ok(sounds.cues[cue]!.duck === undefined, `${cue} dips the score: that is a sting`);
+  }
 });
