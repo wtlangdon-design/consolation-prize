@@ -2163,6 +2163,44 @@
     "combination:padded_log:winnie"
    ],
    "note": "Errata 247: the submission log has been shown to Winnie (C5) and she has kept it. The item leaves the inventory with this flag."
+  },
+  {
+   "id": "T_SEEN_BOOT_HILL",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter"
+   ],
+   "note": "Doc 120 I-2 (errata 248): Thad has stood on Boot Hill, and said why he came. The arrival lines are said once."
+  },
+  {
+   "id": "T_LETTER_OFFERED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:letter:pike_s_marker"
+   ],
+   "note": "Doc 120 I-2 (errata 248): the letter of introduction has been held out to Pike's board. Nothing reads it but the pair's own second line."
+  },
+  {
+   "id": "T_EGGS_IMPROVED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:tonic:eggs",
+    "combination:eggs:tonic"
+   ],
+   "note": "Doc 120 (errata 248): Dr. Purvis's tonic is in the jar of pickled eggs."
+  },
+  {
+   "id": "T_WREATH_CARDED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:obituary:wreath",
+    "combination:wreath:obituary"
+   ],
+   "note": "Doc 120 (errata 248): the obituary is under the ribbon of the Colonel's wreath, as its card."
   }
  ]
 }

@@ -1410,6 +1410,34 @@
       "speaker": "thad",
       "words": "Thad lays the wreath on his own coffin and straightens the ribbon.",
       "where": "combinations (wreath on coffin)"
+    },
+    {
+      "n": 143,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad holds the letter out to the board, as one does to a butler.",
+      "where": "combinations (letter on pike_s_marker)"
+    },
+    {
+      "n": 144,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.",
+      "where": "combinations (tonic on eggs)"
+    },
+    {
+      "n": 145,
+      "class": "C",
+      "speaker": "thad",
+      "words": "The egg goes in. There is a pause. The egg comes back out, at speed.",
+      "where": "combinations (eggs on hole, improved)"
+    },
+    {
+      "n": 146,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
+      "where": "combinations (obituary on wreath)"
     }
   ]
 }

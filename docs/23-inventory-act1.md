@@ -147,7 +147,7 @@
 **LISTEN** 1 "Paper. It smells of incense and two dollars." · 2 "Nothing." · 3 "Nothing. It has said what the rod told it to, and it has no further instructions."
 
 ## THE INVITATION
-*Handed over by Sump at the end of A9. Kept.*
+*Handed over by Sump at the end of A9. Gone after the dinner (A10): left on the Colonel's table. (Errata 248.)*
 
 **LOOK** 1 "'Colonel A. Fanshawe requests the pleasure of Mr. Grubb at dinner, this evening.' Engraved. The evening was printed before I was." · 2 "My name has been written in by hand, in a space left for whichever name it turned out to be." · 3 "It was waiting at the Registrar's before I had finished registering. I am trying to take that as a compliment."
 **LISTEN** 1 "Heavy card. It does not rustle. It announces." · 2 "Nothing." · 3 "Nothing. It has said 'this evening', and that was all it needed to say."
@@ -201,7 +201,7 @@
 **LISTEN** 1 "Paper." · 2 "Nothing." · 3 "Nothing. I keep expecting it to say something, as the subject."
 
 ## THE OBITUARY
-*E5, the Clarion's front page. Kept.*
+*E5, the Clarion's front page. Gone after it is tucked under the ribbon of the Colonel's wreath as its card (doc 120; errata 248); kept by a player who never does.*
 
 **LOOK** 1 "The Clarion's obituary of THADEUS GRUBBE, piano tuner, 'the only man in town who fixed anything.' Two errors in the name. None in the rest." · 2 "He has spelled it wrong in a new way, and done it carefully. It is the best one yet, and I find I mind it least." · 3 "Page one, above the fold, beside an advertisement for coffins. Frame has a sense of order I had not credited."
 **LISTEN** 1 "Newsprint." · 2 "Nothing." · 3 "Nothing. It is the only thing Frame has ever printed that I believe."

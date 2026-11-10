@@ -58,8 +58,8 @@ Not built here. The design: the map is laid on her table as large as the screen.
 ### I-2 · Pike's grave: the lines
 
 **ARRIVING** · *Boot Hill, the first time*
-> "Boot Hill. Nineteen boards, and Mr. Pike's at the back, where they put a man who is not expected to have callers."
-> "Four hundred miles, and my father's best handwriting. I had better at least knock."
+> "Boot Hill. Mr. Pike's board is at the back, where they put a man who is not expected to have callers."
+> "A coach, four dollars, and my father's best handwriting. I had better at least knock."
 
 **PIKE'S MARKER** · USE THE LETTER
 - USE THE LETTER, *the first time* — *(Thad holds the letter out to the board, as one does to a butler.)* "'To Mr. Ezra Pike, by the hand of my son.' I am the hand. I regret to say he is the late." *"I cannot leave it with him. The wind would have it at the Improvement Company by morning, and I may want an introduction yet."*

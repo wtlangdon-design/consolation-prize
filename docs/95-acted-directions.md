@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 36 · B 22 · C 85** — 142 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 36 · B 22 · C 89** — 146 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -177,6 +177,10 @@ Counts: **A 36 · B 22 · C 85** — 142 directions, every one flagged `"directi
 | 140 | C | sowerby_gate | He takes hold of the rim. | rooms/boot_hill town_coming_down USE (with a hymnal) |  |  |  |  |  | Errata 246, doc 115 II-1: his hand is on the rim as it is said (his sheet while the plate is held). Told as well, since it is what the next verb is about. |
 | 141 | A | sowerby_gate | He does not let go. Neither does Thad. | rooms/boot_hill mr_pike_s_collection PULL | sowerby_gate | 2 | 1.6 | 2 |  | Errata 246, doc 115 II-1: the Reverend's hand on the rim (his frame 2), kept through the exchange that follows, while Thad pulls (the rule's `holds`: his plate clip, frame 2, arms out and his weight on his heels). The picture is two men holding a plate, and the next line says who is watching. |
 | 142 | C | thad | Thad lays the wreath on his own coffin and straightens the ribbon. | combinations (wreath on coffin) |  |  |  |  |  | Errata 246, doc 118 O-6: no picture of the wreath on the coffin. Told. |
+| 143 | C | thad | Thad holds the letter out to the board, as one does to a butler. | combinations (letter on pike_s_marker) |  |  |  |  |  | Errata 248, doc 120 I-2: "as one does to a butler" is the joke. Told. |
+| 144 | C | thad | Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise. | combinations (tonic on eggs) |  |  |  |  |  | Errata 248, doc 120: in his hands, in the inventory. Told. |
+| 145 | C | thad | The egg goes in. There is a pause. The egg comes back out, at speed. | combinations (eggs on hole, improved) |  |  |  |  |  | Errata 248, doc 120: the egg and the pause are the joke, and the raccoon in the hole has no throw. Told. |
+| 146 | C | thad | Thad folds the obituary and tucks it under the ribbon, where a card goes. | combinations (obituary on wreath) |  |  |  |  |  | Errata 248, doc 120: in his hands, in the inventory. Told. |
 
 ## When a B pose is drawn
 

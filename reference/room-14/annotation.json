@@ -477,6 +477,21 @@
  "onEnterSetNote": "Doc 57 C3: 'If T_SHENG_TASK is set and D4 is not done, Sowerby is at the gate with the plate (D4). Then T_FUNERAL_DAY clears ... and Sowerby is back in his church.' He stands at the gate for the visit that ends the day (T_PLATE_AT_GATE), and is gone the next time. Errata 233 (doc 110 section 2, States and flags): until scene B is built, the first entry once the funeral can be reached (E6, the obituary, before the funeral and the ride) stalls the procession at the gate. Errata 242 (doc 113, C): T_TOWN_ON_HILL, the same way -- the town is on the hill for the visit that ends the funeral day and gone on the next entry. Errata 246 (doc 115 II-1): the day ends on entering only when the plate is not at the gate; with it there, the day lasts until the plate is settled (the PULL clears it). T_HOLDS_PLATE is cleared on every entry.",
  "onEnterScenes": [
   {
+   "fromRef": "docs/120-act-one-by-hand.md::### I-2 · Pike's grave: the lines",
+   "bold": "ARRIVING",
+   "when": {
+    "T_SEEN_BOOT_HILL": false,
+    "T_FUNERAL_DAY": false,
+    "T_OBITUARY": false
+   },
+   "after": {
+    "set": {
+     "T_SEEN_BOOT_HILL": true
+    }
+   },
+   "note": "Doc 120 I-2 (errata 248): the first time he stands on Boot Hill he says why he came. Not on a funeral day or once the plot is dug, which have their own arrivals."
+  },
+  {
    "fromRef": "docs/110-act-three-scenes.md::### THE LINES",
    "bold": "ARRIVING",
    "when": {

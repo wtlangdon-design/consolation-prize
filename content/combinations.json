@@ -735,6 +735,25 @@
           "say": "Not until the air clears. Possibly not until the season does."
         },
         {
+          "case": "improved, with the raccoon in",
+          "when": {
+            "T_WARM_HOLE": false,
+            "T_EGGS_IMPROVED": true
+          },
+          "say": "An egg at the entrance, with Dr. Purvis's compliments.",
+          "then": [
+            {
+              "speaker": "thad",
+              "line": "The egg goes in. There is a pause. The egg comes back out, at speed.",
+              "direction": true
+            },
+            "He has returned it. I did not know they could throw."
+          ],
+          "takes": [
+            "eggs"
+          ]
+        },
+        {
           "case": "with the raccoon in",
           "when": {
             "T_WARM_HOLE": false
@@ -2185,6 +2204,36 @@
       "note": "Doc 118 (THE LINES; errata 246), O-6: the Colonel's wreath laid on Thad's own coffin. Nothing reads T_WREATH_LAID.",
       "rules": [
         {
+          "case": "laid, with its card",
+          "say": "Thad lays the wreath on his own coffin and straightens the ribbon.",
+          "direction": true,
+          "then": [
+            {
+              "speaker": "funeral_undertaker",
+              "line": "Flowers weren't paid for."
+            },
+            "They were. Not by me.",
+            {
+              "speaker": "funeral_undertaker",
+              "line": "Mm."
+            },
+            {
+              "speaker": "funeral_undertaker",
+              "line": "Card's spelled wrong."
+            },
+            "It is the correct wrong spelling."
+          ],
+          "takes": [
+            "wreath"
+          ],
+          "set": {
+            "T_WREATH_LAID": true
+          },
+          "when": {
+            "T_WREATH_CARDED": true
+          }
+        },
+        {
           "case": "laid",
           "say": "Thad lays the wreath on his own coffin and straightens the ribbon.",
           "direction": true,
@@ -2204,6 +2253,9 @@
           ],
           "set": {
             "T_WREATH_LAID": true
+          },
+          "when": {
+            "T_WREATH_CARDED": false
           }
         }
       ]
@@ -2218,6 +2270,193 @@
         {
           "case": "any time",
           "say": "I rang it as it went by. It gave a full, round note. An empty one rings higher, and the Reverend has the ear for that."
+        }
+      ]
+    },
+    {
+      "item": "letter",
+      "room": "boot_hill",
+      "target": "pike_s_marker",
+      "say": "Thad holds the letter out to the board, as one does to a butler.",
+      "note": "Doc 120 (THE LINES; errata 248), I-2: the letter of introduction held out to Pike's board. Nothing is written but that it was done; the letter stays (C3 wants it).",
+      "rules": [
+        {
+          "case": "the first time",
+          "when": {
+            "T_LETTER_OFFERED": false
+          },
+          "say": "Thad holds the letter out to the board, as one does to a butler.",
+          "direction": true,
+          "then": [
+            "'To Mr. Ezra Pike, by the hand of my son.' I am the hand. I regret to say he is the late.",
+            "I cannot leave it with him. The wind would have it at the Improvement Company by morning, and I may want an introduction yet."
+          ],
+          "set": {
+            "T_LETTER_OFFERED": true
+          }
+        },
+        {
+          "case": "again",
+          "when": {
+            "T_LETTER_OFFERED": true
+          },
+          "say": "He has been introduced to me once. I will not press the acquaintance."
+        }
+      ]
+    },
+    {
+      "item": "tonic",
+      "room": "prosperity",
+      "target": "eggs",
+      "otherwise": "pool",
+      "say": "Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.",
+      "note": "Doc 120 (THE LINES; errata 248): Dr. Purvis's tonic on the pickled eggs, either way round, at the claim. The tonic is not spent (doc 118's handkerchief wants it later).",
+      "rules": [
+        {
+          "case": "improved",
+          "when": {
+            "T_EGGS_IMPROVED": false
+          },
+          "say": "Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.",
+          "direction": true,
+          "then": [
+            "The eggs have been restored. I could not say to what, and I notice the label does not either."
+          ],
+          "set": {
+            "T_EGGS_IMPROVED": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "eggs",
+      "room": "prosperity",
+      "target": "tonic",
+      "otherwise": "pool",
+      "say": "Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.",
+      "note": "Doc 120 (THE LINES; errata 248): Dr. Purvis's tonic on the pickled eggs, either way round, at the claim. The tonic is not spent (doc 118's handkerchief wants it later).",
+      "rules": [
+        {
+          "case": "improved",
+          "when": {
+            "T_EGGS_IMPROVED": false
+          },
+          "say": "Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.",
+          "direction": true,
+          "then": [
+            "The eggs have been restored. I could not say to what, and I notice the label does not either."
+          ],
+          "set": {
+            "T_EGGS_IMPROVED": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "obituary",
+      "room": "boot_hill",
+      "target": "wreath",
+      "otherwise": "pool",
+      "say": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
+      "note": "Doc 120 (THE LINES; errata 248): the obituary tucked under the wreath's ribbon, where a card goes, either way round. It leaves with the wreath.",
+      "rules": [
+        {
+          "case": "the card",
+          "when": {
+            "T_WREATH_CARDED": false
+          },
+          "say": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
+          "direction": true,
+          "then": [
+            "Every wreath wants a card. This one says THADEUS GRUBBE, twice wrong, and SINCERELY, which I shall take on trust."
+          ],
+          "takes": [
+            "obituary"
+          ],
+          "set": {
+            "T_WREATH_CARDED": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "wreath",
+      "room": "boot_hill",
+      "target": "obituary",
+      "otherwise": "pool",
+      "say": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
+      "note": "Doc 120 (THE LINES; errata 248): the obituary tucked under the wreath's ribbon, where a card goes, either way round. It leaves with the wreath.",
+      "rules": [
+        {
+          "case": "the card",
+          "when": {
+            "T_WREATH_CARDED": false
+          },
+          "say": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
+          "direction": true,
+          "then": [
+            "Every wreath wants a card. This one says THADEUS GRUBBE, twice wrong, and SINCERELY, which I shall take on trust."
+          ],
+          "takes": [
+            "obituary"
+          ],
+          "set": {
+            "T_WREATH_CARDED": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "obituary",
+      "room": "funeral",
+      "target": "wreath",
+      "otherwise": "pool",
+      "say": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
+      "note": "Doc 120 (THE LINES; errata 248): the obituary tucked under the wreath's ribbon, where a card goes, either way round. It leaves with the wreath.",
+      "rules": [
+        {
+          "case": "the card",
+          "when": {
+            "T_WREATH_CARDED": false
+          },
+          "say": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
+          "direction": true,
+          "then": [
+            "Every wreath wants a card. This one says THADEUS GRUBBE, twice wrong, and SINCERELY, which I shall take on trust."
+          ],
+          "takes": [
+            "obituary"
+          ],
+          "set": {
+            "T_WREATH_CARDED": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "wreath",
+      "room": "funeral",
+      "target": "obituary",
+      "otherwise": "pool",
+      "say": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
+      "note": "Doc 120 (THE LINES; errata 248): the obituary tucked under the wreath's ribbon, where a card goes, either way round. It leaves with the wreath.",
+      "rules": [
+        {
+          "case": "the card",
+          "when": {
+            "T_WREATH_CARDED": false
+          },
+          "say": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
+          "direction": true,
+          "then": [
+            "Every wreath wants a card. This one says THADEUS GRUBBE, twice wrong, and SINCERELY, which I shall take on trust."
+          ],
+          "takes": [
+            "obituary"
+          ],
+          "set": {
+            "T_WREATH_CARDED": true
+          }
         }
       ]
     }

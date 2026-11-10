@@ -3,7 +3,7 @@
   "id": "invitation",
   "name": "An invitation to dine with Colonel Fanshawe",
   "short": "THE INVITATION",
-  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Handed over by Sump at the end of A9. Kept.",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Handed over by Sump at the end of A9. Gone after the dinner (A10): left on the Colonel's table. (Errata 248.)",
   "responses": {
     "LOOK_AT": [
       {
@@ -23,5 +23,9 @@
         ]
       }
     ]
-  }
+  },
+  "lostWhen": {
+    "T_DINED": true
+  },
+  "lostNote": "Left on the Colonel's table (doc 23; doc 120; errata 248): it leaves the inventory when the dinner is over, with T_DINED."
 }

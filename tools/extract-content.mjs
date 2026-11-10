@@ -1221,7 +1221,7 @@ function combinations() {
   }
 
   // Pairs a later block adds (doc 57's, doc 54 A5's bait and smoke, doc 108's rod at the line) are not doc 24's.
-  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 110 |^Doc 111 |^Doc 113 |^Doc 115 |^Doc 118 /.test(pair.note ?? '')).length;
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 110 |^Doc 111 |^Doc 113 |^Doc 115 |^Doc 118 |^Doc 120 /.test(pair.note ?? '')).length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
@@ -1811,6 +1811,8 @@ function combinations() {
   // Objects, first pass (doc 118; errata 245): the chalked turn, the notice posted, the tonic on the handkerchief.
   const objects = objectsPairs(prattTurnLines());
   rebuilt.push(...papersPairs(objects), ...objects.pairs);
+  // Act I, by hand (doc 120; errata 248): the letter at Pike's board, the eggs improved, the card in the wreath.
+  actOnePairs(rebuilt);
   return write('content/combinations.json', {
     ...existing, pairs: rebuilt, itemPools, areaPools: mine.areaPools, targetPools: giving.targetPools, globalPool: global,
   });
@@ -3470,6 +3472,8 @@ const GIVEN_AWAY = {
   document_a: { lostWhen: { T_CLAIM1_BLANK: true }, lostNote: LODGED_AT_E0 },
   document_b: { lostWhen: { T_CLAIM1_BLANK: true }, lostNote: LODGED_AT_E0 },
   document_d: { lostWhen: { T_CLAIM1_BLANK: true }, lostNote: LODGED_AT_E0 },
+  invitation: { lostWhen: { T_DINED: true },
+    lostNote: 'Left on the Colonel\'s table (doc 23; doc 120; errata 248): it leaves the inventory when the dinner is over, with T_DINED.' },
   padded_log: { lostWhen: { T_LOG_WITH_WINNIE: true },
     lostNote: 'Given to Winnie at C5 (doc 23; errata 247): the pair that shows it to her writes T_LOG_WITH_WINNIE, and she is still counting. Errata 66 A kept it "unless a later authored source consumes it"; this is that source.' },
 };
@@ -6914,8 +6918,8 @@ function papersPairs(objects) {
 const OBJECTS_DOC = 'docs/118-objects-the-lines.md';
 const objectsRule = (start, speakers = {}) => papersRule(papersBullet(start, OBJECTS_DOC), speakers);
 /** The `> ` lines under the line starting `head`, as an exchange; a line that is only a direction is the last speaker's. */
-function objectsBlock(head, speakers = {}) {
-  const rows = papersLines(OBJECTS_DOC);
+function objectsBlock(head, speakers = {}, doc = OBJECTS_DOC) {
+  const rows = papersLines(doc);
   const at = rows.findIndex((one) => one.startsWith(head));
   if (at < 0) throw new Error(`doc 118: no line starting ${head}`);
   const block = [];
@@ -6995,6 +6999,51 @@ function objectsItems() {
     item('A HYMNAL', 'hymnal', 'A HYMNAL', 'Taken from his pew in the church (errata 246). With it he can stand in the line of mourners on the hill; kept.'),
     item('THE COLONEL\'S WREATH', 'wreath', 'THE COLONEL\'S WREATH', 'Taken from Pike\'s marker once the town has gone down (errata 246); laid on his own coffin in Act III. Nothing depends on it.'),
   ];
+}
+/**
+ * ACT I, BY HAND (doc 120, THE LINES; errata 248). The small rows that are item pairs, read from doc 120 and never typed:
+ *  - THE LETTER held out to PIKE'S MARKER (I-2): a beat; nothing is taken.
+ *  - DR. PURVIS'S TONIC on THE PICKLED EGGS, either way round, at the hole: the eggs improved (the tonic is kept), and
+ *    the improved eggs at the hole, ahead of the egg's own answer there.
+ *  - THE OBITUARY tucked under THE COLONEL'S WREATH's ribbon, either way round, where the wreath is carried; and the
+ *    undertaker's second line when it is laid with its card in.
+ * Flags and ids are routing.
+ */
+const ACT_ONE_DOC = 'docs/120-act-one-by-hand.md';
+function actOnePairs(pairs) {
+  const NOTE = 'Doc 120 (THE LINES; errata 248)';
+  const rule = (start, speakers = {}) => papersRule(papersBullet(start, ACT_ONE_DOC), speakers);
+  pairs.push({ item: 'letter', room: 'boot_hill', target: 'pike_s_marker', say: rule('- USE THE LETTER, *the first time* — ').say,
+    note: `${NOTE}, I-2: the letter of introduction held out to Pike's board. Nothing is written but that it was done; the letter stays (C3 wants it).`,
+    rules: [{ case: 'the first time', when: { T_LETTER_OFFERED: false }, ...rule('- USE THE LETTER, *the first time* — '), set: { T_LETTER_OFFERED: true } },
+      { case: 'again', when: { T_LETTER_OFFERED: true }, ...rule('- USE THE LETTER, *again* — ') }] });
+  const improve = rule('- USE DR. PURVIS\'S TONIC — ');
+  for (const [item, target] of [['tonic', 'eggs'], ['eggs', 'tonic']]) {
+    pairs.push({ item, room: 'prosperity', target, otherwise: 'pool', say: improve.say,
+      note: `${NOTE}: Dr. Purvis's tonic on the pickled eggs, either way round, at the claim. The tonic is not spent (doc 118's handkerchief wants it later).`,
+      rules: [{ case: 'improved', when: { T_EGGS_IMPROVED: false }, ...improve, set: { T_EGGS_IMPROVED: true } }] });
+  }
+  const atHole = pairs.find((one) => one.item === 'eggs' && one.target === 'hole' && one.room === 'prosperity');
+  if (!atHole) throw new Error('doc 120: no pair for the eggs at the hole to put the improved eggs ahead of');
+  const meeting = atHole.rules.findIndex((one) => one.takes?.includes('eggs'));
+  if (meeting < 0) throw new Error('doc 120: the eggs at the hole have no rule that spends them');
+  atHole.rules.splice(meeting, 0, { case: 'improved, with the raccoon in', when: { ...atHole.rules[meeting].when, T_EGGS_IMPROVED: true },
+    ...rule('- USE THE PICKLED EGGS, *improved* — '), takes: ['eggs'] });
+  const card = rule('- USE THE OBITUARY — ');
+  for (const room of ['boot_hill', 'funeral']) {
+    for (const [item, target] of [['obituary', 'wreath'], ['wreath', 'obituary']]) {
+      pairs.push({ item, room, target, otherwise: 'pool', say: card.say,
+        note: `${NOTE}: the obituary tucked under the wreath's ribbon, where a card goes, either way round. It leaves with the wreath.`,
+        rules: [{ case: 'the card', when: { T_WREATH_CARDED: false }, ...card, takes: ['obituary'], set: { T_WREATH_CARDED: true } }] });
+    }
+  }
+  const laid = pairs.find((one) => one.item === 'wreath' && one.target === 'coffin');
+  if (!laid) throw new Error('doc 120: no pair lays the wreath on the coffin');
+  const more = objectsBlock('**THE COFFIN** · USE THE COLONEL\'S WREATH, *with the card in it*', { 'THE UNDERTAKER': 'funeral_undertaker' }, ACT_ONE_DOC);
+  const [bare] = laid.rules;
+  laid.rules = [{ ...bare, case: 'laid, with its card', when: { T_WREATH_CARDED: true },
+    then: [...(bare.then ?? []), ...more.map((one) => (one.speaker === 'thad' ? one.line : one))] },
+  { ...bare, when: { T_WREATH_CARDED: false } }];
 }
 function objectsPairs(prattTurn) {
   const NOTE = 'Doc 118 (THE LINES; errata 245)';

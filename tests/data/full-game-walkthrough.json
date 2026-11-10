@@ -139,6 +139,23 @@
    }
   },
   {
+   "id": "A1.4",
+   "puzzle": "A1",
+   "do": "use",
+   "item": "letter",
+   "on": "pike_s_marker",
+   "note": "Errata 248 (doc 120). The letter held out to the board.",
+   "expect": {
+    "flags": {
+     "T_LETTER_OFFERED": true,
+     "T_SEEN_BOOT_HILL": true
+    },
+    "carrying": [
+     "letter"
+    ]
+   }
+  },
+  {
    "id": "A2.1",
    "puzzle": "A2",
    "do": "go",
@@ -307,6 +324,37 @@
    }
   },
   {
+   "id": "A5.2b",
+   "puzzle": "A5",
+   "do": "go",
+   "room": "mercantile",
+   "note": "Errata 248 (doc 120). The eggs and the tonic, on account."
+  },
+  {
+   "id": "A5.2c",
+   "puzzle": "A5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "pickle_jar",
+   "expect": {
+    "carrying": [
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "A5.2d",
+   "puzzle": "A5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "dr_purvis_s_tonic",
+   "expect": {
+    "carrying": [
+     "tonic"
+    ]
+   }
+  },
+  {
    "id": "A5.3",
    "puzzle": "A5",
    "do": "go",
@@ -315,6 +363,39 @@
     "present": [
      "raccoon"
     ]
+   }
+  },
+  {
+   "id": "A5.3a",
+   "puzzle": "A5",
+   "do": "use",
+   "item": "tonic",
+   "on": "eggs",
+   "note": "Errata 248 (doc 120). The eggs, improved: an item on an item.",
+   "expect": {
+    "flags": {
+     "T_EGGS_IMPROVED": true
+    },
+    "carrying": [
+     "tonic",
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "A5.3b",
+   "puzzle": "A5",
+   "do": "use",
+   "item": "eggs",
+   "on": "hole",
+   "note": "Errata 248 (doc 120). The raccoon's opinion of them.",
+   "expect": {
+    "notCarrying": [
+     "eggs"
+    ],
+    "flags": {
+     "T_WARM_HOLE": false
+    }
    }
   },
   {
@@ -1169,25 +1250,6 @@
     "flags": {
      "T_FUNERAL_DAY": false
     }
-   }
-  },
-  {
-   "id": "C3.8",
-   "puzzle": "C3",
-   "do": "go",
-   "room": "mercantile",
-   "note": "Errata 245 (doc 118). The tonic, for the gilt."
-  },
-  {
-   "id": "C3.9",
-   "puzzle": "C3",
-   "do": "verb",
-   "verb": "PICK_UP",
-   "on": "dr_purvis_s_tonic",
-   "expect": {
-    "carrying": [
-     "tonic"
-    ]
    }
   },
   {
@@ -2215,6 +2277,25 @@
    "on": "colonel_s_wreath",
    "note": "Errata 246 (docs 115, 118). The Colonel's wreath, left at Pike's marker.",
    "expect": {
+    "carrying": [
+     "wreath"
+    ]
+   }
+  },
+  {
+   "id": "E6b.1b",
+   "puzzle": "E6b",
+   "do": "use",
+   "item": "obituary",
+   "on": "wreath",
+   "note": "Errata 248 (doc 120). The card: an item on an item.",
+   "expect": {
+    "flags": {
+     "T_WREATH_CARDED": true
+    },
+    "notCarrying": [
+     "obituary"
+    ],
     "carrying": [
      "wreath"
     ]
