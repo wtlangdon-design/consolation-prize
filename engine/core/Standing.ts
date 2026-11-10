@@ -118,3 +118,13 @@ export function sameClickAgain(click: {
   if (!click.walking || !click.last || click.last.ask !== click.ask) return 'new';
   return Math.hypot(click.at.x - click.last.x, click.at.y - click.last.y) <= click.within ? 'hurry' : 'new';
 }
+
+/**
+ * HIDDEN, BUT NOT WHILE HE IS ACTING HIS WAY OUT OF SIGHT (errata 267). A state of a room hides him (under the séance
+ * table's cloth: RoomFile.actorHiddenWhen), and the rule that sets the state also acts his going: "Thad goes down on
+ * his hands and knees and under the cloth." Filmed, the flag was written first and he was gone before he had gone
+ * down. While he holds a frame of an acted direction he is drawn; when the act lets him go, the room hides him.
+ */
+export function hiddenNow(state: { hidden: boolean; acting: boolean }): boolean {
+  return state.hidden && !state.acting;
+}

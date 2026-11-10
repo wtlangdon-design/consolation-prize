@@ -7154,3 +7154,14 @@ Tyler, 2026-11-10, asked whether the game was ready to be played: told that nobo
 
 Lesson: `tests/staging-clear.test.ts`, a new test in every built room: where he stands to do a thing, he is not in front of whoever acts because of it (no more than a quarter of the acting figure covered, in any frame of the act, measured on drawn pixels with Thad as wide as he is from the side he is seen). With the fiddle's stand put back it fails (25% of the rule-keeper in the frame he plays). Doc 55 section 8: a stand is checked against everyone who acts from it, not only whoever is talked to.
 
+
+## 267 · An item is carried to the person it is for; and he is seen going under the table
+
+Found by watching the filmed strips of errata 266.
+
+- **The raccoon was sold from across the claim.** An item used on a person, where the written pair opens no conversation, was answered from wherever Thad stood: Mr. Pratt opened his coat, counted the money and held out his hand to a man at the far edge of the plate. The person's stand was declared on the target and never walked to. He walks to it first now, exactly as TALK TO does; for a figure that is also a thing in its room (Grievance over her half door) he walks to where the room says to stand for the thing.
+- **Thad going down on his hands and knees at the séance was never seen.** The rule that acts it also sets the state in which the room hides him, and the room hid him first. While he holds a frame of an acted direction he is drawn (`hiddenNow`, `engine/core/Standing.ts`); when the act ends the room hides him as before.
+
+Nothing written changed, and no puzzle, flag or line.
+
+Lesson: `tests/handover.test.ts`: the rule that hides him; the scene stages a handed item as it stages any thing with a stand; and everyone a staged handing-over can be made to has somewhere to stand for it. Doc 55 section 8: an item used on a person is a walk to the person.
