@@ -1300,6 +1300,20 @@
    ],
    "leave": true,
    "expect": {
+    "flags": {
+     "T_NOTICE_SET": true,
+     "T_FUNERAL_DAY": false
+    }
+   }
+  },
+  {
+   "id": "C3.8",
+   "puzzle": "C3",
+   "do": "verb",
+   "verb": "PULL",
+   "on": "press",
+   "note": "Errata 249 (doc 118). He pulls his own notice.",
+   "expect": {
     "puzzles": [
      "C3"
     ],
@@ -1307,7 +1321,8 @@
      "funeral_notice"
     ],
     "flags": {
-     "T_FUNERAL_DAY": false
+     "T_NOTICE_IN_HAND": true,
+     "T_NOTICE_SET": false
     }
    }
   },

@@ -592,6 +592,39 @@
               "It has been knocking for years and it will not be attended to."
             ]
           }
+        ],
+        "PULL": [
+          {
+            "when": {
+              "T_NOTICE_SET": true,
+              "T_NOTICE_IN_HAND": false
+            },
+            "say": "Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet.",
+            "direction": true,
+            "then": [
+              "I am in print, by my own arm. I have kept the sleeve."
+            ],
+            "set": {
+              "T_NOTICE_SET": false,
+              "T_NOTICE_IN_HAND": true
+            },
+            "grants": [
+              "funeral_notice"
+            ],
+            "completes": "C3",
+            "sceneLine": "docs/118-objects-the-lines.md::### O-2 · The notice · **THE PRESS** · *the Clarion* - PULL, *the notice set*"
+          },
+          {
+            "when": {
+              "T_NOTICE_IN_HAND": true
+            },
+            "say": "One notice is an invitation. Two is a campaign, and Mr. Pike was never that sort of man.",
+            "sceneLine": "docs/118-objects-the-lines.md::### O-2 · The notice · **THE PRESS** · *the Clarion* - PULL, *the notice in his hand*"
+          },
+          {
+            "say": "The bar is as long as my arm and it is Mr. Frame's. I have nothing I want said that badly.",
+            "sceneLine": "docs/118-objects-the-lines.md::### O-2 · The notice · **THE PRESS** · *the Clarion* - PULL, *nothing set*"
+          }
         ]
       },
       "overrides": {
@@ -635,12 +668,12 @@
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the one way back to Main Street. NO DOCUMENT WRITES THIS DOOR from inside the Clarion (doc 14 writes Main Street's side, THE CLARION OFFICE). A stub exit, as Rooms 6 and 8's are (doc 36 Q152).",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 9 (errata 189)",
       "walkTo": {
         "x": 250,
         "y": 770,
         "facing": "left"
-      },
-      "waysOut": "docs/106-the-ways-out.md, ROOM 9 (errata 189)"
+      }
     }
   ],
   "ambient": [

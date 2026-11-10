@@ -1,0 +1,15 @@
+{
+ "assetId": "act1-dinner",
+ "subject": "act1-dinner-dish-uncovered",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-11-fanshawe-office",
+ "promptFile": "reference/act1-dinner/op-1.txt",
+ "out": "art/staging/act1-dinner/op-1/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act1-dinner/op-1/input.png",
+  "art/staging/act1-dinner/op-1/dinner-as-it-plays.png"
+ ],
+ "mask": "art/staging/act1-dinner/op-1/mask.png"
+}

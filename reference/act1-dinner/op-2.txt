@@ -1,0 +1,19 @@
+A full-screen background for a 2D pixel-art adventure game set in an 1850s gold-rush town, in the same painted pixel-art style, grain and soft, flat shading as image 2 (a fortune-teller's tent at night, the round table with the red cloth in its middle). Image 1 is the game's small inventory icon of this same map: an old cream survey map, folded in quarters, with one place circled in red.
+
+Draw THAT MAP unrolled flat on the fortune-teller's table, filling the whole frame: we look down at it from above, at a slight angle (the top edge of the paper a little further away than the bottom edge). The old paper fills almost the entire picture; only a little of the dark red table cloth shows at the corners and edges, with the paper's curled edges and two small brass weights holding it flat at the corners.
+
+On the map, hand-drawn in sepia ink in an old surveyor's style, all thin lines and soft washes:
+- in the middle of the sheet, two rectangular mining claims side by side, the same size, sharing one boundary: the left one marked with a large "1", the right one with a large "2". Those two numerals are the ONLY writing on the whole map.
+- Claim 2 is circled by hand in red ink, a loose, confident oval drawn around it. This red circle is the only red on the map; everything else is sepia and brown.
+- a small surveyor's stake marked at one corner of Claim 2: a tiny drawn post with a dot.
+- uphill of the claims (toward the top of the map), the rising ground shown with hatched hill strokes, and on it TWO ROCKS drawn as small shaded boulders, one clearly larger than the other.
+- a creek winding across the map below the claims, drawn as a double wavy line with light blue-grey-brown wash (keep it sepia-toned).
+- a road running along the bottom of the map, drawn as two dashed parallel lines.
+- lots of open, empty paper around and between all of these: the middle of the map is uncluttered, with plain paper between the stake, the claims and the rocks, so a line could be drawn across it. No grid, no compass rose in the middle, no labels, no legend, no title, no scale bar, no letters or words of any kind except the "1" and the "2".
+- the paper is old cream, with soft stains, faint fold creases in quarters and slightly darkened edges.
+
+Keep everything that matters (both claims, the circle, the stake, the two rocks) well inside the middle of the picture, away from all four edges, and keep the top and bottom fifth of the picture to plain paper, table edge and creek/road only.
+
+Light: night, inside the tent, lit by ONE warm oil lamp off-picture at the UPPER LEFT: the upper-left of the paper warm and bright, the light falling off to a dim warm brown toward the lower right. Warm amber light, deep shadows, the same night palette as image 2.
+
+No people, no hands, no tools on the map, no magenta, no text other than "1" and "2".

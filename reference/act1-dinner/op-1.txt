@@ -1,0 +1,9 @@
+Image 1 is a crop of a finished pixel-art game room (an 1850s office) at exactly 2x, nearest-neighbour: a dinner table laid with a white cloth. At the table's LEFT END stands a silver dish cover (a cloche) on its silver plate. Image 2 is the same dinner as it plays, at game size, with the Colonel seated at the middle of the table and the young man at the right end, so you can see how small the cover is beside the seated men.
+
+Make ONE change to image 1 and nothing else:
+
+The cloche has been lifted off and set down on the tablecloth right beside its plate (to the left of the plate, at the table's corner, or just behind the plate -- wherever it sits on the cloth without covering the candlestick or the wine glass). It is the same cloche: same silver, same size, same handle, now resting on its rim or tipped back, empty and dark inside.
+
+On the plate, where the cover was, lies a single folded page of a contract: cream paper, folded once, lying flat on the plate, with a few rows of tiny grey marks suggesting small print (NOT legible, no readable letters or words anywhere), and at the bottom of the page one empty line for a signature. On top of the page, a small sprig of green parsley. The plate is the same silver plate that is already there, the same size and in the same place.
+
+Everything else stays EXACTLY as it is, pixel for pixel: the cloth, its folds and shading, the candlestick and its flame, the wine glass, the plates and cutlery, the bottle, the lamp, the wall, the portrait, the chairs, the floor. Same chunky pixel grain as the rest of the image (the 2x pixels), same warm candle and lamp light from the right and above, same soft, flat shading, same muted colours. Do not sharpen, add detail, add texture or redraw anything outside the cover, the plate and the page. No text anywhere. No people.

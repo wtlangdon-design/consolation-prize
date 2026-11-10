@@ -1330,7 +1330,7 @@
       "n": 132,
       "class": "B",
       "speaker": "frame",
-      "words": "He pulls a sheet off the press and hands it over, wet.",
+      "words": "He locks the type, inks it, and stands back from the press with his arms folded.",
       "where": "dialogue/frame FRA_A1 option 6"
     },
     {
@@ -1448,7 +1448,7 @@
     },
     {
       "n": 148,
-      "class": "B",
+      "class": "C",
       "speaker": "fanshawe",
       "words": "Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract.",
       "where": "rooms/fanshawe_office covered_dish OPEN"
@@ -1462,7 +1462,7 @@
     },
     {
       "n": 150,
-      "class": "B",
+      "class": "C",
       "speaker": "thad",
       "words": "Thad puts the cover back over the contract.",
       "where": "rooms/fanshawe_office contract CLOSE"
@@ -1473,6 +1473,13 @@
       "speaker": "fanshawe",
       "words": "He does not take the dish away.",
       "where": "dialogue/fanshawe FAN_A2 option 6"
+    },
+    {
+      "n": 152,
+      "class": "B",
+      "speaker": "thad",
+      "words": "Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet.",
+      "where": "rooms/clarion press PULL"
     }
   ]
 }

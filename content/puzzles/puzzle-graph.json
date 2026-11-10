@@ -488,17 +488,17 @@
    "id": "C3",
    "completedBy": [
     {
-     "site": "dialogue:FRAME:FRA_A1:frame6",
+     "site": "room:clarion:press:PULL#0",
      "requires": [
-      "n:FRAME/FRA_A1",
-      "T_MEMORIAL_BOOKED=true",
+      "r:clarion",
+      "T_NOTICE_SET=true",
       "T_NOTICE_IN_HAND=false"
      ],
      "yields": [
-      "o:FRAME/FRA_A1/frame6",
+      "f:T_NOTICE_SET=false",
       "f:T_NOTICE_IN_HAND=true",
-      "i:funeral_notice",
-      "p:C3"
+      "p:C3",
+      "i:funeral_notice"
      ]
     }
    ]

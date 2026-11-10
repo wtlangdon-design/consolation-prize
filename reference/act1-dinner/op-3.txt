@@ -1,0 +1,9 @@
+Image 1 is a crop of a finished pixel-art game room (an 1850s office) at exactly 2x, nearest-neighbour: a dinner table laid with a white cloth. At the table's LEFT END a silver dish cover (a cloche) sits on its oval silver tray. Image 2 is the SAME picture with a layout marked on it in coloured boxes. Image 3 is the dinner as it plays at game size, for the scale of things beside the seated men.
+
+Return image 1 with ONE change, made only inside the YELLOW box of image 2, and with no boxes, labels or marks of any kind in the result:
+
+- The cover has been lifted off its tray and set down tipped on its side, its rim resting on the LEFT edge of the tray and on the cloth at the table's corner, inside the BLUE box: the same silver cover, the same size, the same knob handle, its dark empty inside showing.
+- The silver tray stays exactly where it is, the same tray, the same size and outline. On the right part of the tray, inside the GREEN box, lies a single folded page of a contract: thin cream paper lying flat (not a block), with four or five short rows of tiny grey marks suggesting small print (NOT legible: no letters, no words) and, at the bottom of the page, one thin empty line for a signature. On the page, a small sprig of bright green parsley.
+- Where the cover used to stand is now plain white tablecloth, matching the cloth around it, and the foot of the brass candlestick behind it (round, the mirror of its visible left half).
+
+Everything outside the yellow box stays EXACTLY as in image 1, pixel for pixel. The brass candlestick and its candle and the wine glass (the RED boxes) are NOT moved, redrawn or removed. Do not move the table's edges, do not touch the other plates, the fork, the bottle, the lamp, the wall or the chairs. Same chunky 2x pixel grain, the same soft, flat shading and muted colours as the rest of image 1, the same warm candle light. No text, no people.

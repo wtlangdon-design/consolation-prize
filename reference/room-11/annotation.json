@@ -460,9 +460,28 @@
    ],
    "when": {
     "T_BORDERS_MOTT": true,
-    "T_DINED": false
+    "T_DINED": false,
+    "T_CONTRACT_SERVED": false
    },
-   "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 attempt 9's table, its two places moved by hand to where the two men sit (tools/art/room11-dinner-relay.py; Tyler: \"the place settings are setup in the wrong places for their dinner\"); this is its top, above the cloth's front edge, drawn behind a seated Thad (tools/art/room11-dinner-drape.py). Drawn while Thad holds THE INVITATION, until the dinner ends."
+   "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 attempt 9's table, its two places moved by hand to where the two men sit (tools/art/room11-dinner-relay.py; Tyler: \"the place settings are setup in the wrong places for their dinner\"); this is its top, above the cloth's front edge, drawn behind a seated Thad (tools/art/room11-dinner-drape.py). Drawn while Thad holds THE INVITATION, until the dinner ends. Errata 248: while the dish is covered; uncovered, `dinner_uncovered` is drawn in its place."
+  },
+  {
+   "id": "dinner_uncovered",
+   "sheet": "art/props/room-11-dinner-uncovered.png",
+   "x": 1087,
+   "y": 550,
+   "frame": [
+    0,
+    0,
+    598,
+    152
+   ],
+   "when": {
+    "T_BORDERS_MOTT": true,
+    "T_DINED": false,
+    "T_CONTRACT_SERVED": true
+   },
+   "note": "Doc 120 I-1 (errata 248): the same table with the silver cover lifted and set down beside its tray, and on the tray the contract, with parsley. act1-dinner operation 3 (reference/act1-dinner/handback.md), cut by tools/art/act1-dinner-uncovered-cut.py, which asserts that no pixel outside that corner differs from the table's own picture. Drawn in place of `dinner` while the contract is served."
   },
   {
    "id": "dinner_drape",

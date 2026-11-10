@@ -99,12 +99,17 @@ test('a dinner left by the door starts again with the dish covered; and he keeps
   const dish = state.targets.find((one) => one.responses?.OPEN?.some((rule) => rule.set?.[served[0]!] === true))!;
   state.interact(dish, 'OPEN');
   assert.equal(state.flags.get(served[0]!), true);
+  // And the table is drawn with the cover off while it is (the image session's picture), covered again otherwise.
+  const drawn = () => (state.room.props ?? []).filter((prop) => state.flags.test(prop.when)).map((prop) => prop.sheet);
+  const uncovered = drawn();
   const door = state.room.exits.find((exit) => exit.transitScene?.some((rule) => state.flags.test(rule.when) && !rule.stays))!;
   assert.ok(door, 'the door answers from the table, and lets him go');
   const office = state.roomId;
   state.enterRoom(door.to);
   state.enterRoom(office);
   assert.equal(state.flags.get(served[0]!), false);
+  assert.notDeepEqual(drawn(), uncovered, 'the picture of the table follows the dish');
+  assert.equal(drawn().length, uncovered.length, 'one table either way, never two and never none');
   const seat = state.room.onEnter!.accost!.seat!;
   assert.deepEqual(seat.keepWhile, { [DINED]: false }, 'the chair is his until the dinner is over');
 });
