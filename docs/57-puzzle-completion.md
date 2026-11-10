@@ -264,7 +264,7 @@ Duel Two needs fourteen; Duel One, Winnie and Pratt guarantee fifteen. Tier 4 an
 
 ## D2 · The only neighbor is Nickel Pratt
 
-*Rooms 23 and 25.* The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives. At Pratt's claim, PRA_B1 options 1–4 → `T_PRATT_PAID`; option 6 is the refusal to attest → **D2**.
+*Rooms 23 and 25.* The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives. *(Errata 244: he stays on Prosperity until he is turned.)* There, PRA_B1 options 1–4 → `T_PRATT_PAID`; option 6 is the refusal to attest → **D2**.
 
 ## D3 · Follow the money
 
@@ -283,7 +283,7 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 
 ## D5 · Turn Pratt
 
-*Room 25.* PRA_B1 option 7 → **PRA_D5** (doc 04; its first line now quotes the Company's books, which Thad has from Sheng, not the offer he will not hear until E0b). "He signs" is the quitclaim: Pratt gives up jumping Prosperity → `T_PRATT_TURNED` → **D5**. PRA_D6 follows; its option 4 is Pratt's sparring (pairs 10–15).
+*Room 23, then Room 25 (errata 244: the turn is on Prosperity; turned, he goes home, and PRA_D6 is said at his own claim).* PRA_B1 option 7 → **PRA_D5** (doc 04; its first line now quotes the Company's books, which Thad has from Sheng, not the offer he will not hear until E0b). "He signs" is the quitclaim: Pratt gives up jumping Prosperity → `T_PRATT_TURNED` → **D5**. PRA_D6 follows; its option 4 is Pratt's sparring (pairs 10–15).
 
 ## D6 · The attestation
 

@@ -623,6 +623,17 @@
       "o:PRATT/PRA_B1/pratt6",
       "p:D2"
      ]
+    },
+    {
+     "site": "dialogue:PRATT_JUMP:PRA_B1:pratt6",
+     "requires": [
+      "n:PRATT_JUMP/PRA_B1",
+      "T_NINETY_DAYS=true"
+     ],
+     "yields": [
+      "o:PRATT_JUMP/PRA_B1/pratt6",
+      "p:D2"
+     ]
     }
    ]
   },
@@ -674,6 +685,18 @@
       "f:T_PRATT_TURNED=true",
       "p:D5",
       "n:PRATT/PRA_D6"
+     ]
+    },
+    {
+     "site": "dialogue:PRATT_JUMP:PRA_B1:pratt7",
+     "requires": [
+      "n:PRATT_JUMP/PRA_B1",
+      "T_PRATT_TRAIL=true"
+     ],
+     "yields": [
+      "o:PRATT_JUMP/PRA_B1/pratt7",
+      "f:T_PRATT_TURNED=true",
+      "p:D5"
      ]
     }
    ]

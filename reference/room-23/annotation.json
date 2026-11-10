@@ -421,7 +421,7 @@
     "ACT": {
      "atLeast": 2
     },
-    "T_PRATT_STAKE": false
+    "T_PRATT_TURNED": false
    },
    "speakers": {
     "PRATT": "pratt_jump"
@@ -439,7 +439,7 @@
     "ACT": {
      "atLeast": 2
     },
-    "T_PRATT_STAKE": false
+    "T_PRATT_TURNED": false
    }
   },
   {
@@ -454,7 +454,7 @@
     "ACT": {
      "atLeast": 2
     },
-    "T_PRATT_STAKE": false
+    "T_PRATT_TURNED": false
    }
   },
   {
@@ -469,7 +469,7 @@
     "ACT": {
      "atLeast": 2
     },
-    "T_PRATT_STAKE": false
+    "T_PRATT_TURNED": false
    },
    "speakers": {
     "PRATT": "pratt_jump"

@@ -6703,3 +6703,31 @@ Lesson:
 - `tests/pacing.test.mjs`: the arithmetic, and the real route against its list.
 - The full walkthrough picks every boast (C6.4, D5.3).
 
+---
+
+## 244 · The three papers, to standard: the double earned, and Pratt stays (doc 115; doc 114 II-3, II-2)
+
+Under errata 243's ruling ("All"). Doc 115 is the design and the lines for doc 114's rows II-1, II-2, II-3 and II-5. Two of them need no picture and are built here. II-5 (the wreath) and II-1 (the collection) wait on `reference/act2-papers/brief.md`, four pictures for the image session.
+
+### II-3 · The double, earned
+
+- The swap (errata 242) now needs the ledger made ready, and until it is, the ledger on the log is refused and the refusal says what is wrong with it.
+  - **The gilt:** the Colonel's handkerchief used on the ledger rubs the year off its spine (`T_LEDGER_PLAIN`). The game's first item used on an item (doc 114 X-2).
+  - **The spine:** the ledger used on THE CHAIRS breaks it in at one place, as the log's is (`T_LEDGER_CRACKED`).
+  - Either order. Three wrong tries with the ledger (the sabre, the decanter, the portrait).
+- The puzzle model, the combinations check and both players (the test's and the browser's) now know an item can be used on a carried item.
+- No picture.
+
+### II-2 · Pratt stays on the claim until he is turned
+
+- **Before:** "That's my stake you're pulling up." sent him home, and the rest of Act II was said across his own claim. He was also drawn in both places at once.
+- **Now:** he stays on Prosperity. PRA_B1 is said there, the turn included ("For the mud." "For the mud."), standing on the mud. Turned, he walks home, and PRA_D6 is at his own claim as before.
+- The stake (errata 242) is there for every player, for all of that time.
+- The cut-away "Still on it?" is cut to Prosperity.
+- No line is new or changed. One trip to his claim comes out of the played route.
+
+Lesson:
+- The full walkthrough plays the refusal, the gilt, the spine and the swap (C4.2a to C4.2b), and the whole of D2 and the turn on Prosperity.
+- `tests/room-11.test.ts`: the swap is refused with the gilt on, and again with the spine whole.
+- `proofs/pacing.json` no longer lists "no item is used on another item"; the check fails if it comes back.
+

@@ -38,9 +38,10 @@
     },
     {
       "id": "pratts_voice",
-      "room": "pratts_claim",
+      "room": "prosperity",
       "when": {
-        "T_PRATT_STAKE": true
+        "T_PRATT_STAKE": true,
+        "T_PRATT_TURNED": false
       },
       "done": "T_CUTAWAY_PRATT",
       "lines": [

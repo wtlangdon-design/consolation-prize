@@ -5729,7 +5729,12 @@ function prattTree() {
     }),
     write('content/dialogue/pratt-jump.json', {
       aftermathAuthored: true, schema: 1, id: 'PRATT_JUMP', speaker: SPEAKER, name: 'NICKEL PRATT', note,
-      start: 'PRA_D2', closing, nodes: { PRA_D2: D2 },
+      // HE STAYS ON THE CLAIM UNTIL HE IS TURNED (errata 244; doc 114 II-2, doc 115). PRA_D2 option 1 used to send him
+      // home; now everything doc 04 has him say in Act II before the turn is said standing on Prosperity. PRA_B1 is
+      // doc 04's own node, word for word; its turning row no longer walks the conversation on to PRA_D6, because that
+      // node is said at his own claim, where he goes once he is turned.
+      entries: [{ when: { T_PRATT_STAKE: true }, node: 'PRA_B1' }],
+      start: 'PRA_D2', closing, nodes: { PRA_D2: D2, PRA_B1: { ...B1, options: B1.options.map(({ goto, ...option }) => (goto === 'PRA_D6' ? option : { ...option, ...(goto ? { goto } : {}) })) } },
     }),
   ];
 }
@@ -6339,7 +6344,8 @@ function cutaways() {
     // After the swindle, which is the edition GRUBBS (errata 9).
     1: { id: 'clarion_press', room: 'clarion', when: { T_SWINDLED: true }, done: 'T_CUTAWAY_CLARION' },
     // After Thad has caught him pulling up the stake: D2 is open.
-    2: { id: 'pratts_voice', room: 'pratts_claim', when: { T_PRATT_STAKE: true }, done: 'T_CUTAWAY_PRATT' },
+    // Errata 244: cut to Prosperity, where he is in fact still on it (doc 115 II-2), and only while he is.
+    2: { id: 'pratts_voice', room: 'prosperity', when: { T_PRATT_STAKE: true, T_PRATT_TURNED: false }, done: 'T_CUTAWAY_PRATT' },
     // Part Three, and only Part Three: E0b writes ACT 3. He is in his office
     // only on a day that is not a funeral day (content/ambient/fanshawe.json).
     3: { id: 'fanshawe_chairs', room: 'fanshawe_office', when: { ACT: { atLeast: 3, atMost: 3 }, T_FUNERAL_DAY: false },

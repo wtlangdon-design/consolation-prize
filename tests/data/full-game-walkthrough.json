@@ -1066,16 +1066,10 @@
    "npc": "pratt_jump"
   },
   {
-   "id": "D2.3",
-   "puzzle": "D2",
-   "do": "go",
-   "room": "pratts_claim"
-  },
-  {
    "id": "D2.4",
    "puzzle": "D2",
    "do": "talk",
-   "npc": "pratt",
+   "npc": "pratt_jump",
    "choose": [
     "pratt1",
     "pratt2",
@@ -1091,7 +1085,8 @@
     "flags": {
      "T_PRATT_PAID": true
     }
-   }
+   },
+   "note": "Errata 244 (doc 115, II-2): he stays on the claim; PRA_B1 is said there."
   },
   {
    "id": "D3.1",
@@ -1397,13 +1392,18 @@
    "id": "D5.1",
    "puzzle": "D5",
    "do": "go",
-   "room": "pratts_claim"
+   "room": "prosperity",
+   "expect": {
+    "present": [
+     "pratt_jump"
+    ]
+   }
   },
   {
    "id": "D5.2",
    "puzzle": "D5",
    "do": "talk",
-   "npc": "pratt",
+   "npc": "pratt_jump",
    "choose": [
     "pratt7"
    ],
@@ -1413,7 +1413,28 @@
     ],
     "flags": {
      "T_PRATT_TURNED": true
-    },
+    }
+   },
+   "leave": true
+  },
+  {
+   "id": "D5.2a",
+   "puzzle": "D5",
+   "do": "go",
+   "room": "pratts_claim",
+   "note": "Turned, he has gone home; PRA_D6 is said at his own claim.",
+   "expect": {
+    "present": [
+     "pratt"
+    ]
+   }
+  },
+  {
+   "id": "D5.2b",
+   "puzzle": "D5",
+   "do": "talk",
+   "npc": "pratt",
+   "expect": {
     "node": "PRA_D6"
    }
   },

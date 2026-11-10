@@ -8,9 +8,9 @@
   "ACT": {
    "atLeast": 2
   },
-  "T_PRATT_STAKE": false
+  "T_PRATT_TURNED": false
  },
- "note": "PRATT ON PROSPERITY (doc 57 D2: 'The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives'; doc 04 PRA_D2: 'with a stake and a mallet, mid-jump, unhurried about it'). Beside the claim marker with his mallet and a new stake of his own. Once Thad has had it out with him (PRA_D2 option 1) he goes back next door at a walk, mallet in hand (errata 97 D).",
+ "note": "PRATT ON PROSPERITY (doc 57 D2: 'The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives'; doc 04 PRA_D2: 'with a stake and a mallet, mid-jump, unhurried about it'). Beside the claim marker with his mallet and a new stake of his own. Once Thad has had it out with him (PRA_D2 option 1) he goes back next door at a walk, mallet in hand (errata 97 D). Errata 244 (doc 114 II-2, doc 115): he no longer goes home when Thad has it out with him. He stays on the claim until he is turned (T_PRATT_TURNED), and walks home then.",
  "x": 560,
  "y": 762,
  "zone": 1,
@@ -162,7 +162,7 @@
    397,
    397
   ],
-  "note": "Doc 57 D2 sends him back to his own claim; Pratt's claim is next door, past the creek at the right (errata 97 C).",
+  "note": "Errata 244: turned (doc 57 D5), he goes back to his own claim, next door past the creek at the right (errata 97 C). Was: sent home by PRA_D2 option 1.",
   "strideRatio": 0.646,
   "walkNote": "WALK-C: six frames posed on Thad's walk, the leaner Pratt (cast-unify 50; Tyler, 2026-11-06: \"Pratt's gait is kind of awkward because his knee goes so high\" -- briefed with low knees), cut by tools/art/walk-c.py; figureHeight crown to sole on the passing frame, as his standing frames are measured. strideRatio MEASURED FROM THESE FRAMES (R5f), calibrated on Thad's walk.",
   "speedNote": "Tyler, 2026-11-06: \"His gait is way better though but maybe still weirdly slow.\" Now 0.7 of his height a second (Thad walks 0.81), 266 px/s at his 0.96 stature. Was half his height a second, Deke's pace. Before that 80 px/s: \"Pratt walks so slow it's hard to even figure out if his walk could be good.\""

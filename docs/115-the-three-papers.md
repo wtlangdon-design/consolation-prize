@@ -10,7 +10,7 @@ Nothing here changes a flag the rest of the game reads, a puzzle's answer outsid
 |---|---|---|---|
 | **II-5 · The wreath** | Main Street, the funeral day | The street is empty and the office is simply empty | The Colonel is stuck in his own doorway behind his wreath. Thad PUSHES him through, is thanked for it, and goes in to rob him |
 | **II-3 · The double, earned** | Fanshawe's office, empty | A ledger off the shelf, laid where the log lay | The ledger has a gilt date and has never been opened; both have to be put right before it will pass. One of them is done with the Colonel's own handkerchief |
-| **II-2 · Pratt stays** | Prosperity | "That's my stake" sends him home, and the rest is said at his own claim | He stays on Thad's claim until he is turned. Everything he says in Act II he says standing on it, and the stake is there for every player |
+| **II-2 · Pratt stays** | Prosperity | "That's my stake" sends him home, and the rest is said at his own claim | He stays on Thad's claim until he is turned. Everything he says before that he says standing on it, and the stake is there for every player |
 | **II-1 · The collection** | Boot Hill | Arriving collects the money | The Reverend will not make change at the gate while the town watches. Thad gets into the line, ends up holding the plate, and does not let go |
 
 **Verbs:** PUSH solves the wreath and PULL solves the plate (doc 114 X-1). The handkerchief on the ledger is the game's first item used on an item (X-2). CLOSE is left for the archive (III-1), where a drawer can honestly be shut.
@@ -36,12 +36,12 @@ Nothing here changes a flag the rest of the game reads, a puzzle's answer outsid
 
 ### II-2 · Pratt stays
 
-- PRA_D2 option 1 no longer sends him home. From then until he swears (`T_PRATT_SWEARS`), he is on Prosperity, and TALK TO opens doc 04's PRA_B1 and then PRA_D5 and PRA_D6 there, every line as written.
-- After "Sump closes at four." he is at the Registrar's, as now; after the attestation he is at his own claim, as now.
-- His own claim is empty in between. Its sign and its LOOK lines stand.
+- PRA_D2 option 1 no longer sends him home. From then until he is turned (`T_PRATT_TURNED`, D5), he is on Prosperity, and TALK TO opens doc 04's PRA_B1 there, every line as written, the turn among them.
+- Turned, he walks home. PRA_D6 (the sparring, the swearing, the hat) is said at his own claim, as now; then the Registrar's, as now.
+- His own claim is empty in Act II until then. Its sign and its LOOK lines stand. There used to be two of him, one on each claim.
 - The cut-away "Still on it?" — "Yep." is cut to Prosperity, where he is in fact still on it.
 - The stake (doc 113 B) holds for the whole of that time.
-- **No new line.** Doc 04's and doc 57's notes on where he stands are corrected.
+- **No new line.** Doc 57's notes on where he stands are corrected.
 - **Art:** none.
 
 ### II-1 · The collection
