@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "Errata 262. Tyler, 2026-11-10, shown four rooms graded beside themselves: \"I like the direction. I think it would be a nice way to differentiate different rooms from each other, so they don't all look exactly the same.\" Each room here leans its shadows and mid-tones toward a colour of its own; its lamps and what they light keep their warmth. `tint` is the colour leaned to, `strength` how far (0 to 1), `saturate` a little more of whatever colour is there. tools/art/room-grade.py applies it to the room's plate, and to every picture cut from that plate, from the untouched originals in art/staging/room-grade/originals/. A room not listed is as it was painted: the Nugget, the mercantile, the livery and the Colonel's rooms are the warm and the red the others are told apart from.",
  "rooms": {
-  "hotel_lobby": { "tint": [60, 110, 90], "strength": 0.55, "saturate": 1.12, "why": "green: its wallpaper and its settee" },
+  "hotel_lobby": { "tint": [72, 108, 90], "strength": 0.38, "saturate": 1.08, "why": "green: its wallpaper and its settee. Pulled back from 0.55 (Tyler, 2026-11-10: \"It feels pretty green ... pull the green back slightly\")" },
   "archive": { "tint": [70, 95, 140], "strength": 0.6, "saturate": 1.1, "why": "cold blue: dust, and one barred window" },
   "claims_registrar": { "tint": [85, 115, 105], "strength": 0.55, "saturate": 1.1, "why": "grey-green: an office" },
   "church": { "tint": [95, 115, 150], "strength": 0.3, "saturate": 1.05, "why": "a little cool: whitewash by moonlight; lightly, its pews keep their warmth" },
