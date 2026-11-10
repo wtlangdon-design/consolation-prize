@@ -288,6 +288,19 @@
    ],
    "leave": true,
    "expect": {
+    "flags": {
+     "T_BLANKET_ALLOWED": true
+    }
+   }
+  },
+  {
+   "id": "A5.2a",
+   "puzzle": "A5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "grievance_s_blanket",
+   "note": "Errata 245 (doc 118).",
+   "expect": {
     "carrying": [
      "blanket"
     ]
@@ -1134,9 +1147,51 @@
     "puzzles": [
      "C3"
     ],
+    "carrying": [
+     "funeral_notice"
+    ],
+    "flags": {
+     "T_FUNERAL_DAY": false
+    }
+   }
+  },
+  {
+   "id": "C3.8",
+   "puzzle": "C3",
+   "do": "go",
+   "room": "mercantile",
+   "note": "Errata 245 (doc 118). The tonic, for the gilt."
+  },
+  {
+   "id": "C3.9",
+   "puzzle": "C3",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "dr_purvis_s_tonic",
+   "expect": {
+    "carrying": [
+     "tonic"
+    ]
+   }
+  },
+  {
+   "id": "C3.10",
+   "puzzle": "C3",
+   "do": "go",
+   "room": "main_street"
+  },
+  {
+   "id": "C3.11",
+   "puzzle": "C3",
+   "do": "use",
+   "item": "funeral_notice",
+   "on": "posted_notices",
+   "note": "Errata 245 (doc 118).",
+   "expect": {
     "flags": {
      "T_FUNERAL_DAY": true
-    }
+    },
+    "room": "main_street"
    }
   },
   {
@@ -1192,6 +1247,19 @@
     ],
     "flags": {
      "T_QUEUE_PADDED": false
+    }
+   }
+  },
+  {
+   "id": "C4.2c2",
+   "puzzle": "C4",
+   "do": "use",
+   "item": "tonic",
+   "on": "handkerchief",
+   "note": "Errata 245 (doc 118).",
+   "expect": {
+    "flags": {
+     "T_HANDKERCHIEF_DOSED": true
     }
    }
   },
@@ -1389,6 +1457,25 @@
    }
   },
   {
+   "id": "D5.0a",
+   "puzzle": "D5",
+   "do": "go",
+   "room": "nugget_back",
+   "note": "Errata 245 (doc 118). The chalk."
+  },
+  {
+   "id": "D5.0b",
+   "puzzle": "D5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "chalk",
+   "expect": {
+    "carrying": [
+     "chalk"
+    ]
+   }
+  },
+  {
    "id": "D5.1",
    "puzzle": "D5",
    "do": "go",
@@ -1408,14 +1495,31 @@
     "pratt7"
    ],
    "expect": {
+    "flags": {
+     "T_FIGURE_TOLD": true,
+     "T_PRATT_TURNED": false
+    }
+   },
+   "leave": true
+  },
+  {
+   "id": "D5.2c",
+   "puzzle": "D5",
+   "do": "use",
+   "item": "chalk",
+   "on": "claim_marker",
+   "note": "Errata 245 (doc 118).",
+   "expect": {
     "puzzles": [
      "D5"
+    ],
+    "carrying": [
+     "chalk"
     ],
     "flags": {
      "T_PRATT_TURNED": true
     }
-   },
-   "leave": true
+   }
   },
   {
    "id": "D5.2a",
@@ -2194,6 +2298,19 @@
     },
     "act": 4,
     "room": "thads_room"
+   }
+  },
+  {
+   "id": "F1.0",
+   "puzzle": "F1",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "lamp",
+   "note": "Errata 245 (doc 118).",
+   "expect": {
+    "carrying": [
+     "hotel_lamp"
+    ]
    }
   },
   {

@@ -800,6 +800,9 @@
           "when": {
             "T_DRAUGHT": true
           },
+          "holds": [
+            "hotel_lamp"
+          ],
           "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement.",
           "then": [
             "I have borrowed the lamp from my room. That is the second thing in this territory I have promised to give back.",
@@ -809,6 +812,13 @@
             "T_DUG_DOWN": true
           },
           "goto": "under_prosperity"
+        },
+        {
+          "case": "after F1, without the lamp",
+          "when": {
+            "T_DRAUGHT": true
+          },
+          "say": "Forty feet of dark, with a pickaxe that sheds its head. I shall want a light, and I know where one is kept turned down."
         },
         {
           "case": "before F1",
@@ -1748,6 +1758,21 @@
       "note": "Doc 115 (THE LINES, II-3; errata 244), THE GILT: the gilt date rubbed off the ledger's spine with the handkerchief (T_LEDGER_PLAIN).",
       "rules": [
         {
+          "case": "the gilt, with the tonic",
+          "when": {
+            "T_LEDGER_PLAIN": false,
+            "T_HANDKERCHIEF_DOSED": true
+          },
+          "say": "One pass, and the year is gone. So is some of the green.",
+          "direction": true,
+          "then": [
+            "Dr. Purvis has taken the gold off a book faster than this town takes it off a man. I shall write and tell him."
+          ],
+          "set": {
+            "T_LEDGER_PLAIN": true
+          }
+        },
+        {
           "case": "the gilt",
           "when": {
             "T_LEDGER_PLAIN": false
@@ -1779,6 +1804,21 @@
       "note": "Doc 115 (THE LINES, II-3; errata 244), THE GILT: the gilt date rubbed off the ledger's spine with the handkerchief (T_LEDGER_PLAIN).",
       "rules": [
         {
+          "case": "the gilt, with the tonic",
+          "when": {
+            "T_LEDGER_PLAIN": false,
+            "T_HANDKERCHIEF_DOSED": true
+          },
+          "say": "One pass, and the year is gone. So is some of the green.",
+          "direction": true,
+          "then": [
+            "Dr. Purvis has taken the gold off a book faster than this town takes it off a man. I shall write and tell him."
+          ],
+          "set": {
+            "T_LEDGER_PLAIN": true
+          }
+        },
+        {
           "case": "the gilt",
           "when": {
             "T_LEDGER_PLAIN": false
@@ -1798,6 +1838,60 @@
             "T_LEDGER_PLAIN": true
           },
           "say": "There is no more year to take off. The handkerchief has it now, and I notice it is the first thing of his I have ever marked."
+        }
+      ]
+    },
+    {
+      "item": "tonic",
+      "room": "fanshawe_office",
+      "target": "handkerchief",
+      "otherwise": "pool",
+      "say": "Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.",
+      "note": "Doc 118 (THE LINES, O-4; errata 245): Dr. Purvis on the Colonel's handkerchief (T_HANDKERCHIEF_DOSED); the bottle is spent.",
+      "rules": [
+        {
+          "case": "dosed",
+          "when": {
+            "T_HANDKERCHIEF_DOSED": false
+          },
+          "say": "Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.",
+          "direction": true,
+          "then": [
+            "The linen has gone a color I have no name for. The label says it restores. It does not say to what."
+          ],
+          "takes": [
+            "tonic"
+          ],
+          "set": {
+            "T_HANDKERCHIEF_DOSED": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "handkerchief",
+      "room": "fanshawe_office",
+      "target": "tonic",
+      "otherwise": "pool",
+      "say": "Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.",
+      "note": "Doc 118 (THE LINES, O-4; errata 245): Dr. Purvis on the Colonel's handkerchief (T_HANDKERCHIEF_DOSED); the bottle is spent.",
+      "rules": [
+        {
+          "case": "dosed",
+          "when": {
+            "T_HANDKERCHIEF_DOSED": false
+          },
+          "say": "Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.",
+          "direction": true,
+          "then": [
+            "The linen has gone a color I have no name for. The label says it restores. It does not say to what."
+          ],
+          "takes": [
+            "tonic"
+          ],
+          "set": {
+            "T_HANDKERCHIEF_DOSED": true
+          }
         }
       ]
     },
@@ -1930,6 +2024,137 @@
               "line": "Done?"
             }
           ]
+        }
+      ]
+    },
+    {
+      "item": "chalk",
+      "room": "prosperity",
+      "target": "claim_marker",
+      "otherwise": "pool",
+      "puzzle": "D5",
+      "say": "Thad chalks it on his own stake, under the number: $11,000.",
+      "note": "Doc 118 (THE LINES; errata 245), O-1: the figure chalked on Thad's own stake, and Pratt's sum under it -- doc 04's PRA_D5, word for word, with the arithmetic where both can see it (T_PRATT_TURNED, D5).",
+      "rules": [
+        {
+          "case": "the turn",
+          "when": {
+            "ACT": {
+              "atLeast": 2
+            },
+            "T_PRATT_TURNED": false,
+            "T_FIGURE_TOLD": true
+          },
+          "say": "Thad chalks it on his own stake, under the number: $11,000.",
+          "direction": true,
+          "then": [
+            {
+              "speaker": "pratt_jump",
+              "line": "For the mud."
+            },
+            "For the mud.",
+            {
+              "speaker": "pratt_jump",
+              "line": "…"
+            },
+            "…",
+            {
+              "speaker": "pratt_jump",
+              "line": "Pratt holds out his hand. Thad gives him the chalk. Pratt writes underneath, slowly: 104.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt_jump",
+              "line": "Two dollars a week is a hundred and four dollars a year."
+            },
+            "It is.",
+            {
+              "speaker": "pratt_jump",
+              "line": "That ain't the same number."
+            },
+            {
+              "speaker": "pratt_jump",
+              "line": "Grubb."
+            },
+            "Yes?",
+            {
+              "speaker": "pratt_jump",
+              "line": "Eleven dollars for the claim."
+            },
+            "…Still?",
+            {
+              "speaker": "pratt_jump",
+              "line": "I like the claim."
+            }
+          ],
+          "set": {
+            "T_PRATT_TURNED": true
+          },
+          "completes": "D5"
+        },
+        {
+          "case": "before the figure is told",
+          "when": {
+            "ACT": {
+              "atLeast": 2
+            },
+            "T_PRATT_TURNED": false,
+            "T_FIGURE_TOLD": false
+          },
+          "say": "It has a number on it already. I have no better one to offer it yet."
+        }
+      ]
+    },
+    {
+      "item": "chalk",
+      "room": "prosperity",
+      "target": "pratt_jump",
+      "otherwise": "pool",
+      "say": "Don't write on me.",
+      "note": "Doc 118 (THE LINES; errata 245), O-1, THE WRONG TRIES: NICKEL PRATT · USE A STUB OF CHALK.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "Don't write on me.",
+          "by": "pratt_jump"
+        }
+      ]
+    },
+    {
+      "item": "chalk",
+      "room": "prosperity",
+      "target": "hole",
+      "say": "I could mark it PROSPERITY. It would be the first sign in this town to undersell.",
+      "note": "Doc 118 (THE LINES; errata 245), O-1, THE WRONG TRIES: THE HOLE · USE A STUB OF CHALK.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "I could mark it PROSPERITY. It would be the first sign in this town to undersell."
+        }
+      ]
+    },
+    {
+      "item": "funeral_notice",
+      "room": "main_street",
+      "target": "posted_notices",
+      "say": "Thad presses the notice to the board, over a claim for sale. It holds by its own ink.",
+      "note": "Doc 118 (THE LINES; errata 245), O-2: the notice put up on Main Street begins the funeral day (T_FUNERAL_DAY), which Frame's printing used to.",
+      "rules": [
+        {
+          "case": "posted",
+          "say": "Thad presses the notice to the board, over a claim for sale. It holds by its own ink.",
+          "direction": true,
+          "then": [
+            "There. The whole town is now invited to mourn a man it has never met, and one man in it is certain to come."
+          ],
+          "takes": [
+            "funeral_notice"
+          ],
+          "set": {
+            "T_FUNERAL_DAY": true,
+            "T_NOTICE_IN_HAND": false
+          },
+          "goto": "main_street"
         }
       ]
     }

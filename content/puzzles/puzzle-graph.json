@@ -489,11 +489,13 @@
      "site": "dialogue:FRAME:FRA_A1:frame6",
      "requires": [
       "n:FRAME/FRA_A1",
-      "T_MEMORIAL_BOOKED=true"
+      "T_MEMORIAL_BOOKED=true",
+      "T_NOTICE_IN_HAND=false"
      ],
      "yields": [
       "o:FRAME/FRA_A1/frame6",
-      "f:T_FUNERAL_DAY=true",
+      "f:T_NOTICE_IN_HAND=true",
+      "i:funeral_notice",
       "p:C3"
      ]
     }
@@ -675,6 +677,20 @@
    "id": "D5",
    "completedBy": [
     {
+     "site": "with:prosperity:claim_marker:chalk#0",
+     "requires": [
+      "i:chalk",
+      "r:prosperity",
+      "ACT={\"atLeast\":2}",
+      "T_PRATT_TURNED=false",
+      "T_FIGURE_TOLD=true"
+     ],
+     "yields": [
+      "f:T_PRATT_TURNED=true",
+      "p:D5"
+     ]
+    },
+    {
      "site": "dialogue:PRATT:PRA_B1:pratt7",
      "requires": [
       "n:PRATT/PRA_B1",
@@ -685,18 +701,6 @@
       "f:T_PRATT_TURNED=true",
       "p:D5",
       "n:PRATT/PRA_D6"
-     ]
-    },
-    {
-     "site": "dialogue:PRATT_JUMP:PRA_B1:pratt7",
-     "requires": [
-      "n:PRATT_JUMP/PRA_B1",
-      "T_PRATT_TRAIL=true"
-     ],
-     "yields": [
-      "o:PRATT_JUMP/PRA_B1/pratt7",
-      "f:T_PRATT_TURNED=true",
-      "p:D5"
      ]
     }
    ]

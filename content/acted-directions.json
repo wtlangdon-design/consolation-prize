@@ -1311,6 +1311,55 @@
       "speaker": "thad",
       "words": "Thad lays the ledger open on the nearest chair and sits on it, briefly, as a visitor would.",
       "where": "combinations (company_ledger on chairs, THE SPINE)"
+    },
+    {
+      "n": 130,
+      "class": "B",
+      "speaker": "thad",
+      "words": "Thad chalks it on his own stake, under the number: $11,000.",
+      "where": "combinations (chalk on claim_marker, the turn)"
+    },
+    {
+      "n": 131,
+      "class": "B",
+      "speaker": "pratt_jump",
+      "words": "Pratt holds out his hand. Thad gives him the chalk. Pratt writes underneath, slowly: 104.",
+      "where": "combinations (chalk on claim_marker, the turn)"
+    },
+    {
+      "n": 132,
+      "class": "B",
+      "speaker": "frame",
+      "words": "He pulls a sheet off the press and hands it over, wet.",
+      "where": "dialogue/frame FRA_A1 option 6"
+    },
+    {
+      "n": 133,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad presses the notice to the board, over a claim for sale. It holds by its own ink.",
+      "where": "combinations (funeral_notice on posted_notices)"
+    },
+    {
+      "n": 134,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.",
+      "where": "combinations (tonic on handkerchief)"
+    },
+    {
+      "n": 135,
+      "class": "C",
+      "speaker": "thad",
+      "words": "One pass, and the year is gone. So is some of the green.",
+      "where": "combinations (handkerchief on company_ledger, dosed)"
+    },
+    {
+      "n": 136,
+      "class": "B",
+      "speaker": "thad",
+      "words": "Thad lifts the blanket off her, a corner at a time. Grievance watches each corner go.",
+      "where": "rooms/livery grievance_s_blanket PICK_UP (with leave)"
     }
   ]
 }

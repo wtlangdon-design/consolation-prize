@@ -226,7 +226,7 @@
         {
           "id": "pratt7",
           "tag": "PROGRESS",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "text": "Do you know what the Company thinks my claim is worth?",
           "exchange": [
             {
@@ -235,61 +235,23 @@
             },
             {
               "speaker": "pratt",
-              "line": "For the mud."
-            },
-            {
-              "speaker": "thad",
-              "line": "For the mud."
+              "line": "Heard numbers."
             },
             {
               "speaker": "pratt",
               "line": "…"
             },
             {
-              "speaker": "thad",
-              "line": "…"
-            },
-            {
               "speaker": "pratt",
-              "line": "Two dollars a week is a hundred and four dollars a year."
-            },
-            {
-              "speaker": "thad",
-              "line": "It is."
-            },
-            {
-              "speaker": "pratt",
-              "line": "That ain't the same number."
-            },
-            {
-              "speaker": "pratt",
-              "line": "Grubb."
-            },
-            {
-              "speaker": "thad",
-              "line": "Yes?"
-            },
-            {
-              "speaker": "pratt",
-              "line": "Eleven dollars for the claim."
-            },
-            {
-              "speaker": "thad",
-              "line": "…Still?"
-            },
-            {
-              "speaker": "pratt",
-              "line": "I like the claim."
+              "line": "Never seen one."
             }
           ],
           "when": {
             "T_PRATT_TRAIL": true
           },
+          "repeat": "Never seen one.",
           "set": {
-            "T_PRATT_TURNED": true
-          },
-          "puzzle": {
-            "D5": "complete"
+            "T_FIGURE_TOLD": true
           }
         },
         {

@@ -26,11 +26,11 @@ Nothing here touches a load-bearing line. Where a line that exists today is said
 ### O-1 · The chalk
 
 **THE CHALK** · *the Nugget's back room*
-- PICK UP — "Only the judges may touch it. Nobody has ever said who may take it. I have left the tin, so that nobody need be alarmed." → A STUB OF CHALK
+- PICK UP, *the first time* — "Only the judges may touch it. Nobody has ever said who may take it. I have left the tin, so that nobody need be alarmed." → A STUB OF CHALK
 - PICK UP, *again* — "The tin is empty and has its lid on. It will be a whole duel before anyone knows."
 
 **A STUB OF CHALK** *(item)*
-**LOOK** 1 "The judges' chalk, worn to the shape of a thumb. Every lie in Consolation has been scored with it." · 2 "It writes white on anything. That is the whole of its character, and I rather envy it." · 3 "I have stolen the one honest instrument in the Nugget. It kept the score."
+**LOOK** 1 "The judges' chalk, worn to the shape of a thumb. Every lie in Consolation has been scored with it." · 2 "It writes white on anything. It has no other character, and I rather envy it." · 3 "I have stolen the one honest instrument in the Nugget. It kept the score."
 **LISTEN** 1 "Nothing. Chalk at rest has nothing to add." · 2 "A dry squeak, when I try it on my thumbnail. The sound of a number about to be believed." · 3 "Nothing. It is waiting to be put to something."
 
 **`PRA_B1` option 7**, *"Do you know what the Company thinks my claim is worth?", before the figure is chalked*
@@ -86,8 +86,7 @@ Doc 04's PRA_D5 from "For the mud.", word for word, with its two directions adde
 ### O-4 · The tonic
 
 **DR. PURVIS'S TONIC** · USE *on THE HANDKERCHIEF*
-- USE DR. PURVIS'S TONIC — *(Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.)* "The linen has gone a color I have no name for. The label says it restores. It does not say to what." → the handkerchief, dosed; the tonic is kept.
-- USE DR. PURVIS'S TONIC, *again* — "Once is a remedy. I will not find out what twice is on another man's linen."
+- USE DR. PURVIS'S TONIC — *(Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.)* "The linen has gone a color I have no name for. The label says it restores. It does not say to what." → the handkerchief, dosed; the bottle is spent.
 
 **THE GILT, WITH THE TONIC** · USE THE HANDKERCHIEF *on A COMPANY LEDGER, the handkerchief dosed*
 - USE THE HANDKERCHIEF, *dosed* — *(One pass, and the year is gone. So is some of the green.)* "Dr. Purvis has taken the gold off a book faster than this town takes it off a man. I shall write and tell him." → `T_LEDGER_PLAIN`

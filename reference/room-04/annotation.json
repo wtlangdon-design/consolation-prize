@@ -244,5 +244,38 @@
   "block": 3,
   "colour": "#8c8b7e",
   "note": "Errata 136 A (Tyler, 2026-11-06, \"Chalk score on the slate\"): the duel's score, the player's row above Vessel's, chalked on the right of the slate (THE SCOREBOARD, 400,0 405x255) between the lamp chain and the frame, clear of Sowerby's head in every frame (he leans back to x 720) and above the judges' (y 150). Strokes 3 px blocks and 30 tall, matching the plate's painted tallies; a little brighter than them, because these are today's."
- }
+ },
+ "docBullets": [
+  {
+   "hotspot": "chalk",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-1 · The chalk",
+   "head": "**THE CHALK** · *the Nugget's back room*",
+   "bullet": "- PICK UP, *the first time*",
+   "when": {
+    "T_CHALK_TAKEN": false
+   },
+   "set": {
+    "T_CHALK_TAKEN": true
+   },
+   "grants": [
+    "chalk"
+   ]
+  },
+  {
+   "hotspot": "chalk",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-1 · The chalk",
+   "head": "**THE CHALK** · *the Nugget's back room*",
+   "bullet": "- PICK UP, *again*",
+   "when": {
+    "T_CHALK_TAKEN": true
+   }
+  }
+ ],
+ "docBulletsNote": "Errata 245 (doc 117 O-1, doc 118): the chalk is taken from its tin, once (T_CHALK_TAKEN). It is what the turn of Pratt is written with."
 }

@@ -15,19 +15,19 @@
    "row": "X-1"
   },
   {
-   "what": "an item is used on another item 1 time(s), not 5",
+   "what": "an item is used on another item 2 time(s), not 5",
    "row": "X-2, widened by Tyler on 2026-11-09 to five: to be placed in I-1 (the dinner), II-1 (the plate) and where else it comes naturally"
   },
   {
-   "what": "objects are 12 of 34 items, not half",
+   "what": "objects are 14 of 37 items, not half",
    "row": "doc 116 Y1"
   },
   {
-   "what": "9 item(s) are taken from a room by hand, not 15",
+   "what": "12 item(s) are taken from a room by hand, not 15",
    "row": "doc 116 Y2"
   },
   {
-   "what": "10 different item-on-the-world uses on the route, not 15",
+   "what": "12 different item-on-the-world uses on the route, not 15",
    "row": "doc 116 Y3"
   },
   {
@@ -54,7 +54,8 @@
    "padded_log",
    "photograph",
    "survey",
-   "third_copy"
+   "third_copy",
+   "funeral_notice"
   ],
   "money": [
    "filing_fee",

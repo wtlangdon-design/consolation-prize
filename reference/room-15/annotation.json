@@ -211,5 +211,27 @@
    },
    "note": "Doc 04 LIV_A1 option 5 and doc 23: while THE LIVERY BLANKET is on loan the bin is bare. The plate's own panel laid over the blanket (tools/art/room15-props.py)."
   }
- ]
+ ],
+ "docBullets": [
+  {
+   "hotspot": "grievance_s_blanket",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-5 · The blanket",
+   "head": "**GRIEVANCE'S BLANKET** · PICK UP, *with leave*",
+   "bullet": "- PICK UP, *with leave*",
+   "when": {
+    "T_BLANKET_ALLOWED": true,
+    "T_BLANKET_BORROWED": false
+   },
+   "set": {
+    "T_BLANKET_BORROWED": true
+   },
+   "grants": [
+    "blanket"
+   ]
+  }
+ ],
+ "docBulletsNote": "Errata 245 (doc 117 O-5, doc 118): the livery man gives leave (T_BLANKET_ALLOWED, LIV_A1 option 5) and Thad takes the blanket off her himself."
 }

@@ -286,6 +286,24 @@
               "Nothing. It burns at the volume management prefers."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4
+              },
+              "T_LAMP_TAKEN": false
+            },
+            "say": "Management's lamp, turned low. I shall want it where I am going, and management will not. I have left a note. It says KINDLY.",
+            "set": {
+              "T_LAMP_TAKEN": true
+            },
+            "grants": [
+              "hotel_lamp"
+            ],
+            "sceneLine": "docs/118-objects-the-lines.md::### O-7 · The lamp · **THE LAMP** · *Thad's room, Act IV* - PICK UP"
+          }
         ]
       },
       "overrides": {

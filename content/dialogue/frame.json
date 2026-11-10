@@ -211,6 +211,15 @@
             {
               "speaker": "frame",
               "line": "'MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS.' I've added refreshments. It doubles the turnout."
+            },
+            {
+              "speaker": "frame",
+              "line": "He pulls a sheet off the press and hands it over, wet.",
+              "direction": true
+            },
+            {
+              "speaker": "frame",
+              "line": "Post it yourself, mystery man! I print. I do not walk."
             }
           ],
           "repeats": [
@@ -220,11 +229,15 @@
             }
           ],
           "set": {
-            "T_FUNERAL_DAY": true
+            "T_NOTICE_IN_HAND": true
           },
           "when": {
-            "T_MEMORIAL_BOOKED": true
+            "T_MEMORIAL_BOOKED": true,
+            "T_NOTICE_IN_HAND": false
           },
+          "gives": [
+            "funeral_notice"
+          ],
           "puzzle": {
             "C3": "complete"
           }

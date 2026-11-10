@@ -864,8 +864,8 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "dialogue:FRAME:FRA_A1:frame6",
-    "room:boot_hill:onEnter"
+    "room:boot_hill:onEnter",
+    "combination:funeral_notice:main_street:posted_notices"
    ],
    "note": "Doc 57 C3: the funeral day, from FRA_A1 6 until Thad walks up Boot Hill. Read by Rooms 2, 11, 14, 17 and D4, not built."
   },
@@ -1283,7 +1283,7 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "dialogue:LIVERY_MAN:LIV_A1:livery_man5"
+    "room:livery:grievance_s_blanket:PICK_UP"
    ],
    "note": "Doc 04 LIV_A1 option 5: THE LIVERY BLANKET on loan (errata 88 D). While set the bin is drawn bare and GRIEVANCE'S BLANKET is not a subject; A5 (Rooms 23/24, not built) clears it when the blanket comes back (doc 23)."
   },
@@ -1480,6 +1480,7 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
+    "combination:chalk:prosperity:claim_marker",
     "dialogue:PRATT:PRA_B1:pratt7"
    ],
    "note": "Doc 57 D5: 'He signs' -- the quitclaim; Pratt gives up jumping Prosperity. Opens PRA_D6 (errata 97 B)."
@@ -2032,6 +2033,62 @@
     "combination:company_ledger:fanshawe_office:chairs"
    ],
    "note": "Doc 115, II-3 (errata 244): the ledger's spine is broken in at one place, as the log's is. The swap needs it."
+  },
+  {
+   "id": "T_CHALK_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:nugget_back:chalk:PICK_UP"
+   ],
+   "note": "Doc 118, O-1 (errata 245): the judges' chalk is in Thad's pocket. The tin gives one."
+  },
+  {
+   "id": "T_FIGURE_TOLD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PRATT_JUMP:PRA_B1:pratt7"
+   ],
+   "note": "Doc 118, O-1 (errata 245): Pratt has been told the Company's figure, and has never seen one. The chalk on the claim marker is then the turn."
+  },
+  {
+   "id": "T_NOTICE_IN_HAND",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_A1:frame6",
+    "combination:funeral_notice:main_street:posted_notices"
+   ],
+   "note": "Doc 118, O-2 (errata 245): Thad is holding a funeral notice Frame printed and has not yet posted it. Frame prints another only when this is false."
+  },
+  {
+   "id": "T_HANDKERCHIEF_DOSED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:tonic:fanshawe_office:handkerchief",
+    "combination:handkerchief:fanshawe_office:tonic"
+   ],
+   "note": "Doc 118, O-4 (errata 245): Dr. Purvis's tonic is on the Colonel's handkerchief. It takes the gilt off the ledger in one pass."
+  },
+  {
+   "id": "T_BLANKET_ALLOWED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:LIVERY_MAN:LIV_A1:livery_man5"
+   ],
+   "note": "Doc 118, O-5 (errata 245): the livery man has said Thad may borrow Grievance's blanket. He takes it off her himself."
+  },
+  {
+   "id": "T_LAMP_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:thads_room:lamp:PICK_UP"
+   ],
+   "note": "Doc 118, O-7 (errata 245): the hotel's lamp has been taken from Thad's room for the dig."
   }
  ]
 }

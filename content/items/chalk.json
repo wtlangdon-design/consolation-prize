@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "chalk",
+  "name": "A STUB OF CHALK",
+  "short": "A STUB OF CHALK",
+  "note": "EXTRACTED from docs/118-objects-the-lines.md (THE LINES) by tools/extract-content.mjs (errata 245). Do not edit: change doc 118 and re-run. Taken from its tin in the Nugget's back room. What the turn of Pratt is written with, on Thad's own stake; kept.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "The judges' chalk, worn to the shape of a thumb. Every lie in Consolation has been scored with it.",
+        "repeat": [
+          "It writes white on anything. It has no other character, and I rather envy it.",
+          "I have stolen the one honest instrument in the Nugget. It kept the score."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Nothing. Chalk at rest has nothing to add.",
+        "repeat": [
+          "A dry squeak, when I try it on my thumbnail. The sound of a number about to be believed.",
+          "Nothing. It is waiting to be put to something."
+        ]
+      }
+    ]
+  }
+}

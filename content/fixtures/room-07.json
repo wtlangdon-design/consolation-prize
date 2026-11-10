@@ -459,7 +459,12 @@
     "T_F5_DEED": false,
     "T_F5_DOCUMENT_C": false,
     "T_F5_SAMPLE": false,
-    "T_BILL_FOUND": false
+    "T_BILL_FOUND": false,
+    "T_CHALK_TAKEN": true,
+    "T_LAMP_TAKEN": true,
+    "T_FIGURE_TOLD": true,
+    "T_BLANKET_ALLOWED": true,
+    "T_NOTICE_IN_HAND": true
    },
    "inventory": [
     "letter",
@@ -482,7 +487,9 @@
     "sample",
     "deed",
     "brass_rod",
-    "third_copy"
+    "third_copy",
+    "chalk",
+    "hotel_lamp"
    ],
    "derivedFrom": [
     "docs/04-dialogue-trees.md:170-176 (WIN_F1 after T_STRIKE_FOUND; 'Run it.' -- she runs it at the window, the first assay the player watches)",

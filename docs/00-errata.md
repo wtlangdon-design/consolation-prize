@@ -6735,3 +6735,30 @@ Lesson:
 
 **III-1 is withdrawn by its author, for Tyler to overrule.** Doc 114 proposed "the archive, searched" before the room was read closely. Room 8 already gives three quiet clues (the dust at chest height, the one chair, the rota), using Hob's form on the file is the player's own deduction, and it stands beside lines invariant 3 says must never be marked. Steps added there would make it worse. CLOSE needs another home; the dinner (I-1) is where it will be looked for.
 
+
+---
+
+## 245 · Objects, first pass: five things done by hand (docs 116, 117, 118); the overnight mandate
+
+**Tyler, 2026-11-09.** Shown doc 117's rows O-1 to O-7: "All". Asked how the Monkey Island work gets done while he sleeps, and whether Claude may design, write and build without waiting for rulings: "Yes, build it all". Then: the inventory should lose papers and gain objects; "feel free to continue over night if you discover other things that would make the game better and in the style of MI"; and "Feel free to change the story too if changing it makes it better".
+
+**What that permission covers, as its author reads it.** New lines by one voice to doc 59, in /docs, for the rows of docs 114, 116 and 117 and for what those documents' standards turn up. It does not cover CLAUDE.md's design invariants, which stand untouched. The ending and the central reveal are kept; a case for changing either is written and left unbuilt. **Every change to the story or to how a puzzle is solved is listed with its before and after in `docs/119-what-changed-overnight.md`, so any one of them can be reversed.**
+
+### Built here (doc 118)
+
+| Row | Before | Now |
+|---|---|---|
+| **O-1 · The chalk** | Pratt is turned by choosing one line from a list | The chalk is taken from the Nugget's back room. Told the figure, Pratt has "heard numbers. Never seen one." Thad chalks it on his own stake; Pratt takes the chalk and does his sum under it. Doc 04's PRA_D5, word for word |
+| **O-2 · The notice** | Asking Frame starts the funeral day | Frame hands him the notice. The day starts when it is on the board on Main Street |
+| **O-4 · The tonic** | Taken in Act I, used on nothing a second time | On the handkerchief (item on item, the second), it takes the gilt off in one pass. Dry still works |
+| **O-5 · The blanket** | Appears in his hand | The livery man says yes; Thad takes it off the mule |
+| **O-7 · The lamp** | Narrated at the dig | Taken from his room in Act IV; the hole refuses the pickaxe without it |
+
+O-3 (the hymnal) and O-6 (the wreath) are built with doc 115's hill scenes.
+
+- Five icons from the image session placed on the sheet (`tools/art/act2-papers-icons-place.py`).
+- No dead end: the chalk is never spent, the tonic is a second way and not the only one, the lamp is in the room Act IV opens in. The traversal holds it.
+
+Lesson:
+- The full walkthrough plays every one of them (A5.2a, C3.8 to C3.11, C4.2c2, D5.0a, D5.0b, D5.2c, F1.0), and the model and the puzzle graph are derived from the same content.
+- `proofs/pacing.json`: item on item two of five, 12 taken by hand, 12 item-on-world uses. The check fails if any slips back.
