@@ -727,6 +727,12 @@
    "date": "2026-11-10",
    "kind": "loosened",
    "why": "Errata 257 (doc 122 P1). 'Every line that sounds is a line the game shows, word for word' looked only in rooms and trees. The nail's three taps sound on a direction of an item used on a thing, which is a pair's line (content/combinations.json), so the search now includes the pairs. It is wider, not laxer: a sounding line must still be on screen word for word, in one more place it can truly be."
+  },
+  {
+   "check": "tests/skin-tone.test.mjs",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Errata 260. Not loosened in what it holds: its copy of the renderer's grade now reads a figure's own light (`perFigure.light`), which the renderer has always applied and the type now declares, so the map seller is measured in the light he is drawn in rather than the street's. The 30% bound is unchanged, and it refused this change's first grade for duel judge 1."
   }
  ]
 }
