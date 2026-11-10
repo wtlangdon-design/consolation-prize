@@ -1,0 +1,14 @@
+{
+ "assetId": "act1-dinner",
+ "subject": "act1-dinner-company-map-large",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-16-tent",
+ "promptFile": "reference/act1-dinner/op-2.txt",
+ "out": "art/staging/act1-dinner/op-2/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act1-dinner/op-2/company-map-icon@8x.png",
+  "art/staging/act1-dinner/op-2/tent-plate.png"
+ ]
+}

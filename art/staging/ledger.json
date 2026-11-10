@@ -44928,6 +44928,384 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-10T01:06:35.918Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "act1-dinner",
+   "subject": "act1-dinner-dish-uncovered",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/act1-dinner/op-1.txt",
+   "promptHash": "f8dea22b496f2884609ea75ea13e4d143a848886e93ce162c8d269a5236f7427",
+   "references": [
+    {
+     "path": "art/staging/act1-dinner/op-1/input.png",
+     "hash": "7ac4f7666a97f24871ec5742ed650ad4ed16e1d3893aad4b5cedf69b1c74a0ee",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act1-dinner/op-1/dinner-as-it-plays.png",
+     "hash": "27f4cc49b4c488c339e9acc2b85390822f99edccdeccd66cae14470dd3d0d2b3",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-11-fanshawe-office",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/act1-dinner/op-1/mask.png",
+    "hash": "60e56f7e7d21fdc1bfc24eff289a5edaa54ef58c716ddf4460f68d8fbb25e1bf"
+   },
+   "sourceHash": "7ac4f7666a97f24871ec5742ed650ad4ed16e1d3893aad4b5cedf69b1c74a0ee",
+   "sourcePath": "art/staging/act1-dinner/op-1/input.png",
+   "out": "art/staging/act1-dinner/op-1/sheet.png",
+   "outputHash": "45b332c672656d863c49fb8f61851168e25f6ffef23e991e2ef81180901d7149",
+   "bytes": 2059582,
+   "usage": {
+    "input_tokens": 10084,
+    "input_tokens_details": {
+     "image_tokens": 9648,
+     "text_tokens": 436
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 11635
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-10T09:11:41.053Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-10T09:11:41.085Z"
+  },
+  {
+   "attempt": 2,
+   "role": "canonical-design",
+   "assetId": "act1-dinner",
+   "subject": "act1-dinner-company-map-large",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/act1-dinner/op-2.txt",
+   "promptHash": "2f9513b6f0b4c3b93694afc475c531ed4c59c6b4a9446afbf98231d2af166f5c",
+   "references": [
+    {
+     "path": "art/staging/act1-dinner/op-2/company-map-icon@8x.png",
+     "hash": "2fe92be107141d6c5bfa83c603ca0556a30681297a5cda7d8b7dc85f8587175e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act1-dinner/op-2/tent-plate.png",
+     "hash": "a4a150f5bcc4bfe209ba1739953bd346e48e173bbda0861941083523668a2779",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-16-tent",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "2fe92be107141d6c5bfa83c603ca0556a30681297a5cda7d8b7dc85f8587175e",
+   "sourcePath": "art/staging/act1-dinner/op-2/company-map-icon@8x.png",
+   "out": "art/staging/act1-dinner/op-2/sheet.png",
+   "outputHash": "5698432a9d49c13dc021be2ad7e3b643d7e5b26a6a95058f122fb1e594858c21",
+   "bytes": 2763636,
+   "usage": {
+    "input_tokens": 9401,
+    "input_tokens_details": {
+     "image_tokens": 8712,
+     "text_tokens": 689
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 9834
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-10T09:15:57.254Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-10T09:15:57.265Z"
+  },
+  {
+   "attempt": 3,
+   "role": "derived-state",
+   "assetId": "act1-dinner",
+   "subject": "act1-dinner-dish-uncovered",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/act1-dinner/op-3.txt",
+   "promptHash": "9e42ff317e06c49603bf4f844943be42dd662e56720e346b19ecdde7eb48512c",
+   "references": [
+    {
+     "path": "art/staging/act1-dinner/op-3/input.png",
+     "hash": "7ac4f7666a97f24871ec5742ed650ad4ed16e1d3893aad4b5cedf69b1c74a0ee",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act1-dinner/op-3/layout-guide.png",
+     "hash": "872aa2d121c6e0375445a59aea5656e05af449479409c2b65570d23c8dba7fd6",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act1-dinner/op-3/dinner-as-it-plays.png",
+     "hash": "27f4cc49b4c488c339e9acc2b85390822f99edccdeccd66cae14470dd3d0d2b3",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-11-fanshawe-office",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/act1-dinner/op-3/mask.png",
+    "hash": "802d6607fbd636b2f61fe8223cca30fb71f7c72adc5b3d84e6f40b186ac12c7a"
+   },
+   "sourceHash": "7ac4f7666a97f24871ec5742ed650ad4ed16e1d3893aad4b5cedf69b1c74a0ee",
+   "sourcePath": "art/staging/act1-dinner/op-3/input.png",
+   "out": "art/staging/act1-dinner/op-3/sheet.png",
+   "outputHash": "da6d5ca7532cacd150bd89deea5b1389b0660086f92539c5c21ef98e6ed1f0f1",
+   "bytes": 2112368,
+   "usage": {
+    "input_tokens": 11647,
+    "input_tokens_details": {
+     "image_tokens": 11184,
+     "text_tokens": 463
+    },
+    "output_tokens": 780,
+    "output_tokens_details": {
+     "image_tokens": 780,
+     "text_tokens": 0
+    },
+    "total_tokens": 12427
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-10T09:18:35.813Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-10T09:18:35.825Z"
   }
  ],
  "promotions": [
