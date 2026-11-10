@@ -3499,6 +3499,7 @@ export class GameScene extends Phaser.Scene {
       ending: this.endingFrom === null ? null
         : endingAt(this.lastFrameAt - this.endingFrom, this.endingTiming()).phase,
       performing: this.performance !== null,
+      acting: (this.heldPoses() ?? []).map((pose) => pose.id),
       panel: this.panelDrawn,
       optionsShown: this.state.dialogue.isActive && this.performance === null
         ? this.view.dialogueHitboxes(this.state.dialogue.presentOptions(), this.choiceScroll()).filter((box) => box.shown).length : 0,

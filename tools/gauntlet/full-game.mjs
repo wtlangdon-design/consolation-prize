@@ -90,7 +90,13 @@ const READ_MS = ((UI.timing ?? {}).holdMinimumSeconds ?? 1.8) * 1000;
 const VERBS = readJson('content/ui/verbs.json');
 const TRANSIT = VERBS.transitVerbs ?? [VERBS.walkVerb.id];
 const PANEL = readJson('content/ui/panel.json');
-const walkthrough = readJson('tests/data/full-game-walkthrough.json');
+// A WALKTHROUGH OF ONE'S OWN (errata 266): `GAUNTLET_WALKTHROUGH` plays another file of steps, for looking at things the
+// route does not choose (a direction acted on a dialogue option nobody has to pick). The route itself is the default.
+const walkthrough = readJson(process.env.GAUNTLET_WALKTHROUGH ?? 'tests/data/full-game-walkthrough.json');
+// FILMING WHAT IS ACTED (errata 266): with `GAUNTLET_FILM=<dir>`, a frame of the play area is kept about five times a
+// second for as long as a figure is holding a frame of an acted direction (the probe's `acting`), named by the step it fell in.
+// It is how the acted directions were watched in motion: a strip per direction, in the real build.
+const FILM = process.env.GAUNTLET_FILM ? resolve(process.env.GAUNTLET_FILM) : null;
 
 const rooms = new Map(manifest.rooms.map((path) => readJson(path)).filter((room) => room.id).map((room) => [room.id, room]));
 const trees = new Map(manifest.dialogue.map((path) => readJson(path)).map((tree) => [tree.id, tree]));
@@ -647,8 +653,24 @@ async function main() {
     if (RECORD) await page.evaluate(() => window.__gauntlet?.arm({}));
     let act = null;
     let seenNetwork = 0; let seenConsole = 0;
+    let filming = FILM !== null; let filmStep = ''; let filmed = 0;
+    if (FILM) {
+      mkdirSync(FILM, { recursive: true });
+      (async () => {
+        while (filming && !page.isClosed()) {
+          const seen = await probe(page).catch(() => null);
+          if (seen?.acting?.length) {
+            filmed += 1;
+            await page.screenshot({ path: resolve(FILM, `${String(filmed).padStart(4, '0')}-${filmStep}-${seen.acting.join('+')}.jpg`), type: 'jpeg', quality: 72,
+              clip: { x: 0, y: 0, width: 1920, height: 864 } }).catch(() => {});
+          }
+          await new Promise((wake) => setTimeout(wake, 180));
+        }
+      })();
+    }
     for (const step of steps) {
       const began = Date.now();
+      filmStep = step.id;
       const log = [];
       let problem = null;
       if (RECORD) {
