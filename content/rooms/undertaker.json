@@ -411,6 +411,25 @@
               "Nothing. It learns one thing about each man, and it is in no hurry to learn mine."
             ]
           }
+        ],
+        "USE": [
+          {
+            "when": {
+              "T_WALL_MEASURED": false
+            },
+            "say": "Heels to the frame, and a hand flat on my head. I come out between the same two men. I have made no mark. The mark is his trade, and I am not looking to give him custom.",
+            "set": {
+              "T_WALL_MEASURED": true
+            },
+            "sceneLine": "docs/123-five-more-things-to-find.md::### F-3 · The measuring wall: the lines · **THE MEASURING WALL** · *the undertaker's* - USE, *the first time*"
+          },
+          {
+            "when": {
+              "T_WALL_MEASURED": true
+            },
+            "say": "I know where I come to. The wall has not been told, and I mean to keep it guessing.",
+            "sceneLine": "docs/123-five-more-things-to-find.md::### F-3 · The measuring wall: the lines · **THE MEASURING WALL** · *the undertaker's* - USE, *again*"
+          }
         ]
       },
       "overrides": {

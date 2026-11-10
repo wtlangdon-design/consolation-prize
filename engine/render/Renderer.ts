@@ -126,7 +126,7 @@ export interface Frame {
    * THE TITLE SCREEN (errata 128): its items, and which one the pointer is
    * on. While it is up nothing of the room is drawn.
    */
-  title?: { items: TitleItem[]; hovered: string | null; theEnd?: boolean; begin?: boolean } | null;
+  title?: { items: TitleItem[]; hovered: string | null; theEnd?: boolean; begin?: boolean; stamp?: boolean } | null;
   /**
    * THE PANEL IS THERE BUT INERT (errata 133): Room 33's ninety seconds. The
    * verbs and the inventory are dimmed, not removed, and the sentence line is
@@ -2455,7 +2455,7 @@ export class Renderer {
     }
   }
 
-  private drawTitleScreen(title: { items: TitleItem[]; hovered: string | null; theEnd?: boolean; begin?: boolean }): void {
+  private drawTitleScreen(title: { items: TitleItem[]; hovered: string | null; theEnd?: boolean; begin?: boolean; stamp?: boolean }): void {
     const file = this.state.content.title;
     if (!file) return;
     const ctx = this.screen.context;
@@ -2482,6 +2482,11 @@ export class Renderer {
           TITLE_SCREEN_LOGO_Y + index * SPEECH_LINE_HEIGHT * 2,
           this.screen.roleColour('inkBright'), this.screen.roleColour('overlayBg'));
       });
+    }
+    // THE REGISTRAR'S STAMP, once it has come down (TitleFile.stamp; errata 259): over the drawn title, at its own size.
+    if (title.stamp && file.stamp) {
+      const mark = this.sheet(file.stamp.sheet);
+      if (mark) ctx.drawImage(mark, file.stamp.x, file.stamp.y);
     }
     // THE END, under the title, when the game has just ended (Tyler, 2026-11-06:
     // "Title + THE END only"). The words are title.json's.

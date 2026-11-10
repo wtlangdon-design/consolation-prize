@@ -215,5 +215,35 @@
    "startsWith": "**THE CLAIM** · LOOK",
    "note": "Doc 94 (errata 127): the money trail points outward, from D2 until SHE_A1 option 1."
   }
- ]
+ ],
+ "docBullets": [
+  {
+   "hotspot": "coffee_pot",
+   "verbs": [
+    "OPEN"
+   ],
+   "ref": "docs/123-five-more-things-to-find.md::### F-4 · The coffee pot: the lines",
+   "head": "**THE COFFEE POT** · *Mr. Pratt's claim*",
+   "bullet": "- OPEN, *the first time*",
+   "when": {
+    "T_COFFEE_SMELLED": false
+   },
+   "set": {
+    "T_COFFEE_SMELLED": true
+   }
+  },
+  {
+   "hotspot": "coffee_pot",
+   "verbs": [
+    "OPEN"
+   ],
+   "ref": "docs/123-five-more-things-to-find.md::### F-4 · The coffee pot: the lines",
+   "head": "**THE COFFEE POT** · *Mr. Pratt's claim*",
+   "bullet": "- OPEN, *again*",
+   "when": {
+    "T_COFFEE_SMELLED": true
+   }
+  }
+ ],
+ "docBulletsNote": "Errata 258, doc 123 F-4: the lid of the coffee pot lifted, once (T_COFFEE_SMELLED)."
 }

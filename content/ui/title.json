@@ -45,5 +45,17 @@
   "theEnd": "THE END",
   "theEndNote": "Tyler, 2026-11-06, asked what the ending should say, chose \"Title + THE END only (Recommended)\": after the letter, the game fades to this title over the ridge with these words under the drawn title, and there is no credits list for now. Shown only when the title is reached through the close (errata 128). CREDITS stays on the menu, dim and inert.",
   "begin": "Click to begin",
-  "beginNote": "Tyler, 2026-11-07, asked why the title had no music, chose \"Click to begin\" (errata 155). A browser plays nothing before the page is clicked, and the first click was nearly always NEW GAME, so O-01-M never sounded. On a plain boot these words stand alone on black; the click on them unlocks audio, and the title comes up over the ridge with its bed playing. Not shown on a return to the title (Quit to Title, the close), when sound is already unlocked, nor on a review link."
+  "beginNote": "Tyler, 2026-11-07, asked why the title had no music, chose \"Click to begin\" (errata 155). A browser plays nothing before the page is clicked, and the first click was nearly always NEW GAME, so O-01-M never sounded. On a plain boot these words stand alone on black; the click on them unlocks audio, and the title comes up over the ridge with its bed playing. Not shown on a return to the title (Quit to Title, the close), when sound is already unlocked, nor on a review link.",
+  "stamp": {
+    "word": "SEEN",
+    "by": "CLAIMS REGISTRAR",
+    "sheet": "art/ui/title-stamp.png",
+    "x": 1300,
+    "y": 304,
+    "after": "U-STAMP",
+    "cue": "U-STAMP",
+    "at": 2.2,
+    "strike": 0.38,
+    "note": "Errata 259 (doc 122 P7). Tyler, 2026-11-10: \"maybe there's a trigger in the game that once you reach a certain point where the stamp is used, then the stamp comes down on the title card?\", then \"Go\". The first time a player sees the title it is clean. Once the Registrar's stamp has come down in front of them in play (`after`, a cue heard in the game), the title is stamped too: `at` seconds after it shows, the stamp lands on it with `cue`, whose thump is `strike` seconds into its file, and the mark stays. The word is the one the Registrar stamps on Thad's papers (doc 57: \"stamped SEEN\"). Remembered with the machine's settings, not in a save, so NEW GAME does not take it off. `word` and `by` are what tools/art/title-stamp.py draws into `sheet`, in the game's own face."
+  }
 }

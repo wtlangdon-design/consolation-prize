@@ -191,6 +191,8 @@ export class GameState {
   readonly dialogue: DialogueRunner;
   readonly saves: SaveManager;
   readonly menu: MenuSystem;
+  /** The machine's settings: kept apart from every save (doc 33 section 7.3). The title's stamp is one (errata 259). */
+  readonly machine: MachineSettings;
   readonly content: ContentBundle;
 
   private currentRoomId: string;
@@ -272,8 +274,9 @@ export class GameState {
     // THE MACHINE'S SETTINGS ARE NOT THE GAME'S (doc 33 section 7.3; errata
     // 154 A): text speed is kept under its own key in the same storage, and
     // nothing in save, load or reset below touches it.
+    this.machine = new MachineSettings(storage);
     this.menu = new MenuSystem(content.menu, this.saves,
-      (id) => content.rooms.get(id)?.name ?? id, new MachineSettings(storage));
+      (id) => content.rooms.get(id)?.name ?? id, this.machine);
     this.currentRoomId = content.manifest.startRoom;
     this.inventory = this.startingInventory();
   }

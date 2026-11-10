@@ -680,9 +680,36 @@
    "set": {
     "T_COLONEL_OUT": true
    }
+  },
+  {
+   "hotspot": "dog",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/123-five-more-things-to-find.md::### F-1 · The dog: the lines",
+   "head": "**A DOG** · *Main Street*",
+   "bullet": "- PICK UP, *the first time*",
+   "when": {
+    "T_DOG_SCRATCHED": false
+   },
+   "set": {
+    "T_DOG_SCRATCHED": true
+   }
+  },
+  {
+   "hotspot": "dog",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/123-five-more-things-to-find.md::### F-1 · The dog: the lines",
+   "head": "**A DOG** · *Main Street*",
+   "bullet": "- PICK UP, *again*",
+   "when": {
+    "T_DOG_SCRATCHED": true
+   }
   }
  ],
- "docBulletsNote": "Errata 246, doc 115 II-5: THE COLONEL, IN HIS DOORWAY is the figure wreath_fanshawe, on the funeral day until he is pushed through (T_COLONEL_OUT). His tries are read from doc 115's THE TRIES; PUSH is the one that does it, the game's second solving PUSH (doc 114 X-1).",
+ "docBulletsNote": "Errata 246, doc 115 II-5: THE COLONEL, IN HIS DOORWAY is the figure wreath_fanshawe, on the funeral day until he is pushed through (T_COLONEL_OUT). His tries are read from doc 115's THE TRIES; PUSH is the one that does it, the game's second solving PUSH (doc 114 X-1). Errata 258, doc 123 F-1: the dog is scratched behind the ear, once (T_DOG_SCRATCHED).",
  "exitTransitScenes": {
   "to_company": [
    {

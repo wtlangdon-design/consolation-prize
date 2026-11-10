@@ -64,3 +64,22 @@ export function endingAt(elapsed: number, timing: EndingTiming): { phase: Ending
   if (fading - timing.fade < timing.black) return { phase: 'black', pageAlpha: 0 };
   return { phase: 'title', pageAlpha: 0 };
 }
+
+/** The machine setting that says the Registrar's stamp has been seen in play (TitleFile.stamp; errata 259). */
+export const TITLE_STAMPED = 'titleStamped';
+
+/**
+ * THE STAMP ON THE TITLE, AT THIS MOMENT (errata 259; doc 122 P7. Tyler, 2026-11-10: "maybe there's a trigger in the
+ * game that once you reach a certain point where the stamp is used, then the stamp comes down on the title card?").
+ *
+ * Nothing at all until the player has seen the stamp used in the game: a first title is clean. After that, each time
+ * the title shows, the stamp's sound starts early enough that its thump lands `at` seconds in, and from that moment
+ * the mark is drawn and stays. Not under "Click to begin", which is not the title yet (and is silent by definition).
+ * Phaser-free, so the rule has a test (tests/title-stamp.test.ts).
+ */
+export function titleStampAt(
+  stamp: TitleFile['stamp'], earned: boolean, sinceShown: number | null,
+): { sound: boolean; down: boolean } {
+  if (!stamp || !earned || sinceShown === null) return { sound: false, down: false };
+  return { sound: sinceShown >= stamp.at - (stamp.strike ?? 0), down: sinceShown >= stamp.at };
+}

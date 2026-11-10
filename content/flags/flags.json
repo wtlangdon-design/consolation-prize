@@ -2345,6 +2345,51 @@
     "room:ozymandias_tent:stake:USE"
    ],
    "note": "Doc 120 I-3 (errata 251): the boundary has been walked home and the survey written."
+  },
+  {
+   "id": "T_DOG_SCRATCHED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:main_street:dog:PICK_UP"
+   ],
+   "note": "Doc 123 F-1: he has scratched the dog behind the ear (errata 258). Read only by the same thing's second line; nothing else reads it."
+  },
+  {
+   "id": "T_CHAIR_TRIED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:barbers:chair:PULL"
+   ],
+   "note": "Doc 123 F-2: he has tried the lever of the barber's chair (errata 258). Read only by the same thing's second line; nothing else reads it."
+  },
+  {
+   "id": "T_WALL_MEASURED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:undertaker:measuring_wall:USE"
+   ],
+   "note": "Doc 123 F-3: he has taken his own measure at the wall (errata 258). Read only by the same thing's second line; nothing else reads it."
+  },
+  {
+   "id": "T_COFFEE_SMELLED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:pratts_claim:coffee_pot:OPEN"
+   ],
+   "note": "Doc 123 F-4: he has lifted the lid of Mr. Pratt's coffee pot (errata 258). Read only by the same thing's second line; nothing else reads it."
+  },
+  {
+   "id": "T_CHAMPAGNE_TURNED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:company_vault:champagne:PICK_UP"
+   ],
+   "note": "Doc 123 F-5: he has turned the bottle to the lamp (errata 258). Read only by the same thing's second line; nothing else reads it."
   }
  ]
 }

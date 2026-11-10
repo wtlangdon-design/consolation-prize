@@ -186,5 +186,35 @@
    "facing": "back"
   }
  },
- "hotspotWalkToNote": "The points under the price board (x 550) and the strop (x 825) put Thad on top of the barber, who stands at x 690 (the life proof, errata 183): he reads the board from the door's side and looks at the strop from in front of the chair."
+ "hotspotWalkToNote": "The points under the price board (x 550) and the strop (x 825) put Thad on top of the barber, who stands at x 690 (the life proof, errata 183): he reads the board from the door's side and looks at the strop from in front of the chair.",
+ "docBullets": [
+  {
+   "hotspot": "chair",
+   "verbs": [
+    "PULL"
+   ],
+   "ref": "docs/123-five-more-things-to-find.md::### F-2 · The chair: the lines",
+   "head": "**THE CHAIR** · *the barber's*",
+   "bullet": "- PULL, *the first time*",
+   "when": {
+    "T_CHAIR_TRIED": false
+   },
+   "set": {
+    "T_CHAIR_TRIED": true
+   }
+  },
+  {
+   "hotspot": "chair",
+   "verbs": [
+    "PULL"
+   ],
+   "ref": "docs/123-five-more-things-to-find.md::### F-2 · The chair: the lines",
+   "head": "**THE CHAIR** · *the barber's*",
+   "bullet": "- PULL, *again*",
+   "when": {
+    "T_CHAIR_TRIED": true
+   }
+  }
+ ],
+ "docBulletsNote": "Errata 258, doc 123 F-2: the lever of the barber's chair, tried once (T_CHAIR_TRIED)."
 }

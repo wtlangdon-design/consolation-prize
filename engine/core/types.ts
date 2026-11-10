@@ -2951,6 +2951,14 @@ export interface TitleFile {
   theEnd?: string;
   /** Errata 155: the words alone on black before a plain boot's first click. */
   begin?: string;
+  /**
+   * THE TITLE, STAMPED (errata 259; doc 122 P7). Clean the first time. Once the cue `after` has been heard in play (the
+   * Registrar's stamp coming down), the title is stamped too: `at` seconds after it shows, `sheet` is drawn at `x`,
+   * `y` and stays, and `cue` sounds so that its thump (`strike` seconds into its file) lands with the picture.
+   * Remembered with the machine's settings, never in a save. `word` and `by` are what the sheet was drawn from.
+   */
+  stamp?: { word: string; by?: string; sheet: string; x: number; y: number; after: string; cue?: string; at: number;
+    strike?: number; note?: string };
 }
 
 /**
