@@ -16,6 +16,17 @@ SPOTS = {
     'rule-keeper': ('content/ambient/gulch-rule-keeper.json', 7, 370, 672, 731, 398, 352),
     'lookout': ('content/ambient/gulch-lookout.json', 5, 322, 1560, 640, 322, 1394),
     'deacon': ('content/ambient/gulch-deacon.json', 6, 426, 1202, 714, 385, 902),
+    'winnie': ('content/ambient/winnie.json', 5, 168, 1045, 387, 253, 840),
+    'ozymandia': ('content/ambient/ozymandia.json', 7, 219, 966, 500, 272, 738),
+    'frame': ('content/ambient/frame.json', 7, 521, 1379, 717, 502, 1110),
+    'deke': ('content/ambient/deke-vessel.json', 6, 428, 1046, 815, 428, 746),
+    'letter-writer': ('content/ambient/letter-writer.json', 5, 320, 1295, 775, 306, 1134),
+    'panner': ('content/ambient/gulch-panner.json', 6, 408, 1790, 690, 376, 1561),
+}
+# Thad's strips, in a room where each is played: (strip, frames, room, x, y, Thad's man there, his figure height on the canvas)
+STRIPS = {
+    'thad-back': ('art/actors/thad-acted2-back.png', 'mine_line', 620, 655, 377, 627),
+    'thad-right': ('art/actors/thad-acted2-right.png', 'ozymandias_tent', 440, 800, None, 626),
 }
 
 
@@ -26,7 +37,12 @@ def main():
     for key, (rec_p, first, dh, x, y, th, tx) in SPOTS.items():
         rec = json.load(open(R(rec_p))); s = rec['sprite']
         sheet = Image.open(R(s['sheet'])).convert('RGBA')
-        cut = json.load(open(R(f'art/staging/acted-directions-2/{key}/cut.json')))[key]['newFrames']
+        cpath = R(f'art/staging/acted-directions-2/{key}/cut.json')
+        if not os.path.exists(cpath):
+            continue
+        cut = json.load(open(cpath))[key]['newFrames']
+        if key == 'panner':                      # redrawn whole: his new rest frame first, then the snort
+            cut = [s['frames'][0]] + cut
         cell_h = s['frames'][0][3]
         k = dh / cell_h
         plate = Image.open(R(rooms[rec['room']]['background'])).convert('RGBA')
@@ -40,6 +56,33 @@ def main():
             im.alpha_composite(f, (x - f.width // 2, y - f.height + 1))
             x0 = max(0, min(tx, x) - 260); x1 = min(plate.width, max(tx, x) + 260)
             y0 = max(0, y - max(th, f.height) - 40); y1 = min(plate.height, y + 30)
+            panels.append(im.crop((x0, y0, x1, y1)).convert('RGB'))
+        Hh = 360
+        panels = [p.resize((round(p.width * Hh / p.height), Hh), Image.NEAREST) for p in panels]
+        row = Image.new('RGB', (sum(p.width for p in panels) + 8 * (len(panels) - 1), Hh), (0, 0, 0)); xx = 0
+        for p in panels:
+            row.paste(p, (xx, 0)); xx += p.width + 8
+        rows.append(row)
+    for key, (path, room_id, x, y, man, fig) in STRIPS.items():
+        if not os.path.exists(R(path)):
+            continue
+        strip = Image.open(R(path)).convert('RGBA')
+        room = rooms[room_id]
+        if man is None:
+            ns = {'__file__': R('tools/art/beside-thad.py')}
+            src = open(ns['__file__']).read(); exec(src[:src.index('def main')], ns)
+            man = ns['curve_man'](room, x, y)
+        stand = Image.open(R(f"art/actors/{'thad-idle-back' if 'back' in key else 'thad-idle-right'}/idle-00.png")).convert('RGBA')
+        cw = stand.width; n = strip.width // cw; k = man / fig
+        plate = Image.open(R(room['background'])).convert('RGBA')
+        panels = []
+        bx0, _, bx1, by1 = strip.crop((0, 0, cw, strip.height)).getbbox()      # frame 0: his feet and his middle
+        ax, ay = round((bx0 + bx1) / 2 * k), round(by1 * k)
+        for i in range(n):
+            f = strip.crop((i * cw, 0, (i + 1) * cw, strip.height))
+            f = f.resize((round(f.width * k), round(f.height * k)), Image.NEAREST)
+            im = plate.copy(); im.alpha_composite(f, (x - ax, y - ay))
+            x0 = max(0, x - 330); x1 = min(plate.width, x + 330); y0 = max(0, y - round(man) - 60); y1 = min(plate.height, y + 30)
             panels.append(im.crop((x0, y0, x1, y1)).convert('RGB'))
         Hh = 360
         panels = [p.resize((round(p.width * Hh / p.height), Hh), Image.NEAREST) for p in panels]
