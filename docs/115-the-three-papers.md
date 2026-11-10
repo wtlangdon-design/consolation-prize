@@ -85,12 +85,12 @@ Nothing here changes a flag the rest of the game reads, a puzzle's answer outsid
 *Fanshawe's office on the funeral day, with A COMPANY LEDGER in hand.*
 
 **THE SWAP, REFUSED** · USE A COMPANY LEDGER *on THE SUBMISSION LOG, before the ledger is ready*
-- *with the gilt on it and the spine whole* — "Eighteen fifty-one, in gilt, on the spine, facing his chair. And it has never once been opened. He would know it from the door."
+- *with the gilt on it and the spine whole* — "A year in gilt on the spine, facing his chair. And it has never once been opened. He would know it from the door."
 - *with the gilt gone and the spine whole* — "Plain enough now. But his opens flat at one place, like a hymnal at the favorite, and this one has never been asked to."
-- *with the spine broken and the gilt on it* — "It lies open like the other. And it says eighteen fifty-one on its back, in gold, which the other has the modesty not to."
+- *with the spine broken and the gilt on it* — "It lies open like the other. And it wears its year on its back, in gold, which the other has the modesty not to."
 
 **THE GILT** · USE THE HANDKERCHIEF *on A COMPANY LEDGER*
-- USE THE HANDKERCHIEF — *(Thad rubs the spine with the Colonel's handkerchief. Eighteen fifty-one comes away on the linen.)* "It was that kind of gold. Most of it here is." → `T_LEDGER_PLAIN`
+- USE THE HANDKERCHIEF — *(Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.)* "It was that kind of gold. Most of it here is." → `T_LEDGER_PLAIN`
 - USE THE HANDKERCHIEF, *again* — "There is no more year to take off. The handkerchief has it now, and I notice it is the first thing of his I have ever marked."
 
 **THE SPINE** · USE A COMPANY LEDGER *on THE CHAIRS*

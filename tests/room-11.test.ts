@@ -144,7 +144,17 @@ test('C4: on the funeral day he is up the hill; the log and the drawer give up w
   assert.ok(state.carried.includes('company_ledger'));
   state.interact(target(state, 'ledgers'), 'PICK_UP');
   assert.equal(state.carried.filter((item) => item === 'company_ledger').length, 1, 'the shelf gives one');
-  new HeadlessPlayer(state).use('company_ledger', 'submission_log');
+  // Errata 244 (doc 115, II-3): not until the ledger is ready -- its gilt date off, its spine broken in.
+  const player = new HeadlessPlayer(state);
+  player.use('company_ledger', 'submission_log');
+  assert.ok(!state.carried.includes('padded_log'), 'a ledger with a date on it and a whole spine will not pass');
+  player.use('handkerchief', 'company_ledger');
+  assert.ok(state.flags.get('T_LEDGER_PLAIN'));
+  player.use('company_ledger', 'submission_log');
+  assert.ok(!state.carried.includes('padded_log'), 'nor with the spine whole');
+  player.use('company_ledger', 'chairs');
+  assert.ok(state.flags.get('T_LEDGER_CRACKED'));
+  player.use('company_ledger', 'submission_log');
   assert.ok(state.carried.includes('padded_log'));
   assert.ok(!state.carried.includes('company_ledger'), 'the ledger stays on the desk');
   assert.ok(state.flags.get('T_QUEUE_PADDED'));

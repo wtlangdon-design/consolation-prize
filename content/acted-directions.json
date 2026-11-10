@@ -1297,6 +1297,20 @@
         0
       ],
       "seconds": 1.2
+    },
+    {
+      "n": 128,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.",
+      "where": "combinations (handkerchief on company_ledger, THE GILT)"
+    },
+    {
+      "n": 129,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad lays the ledger open on the nearest chair and sits on it, briefly, as a visitor would.",
+      "where": "combinations (company_ledger on chairs, THE SPINE)"
     }
   ]
 }

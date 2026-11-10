@@ -411,6 +411,10 @@ export class HeadlessPlayer {
     if (!this.state.carried.includes(item)) {
       throw new PlayError(`he is not carrying "${item}" (carrying: ${this.state.carried.join(', ')})`);
     }
+    // One carried item on another (errata 244): the scene's two inventory clicks.
+    if (!this.state.findTarget(targetId) && this.state.carried.includes(targetId) && !this.present().some((one) => one.id === targetId)) {
+      return this.useOnItem(item, targetId);
+    }
     const from = this.state.roomId;
     const npc = this.state.findTarget(targetId) ? undefined : this.person(targetId);
     this.state.holdItem(null);

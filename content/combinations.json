@@ -1715,7 +1715,7 @@
             "T_LEDGER_PLAIN": false,
             "T_LEDGER_CRACKED": false
           },
-          "say": "Eighteen fifty-one, in gilt, on the spine, facing his chair. And it has never once been opened. He would know it from the door."
+          "say": "A year in gilt on the spine, facing his chair. And it has never once been opened. He would know it from the door."
         },
         {
           "case": "refused: the spine",
@@ -1735,7 +1735,7 @@
             "T_LEDGER_PLAIN": false,
             "T_LEDGER_CRACKED": true
           },
-          "say": "It lies open like the other. And it says eighteen fifty-one on its back, in gold, which the other has the modesty not to."
+          "say": "It lies open like the other. And it wears its year on its back, in gold, which the other has the modesty not to."
         }
       ]
     },
@@ -1744,7 +1744,7 @@
       "room": "fanshawe_office",
       "target": "company_ledger",
       "otherwise": "pool",
-      "say": "Thad rubs the spine with the Colonel's handkerchief. Eighteen fifty-one comes away on the linen.",
+      "say": "Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.",
       "note": "Doc 115 (THE LINES, II-3; errata 244), THE GILT: the gilt date rubbed off the ledger's spine with the handkerchief (T_LEDGER_PLAIN).",
       "rules": [
         {
@@ -1752,7 +1752,7 @@
           "when": {
             "T_LEDGER_PLAIN": false
           },
-          "say": "Thad rubs the spine with the Colonel's handkerchief. Eighteen fifty-one comes away on the linen.",
+          "say": "Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.",
           "direction": true,
           "then": [
             "It was that kind of gold. Most of it here is."
@@ -1775,7 +1775,7 @@
       "room": "fanshawe_office",
       "target": "handkerchief",
       "otherwise": "pool",
-      "say": "Thad rubs the spine with the Colonel's handkerchief. Eighteen fifty-one comes away on the linen.",
+      "say": "Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.",
       "note": "Doc 115 (THE LINES, II-3; errata 244), THE GILT: the gilt date rubbed off the ledger's spine with the handkerchief (T_LEDGER_PLAIN).",
       "rules": [
         {
@@ -1783,7 +1783,7 @@
           "when": {
             "T_LEDGER_PLAIN": false
           },
-          "say": "Thad rubs the spine with the Colonel's handkerchief. Eighteen fifty-one comes away on the linen.",
+          "say": "Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.",
           "direction": true,
           "then": [
             "It was that kind of gold. Most of it here is."

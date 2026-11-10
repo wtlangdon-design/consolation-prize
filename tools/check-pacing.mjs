@@ -61,7 +61,7 @@ export function check() {
   if (steps.some((step) => step.do === 'use')) used.add('USE');
   if (steps.some((step) => step.do === 'talk')) used.add(TALK_VERB);
   for (const verb of verbs) if (!used.has(verb)) found.push(`verb never used: ${verb}`);
-  const items = new Set(readJson('content/manifest.json').files.filter((file) => file.startsWith('content/items/')).map((file) => readJson(file).id));
+  const items = new Set(readJson('content/manifest.json').items.map((file) => readJson(file).id));
   if (!steps.some((step) => step.do === 'use' && items.has(step.on))) found.push('no item is used on another item');
   for (const what of found) {
     const row = known.get(what);

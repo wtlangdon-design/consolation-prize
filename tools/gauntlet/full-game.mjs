@@ -518,6 +518,16 @@ async function verbOn(page, verb, on) {
 async function use(page, item, on) {
   const p = await requireIdle(page, `USE ${item} ON ${on}`);
   if (!p.inventory.includes(item)) throw new StepError(`he is not carrying "${item}" (carrying: ${p.inventory.join(', ')})`);
+  // ONE CARRIED ITEM ON ANOTHER (errata 244; doc 115's handkerchief on the ledger): the second click is its slot.
+  const onItem = !p.targets.includes(on) && !p.present.includes(on) && p.inventory.includes(on);
+  if (onItem) {
+    await clickVerb(page, 'USE');
+    await clickItem(page, item);
+    const held = await probe(page);
+    if (held.held !== item) throw new StepError(`a USE click on ${item}'s slot left ${held.held ?? 'nothing'} in hand`);
+    await clickItem(page, on);
+    return;
+  }
   if (!p.targets.includes(on) && !p.present.includes(on)) {
     throw new StepError(`no "${on}" to use ${item} on in ${p.room} (targets: ${p.targets.join(', ')}; present: ${p.present.join(', ')})`);
   }
