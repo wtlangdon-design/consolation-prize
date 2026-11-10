@@ -46,7 +46,7 @@ In order of how much each stands out:
 ## 6 · The washout, by tool (no operation)
 
 - `art/backgrounds/room-45-washout.png` is the most saturated plate in the game, and the step into it from the night town is the sharpest in `rooms-with-the-gulch.png`. The daylight is ruled and stays.
-- **Wanted, by a deterministic tool and not an image operation:** its saturation brought to the level of `room-50-ledge` and `room-51-gulch-tents` (measure theirs; state the numbers), nothing else changed. Before and after in the hand-back. If it does not look better, say so and leave the plate.
+- **Wanted, by a deterministic tool and not an image operation:** its saturation brought to the level of `room-50-ledge` and `room-51-tents` (measure theirs; state the numbers), nothing else changed. Before and after in the hand-back. If it does not look better, say so and leave the plate.
 
 ## Not asked for here
 
