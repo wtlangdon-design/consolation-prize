@@ -1,0 +1,16 @@
+{
+ "assetId": "objects-second-pass",
+ "subject": "objects-second-pass-pike-envelope",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-14-boot-hill",
+ "promptFile": "reference/objects-second-pass/op-3.txt",
+ "out": "art/staging/objects-second-pass/op-3/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/objects-second-pass/op-3/input.png",
+  "art/staging/objects-second-pass/op-3/layout-guide.png",
+  "art/staging/objects-second-pass/op-3/thad-at-the-marker.png"
+ ],
+ "mask": "art/staging/objects-second-pass/op-3/mask.png"
+}
