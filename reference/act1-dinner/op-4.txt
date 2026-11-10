@@ -1,0 +1,13 @@
+Image 1 is an old survey map lying unrolled on a red table cloth, lit by a lamp: it is the RIGHT LAYOUT but the WRONG STYLE -- it is smooth and painterly. Image 2 is a room from the same pixel-art adventure game (a fortune-teller's tent at night), and Image 3 is a close crop of Image 2 at 2x, so you can see its pixels: THAT is the style.
+
+Redraw Image 1 as PIXEL ART in exactly the style of Images 2 and 3: chunky, clearly visible square pixels (about the size of the pixels in Image 3), a limited palette with hard steps between shades instead of smooth gradients, clean dark pixel outlines on the brass weights and the paper's edge, flat soft shading, low texture, no blur, no photographic detail. The ink lines on the map become crisp one- and two-pixel sepia pixel lines.
+
+KEEP THE LAYOUT OF IMAGE 1 EXACTLY. Every element stays in the same place, at the same size and the same angle, so that Image 1 and your picture line up when laid on top of each other:
+- the sheet of paper and its four brass weights, and the red cloth showing round it;
+- the two claim rectangles side by side in the middle, the "1" in the left one and the "2" in the right one (the ONLY writing; keep them as plain numerals);
+- the RED hand-drawn circle around Claim 2 (the only red ink), and the small stake at Claim 2's lower right corner;
+- the two rocks uphill (above the claims), the larger on the left, the smaller on the right, in exactly their places;
+- the hatched hill strokes, the wavy double line of the creek below the claims, the dashed road along the bottom, the faint fold creases;
+- the warm lamp light from the upper left, falling to dark at the lower right.
+
+Nothing added, nothing removed, nothing moved. No people, no hands, no text other than "1" and "2", no border.

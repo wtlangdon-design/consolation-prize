@@ -398,8 +398,8 @@
    "why": "Tyler, 2026-11-10: \"Read reference/act2-papers/brief.md on the branch papers and make the four pictures it asks for. It will ask you to set a cap; the brief asks for four operations plus two in reserve.\" Doc 115 rows II-5 and II-1: Fanshawe in his doorway behind the wreath, Fanshawe on Boot Hill hat in hand, the Reverend with the collection plate, Thad holding the plate -- four operations, and two held for corrections against Thad (style gate, step 4). Raised 6 -> 7 (Tyler, 2026-11-10, the brief's section 5 added a sheet of five item icons, doc 118: \"It's one more operation, so the cap for act2-papers should be five plus two in reserve\")."
   },
   "act1-dinner": {
-   "attempts": 3,
-   "why": "Tyler, 2026-11-10, the overnight mandate: \"Budget: you may spend up to 7 operations on act2-papers (already agreed) and up to 15 more in total across any new briefs tonight. Record each new asset's cap in art/staging/caps.json as set by me in this message.\" reference/act1-dinner/brief.md asks for two operations and one held in reserve, out of those fifteen: doc 120 I-1, the dish uncovered with the contract on its plate, and I-3, the Company's map large on Ozymandia's table."
+   "attempts": 4,
+   "why": "Tyler, 2026-11-10, the overnight mandate: \"Budget: you may spend up to 7 operations on act2-papers (already agreed) and up to 15 more in total across any new briefs tonight. Record each new asset's cap in art/staging/caps.json as set by me in this message.\" reference/act1-dinner/brief.md asks for two operations and one held in reserve, out of those fifteen: doc 120 I-1, the dish uncovered with the contract on its plate, and I-3, the Company's map large on Ozymandia's table. Raised 3 -> 4 (Tyler, 2026-11-10, of the map's softer, painted look in the handback: \"You can do another redraw on the map if you still need it\"): operation 4 redraws the map in the plates' pixel style, its layout kept for the I-3 wiring's hotspots."
   },
   "objects-second-pass": {
    "attempts": 4,
