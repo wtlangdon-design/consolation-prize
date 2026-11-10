@@ -26,6 +26,9 @@ const walkthrough = JSON.parse(await readFile(resolve(ROOT, 'tests/data/full-gam
 const NEW = ['nail', 'oats', 'parsley', 'capital_b', 'pikes_collar', 'button', 'room_key'];
 const OPEN = 'T_DRAWER_OPEN';
 
+/** The props the room draws in this state, by id (errata 254). */
+const drawn = (state: GameState) => (state.room.props ?? []).filter((prop) => state.flags.test(prop.when)).map((prop) => prop.id);
+
 function playedTo(id: string, steps = walkthrough.steps) {
   const state = new GameState(content, new MemoryStorage());
   const player = new HeadlessPlayer(state);
@@ -36,12 +39,15 @@ function playedTo(id: string, steps = walkthrough.steps) {
 test('the photograph taken, the door will not have the drawer open; shut, it does', () => {
   const { state, player } = playedTo('C4.3');
   assert.equal(state.flags.get(OPEN), true);
+  // The plate draws the drawer open; the patch that draws it shut is off while it is open (errata 254).
+  assert.ok(!drawn(state).includes('drawer_shut'), 'the drawer is open and is drawn shut');
   const room = state.room.id;
   const door = state.room.exits.find((exit) => exit.transitScene?.some((rule) => rule.stays))!;
   player.verb(door.id, 'WALK_TO');
   assert.equal(state.room.id, room, 'he walked out on an open drawer');
   player.verb('stock_portrait_drawer', 'CLOSE');
   assert.equal(state.flags.get(OPEN), false);
+  assert.ok(drawn(state).includes('drawer_shut'), 'the drawer is shut and is still drawn open');
   player.verb(door.id, 'WALK_TO');
   assert.notEqual(state.room.id, room, 'the drawer is shut and the door still holds him');
 });
@@ -58,8 +64,21 @@ test('the letter stays in his pocket until the church has had it and he has a na
   assert.ok(without.state.carried.includes('letter'), 'delivered with nothing to fix it by');
   // Both: delivered, and both gone.
   const { state, player } = playedTo('D4.1c');
+  assert.ok(!drawn(state).includes('pike_s_envelope'), 'the envelope is on the board before he has put it there');
   player.use('letter', 'pike_s_marker');
   assert.ok(!state.carried.includes('letter') && !state.carried.includes('nail'));
+  // And it is seen there (errata 254), behind the Colonel's wreath where both are drawn.
+  assert.ok(drawn(state).includes('pike_s_envelope'), 'the letter is delivered and the board is bare');
+  const order = (state.room.props ?? []).map((prop) => prop.id);
+  assert.ok(order.indexOf('pike_s_envelope') < order.indexOf('colonel_s_wreath'), 'the envelope is drawn over the wreath');
+});
+
+test('every new object has its own picture in the panel (errata 254)', async () => {
+  const icons = JSON.parse(await readFile(resolve(ROOT, 'content/ui/item-icons.json'), 'utf8')).icons;
+  for (const id of NEW) {
+    assert.ok(icons[id], `${id} has no cell in the icon sheet`);
+    assert.equal((content.items.get(id) as { iconPending?: string }).iconPending, undefined, `${id} has a picture and is still marked as waiting for one`);
+  }
 });
 
 test('each new object is taken by hand, once', () => {
