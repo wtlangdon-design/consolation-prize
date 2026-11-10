@@ -294,5 +294,17 @@
    }
   }
  ],
- "docBulletsNote": "Errata 250, doc 121 N-4: his room key off the rack once he has a room (T_KEY_TAKEN); before that the rack's own line."
+ "docBulletsNote": "Errata 250, doc 121 N-4: his room key off the rack once he has a room (T_KEY_TAKEN); before that the rack's own line.",
+ "figureLight": {
+  "figures": [
+   "thad"
+  ],
+  "light": [
+   1.0,
+   0.88,
+   0.77
+  ],
+  "brightness": 0.83,
+  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+ }
 }

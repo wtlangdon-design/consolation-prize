@@ -93,3 +93,28 @@ export function secondExitClick(click: {
   if (!click.walkingTo || click.clicked !== click.walkingTo) return 'walk';
   return click.transit && click.atOnce ? 'cut' : 'walk';
 }
+
+/**
+ * A SECOND CLICK ON THE SAME PLACE HURRIES HIM (errata 260. Tyler, 2026-11-10: "Make all of the changes that you
+ * flagged"; the flag was that long rooms are long, and the second click on a way out only helps at a way out).
+ *
+ * He is walking somewhere because of a click. The same click again -- the same place, with the same verb and the same
+ * thing in hand -- does not start the walk over: he hurries to where he was already going, and what he was going to
+ * do there is still what he does. Anything else is the new instruction it always was. He is never moved: nobody pops.
+ *
+ * Phaser-free and named, so the rule has a test (tests/hurry.test.ts).
+ */
+export function sameClickAgain(click: {
+  /** He is walking now. */
+  walking: boolean;
+  /** Where the click that set him walking landed, in the room's own coordinates; null if none did. */
+  last: { x: number; y: number; ask: string } | null;
+  at: { x: number; y: number };
+  /** The verb selected and the item held as this click lands: a different ask is a different instruction. */
+  ask: string;
+  /** How near counts as the same place, in pixels. */
+  within: number;
+}): 'hurry' | 'new' {
+  if (!click.walking || !click.last || click.last.ask !== click.ask) return 'new';
+  return Math.hypot(click.at.x - click.last.x, click.at.y - click.last.y) <= click.within ? 'hurry' : 'new';
+}

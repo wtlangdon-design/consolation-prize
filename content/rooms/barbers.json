@@ -515,5 +515,17 @@
       ],
       "note": "THE PRICE BOARD's words in the shipping face, from doc 105's first LOOK (tools/art/room42-price-board.py): the generator draws the board blank."
     }
-  ]
+  ],
+  "figureLight": {
+    "figures": [
+      "thad"
+    ],
+    "light": [
+      1,
+      0.93,
+      0.85
+    ],
+    "brightness": 0.86,
+    "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+  }
 }

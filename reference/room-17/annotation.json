@@ -294,5 +294,17 @@
    }
   }
  ],
- "docBulletsNote": " Errata 246, doc 118 O-3: THE HYMNAL can be taken, once (T_HYMNAL_TAKEN); with it Thad can stand in the line of mourners on the hill (doc 115 II-1). Errata 250, doc 121 N-4: the button out of the bolted collection plate, once (T_BUTTON_TAKEN)."
+ "docBulletsNote": " Errata 246, doc 118 O-3: THE HYMNAL can be taken, once (T_HYMNAL_TAKEN); with it Thad can stand in the line of mourners on the hill (doc 115 II-1). Errata 250, doc 121 N-4: the button out of the bolted collection plate, once (T_BUTTON_TAKEN).",
+ "figureLight": {
+  "figures": [
+   "thad"
+  ],
+  "light": [
+   1.0,
+   0.89,
+   0.8
+  ],
+  "brightness": 0.86,
+  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+ }
 }

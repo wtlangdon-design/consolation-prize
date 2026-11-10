@@ -48,7 +48,7 @@ import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, isRest, waitsForClick } from '../core/SpeechPolicy.ts';
 import { bootsToBeginCard, endingAt, titleItems, titleStampAt, TITLE_STAMPED, type TitleItem } from '../core/Bookends.ts';
 import { roomPose } from '../core/RoomPose.ts';
-import { clearOfFigures, hiddenClick, secondExitClick } from '../core/Standing.ts';
+import { clearOfFigures, hiddenClick, sameClickAgain, secondExitClick } from '../core/Standing.ts';
 import {
   CYCLING_OPTION,
   MUSIC_OPTION,
@@ -92,6 +92,9 @@ interface QueuedLine {
  * Redrawing everything on change is cheap at this size, which keeps the
  * renderer stateless and the pixel grid exact.
  */
+/** How near a second click must land to be the same click again (errata 260): a hotspot's worth of hand tremor. */
+const HURRY_WITHIN = 48;
+
 export class GameScene extends Phaser.Scene {
   private state!: GameState;
   private screen!: Screen;
@@ -387,6 +390,8 @@ export class GameScene extends Phaser.Scene {
   private spokenBreak: string | null = null;
   private soundedBreak: string | null = null;
   /** Errata 163: the map's Thad on his way to a place; travel happens when he arrives. */
+  /** Where the click that set him walking landed, and what it asked (errata 260): the same click again hurries him. */
+  private walkClick: { x: number; y: number; ask: string } | null = null;
   /** The way out he is walking to on a first click (errata 256): a second click on it goes at once. */
   private exitWalk: { id: string; room: string; at: { x: number; y: number } } | null = null;
   private mapWalk: { walk: MapWalk; startedAt: number; location: import('../core/types.ts').MapLocation } | null = null;
@@ -1537,6 +1542,18 @@ export class GameScene extends Phaser.Scene {
       }
     }
     this.exitWalk = null;
+    // THE SAME CLICK AGAIN HURRIES HIM (errata 260; engine/core/Standing.ts sameClickAgain): the walk and what it was
+    // for are left exactly as they are, and he gets there sooner. Checked before anything is cancelled.
+    {
+      const at = { x: this.state.toWorld(x), y };
+      const ask = `${this.state.verbs.selectedVerb ?? ''}|${this.state.heldItem ?? ''}|${secondary ? 2 : 1}`;
+      const hurry = this.state.content.ui.timing?.hurry ?? 1;
+      if (hurry > 1 && sameClickAgain({ walking: this.actor.isWalking, last: this.walkClick, at, ask, within: HURRY_WITHIN }) === 'hurry') {
+        this.actor.hurry(hurry);
+        return;
+      }
+      this.walkClick = { ...at, ask };
+    }
     // A CHANGE OF MIND ABOUT A CONVERSATION. He was walking to talk and the
     // player clicked elsewhere: doc 22's deterministic cancellation, the
     // interaction stops where it is. Without this the walk was redirected

@@ -985,5 +985,17 @@
     "note": "Doc 48 S6 beat 5 and doc 57 F5: 'T_FILED, F5. Room 36.' Once the read-back is over, the dawn.",
     "fade": true,
     "fadeNote": "Doc 48 S7 beat 1: 'Fade up on the street.' The registrar's office fades to black, holds, and the dawn street fades up; the held item and the sentence line are cleared (errata 133)."
+  },
+  "figureLight": {
+    "figures": [
+      "thad"
+    ],
+    "light": [
+      1,
+      0.93,
+      0.86
+    ],
+    "brightness": 0.86,
+    "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
   }
 }

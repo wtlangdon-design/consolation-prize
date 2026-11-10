@@ -153,5 +153,17 @@
    "mud_near": 0
   },
   "planes": []
+ },
+ "figureLight": {
+  "figures": [
+   "thad"
+  ],
+  "light": [
+   1.0,
+   0.97,
+   0.93
+  ],
+  "brightness": 0.8,
+  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
  }
 }

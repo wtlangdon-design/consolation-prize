@@ -206,5 +206,17 @@
    "note": "Doc 20: the shack's one way out, to the back alley. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE DOOR a LOOK or LISTEN, so it is a stub exit as Boot Hill's gate is (doc 36 Q164); the door works, and its LOOK and LISTEN wait for lines. Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
    "linesFrom": "docs/106-the-ways-out.md::## ROOM 21 · THE WATCHMAN'S SHACK"
   }
+ },
+ "figureLight": {
+  "figures": [
+   "thad"
+  ],
+  "light": [
+   1.0,
+   0.89,
+   0.77
+  ],
+  "brightness": 0.81,
+  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
  }
 }

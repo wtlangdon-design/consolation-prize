@@ -316,5 +316,17 @@
   "THE CHAINED PEN": "SUMP'S PEN",
   "FORM 12-C (THE STACK)": "THE FORM STACK"
  },
- "wrongVerbAliasesNote": "Errata 184: doc 49's THE CHAINED PEN is SUMP'S PEN ('A pen, chained to the counter'), so its PULL is the pen's; its PICK UP is answered by the pen's own line, which stands (errata 68 E). Errata 185: doc 49's FORM 12-C (THE STACK) is THE FORM STACK, the hotspot doc 25 writes for it."
+ "wrongVerbAliasesNote": "Errata 184: doc 49's THE CHAINED PEN is SUMP'S PEN ('A pen, chained to the counter'), so its PULL is the pen's; its PICK UP is answered by the pen's own line, which stands (errata 68 E). Errata 185: doc 49's FORM 12-C (THE STACK) is THE FORM STACK, the hotspot doc 25 writes for it.",
+ "figureLight": {
+  "figures": [
+   "thad"
+  ],
+  "light": [
+   1.0,
+   0.93,
+   0.86
+  ],
+  "brightness": 0.86,
+  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+ }
 }

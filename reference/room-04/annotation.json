@@ -277,5 +277,17 @@
    }
   }
  ],
- "docBulletsNote": "Errata 245 (doc 117 O-1, doc 118): the chalk is taken from its tin, once (T_CHALK_TAKEN). It is what the turn of Pratt is written with."
+ "docBulletsNote": "Errata 245 (doc 117 O-1, doc 118): the chalk is taken from its tin, once (T_CHALK_TAKEN). It is what the turn of Pratt is written with.",
+ "figureLight": {
+  "figures": [
+   "thad"
+  ],
+  "light": [
+   1.0,
+   0.93,
+   0.83
+  ],
+  "brightness": 0.9,
+  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+ }
 }

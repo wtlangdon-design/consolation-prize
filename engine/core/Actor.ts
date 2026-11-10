@@ -275,6 +275,8 @@ export class Actor {
   private readonly options: MoverOptions;
   /** Pixels per tick AT THE RECORD'S OWN HEIGHT. From the record where it declares one. */
   private readonly speed: number;
+  /** This walk's hurry (errata 260): 1 at his own pace. Reset by every new walk. */
+  private hurried = 1;
   /**
    * The drawn height the declared speed is true at: the record's `height`.
    *
@@ -559,8 +561,23 @@ export class Actor {
   /** He is held where he stands (Room.actorPoses `rooted`): a walk asked of him is not begun. */
   rooted = false;
 
+  /**
+   * HE HURRIES (errata 260): this walk, and only this one, at `factor` times his speed. His legs keep step for free:
+   * the cycle is counted in ground covered (`strideRatio`), so a faster walk is more strides a second, not a slide.
+   * A new walk begins at his own pace again.
+   */
+  hurry(factor: number): void {
+    if (this.isWalking && factor > 1) this.hurried = factor;
+  }
+
+  /** The factor this walk is hurried by; 1 when it is not. */
+  get hurrying(): number {
+    return this.isWalking ? this.hurried : 1;
+  }
+
   walkTo(x: number, y: number): boolean {
     if (this.rooted) return false;
+    this.hurried = 1;
     // An unrouted mover is not on the floor and has no boxes to cross. It
     // still walks -- Hob crossing the road plays his walk cycle -- it simply
     // goes where it was sent.
@@ -1076,7 +1093,7 @@ export class Actor {
     // scaled to the height he is drawn at now. A character whose record
     // declares no height keeps the literal screen speed.
     const scale = this.speedHeight > 0 ? this.height / this.speedHeight : 1;
-    const step = Math.min(this.speed * scale * 60 * delta, distance);
+    const step = Math.min(this.speed * this.hurried * scale * 60 * delta, distance);
     this.x += (dx / distance) * step;
     this.y += (dy / distance) * step;
   }
