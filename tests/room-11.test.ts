@@ -52,6 +52,28 @@ const target = (state: GameState, id: string): Interactable => {
   assert.ok(found, `${id} is in the room`);
   return found;
 };
+
+/**
+ * ENDS THE DINNER THE WAY THE CONTENT SAYS IT ENDS (tuned 2026-11-10, proofs/check-friction.json). This test named the
+ * act that ends the dinner and so was rewritten each time the design moved it. It now finds the rule that completes A10
+ * in the room and does what that rule asks, first doing whatever act writes a flag the rule waits on.
+ */
+function endTheDinner(state: GameState): void {
+  type Rule = { when?: Record<string, unknown>; set?: Record<string, unknown>; completes?: string };
+  const sites = (): { target: Interactable; verb: string; rule: Rule }[] => state.room.hotspots.flatMap((one) =>
+    Object.entries((one.responses ?? {}) as Record<string, Rule[]>).flatMap(([verb, rules]) => rules.map((rule) => ({ target: one, verb, rule }))));
+  for (let step = 0; step < 4 && !state.puzzleComplete('A10'); step += 1) {
+    const end = sites().find((site) => site.rule.completes === 'A10')!;
+    assert.ok(end, 'something on the table ends the dinner');
+    if (state.findTarget(end.target.id) && state.flags.test(end.rule.when as never)) { state.interact(end.target, end.verb); continue; }
+    // What the ending waits on: its own condition and the condition of the thing it is done to.
+    const waits = { ...((end.target as { when?: Record<string, unknown> }).when ?? {}), ...(end.rule.when ?? {}) };
+    const opener = sites().find((site) => state.findTarget(site.target.id) && state.flags.test(site.rule.when as never)
+      && Object.entries(site.rule.set ?? {}).some(([flag, value]) => waits[flag] === value && state.flags.get(flag) !== value));
+    assert.ok(opener, 'nothing he can reach leads to the act that ends the dinner');
+    state.interact(opener.target, opener.verb);
+  }
+}
 const shownProps = (state: GameState) => (state.room.props ?? [])
   .filter((prop) => state.flags.test(prop.when)).map((prop) => prop.id);
 const present = (state: GameState) => state.flags.test(hostOf(state).when);
@@ -96,9 +118,7 @@ test('A10: holding the invitation, the table is laid and the dinner opens; nothi
   state.dialogue.select(opt(state, 'x'));
   assert.ok(!state.dialogue.isActive);
   // The dinner is ended by hand: the cover lifted, the contract found, the cover put back.
-  state.interact(target(state, 'covered_dish'), 'OPEN');
-  assert.equal(state.findTarget('covered_dish'), undefined, 'the dish is the contract now');
-  state.interact(target(state, 'contract'), 'CLOSE');
+  endTheDinner(state);
   assert.ok(state.puzzleComplete('A10'));
   assert.ok(state.flags.get('T_DINED'));
   assert.ok(state.carried.includes('handkerchief'), 'pocketed, absently');
@@ -122,8 +142,7 @@ test('A10: leaving the table early is his line, and the dinner waits for the nex
 test('A10 beat 4: the first way out after the dinner is the porch -- his two lines, then ACT 2 and its card', async () => {
   const state = await inState('r11-b');
   // Errata 248: the dinner is ended at the table (the cover put back over the contract), not by a line.
-  state.interact(target(state, 'covered_dish'), 'OPEN');
-  state.interact(target(state, 'contract'), 'CLOSE');
+  endTheDinner(state);
   const door = target(state, 'to_lobby') as Interactable & { transitScene?: { when?: Record<string, unknown>; say?: string; then?: unknown[] }[] };
   // The door's first beat is the Colonel's line for leaving the table early; beat 4 is the one that holds now.
   const scene = door.transitScene?.find((rule) => state.flags.test(rule.when as never));

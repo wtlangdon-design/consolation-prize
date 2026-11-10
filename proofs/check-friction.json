@@ -703,6 +703,18 @@
    "date": "2026-11-10",
    "kind": "loosened",
    "why": "Not loosened: changed with the design, under Tyler's overnight mandate (errata 245). Errata 247: its rule that a state past C5 holds the submission log is reversed (such a state may not hold it, and needs T_LOG_WITH_WINNIE), and a rule is added that a state past E0 holds none of A, B and D. Tightened, on balance: it found four fixtures that broke the new rules."
+  },
+  {
+   "check": "tests/room-11.test.ts",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Not loosened: changed with the design, under Tyler's overnight mandate (errata 245). Errata 248 (doc 120 I-1): the dinner is ended by the cover put back over the contract, not by option 6. The test held that option 6 ends it; it now holds that nothing said ends it, that the table can be tried, and that OPEN then CLOSE does. Errata 244: the ledger must be made ready before the swap. Stricter than the one it replaces."
+  },
+  {
+   "check": "tests/room-11.test.ts",
+   "date": "2026-11-10",
+   "kind": "reviewed",
+   "why": "Tuned. It was rewritten three times because it named the act that ends the dinner (an option, then a hotspot and verb). It now finds the rule that completes A10 in the room's content and does what that rule asks, so moving the ending no longer edits the test; that nothing SAID ends the dinner is still held, and tests/dinner.test.ts holds the particulars. Not a candidate to retire."
   }
  ]
 }
