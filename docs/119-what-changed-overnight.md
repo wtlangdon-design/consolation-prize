@@ -24,3 +24,4 @@ Untouched throughout: CLAUDE.md's design invariants, the ending, the central rev
 | 16 | Act I, the raccoon | Two things to try on him | A third: the tonic on the eggs, and the eggs returned at speed | An item on an item, and the tonic met early | 248 |
 | 17 | Act III, the obituary | Carried to the end | Tucked into the Colonel's wreath as its card, and buried with it | A paper out of his pocket, by a joke | 248 |
 | 18 | Act I, the invitation | Carried to the end | Left on the Colonel's table | A paper that only proved progress | 248 |
+| 19 | Act II, the funeral notice | Frame pulled it off the press and handed it over | Frame sets the type and stands back; Thad pulls it himself. The puzzle (C3) completes at the press | A second solving PULL, and the Clarion stops being a room where he only talks | 249 |

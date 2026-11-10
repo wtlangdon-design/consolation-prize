@@ -214,12 +214,12 @@
             },
             {
               "speaker": "frame",
-              "line": "He pulls a sheet off the press and hands it over, wet.",
+              "line": "He locks the type, inks it, and stands back from the press with his arms folded.",
               "direction": true
             },
             {
               "speaker": "frame",
-              "line": "Post it yourself, mystery man! I print. I do not walk."
+              "line": "Pull it yourself, mystery man! I compose. I do not pull, and I do not walk."
             }
           ],
           "repeats": [
@@ -229,17 +229,12 @@
             }
           ],
           "set": {
-            "T_NOTICE_IN_HAND": true
+            "T_NOTICE_SET": true
           },
           "when": {
             "T_MEMORIAL_BOOKED": true,
-            "T_NOTICE_IN_HAND": false
-          },
-          "gives": [
-            "funeral_notice"
-          ],
-          "puzzle": {
-            "C3": "complete"
+            "T_NOTICE_IN_HAND": false,
+            "T_NOTICE_SET": false
           }
         },
         {

@@ -6893,3 +6893,18 @@ Lesson:
 - `tests/ozymandia-talk-to.test.ts`: a verb done with his hands walks him to the person; a look does not.
 - `tests/gauntlet-own-server.test.mjs`: a server already answering is refused; both gauntlets ask before they start one and stop it whole.
 - `tests/dinner.test.ts`: the dinner is not ended by anything said; nothing on the table ends it but the cover put back; the seat is kept until then.
+
+## 249 · He pulls his own notice (doc 118 O-2; doc 116 Y3)
+
+Under errata 245's mandate. One change, listed as row 19 of doc 119.
+
+- **Before:** asked for a funeral notice, Frame set it, pulled it off the press and handed it over. C3 completed in the conversation.
+- **Now:** Frame sets it, locks the type and stands back with his arms folded ("I compose. I do not pull, and I do not walk."). The notice is in the press (`T_NOTICE_SET`) until Thad uses **PULL on THE PRESS**. That grants THE FUNERAL NOTICE and completes C3. Doc 04's reply to the request is unchanged, word for word.
+- PULL on the press has a line when nothing is set and a line when he already holds one. Frame offers to set another only when nothing is set and none is in hand, so the day can be held again as before.
+- **No dead end.** The press does not leave the room and the flag is cleared only by the pull.
+- **Counts:** PULL solves something twice on the route (the collection plate, the press). Doc 116 Y3's standard for PULL is met and its row is off `proofs/pacing.json`.
+
+Lesson:
+- The full walkthrough plays it (C3.7, C3.8), and the real build was played from the church to the notice on the wall.
+- `tests/press.test.ts`: nothing Frame says hands over the notice or completes C3; the press gives it only when the notice is set; a second is not to be had while he holds one.
+

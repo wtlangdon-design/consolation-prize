@@ -3773,8 +3773,9 @@ function frameTree() {
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
   const ROUTE = {
     'FRA_A1:1': { goto: 'FRA_B1' },
-    // Errata 245 (doc 117 O-2): he hands the notice over; the funeral day begins when Thad posts it (a pair on Main Street).
-    'FRA_A1:6': { set: { T_NOTICE_IN_HAND: true }, gives: ['funeral_notice'], puzzle: { C3: 'complete' }, handsOver: true },
+    // Errata 245 (doc 117 O-2): the funeral day begins when Thad posts the notice (a pair on Main Street). Errata 249: Frame
+    // sets it and stands back; the notice, and C3, are the press's, pulled by Thad (reference/room-09 docBullets).
+    'FRA_A1:6': { set: { T_NOTICE_SET: true } },
     'FRA_A1:7': { set: { ASSAY_PAIR_16: true } },
     'FRA_B1:1': { puzzle: { B1: 'complete' } },
     'FRA_B1:2': { puzzle: { B1: 'complete' }, sameAs: 1 },
@@ -3900,13 +3901,13 @@ function frameTree() {
       option.gives = [...(option.gives ?? []), 'clarion'];
     }
   }
-  // THE NOTICE, HANDED OVER (errata 245; doc 117 O-2, doc 118): after doc 04's reply he pulls it off the press and gives
-  // it to Thad to post. Offered while Thad is not already holding one, so the day can be held again as before.
+  // THE NOTICE, SET (errata 245, 249; doc 118 O-2): after doc 04's reply he locks the type and stands back. Offered while
+  // nothing is set and Thad is not already holding one, so the day can be held again as before.
   {
-    const notice = nodes.FRA_A1?.options.find((option) => option.gives?.includes('funeral_notice'));
-    if (!notice) throw new Error('doc 04 FRA_A1: no option hands over the funeral notice');
+    const notice = nodes.FRA_A1?.options.find((option) => option.set?.T_NOTICE_SET);
+    if (!notice) throw new Error('doc 04 FRA_A1: no option sets the funeral notice');
     notice.thenAfter = objectsBlock('**`FRA_A1` option, "I need a funeral notice printed."**', { FRAME: SPEAKER });
-    notice.when = { ...notice.when, T_NOTICE_IN_HAND: false };
+    notice.when = { ...notice.when, T_NOTICE_IN_HAND: false, T_NOTICE_SET: false };
   }
   const entries = Object.entries(ENTRY).filter(([node]) => nodes[node]).map(([node, when]) => ({ when, node }));
   for (const note of unplayed) process.stderr.write(`  doc 04 FRAME: ${note}\n`);

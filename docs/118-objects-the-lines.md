@@ -9,7 +9,7 @@ Nothing here touches a load-bearing line. Where a line that exists today is said
 | Row | Before | Now |
 |---|---|---|
 | **O-1 · The chalk** | Pratt is turned by choosing one line | Told the figure, he has heard numbers before. Thad chalks it on his own stake. Pratt takes the chalk and does his sum under it. Doc 04's turn, word for word, with the arithmetic where both men can see it |
-| **O-2 · The notice** | Asking Frame starts the funeral day | Frame hands him the notice, damp. The day starts when Thad has put it up on Main Street |
+| **O-2 · The notice** | Asking Frame starts the funeral day | Frame sets it and stands back. Thad pulls it off the press himself (errata 249), damp. The day starts when he has put it up on Main Street |
 | **O-4 · The tonic** | The gilt comes off on a dry handkerchief | It still does. With Dr. Purvis's tonic on the handkerchief first it comes off at once, and the tonic has finally done something |
 | **O-5 · The blanket** | It appears in his hand | The livery man says yes; Thad takes it off her himself |
 | **O-7 · The lamp** | Narrated at the dig | He takes it from his room, and the dark sends him back if he has not |
@@ -64,10 +64,15 @@ Doc 04's PRA_D5 from "For the mud.", word for word, with its two directions adde
 ### O-2 · The notice
 
 **`FRA_A1` option, "I need a funeral notice printed."** — doc 04's reply, unchanged, then:
-> *(He pulls a sheet off the press and hands it over, wet.)*
-> **FRAME:** "Post it yourself, mystery man! I print. I do not walk."
+> *(He locks the type, inks it, and stands back from the press with his arms folded.)*
+> **FRAME:** "Pull it yourself, mystery man! I compose. I do not pull, and I do not walk."
 
-→ THE FUNERAL NOTICE
+→ `T_NOTICE_SET`. The notice is in the press, and his to pull (errata 249).
+
+**THE PRESS** · *the Clarion*
+- PULL, *the notice set* — *(Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet.)* "I am in print, by my own arm. I have kept the sleeve." → THE FUNERAL NOTICE
+- PULL, *the notice in his hand* — "One notice is an invitation. Two is a campaign, and Mr. Pike was never that sort of man."
+- PULL, *nothing set* — "The bar is as long as my arm and it is Mr. Frame's. I have nothing I want said that badly."
 
 **THE FUNERAL NOTICE** *(item)*
 **LOOK** 1 "'MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS.' The ink is still wet, and so is the sentiment." · 2 "REFRESHMENTS is in larger type than PIKE. Mr. Frame knows his readers." · 3 "It does not say who is paying. Notices of mine never do."

@@ -2057,10 +2057,20 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "dialogue:FRAME:FRA_A1:frame6",
+    "room:clarion:press:PULL",
     "combination:funeral_notice:main_street:posted_notices"
    ],
-   "note": "Doc 118, O-2 (errata 245): Thad is holding a funeral notice Frame printed and has not yet posted it. Frame prints another only when this is false."
+   "note": "Doc 118, O-2 (errata 245, 249): Thad is holding a funeral notice he pulled off the press and has not yet posted it. Frame sets another only when this is false."
+  },
+  {
+   "id": "T_NOTICE_SET",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_A1:frame6",
+    "room:clarion:press:PULL"
+   ],
+   "note": "Doc 118, O-2 (errata 249): Frame has set the funeral notice and stood back. It is in the press until Thad pulls it."
   },
   {
    "id": "T_HANDKERCHIEF_DOSED",

@@ -194,5 +194,49 @@
   "counter": "MISSPELLINGS_SEEN",
   "seenPrefix": "T_HEADLINE_"
  },
- "headlinesNote": "Doc 57: Room 9's THE SCHEDULE BOARD is THE HEADLINE BOARD and carries the current edition. Editions are gated on the puzzles they follow; the ninth rendering is Room 31's grave marker (errata 9)."
+ "headlinesNote": "Doc 57: Room 9's THE SCHEDULE BOARD is THE HEADLINE BOARD and carries the current edition. Editions are gated on the puzzles they follow; the ninth rendering is Room 31's grave marker (errata 9).",
+ "docBullets": [
+  {
+   "hotspot": "press",
+   "verbs": [
+    "PULL"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-2 · The notice",
+   "head": "**THE PRESS** · *the Clarion*",
+   "bullet": "- PULL, *the notice set*",
+   "when": {
+    "T_NOTICE_SET": true
+   },
+   "set": {
+    "T_NOTICE_SET": false,
+    "T_NOTICE_IN_HAND": true
+   },
+   "grants": [
+    "funeral_notice"
+   ],
+   "completes": "C3"
+  },
+  {
+   "hotspot": "press",
+   "verbs": [
+    "PULL"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-2 · The notice",
+   "head": "**THE PRESS** · *the Clarion*",
+   "bullet": "- PULL, *the notice in his hand*",
+   "when": {
+    "T_NOTICE_IN_HAND": true
+   }
+  },
+  {
+   "hotspot": "press",
+   "verbs": [
+    "PULL"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-2 · The notice",
+   "head": "**THE PRESS** · *the Clarion*",
+   "bullet": "- PULL, *nothing set*"
+  }
+ ],
+ "docBulletsNote": "Errata 249, doc 118 O-2: Frame sets the funeral notice (T_NOTICE_SET) and Thad pulls it off THE PRESS himself. PULL grants the notice and completes C3."
 }

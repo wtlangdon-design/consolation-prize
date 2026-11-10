@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 36 · B 22 · C 93** — 151 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 36 · B 23 · C 93** — 152 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -166,7 +166,7 @@ Counts: **A 36 · B 22 · C 93** — 151 directions, every one flagged `"directi
 | 129 | C | thad | Thad lays the ledger open on the nearest chair and sits on it, briefly, as a visitor would. | combinations (company_ledger on chairs, THE SPINE) |  |  |  |  |  | Errata 244, doc 115 II-3: Thad has a sit clip, but not on these chairs or on a book; "as a visitor would" carries it. Told until a pose is drawn (rule 4). |
 | 130 | B | thad | Thad chalks it on his own stake, under the number: $11,000. | combinations (chalk on claim_marker, the turn) |  |  |  |  |  | Errata 245, doc 118 O-1: physical, and the figure on the stake is the scene. Thad has no writing clip and the stake's face is the plate's, so it is told until both are drawn (rule 4). |
 | 131 | B | pratt_jump | Pratt holds out his hand. Thad gives him the chalk. Pratt writes underneath, slowly: 104. | combinations (chalk on claim_marker, the turn) |  |  |  |  |  | Errata 245, doc 118 O-1: physical; Pratt has no pose that writes. Told until one is drawn (rule 4). |
-| 132 | B | frame | He pulls a sheet off the press and hands it over, wet. | dialogue/frame FRA_A1 option 6 |  |  |  |  |  | Errata 245, doc 118 O-2: physical; Frame has no pose at the press handing a sheet. Told until one is drawn (rule 4). |
+| 132 | B | frame | He locks the type, inks it, and stands back from the press with his arms folded. | dialogue/frame FRA_A1 option 6 |  |  |  |  |  | Errata 249, doc 118 O-2: physical; Frame has no pose at the press with his arms folded. Told until one is drawn (rule 4). |
 | 133 | C | thad | Thad presses the notice to the board, over a claim for sale. It holds by its own ink. | combinations (funeral_notice on posted_notices) |  |  |  |  |  | Errata 245, doc 118 O-2: "It holds by its own ink" is the joke; the board is across the street at the plate's size. Told. |
 | 134 | C | thad | Thad wets a corner of the Colonel's handkerchief with Dr. Purvis. | combinations (tonic on handkerchief) |  |  |  |  |  | Errata 245, doc 118 O-4: in his hands, in the inventory. Told. |
 | 135 | C | thad | One pass, and the year is gone. So is some of the green. | combinations (handkerchief on company_ledger, dosed) |  |  |  |  |  | Errata 245, doc 118 O-4: the green going with the gilt is the joke. Told. |
@@ -186,6 +186,7 @@ Counts: **A 36 · B 22 · C 93** — 151 directions, every one flagged `"directi
 | 149 | C | thad | Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two. | rooms/fanshawe_office contract PUSH |  |  |  |  |  | Errata 248, doc 120 I-1: an inch and two inches at this size are not a picture. Told. |
 | 150 | C | thad | Thad puts the cover back over the contract. | rooms/fanshawe_office contract CLOSE |  |  |  |  |  | Errata 248, doc 120 I-1: the dinner ends with it and the table goes; told. |
 | 151 | C | fanshawe | He does not take the dish away. | dialogue/fanshawe FAN_A2 option 6 |  |  |  |  |  | Errata 248, doc 120 I-1: what he does not do. Told. |
+| 152 | B | thad | Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet. | rooms/clarion press PULL |  |  |  |  |  | Errata 249, doc 118 O-2: physical; he has no pose hauling a bar. Told until one is drawn (rule 4). |
 
 ## When a B pose is drawn
 
