@@ -491,7 +491,8 @@
      "site": "room:clarion:press:PULL#0",
      "requires": [
       "r:clarion",
-      "T_NOTICE_SET=true"
+      "T_NOTICE_SET=true",
+      "T_NOTICE_IN_HAND=false"
      ],
      "yields": [
       "f:T_NOTICE_SET=false",
