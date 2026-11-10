@@ -2305,6 +2305,11 @@ export interface VerbDefinition {
   label: string;
   col: number;
   row: number;
+  /**
+   * The key that selects this verb, as a click on its button does (errata 252). One letter. The panel's nine are laid
+   * out on the keyboard as they are on the panel, which is how the first Monkey Island did it.
+   */
+  key?: string;
 }
 
 export interface VerbsFile {

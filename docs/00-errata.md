@@ -6962,3 +6962,14 @@ Lesson:
 - `tests/lessons.test.ts`: a prop the size of the room passes only when the room says it covers it.
 - Played in the real build from the fee to the survey before merging.
 
+## 252 · Every verb has a key (doc 122, the second audit)
+
+On Tyler's "Do all the Not Done things" (2026-11-10). Doc 122 is the audit doc 116 said was owed: music and sound, feel in the hand, and jokes that break the frame. It builds one thing and proposes seven (P1 to P7), which are his to rule on.
+
+- **Built:** Q W E / A S D / Z X C select the nine verbs, laid out on the keyboard as the panel lays them out, as the first Monkey Island did. The key is each verb's own (`content/ui/verbs.json` `key`); no key is named in a `.ts` file.
+- A key does what a click on its button does, and only where that click would land: not under the menu, in a conversation, during a cutscene or a card, on the map, or in Room 32 (invariant 2: no interface, and a key must not give it one).
+- **Not built, and why:** the audit could not hear the game or hold it. Its proposals are a second click on an exit going at once (P2), three cues for things described and not heard (P1), the word "placeholder" on five approved beds (P3), the hill's bed at his own funeral (P4), keeping the fourth wall (P5), five more things to find (P6) and a stamp on the title card (P7).
+
+Lesson:
+- `tests/verb-keys.test.ts`: each verb has one letter of its own; the letters lie as the buttons lie; the scene names no key and takes none with the panel away, the menu open or a conversation running.
+

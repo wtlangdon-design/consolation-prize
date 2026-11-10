@@ -15,55 +15,64 @@
    "id": "LOOK_AT",
    "label": "Look at",
    "col": 0,
-   "row": 0
+   "row": 0,
+   "key": "Q"
   },
   {
    "id": "PICK_UP",
    "label": "Pick up",
    "col": 0,
-   "row": 1
+   "row": 1,
+   "key": "A"
   },
   {
    "id": "TALK_TO",
    "label": "Talk to",
    "col": 0,
-   "row": 2
+   "row": 2,
+   "key": "Z"
   },
   {
    "id": "OPEN",
    "label": "Open",
    "col": 1,
-   "row": 0
+   "row": 0,
+   "key": "W"
   },
   {
    "id": "CLOSE",
    "label": "Close",
    "col": 1,
-   "row": 1
+   "row": 1,
+   "key": "S"
   },
   {
    "id": "USE",
    "label": "Use",
    "col": 1,
-   "row": 2
+   "row": 2,
+   "key": "X"
   },
   {
    "id": "PUSH",
    "label": "Push",
    "col": 2,
-   "row": 0
+   "row": 0,
+   "key": "E"
   },
   {
    "id": "PULL",
    "label": "Pull",
    "col": 2,
-   "row": 1
+   "row": 1,
+   "key": "D"
   },
   {
    "id": "LISTEN_TO",
    "label": "Listen to",
    "col": 2,
-   "row": 2
+   "row": 2,
+   "key": "C"
   }
  ],
  "transitVerbs": [
@@ -88,5 +97,6 @@
    "TALK_TO"
   ]
  },
- "approachNote": "HOW CLOSE HE HAS TO GET BEFORE A VERB ANSWERS, IN HIS OWN BODY HEIGHTS.\n\nReported from playing: LOOK AT fired on the town sign from clear across Room 1, which reads as a man reading a plank from sixty feet away. The staged chain that walks him to a thing has existed since doc 22 -- walk, waitForActor, face, waitForActor, chore, say -- and only objects declaring a walkTo point ever used it, which in Room 1 was the case and nothing else.\n\nTHE UNIT IS BODY HEIGHTS, NOT PIXELS, and that is the whole of why this works at every depth. He is 240px for 5'10\", so a pixel is a third of an inch at the front of the band and nearly an inch up the road. A fixed pixel radius would mean arm's reach near the camera and across the yard at the back. Stride already scales this way; so does this.\n\nexamineHeights 2.0 -- about eleven feet. LOOK AT, LISTEN TO and TALK TO. Far enough that he is not nose to plank, close enough that he has plainly gone over to it. Two heights is also a conversational distance, which is why TALK TO sits here rather than with the hands.\n\nhandsOnHeights 0.5 -- about three feet, arm's reach. PICK UP, OPEN, CLOSE, USE, PUSH, PULL. 'All the way there' without requiring him to stand inside the object's rectangle, which is very often not walkable ground.\n\nMEASURED TO THE RECT'S NEAREST EDGE, NOT ITS CENTRE. THE MUD is 1920 wide; a centre measurement would walk him to the middle of the road to look at it.\n\nAN AUTHORED walkTo ALWAYS WINS. This is the floor for objects nobody has placed a point for. Geometry will happily stand him behind a fence post, so where the spot matters it should be authored -- and the hands-on verbs want authored points more than the examine ones do.\n\nTHE NUMBERS ARE A STARTING POINT chosen by reasoning about a man and a sign, and every number chosen that way in this project has needed correcting once somebody watched it. They live here so the correction is a number in a content file."
+ "approachNote": "HOW CLOSE HE HAS TO GET BEFORE A VERB ANSWERS, IN HIS OWN BODY HEIGHTS.\n\nReported from playing: LOOK AT fired on the town sign from clear across Room 1, which reads as a man reading a plank from sixty feet away. The staged chain that walks him to a thing has existed since doc 22 -- walk, waitForActor, face, waitForActor, chore, say -- and only objects declaring a walkTo point ever used it, which in Room 1 was the case and nothing else.\n\nTHE UNIT IS BODY HEIGHTS, NOT PIXELS, and that is the whole of why this works at every depth. He is 240px for 5'10\", so a pixel is a third of an inch at the front of the band and nearly an inch up the road. A fixed pixel radius would mean arm's reach near the camera and across the yard at the back. Stride already scales this way; so does this.\n\nexamineHeights 2.0 -- about eleven feet. LOOK AT, LISTEN TO and TALK TO. Far enough that he is not nose to plank, close enough that he has plainly gone over to it. Two heights is also a conversational distance, which is why TALK TO sits here rather than with the hands.\n\nhandsOnHeights 0.5 -- about three feet, arm's reach. PICK UP, OPEN, CLOSE, USE, PUSH, PULL. 'All the way there' without requiring him to stand inside the object's rectangle, which is very often not walkable ground.\n\nMEASURED TO THE RECT'S NEAREST EDGE, NOT ITS CENTRE. THE MUD is 1920 wide; a centre measurement would walk him to the middle of the road to look at it.\n\nAN AUTHORED walkTo ALWAYS WINS. This is the floor for objects nobody has placed a point for. Geometry will happily stand him behind a fence post, so where the spot matters it should be authored -- and the hands-on verbs want authored points more than the examine ones do.\n\nTHE NUMBERS ARE A STARTING POINT chosen by reasoning about a man and a sign, and every number chosen that way in this project has needed correcting once somebody watched it. They live here so the correction is a number in a content file.",
+ "keysNote": "Errata 252 (doc 122): each verb has a key, laid out as the panel is (Q W E / A S D / Z X C), as the first Monkey Island had. The key is content: no key is named in a .ts file. It selects the verb exactly as a click on its button does."
 }
