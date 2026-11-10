@@ -7,7 +7,7 @@ image operation is spent: it is one function of a pixel's own colour, applied to
 cut from a plate still matches it pixel for pixel, to every other picture the room names (props, the plate's other
 states). Masks are shapes and are left; figures are lit by the room's `figureLight` and are left.
 
-Always from the untouched original: the first run copies each picture to art/staging/room-grade/originals/ and every
+Always from the untouched original: the first run copies each picture to reference/room-grade/originals/ and every
 run reads from there, so running it twice changes nothing and removing a room from the list restores its plate.
 
     python3 tools/art/room-grade.py            write
@@ -23,7 +23,7 @@ import numpy as np
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ORIGINALS = os.path.join(ROOT, 'art/staging/room-grade/originals')
+ORIGINALS = os.path.join(ROOT, 'reference/room-grade/originals')
 LUMA = np.array([0.2126, 0.7152, 0.0722])
 CHECK = '--check' in sys.argv
 

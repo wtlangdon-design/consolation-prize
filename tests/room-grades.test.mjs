@@ -39,7 +39,7 @@ test('every graded picture is its original, graded as the list says', () => {
   }
   let checked = 0;
   for (const [picture, spec] of wanted) {
-    const kept = new URL(`art/staging/room-grade/originals/${picture.replaceAll('/', '__')}`, root);
+    const kept = new URL(`reference/room-grade/originals/${picture.replaceAll('/', '__')}`, root);
     assert.ok(existsSync(kept), `${picture} is listed and has no original kept: python3 tools/art/room-grade.py`);
     const original = readPng(readFileSync(kept));
     const shipped = readPng(readFileSync(new URL(picture, root)));
@@ -60,7 +60,7 @@ test('every graded picture is its original, graded as the list says', () => {
   }
   assert.ok(checked >= Object.keys(grades).length);
   // And nothing is kept that is no longer listed: its plate would still be graded.
-  for (const name of readdirSync(new URL('art/staging/room-grade/originals/', root))) {
+  for (const name of readdirSync(new URL('reference/room-grade/originals/', root))) {
     assert.ok(wanted.has(name.replaceAll('__', '/')), `${name} has an original kept and no grade listed: python3 tools/art/room-grade.py restores it`);
   }
 });
