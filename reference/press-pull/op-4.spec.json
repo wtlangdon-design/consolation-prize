@@ -1,0 +1,16 @@
+{
+ "assetId": "press-pull",
+ "subject": "press-pull-frame-walk-left",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-09-clarion",
+ "promptFile": "reference/press-pull/op-4.txt",
+ "out": "art/staging/press-pull/op-4/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/press-pull/op-4/template.png",
+  "art/staging/press-pull/op-4/thad-walk-left-poses.png",
+  "art/staging/press-pull/op-4/op-1-sheet.png"
+ ],
+ "derivedFrom": 1
+}

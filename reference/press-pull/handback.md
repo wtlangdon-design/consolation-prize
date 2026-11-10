@@ -53,3 +53,8 @@ back. The bar is in his hands and reaches right, toward the press; the press is 
    reach further, the plate's press handle can carry it.
 3. **The walk's cell is wider than his own** (269, not 201), above. The engine draws bottom-centred, so the wider
    cell does not move him.
+
+## Later: the walk is six frames
+
+`reference/press-walk-six/brief.md` corrected section 1 (a walk is six frames). Operation 4, the reserve, redrew it;
+`room-09-frame-walk.png` is now six frames of 327 x 502. See `reference/press-walk-six/handback.md`.

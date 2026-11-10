@@ -38,7 +38,9 @@ def strip_rects(path, n):
 
 
 def main():
-    walk = cells('art/actors/room-09-frame-walk.png', [(2 + i * 271, 2, 269, 502) for i in range(4)])
+    wim = Image.open(os.path.join(ROOT, 'art/actors/room-09-frame-walk.png'))
+    cw = (wim.width - 2) // 6 - 2                 # six frames, 2 px apart, as the cut lays them out
+    walk = cells('art/actors/room-09-frame-walk.png', [(2 + i * (cw + 2), 2, cw, 502) for i in range(6)])
     stood = cells('art/actors/room-09-frame-stood-back.png', [(2, 2, 201, 506)])
     haul = cells('art/actors/thad-haul-right.png', strip_rects('art/actors/thad-haul-right.png', 3))
     thad = Image.open(os.path.join(ROOT, 'art/actors/thad-idle-right/idle-00.png')).convert('RGBA')
@@ -46,7 +48,7 @@ def main():
     fx, fy = frame['x'], frame['y']
     a = plate.copy()                              # the walk along his path, and Thad standing to talk
     for i, c in enumerate(walk):
-        draw(a, c, 502, fx - 60 - i * 110, fy)
+        draw(a, c, 502, fx - 40 - i * 80, fy)
     draw(a, thad, 626, 1120, 790)
     b = plate.copy()                              # the pull: Frame stood back, Thad at the bar where Frame stood
     draw(b, stood[0], 502, fx - 330, fy)

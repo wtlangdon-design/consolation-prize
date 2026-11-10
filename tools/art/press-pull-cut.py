@@ -4,12 +4,14 @@ press-pull operations 1-3 (art/staging/press-pull/op-N/sheet.png), each drawn on
 shipping rest frame (errata 144's method; the template's first figure is the ruler and is not shipped):
 
   1  FRAME, WALKING LEFT -> art/actors/room-09-frame-walk.png
-     Four frames of one stride, in profile facing left (from the press at x 1379 to his back editions, ~450 px left).
-     The operation drew the walker ~4% shorter than its ruler; all four are scaled by one factor so the tallest is
-     his standing height.
-     Each frame's soles on his rest frame's sole row; each centred on its own head-and-shoulders, so the walk does not
-     jitter. His cell is 201 x 502; the stride's two contact frames are wider than 201, so the cell is widened evenly
-     at both sides to hold them (all four frames one size, bottom-centred as the engine draws).
+     From operation 4 (reference/press-walk-six/brief.md: a walk is six frames, tests/walk-gait.test.mjs), drawn on
+     Thad's own six-frame walk to the left as the pose guide, as WALK-C posed Deke's: contact, down, passing,
+     contact on the other foot, down, passing; in profile facing left (from the press at x 1379 to his back
+     editions, ~450 px left). Operation 1's four frames, the first cut, are superseded. All six are scaled by one
+     factor so the tallest is his standing height. Each frame's soles on his rest frame's sole row; each centred on
+     its TORSO (15-45% down the figure, the method of tools/art/walk-c.py), so the body travels steadily and the legs
+     do the walking. Cells 502 tall and as wide as the widest stride needs about the torso (the brief's 269 does not hold it),
+     bottom-centred.
   2  FRAME, STOOD BACK, ARMS FOLDED -> art/actors/room-09-frame-stood-back.png
      Three-quarter turned to the right, toward the press, arms folded, weight back. Frames: 0 rest · 1 breath
      (derived, as every ambient breath is). On his 201 x 502 cell, registered on his legs.
@@ -40,11 +42,14 @@ despill, spill_left, breath_of, finish, strip, cut_sheet, on_shipping_canvas = (
 STAGE = lambda n: os.path.join(ROOT, f'art/staging/press-pull/op-{n}/sheet.png')
 
 
-def upper_centre(f, share=0.35):
-    """The column centre of the figure's head and shoulders (the top `share` of its rows)."""
-    m = alpha(f); r = np.nonzero(m.any(1))[0]
-    top = m[r[0]:r[0] + max(4, int((r[-1] - r[0]) * share))]
-    c = np.nonzero(top.any(0))[0]
+WALK_CELL = 269
+
+
+def torso_centre(f, band=(0.15, 0.45)):
+    """The column centre of the figure's torso (15-45% down it), as tools/art/walk-c.py seats a walk."""
+    m = alpha(f); r = np.nonzero(m.any(1))[0]; hh = r[-1] - r[0] + 1
+    part = m[r[0] + int(hh * band[0]):r[0] + int(hh * band[1])]
+    c = np.nonzero(part.any(0))[0]
     return (c[0] + c[-1]) / 2
 
 
@@ -59,18 +64,20 @@ with tempfile.TemporaryDirectory() as tmp:
     block = target / N
 
     # ---- 1 · the walk ------------------------------------------------------------------------------------------
-    figs1, _, _ = cut_sheet(STAGE(1), target, tmp, 'press-walk')
-    walk = figs1[1:5]
-    assert len(walk) == 4, len(figs1)
-    # The operation drew the walking man ~4% shorter than its own ruler. One factor for all four, so his tallest
-    # (passing) frame is his standing height and the contact frames keep their dip below it.
+    figs1, _, _ = cut_sheet(STAGE(4), target, tmp, 'press-walk')
+    walk = figs1[1:7]
+    assert len(walk) == 6, len(figs1)
+    # One factor for all six, so his tallest (passing) frame is his standing height and the others keep their dip.
     tall = max(int(rows_of(f)[-1] - rows_of(f)[0] + 1) for f in walk)
     grow = target / tall
     walk = [np.asarray(Image.fromarray(f).resize((round(f.shape[1] * grow), round(f.shape[0] * grow)), Image.NEAREST)).copy()
             for f in walk]
-    cxs = [upper_centre(f) for f in walk]
-    half = int(np.ceil(max(max(c, f.shape[1] - c) for f, c in zip(walk, cxs)))) + 2
-    W1 = max(w, 2 * half + (w % 2))
+    cxs = [torso_centre(f) for f in walk]
+    half = int(np.ceil(max(max(c, f.shape[1] - c) for f, c in zip(walk, cxs))))
+    # The brief's cell is 269 (operation 1's cut); operation 4's stride, seated on the torso, needs more. The cell is
+    # widened to hold it, evenly at both sides (the engine draws bottom-centred, so the width does not move him).
+    W1 = max(WALK_CELL, 2 * half + 2)
+    W1 += (W1 - WALK_CELL) % 2
     frames1 = []
     for f, c in zip(walk, cxs):
         canvas = np.zeros((h, W1, 4), np.uint8)
