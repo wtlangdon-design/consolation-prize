@@ -6917,7 +6917,7 @@ Tyler, 2026-11-10, on the list of what the night had left undone: **"Do all the 
 - **N-3 · The raccoon, dressed.** A BUTTON, MR. PIKE'S COLLAR and A SPRIG OF PARSLEY each go on THE RACCOON, IN MY COAT. Mr. Pratt's lines are unchanged.
 - **N-4 · Seven objects,** each taken by hand, once, and none needed: a nail (the mercantile), a handful of oats (the livery; the hen eats them), the parsley (off the contract at dinner), a capital B (the Clarion's type case; laid on his own coffin), Mr. Pike's collar (the laundry), a button (the church's collection plate), his room key (the hotel's rack; it locks the wardrobe).
 - **N-5 · Packed.** From Act IV the executor's form, the photograph and the third copy are not carried: the act opens with his case packed, in doc 57's own words. No new line.
-- **The press (errata 249) is not restaged yet.** Staging it properly means the printer steps away from his press, and nobody may pop in or out of view (Tyler, 2026-11-01). The image session drew the three sheets asked for (`reference/press-pull/handback.md`), and the wiring is done on the branch `press-staging`: he says his piece at the press, walks to his back editions and folds his arms, and Thad hauls the bar. **It cannot merge yet:** the brief asked for his walk as four frames and the game's standard for a walk is six (`tests/walk-gait.test.mjs`). The mistake was the brief's. The six are asked for in `reference/press-walk-six/brief.md`, from the operation `press-pull` held in reserve.
+- **The press (errata 249) is restaged: errata 253.** It waited on a six-frame walk; the image session drew it (`reference/press-walk-six/handback.md`).
 - **III-1 stays withdrawn by its author.** "Do all" is not read as overruling a withdrawal made to protect invariants 3 and 7; doc 121's last section says why, and it is built the day Tyler says "build III-1" in those words.
 
 ### The counts (`proofs/pacing.json` now lists nothing)
@@ -6972,4 +6972,19 @@ On Tyler's "Do all the Not Done things" (2026-11-10). Doc 122 is the audit doc 1
 
 Lesson:
 - `tests/verb-keys.test.ts`: each verb has one letter of its own; the letters lie as the buttons lie; the scene names no key and takes none with the panel away, the menu open or a conversation running.
+
+## 253 · The press, staged: the printer stands back and Thad hauls the bar (doc 118 O-2; errata 249, 250)
+
+Errata 249 made the funeral notice Thad's to pull. Until now he pulled it from across the room, with the printer standing at his own press. Staged with the image session's three sheets (`reference/press-pull/handback.md`, `reference/press-walk-six/handback.md`; four operations of `press-pull`'s four):
+
+- **The printer steps away.** When the notice is set he says his piece at the press, then walks to his back editions (six frames, one full cycle) and stands with his arms folded. He is there while the notice is set or wet in Thad's hand, and takes a note every twelve seconds (errata 77; the note frame is one from his own sheet, `tools/art/press-pull-stood-sheet.py`). Nobody pops in or out of view: the man at the press leaves by walking (`frame` `leaves`, `frame_stood_back` `arrive` with `afterLines`).
+- **Thad goes to the press to pull it.** THE PRESS has a stand at the bar that holds only while the notice is set (`walkToWhen`); at other times he answers from where he is, since the printer is standing there. PULL plays his haul clip under the printed direction and keeps the bar home through his line (the rule's `holds`). Doc 95 row 152 is class C: half of the direction is the press's, so it stays printed.
+- **Engine.** `Interactable.walkToWhen`; `AmbientExit.afterLines` (a walk in waits for the lines that sent him, as a fader does); a walk in is loaded at boot, as a walk out is.
+- **No line changed.** Nothing in doc 118 is touched.
+
+Replayed in the real build, C3.6 to C3.12: 0 breaks, 0 oddities.
+
+Lesson:
+- `tests/departure.test.ts`: every walk IN is loaded at boot. The first replay drew nothing where the printer should have been walking, because his sheet was never asked for. With the line removed from `engine/core/BootAssets.ts`, it fails.
+- The brief asked for a four-frame walk and `tests/walk-gait.test.mjs` refused it; the six were drawn. Doc 55 section 8 carries the row: a brief for a walk asks for six frames.
 

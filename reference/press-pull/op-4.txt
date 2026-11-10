@@ -1,0 +1,12 @@
+Image 1 is a TEMPLATE: Ignatius Frame, a wiry 1850s printer and newspaper editor -- brown hair, cream shirt with the sleeves rolled up, a dark ink-stained apron, dark trousers, brown boots, a pencil behind his ear, a small brown notebook in his hand -- EXACTLY as he is drawn in my pixel-art adventure game: first standing (the ruler), then six times in profile facing LEFT. Image 2 is the hero Thad's six-frame WALK to the left, which is the walk the game's owner passed: it is the POSE GUIDE. Image 3 is an earlier drawing of this same man walking, for the man himself.
+
+Repaint Image 1. LEAVE THE FIRST (STANDING) FIGURE EXACTLY AS IT IS. Repaint the other SIX as the SAME man in profile, facing and walking to the LEFT, KEEPING HIS FIGURE -- the same height, head size, apron, clothes, pencil and notebook, his soles on the same line -- each one copying the LEG AND ARM POSE of the matching frame of Image 2, in order, one full walk cycle:
+2. copy Thad's frame 1: contact, the left-hand (front) foot reaching forward heel down, the back foot's toe behind, legs wide;
+3. copy Thad's frame 2: down, the legs still apart, the body lowest;
+4. copy Thad's frame 3: passing, the back leg swinging through beside the standing leg;
+5. copy Thad's frame 4: contact on the OTHER foot, the other leg now in front;
+6. copy Thad's frame 5: down, legs apart;
+7. copy Thad's frame 6: passing, the other leg swinging through.
+Frames 2 and 5 must show DIFFERENT legs in front. His notebook stays in the same hand in every frame and that arm swings less than the other.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the first figure -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No shadows, no ground, no text, no numbers, no border.

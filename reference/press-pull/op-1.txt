@@ -1,0 +1,10 @@
+Image 1 is a TEMPLATE: Ignatius Frame, a wiry 1850s printer and newspaper editor -- brown hair, cream shirt with the sleeves rolled up, a dark ink-stained apron, dark trousers, brown boots, a pencil behind his ear -- EXACTLY as he is drawn in my pixel-art adventure game, five times in a row on magenta. Image 2 is his whole current sheet, for his face, hair and clothes. Image 3 is him in his print shop beside the hero Thad (the young man in the blue coat), at game size, for his size and how soft and flat the game's drawing is.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other FOUR as the SAME man, KEEPING HIS FIGURE -- the same height, the same head size, the same apron and clothes, his soles on the same line -- but now WALKING TO THE LEFT, seen in side profile, facing the left edge of the picture: four frames of ONE walking stride, in order:
+2. contact: front (left) foot reaching forward, heel down, back foot's toe behind, arms swinging opposite;
+3. passing: legs together under him, the weight on one foot, the other knee lifting;
+4. contact on the other foot: the other foot forward, heel down;
+5. passing again: legs together, the other knee lifting.
+An ordinary unhurried walk, his notebook in one hand at his side, his head level, looking ahead to the left.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the first figure -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No shadows, no ground, no text, no numbers, no border.

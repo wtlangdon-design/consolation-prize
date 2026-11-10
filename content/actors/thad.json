@@ -41,7 +41,8 @@
       "pickup-low",
       "alight-coach",
       "aboard-coach",
-      "carry"
+      "carry",
+      "haul"
     ],
     "dining": [
       "walk",
@@ -63,7 +64,8 @@
       "pick-fit",
       "deed",
       "coat-bundle",
-      "plate"
+      "plate",
+      "haul"
     ]
   },
   "clips": [
@@ -894,6 +896,20 @@
       "figureHeight": 626,
       "anchor": [
         355,
+        626
+      ]
+    },
+    {
+      "id": "haul",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-haul-right/haul-00.png",
+        "art/actors/thad-haul-right/haul-01.png",
+        "art/actors/thad-haul-right/haul-02.png"
+      ],
+      "figureHeight": 626,
+      "anchor": [
+        332,
         626
       ]
     }

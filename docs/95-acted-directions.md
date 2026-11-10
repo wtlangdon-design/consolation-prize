@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 36 · B 23 · C 106** — 165 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 36 · B 22 · C 107** — 165 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -186,7 +186,7 @@ Counts: **A 36 · B 23 · C 106** — 165 directions, every one flagged `"direct
 | 149 | C | thad | Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two. | rooms/fanshawe_office contract PUSH |  |  |  |  |  | Errata 248, doc 120 I-1: an inch and two inches at this size are not a picture. Told. |
 | 150 | C | thad | Thad puts the cover back over the contract. | rooms/fanshawe_office contract CLOSE |  |  |  |  |  | Errata 248, doc 120 I-1: the dinner ends with it and the table goes; told. |
 | 151 | C | fanshawe | He does not take the dish away. | dialogue/fanshawe FAN_A2 option 6 |  |  |  |  |  | Errata 248, doc 120 I-1: what he does not do. Told. |
-| 152 | B | thad | Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet. | rooms/clarion press PULL |  |  |  |  |  | Errata 249, doc 118 O-2: physical; he has no pose hauling a bar. Told until one is drawn (rule 4). |
+| 152 | C | thad | Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet. | rooms/clarion press PULL |  |  |  |  |  | Errata 249, doc 118 O-2; errata 253: half of it is the press's (it comes down, knocks, gives up a sheet), which no figure can act, so it stays printed. Thad hauls under it: the rule's `holds`, his haul clip (reference/press-pull, operation 3), the bar home through his line. |
 | 153 | C | thad | Thad slides the drawer home with one finger. It shuts like a bank. | rooms/fanshawe_office stock_portrait_drawer CLOSE |  |  |  |  |  | Errata 250, doc 121 N-1: the drawer is drawn shut by its patch as this is said, once the patch is in (reference/objects-second-pass); he has no pose for one finger. Told. |
 | 154 | C | thad | Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A. | combinations (letter on pike_s_marker, with a nail) |  |  |  |  |  | Errata 250, doc 121 N-2: the taps are heard, in A; the envelope on the board is a patch asked for. Told until it is in. |
 | 155 | C | thad | The hen eats out of Thad's hand, briskly, like a clerk stamping forms. | combinations (oats on hen) |  |  |  |  |  | Errata 250, doc 121 N-4: the hen is in his pocket, an item. Nothing on screen to act it. Told. |
