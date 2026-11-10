@@ -7078,6 +7078,14 @@ Lesson:
 - Doc 55 section 8: a figure cut apart from a plate is graded into the plate's light when the room is built, the protagonist included.
 - **Found on the way, and mine:** `art/staging/caps.json` and `art/staging/ledger.json` went to main with merge-conflict markers in them (PR 336: a conflicted merge committed before it was resolved; the two documents were put right and these two records were not). Nothing in the game reads them, so nothing failed; the image session would have, at its next operation. Both are whole again, with every entry from both sides (392 attempts; `press-pull` and `objects-second-pass` both capped). `tests/no-conflict-markers.test.mjs` now opens every tracked file for a marker and parses both records.
 
+## 261 · The redraws and the poses are funded (Tyler, 2026-11-10)
+
+- **The final look** (`reference/final-look/brief.md`, errata 260). Asked for a budget number: "I defer to you on how big of a budget you think we need for the redraws." Ten operations, asset `final-look`: seven for Mr. Pratt's two sheets, the rule-keeper, Main Street at dawn, Madame Ozymandia at Prosperity and the pie woman, and three for corrections.
+- **The directions printed for want of a pose** (doc 95, class B: twenty-one rows, twelve figures). Told it is the biggest remaining gap to the Monkey Island feel: "I want this funded too." Eighteen operations, asset `acted-directions-2`: thirteen sheets and five corrections. `reference/acted-directions-2/brief.md` lists every row by figure. It follows the final look, because four of Pratt's rows and two of the rule-keeper's are poses of men that brief redraws.
+- `art/staging/caps.json` records both, with his words. Neither brief may raise its own cap.
+
+Nothing is built by this entry; the wiring of each hand-back will carry its own.
+
 ## 262 · Each room a colour of its own (Tyler, 2026-11-10)
 
 Told that the game is dark and brown for a long time, and that the fix is variety between rooms rather than brightness, Tyler asked for a side-by-side. Shown four rooms graded beside themselves: **"I like the direction. I think it would be a nice way to differentiate different rooms from each other, so they don't all look exactly the same."**
