@@ -186,6 +186,9 @@ export function planBoot(bundle: ContentBundle, opening: string = bundle.manifes
   // the thing the player is looking at for the sake of the thing they are not.
   // Its key is its path, which is what Renderer asks the sheet loader for.
   deferred.set(TITLE_LOGO, { key: TITLE_LOGO, path: TITLE_LOGO });
+  // And the stamp that may come down on it (TitleFile.stamp; errata 259): with the title, never before the first frame.
+  const stamp = bundle.title?.stamp?.sheet;
+  if (stamp) deferred.set(stamp, { key: stamp, path: stamp });
 
   // The protagonist, and anyone else standing beside him before the player is
   // asked for anything -- plus every clip the staging NAMES for them, which is
@@ -386,6 +389,8 @@ export function planNear(bundle: ContentBundle, roomId: string, heading: string 
   for (const asset of actorFrames(bundle, bundle.actor.id)) add(asset);
   for (const room of neighbours) withCast(room);
   add({ key: TITLE_LOGO, path: TITLE_LOGO });
+  const stamp = bundle.title?.stamp?.sheet;
+  if (stamp) add({ key: stamp, path: stamp });
   if (bundle.carriedLight) add({ key: bundle.carriedLight.sprite, path: bundle.carriedLight.sprite });
   return [...out.values()];
 }

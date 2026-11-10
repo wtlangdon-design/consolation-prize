@@ -46,7 +46,7 @@ import {
 } from '../core/Opening.ts';
 import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, isRest, waitsForClick } from '../core/SpeechPolicy.ts';
-import { bootsToBeginCard, endingAt, titleItems, type TitleItem } from '../core/Bookends.ts';
+import { bootsToBeginCard, endingAt, titleItems, titleStampAt, TITLE_STAMPED, type TitleItem } from '../core/Bookends.ts';
 import { roomPose } from '../core/RoomPose.ts';
 import { clearOfFigures, hiddenClick } from '../core/Standing.ts';
 import {
@@ -227,6 +227,10 @@ export class GameScene extends Phaser.Scene {
   private titleHover: string | null = null;
   /** The title was reached through the close: THE END is under it (Tyler, 2026-11-06). */
   private titleTheEnd = false;
+  /** When the title last came up, for its stamp (TitleFile.stamp; errata 259): null under the begin card. */
+  private titleShownAt: number | null = null;
+  private titleStampSounded = false;
+  private titleStampDown = false;
   /** THE LETTER'S PAGE: the lines said over black in a room that ends the game (errata 128). */
   private page: string[] = [];
   private pageAlpha = 1;
@@ -666,13 +670,14 @@ export class GameScene extends Phaser.Scene {
     if (this.titleMenu) {
       if (this.entry?.phase === 'out') this.tickEntry(now);
     }
+    if (this.titleMenu) this.tickTitleStamp(now);
     if (this.titleMenu) {
       if (!this.dirty) return;
       this.dirty = false;
       this.frameCount += 1;
       this.view.drawFrame({ hoveredTarget: null, hoveredTargetName: null, sayLines: [], notice: this.notice,
         barkLines: [], barkAt: null, captionLines: [], captionAt: null, fadeBlack: this.fadeBlack,
-        title: { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd, begin: this.beginCard } });
+        title: { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd, begin: this.beginCard, stamp: this.titleStampDown } });
       this.texture.refresh();
       return;
     }
@@ -1072,7 +1077,7 @@ export class GameScene extends Phaser.Scene {
       // for their open tree.
       greeting: this.pendingTree?.greeted ? this.pendingTree.tree : null,
       sceneControls: this.sceneControlsShowing() && !this.state.menu.isOpen,
-      title: this.titleMenu ? { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd, begin: this.beginCard } : null,
+      title: this.titleMenu ? { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd, begin: this.beginCard, stamp: this.titleStampDown } : null,
       // ROOM 33'S NINETY SECONDS: the panel inert and dim, the sentence blank (errata 133).
       panelDim: this.tuneStart !== null,
       fadeBlack: this.fadeBlack,
@@ -1350,6 +1355,7 @@ export class GameScene extends Phaser.Scene {
     // click goes no further, so it cannot also land on a title item.
     if (this.beginCard) {
       this.beginCard = false;
+      this.titleShownAt = this.time.now / 1000;
       this.applyMusic();
       this.markDirty();
       return;
@@ -3812,10 +3818,14 @@ export class GameScene extends Phaser.Scene {
     this.state.menu.close();
     this.titleMenu = titleItems(this.state.content.title!, this.state.canContinue);
     this.titleTheEnd = false;
+    // Its stamp, if he has earned one, comes down afresh each time the title shows (errata 259).
+    this.titleShownAt = this.time.now / 1000;
+    this.titleStampSounded = false;
+    this.titleStampDown = false;
     // Its plate and drawn title, if boot did not fetch them (a review link quit to the title).
     const file = this.state.content.title!;
     let queued = 0;
-    for (const path of [file.background, file.logo]) {
+    for (const path of [file.background, file.logo, file.stamp?.sheet]) {
       if (!path || this.textures.exists(path)) continue;
       this.load.image(path, new URL(path, document.baseURI).toString());
       this.load.once(`filecomplete-image-${path}`, () => this.markDirty());
@@ -3827,6 +3837,22 @@ export class GameScene extends Phaser.Scene {
     this.hoveredName = null;
     this.applyMusic();
     this.markDirty();
+  }
+
+  /** The title's stamp comes down, once per showing, if the player has seen it used (Bookends.titleStampAt; errata 259). */
+  private tickTitleStamp(now: number): void {
+    const stamp = this.state.content.title?.stamp;
+    if (!stamp || this.titleStampDown) return;
+    const since = this.beginCard || this.titleShownAt === null ? null : now - this.titleShownAt;
+    const at = titleStampAt(stamp, this.state.machine.read(TITLE_STAMPED) === true, since);
+    if (at.sound && !this.titleStampSounded) {
+      this.titleStampSounded = true;
+      if (stamp.cue) this.fireCue(stamp.cue);
+    }
+    if (at.down) {
+      this.titleStampDown = true;
+      this.markDirty();
+    }
   }
 
   private onTitleClick(x: number, y: number): void {
@@ -4318,6 +4344,11 @@ export class GameScene extends Phaser.Scene {
 
   private fireCue(id: string): void {
     this.cuesFired = { last: id, count: this.cuesFired.count + 1 };
+    // THE STAMP, SEEN IN PLAY, IS ON THE TITLE FROM NOW ON (TitleFile.stamp; errata 259). In play only: the title's own
+    // stamp is this cue too, and must not be what earns it.
+    if (!this.titleMenu && id === this.state.content.title?.stamp?.after && this.state.machine.read(TITLE_STAMPED) !== true) {
+      this.state.machine.write(TITLE_STAMPED, true);
+    }
     // Figures that stir on it do (AmbientFile.stirsOn; errata 131 E).
     this.ambient.heard(id);
     // ERRATA 105: the audio layer exists now. A cue with no sound written for
