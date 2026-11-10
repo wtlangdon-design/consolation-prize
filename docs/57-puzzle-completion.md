@@ -243,6 +243,7 @@ Duel Two needs fourteen; Duel One, Winnie and Pratt guarantee fifteen. Tier 4 an
 > "The service is over. Mr. Pike has been remembered, six years late and very thoroughly. The town is coming back down the hill, Colonel Fanshawe in front, holding his hat."
 
   If `T_SHENG_TASK` is set and D4 is not done, Sowerby is at the gate with the plate (D4, below). Then `T_FUNERAL_DAY` clears, the Colonel is back at his desk, and Sowerby is back in his church.
+  *(Errata 246, doc 115 II-1: with the plate at the gate the day does not end on entering. It lasts until the plate is settled, so a player who goes back for something finds the town still on the hill. With no plate business open it ends on entering, as written here.)*
 
 - **Another service** if the day ended too soon: SOW_A1 option 7, an anniversary; FRA_A1 option 6 prints it again. Doc 02's dead-end audit: "further funerals can be arranged."
 
@@ -272,7 +273,7 @@ Duel Two needs fourteen; Duel One, Winnie and Pratt guarantee fifteen. Tier 4 an
 
 ## D4 · Sheng's task
 
-*Rooms 17, 14, 28.* On an ordinary day the Reverend has no money (SOW_A1 option 6). On the funeral day he has a full plate, at the foot of Boot Hill:
+*Rooms 17, 14, 28.* On an ordinary day the Reverend has no money (SOW_A1 option 6). On the funeral day he has a full plate, at the foot of Boot Hill: *(Errata 246: these lines are no longer said on arriving. Doc 115 II-1 plays them: the first three when the Reverend is asked, the last when the plate is pulled.)*
 
 > **THAD:** "Reverend. Mr. Sheng's linens."
 > **SOWERBY:** "Today? Today of all days?"

@@ -6762,3 +6762,49 @@ O-3 (the hymnal) and O-6 (the wreath) are built with doc 115's hill scenes.
 Lesson:
 - The full walkthrough plays every one of them (A5.2a, C3.8 to C3.11, C4.2c2, D5.0a, D5.0b, D5.2c, F1.0), and the model and the puzzle graph are derived from the same content.
 - `proofs/pacing.json`: item on item two of five, 12 taken by hand, 12 item-on-world uses. The check fails if any slips back.
+
+---
+
+## 246 · The wreath and the collection, built; the hymnal and the wreath taken (docs 115, 118; doc 114 II-5, II-1, X-1)
+
+Under errata 243's ruling ("All") and errata 245's mandate. The image session's four pictures are in (`reference/act2-papers/handback.md`), and the two scenes that waited on them are built.
+
+### II-5 · The wreath (Main Street)
+
+- On the funeral day the Colonel is in the Company's doorway behind his wreath (`wreath_fanshawe`), and the way in is him: "The door is full of Colonel."
+- **PUSH** puts him through (`T_COLONEL_OUT`). He thanks Thad for it, and goes when he has finished saying so. The game's second solving PUSH.
+- Posting the notice now comes back to the street at the notice board (an entrance of its own). It came back at the street's east edge.
+
+### II-1 · The collection (Boot Hill)
+
+- **Before:** arriving on the hill collected Sheng's linen money.
+- **Now:** the Reverend is asked and will not make change out of the plate while the town watches. With **a hymnal** from the church (O-3) Thad stands at the foot of the line; the plate comes down it and stops in his hands; the Reverend takes hold of the rim. **PULL** settles it, ending in doc 57 D4's own direction and line. The game's first solving PULL.
+- The plate is drawn: in a widow's hands in the line, in Thad's hands (his `plate` clip), and in the Reverend's when it is his again.
+- **The day lasts until the plate is settled.** It used to end on entering the hill, which would have sent a player without the hymnal round the notice again. With no plate business open it still ends on entering.
+- The Colonel is drawn hat in hand, as the arrival line has always said, and has his own LOOK, LISTEN and TALK TO.
+- PULL's first line changed in the building: doc 115 had a direction ("The town of Consolation watches two men hold a plate") where the picture now shows it, so Thad says it to the Reverend: "The whole town is watching two men hold a plate."
+
+### O-3 and O-6
+
+- **The hymnal** is taken from Thad's pew, once.
+- **The Colonel's wreath** is at Pike's marker from the time he is out of his door. It cannot be taken while the town is on the hill. In Act III it is laid on Thad's own coffin, and the undertaker has a line. Nothing depends on it.
+
+### Engine, four small things, each general
+
+| | Before | Now |
+|---|---|---|
+| `Room.actorPoses` | A rule's `holds` let go of his picture with its last line | The room says what he holds while a condition holds, and can keep him where he stands (`rooted`) |
+| A held frame | Another figure's acted beat let everybody go | Each figure keeps his own until his own next beat; a rule's picture of Thad stays through somebody else's beat |
+| A figure who fades | Began to fade as the rule that sends him away began | Begins when its lines are over |
+| `exitTransitScenes` | Only a merged room's ways could answer and keep him | Any room's can |
+
+Two defects found on the way and fixed with their checks:
+
+- **A room compiled from its own last output said a figure's written lines again each time** (the Colonel had three of everything by his third compile). The compiler now starts a figure the annotation writes with none.
+- **`tools/check-flag-order.mjs` did not count a verb on a person as a writer,** and called the wreath's gate unsatisfiable. It reads `peopleResponses` now.
+
+Lesson:
+- `tests/held-in-his-hands.test.ts`: the room's pose, the rooted way out, the held frames, the fade that waits, and no figure given one written line twice.
+- `tests/d4.test.ts` plays the collection: asked, refused, no place in the line without the hymnal, nothing but PULL settles it, and the day lasting until it does.
+- The full walkthrough plays all of it (C3.5a, C3.12, D4.1 to D4.1c, E6b.1a, E7.1a).
+- `proofs/pacing.json`: PUSH twice and PULL once on the route now; "verb never used: PULL" is off the list, and the check fails if it comes back.

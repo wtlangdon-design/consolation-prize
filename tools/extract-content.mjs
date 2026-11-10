@@ -6978,6 +6978,8 @@ function objectsItems() {
     item('A STUB OF CHALK', 'chalk', 'A STUB OF CHALK', 'Taken from its tin in the Nugget\'s back room. What the turn of Pratt is written with, on Thad\'s own stake; kept.'),
     item('THE FUNERAL NOTICE', 'funeral_notice', 'THE FUNERAL NOTICE', 'Handed over by Frame; posted on Main Street, which begins the funeral day.'),
     item('THE HOTEL\'S LAMP', 'hotel_lamp', 'THE HOTEL\'S LAMP', 'Taken from Thad\'s room in Act IV for the dig; kept.'),
+    item('A HYMNAL', 'hymnal', 'A HYMNAL', 'Taken from his pew in the church (errata 246). With it he can stand in the line of mourners on the hill; kept.'),
+    item('THE COLONEL\'S WREATH', 'wreath', 'THE COLONEL\'S WREATH', 'Taken from Pike\'s marker once the town has gone down (errata 246); laid on his own coffin in Act III. Nothing depends on it.'),
   ];
 }
 function objectsPairs(prattTurn) {
@@ -7012,7 +7014,21 @@ function objectsPairs(prattTurn) {
   out.push({ item: 'funeral_notice', room: 'main_street', target: 'posted_notices', say: posted[0].line,
     note: `${NOTE}, O-2: the notice put up on Main Street begins the funeral day (T_FUNERAL_DAY), which Frame's printing used to.`,
     rules: [{ case: 'posted', say: posted[0].line, direction: true, then: posted.slice(1).map((one) => one.line),
-      takes: ['funeral_notice'], set: { T_FUNERAL_DAY: true, T_NOTICE_IN_HAND: false }, goto: 'main_street' }] });
+      takes: ['funeral_notice'], set: { T_FUNERAL_DAY: true, T_NOTICE_IN_HAND: false, T_FUNERAL_HILL_SAID: false }, goto: 'main_street' }] });
+  // The notice shown to the Reverend, before it is up (THE WRONG TRIES).
+  const shown = objectsRule('- **REVEREND SOWERBY** · USE THE FUNERAL NOTICE — ', { SOWERBY: 'sowerby' });
+  out.push({ item: 'funeral_notice', room: 'church', target: 'sowerby', otherwise: 'pool', say: shown.say,
+    note: `${NOTE}, O-2, THE WRONG TRIES: REVEREND SOWERBY · USE THE FUNERAL NOTICE.`, rules: [{ case: 'any time', ...shown }] });
+  // O-6 THE WREATH on his own coffin (errata 246). Nothing depends on it; the undertaker has a line.
+  const laid = objectsBlock('**THE COFFIN** · USE THE COLONEL\'S WREATH', { 'THE UNDERTAKER': 'funeral_undertaker' });
+  out.push({ item: 'wreath', room: 'funeral', target: 'coffin', say: laid[0].line,
+    note: 'Doc 118 (THE LINES; errata 246), O-6: the Colonel\'s wreath laid on Thad\'s own coffin. Nothing reads T_WREATH_LAID.',
+    rules: [{ case: 'laid', say: laid[0].line, direction: true, then: laid.slice(1).map((one) => (one.speaker === 'thad' ? one.line : one)),
+      takes: ['wreath'], set: { T_WREATH_LAID: true } }] });
+  // II-1 (doc 115): the fork rung against the plate as it goes by.
+  const rung = papersRule(papersBullet('- USE THE TUNING FORK — ', 'docs/115-the-three-papers.md'), {});
+  out.push({ item: 'tuning_fork', room: 'boot_hill', target: 'collection_plate', say: rung.say,
+    note: 'Doc 115 (THE LINES; errata 246), II-1: the tuning fork on the collection plate in the line.', rules: [{ case: 'any time', ...rung }] });
   // O-4 THE TONIC on the handkerchief, both ways round, wherever he stands; then the dosed handkerchief on the ledger.
   const dose = objectsRule('- USE DR. PURVIS\'S TONIC — ');
   return { pairs: out, dose, dosedGilt: objectsRule('- USE THE HANDKERCHIEF, *dosed* — ') };

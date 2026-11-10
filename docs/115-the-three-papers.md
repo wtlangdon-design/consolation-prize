@@ -50,7 +50,7 @@ Nothing here changes a flag the rest of the game reads, a puzzle's answer outsid
 - TALK TO the Reverend: doc 57's three lines, then his refusal (`T_LINEN_ASKED`).
 - USE the town, after that: Thad joins the end of the line and the plate stops with him (`T_HOLDS_PLATE`). The Reverend comes and takes hold of it.
 - PULL the plate: the scene, ending in doc 57's own direction and line, the linen money, and `T_LINEN_COLLECTED`.
-- The day ends on arriving, as now. The scene can be finished on that visit; a player who leaves first can hold the day again, as today (errata 87 C).
+- **The day lasts until the plate is settled** (errata 246; it used to end on arriving). A player who goes back for the hymnal finds the town still on the hill. With no plate business open, the day ends on arriving, as before.
 - **Art (brief below):** the Reverend with the plate; the plate in Thad's hands (a clip of Thad holding it); Fanshawe hat in hand, which the arrival line has always said. Three operations.
 
 ---
@@ -59,26 +59,26 @@ Nothing here changes a flag the rest of the game reads, a puzzle's answer outsid
 
 *Each hotspot's LOOK and LISTEN rotate 1, 2, 3, then hold the last.*
 
-### II-5 · The wreath
+### II-5 · The wreath: the lines
 
 *Main Street on the funeral day, until the Colonel is through his door.*
 
 **ARRIVING** · *Main Street, the funeral day, after the street's own line*
 > "Not quite everyone. Colonel Fanshawe is in his own doorway, behind a wreath the size of a cartwheel. The doorway is the size of a door."
 
-**THE COLONEL, IN HIS DOORWAY**
+**THE COMPANY'S DOOR** *(while the Colonel is in it: WALK TO, OPEN or USE)* — "The door is full of Colonel."
+
+### THE COLONEL, IN HIS DOORWAY
+
 **LOOK** 1 "Black gloves, black hat, and a wreath of lilies he must have ordered by the acre. He has got it most of the way out, and himself none of the way." · 2 "He is pushing from inside, with great goodwill. The wreath is being reasonable about it and the door is not." · 3 "A ribbon across it says SINCERELY, in gilt. The rest of the word is still in the lobby."
 **LISTEN** 1 "Lilies, creaking. And behind them a man apologizing to a door." · 2 "'After you,' he says, to the wreath. It does not go." · 3 "Wire, straining. Somebody was paid by the lily."
 
-**THE COLONEL, IN HIS DOORWAY** · *the tries*
+**THE TRIES**
 - TALK TO — **FANSHAWE:** "Mr. Grubb! A sad day. Pike was — I am told Pike was a great many things. You'll forgive my not shaking hands." *(second)* **FANSHAWE:** "No hurry, no hurry. They never start without me. I have seen to that."
 - PULL — "From this side, pulling brings me the wreath, and the Colonel directly after it. I should prefer them to go the other way."
-- PICK UP — "It took a florist and two boys to carry it here. I tune pianos."
+- PICK UP — "It took a florist and two boys to carry it here. There is one of me."
 - USE — "I put a hand on it, to look helpful. It is the kind of help he gives."
-- PUSH — *(Thad puts his shoulder to the wreath. It goes through the door all at once, and the Colonel with it.)* **FANSHAWE:** "Obliged, Mr. Grubb! You are the only man in Consolation who has ever helped me out of my own office." *(He goes up the street with the wreath on his arm, like a man taking a wheel to be mended.)* "I have helped a man leave so that I can rob him, and he thanked me. I expect he will again." → `T_COLONEL_OUT`
-
-**THE COMPANY'S DOOR** · *while the Colonel is in it*
-- WALK TO, *or* OPEN, *or* USE — "The door is full of Colonel."
+- PUSH — *(Thad puts his shoulder to the wreath. It goes through the door all at once, and the Colonel with it.)* **FANSHAWE:** "Obliged, Mr. Grubb! You are the only man in Consolation who has ever helped me out of my own office." *(He goes up the street with the wreath on his arm, like a man taking a wheel to be mended.)* *"I have helped a man leave so that I can rob him, and he thanked me. I expect he will again."* → `T_COLONEL_OUT`
 
 ### II-3 · The double, earned
 
@@ -102,49 +102,51 @@ Nothing here changes a flag the rest of the game reads, a puzzle's answer outsid
 - **THE DECANTER** · USE A COMPANY LEDGER — "Whisky would take the gilt off, and leave a ring he would know by its year."
 - **THE PORTRAIT** · USE A COMPANY LEDGER — "I held it up to him. In oils he did not recognize it either."
 
-### II-1 · The collection
+### II-1 · The collection: the lines
 
-*Boot Hill on the funeral day, Sheng's task open, the town coming down and the plate going along it.*
+*Boot Hill on the funeral day, Sheng's task open, the town coming down and the plate going along it. The day now lasts until the plate is settled (errata 246): a player who goes back for something finds the town still on the hill.*
 
 **THE COLLECTION PLATE** · *in the line*
 **LOOK** 1 "A pewter plate, going down the line of mourners hand to hand, for the second time. The first time, the Reverend was not satisfied." · 2 "It is heavier at every pair of hands. Nobody here knew Mr. Pike, and they are paying for it." · 3 "Silver, mostly, and one button. There is always one button."
 **LISTEN** 1 "A coin, and a pause, and the next coin. The pause is the plate being looked into." · 2 "Somebody makes change out of it, quietly, and is watched doing it." · 3 "It rings lower each time it is passed. A full plate has a very comfortable note."
 
-**REVEREND SOWERBY, AT THE GATE** · *the asking*
-> **THAD:** "Reverend. Mr. Sheng's linens."
-> **SOWERBY:** "Today? Today of all days?"
-> **THAD:** "It's the only day you have it."
-> **SOWERBY:** "And the only day I am watched, Mr. Grubb. A minister cannot be seen making change out of the plate. It would look like commerce."
+**MR. PIKE'S COLLECTION** · *in Thad's hands, the Reverend's hand on it*
+**LOOK** 1 "Mr. Pike's collection, in my hands, with the Reverend's thumb on the rim. I can see my face in it, between a dollar and the button." · 2 "He holds it the way a man holds a hymn he means to finish. So do I." · 3 "Nine funerals of linen are in here somewhere. I can very nearly count them."
+**LISTEN** 1 "The coins, shifting toward whichever of us is winning." · 2 "The Reverend, breathing through his nose. It is the nearest he comes to an oath." · 3 "A hill full of people being quiet so as not to miss anything."
 
-Doc 57's three lines, then his. → `T_LINEN_ASKED`
-
-**REVEREND SOWERBY, AT THE GATE** · *asked again*
-- TALK TO — **SOWERBY:** "After, sir. There is always an after." *(second)* **SOWERBY:** "After. I have built a ministry on it."
-
-**THE COLLECTION PLATE** · *the tries, in the line*
+**THE PLATE, IN THE LINE**
 - PICK UP — "It is in the hands of a widow, and she has a firm grip on other people's generosity."
 - USE THE TUNING FORK — "I rang it as it went by. It gave a full, round note. An empty one rings higher, and the Reverend has the ear for that."
 
-**THE TOWN, COMING DOWN** · USE
-- *before the Reverend is asked* — "If I stand in that line I shall be handed a plate, and expected to improve it."
-- *after* — *(Thad takes off his hat and stands at the end of the line. The plate comes down it, hand to hand, and stops with him.)* "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not." → `T_HOLDS_PLATE`
+**THE REVEREND, AT THE GATE**
+- TALK TO, *the asking* — "Reverend. Mr. Sheng's linens." **SOWERBY:** "Today? Today of all days?" *"It's the only day you have it."* **SOWERBY:** "And the only day I am watched, Mr. Grubb. A minister cannot be seen making change out of the plate. It would look like commerce." → `T_LINEN_ASKED`
+- TALK TO, *asked again* — **SOWERBY:** "After, sir. There is always an after." *(second)* **SOWERBY:** "After. I have built a ministry on it."
+- TALK TO, *his hand on the plate* — **SOWERBY:** "Let go, Mr. Grubb, and we shall discuss it after." *"There is always an after."*
+- TALK TO, *the plate his again* — **SOWERBY:** "Good day, Mr. Grubb. I shall pray for Mr. Sheng. It is cheaper."
 
-**THE REVEREND COMES FOR IT** · *as soon as Thad holds the plate*
-> **SOWERBY:** "Mr. Grubb. The plate."
-> *(He takes hold of the rim.)*
+The asking is doc 57 D4's three lines, word for word, then his.
 
-**THE COLLECTION PLATE** · *in Thad's hands, the Reverend's hand on it*
+**THE LINE**
+- USE, *before the Reverend is asked* — "If I stand in that line I shall be handed a plate, and expected to improve it."
+- USE, *after* — *(Thad takes off his hat and stands at the end of the line. The plate comes down it, hand to hand, and stops with him.)* "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not." **SOWERBY:** "Mr. Grubb. The plate." *(He takes hold of the rim.)* → `T_HOLDS_PLATE`
+
+**THE PLATE, HELD**
 - PUSH — "If I push, he has it. I have never won anything by pushing, except once today, and that was a wreath."
 - USE — "It is not mine to use. That is rather the position I am pressing."
-- TALK TO, *the Reverend* — **SOWERBY:** "Let go, Mr. Grubb, and we shall discuss it after." — *"There is always an after."*
-- PULL — *(Thad does not let go. Neither does the Reverend. The town of Consolation watches two men hold a plate.)* *"Nine funerals of linen, Reverend."* — **SOWERBY:** "Not in front of the bereaved." — *"They are not bereaved. They never met him."* → doc 57's own ending: *(He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.)* **SOWERBY:** "Nine funerals of linen. He starches with feeling." → THE LINEN MONEY, `T_LINEN_COLLECTED`
+- PICK UP — "I have it. That is the whole difficulty, and he has the other half of it."
+- PULL — **SOWERBY:** *(He does not let go. Neither does Thad.)* "Mr. Grubb." *"Reverend. The whole town is watching two men hold a plate."* *"Nine funerals of linen."* **SOWERBY:** "Not in front of the bereaved." *"They are not bereaved. They never met him."* **SOWERBY:** *(He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.)* "Nine funerals of linen. He starches with feeling." → THE LINEN MONEY, `T_LINEN_COLLECTED`
 
-**COLONEL FANSHAWE, HAT IN HAND**
+PULL ends in doc 57 D4's own direction and line, word for word.
+
+**THE GATE** *(while he holds the plate)* — "The Reverend has the other side of it. Where I go, he goes, and the collection with us."
+
+### COLONEL FANSHAWE, HAT IN HAND
+
 **LOOK** 1 "The Colonel, in front, hat in hand, grieving handsomely. He has left the wreath where it will be seen from the road." · 2 "He put a coin in the plate from high enough up that everybody heard it land." · 3 "He has been out of his office for an hour. I am the only man on this hill who knows exactly how long."
 **LISTEN** 1 "'A great loss,' he is saying, to a man who has just asked him who Pike was." · 2 "His watch chain. He has looked at it twice and at the town below it once." · 3 "Nothing. He is being seen, which he does very quietly."
 
-**COLONEL FANSHAWE, HAT IN HAND** · *the tries*
-- TALK TO — **FANSHAWE:** "A beautiful service, Mr. Grubb. I wept. I always do. It is very good for the Company." *(second)* **FANSHAWE:** "Walk down with me! No? Another time. My door is always open." — *"I know."*
+**THE COLONEL'S TRIES**
+- TALK TO — **FANSHAWE:** "A beautiful service, Mr. Grubb. I wept. I always do. It is very good for the Company." *(second)* **FANSHAWE:** "Walk down with me! No? Another time. My door is always open."
 
 ---
 

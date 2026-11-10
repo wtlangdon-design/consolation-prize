@@ -7,6 +7,8 @@
     "docs/54-batch-c.md::ROOM 14 · BOOT HILL",
     "docs/110-act-three-scenes.md::THE LINES",
     "docs/113-act-two-scenes.md::C · The town on the hill",
+    "docs/115-the-three-papers.md::II-1 · The collection: the lines",
+    "docs/118-objects-the-lines.md::O-6 · The wreath",
     "docs/05-examine-layer.md::ROOM 14 — BOOT HILL#2",
     "docs/49-wrong-answers.md::ROOM 14 — BOOT HILL"
   ],
@@ -216,6 +218,45 @@
       "overrides": {
         "TALK_TO": "They have just been spoken to for an hour. I'll let them recover."
       }
+    },
+    {
+      "name": "THE COLLECTION PLATE",
+      "LOOK_AT": [
+        "A pewter plate, going down the line of mourners hand to hand, for the second time. The first time, the Reverend was not satisfied.",
+        "It is heavier at every pair of hands. Nobody here knew Mr. Pike, and they are paying for it.",
+        "Silver, mostly, and one button. There is always one button."
+      ],
+      "LISTEN_TO": [
+        "A coin, and a pause, and the next coin. The pause is the plate being looked into.",
+        "Somebody makes change out of it, quietly, and is watched doing it.",
+        "It rings lower each time it is passed. A full plate has a very comfortable note."
+      ]
+    },
+    {
+      "name": "MR. PIKE'S COLLECTION",
+      "LOOK_AT": [
+        "Mr. Pike's collection, in my hands, with the Reverend's thumb on the rim. I can see my face in it, between a dollar and the button.",
+        "He holds it the way a man holds a hymn he means to finish. So do I.",
+        "Nine funerals of linen are in here somewhere. I can very nearly count them."
+      ],
+      "LISTEN_TO": [
+        "The coins, shifting toward whichever of us is winning.",
+        "The Reverend, breathing through his nose. It is the nearest he comes to an oath.",
+        "A hill full of people being quiet so as not to miss anything."
+      ]
+    },
+    {
+      "name": "THE COLONEL'S WREATH",
+      "LOOK_AT": [
+        "A cartwheel of lilies, left against a headboard six years too late. The ribbon says SINCERELY.",
+        "It is the largest thing on Boot Hill that is not a grievance.",
+        "Nobody will come back for it. It has done what it was sent to do, which was to be seen arriving."
+      ],
+      "LISTEN_TO": [
+        "Lilies, settling. Wire under them, doing the real work.",
+        "The ribbon, lifting in the wind and laying itself straight again.",
+        "Nothing. Flowers are quiet about who paid."
+      ]
     }
   ],
   "exitsAndUnplaced": {

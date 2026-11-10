@@ -2152,9 +2152,69 @@
           ],
           "set": {
             "T_FUNERAL_DAY": true,
-            "T_NOTICE_IN_HAND": false
+            "T_NOTICE_IN_HAND": false,
+            "T_FUNERAL_HILL_SAID": false
           },
           "goto": "main_street"
+        }
+      ]
+    },
+    {
+      "item": "funeral_notice",
+      "room": "church",
+      "target": "sowerby",
+      "otherwise": "pool",
+      "say": "Refreshments? I was not consulted about refreshments.",
+      "note": "Doc 118 (THE LINES; errata 245), O-2, THE WRONG TRIES: REVEREND SOWERBY · USE THE FUNERAL NOTICE.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "Refreshments? I was not consulted about refreshments.",
+          "by": "sowerby"
+        }
+      ]
+    },
+    {
+      "item": "wreath",
+      "room": "funeral",
+      "target": "coffin",
+      "say": "Thad lays the wreath on his own coffin and straightens the ribbon.",
+      "note": "Doc 118 (THE LINES; errata 246), O-6: the Colonel's wreath laid on Thad's own coffin. Nothing reads T_WREATH_LAID.",
+      "rules": [
+        {
+          "case": "laid",
+          "say": "Thad lays the wreath on his own coffin and straightens the ribbon.",
+          "direction": true,
+          "then": [
+            {
+              "speaker": "funeral_undertaker",
+              "line": "Flowers weren't paid for."
+            },
+            "They were. Not by me.",
+            {
+              "speaker": "funeral_undertaker",
+              "line": "Mm."
+            }
+          ],
+          "takes": [
+            "wreath"
+          ],
+          "set": {
+            "T_WREATH_LAID": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "tuning_fork",
+      "room": "boot_hill",
+      "target": "collection_plate",
+      "say": "I rang it as it went by. It gave a full, round note. An empty one rings higher, and the Reverend has the ear for that.",
+      "note": "Doc 115 (THE LINES; errata 246), II-1: the tuning fork on the collection plate in the line.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "I rang it as it went by. It gave a full, round note. An empty one rings higher, and the Reverend has the ear for that."
         }
       ]
     }

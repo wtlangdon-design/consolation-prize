@@ -131,6 +131,237 @@
   ],
   "hotspots": [
     {
+      "id": "collection_plate",
+      "name": "THE COLLECTION PLATE",
+      "rect": [
+        958,
+        626,
+        84,
+        56
+      ],
+      "when": {
+        "T_PLATE_AT_GATE": true,
+        "T_HOLDS_PLATE": false,
+        "T_LINEN_COLLECTED": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A pewter plate, going down the line of mourners hand to hand, for the second time.",
+            "repeat": [
+              "It is heavier at every pair of hands. Nobody here knew Mr. Pike, and they are paying for it.",
+              "Silver, mostly, and one button. There is always one button."
+            ],
+            "then": [
+              "The first time, the Reverend was not satisfied."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A coin, and a pause, and the next coin. The pause is the plate being looked into.",
+            "repeat": [
+              "Somebody makes change out of it, quietly, and is watched doing it.",
+              "It rings lower each time it is passed. A full plate has a very comfortable note."
+            ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "say": "It is in the hands of a widow, and she has a firm grip on other people's generosity.",
+            "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE PLATE, IN THE LINE** - PICK UP"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 900,
+        "y": 850,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "mr_pike_s_collection",
+      "name": "MR. PIKE'S COLLECTION",
+      "rect": [
+        590,
+        618,
+        100,
+        64
+      ],
+      "when": {
+        "T_HOLDS_PLATE": true,
+        "T_LINEN_COLLECTED": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Mr. Pike's collection, in my hands, with the Reverend's thumb on the rim.",
+            "repeat": [
+              "He holds it the way a man holds a hymn he means to finish. So do I.",
+              "Nine funerals of linen are in here somewhere. I can very nearly count them."
+            ],
+            "then": [
+              "I can see my face in it, between a dollar and the button."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The coins, shifting toward whichever of us is winning.",
+            "repeat": [
+              "The Reverend, breathing through his nose. It is the nearest he comes to an oath.",
+              "A hill full of people being quiet so as not to miss anything."
+            ]
+          }
+        ],
+        "PULL": [
+          {
+            "when": {
+              "T_LINEN_COLLECTED": false
+            },
+            "say": "He does not let go. Neither does Thad.",
+            "by": "sowerby_gate",
+            "direction": true,
+            "then": [
+              {
+                "speaker": "sowerby_gate",
+                "line": "Mr. Grubb."
+              },
+              "Reverend. The whole town is watching two men hold a plate.",
+              "Nine funerals of linen.",
+              {
+                "speaker": "sowerby_gate",
+                "line": "Not in front of the bereaved."
+              },
+              "They are not bereaved. They never met him.",
+              {
+                "speaker": "sowerby_gate",
+                "line": "He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.",
+                "direction": true
+              },
+              {
+                "speaker": "sowerby_gate",
+                "line": "Nine funerals of linen. He starches with feeling."
+              }
+            ],
+            "set": {
+              "T_LINEN_COLLECTED": true,
+              "T_HOLDS_PLATE": false,
+              "T_FUNERAL_DAY": false,
+              "T_FUNERAL_STREET_SAID": false
+            },
+            "grants": [
+              "linen_money"
+            ],
+            "holds": {
+              "clip": "plate",
+              "frames": [
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                0,
+                0
+              ]
+            },
+            "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE PLATE, HELD** - PULL"
+          }
+        ],
+        "PICK_UP": [
+          {
+            "say": "I have it. That is the whole difficulty, and he has the other half of it.",
+            "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE PLATE, HELD** - PICK UP"
+          }
+        ],
+        "USE": [
+          {
+            "say": "It is not mine to use. That is rather the position I am pressing.",
+            "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE PLATE, HELD** - USE"
+          }
+        ],
+        "PUSH": [
+          {
+            "say": "If I push, he has it. I have never won anything by pushing, except once today, and that was a wreath.",
+            "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE PLATE, HELD** - PUSH"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 640,
+        "y": 838,
+        "facing": "front"
+      }
+    },
+    {
+      "id": "colonel_s_wreath",
+      "name": "THE COLONEL'S WREATH",
+      "rect": [
+        1562,
+        222,
+        80,
+        82
+      ],
+      "when": {
+        "T_COLONEL_OUT": true,
+        "T_WREATH_TAKEN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A cartwheel of lilies, left against a headboard six years too late.",
+            "repeat": [
+              "It is the largest thing on Boot Hill that is not a grievance.",
+              "Nobody will come back for it. It has done what it was sent to do, which was to be seen arriving."
+            ],
+            "then": [
+              "The ribbon says SINCERELY."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Lilies, settling. Wire under them, doing the real work.",
+            "repeat": [
+              "The ribbon, lifting in the wind and laying itself straight again.",
+              "Nothing. Flowers are quiet about who paid."
+            ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_TOWN_ON_HILL": true
+            },
+            "say": "Not while he is forty feet off, counting who looks at it.",
+            "sceneLine": "docs/118-objects-the-lines.md::### O-6 · The wreath · **THE WREATH, AT THE MARKER** - PICK UP, *while the town is on the hill*"
+          },
+          {
+            "when": {
+              "T_TOWN_ON_HILL": false
+            },
+            "say": "Mr. Pike has had the use of it. I know of a funeral coming that has no flowers at all, and the deceased is not proud.",
+            "set": {
+              "T_WREATH_TAKEN": true
+            },
+            "grants": [
+              "wreath"
+            ],
+            "sceneLine": "docs/118-objects-the-lines.md::### O-6 · The wreath · **THE WREATH, AT THE MARKER** - PICK UP, *after*"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1600,
+        "y": 640,
+        "facing": "back"
+      }
+    },
+    {
       "id": "pike_s_marker",
       "name": "PIKE'S MARKER",
       "rect": [
@@ -635,6 +866,105 @@
       }
     },
     {
+      "id": "town_coming_down",
+      "name": "THE TOWN, COMING DOWN",
+      "rect": [
+        884,
+        397,
+        443,
+        403
+      ],
+      "when": {
+        "T_TOWN_ON_HILL": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Every black coat in Consolation, coming down from a funeral for a man none of them knew. They look as if it did them good.",
+            "repeat": [
+              "Colonel Fanshawe leads, grieving handsomely. He has been out of his office for an hour, which I have reason to know.",
+              "Nobody is in a hurry. Refreshments were promised, and nobody has yet asked where."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Boots on the hill path, and somebody still humming the hymn a little behind the rest.",
+            "repeat": [
+              "'A lovely service.' 'Who was he?' 'A lovely service.'",
+              "Black cloth, moving. A town makes very little noise when it has been told to be sorry."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "T_PLATE_AT_GATE": true,
+              "T_LINEN_ASKED": false
+            },
+            "say": "If I stand in that line I shall be handed a plate, and expected to improve it.",
+            "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE LINE** - USE, *before the Reverend is asked*"
+          },
+          {
+            "when": {
+              "T_PLATE_AT_GATE": true,
+              "T_HOLDS_PLATE": false,
+              "T_LINEN_COLLECTED": false,
+              "T_LINEN_ASKED": true,
+              "T_HYMNAL_TAKEN": false
+            },
+            "say": "They each have a hymnal held to the chest, like a pass. I have a tuning fork. I would be found out by the first widow.",
+            "sceneLine": "docs/118-objects-the-lines.md::### O-3 · The hymnal · **THE TOWN, COMING DOWN** · USE - *without the hymnal*"
+          },
+          {
+            "when": {
+              "T_PLATE_AT_GATE": true,
+              "T_HOLDS_PLATE": false,
+              "T_LINEN_COLLECTED": false,
+              "T_LINEN_ASKED": true,
+              "T_HYMNAL_TAKEN": true
+            },
+            "say": "Thad takes off his hat and stands at the end of the line. The plate comes down it, hand to hand, and stops with him.",
+            "direction": true,
+            "then": [
+              "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not.",
+              {
+                "speaker": "sowerby_gate",
+                "line": "Mr. Grubb. The plate."
+              },
+              {
+                "speaker": "sowerby_gate",
+                "line": "He takes hold of the rim.",
+                "direction": true
+              }
+            ],
+            "set": {
+              "T_HOLDS_PLATE": true
+            },
+            "holds": {
+              "clip": "plate",
+              "frames": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE LINE** - USE, *after*"
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "They have just been spoken to for an hour. I'll let them recover."
+      },
+      "walkTo": {
+        "x": 640,
+        "y": 838,
+        "facing": "front"
+      }
+    },
+    {
       "id": "hearse",
       "name": "THE HEARSE",
       "rect": [
@@ -769,48 +1099,6 @@
       }
     },
     {
-      "id": "town_coming_down",
-      "name": "THE TOWN, COMING DOWN",
-      "rect": [
-        690,
-        395,
-        680,
-        420
-      ],
-      "when": {
-        "T_TOWN_ON_HILL": true
-      },
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Every black coat in Consolation, coming down from a funeral for a man none of them knew. They look as if it did them good.",
-            "repeat": [
-              "Colonel Fanshawe leads, grieving handsomely. He has been out of his office for an hour, which I have reason to know.",
-              "Nobody is in a hurry. Refreshments were promised, and nobody has yet asked where."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Boots on the hill path, and somebody still humming the hymn a little behind the rest.",
-            "repeat": [
-              "'A lovely service.' 'Who was he?' 'A lovely service.'",
-              "Black cloth, moving. A town makes very little noise when it has been told to be sorry."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "TALK_TO": "They have just been spoken to for an hour. I'll let them recover."
-      },
-      "walkTo": {
-        "x": 1030,
-        "y": 858,
-        "facing": "back"
-      }
-    },
-    {
       "id": "nineteen",
       "name": "THE NINETEEN",
       "rect": [
@@ -898,6 +1186,17 @@
       },
       "fallback": [],
       "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "when": {
+            "T_HOLDS_PLATE": true,
+            "T_LINEN_COLLECTED": false
+          },
+          "say": "The Reverend has the other side of it. Where I go, he goes, and the collection with us.",
+          "stays": true,
+          "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · THE GATE"
+        }
+      ],
       "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines. Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
       "walkTo": {
         "x": 300,
@@ -1647,23 +1946,59 @@
         "T_FUNERAL_DONE": true
       },
       "note": "Doc 05 Part Two-B: after the funeral, the headboard, the grass starting over it, a tuning peg on top. Composed from operations 4 and 5 (tools/art/room14-compose.py, errata 87 F)."
+    },
+    {
+      "id": "collection_plate",
+      "sheet": "art/props/room-14-collection-plate-in-line.png",
+      "x": 1000,
+      "y": 828,
+      "frame": [
+        0,
+        0,
+        69,
+        195
+      ],
+      "when": {
+        "T_PLATE_AT_GATE": true,
+        "T_HOLDS_PLATE": false,
+        "T_LINEN_COLLECTED": false
+      },
+      "note": "Doc 115 II-1 (errata 246): the plate in the line, in the widow's hands. The Reverend's own plate, lifted off his sheet (tools/art/act2-collection-sheet.py). Its base line is in front of the town's (y 800) so it is drawn over her hands; the rows under the plate are empty."
+    },
+    {
+      "id": "colonel_s_wreath",
+      "sheet": "art/props/room-14-colonels-wreath.png",
+      "x": 1602,
+      "y": 302,
+      "frame": [
+        0,
+        0,
+        70,
+        76
+      ],
+      "when": {
+        "T_COLONEL_OUT": true,
+        "T_WREATH_TAKEN": false
+      },
+      "note": "Doc 118 O-6 (errata 246): the Colonel's wreath against Pike's headboard. The wreath alone from his doorway sheet (frame 3), at the hill's far scale and in the hill's night (tools/art/act2-collection-sheet.py)."
     }
   ],
   "onEnter": {
     "sayWhen": {
-      "T_FUNERAL_DAY": true
+      "T_FUNERAL_DAY": true,
+      "T_FUNERAL_HILL_SAID": false
     },
     "saySet": {
-      "T_FUNERAL_DAY": false,
-      "T_FUNERAL_STREET_SAID": false
+      "T_FUNERAL_HILL_SAID": true
     },
-    "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' The line plays and the day clears; it can be held again (errata 87 C).",
+    "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' Errata 246: the line is said once a day, and the day ends on entering only when no plate business is open (onEnterSetWhen); with the plate at the gate it lasts until the plate is settled (doc 115 II-1), so a player who goes back for the hymnal finds the town still on the hill.",
     "say": [
       "The service is over. Mr. Pike has been remembered, six years late and very thoroughly. The town is coming back down the hill, Colonel Fanshawe in front, holding his hat."
     ],
     "set": {
       "T_PLATE_AT_GATE": false,
-      "T_TOWN_ON_HILL": false
+      "T_TOWN_ON_HILL": false,
+      "T_HOLDS_PLATE": false
     },
     "setWhen": [
       {
@@ -1686,6 +2021,16 @@
       },
       {
         "when": {
+          "T_FUNERAL_DAY": true,
+          "T_PLATE_AT_GATE": false
+        },
+        "set": {
+          "T_FUNERAL_DAY": false,
+          "T_FUNERAL_STREET_SAID": false
+        }
+      },
+      {
+        "when": {
           "T_EXECUTOR_NAMED": true,
           "T_OBITUARY": true,
           "T_FUNERAL_DONE": false,
@@ -1698,45 +2043,6 @@
       }
     ],
     "scenes": [
-      {
-        "when": {
-          "T_FUNERAL_DAY": true,
-          "T_SHENG_TASK": true,
-          "T_LINEN_COLLECTED": false
-        },
-        "lines": [
-          {
-            "speaker": "thad",
-            "line": "Reverend. Mr. Sheng's linens."
-          },
-          {
-            "speaker": "sowerby",
-            "line": "Today? Today of all days?"
-          },
-          {
-            "speaker": "thad",
-            "line": "It's the only day you have it."
-          },
-          {
-            "speaker": "sowerby",
-            "line": "He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.",
-            "direction": true
-          },
-          {
-            "speaker": "sowerby",
-            "line": "Nine funerals of linen. He starches with feeling."
-          }
-        ],
-        "after": {
-          "set": {
-            "T_LINEN_COLLECTED": true
-          },
-          "gives": [
-            "linen_money"
-          ]
-        },
-        "note": "Doc 57 D4: on the funeral day the Reverend has a full plate, at the foot of Boot Hill -- the exchange, then THE LINEN MONEY. Plays after the day's own line. His figure is content/ambient/sowerby-gate.json."
-      },
       {
         "when": {
           "T_EXECUTOR_NAMED": true,
@@ -1785,5 +2091,112 @@
     "brightness": 0.9,
     "saturate": 0.5,
     "note": "Errata 242 (doc 113, C). Fanshawe's Duel Three sheet was drawn for Main Street's lamps (rest frame: mean luminance 51, 90th percentile 113, saturation 0.47, a warm 63/49/29); the hill's own cast is the moon's (Sowerby at the gate 42/85/0.21, the mourners 38/61/0.26). A cool light and half the colour bring him into the same night. Only he is named: every other figure on the hill is drawn exactly as before."
-  }
+  },
+  "peopleResponses": {
+    "memorial_fanshawe": {
+      "LOOK_AT": [
+        {
+          "say": "The Colonel, in front, hat in hand, grieving handsomely. He has left the wreath where it will be seen from the road.",
+          "repeat": [
+            "He put a coin in the plate from high enough up that everybody heard it land.",
+            "He has been out of his office for an hour. I am the only man on this hill who knows exactly how long."
+          ]
+        }
+      ],
+      "LISTEN_TO": [
+        {
+          "say": "'A great loss,' he is saying, to a man who has just asked him who Pike was.",
+          "repeat": [
+            "His watch chain. He has looked at it twice and at the town below it once.",
+            "Nothing. He is being seen, which he does very quietly."
+          ]
+        }
+      ],
+      "TALK_TO": [
+        {
+          "say": "A beautiful service, Mr. Grubb. I wept. I always do. It is very good for the Company.",
+          "by": "memorial_fanshawe",
+          "repeat": [
+            "Walk down with me! No? Another time. My door is always open."
+          ],
+          "sceneLine": "docs/115-the-three-papers.md::### COLONEL FANSHAWE, HAT IN HAND · **THE COLONEL'S TRIES** - TALK TO"
+        }
+      ]
+    },
+    "sowerby_gate": {
+      "TALK_TO": [
+        {
+          "when": {
+            "T_LINEN_ASKED": false,
+            "T_LINEN_COLLECTED": false
+          },
+          "say": "Reverend. Mr. Sheng's linens.",
+          "then": [
+            {
+              "speaker": "sowerby_gate",
+              "line": "Today? Today of all days?"
+            },
+            "It's the only day you have it.",
+            {
+              "speaker": "sowerby_gate",
+              "line": "And the only day I am watched, Mr. Grubb. A minister cannot be seen making change out of the plate. It would look like commerce."
+            }
+          ],
+          "set": {
+            "T_LINEN_ASKED": true
+          },
+          "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE REVEREND, AT THE GATE** - TALK TO, *the asking*"
+        },
+        {
+          "when": {
+            "T_LINEN_ASKED": true,
+            "T_HOLDS_PLATE": false,
+            "T_LINEN_COLLECTED": false
+          },
+          "say": "After, sir. There is always an after.",
+          "by": "sowerby_gate",
+          "repeat": [
+            "After. I have built a ministry on it."
+          ],
+          "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE REVEREND, AT THE GATE** - TALK TO, *asked again*"
+        },
+        {
+          "when": {
+            "T_HOLDS_PLATE": true,
+            "T_LINEN_COLLECTED": false
+          },
+          "say": "Let go, Mr. Grubb, and we shall discuss it after.",
+          "by": "sowerby_gate",
+          "then": [
+            "There is always an after."
+          ],
+          "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE REVEREND, AT THE GATE** - TALK TO, *his hand on the plate*"
+        },
+        {
+          "when": {
+            "T_LINEN_COLLECTED": true
+          },
+          "say": "Good day, Mr. Grubb. I shall pray for Mr. Sheng. It is cheaper.",
+          "by": "sowerby_gate",
+          "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE REVEREND, AT THE GATE** - TALK TO, *the plate his again*"
+        }
+      ]
+    }
+  },
+  "actorPoses": [
+    {
+      "when": {
+        "T_HOLDS_PLATE": true,
+        "T_LINEN_COLLECTED": false
+      },
+      "clip": "plate",
+      "frames": [
+        0,
+        1
+      ],
+      "rate": 0.5,
+      "rooted": true,
+      "note": "Doc 115 II-1 (errata 246): the plate stays in his hands, and he where he stands, until he pulls. The Reverend has the other side of it."
+    }
+  ]
 }

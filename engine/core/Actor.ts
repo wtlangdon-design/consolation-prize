@@ -556,7 +556,11 @@ export class Actor {
    * made the bottom two rows of the street and every pixel of sky a dead
    * click with no feedback at all.
    */
+  /** He is held where he stands (Room.actorPoses `rooted`): a walk asked of him is not begun. */
+  rooted = false;
+
   walkTo(x: number, y: number): boolean {
+    if (this.rooted) return false;
     // An unrouted mover is not on the floor and has no boxes to cross. It
     // still walks -- Hob crossing the road plays his walk cycle -- it simply
     // goes where it was sent.

@@ -73,8 +73,7 @@
     "docs/57-puzzle-completion.md::C3 · Manufacture a funeral"
    ],
    "notBuilt": [
-    "SOW_A1 (Room 17) writes T_MEMORIAL_BOOKED: set here as its outcome",
-    "D4's Sowerby at the gate with the plate needs Sowerby drawn on the hill (doc 36 Q157)"
+    "SOW_A1 (Room 17) writes T_MEMORIAL_BOOKED: set here as its outcome"
    ],
    "note": "Enter from the map: the service is over, and the day ends. Errata 242: the town is on the hill, the Colonel in front (T_TOWN_ON_HILL, as the entry writes it)."
   },
@@ -369,6 +368,106 @@
     "docs/110-act-three-scenes.md::2 · Scene A · The hearse won't go"
    ],
    "note": "TALK TO REVEREND SOWERBY has been asked; USE or OPEN THE HEARSE rides him up (E6b)."
+  },
+  {
+   "id": "r14-plate",
+   "label": "R14-PLATE The funeral day, Sheng's task open: the plate in the line, the Reverend at the gate, a hymnal in hand (doc 115 II-1)",
+   "room": "boot_hill",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_FANSHAWE_FUNERALS": true,
+    "T_MEMORIAL_BOOKED": true,
+    "T_FUNERAL_DAY": true,
+    "T_TOWN_ON_HILL": true,
+    "T_SHENG_TASK": true,
+    "T_PLATE_AT_GATE": true,
+    "T_COLONEL_OUT": true,
+    "T_FUNERAL_HILL_SAID": true,
+    "T_HYMNAL_TAKEN": true,
+    "ACT": 2,
+    "T_SWINDLED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "watch",
+    "hymnal"
+   ],
+   "puzzles": {
+    "A1": "complete",
+    "C3": "complete"
+   },
+   "derivedFrom": [
+    "docs/115-the-three-papers.md::II-1 · The collection: the lines",
+    "docs/57-puzzle-completion.md::D4 · Sheng's task"
+   ],
+   "notBuilt": [
+    "SOW_A1 (Room 17) writes T_MEMORIAL_BOOKED: set here as its outcome"
+   ],
+   "note": "Errata 246. TALK TO the Reverend, USE the town, PULL the plate. The flags are as the entry writes them (T_TOWN_ON_HILL, T_PLATE_AT_GATE)."
+  },
+  {
+   "id": "r14-held",
+   "label": "R14-HELD The plate in Thad's hands, the Reverend's hand on its rim (doc 115 II-1)",
+   "room": "boot_hill",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_FANSHAWE_FUNERALS": true,
+    "T_MEMORIAL_BOOKED": true,
+    "T_FUNERAL_DAY": true,
+    "T_TOWN_ON_HILL": true,
+    "T_SHENG_TASK": true,
+    "T_PLATE_AT_GATE": true,
+    "T_COLONEL_OUT": true,
+    "T_FUNERAL_HILL_SAID": true,
+    "T_HYMNAL_TAKEN": true,
+    "T_LINEN_ASKED": true,
+    "T_HOLDS_PLATE": true,
+    "ACT": 2,
+    "T_SWINDLED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "watch",
+    "hymnal"
+   ],
+   "puzzles": {
+    "A1": "complete",
+    "C3": "complete"
+   },
+   "derivedFrom": [
+    "docs/115-the-three-papers.md::II-1 · The collection: the lines",
+    "docs/57-puzzle-completion.md::D4 · Sheng's task"
+   ],
+   "notBuilt": [
+    "SOW_A1 (Room 17) writes T_MEMORIAL_BOOKED: set here as its outcome"
+   ],
+   "note": "Errata 246. He stands where the plate stopped until he pulls; the gate answers and keeps him."
   }
  ]
 }

@@ -37,6 +37,13 @@ function collectWrites(content) {
       for (const rule of rules) record(rule.set, rule.add);
     }
   }
+  // A VERB ON A PERSON WRITES TOO (Room.peopleResponses; errata 246): pushing the Colonel through his door sets the
+  // flag his wreath on the hill is gated on, and the check called that gate unsatisfiable.
+  for (const { data } of content.rooms ?? []) {
+    for (const verbs of Object.values(data.peopleResponses ?? {})) {
+      for (const rules of Object.values(verbs)) for (const rule of rules) record(rule.set, rule.add);
+    }
+  }
   for (const { option } of allDialogueOptions(content)) {
     record(option.set, option.add);
   }

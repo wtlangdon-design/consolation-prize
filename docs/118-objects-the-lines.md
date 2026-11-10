@@ -80,7 +80,6 @@ Doc 04's PRA_D5 from "For the mud.", word for word, with its two directions adde
 → the funeral day begins; THE FUNERAL NOTICE leaves inventory.
 
 **THE WRONG TRIES** · *with the notice*
-- **THE COLONEL, IN HIS DOORWAY** · USE THE FUNERAL NOTICE — **FANSHAWE:** "I have read it, Mr. Grubb. Twice. I was first up the stairs for my gloves."
 - **REVEREND SOWERBY** · USE THE FUNERAL NOTICE — **SOWERBY:** "Refreshments? I was not consulted about refreshments."
 
 ### O-4 · The tonic
@@ -114,24 +113,32 @@ Dry, doc 115's line stands.
 
 With it, doc 57's three lines stand, "I have borrowed the lamp from my room" among them.
 
-### O-3 · The hymnal *(built with doc 115, II-1)*
+### O-3 · The hymnal
 
-**THE HYMNAL** · PICK UP, *in the church*
-- PICK UP — "One copy per pew, and nobody opens them. I have taken mine. It has my corrections in it, which makes it nearly my own work." → A HYMNAL
+*Built with doc 115, II-1.*
+
+**THE HYMNAL** · *in the church*
+- PICK UP, *the first time* — "One copy per pew, and nobody opens them. I have taken mine. It has my corrections in it, which makes it nearly my own work." → A HYMNAL
+- PICK UP, *again* — "One hymnal is devotion. Two is a choir, and I have heard this town's."
 
 **A HYMNAL** *(item)*
 **LOOK** 1 "The church's hymnal, with my penciled corrections and somebody's corrections of those." · 2 "A flower pressed at Hymn 41. I have left it where it was. It has seniority." · 3 "Held in front of the chest, it makes a mourner of anybody. That is most of what it is for."
-**LISTEN** 1 "Pages. A soft chord of paper." · 2 "Nothing. It is waiting to be overruled." · 3 "The spine, creaking, at the hymn everybody thinks they know."
+**LISTEN** 1 "Pages, when I riffle them. Every hymn goes by in the right key, for once." · 2 "Nothing. It is waiting to be overruled." · 3 "The spine, creaking, at the hymn everybody thinks they know."
 
 **THE TOWN, COMING DOWN** · USE, *after the Reverend is asked, without the hymnal* (replaces doc 115's line for joining the line; with A HYMNAL in hand, doc 115's line stands)
 - *without the hymnal* — "They each have a hymnal held to the chest, like a pass. I have a tuning fork. I would be found out by the first widow."
 
-### O-6 · The wreath *(built with doc 115, II-5 and II-1)*
+### O-6 · The wreath
 
-**THE COLONEL'S WREATH** · *at Pike's marker, once the town has gone down*
+*Built with doc 115, II-5 and II-1. The wreath is at Pike's marker from the time the Colonel is out of his door.*
+
+**THE COLONEL'S WREATH** · *at Pike's marker*
 **LOOK** 1 "A cartwheel of lilies, left against a headboard six years too late. The ribbon says SINCERELY." · 2 "It is the largest thing on Boot Hill that is not a grievance." · 3 "Nobody will come back for it. It has done what it was sent to do, which was to be seen arriving."
 **LISTEN** 1 "Lilies, settling. Wire under them, doing the real work." · 2 "The ribbon, lifting in the wind and laying itself straight again." · 3 "Nothing. Flowers are quiet about who paid."
-- PICK UP — "Mr. Pike has had the use of it. I know of a funeral coming that has no flowers at all, and the deceased is not proud." → THE COLONEL'S WREATH
+
+**THE WREATH, AT THE MARKER**
+- PICK UP, *while the town is on the hill* — "Not while he is forty feet off, counting who looks at it."
+- PICK UP, *after* — "Mr. Pike has had the use of it. I know of a funeral coming that has no flowers at all, and the deceased is not proud." → THE COLONEL'S WREATH
 
 **THE COLONEL'S WREATH** *(item)*
 **LOOK** 1 "Colonel Fanshawe's wreath, on my arm, like a wheel going to be mended. SINCERELY, it says." · 2 "It has already been to one funeral for a man the Colonel did not know. It may as well go to another." · 3 "The lilies are wax. I should have guessed. They will outlast us both."
@@ -142,3 +149,5 @@ With it, doc 57's three lines stand, "I have borrowed the lamp from my room" amo
 > **THE UNDERTAKER:** "Flowers weren't paid for."
 > **THAD:** "They were. Not by me."
 > **THE UNDERTAKER:** "Mm."
+
+→ THE COLONEL'S WREATH leaves inventory. Nothing depends on it.

@@ -2089,6 +2089,71 @@
     "room:thads_room:lamp:PICK_UP"
    ],
    "note": "Doc 118, O-7 (errata 245): the hotel's lamp has been taken from Thad's room for the dig."
+  },
+  {
+   "id": "T_COLONEL_OUT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:main_street:wreath_fanshawe:PUSH"
+   ],
+   "note": "Doc 115 II-5 (errata 246): Thad has pushed the Colonel and his wreath out of the Company's doorway on the funeral day; the way in is clear, and the wreath is left at Pike's marker."
+  },
+  {
+   "id": "T_LINEN_ASKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:sowerby_gate:TALK_TO"
+   ],
+   "note": "Doc 115 II-1 (errata 246): the Reverend has been asked for Sheng's linen money at the gate, and will not make change out of the plate while the town watches."
+  },
+  {
+   "id": "T_HOLDS_PLATE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter",
+    "room:boot_hill:town_coming_down:USE"
+   ],
+   "note": "Doc 115 II-1 (errata 246): the collection plate has stopped in Thad's hands and the Reverend has hold of its rim. Cleared on every entry to the hill."
+  },
+  {
+   "id": "T_FUNERAL_HILL_SAID",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter",
+    "combination:funeral_notice:posted_notices"
+   ],
+   "note": "Errata 246: the hill's arrival line for the funeral day has been said. The day now lasts until the plate is settled, so the line is said once a day; posting a notice clears it."
+  },
+  {
+   "id": "T_HYMNAL_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:church:hymnal:PICK_UP"
+   ],
+   "note": "Doc 118 O-3 (errata 246): Thad has a hymnal from the church. With it he can stand in the line of mourners."
+  },
+  {
+   "id": "T_WREATH_TAKEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:colonel_s_wreath:PICK_UP"
+   ],
+   "note": "Doc 118 O-6 (errata 246): the Colonel's wreath has been taken from Pike's marker."
+  },
+  {
+   "id": "T_WREATH_LAID",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:wreath:coffin"
+   ],
+   "note": "Doc 118 O-6 (errata 246): the Colonel's wreath is on Thad's own coffin. Nothing reads it."
   }
  ]
 }

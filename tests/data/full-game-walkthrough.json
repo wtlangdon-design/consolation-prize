@@ -1016,6 +1016,22 @@
    }
   },
   {
+   "id": "C3.5a",
+   "puzzle": "C3",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "hymnal",
+   "note": "Errata 246 (docs 115, 118). A hymnal, for the line on the hill.",
+   "expect": {
+    "carrying": [
+     "hymnal"
+    ],
+    "flags": {
+     "T_HYMNAL_TAKEN": true
+    }
+   }
+  },
+  {
    "id": "D2.1",
    "puzzle": "D2",
    "do": "go",
@@ -1195,6 +1211,19 @@
    }
   },
   {
+   "id": "C3.12",
+   "puzzle": "C3",
+   "do": "verb",
+   "verb": "PUSH",
+   "on": "wreath_fanshawe",
+   "note": "Errata 246 (docs 115, 118). The Colonel is in his own doorway; the way in is him.",
+   "expect": {
+    "flags": {
+     "T_COLONEL_OUT": true
+    }
+   }
+  },
+  {
    "id": "C4.1",
    "puzzle": "C4",
    "do": "go",
@@ -1326,17 +1355,65 @@
    "do": "go",
    "room": "boot_hill",
    "expect": {
+    "flags": {
+     "T_FUNERAL_DAY": true,
+     "T_LINEN_COLLECTED": false,
+     "T_PLATE_AT_GATE": true
+    },
+    "present": [
+     "memorial_town",
+     "memorial_fanshawe",
+     "sowerby_gate"
+    ],
+    "targets": [
+     "collection_plate"
+    ]
+   }
+  },
+  {
+   "id": "D4.1a",
+   "puzzle": "D4",
+   "do": "verb",
+   "verb": "TALK_TO",
+   "on": "sowerby_gate",
+   "note": "Errata 246 (docs 115, 118).",
+   "expect": {
+    "flags": {
+     "T_LINEN_ASKED": true
+    }
+   }
+  },
+  {
+   "id": "D4.1b",
+   "puzzle": "D4",
+   "do": "verb",
+   "verb": "USE",
+   "on": "town_coming_down",
+   "note": "Errata 246 (docs 115, 118).",
+   "expect": {
+    "flags": {
+     "T_HOLDS_PLATE": true
+    },
+    "targets": [
+     "mr_pike_s_collection"
+    ]
+   }
+  },
+  {
+   "id": "D4.1c",
+   "puzzle": "D4",
+   "do": "verb",
+   "verb": "PULL",
+   "on": "mr_pike_s_collection",
+   "note": "Errata 246 (docs 115, 118). The game's solving PULL.",
+   "expect": {
     "carrying": [
      "linen_money"
     ],
     "flags": {
-     "T_FUNERAL_DAY": false,
-     "T_LINEN_COLLECTED": true
-    },
-    "present": [
-     "memorial_town",
-     "memorial_fanshawe"
-    ]
+     "T_LINEN_COLLECTED": true,
+     "T_FUNERAL_DAY": false
+    }
    }
   },
   {
@@ -2127,6 +2204,19 @@
    }
   },
   {
+   "id": "E6b.1a",
+   "puzzle": "E6b",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "colonel_s_wreath",
+   "note": "Errata 246 (docs 115, 118). The Colonel's wreath, left at Pike's marker.",
+   "expect": {
+    "carrying": [
+     "wreath"
+    ]
+   }
+  },
+  {
    "id": "E6b.2",
    "puzzle": "E6b",
    "do": "verb",
@@ -2174,6 +2264,19 @@
     "present": [
      "funeral_sowerby"
     ]
+   }
+  },
+  {
+   "id": "E7.1a",
+   "puzzle": "E7",
+   "do": "use",
+   "item": "wreath",
+   "on": "coffin",
+   "note": "Errata 246 (docs 115, 118). Laid on his own coffin.",
+   "expect": {
+    "flags": {
+     "T_WREATH_LAID": true
+    }
    }
   },
   {

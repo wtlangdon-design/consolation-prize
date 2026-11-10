@@ -464,7 +464,13 @@
     "T_LAMP_TAKEN": true,
     "T_FIGURE_TOLD": true,
     "T_BLANKET_ALLOWED": true,
-    "T_NOTICE_IN_HAND": true
+    "T_NOTICE_IN_HAND": true,
+    "T_HYMNAL_TAKEN": true,
+    "T_COLONEL_OUT": true,
+    "T_LINEN_ASKED": true,
+    "T_WREATH_TAKEN": true,
+    "T_WREATH_LAID": true,
+    "T_FUNERAL_HILL_SAID": true
    },
    "inventory": [
     "letter",
@@ -489,7 +495,8 @@
     "brass_rod",
     "third_copy",
     "chalk",
-    "hotel_lamp"
+    "hotel_lamp",
+    "hymnal"
    ],
    "derivedFrom": [
     "docs/04-dialogue-trees.md:170-176 (WIN_F1 after T_STRIKE_FOUND; 'Run it.' -- she runs it at the window, the first assay the player watches)",

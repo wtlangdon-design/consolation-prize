@@ -836,6 +836,15 @@ if (strayNames.length) {
 // ---- build -----------------------------------------------------------------
 
 const built = { ...live };
+// A FIGURE WHOSE LINES THE ANNOTATION WRITES (`peopleExamine`, a docBullet's `person`) starts with none: `live` is the
+// file this tool wrote last time, and lines added to what was carried would be said twice, the old wording after the
+// new (errata 246: the Colonel in his doorway had three of everything by his third compile).
+{
+  const written = new Set([...Object.keys(ann.peopleExamine ?? {}), ...(ann.docBullets ?? []).map((one) => one.person).filter(Boolean)]);
+  if (written.size && built.peopleResponses) {
+    built.peopleResponses = Object.fromEntries(Object.entries(built.peopleResponses).filter(([id]) => !written.has(id)));
+  }
+}
 // THE ROOM IS AS BIG AS ITS PLATE, and it is the annotation that knows how big
 // that is -- every rect below was drawn in the same coordinates. A room that
 // declared no size was assumed to be the window's 1920, which for Main Street
@@ -2435,6 +2444,16 @@ for (const [spec, rule] of personBullets) {
   else delete built.tally;
   // Tyler, 2026-11-01: the room's light on the figures drawn apart from it.
   if (ann.figureLight) built.figureLight = ann.figureLight;
+  // WHAT HE HOLDS WHILE A CONDITION HOLDS (Room.actorPoses; errata 246): the annotation's own, passed through.
+  if (ann.actorPoses) built.actorPoses = ann.actorPoses;
+  // A LINE AT A WAY THAT IS NOT OPEN JUST NOW (doc 115: the Company's door "is full of Colonel"; Boot Hill's gate while
+  // the Reverend has the other side of the plate): `exitTransitScenes` names the exit and its beats, read from the
+  // document as any transitScene is (transitBeat). For a room whose ways are not `exitSubjects`.
+  for (const [id, specs] of Object.entries(ann.exitTransitScenes ?? {})) {
+    const exit = built.exits.find((one) => one.id === id);
+    if (!exit) fail(`exitTransitScenes: no exit "${id}" in this room`);
+    exit.transitScene = specs.map(transitBeat);
+  }
   // The figures' light by state, and the player hidden while a state holds (errata 239).
   if (ann.figureLightWhen) built.figureLightWhen = ann.figureLightWhen;
   if (ann.actorHiddenWhen) built.actorHiddenWhen = ann.actorHiddenWhen;

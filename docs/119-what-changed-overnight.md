@@ -13,3 +13,7 @@ Untouched throughout: CLAUDE.md's design invariants, the ending, the central rev
 | 5 | Act II, the gilt | Dry handkerchief only | Dr. Purvis's tonic on the handkerchief does it at once; dry still works | The tonic gets a use an act later | 245 |
 | 6 | Act II, the blanket | Given in a sentence | Leave is given; he takes it off the mule himself | Done by hand | 245 |
 | 7 | Act IV, the lamp | "I have borrowed the lamp from my room", narrated | He takes it; the hole sends him back without it | Done by hand; Act IV stays quiet | 245 |
+| 8 | Act II, the Company's door | Open all the funeral day | The Colonel is stuck in it behind his wreath until Thad pushes him through | A solving PUSH, and the joke of helping a man leave so as to rob him | 246 |
+| 9 | Act II, the linen money | Collected by arriving on the hill | Asked for and refused; with a hymnal from the church Thad joins the line, the plate stops with him, and he pulls | A solving PULL, an object carried two rooms, and a scene where there was a sentence | 246 |
+| 10 | Act II, the funeral day | Ends on entering the hill | Lasts until the plate is settled (still ends on entering when there is no plate business) | A player who goes back for the hymnal is not made to post the notice again | 246 |
+| 11 | Acts II and III, the wreath | No wreath | Left at Pike's marker; taken later; laid on Thad's own coffin | A joke that pays off an act later. Nothing depends on it | 246 |

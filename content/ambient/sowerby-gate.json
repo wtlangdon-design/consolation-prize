@@ -7,14 +7,14 @@
  "when": {
   "T_PLATE_AT_GATE": true
  },
- "note": "SOWERBY AT THE GATE (doc 57 C3 and D4: on the funeral day, if Sheng's task is set, 'Sowerby is at the gate with the plate'). His funeral sheet, cut from room-31's master and lit by the same moon on the same hill (tools/art/room31-night.py); no sheet of him holds the plate, so the plate is in the direction, not the picture -- for Tyler's playthrough. He is there for the visit that ends the day, and back in his church after.",
+ "note": "SOWERBY AT THE GATE (doc 57 C3 and D4: on the funeral day, if Sheng's task is set, 'Sowerby is at the gate with the plate'). His funeral sheet, cut from room-31's master and lit by the same moon on the same hill (tools/art/room31-night.py); no sheet of him holds the plate, so the plate is in the direction, not the picture -- for Tyler's playthrough. He is there for the visit that ends the day, and back in his church after. Errata 246 (doc 115 II-1): the plate is drawn now. While it is in Thad's hands his hand is on its rim, and once it is his again he holds it (spriteWhen; act2-papers operation 3, turned to the line by tools/art/act2-collection-sheet.py).",
  "x": 480,
  "y": 835,
  "zone": 0,
  "approachRadius": 0,
  "tree": "",
  "barks": {},
- "barksNote": "The exchange at the gate is an arrival scene (Room 14 onEnter.scenes), not a bark.",
+ "barksNote": "He is spoken to through doc 115's THE REVEREND, AT THE GATE.",
  "sprite": {
   "sheet": "art/actors/room-31-sowerby-master.png",
   "frames": [
@@ -84,5 +84,110 @@
   "figureHeightNote": "ERRATA 234 (Tyler, 2026-11-09, of this figure beside Thad at the gate: \"Thad looking much smaller than everyone else\"). Crown to sole of the rest frame (the raised finger is below his crown). He was a 1:1 sheet, 314 tall wherever he stood: 1.04 of Thad at the gate. Now drawn at the room's man at his feet, as Thad is.",
   "levelMan": 308,
   "levelManNote": "ERRATA 234: the man his sheet was snapped to one level at (errata 112 G: Room 31's man where he stands, 308), kept while he is drawn at 314. His art pixels are 1.02 of the level's (tests/one-level.test.mjs)."
- }
+ },
+ "walkTo": {
+  "x": 640,
+  "y": 838,
+  "facing": "left"
+ },
+ "walkToNote": "At the foot of the line, an arm's length from him: where the plate will stop.",
+ "spriteWhen": [
+  {
+   "when": {
+    "T_HOLDS_PLATE": true,
+    "T_LINEN_COLLECTED": false
+   },
+   "note": "His hand on the rim of the plate in Thad's hands; every few seconds he hauls on it.",
+   "sprite": {
+    "sheet": "art/actors/room-14-sowerby-plate-right.png",
+    "frames": [
+     [
+      586,
+      2,
+      290,
+      314
+     ],
+     [
+      1170,
+      2,
+      290,
+      314
+     ],
+     [
+      586,
+      2,
+      290,
+      314
+     ],
+     [
+      1462,
+      2,
+      290,
+      314
+     ]
+    ],
+    "breaks": [
+     [
+      3,
+      3,
+      0
+     ]
+    ],
+    "breakEvery": 5,
+    "breaksThatSpeak": [],
+    "talkFrame": 0,
+    "frameNote": "0 a hand out, on the rim · 1 a breath (derived) · 2 the hand out (the frame the scene's acted beat holds) · 3 hauling, his weight going back (derived).",
+    "levelMan": 314,
+    "levelManNote": "Errata 246: this sheet was snapped to one level at the man it is drawn at (tools/art/one-level.py --only room-14-sowerby-plate-right), not at the base sheet's 308."
+   }
+  },
+  {
+   "when": {
+    "T_LINEN_COLLECTED": true
+   },
+   "note": "The plate his again, in both hands; now and then held out to the line.",
+   "sprite": {
+    "sheet": "art/actors/room-14-sowerby-plate-right.png",
+    "frames": [
+     [
+      2,
+      2,
+      290,
+      314
+     ],
+     [
+      294,
+      2,
+      290,
+      314
+     ],
+     [
+      586,
+      2,
+      290,
+      314
+     ],
+     [
+      878,
+      2,
+      290,
+      314
+     ]
+    ],
+    "breaks": [
+     [
+      3,
+      3,
+      0
+     ]
+    ],
+    "breakEvery": 8,
+    "breaksThatSpeak": [],
+    "talkFrame": 0,
+    "frameNote": "0 the plate in both hands · 1 breath · 2 a hand out (held by the scene's acted beat while the plate is still Thad's) · 3 the plate held out at arm's length.",
+    "levelMan": 314,
+    "levelManNote": "Errata 246: this sheet was snapped to one level at the man it is drawn at (tools/art/one-level.py --only room-14-sowerby-plate-right), not at the base sheet's 308."
+   }
+  }
+ ]
 }

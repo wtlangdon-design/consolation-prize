@@ -161,6 +161,28 @@
               "Nothing. It's waiting for Sunday, when it'll be overruled."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_HYMNAL_TAKEN": false
+            },
+            "say": "One copy per pew, and nobody opens them. I have taken mine. It has my corrections in it, which makes it nearly my own work.",
+            "set": {
+              "T_HYMNAL_TAKEN": true
+            },
+            "grants": [
+              "hymnal"
+            ],
+            "sceneLine": "docs/118-objects-the-lines.md::### O-3 · The hymnal · **THE HYMNAL** · *in the church* - PICK UP, *the first time*"
+          },
+          {
+            "when": {
+              "T_HYMNAL_TAKEN": true
+            },
+            "say": "One hymnal is devotion. Two is a choir, and I have heard this town's.",
+            "sceneLine": "docs/118-objects-the-lines.md::### O-3 · The hymnal · **THE HYMNAL** · *in the church* - PICK UP, *again*"
+          }
         ]
       },
       "overrides": {

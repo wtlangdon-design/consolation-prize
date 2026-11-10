@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "wreath",
+  "name": "THE COLONEL'S WREATH",
+  "short": "THE COLONEL'S WREATH",
+  "note": "EXTRACTED from docs/118-objects-the-lines.md (THE LINES) by tools/extract-content.mjs (errata 245). Do not edit: change doc 118 and re-run. Taken from Pike's marker once the town has gone down (errata 246); laid on his own coffin in Act III. Nothing depends on it.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "Colonel Fanshawe's wreath, on my arm, like a wheel going to be mended. SINCERELY, it says.",
+        "repeat": [
+          "It has already been to one funeral for a man the Colonel did not know. It may as well go to another.",
+          "The lilies are wax. I should have guessed. They will outlast us both."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Wire and wax. It creaks like a gate.",
+        "repeat": [
+          "The ribbon, whispering one word.",
+          "Nothing. It is saving itself for the occasion."
+        ]
+      }
+    ]
+  }
+}

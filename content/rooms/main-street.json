@@ -22,7 +22,8 @@
     "hitching_horses",
     "man_leaving_tomorrow",
     "map_seller",
-    "pie_woman"
+    "pie_woman",
+    "wreath_fanshawe"
   ],
   "walkable": [
     {
@@ -746,6 +747,17 @@
         "CLOSE": "It closes on its own, slowly, and without a sound. Somebody paid for that too."
       },
       "defaultVerb": "OPEN",
+      "transitScene": [
+        {
+          "when": {
+            "T_FUNERAL_DAY": true,
+            "T_COLONEL_OUT": false
+          },
+          "say": "The door is full of Colonel.",
+          "stays": true,
+          "sceneLine": "docs/115-the-three-papers.md::### II-5 · The wreath: the lines · THE COMPANY'S DOOR"
+        }
+      ],
       "walkTo": {
         "x": 689,
         "y": 642,
@@ -1564,6 +1576,20 @@
           }
         },
         "note": "Errata 189: doc 57 C3's funeral day, 'Main Street, first entry that day'. Four of the street's townspeople are up the hill that day (their files' `when`); Boot Hill's line ends the day and clears T_FUNERAL_STREET_SAID with it."
+      },
+      {
+        "when": {
+          "T_FUNERAL_DAY": true,
+          "T_FUNERAL_STREET_SAID": false,
+          "T_COLONEL_OUT": false
+        },
+        "lines": [
+          {
+            "speaker": "thad",
+            "line": "Not quite everyone. Colonel Fanshawe is in his own doorway, behind a wreath the size of a cartwheel. The doorway is the size of a door."
+          }
+        ],
+        "note": "Errata 246, doc 115 II-5: said after the street's own line on the first entry of the funeral day, while the Colonel is in his doorway."
       }
     ]
   },
@@ -1734,6 +1760,15 @@
       ],
       "facing": "right",
       "note": "Errata 161: back out of the Lane through the alley."
+    },
+    {
+      "from": "main_street",
+      "at": [
+        1193,
+        678
+      ],
+      "facing": "front",
+      "note": "Errata 246 (doc 118 O-2): posting the funeral notice comes back to the street as the day then is (the pair's goto), and he is where he put it up, at the notice board, turned from it to the street. Without this he came back at the street's east edge."
     }
   ],
   "lamps": [
@@ -1832,5 +1867,90 @@
     "brightness": 0.85,
     "saturate": 0.75,
     "note": "Errata 198. Tyler, 2026-11-08: the horses \"seem to be lit a little too bright ... make sure they're a bit dimmer for the night\". The group was drawn warmer, brighter and more saturated than the street's night cast (rest frame: mean luminance 70, 90th percentile 136, saturation 0.58, against Thad's 59/100/0.32 and the pie woman's 63/81/0.42), and it stands in the dark mud between the Company's windows and the Nugget, outside every lamp's movers field. Only the horses are named: Thad and the cast are drawn exactly as before. A cool light and less colour bring the group into the same night (graded, about 53/104/0.43). tools/art/hitching-rail-dawn.py starts Room 36's empty rail from the rail as graded here, so the dawn keeps following the night."
+  },
+  "peopleResponses": {
+    "wreath_fanshawe": {
+      "LOOK_AT": [
+        {
+          "say": "Black gloves, black hat, and a wreath of lilies he must have ordered by the acre. He has got it most of the way out, and himself none of the way.",
+          "repeat": [
+            "He is pushing from inside, with great goodwill. The wreath is being reasonable about it and the door is not.",
+            "A ribbon across it says SINCERELY, in gilt. The rest of the word is still in the lobby."
+          ]
+        }
+      ],
+      "LISTEN_TO": [
+        {
+          "say": "Lilies, creaking. And behind them a man apologizing to a door.",
+          "repeat": [
+            "'After you,' he says, to the wreath. It does not go.",
+            "Wire, straining. Somebody was paid by the lily."
+          ]
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "Thad puts his shoulder to the wreath. It goes through the door all at once, and the Colonel with it.",
+          "by": "wreath_fanshawe",
+          "direction": true,
+          "then": [
+            {
+              "speaker": "wreath_fanshawe",
+              "line": "Obliged, Mr. Grubb! You are the only man in Consolation who has ever helped me out of my own office."
+            },
+            {
+              "speaker": "thad",
+              "line": "He goes up the street with the wreath on his arm, like a man taking a wheel to be mended.",
+              "direction": true
+            },
+            "I have helped a man leave so that I can rob him, and he thanked me. I expect he will again."
+          ],
+          "set": {
+            "T_COLONEL_OUT": true
+          },
+          "sceneLine": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY · **THE TRIES** - PUSH"
+        }
+      ],
+      "USE": [
+        {
+          "say": "I put a hand on it, to look helpful. It is the kind of help he gives.",
+          "sceneLine": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY · **THE TRIES** - USE"
+        }
+      ],
+      "OPEN": [
+        {
+          "say": "I put a hand on it, to look helpful. It is the kind of help he gives.",
+          "sceneLine": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY · **THE TRIES** - USE"
+        }
+      ],
+      "CLOSE": [
+        {
+          "say": "I put a hand on it, to look helpful. It is the kind of help he gives.",
+          "sceneLine": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY · **THE TRIES** - USE"
+        }
+      ],
+      "PICK_UP": [
+        {
+          "say": "It took a florist and two boys to carry it here. There is one of me.",
+          "sceneLine": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY · **THE TRIES** - PICK UP"
+        }
+      ],
+      "PULL": [
+        {
+          "say": "From this side, pulling brings me the wreath, and the Colonel directly after it. I should prefer them to go the other way.",
+          "sceneLine": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY · **THE TRIES** - PULL"
+        }
+      ],
+      "TALK_TO": [
+        {
+          "say": "Mr. Grubb! A sad day. Pike was — I am told Pike was a great many things. You'll forgive my not shaking hands.",
+          "by": "wreath_fanshawe",
+          "repeat": [
+            "No hurry, no hurry. They never start without me. I have seen to that."
+          ],
+          "sceneLine": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY · **THE TRIES** - TALK TO"
+        }
+      ]
+    }
   }
 }

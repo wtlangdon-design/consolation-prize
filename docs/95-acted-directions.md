@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 35 · B 22 · C 80** — 137 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 36 · B 22 · C 85** — 142 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -99,7 +99,7 @@ Counts: **A 35 · B 22 · C 80** — 137 directions, every one flagged `"directi
 | 62 | A | sump | He blots it. | dialogue/sump SUM_F1 option 1 | sump | 5 6 5 0 | 1.6 |  |  | The rocker blotter rocked one way (5), the other (6), back (5), and his hands back on the ledger (0). Cast-unify 72, errata 148. |
 | 63 | C | winnie | She stops writing. It is the first time she has stopped writing. | dialogue/winnie WIN_B1 option 3 |  |  |  |  |  | "It is the first time" is the joke, and it is narration. |
 | 64 | A | winnie | signing | dialogue/winnie WIN_C1 option 4 | winnie | 2 3 2 3 | 1.6 | 2 |  | Her writing frames in Room 5 (2, 3); she says her line still writing. |
-| 65 | C | sowerby | He looks at the collection plate for a long time. Then he counts out of it with his eyes shut. | rooms/boot-hill arrival scene |  |  |  |  |  | The joke is "with his eyes shut", too small to read at game size. See the list for Tyler. |
+| 65 | C | sowerby_gate | He looks at the collection plate for a long time. Then he counts out of it with his eyes shut. | rooms/boot_hill mr_pike_s_collection PULL |  |  |  |  |  | The joke is "with his eyes shut", too small to read at game size. See the list for Tyler. Errata 246: said at the end of doc 115's PULL, over the plate still held between them. |
 | 66 | C | pratt_registrar | a very long pause | rooms/claims-registrar arrival scene |  |  |  |  |  | A pause, worded; pauses stay printed. |
 | 67 | A | sump | He notarizes it. He stamps it. He does not look up. | rooms/claims-registrar arrival scene | sump | 2 2 3 0 0 | 3.0 |  | U-STAMP @4 | He writes (2), raises the stamp (3) and brings it down (0) with the approved stamp, and stays bent to his ledger. |
 | 68 | A | bell_ringer | He does not move. | dialogue/amb-bell-ringer root option 2 | bell_ringer | 0 | 2.0 |  |  | Errata 161: he holds his rest frame, mallet down, for the beat; the stillness is the answer. |
@@ -171,6 +171,12 @@ Counts: **A 35 · B 22 · C 80** — 137 directions, every one flagged `"directi
 | 134 | C | thad | Thad wets a corner of the Colonel's handkerchief with Dr. Purvis. | combinations (tonic on handkerchief) |  |  |  |  |  | Errata 245, doc 118 O-4: in his hands, in the inventory. Told. |
 | 135 | C | thad | One pass, and the year is gone. So is some of the green. | combinations (handkerchief on company_ledger, dosed) |  |  |  |  |  | Errata 245, doc 118 O-4: the green going with the gilt is the joke. Told. |
 | 136 | B | thad | Thad lifts the blanket off her, a corner at a time. Grievance watches each corner go. | rooms/livery grievance_s_blanket PICK_UP (with leave) |  |  |  |  |  | Errata 245, doc 118 O-5: physical, and Grievance watching is the joke; neither has the pose. Told until drawn (rule 4). |
+| 137 | C | wreath_fanshawe | Thad puts his shoulder to the wreath. It goes through the door all at once, and the Colonel with it. | rooms/main_street wreath_fanshawe PUSH |  |  |  |  |  | Errata 246, doc 115 II-5: "all at once, and the Colonel with it" is the joke, and neither has the pose of a door giving. Told. |
+| 138 | C | thad | He goes up the street with the wreath on his arm, like a man taking a wheel to be mended. | rooms/main_street wreath_fanshawe PUSH |  |  |  |  |  | Errata 246, doc 115 II-5: the simile is the joke. He has no walk (errata 99 N); he goes as the line ends. Told. |
+| 139 | C | thad | Thad takes off his hat and stands at the end of the line. The plate comes down it, hand to hand, and stops with him. | rooms/boot_hill town_coming_down USE (with a hymnal) |  |  |  |  |  | Errata 246, doc 115 II-1: the plate's journey down the line is not drawn, so it is told; the plate is in his hands over the words (the rule's `holds`, his plate clip) and stays there (Room.actorPoses). |
+| 140 | C | sowerby_gate | He takes hold of the rim. | rooms/boot_hill town_coming_down USE (with a hymnal) |  |  |  |  |  | Errata 246, doc 115 II-1: his hand is on the rim as it is said (his sheet while the plate is held). Told as well, since it is what the next verb is about. |
+| 141 | A | sowerby_gate | He does not let go. Neither does Thad. | rooms/boot_hill mr_pike_s_collection PULL | sowerby_gate | 2 | 1.6 | 2 |  | Errata 246, doc 115 II-1: the Reverend's hand on the rim (his frame 2), kept through the exchange that follows, while Thad pulls (the rule's `holds`: his plate clip, frame 2, arms out and his weight on his heels). The picture is two men holding a plate, and the next line says who is watching. |
+| 142 | C | thad | Thad lays the wreath on his own coffin and straightens the ribbon. | combinations (wreath on coffin) |  |  |  |  |  | Errata 246, doc 118 O-6: no picture of the wreath on the coffin. Told. |
 
 ## When a B pose is drawn
 

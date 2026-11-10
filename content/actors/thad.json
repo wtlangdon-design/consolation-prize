@@ -62,7 +62,8 @@
       "farwalk",
       "pick-fit",
       "deed",
-      "coat-bundle"
+      "coat-bundle",
+      "plate"
     ]
   },
   "clips": [
@@ -875,6 +876,20 @@
         "art/actors/thad-coat-bundle-front/coat-bundle-01.png",
         "art/actors/thad-coat-bundle-front/coat-bundle-02.png",
         "art/actors/thad-coat-bundle-front/coat-bundle-03.png"
+      ],
+      "figureHeight": 626,
+      "anchor": [
+        355,
+        626
+      ]
+    },
+    {
+      "id": "plate",
+      "facing": "front",
+      "frames": [
+        "art/actors/thad-plate-front/plate-00.png",
+        "art/actors/thad-plate-front/plate-01.png",
+        "art/actors/thad-plate-front/plate-02.png"
       ],
       "figureHeight": 626,
       "anchor": [

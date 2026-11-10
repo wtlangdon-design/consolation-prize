@@ -629,9 +629,9 @@
     {
       "n": 65,
       "class": "C",
-      "speaker": "sowerby",
+      "speaker": "sowerby_gate",
       "words": "He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.",
-      "where": "rooms/boot-hill arrival scene"
+      "where": "rooms/boot_hill mr_pike_s_collection PULL"
     },
     {
       "n": 66,
@@ -1360,6 +1360,56 @@
       "speaker": "thad",
       "words": "Thad lifts the blanket off her, a corner at a time. Grievance watches each corner go.",
       "where": "rooms/livery grievance_s_blanket PICK_UP (with leave)"
+    },
+    {
+      "n": 137,
+      "class": "C",
+      "speaker": "wreath_fanshawe",
+      "words": "Thad puts his shoulder to the wreath. It goes through the door all at once, and the Colonel with it.",
+      "where": "rooms/main_street wreath_fanshawe PUSH"
+    },
+    {
+      "n": 138,
+      "class": "C",
+      "speaker": "thad",
+      "words": "He goes up the street with the wreath on his arm, like a man taking a wheel to be mended.",
+      "where": "rooms/main_street wreath_fanshawe PUSH"
+    },
+    {
+      "n": 139,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad takes off his hat and stands at the end of the line. The plate comes down it, hand to hand, and stops with him.",
+      "where": "rooms/boot_hill town_coming_down USE (with a hymnal)"
+    },
+    {
+      "n": 140,
+      "class": "C",
+      "speaker": "sowerby_gate",
+      "words": "He takes hold of the rim.",
+      "where": "rooms/boot_hill town_coming_down USE (with a hymnal)"
+    },
+    {
+      "n": 141,
+      "class": "A",
+      "speaker": "sowerby_gate",
+      "words": "He does not let go. Neither does Thad.",
+      "where": "rooms/boot_hill mr_pike_s_collection PULL",
+      "performedBy": [
+        "sowerby_gate"
+      ],
+      "frames": [
+        2
+      ],
+      "seconds": 1.6,
+      "holds": 2
+    },
+    {
+      "n": 142,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad lays the wreath on his own coffin and straightens the ribbon.",
+      "where": "combinations (wreath on coffin)"
     }
   ]
 }

@@ -11,28 +11,20 @@
    "row": "X-1"
   },
   {
-   "what": "verb never used: PULL",
-   "row": "X-1"
-  },
-  {
    "what": "an item is used on another item 2 time(s), not 5",
    "row": "X-2, widened by Tyler on 2026-11-09 to five: to be placed in I-1 (the dinner), II-1 (the plate) and where else it comes naturally"
   },
   {
-   "what": "objects are 14 of 37 items, not half",
+   "what": "objects are 16 of 39 items, not half",
    "row": "doc 116 Y1"
   },
   {
-   "what": "12 item(s) are taken from a room by hand, not 15",
-   "row": "doc 116 Y2"
-  },
-  {
-   "what": "12 different item-on-the-world uses on the route, not 15",
+   "what": "13 different item-on-the-world uses on the route, not 15",
    "row": "doc 116 Y3"
   },
   {
-   "what": "PUSH is used 1 time(s) on the route, not 2",
-   "row": "doc 116 Y5 (II-5, the wreath, is the second)"
+   "what": "PULL is used 1 time(s) on the route, not 2",
+   "row": "doc 116 Y3"
   }
  ],
  "yardstick": {

@@ -46,6 +46,7 @@ import {
 import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, isRest, waitsForClick } from '../core/SpeechPolicy.ts';
 import { bootsToBeginCard, endingAt, titleItems, type TitleItem } from '../core/Bookends.ts';
+import { roomPose } from '../core/RoomPose.ts';
 import { clearOfFigures, hiddenClick } from '../core/Standing.ts';
 import {
   CYCLING_OPTION,
@@ -679,8 +680,15 @@ export class GameScene extends Phaser.Scene {
 
     // THADDEUS ACTS IN A CLIP (doc 95; errata 148): while a beat holds a frame
     // of his, the actor draws it; when the beat is over he is let go.
+    // AND WHAT THE ROOM SAYS HE IS HOLDING (Room.actorPoses; errata 246), when no beat holds a frame of his.
+    const carried = roomPose(this.state.room.actorPoses, (when) => this.state.flags.test(when), now);
+    this.actor.rooted = carried?.rooted === true;
     this.actor.hold(this.heldPoses()?.find((pose) => pose.id === this.actor.id && pose.clip) as
-      { clip: string; frame: number; facing?: Facing } | undefined ?? null);
+      { clip: string; frame: number; facing?: Facing } | undefined
+      ?? (carried && !this.actor.isWalking ? { clip: carried.clip, frame: carried.frame,
+        ...(this.state.content.actor.clips.find((clip) => clip.id === carried.clip)?.facing
+          ? { facing: this.state.content.actor.clips.find((clip) => clip.id === carried.clip)!.facing as Facing } : {}) }
+        : null));
 
     // A LINE THAT HAS BEEN READ COMES DOWN. Its hold is doc 30 section 4.1's,
     // computed by lineSeconds from the rate in ui.json -- the same number a
@@ -809,6 +817,7 @@ export class GameScene extends Phaser.Scene {
       .concat(this.pendingSay.flatMap((line) => line.direction && !line.silent
         ? (actOf([...this.ambient.present, ...this.ambient.leaving], line.line) ?? []).flatMap((step) => step.poses) : []))]
       .map((pose) => pose.id));
+    this.ambient.holdFades = this.pendingSay.length > 0 || this.sayingActor !== null;
     if (this.ambient.noteDepartures(now)) this.markDirty();
     // A FIGURE WHO HAS FADED OUT may owe a sound (AmbientFile.leaves): Fanshawe's door.
     for (const cue of this.ambient.takeCues()) this.fireCue(cue);
@@ -3101,7 +3110,14 @@ export class GameScene extends Phaser.Scene {
       this.sayingActor = next.speaker;
       this.queuedPoses = next.poses ?? null;
       // AND WHAT IT LEAVES HELD (doc 95 Holds): Grievance out of her stall through "Twelve years." (errata 197).
-      if (next.holdsAfter) this.lingering = next.holdsAfter;
+      // Each figure keeps his own (doc 95 Holds: "until his next acted direction"): another figure's beat does not
+      // let him go, and his own next beat does (errata 246; the plate on Boot Hill is held by two).
+      const acting = new Set([...(next.poses ?? []), ...(next.holdsAfter ?? [])].map((pose) => pose.id));
+      const kept = (this.lingering ?? []).filter((pose) => !acting.has(pose.id));
+      if (next.holdsAfter || kept.length !== (this.lingering ?? []).length) {
+        this.lingering = [...kept, ...(next.holdsAfter ?? [])];
+        if (!this.lingering.length) this.lingering = null;
+      }
       this.sayUntil = this.time.now / 1000 + (next.rest ?? 0);
       // HE RETREATS (ActStep.walk): to the hotspot's own stand, and the beat holds until he is there.
       if (next.walk && next.walk.id === this.actor.id) {
@@ -4231,7 +4247,11 @@ export class GameScene extends Phaser.Scene {
 
   /** Which figures hold which frames now: an acted direction, in a conversation or queued (doc 95; errata 141). */
   private heldPoses(): HeldPose[] | null {
-    const now = this.performance?.current?.poses ?? this.queuedPoses ?? (this.spokenPose ? [this.spokenPose] : null);
+    // A rule's own picture of him (ResponseRule.holds) stays through an acted beat of somebody else's in the same
+    // rule: Thad goes on pulling the plate while the Reverend's beat is played (errata 246).
+    const beat = this.performance?.current?.poses ?? this.queuedPoses ?? null;
+    const spoken = this.spokenPose;
+    const now = spoken && !beat?.some((pose) => pose.id === spoken.id) ? [...(beat ?? []), spoken] : beat;
     if (!this.lingering) return now;
     return [...(now ?? []), ...this.lingering.filter((pose) => !now?.some((one) => one.id === pose.id))];
   }
