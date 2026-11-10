@@ -1,0 +1,15 @@
+{
+ "assetId": "acted-directions-2",
+ "subject": "acted-directions-2-frame",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-09-clarion",
+ "promptFile": "reference/acted-directions-2/frame.txt",
+ "out": "art/staging/acted-directions-2/frame/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-2/frame/template.png",
+  "art/staging/acted-directions-2/beside-thad-frame.png"
+ ],
+ "derivedFrom": "art/actors/room-09-frame-master.png"
+}

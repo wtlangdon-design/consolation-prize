@@ -1,0 +1,14 @@
+{
+ "assetId": "acted-directions-2",
+ "subject": "acted-directions-2-thad-right",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-16-tent",
+ "promptFile": "reference/acted-directions-2/thad-right.txt",
+ "out": "art/staging/acted-directions-2/thad-right/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-2/thad-right/template.png"
+ ],
+ "derivedFrom": "art/actors/thad-idle-right/idle-00.png"
+}
