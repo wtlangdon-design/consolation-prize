@@ -1687,7 +1687,9 @@
           "case": "empty office",
           "when": {
             "T_FUNERAL_DAY": true,
-            "T_QUEUE_PADDED": false
+            "T_QUEUE_PADDED": false,
+            "T_LEDGER_PLAIN": true,
+            "T_LEDGER_CRACKED": true
           },
           "say": "Thad lifts the log, lays the ledger where it lay, and moves it an inch.",
           "direction": true,
@@ -1704,6 +1706,168 @@
           "set": {
             "T_QUEUE_PADDED": true
           }
+        },
+        {
+          "case": "refused: the gilt and the spine",
+          "when": {
+            "T_FUNERAL_DAY": true,
+            "T_QUEUE_PADDED": false,
+            "T_LEDGER_PLAIN": false,
+            "T_LEDGER_CRACKED": false
+          },
+          "say": "Eighteen fifty-one, in gilt, on the spine, facing his chair. And it has never once been opened. He would know it from the door."
+        },
+        {
+          "case": "refused: the spine",
+          "when": {
+            "T_FUNERAL_DAY": true,
+            "T_QUEUE_PADDED": false,
+            "T_LEDGER_PLAIN": true,
+            "T_LEDGER_CRACKED": false
+          },
+          "say": "Plain enough now. But his opens flat at one place, like a hymnal at the favorite, and this one has never been asked to."
+        },
+        {
+          "case": "refused: the gilt",
+          "when": {
+            "T_FUNERAL_DAY": true,
+            "T_QUEUE_PADDED": false,
+            "T_LEDGER_PLAIN": false,
+            "T_LEDGER_CRACKED": true
+          },
+          "say": "It lies open like the other. And it says eighteen fifty-one on its back, in gold, which the other has the modesty not to."
+        }
+      ]
+    },
+    {
+      "item": "handkerchief",
+      "room": "fanshawe_office",
+      "target": "company_ledger",
+      "otherwise": "pool",
+      "say": "Thad rubs the spine with the Colonel's handkerchief. Eighteen fifty-one comes away on the linen.",
+      "note": "Doc 115 (THE LINES, II-3; errata 244), THE GILT: the gilt date rubbed off the ledger's spine with the handkerchief (T_LEDGER_PLAIN).",
+      "rules": [
+        {
+          "case": "the gilt",
+          "when": {
+            "T_LEDGER_PLAIN": false
+          },
+          "say": "Thad rubs the spine with the Colonel's handkerchief. Eighteen fifty-one comes away on the linen.",
+          "direction": true,
+          "then": [
+            "It was that kind of gold. Most of it here is."
+          ],
+          "set": {
+            "T_LEDGER_PLAIN": true
+          }
+        },
+        {
+          "case": "again",
+          "when": {
+            "T_LEDGER_PLAIN": true
+          },
+          "say": "There is no more year to take off. The handkerchief has it now, and I notice it is the first thing of his I have ever marked."
+        }
+      ]
+    },
+    {
+      "item": "company_ledger",
+      "room": "fanshawe_office",
+      "target": "handkerchief",
+      "otherwise": "pool",
+      "say": "Thad rubs the spine with the Colonel's handkerchief. Eighteen fifty-one comes away on the linen.",
+      "note": "Doc 115 (THE LINES, II-3; errata 244), THE GILT: the gilt date rubbed off the ledger's spine with the handkerchief (T_LEDGER_PLAIN).",
+      "rules": [
+        {
+          "case": "the gilt",
+          "when": {
+            "T_LEDGER_PLAIN": false
+          },
+          "say": "Thad rubs the spine with the Colonel's handkerchief. Eighteen fifty-one comes away on the linen.",
+          "direction": true,
+          "then": [
+            "It was that kind of gold. Most of it here is."
+          ],
+          "set": {
+            "T_LEDGER_PLAIN": true
+          }
+        },
+        {
+          "case": "again",
+          "when": {
+            "T_LEDGER_PLAIN": true
+          },
+          "say": "There is no more year to take off. The handkerchief has it now, and I notice it is the first thing of his I have ever marked."
+        }
+      ]
+    },
+    {
+      "item": "company_ledger",
+      "room": "fanshawe_office",
+      "target": "chairs",
+      "otherwise": "pool",
+      "say": "Thad lays the ledger open on the nearest chair and sits on it, briefly, as a visitor would.",
+      "note": "Doc 115 (THE LINES, II-3; errata 244), THE SPINE: the ledger's spine broken in on a chair (T_LEDGER_CRACKED).",
+      "rules": [
+        {
+          "case": "the spine",
+          "when": {
+            "T_LEDGER_CRACKED": false
+          },
+          "say": "Thad lays the ledger open on the nearest chair and sits on it, briefly, as a visitor would.",
+          "direction": true,
+          "then": [
+            "Eleven chairs, and at last one of them has done something for me. The spine has gone in one place, as his has."
+          ],
+          "set": {
+            "T_LEDGER_CRACKED": true
+          }
+        },
+        {
+          "case": "again",
+          "when": {
+            "T_LEDGER_CRACKED": true
+          },
+          "say": "Once is consulted. Twice is studied, and nobody has ever studied these."
+        }
+      ]
+    },
+    {
+      "item": "company_ledger",
+      "room": "fanshawe_office",
+      "target": "sabre",
+      "say": "It has never cut anything. I will not ask it to start on bookbinding.",
+      "note": "Doc 115 (THE LINES, II-3; errata 244), THE WRONG TRIES: THE SABRE · USE A COMPANY LEDGER.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "It has never cut anything. I will not ask it to start on bookbinding."
+        }
+      ]
+    },
+    {
+      "item": "company_ledger",
+      "room": "fanshawe_office",
+      "target": "decanter",
+      "say": "Whisky would take the gilt off, and leave a ring he would know by its year.",
+      "note": "Doc 115 (THE LINES, II-3; errata 244), THE WRONG TRIES: THE DECANTER · USE A COMPANY LEDGER.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "Whisky would take the gilt off, and leave a ring he would know by its year."
+        }
+      ]
+    },
+    {
+      "item": "company_ledger",
+      "room": "fanshawe_office",
+      "target": "portrait",
+      "say": "I held it up to him. In oils he did not recognize it either.",
+      "note": "Doc 115 (THE LINES, II-3; errata 244), THE WRONG TRIES: THE PORTRAIT · USE A COMPANY LEDGER.",
+      "rules": [
+        {
+          "case": "any time",
+          "say": "I held it up to him. In oils he did not recognize it either."
         }
       ]
     },

@@ -61,7 +61,8 @@ export function check() {
   if (steps.some((step) => step.do === 'use')) used.add('USE');
   if (steps.some((step) => step.do === 'talk')) used.add(TALK_VERB);
   for (const verb of verbs) if (!used.has(verb)) found.push(`verb never used: ${verb}`);
-  if (!steps.some((step) => step.do === 'use' && step.onItem)) found.push('no item is used on another item');
+  const items = new Set(readJson('content/manifest.json').files.filter((file) => file.startsWith('content/items/')).map((file) => readJson(file).id));
+  if (!steps.some((step) => step.do === 'use' && items.has(step.on))) found.push('no item is used on another item');
   for (const what of found) {
     const row = known.get(what);
     if (row) report.note(`known, to be fixed by doc 114 ${row.row}: ${what}`);

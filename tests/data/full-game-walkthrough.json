@@ -1185,6 +1185,46 @@
    }
   },
   {
+   "id": "C4.2c",
+   "puzzle": "C4",
+   "do": "use",
+   "item": "company_ledger",
+   "on": "submission_log",
+   "note": "Errata 244 (doc 115, II-3): refused until the ledger is ready.",
+   "expect": {
+    "carrying": [
+     "company_ledger"
+    ],
+    "flags": {
+     "T_QUEUE_PADDED": false
+    }
+   }
+  },
+  {
+   "id": "C4.2d",
+   "puzzle": "C4",
+   "do": "use",
+   "item": "handkerchief",
+   "on": "company_ledger",
+   "expect": {
+    "flags": {
+     "T_LEDGER_PLAIN": true
+    }
+   }
+  },
+  {
+   "id": "C4.2e",
+   "puzzle": "C4",
+   "do": "use",
+   "item": "company_ledger",
+   "on": "chairs",
+   "expect": {
+    "flags": {
+     "T_LEDGER_CRACKED": true
+    }
+   }
+  },
+  {
    "id": "C4.2b",
    "puzzle": "C4",
    "do": "use",

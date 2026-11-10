@@ -6756,15 +6756,17 @@ function estateSalePairs(e3, undertakerSays) {
  * Which flag each state is and which item each name is are routing, authored here as every ROUTE table is.
  */
 const PAPERS_DOC = 'docs/113-act-two-scenes.md';
-function papersLines() {
-  const doc = read(PAPERS_DOC);
+function papersLines(path = PAPERS_DOC) {
+  const doc = read(path);
   const at = doc.indexOf('\n## THE LINES\n');
-  if (at < 0) throw new Error('doc 113: no "## THE LINES"');
-  return doc.slice(at + 1).split('\n');
+  if (at < 0) throw new Error(`${path}: no "## THE LINES"`);
+  const rest = doc.slice(at + 1);
+  const end = rest.indexOf('\n---\n');
+  return (end < 0 ? rest : rest.slice(0, end)).split('\n');
 }
-function papersBullet(start) {
-  const found = papersLines().filter((one) => one.startsWith(start));
-  if (found.length !== 1) throw new Error(`doc 113: ${found.length} lines start ${start}`);
+function papersBullet(start, path = PAPERS_DOC) {
+  const found = papersLines(path).filter((one) => one.startsWith(start));
+  if (found.length !== 1) throw new Error(`${path}: ${found.length} lines start ${start}`);
   const [words] = found[0].slice(start.length).split('→');
   return words;
 }
@@ -6796,6 +6798,9 @@ function papersItems() {
 function papersPairs() {
   const NOTE = 'Doc 113 (THE LINES; errata 242)';
   const out = [];
+  const NOTE_115 = 'Doc 115 (THE LINES, II-3; errata 244)';
+  const office = { T_FUNERAL_DAY: true, T_QUEUE_PADDED: false };
+  const refused = (start) => papersRule(papersBullet(start, 'docs/115-the-three-papers.md'));
   // THE SWAP. Doc 54's line for the log is said between the direction and the scene's closing line, unchanged.
   const c4 = read('docs/54-batch-c.md').split('\n').find((one) => one.startsWith('> **THE SUBMISSION LOG** · PICK UP, *empty office* — '));
   const logLine = c4 && quoted(c4)[0];
@@ -6805,8 +6810,34 @@ function papersPairs() {
   out.push({ item: 'company_ledger', room: 'fanshawe_office', target: 'submission_log', otherwise: 'pool', puzzle: 'C4', say: swap.say,
     note: `${NOTE}, THE SWAP: the ledger laid where the log lay, and the log taken (THE SUBMISSION LOG, T_QUEUE_PADDED). Doc 54's `
       + 'empty-office line for the log is said after the direction, as doc 113 says.',
-    rules: [{ case: 'empty office', when: { T_FUNERAL_DAY: true, T_QUEUE_PADDED: false }, say: swap.say, direction: true,
-      then: [logLine, ...swap.then], takes: ['company_ledger'], items: ['padded_log'], set: { T_QUEUE_PADDED: true } }] });
+    rules: [{ case: 'empty office', when: { ...office, T_LEDGER_PLAIN: true, T_LEDGER_CRACKED: true }, say: swap.say, direction: true,
+      then: [logLine, ...swap.then], takes: ['company_ledger'], items: ['padded_log'], set: { T_QUEUE_PADDED: true } },
+    // DOC 115, II-3 (errata 244): until the ledger is made ready it is refused, and the refusal says what is wrong.
+    { case: 'refused: the gilt and the spine', when: { ...office, T_LEDGER_PLAIN: false, T_LEDGER_CRACKED: false }, ...refused('- *with the gilt on it and the spine whole* — ') },
+    { case: 'refused: the spine', when: { ...office, T_LEDGER_PLAIN: true, T_LEDGER_CRACKED: false }, ...refused('- *with the gilt gone and the spine whole* — ') },
+    { case: 'refused: the gilt', when: { ...office, T_LEDGER_PLAIN: false, T_LEDGER_CRACKED: true }, ...refused('- *with the spine broken and the gilt on it* — ') }] });
+  // THE GILT (doc 115): the Colonel's handkerchief on the ledger, the game's first item on an item; written both ways
+  // round (tests/items.test.ts), in his office, where the ledger is taken and left.
+  const gilt = refused('- USE THE HANDKERCHIEF — ');
+  const giltAgain = refused('- USE THE HANDKERCHIEF, *again* — ');
+  for (const [item, target] of [['handkerchief', 'company_ledger'], ['company_ledger', 'handkerchief']]) {
+    out.push({ item, room: 'fanshawe_office', target, otherwise: 'pool', say: gilt.say,
+      note: `${NOTE_115}, THE GILT: the gilt date rubbed off the ledger's spine with the handkerchief (T_LEDGER_PLAIN).`,
+      rules: [{ case: 'the gilt', when: { T_LEDGER_PLAIN: false }, ...gilt, set: { T_LEDGER_PLAIN: true } },
+        { case: 'again', when: { T_LEDGER_PLAIN: true }, ...giltAgain }] });
+  }
+  // THE SPINE (doc 115): the ledger on the chairs.
+  const spine = refused('- USE A COMPANY LEDGER — ');
+  out.push({ item: 'company_ledger', room: 'fanshawe_office', target: 'chairs', otherwise: 'pool', say: spine.say,
+    note: `${NOTE_115}, THE SPINE: the ledger's spine broken in on a chair (T_LEDGER_CRACKED).`,
+    rules: [{ case: 'the spine', when: { T_LEDGER_CRACKED: false }, ...spine, set: { T_LEDGER_CRACKED: true } },
+      { case: 'again', when: { T_LEDGER_CRACKED: true }, ...refused('- USE A COMPANY LEDGER, *again* — ') }] });
+  for (const [start, target] of [['- **THE SABRE** · USE A COMPANY LEDGER — ', 'sabre'], ['- **THE DECANTER** · USE A COMPANY LEDGER — ', 'decanter'],
+    ['- **THE PORTRAIT** · USE A COMPANY LEDGER — ', 'portrait']]) {
+    const rule = refused(start);
+    out.push({ item: 'company_ledger', room: 'fanshawe_office', target, say: rule.say,
+      note: `${NOTE_115}, THE WRONG TRIES: ${start.slice(2, -3).replace(/\*\*/g, '')}.`, rules: [{ case: 'any time', ...rule }] });
+  }
   const back = papersRule(papersBullet('- **THE LEDGERS** · USE A COMPANY LEDGER — '));
   out.push({ item: 'company_ledger', room: 'fanshawe_office', target: 'ledgers', say: back.say,
     note: `${NOTE}, THE WRONG TRIES: the ledger back on its shelf.`, rules: [{ case: 'any time', ...back }] });
