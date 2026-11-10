@@ -50,6 +50,24 @@
     2,
     115,
     322
+   ],
+   [
+    2,
+    326,
+    119,
+    322
+   ],
+   [
+    123,
+    326,
+    119,
+    322
+   ],
+   [
+    244,
+    326,
+    119,
+    322
    ]
   ],
   "rate": 0.45,
@@ -72,7 +90,7 @@
   "breakEvery": 11,
   "talkFrame": 4,
   "provenance": "art/staging/room-51/lookout/lookout.json",
-  "frameNote": "0 rest, the gold pan across his chest · 1 breath · 2 a look back over his shoulder · 3 the pan raised to his chin, glaring over it · 4 talking, a palm out.",
+  "frameNote": "0 rest, the gold pan across his chest · 1 breath · 2 a look back over his shoulder · 3 the pan raised to his chin, glaring over it · 4 talking, a palm out. Errata 263 (reference/final-look, reference/acted-directions-2): 5 reading the paper open in both hands · 6 the paper lowered, looking toward Thad · 7 the paper tucked in his shirt over his heart, his hand flat on it. Acted only (doc 95 rows 81 and 82).",
   "figureHeight": 322,
   "stature": 1,
   "figureHeightNote": "The room's man at his feet (soles y 640): cut and snapped there by tools/art/interiors-people.py (errata 112's one level). The engine draws him at the room's man there, so he stands at the curve."
