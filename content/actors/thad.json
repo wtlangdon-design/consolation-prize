@@ -41,7 +41,8 @@
       "pickup-low",
       "alight-coach",
       "aboard-coach",
-      "carry"
+      "carry",
+      "haul"
     ],
     "dining": [
       "walk",

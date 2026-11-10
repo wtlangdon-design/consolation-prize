@@ -163,7 +163,7 @@ const PARTIAL_STATES = {
   thad: {
     lookup: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'stand', 'sit', 'rise'],
     seated: ['walk', 'recoil', 'sit', 'rise', 'use-near', 'give-offer', 'shrug', 'pickup-low', 'alight-coach',
-      'aboard-coach', 'carry'],
+      'aboard-coach', 'carry', 'haul'],
     // At Fanshawe's table he only converses: the state is set when he reaches the chair and cleared as the
     // conversation ends, before anything can move him (the accost's `seat`, errata 197).
     dining: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'reach', 'sit', 'rise', 'use-near', 'give-offer', 'shrug',
