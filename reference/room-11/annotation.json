@@ -138,12 +138,24 @@
    80,
    250,
    690
+  ],
+  "ledger_on_the_desk": [
+   1215,
+   484,
+   100,
+   46
   ]
  },
  "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE STOCK PORTRAIT DRAWER is the sideboard with its drawer not quite closed; THE DECANTER stands on it. THE HANDKERCHIEF and THE SUBMISSION LOG are the linen and the green book on the desk; Fanshawe stands between them. The desk itself is no subject.",
  "hotspotWhen": {
   "handkerchief": {
    "T_DINED": false
+  },
+  "submission_log": {
+   "T_QUEUE_PADDED": false
+  },
+  "ledger_on_the_desk": {
+   "T_QUEUE_PADDED": true
   }
  },
  "exitSubjects": {
@@ -230,7 +242,8 @@
   "ledgers": "LOOK_AT",
   "decanter": "LOOK_AT",
   "stock_portrait_drawer": "LOOK_AT",
-  "safe": "LOOK_AT"
+  "safe": "LOOK_AT",
+  "ledger_on_the_desk": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
  "occlusion": {
@@ -330,24 +343,6 @@
    }
   },
   {
-   "hotspot": "submission_log",
-   "verb": "PICK_UP",
-   "ref": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
-   "subject": "THE SUBMISSION LOG",
-   "verbText": "PICK UP",
-   "case": "empty office",
-   "when": {
-    "T_FUNERAL_DAY": true,
-    "T_QUEUE_PADDED": false
-   },
-   "items": [
-    "padded_log"
-   ],
-   "set": {
-    "T_QUEUE_PADDED": true
-   }
-  },
-  {
    "hotspot": "stock_portrait_drawer",
    "verb": "OPEN",
    "ref": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
@@ -390,7 +385,7 @@
    ]
   }
  ],
- "sceneLinesNote": "Doc 54's C3/C4 lines (errata 68 D): on the funeral day the log gives THE SUBMISSION LOG and T_QUEUE_PADDED, and the drawer THE PHOTOGRAPH and T_MOTT_FACE_UNKNOWN, completing C4 (doc 57); with Fanshawe present both refuse. Each empty-office rule answers once.",
+ "sceneLinesNote": "Doc 54's C3/C4 lines (errata 68 D): on the funeral day the log gives THE SUBMISSION LOG and T_QUEUE_PADDED, and the drawer THE PHOTOGRAPH and T_MOTT_FACE_UNKNOWN, completing C4 (doc 57); with Fanshawe present both refuse. Each empty-office rule answers once. Errata 242: the log is no longer picked up bare -- doc 113's swap gives it (content/combinations.json), so doc 54's empty-office line for it is said there.",
  "props": [
   {
    "id": "dinner",
@@ -442,5 +437,93 @@
    },
    "note": "Doc 57 A10: after the dinner the handkerchief is Thad's, and Room 11's own is not drawn. The plate's own leather laid over it (tools/art/room11-props.py)."
   }
- ]
+ ],
+ "docBullets": [
+  {
+   "hotspot": "submission_log",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### A · The double",
+   "head": "**THE SUBMISSION LOG** · *on the funeral day",
+   "bullet": "- PICK UP",
+   "when": {
+    "T_FUNERAL_DAY": true,
+    "T_QUEUE_PADDED": false
+   }
+  },
+  {
+   "hotspot": "submission_log",
+   "verbs": [
+    "OPEN"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### A · The double",
+   "head": "**THE SUBMISSION LOG** · *on the funeral day",
+   "bullet": "- OPEN",
+   "when": {
+    "T_FUNERAL_DAY": true,
+    "T_QUEUE_PADDED": false
+   }
+  },
+  {
+   "hotspot": "submission_log",
+   "verbs": [
+    "PUSH",
+    "PULL"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### A · The double",
+   "head": "**THE SUBMISSION LOG** · *on the funeral day",
+   "bullet": "- PUSH, *or* PULL",
+   "when": {
+    "T_FUNERAL_DAY": true,
+    "T_QUEUE_PADDED": false
+   }
+  },
+  {
+   "hotspot": "ledgers",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### A · The double",
+   "head": "**THE LEDGERS** · *on the funeral day",
+   "bullet": "- PICK UP, *the first time*",
+   "when": {
+    "T_FUNERAL_DAY": true,
+    "T_QUEUE_PADDED": false,
+    "T_LEDGER_TAKEN": false
+   },
+   "set": {
+    "T_LEDGER_TAKEN": true
+   },
+   "grants": [
+    "company_ledger"
+   ]
+  },
+  {
+   "hotspot": "ledgers",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### A · The double",
+   "head": "**THE LEDGERS** · *on the funeral day",
+   "bullet": "- PICK UP, *with the ledger taken*",
+   "when": {
+    "T_FUNERAL_DAY": true,
+    "T_LEDGER_TAKEN": true
+   }
+  },
+  {
+   "hotspot": "ledgers",
+   "verbs": [
+    "OPEN"
+   ],
+   "ref": "docs/113-act-two-scenes.md::### A · The double",
+   "head": "**THE LEDGERS** · *on the funeral day",
+   "bullet": "- OPEN",
+   "when": {
+    "T_FUNERAL_DAY": true
+   }
+  }
+ ],
+ "docBulletsNote": "Errata 242 (doc 113, A · The double; Tyler, 2026-11-09: \"Let's build the act 2 scenes you recommended\"). On the funeral day the log is not lifted bare: PICK UP refuses and says why, THE LEDGERS give A COMPANY LEDGER once (T_LEDGER_TAKEN), and the ledger used on the log is the swap (a pair, content/combinations.json). After it the green book on the desk is THE LEDGER ON THE DESK (T_QUEUE_PADDED), the same rect."
 }

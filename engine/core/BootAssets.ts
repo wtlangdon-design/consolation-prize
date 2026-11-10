@@ -387,6 +387,20 @@ export function planNear(bundle: ContentBundle, roomId: string, heading: string 
   return [...out.values()];
 }
 
+/**
+ * WHAT IS KEPT WHILE THE GAME CUTS AWAY (errata 242): the room cut to and its neighbours, as ever, AND the room he
+ * is standing in. A cut-away used to ask only for the first, so the room he had not left fell off the list and was
+ * let go, and was fetched all over again on the way back -- and where the fetch ran past the black's limit, it came
+ * back in pieces (the whole game played, 2026-11-09: two props drawn a moment late, each straight after
+ * a cut-away). `home` is null when the game is not cut away, and this is then `planNear`.
+ */
+export function planCut(bundle: ContentBundle, roomId: string, home: string | null, heading: string | null = null): BootAsset[] {
+  const out = new Map<string, BootAsset>();
+  for (const asset of planNear(bundle, roomId, heading)) if (!out.has(asset.key)) out.set(asset.key, asset);
+  if (home && home !== roomId) for (const asset of planRoom(bundle, home)) if (!out.has(asset.key)) out.set(asset.key, asset);
+  return [...out.values()];
+}
+
 /** Every frame of one actor, and every state of a head drawn over him. */
 function actorFrames(bundle: ContentBundle, actorId: string): BootAsset[] {
   const out: BootAsset[] = [];

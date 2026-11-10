@@ -56,7 +56,8 @@
     "T_PIKE_DEAD": true,
     "T_FANSHAWE_FUNERALS": true,
     "T_MEMORIAL_BOOKED": true,
-    "T_FUNERAL_DAY": true
+    "T_FUNERAL_DAY": true,
+    "T_TOWN_ON_HILL": true
    },
    "inventory": [
     "tuning_fork",
@@ -75,7 +76,7 @@
     "SOW_A1 (Room 17) writes T_MEMORIAL_BOOKED: set here as its outcome",
     "D4's Sowerby at the gate with the plate needs Sowerby drawn on the hill (doc 36 Q157)"
    ],
-   "note": "Enter from the map: the service is over, and the day ends."
+   "note": "Enter from the map: the service is over, and the day ends. Errata 242: the town is on the hill, the Colonel in front (T_TOWN_ON_HILL, as the entry writes it)."
   },
   {
    "id": "r14-c",

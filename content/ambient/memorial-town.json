@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "memorial_town",
+ "name": "THE TOWN, COMING DOWN",
+ "posture": "band",
+ "room": "boot_hill",
+ "when": {
+  "T_TOWN_ON_HILL": true
+ },
+ "note": "THE TOWN ON THE HILL (doc 113, C; errata 242). Doc 57 C3's arrival line on the funeral day says \"The town is coming back down the hill, Colonel Fanshawe in front\", and the hill was drawn empty. Room 31's seven mourners, the sheet the stalled procession uses, turned to face the gate at the left (tools/art/mirror-cells.py), part-way down the hill for the visit that ends the day (T_TOWN_ON_HILL, set and cleared on entry as T_PLATE_AT_GATE is). No image operation. Examined through THE TOWN, COMING DOWN.",
+ "x": 1180,
+ "y": 800,
+ "zone": 1,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "The town is heard through its LISTEN lines.",
+ "sprite": {
+  "sheet": "art/actors/room-14-town-coming-down.png",
+  "frames": [
+   [
+    2,
+    2,
+    443,
+    403
+   ],
+   [
+    447,
+    2,
+    443,
+    403
+   ],
+   [
+    892,
+    2,
+    443,
+    403
+   ],
+   [
+    1337,
+    2,
+    443,
+    403
+   ],
+   [
+    1782,
+    2,
+    443,
+    403
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.15,
+  "breaks": [
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 0,
+  "frameNote": "0 hats held, turned down the hill · 1 breath (derived) · 2-4 a different two or three of them shifting their weight.",
+  "provenance": "reference/cast-unify-28.spec.json",
+  "figureHeight": 350,
+  "stature": 1.0,
+  "mirrored": "Each cell of art/actors/room-14-mourners-at-gate.png mirrored about its own centre by tools/art/mirror-cells.py, so the frame rectangles and the registration are that sheet's."
+ }
+}

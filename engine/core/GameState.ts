@@ -614,6 +614,11 @@ export class GameState {
   }
 
   /** Whether a cut-away is showing (errata 158). */
+  /** The room a cut-away left and will come back to (errata 158); null when not cut away. */
+  get cutawayHome(): string | null {
+    return this.cutawayFrom?.room ?? null;
+  }
+
   get inCutaway(): boolean {
     return this.cutawayFrom !== null;
   }

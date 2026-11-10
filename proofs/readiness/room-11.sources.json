@@ -7,7 +7,8 @@
  "examine": {
   "primary": "docs/05-examine-layer.md::ROOM 11 \u2014 FANSHAWE'S OFFICE",
   "completions": [
-   "docs/54-batch-c.md::ROOM 11 \u00b7 FANSHAWE'S OFFICE"
+   "docs/54-batch-c.md::ROOM 11 \u00b7 FANSHAWE'S OFFICE",
+   "docs/113-act-two-scenes.md::A \u00b7 The double"
   ],
   "actVariantsNone": {
    "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",

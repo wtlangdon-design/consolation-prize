@@ -167,6 +167,7 @@
   "content/items/document-b.json",
   "content/items/document-c.json",
   "content/items/document-d.json",
+  "content/items/company-ledger.json",
   "content/items/death-certificate.json",
   "content/items/survey.json",
   "content/items/invitation.json",
@@ -272,6 +273,8 @@
   "content/ambient/gulch-man-upstream.json",
   "content/ambient/procession-undertaker.json",
   "content/ambient/procession-sowerby.json",
+  "content/ambient/memorial-fanshawe.json",
+  "content/ambient/memorial-town.json",
   "content/ambient/procession-mourners.json",
   "content/ambient/procession-hearse.json"
  ],

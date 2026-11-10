@@ -33,7 +33,7 @@ const setup = async (task: boolean) => {
   return { content, state, hill, away };
 };
 const atGate = (state: GameState) => [...state.content.ambient.values()]
-  .filter((npc) => npc.room === state.roomId && npc.when !== undefined && state.flags.test(npc.when));
+  .filter((npc) => npc.room === state.roomId && npc.when !== undefined && 'T_PLATE_AT_GATE' in npc.when && state.flags.test(npc.when));
 
 test('on the funeral day with Sheng\'s task open, the Reverend is at the gate and the exchange is doc 57\'s', async () => {
   const { state, hill } = await setup(true);

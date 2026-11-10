@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "company_ledger",
+  "name": "A COMPANY LEDGER",
+  "short": "A COMPANY LEDGER",
+  "note": "EXTRACTED from docs/113-act-two-scenes.md (THE LINES, The item) by tools/extract-content.mjs (errata 242). Do not edit: change doc 113 and re-run. Taken from THE LEDGERS in Fanshawe's empty office on the funeral day, and left on his desk in the log's place (THE SWAP). Its icon is the log's book in green with gilt bands (tools/art/act2-ledger-icon.py).",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "The Improvement Company's accounts for eighteen fifty-one, in green morocco. The figures agree with each other so warmly that I feel I am intruding.",
+        "repeat": [
+          "The same green as the log, the same thickness, the same gilt. He orders his books by the yard.",
+          "Nobody has read it since it was bound. It sat on that shelf like a guest who was never introduced."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "It creaks when I open it, like a door nobody uses.",
+        "repeat": [
+          "Pages that have never been turned. They part reluctantly.",
+          "Nothing. Twelve months of nothing, added up correctly."
+        ]
+      }
+    ]
+  }
+}

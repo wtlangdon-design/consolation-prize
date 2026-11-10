@@ -185,6 +185,8 @@ export interface FrameReport {
   black: number;
   /** Every picture this room needs has arrived or failed (errata 157): a room is never seen otherwise. */
   whole: boolean;
+  /** The pictures this room is still waiting for (errata 242): what `whole` is false because of. Empty when whole. */
+  unarrived: string[];
   /** Errata 157's pan: how far above the room the view is, in play-area pixels, or null. */
   pan: number | null;
   /** Errata 158: the cut-away showing, by id, and its phase; null when none is. */

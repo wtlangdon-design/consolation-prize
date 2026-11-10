@@ -1204,7 +1204,7 @@ function combinations() {
   }
 
   // Pairs a later block adds (doc 57's, doc 54 A5's bait and smoke, doc 108's rod at the line) are not doc 24's.
-  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 110 |^Doc 111 /.test(pair.note ?? '')).length;
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 |^Doc 108, |^Doc 109, |^Doc 110 |^Doc 111 |^Doc 113 /.test(pair.note ?? '')).length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
@@ -1788,6 +1788,8 @@ function combinations() {
   rebuilt.push(...mine.pairs, ...giving.pairs, ...gulchFiddle(), ...hearsePairs());
   // Act III's estate sale (doc 111, C; errata 237): its item tries, and the money at the undertaker's.
   rebuilt.push(...estateSalePairs(e3, undertakerSays));
+  // Act II's three papers (doc 113; errata 242): the swap in Fanshawe's office, and the deed and the fork on Pratt.
+  rebuilt.push(...papersPairs());
   return write('content/combinations.json', {
     ...existing, pairs: rebuilt, itemPools, areaPools: mine.areaPools, targetPools: giving.targetPools, globalPool: global,
   });
@@ -6699,6 +6701,79 @@ function estateSalePairs(e3, undertakerSays) {
 }
 
 /**
+ * ACT II, THE THREE PAPERS: THE DOUBLE AND THE STAKE (doc 113, THE LINES; errata 242). Tyler, 2026-11-09: "Let's build
+ * the act 2 scenes you recommended." What of the scenes is not a room's own hotspot lines (those are
+ * tools/extract-examine.mjs's and tools/compile-room.mjs's, from the same sections) is read here, never typed:
+ *  - the item A COMPANY LEDGER, its LOOK and LISTEN -> content/items/company-ledger.json;
+ *  - THE SWAP (the ledger on THE SUBMISSION LOG, on the funeral day): its direction, then doc 54's own line for the log,
+ *    then its closing line -> a pair; the ledger back on THE LEDGERS; the deed and the fork on Pratt on the claim.
+ * Which flag each state is and which item each name is are routing, authored here as every ROUTE table is.
+ */
+const PAPERS_DOC = 'docs/113-act-two-scenes.md';
+function papersLines() {
+  const doc = read(PAPERS_DOC);
+  const at = doc.indexOf('\n## THE LINES\n');
+  if (at < 0) throw new Error('doc 113: no "## THE LINES"');
+  return doc.slice(at + 1).split('\n');
+}
+function papersBullet(start) {
+  const found = papersLines().filter((one) => one.startsWith(start));
+  if (found.length !== 1) throw new Error(`doc 113: ${found.length} lines start ${start}`);
+  const [words] = found[0].slice(start.length).split('→');
+  return words;
+}
+function papersRule(words, speakers = {}) {
+  const { first } = scenesBCWords(words, 'thad', speakers);
+  if (!first.length) throw new Error(`doc 113: "${words.slice(0, 40)}" has no words`);
+  const [lead, ...rest] = first;
+  return { say: lead.line, ...(lead.speaker !== 'thad' ? { by: lead.speaker } : {}), ...(lead.direction ? { direction: true } : {}),
+    ...(rest.length ? { then: rest.map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one)) } : {}) };
+}
+function papersItems() {
+  const lines = papersLines();
+  const at = lines.findIndex((one) => one === '**A COMPANY LEDGER** *(item)*');
+  if (at < 0) throw new Error('doc 113: no **A COMPANY LEDGER** under The item');
+  const run = (label) => {
+    const row = lines.slice(at + 1, at + 3).find((one) => one.startsWith(`**${label}** `));
+    const said = row ? [...row.matchAll(/\d "([^"]+)"/g)].map((m) => m[1]) : [];
+    if (said.length !== 3) throw new Error(`doc 113: A COMPANY LEDGER ${label} has ${said.length} lines, not 3`);
+    return [{ say: said[0], repeat: said.slice(1) }];
+  };
+  return [write('content/items/company-ledger.json', {
+    schema: 1, id: 'company_ledger', name: 'A COMPANY LEDGER', short: 'A COMPANY LEDGER',
+    note: 'EXTRACTED from docs/113-act-two-scenes.md (THE LINES, The item) by tools/extract-content.mjs (errata 242). Do not edit: '
+      + 'change doc 113 and re-run. Taken from THE LEDGERS in Fanshawe\'s empty office on the funeral day, and left on his desk in '
+      + 'the log\'s place (THE SWAP). Its icon is the log\'s book in green with gilt bands (tools/art/act2-ledger-icon.py).',
+    responses: { LOOK_AT: run('LOOK'), LISTEN_TO: run('LISTEN') },
+  })];
+}
+function papersPairs() {
+  const NOTE = 'Doc 113 (THE LINES; errata 242)';
+  const out = [];
+  // THE SWAP. Doc 54's line for the log is said between the direction and the scene's closing line, unchanged.
+  const c4 = read('docs/54-batch-c.md').split('\n').find((one) => one.startsWith('> **THE SUBMISSION LOG** · PICK UP, *empty office* — '));
+  const logLine = c4 && quoted(c4)[0];
+  if (!logLine) throw new Error('doc 54 C3/C4: no empty-office line for THE SUBMISSION LOG');
+  const swap = papersRule(papersBullet('- USE A COMPANY LEDGER — '));
+  if (!swap.direction || swap.then?.length !== 1) throw new Error('doc 113 THE SWAP: not a direction and one closing line');
+  out.push({ item: 'company_ledger', room: 'fanshawe_office', target: 'submission_log', otherwise: 'pool', puzzle: 'C4', say: swap.say,
+    note: `${NOTE}, THE SWAP: the ledger laid where the log lay, and the log taken (THE SUBMISSION LOG, T_QUEUE_PADDED). Doc 54's `
+      + 'empty-office line for the log is said after the direction, as doc 113 says.',
+    rules: [{ case: 'empty office', when: { T_FUNERAL_DAY: true, T_QUEUE_PADDED: false }, say: swap.say, direction: true,
+      then: [logLine, ...swap.then], takes: ['company_ledger'], items: ['padded_log'], set: { T_QUEUE_PADDED: true } }] });
+  const back = papersRule(papersBullet('- **THE LEDGERS** · USE A COMPANY LEDGER — '));
+  out.push({ item: 'company_ledger', room: 'fanshawe_office', target: 'ledgers', say: back.say,
+    note: `${NOTE}, THE WRONG TRIES: the ledger back on its shelf.`, rules: [{ case: 'any time', ...back }] });
+  // THE STAKE: the deed and the fork on Pratt while he is on the claim.
+  for (const [start, item] of [['- USE THE DEED TO PROSPERITY — ', 'deed'], ['- USE THE TUNING FORK — ', 'tuning_fork']]) {
+    const rule = papersRule(papersBullet(start), { PRATT: 'pratt_jump' });
+    out.push({ item, room: 'prosperity', target: 'pratt_jump', otherwise: 'pool', say: rule.say,
+      note: `${NOTE}, B · The stake: ${start.slice(2, -3)} on Pratt, on the claim.`, rules: [{ case: 'on the claim', ...rule }] });
+  }
+  return out;
+}
+
+/**
  * SCENE A, THE HEARSE WON'T GO (doc 110 section 2, THE LINES; errata 233). What of the scene is not a room's own
  * hotspot lines (those are tools/extract-examine.mjs's and tools/compile-room.mjs's, from the same section):
  *  - THE PRAYER, `1. "..."` to `5. "..."` under `**THE PRAYER**`: Sowerby's barks at the gate while `T_HILL_PRAYER`
@@ -6802,7 +6877,7 @@ function hearseScene() {
   return out;
 }
 
-const written = [opening(), stageDriver(), combinations(), seanceTree(), ...estateSaleItems(), ...hearseScene(), ...rooms0507(), ...room02Exits(),
+const written = [opening(), stageDriver(), combinations(), seanceTree(), ...estateSaleItems(), ...papersItems(), ...hearseScene(), ...rooms0507(), ...room02Exits(),
   ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), hobRunning(), ozymandiaAtProsperity(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...gulchItems(), ...gulchPeople(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways(), ...waysOut()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);

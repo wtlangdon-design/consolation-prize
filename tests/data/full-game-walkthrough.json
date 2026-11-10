@@ -1015,6 +1015,39 @@
    }
   },
   {
+   "id": "D2.1a",
+   "puzzle": "D2",
+   "do": "leave",
+   "note": "Errata 242 (doc 113, B): out of the conversation, to try the stake."
+  },
+  {
+   "id": "D2.1b",
+   "puzzle": "D2",
+   "do": "verb",
+   "verb": "PUSH",
+   "on": "claim_marker",
+   "expect": {
+    "flags": {
+     "T_PRATT_STAKE": false
+    }
+   }
+  },
+  {
+   "id": "D2.1c",
+   "puzzle": "D2",
+   "do": "use",
+   "item": "deed",
+   "on": "pratt_jump",
+   "expect": {
+    "carrying": [
+     "deed"
+    ],
+    "flags": {
+     "T_PRATT_STAKE": false
+    }
+   }
+  },
+  {
    "id": "D2.2",
    "puzzle": "D2",
    "do": "talk",
@@ -1129,6 +1162,34 @@
    "do": "verb",
    "verb": "PICK_UP",
    "on": "submission_log",
+   "note": "Errata 242 (doc 113, A): he will not leave a bare desk.",
+   "expect": {
+    "flags": {
+     "T_QUEUE_PADDED": false
+    }
+   }
+  },
+  {
+   "id": "C4.2a",
+   "puzzle": "C4",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "ledgers",
+   "expect": {
+    "carrying": [
+     "company_ledger"
+    ],
+    "flags": {
+     "T_LEDGER_TAKEN": true
+    }
+   }
+  },
+  {
+   "id": "C4.2b",
+   "puzzle": "C4",
+   "do": "use",
+   "item": "company_ledger",
+   "on": "submission_log",
    "expect": {
     "carrying": [
      "padded_log"
@@ -1168,7 +1229,11 @@
     "flags": {
      "T_FUNERAL_DAY": false,
      "T_LINEN_COLLECTED": true
-    }
+    },
+    "present": [
+     "memorial_town",
+     "memorial_fanshawe"
+    ]
    }
   },
   {

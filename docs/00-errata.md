@@ -6619,3 +6619,55 @@ Tyler, 2026-11-09: "Can you do a full, new audit to see how everything lands now
 - **The two oddities.** `whiskey_barrel_finished` (A3.2) and `desk_bare` (E0b.2) were wanted before their pictures had loaded. Both files exist and are preloaded. Cause not established; doc 112 §5 row 4.
 
 Lesson: none -- an audit and its record; nothing is fixed here.
+
+---
+
+## 242 · Act II's three scenes, and the audit's open items (docs 112, 113)
+
+Tyler, 2026-11-09, on doc 112: "Let's build the act 2 scenes you recommended. Does anything need to be cut to accommodate those? You decide on each of the three smaller things. Can you solve the still open items?"
+
+**The writing exception.** That is the ruling doc 113's lines are written under: new lines for the three scenes doc 112 proposed (P1, P2, P3), in /docs, one voice, to doc 59. It covers doc 113's lines and no others.
+
+**Nothing is cut.** Every line that was said in the three places is still said. Doc 54's line for the log moves from PICK UP to the swap.
+
+### A · The double (Room 11, empty)
+
+- **Before:** PICK UP THE SUBMISSION LOG, one click.
+- **Now:** on the funeral day PICK UP refuses and says why (a bare desk would be read). THE LEDGERS give A COMPANY LEDGER, once. The ledger used on the log is the swap: the direction, doc 54's line, a closing line; THE SUBMISSION LOG in hand, the ledger left, `T_QUEUE_PADDED` as before.
+- After it, the green book on the desk is THE LEDGER ON THE DESK, for the rest of the game, with its own LOOK and LISTEN. Before this the plate went on showing the log after Thad had taken it.
+- **No picture.** The item's icon is the log's own book turned green with two gilt bands (`tools/art/act2-ledger-icon.py`); no image operation.
+- C4 is unchanged: the photograph completes it, the log is what C5 needs.
+
+### B · The stake (Prosperity, Pratt on the claim)
+
+- THE CLAIM MARKER's PUSH, PULL, PICK UP and USE, Pratt's PUSH, PULL and PICK UP, and the deed and the fork used on him. Nothing is set and nothing is solved.
+- Pratt drives his stake on two of them: his own two hammer frames, acted (doc 95 rows 126 and 127).
+- `tools/compile-room.mjs`: a doc bullet may answer for a person (`person`), ahead of that figure's own lines.
+
+### C · The town on the hill (Room 14)
+
+- On the entry that ends the funeral day the town is on the hill and the Colonel in front of it (`T_TOWN_ON_HILL`, set and cleared on entry as `T_PLATE_AT_GATE` is). THE TOWN, COMING DOWN can be looked at and listened to.
+- **No picture.** Room 31's mourners and Duel Three's Fanshawe, each cell mirrored to face the gate (`tools/art/mirror-cells.py`); Fanshawe is brought into the hill's night by the room's `figureLight`.
+- **For Tyler:** no sheet of Fanshawe holds his hat, as the arrival line has him. He wears it and tips it on a break. A picture of him hat in hand is one operation in the image session if wanted.
+
+### The three smaller things — decided, as asked
+
+1. **Winnie's sparring lesson stays behind the walk out.** Errata 232 kept her on WIN_B2 until he leaves so that the Mott-gold question and the nineteen names can still be asked. Opening the lesson sooner would close those sooner, and they matter more. Missing the lesson strands nobody (errata 120: Duel Three knows pair 9 itself).
+2. **Pratt's walk out of the Registrar's is left.** Measured, he is inside his ruled 0.96 at a nearer depth. Tyler approved this walk on 2026-11-06.
+3. **Act IV's daylit room is left.** The Act IV plate of Thad's room is its own approved picture, and three days pass in the digging before the next clock matters. Making it night would be re-painting an approved plate for a join nobody has tripped on.
+
+### The open items
+
+- **The two late props.** One cause found and fixed, and it is not yet shown to be the whole of it. Each came in a step with a cut-away in it. The loader kept only the room cut to, so the room he was standing in was let go and fetched again on the way back; now a cut-away keeps the room it left (`planCut`), and its own room is asked for as the fade out begins, not after the screen is black. **The Nugget's barrel was late again on the next recorded run, with that fix in**, and did not repeat when the same steps were replayed alone, so something in a long session's loading is still unexplained. A sheet that is wanted while the loader is idle now reports itself once, with whether its load failed, was asked for and never came, or was never asked for (`GameScene.sheetFor`), so the next full run says which.
+- **The pie woman's line twice running.** Cause found: her timed shout and the once-per-reputation line said to his face are two clocks, and landed seconds apart on the first pass after his reputation changed. One figure now says one line once inside a minute (`SaidLately`), whichever clock comes second.
+- **The Chromebook frame rate** cannot be measured from here, and until now could not be read on the Chromebook either. `?fps` on the address now shows two numbers in the top-left corner: frames a second now, and the lowest half second of the last ten (`engine/dev/FrameRate.ts`; nothing is installed without the parameter). The reading itself is Tyler's, on the Chromebook.
+- The probe reports what a room is still waiting for (`unarrived`), so a run that holds black can say why.
+
+Lesson:
+- `tests/act-two-scenes.test.ts`: no verb hands the log over bare (it fails with doc 54's pick-up rule put back); the scene on the claim writes nothing; the town is drawn on exactly the entries its line is said on.
+- The full walkthrough plays the swap (C4.2 to C4.2b) and expects the town at D4.1.
+- `tests/cutaway-keeps-room.test.ts` fails on the old list (`planNear` alone drops the home room's pictures; the test counts them).
+- `tests/bark-said-once.test.ts`: the second saying inside a minute is not shown, and both ways of calling out go through it.
+- `tests/frame-rate.test.ts`: inert without the parameter, and the low is the worst of ten seconds.
+- Doc 55 §8, three rows.
+

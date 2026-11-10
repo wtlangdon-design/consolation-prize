@@ -35,6 +35,8 @@ export const SOURCES = [
   '110-act-three-scenes',
   // Errata 237: scenes B and C's lines (doc 111, THE LINES).
   '111-scenes-b-and-c',
+  // Errata 242: Act II's three scenes' lines (doc 113, THE LINES).
+  '113-act-two-scenes',
 ];
 
 export const norm = (text) => text

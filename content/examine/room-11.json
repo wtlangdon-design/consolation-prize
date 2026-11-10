@@ -5,6 +5,7 @@
   "sources": [
     "docs/05-examine-layer.md::ROOM 11 — FANSHAWE'S OFFICE",
     "docs/54-batch-c.md::ROOM 11 · FANSHAWE'S OFFICE",
+    "docs/113-act-two-scenes.md::A · The double",
     "docs/49-wrong-answers.md::ROOM 11 — FANSHAWE'S OFFICE"
   ],
   "subjects": [
@@ -82,6 +83,7 @@
         "Nothing. It is full again. Somebody refills it quietly."
       ],
       "overrides": {
+        "USE": "Not on duty. In this office I am always, improbably, on duty.",
         "OPEN": "It is always already open. Generosity, pre-loaded."
       }
     },
@@ -113,7 +115,10 @@
         "Nothing. Iron this thick has heard nothing since it was cast.",
         "Nothing. It doesn't tick, which is the first thing I listen for in a lock.",
         "A dull note when the floor takes my weight. Heavy things have very little to say, and say it low."
-      ]
+      ],
+      "overrides": {
+        "OPEN": "Locked, and painted with roses. He keeps his money where it can be admired."
+      }
     },
     {
       "name": "THE WINDOW",
@@ -183,6 +188,23 @@
         "Nothing. A door this well hung keeps every secret in the room and lets in only the draft.",
         "Voices in the lobby, waiting. Everyone waits out there. Nobody waits in here."
       ]
+    },
+    {
+      "name": "THE LEDGER ON THE DESK",
+      "LOOK_AT": [
+        "Eighteen fifty-one, lying where the log lay, an inch off true, as he likes it. From his chair it is the same green book.",
+        "The spine is not cracked. I am trusting that a man who opens a book every day has stopped looking at it.",
+        "The only truthful book in the room, and it is here under a false name."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It has never been opened, and it lies there as if it means to keep that up.",
+        "Nothing. A year of the Company's business, holding its breath.",
+        "A cover, easing down into somebody else's place."
+      ],
+      "overrides": {
+        "PICK_UP": "It is doing my lying for me. I'll leave it to its work.",
+        "OPEN": "If I crack the spine it will look consulted, and then he might consult it."
+      }
     }
   ],
   "exitsAndUnplaced": {

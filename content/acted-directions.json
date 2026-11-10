@@ -1251,6 +1251,52 @@
       "speaker": "pratt",
       "words": "Thad gives back the hen. Pratt gives back the coat, empty.",
       "where": "combinations (raccoon_in_coat on pratt, THE SALE)"
+    },
+    {
+      "n": 124,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad lifts the log, lays the ledger where it lay, and moves it an inch.",
+      "where": "combinations (company_ledger on submission_log, THE SWAP)"
+    },
+    {
+      "n": 125,
+      "class": "C",
+      "speaker": "pratt_jump",
+      "words": "Thad straightens his stake.",
+      "where": "rooms/prosperity claim_marker PUSH (Pratt on the claim)"
+    },
+    {
+      "n": 126,
+      "class": "A",
+      "speaker": "pratt_jump",
+      "words": "Pratt drives his own, one stroke.",
+      "where": "rooms/prosperity claim_marker PUSH (Pratt on the claim)",
+      "performedBy": [
+        "pratt_jump"
+      ],
+      "frames": [
+        3,
+        4,
+        0
+      ],
+      "seconds": 1.2
+    },
+    {
+      "n": 127,
+      "class": "A",
+      "speaker": "pratt_jump",
+      "words": "Pratt drives his stake, one stroke.",
+      "where": "combinations (deed on pratt_jump, on the claim)",
+      "performedBy": [
+        "pratt_jump"
+      ],
+      "frames": [
+        3,
+        4,
+        0
+      ],
+      "seconds": 1.2
     }
   ]
 }
