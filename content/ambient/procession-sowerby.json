@@ -101,5 +101,51 @@
    ],
    "source": "docs/110-act-three-scenes.md::### THE LINES"
   }
+ ],
+ "spriteWhen": [
+  {
+   "when": {
+    "T_HILL_PRAYER": true
+   },
+   "note": "Doc 110 section 2: while the prayer runs he prays with his eyes shut, chin raised and his open hand lifted, as the line said during it has him (reference/act3-polish/handback.md; act3-hearse operation 5). Registered on his legs to his rest frame, so he does not shift (errata 240).",
+   "sprite": {
+    "sheet": "art/actors/room-14-sowerby-praying.png",
+    "frames": [
+     [
+      2,
+      2,
+      182,
+      314
+     ],
+     [
+      186,
+      2,
+      182,
+      314
+     ]
+    ],
+    "breaks": [
+     [
+      1,
+      1,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      1,
+      0
+     ]
+    ],
+    "breakEvery": 6,
+    "breaksThatSpeak": [
+     0,
+     1
+    ],
+    "talkFrame": 1,
+    "frameNote": "0 eyes shut, chin a little raised, the open hand lifted · 1 the same, his mouth open on a long word."
+   }
+  }
  ]
 }
