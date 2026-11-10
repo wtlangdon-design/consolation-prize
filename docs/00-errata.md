@@ -7165,3 +7165,16 @@ Found by watching the filmed strips of errata 266.
 Nothing written changed, and no puzzle, flag or line.
 
 Lesson: `tests/handover.test.ts`: the rule that hides him; the scene stages a handed item as it stages any thing with a stand; and everyone a staged handing-over can be made to has somewhere to stand for it. Doc 55 section 8: an item used on a person is a walk to the person.
+
+## 268 · The town's streets at night, brought to one night (Tyler, 2026-11-10)
+
+Tyler, 2026-11-10: "do you think Main Street looks like it was drawn by the same hand as all of the other rooms?" Put beside Lower Street, the Lane and the Back Alley, it did not: finer grain, a hotter and brighter plate, a wide three-quarter view where they are flat fronts, and a busy ground twice as light as theirs with neon-blue puddles. Offered a tool pass, a pass on the other streets, or a redraw, he ruled: "Let's try the tool pass first and then make a decision", and, shown the before and after, "Proceed".
+
+- **Main Street comes down** (`tools/art/night-streets.py`): below the porches the ground is dimmed and loses some colour, least where the lamps fall on it; the puddles become a dull sheen; the whole plate eases a little. Its two act overlays (the gilt sign, the funeral notice) take the same easing. Ground 66 to 48; bright blue 3.9% of the ground to 0.1%.
+- **Lower Street, the Lane and the Back Alley come up:** the lamps and what they light brightened and warmed, the rest lifted slightly. Ground 32 to 37.
+- **Not done, and why.** The grain is not coarsened: by tool it only smeared the small buildings. The camera cannot be changed without a redraw. Main Street at dawn is left: its ground is already quiet. The streets outside town (the Claims Road, Prosperity, Boot Hill) are meant to be colder than the town.
+- **Still open, Tyler's:** whether Main Street is redrawn, same composition, in the side streets' hand. To be judged when he plays from Main Street into them.
+
+The originals are kept in `reference/night-streets/originals/`. Nothing is redrawn and no image operation is spent.
+
+Lesson: `tests/night-streets.test.mjs`: Main Street's ground is no more than half again as light as the streets it opens onto, and no night street has glowing puddles. With the old plate put back both fail. Doc 55 section 8: a room is judged beside the rooms its doors open onto.
