@@ -1,6 +1,6 @@
 # The Last Claim in Consolation -- playthrough transcript
 
-Played in the real build (Chromium, dev server) by `npm run gauntlet:full -- --record`, 2026-11-09, at commit 587a579e + this branch.
+Played in the real build (Chromium, dev server) by `npm run gauntlet:full -- --record`, 2026-11-10, at commit unknown.
 Every line the screen showed, in play order. `>` marks the player's action; option menus list every row offered, `[x]` the one picked, `(asked)` a row already chosen before. Directions are in parentheses as the game shows them; a direction marked *[acted, no words on screen]* is played by the figures and never printed (doc 95), and *[a silence is held]* is a written pause. Barks (remarks thrown in passing) and written sounds are marked.
 
 > **open.1** -- NEW GAME -- the opening plays
@@ -192,7 +192,7 @@ HOB: *(He does not walk on for four seconds.)*
 **THAD:** Nothing, until a cart goes by.
 **THAD:** Then every string answers, and every one of them is wrong in its own direction.
 > **A2.4** -- USE The tuning fork ON THE PARLOR PIANO
-**THAD:** Four minutes. It is the first honest work done in this building in some time.
+**THAD:** Four minutes. It is the most honest work done in this building in some time.
 **THE HOTEL CLERK:** Top of the stairs, second door. The key sticks. You have to want it.
 > **A3.1** -- goes to THE BOUNTIFUL NUGGET
 
@@ -281,6 +281,7 @@ HOB: *(He does not walk on for four seconds.)*
 - [ ] I've taken enough of your time. I'll be taking more later.
 **THAD:** Number two. Prosperity.
 **COLONEL FANSHAWE:** Prosperity! You've named it. Nobody names them. I like you enormously.
+COLONEL FANSHAWE: *(He gives Thad a map of the district. Claim Two is already circled.)*
 *Options (FANSHAWE/FAN_A1):*
 - [ ] I'd rather not say.
 - [ ] Were you really a colonel?
@@ -341,6 +342,7 @@ HOB: *(He does not walk on for four seconds.)*
 **THAD:** I need to file this deed.
 **REGISTRAR SUMP:** Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'
 **REGISTRAR SUMP:** Thereabouts is not a unit, Mr. Grubb. I have checked.
+**REGISTRAR SUMP:** With a boundary and two dollars, the office will file it.
 *Options (SUMP/SUM_A1):*
 - [x] Where would I find a surveyor?
 - [ ] The deed's drawn wrong side up.
@@ -387,7 +389,7 @@ HOB: *(He does not walk on for four seconds.)*
 - [x] I should go.
 **THAD:** I should go.
 > **A7.3** -- USE The filing fee ON MADAME OZYMANDIA
-**THAD:** That was the filing fee. It is now a divining fee. Money out here changes careers faster than men do.
+**THAD:** That was the filing fee. It is now a divining fee.
 **MADAME OZYMANDIA:** The earth thanks you. I shall pass it on.
 **MADAME OZYMANDIA:** Now. Show me the ground.
 **THAD:** It is two miles away and up a hill.
@@ -401,10 +403,6 @@ HOB: *(He does not walk on for four seconds.)*
 ### THE LANE
 
 *(bark)* **THE MESSAGE BOY:** She does that to everyone.
-
-### MAIN STREET
-
-*(bark)* **THE PIE WOMAN:** That woman charged you two dollars to point at dirt. Pie.
 > **A8.3** -- USE The tuning fork ON THE PIANO
 
 ### THE BOUNTIFUL NUGGET
@@ -415,13 +413,14 @@ HOB: *(He does not walk on for four seconds.)*
 ### MAIN STREET
 
 *(bark)* **THE PIE WOMAN:** That woman charged you two dollars to point at dirt. Pie.
+*(bark)* **THE PIE WOMAN:** That woman charged you two dollars to point at dirt. Pie.
 > **A9.2** -- USE The deed to Prosperity ON THE COUNTER
 
 ### THE CLAIMS REGISTRAR
 
 **THAD:** Filed. Mr Sump has written a number in a book, and the number is mine.
 > **A9.3** -- USE Madame Ozymandia's survey of Prosperity ON THE COUNTER
-**THAD:** The survey, on the correct form. He has read it without expression, which I am told is the highest mark this office gives.
+**THAD:** The survey, on the correct form. He has read it without expression. In this office, that is the highest mark.
 > **A9.4** -- USE The filing fee ON REGISTRAR SUMP
 **THAD:** Two dollars, for a number in a book. He has taken it without looking at me, which I am told is the correct procedure.
 **REGISTRAR SUMP:** Claim Two. 'Prosperity,' in pencil. Commencing at the stake, thereabouts; thence uphill, with feeling, to the larger of the two rocks; thence along the line the rod preferred, some forty feet, until the humming stopped; thence home.
@@ -441,7 +440,6 @@ REGISTRAR SUMP: *(He goes into the back. He is gone some time.)*
 
 ### MAIN STREET
 
-*(bark)* **THE PIE WOMAN:** Pie, Mr. Grubb. On the house. On the house today.
 *(bark)* **THE PIE WOMAN:** Pie, Mr. Grubb. On the house. On the house today.
 
 ### FANSHAWE'S OFFICE
@@ -465,6 +463,7 @@ COLONEL FANSHAWE: *(He will not. Sump is never asked.)*
 - [ ] I've taken enough of your time. I'll be taking more later.
 **THAD:** I mean to work it myself.
 **COLONEL FANSHAWE:** Of course you do.
+COLONEL FANSHAWE: *(Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.)*
 **COLONEL FANSHAWE:** Keep it. I have dozens.
 > **A10.3** -- goes to THE IMPROVEMENT COMPANY LOBBY
 
@@ -483,6 +482,7 @@ COLONEL FANSHAWE: *(He will not. Sump is never asked.)*
 
 **THAD:** I have decided. The richest strike in the territory is next door to my mud, and gold doesn't stop at a fence. Mr. Sump has Claim One's filing, and I am going to read it.
 > **B1.1** -- goes to THE CLARION OFFICE
+*(bark)* **THE PIE WOMAN:** Pie, Mr. Grubb. On the house. On the house today.
 > **B1.2** -- TALK TO IGNATIUS FRAME
 
 ### THE CLARION OFFICE
@@ -538,8 +538,6 @@ IGNATIUS FRAME: *(he savors it)*
 ### MAIN STREET
 
 *(bark)* **THE PIE WOMAN:** Pie, Mr. Grubb. On the house. On the house today.
-*(bark)* **THE PIE WOMAN:** Pie, Mr. Grubb. On the house. On the house today.
-*(bark)* **THE PIE WOMAN:** Pie, Mr. Grubb. On the house. On the house today.
 
 ### LOWER STREET
 
@@ -586,10 +584,6 @@ IGNATIUS FRAME: *(he savors it)*
 - [x] I am going to leave now, in a dignified manner. (asked)
 **THAD:** I am going to leave now, in a dignified manner.
 > **G1.1** -- goes to THE BOUNTIFUL NUGGET
-
-### MAIN STREET
-
-*(bark)* **THE PIE WOMAN:** Pie, Mr. Grubb. On the house. On the house today.
 > **G1.2** -- USE The tuning fork ON THE PIANO
 
 ### THE BOUNTIFUL NUGGET
@@ -604,7 +598,6 @@ IGNATIUS FRAME: *(he savors it)*
 
 ### MADAME OZYMANDIA'S TENT
 
-**MADAME OZYMANDIA:** The rod has been expecting you.
 *Options (OZYMANDIA/OZY_A1):*
 - [ ] How does the rod work?
 - [ ] Could the rod find gold on my claim?
@@ -740,7 +733,7 @@ THE RULE-KEEPER: *(He gives up.)*
 **DEKE VESSEL:** Then I've washed more gold than your laundress, and she won't mind hearing it.
 *[a silence is held (THE RULE-KEEPER)]*
 **THE PANNER:** That's true of everyone here, and it's a matter of some concern.
-**THAD:** Everyone. Shirts. Concern. Yes.
+**THAD:** Shirts. Yes.
 **THE DEACON:** My luck is famous from here to Sacramento.
 *Options (DEACON/VES_G1):*
 - [x] I have never been to Sacramento.
@@ -750,7 +743,7 @@ THE RULE-KEEPER: *(He gives up.)*
 **THE DEACON:** Then you'll have to take my word for it, and you just have.
 *[a silence is held (THE RULE-KEEPER)]*
 **THE PANNER:** It's famous in Sacramento. That's why you're here.
-**THAD:** In Sacramento. Not from. Yes.
+**THAD:** Yes.
 **THE DEACON:** I pulled a nugget out of the Feather River the size of a bishop's fist.
 *Options (DEACON/VES_G1):*
 - [x] I've seen your bishop. He was malnourished.
@@ -818,7 +811,6 @@ THE PANNER: *(He lowers his voice. Nobody is near.)*
 
 ### gulch_river
 
-**THE PANNER:** If he sent you, tell him I've found nothing. Nothing at all.
 *Options (PANNER/PAN_G1):*
 - [ ] Who sent me?
 - [ ] Have you found anything?
@@ -830,7 +822,7 @@ THE PANNER: *(He lowers his voice. Nobody is near.)*
 **THAD:** He says his ground runs so rich the gravel pays him rent.
 THE PANNER: *(He snorts.)*
 **THE PANNER:** Tell him I've collected that rent. It was paid in buttons.
-**THAD:** Rent. Buttons. Yes.
+**THAD:** Buttons. Yes.
 **THE PANNER:** Don't tell him, mind. He'll only send another.
 *Options (PANNER/PAN_G1):*
 - [ ] Who sent me?
@@ -873,6 +865,7 @@ THAD: *(Thad climbs on. Grievance considers it, then turns for home.)*
 ### MAIN STREET
 
 *(bark)* **THE PIE WOMAN:** Pie. You'll want the big one.
+*(bark)* **THE PIE WOMAN:** Pie. You'll want the big one.
 > **C1.2** -- TALK TO WINNIE LEDGER
 
 ### THE ASSAY OFFICE
@@ -912,6 +905,10 @@ THAD: *(Thad climbs on. Grievance considers it, then turns for home.)*
 **THAD:** Thank you. This has been clarifying.
 > **D1.1** -- goes to THE CLAIMS REGISTRAR
 *(sound)* CREEEAK
+
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** Pie. You'll want the big one.
 > **D1.2** -- TALK TO REGISTRAR SUMP
 
 ### THE CLAIMS REGISTRAR
@@ -941,7 +938,6 @@ THAD: *(Thad climbs on. Grievance considers it, then turns for home.)*
 
 ### MADAME OZYMANDIA'S TENT
 
-**MADAME OZYMANDIA:** The rod has been expecting you.
 *Options (OZYMANDIA/OZY_A1):*
 - [ ] How does the rod work?
 - [ ] Could the rod find gold on my claim?
@@ -975,9 +971,7 @@ THAD: *(Thad climbs on. Grievance considers it, then turns for home.)*
 
 ### THE CLARION OFFICE
 
-**IGNATIUS FRAME:** You're new! Say something quotable.
-**THAD:** I'd rather not.
-**IGNATIUS FRAME:** 'I'd… rather… not,' says mystery man.
+**IGNATIUS FRAME:** Mystery man! Say something quotable. I'll fix it later.
 *Options (FRAME/FRA_A1):*
 - [ ] What do you know about Mott?
 - [ ] You knew Pike was dead.
@@ -1159,13 +1153,15 @@ NICKEL PRATT: *(He does not consider this strange.)*
 - [x] I am going to leave now, in a dignified manner.
 **THAD:** I am going to leave now, in a dignified manner.
 > **C3.6** -- goes to THE CLARION OFFICE
+
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** Pie. You'll want the big one.
 > **C3.7** -- TALK TO IGNATIUS FRAME
 
 ### THE CLARION OFFICE
 
-**IGNATIUS FRAME:** You're new! Say something quotable.
-**THAD:** I'd rather not.
-**IGNATIUS FRAME:** 'I'd… rather… not,' says mystery man.
+**IGNATIUS FRAME:** Mystery man! Say something quotable. I'll fix it later.
 *Options (FRAME/FRA_A1):*
 - [ ] What do you know about Mott?
 - [ ] You knew Pike was dead.
@@ -1191,7 +1187,7 @@ IGNATIUS FRAME: *(He has the type set before Thad has finished the name.)*
 
 ### FANSHAWE'S OFFICE
 
-**THAD:** Empty. It is the first time I have seen this room without somebody being generous in it.
+**THAD:** Empty. I have never seen this room without somebody being generous in it.
 > **C4.2** -- PICK UP THE SUBMISSION LOG
 **THAD:** Nine years of priority submissions, filed one day a month, every month, in one hand. Winnie is going to want to see this, and she is not going to enjoy it.
 > **C4.3** -- OPEN THE STOCK PORTRAIT DRAWER
@@ -1245,6 +1241,12 @@ REVEREND SOWERBY: *(He looks at the collection plate for a long time. Then he co
 - [ ] I've taken enough of your time. I'll be taking more later.
 **THAD:** Will you run my assay?
 **WINNIE LEDGER:** I'll run your assay. I'd run your assay if it were a bucket of rain.
+WINNIE LEDGER: *(She runs it at the window. It does not take long.)*
+**WINNIE LEDGER:** Your assay.
+**THAD:** And?
+**WINNIE LEDGER:** Mud, rock, and a mineral I've recorded as disappointment. No gold. Not a color.
+**THAD:** Then there's no Document B.
+**WINNIE LEDGER:** The form requires an assay. It doesn't require a good one.
 *Options (WINNIE/WIN_B2):*
 - [x] Now can I ask about Mott gold?
 - [ ] Has nobody ever noticed?
@@ -1273,11 +1275,6 @@ WINNIE LEDGER: *(She produces it from under the floor.)*
 > **C6.2** -- goes to THE ASSAY OFFICE
 > **C6.3** -- TALK TO WINNIE LEDGER
 *(sound)* CREEEAK
-**WINNIE LEDGER:** Your assay.
-**THAD:** And?
-**WINNIE LEDGER:** Mud, rock, and a mineral I've recorded as disappointment. No gold. Not a color.
-**THAD:** Then there's no Document B.
-**WINNIE LEDGER:** The form requires an assay. It doesn't require a good one.
 > **C6.4** -- chooses
 *Options (WINNIE/WIN_B4):*
 - [x] Teach me to answer a boast.
@@ -1394,6 +1391,10 @@ NICKEL PRATT: *(a very long pause)*
 **REGISTRAR SUMP:** The stamp did not ask.
 > **B6.1** -- goes to THE NUGGET BACK ROOM
 
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** Pie. You'll want the big one.
+
 ### THE BOUNTIFUL NUGGET
 
 *(bark)* **THE CARD SHARP:** Lying's a skill, son. So's this.
@@ -1479,14 +1480,11 @@ NICKEL PRATT: *(a very long pause)*
 ### MAIN STREET
 
 *(bark)* **THE PIE WOMAN:** Beat Deke Vessel! Pie's still a nickel.
+*(bark)* **THE PIE WOMAN:** Beat Deke Vessel! Pie's still a nickel.
 > **E0.2** -- TALK TO REGISTRAR SUMP
 
 ### THE CLAIMS REGISTRAR
 
-**THAD:** I'd like to see how Claim One was filed. We're neighbors now.
-**REGISTRAR SUMP:** Neighbors may view a sealed filing on a Certificate of Contiguity. Document C. It is issued on presentation of Documents A, B and D.
-**THAD:** Not A, B and C?
-**REGISTRAR SUMP:** C is the certificate. It cannot require itself. That would be circular, and this office is linear.
 *Options (SUMP/SUM_B1):*
 - [ ] About Document A—
 - [ ] About Document B—
@@ -1513,7 +1511,6 @@ REGISTRAR SUMP: *(He turns the glass over. The back of the sheet is blank.)*
 
 ### MAIN STREET
 
-*(bark)* **THE PIE WOMAN:** Beat Deke Vessel! Pie's still a nickel.
 *(bark)* **THE PIE WOMAN:** Beat Deke Vessel! Pie's still a nickel.
 
 ### FANSHAWE'S OFFICE
@@ -1555,34 +1552,99 @@ REGISTRAR SUMP: *(He turns the glass over. The back of the sheet is blank.)*
 
 ### FANSHAWE'S OFFICE
 
-**COLONEL FANSHAWE:** He said no.
-**COLONEL FANSHAWE:** They do, at first. It's the coat. A man in a good coat still thinks he's in Providence.
+**COLONEL FANSHAWE:** He didn't say yes.
+**COLONEL FANSHAWE:** They don't, at first. It's the coat. A man in a good coat still thinks he's in Providence.
 **COLONEL FANSHAWE:** Eleven chairs. Every one of them sat in by a man who said no.
 **COLONEL FANSHAWE:** Most of them are still looking.
 **COLONEL FANSHAWE:** Good. Let him look.
+> **E1.1** -- goes to THE LANE
 
 ### MAIN STREET
 
 *(bark)* **THE PIE WOMAN:** Beat Deke Vessel! Pie's still a nickel.
-*(bark)* **THE PIE WOMAN:** Beat Deke Vessel! Pie's still a nickel.
-> **E1.1** -- goes to THE CLAIMS REGISTRAR
-> **E1.2** -- TALK TO REGISTRAR SUMP
+> **E1.2** -- goes to MADAME OZYMANDIA'S TENT
+
+### THE LANE
+
+*(bark)* **THE MESSAGE BOY:** I watched. You were less bad.
+
+### MADAME OZYMANDIA'S TENT
+
+**THAD:** Five of the town around a table, holding hands, and Madame Ozymandia at the head of it. Nobody has noticed me, which is the one thing in Consolation that has ever been free.
+> **E1.3** -- TALK TO MADAME OZYMANDIA, PRESIDING
+*Options (OZYMANDIA/OZY_E1):*
+- [ ] Is there room for one more?
+- [x] Do the dead mind the light?
+- [ ] Will Mott come?
+- [ ] Does the rod work on ghosts?
+- [ ] Thank you. This has been clarifying.
+**THAD:** Do the dead mind the light?
+**MADAME OZYMANDIA:** Mind it? They cannot abide it, darling. Nobody has ever been reached in a well-lit room.
+MADAME OZYMANDIA: *(She turns the lamp down to a bead.)*
+**MADAME OZYMANDIA:** There. Now we are all equally invisible.
+*Options (OZYMANDIA/OZY_E1):*
+- [ ] Is there room for one more?
+- [ ] Will Mott come?
+- [ ] Does the rod work on ghosts?
+- [x] Thank you. This has been clarifying.
+**THAD:** Thank you. This has been clarifying.
+> **E1.4** -- USE THE SÉANCE TABLE
+THAD: *(Thad goes down on his hands and knees and under the cloth.)*
+**THAD:** Ten feet, and now twelve.
+**MADAME OZYMANDIA:** We call upon the spirit of Obadiah Mott.
+MADAME OZYMANDIA: *(A silence is held.)*
+**MADAME OZYMANDIA:** Obadiah Mott. The town is waiting.
+MADAME OZYMANDIA: *(A silence is held.)*
+**MADAME OZYMANDIA:** Obadiah Mott — two dollars a head —
+MADAME OZYMANDIA: *(A silence is held.)*
+MADAME OZYMANDIA: *(She consults the rod.)*
+**MADAME OZYMANDIA:** The spirits say he is… busy.
+**SEANCE FRAME:** BUSY? Twelve years dead and BUSY?
+> **E1.5** -- chooses
+*Options (SEANCE/SEA_E1):*
+- [ ] Woooo.
+- [ ] I tune pianos.
+- [ ] The gold is under the church.
+- [x] I am Obadiah Mott, and I am dead.
+- [ ] I should go.
+**THAD:** I am Obadiah Mott, and I am dead.
+**SEANCE FRAME:** QUOTABLE!
+*[acted, no words on screen]* SEANCE FRAME: *(He writes.)*
+**SEANCE FRAME:** 'I AM DEAD,' says Mott. Front page. Within the hour.
+MADAME OZYMANDIA: *(She looks down at the cloth for a long moment.)*
+**MADAME OZYMANDIA:** …Two dollars, whoever you are.
+THAD: *(The lamp comes up. Thad stays where he is until the last pair of boots has gone.)*
+**THAD:** I have now been dead once. It is mostly waiting under furniture.
+> **E1.6** -- goes to THE CLAIMS REGISTRAR
+> **E1.7** -- TALK TO REGISTRAR SUMP
 
 ### THE CLAIMS REGISTRAR
 
 **REGISTRAR SUMP:** Mr. Grubb. You have the look of a man with a petition.
 *Options (SUMP/SUM_E1):*
-- [x] I'd like Obadiah Mott declared dead.
+- [ ] I'd like Obadiah Mott declared dead.
+- [x] It's in the Clarion. Mott has spoken. He says he's dead.
+- [ ] Who else may see a sealed filing?
 - [ ] Is dying difficult here?
-- [ ] Thank you. This has been clarifying.
-**THAD:** I'd like Obadiah Mott declared dead.
-**REGISTRAR SUMP:** Seven years' absence, which Mr. Mott has comfortably achieved, and a petitioner with standing: kin, or a creditor. Mr. Mott has no kin on file, and he owes nobody.
-**REGISTRAR SUMP:** It is the most suspicious thing about him.
+- [ ] I should go.
+**THAD:** It's in the Clarion. Mott has spoken. He says he's dead.
+**REGISTRAR SUMP:** From where?
+**THAD:** From under a table.
+**REGISTRAR SUMP:** The office does not accept testimony from the deceased.
+**REGISTRAR SUMP:** It has tried.
 > **E2.1** -- chooses
 *Options (SUMP/SUM_E1):*
+- [ ] I'd like Obadiah Mott declared dead.
+- [x] Who else may see a sealed filing?
+- [ ] Is dying difficult here?
+- [ ] I should go.
+**THAD:** Who else may see a sealed filing?
+**REGISTRAR SUMP:** Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control.
+*Options (SUMP/SUM_E1):*
+- [ ] I'd like Obadiah Mott declared dead.
 - [x] Section nineteen. The executor of a deceased claimholder.
 - [ ] Is dying difficult here?
-- [ ] Thank you. This has been clarifying.
+- [ ] I should go.
 **THAD:** Section nineteen. The executor of a deceased claimholder.
 **REGISTRAR SUMP:** May open the archive. Correct.
 **THAD:** I hold a claim.
@@ -1592,9 +1654,10 @@ REGISTRAR SUMP: *(He turns the glass over. The back of the sheet is blank.)*
 **REGISTRAR SUMP:** An executor may hold no interest in any claim touching the estate. Sub-section two. It was written after a family in Placerville.
 **REGISTRAR SUMP:** The office does not advise. It answers.
 *Options (SUMP/SUM_E1):*
+- [ ] I'd like Obadiah Mott declared dead.
 - [ ] Is dying difficult here?
-- [x] Thank you. This has been clarifying.
-**THAD:** Thank you. This has been clarifying.
+- [x] I should go.
+**THAD:** I should go.
 > **E3.1** -- goes to CHURCH & MEETING HALL
 > **E3.2** -- TALK TO REVEREND SOWERBY
 
@@ -1607,7 +1670,7 @@ REGISTRAR SUMP: *(He turns the glass over. The back of the sheet is blank.)*
 - [ ] He was a man.
 - [x] He was present.
 - [ ] He tuned pianos.
-- [ ] I should go.
+- [ ] I've taken enough of your time. I'll be taking more later.
 **THAD:** He was present.
 REVEREND SOWERBY: *(A long, painful pause. He writes it down.)*
 **REVEREND SOWERBY:** …Present. Three words, and one of them is 'was'. I shall add an 'amen' at no charge; I cannot send a man into the ground on three.
@@ -1615,37 +1678,77 @@ REVEREND SOWERBY: *(A long, painful pause. He writes it down.)*
 - [ ] He was a beloved and industrious young man of rare promise.
 - [ ] He was a man.
 - [ ] He tuned pianos.
-- [x] I should go.
-**THAD:** I should go.
-> **E3.3** -- goes to SHENG'S LAUNDRY
-> **E3.4** -- TALK TO AH-LAM SHENG
-
-### SHENG'S LAUNDRY
-
-*Options (SHENG/SHE_D1):*
-- [x] I need four dollars.
-- [ ] Why help me?
-- [ ] What do you think is under Claim One?
-- [ ] Do you ever take a day off?
-- [ ] I've taken enough of your time. I'll be taking more later. (asked)
-**THAD:** I need four dollars.
-**AH-LAM SHENG:** You need two dollars and sixty cents, and you will have it at ten per cent, and you will pay it back, because I have watched you and you are honest in the one way that matters: absently.
-*Options (SHENG/SHE_D1):*
-- [ ] Why help me?
-- [ ] What do you think is under Claim One?
-- [ ] Do you ever take a day off?
-- [x] I've taken enough of your time. I'll be taking more later. (asked)
+- [x] I've taken enough of your time. I'll be taking more later.
 **THAD:** I've taken enough of your time. I'll be taking more later.
-> **E3.5** -- goes to THE UNDERTAKER'S
+> **E3.3** -- goes to PRATT'S CLAIM
+> **E3.4** -- TALK TO NICKEL PRATT
 
-### LOWER STREET
+### PRATT'S CLAIM
 
-*(bark)* **THE LETTER-WRITER:** Beat Deke Vessel. That's a page and a half right there.
+**NICKEL PRATT:** Grubb.
+*Options (PRATT/PRA_E3):*
+- [x] I'm selling the effects of the late Mr. Grubb.
+- [ ] I am going to leave now, in a dignified manner.
+**THAD:** I'm selling the effects of the late Mr. Grubb.
+**NICKEL PRATT:** Who?
+**THAD:** Me. In advance.
+NICKEL PRATT: *(He thinks about it for some time.)*
+**NICKEL PRATT:** Raccoon.
+**THAD:** The raccoon isn't mine.
+**NICKEL PRATT:** Lives on your claim.
+**NICKEL PRATT:** …
+**NICKEL PRATT:** Effect.
+**THAD:** How much?
+**NICKEL PRATT:** Two dollars and sixty cents.
+**THAD:** That is exactly what I need.
+**NICKEL PRATT:** Asked the undertaker.
+**NICKEL PRATT:** …
+**NICKEL PRATT:** Don't fetch.
+*Options (PRATT/PRA_E3):*
+- [x] Could I borrow your hen?
+- [ ] Why do you want him?
+- [ ] I am going to leave now, in a dignified manner.
+**THAD:** Could I borrow your hen?
+**NICKEL PRATT:** Hen comes back.
+**THAD:** Of course.
+**NICKEL PRATT:** Hen comes back.
+NICKEL PRATT: *(He hands Thad the hen. The hen looks at Thad as though the arrangement were hers.)*
+*Options (PRATT/PRA_E3):*
+- [ ] Why do you want him?
+- [x] I am going to leave now, in a dignified manner.
+**THAD:** I am going to leave now, in a dignified manner.
+**NICKEL PRATT:** Fourteen dollars, and you keep the raccoon.
+> **E3.5** -- goes to PROSPERITY
 
-### THE LANE
+### PROSPERITY
 
-*(bark)* **THE MESSAGE BOY:** I watched. You were less bad.
-> **E3.6** -- TALK TO THE UNDERTAKER
+**THAD:** The raccoon is back in my hole. He regards the eviction as a misunderstanding.
+> **E3.6** -- USE THE HEN ON THE HOLE
+THAD: *(Thad sets the hen at the mouth of the hole. The hen considers the hole. The raccoon considers the hen. Half a raccoon comes out.)*
+**THAD:** Halfway. He is a careful animal.
+> **E3.7** -- USE THE RACCOON
+THAD: *(Thad takes off his coat and drops it over him. There is a great deal of coat, and then a great deal of raccoon.)*
+**THAD:** I have him. I am not sure which of us is winning.
+> **E3.8** -- goes to PRATT'S CLAIM
+> **E3.9** -- USE THE RACCOON, IN MY COAT ON NICKEL PRATT
+
+### PRATT'S CLAIM
+
+NICKEL PRATT: *(He opens the coat a little and looks in.)*
+**NICKEL PRATT:** Raccoon.
+NICKEL PRATT: *(He counts out the money, coin by coin.)*
+**NICKEL PRATT:** Two dollars and sixty cents.
+NICKEL PRATT: *(He holds out his other hand.)*
+**NICKEL PRATT:** Hen.
+NICKEL PRATT: *(Thad gives back the hen. Pratt gives back the coat, empty.)*
+**NICKEL PRATT:** Keep the coat.
+**THAD:** He regards this as generous. Coming from Mr. Pratt, it is.
+> **E3.10** -- goes to THE UNDERTAKER'S
+
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** Beat Deke Vessel! Pie's still a nickel.
+> **E3.11** -- TALK TO THE UNDERTAKER
 
 ### THE UNDERTAKER'S
 
@@ -1653,22 +1756,18 @@ REVEREND SOWERBY: *(A long, painful pause. He writes it down.)*
 - [x] I'll need your best pine, handles, plate.
 - [ ] You haven't asked who it's for.
 - [ ] Could you make it roomy?
-- [ ] I am going to leave now, in a dignified manner.
+- [ ] Thank you. This has been clarifying.
 **THAD:** I'll need your best pine, handles, plate.
 **THE UNDERTAKER:** Sizing's free. It's the only thing that is. Stand straight.
 *Options (UNDERTAKER/UND_C1):*
 - [ ] You haven't asked who it's for.
 - [ ] Could you make it roomy?
-- [x] I am going to leave now, in a dignified manner.
-**THAD:** I am going to leave now, in a dignified manner.
-> **E3.7** -- USE Two dollars and sixty cents from Mr. Sheng ON THE UNDERTAKER
+- [x] Thank you. This has been clarifying.
+**THAD:** Thank you. This has been clarifying.
+> **E3.12** -- USE MR. PRATT'S TWO DOLLARS AND SIXTY CENTS ON THE UNDERTAKER
 **THE UNDERTAKER:** Pine. Handles. Plate. The hole. The Reverend's four words.
 **THE UNDERTAKER:** Paid.
 > **E4.1** -- goes to THE ASSAY OFFICE
-
-### MAIN STREET
-
-*(bark)* **THE PIE WOMAN:** Beat Deke Vessel! Pie's still a nickel.
 > **E4.2** -- TALK TO WINNIE LEDGER
 
 ### THE ASSAY OFFICE
@@ -1681,7 +1780,7 @@ REVEREND SOWERBY: *(A long, painful pause. He writes it down.)*
 - [ ] It's just a form.
 - [ ] Nineteen names, Miss Ledger.
 - [x] You're right. Forget it.
-- [ ] Thank you. This has been clarifying.
+- [ ] I should go.
 **THAD:** You're right. Forget it.
 **WINNIE LEDGER:** …Sit down, Mr. Grubb.
 **WINNIE LEDGER:** If I sign this and you are wrong, I have ended my own office and killed you for nothing.
@@ -1694,8 +1793,8 @@ REVEREND SOWERBY: *(A long, painful pause. He writes it down.)*
 - [ ] It's the only way into the archive.
 - [ ] It's just a form.
 - [ ] Nineteen names, Miss Ledger.
-- [x] Thank you. This has been clarifying.
-**THAD:** Thank you. This has been clarifying.
+- [x] Thank you, Miss Ledger.
+**THAD:** Thank you, Miss Ledger.
 > **E5.1** -- goes to THE CLAIMS REGISTRAR
 *(sound)* CREEEAK
 > **E5.2** -- TALK TO REGISTRAR SUMP
@@ -1715,6 +1814,10 @@ REVEREND SOWERBY: *(A long, painful pause. He writes it down.)*
 - [x] I should go.
 **THAD:** I should go.
 > **E5.3** -- goes to THE CLARION OFFICE
+
+### MAIN STREET
+
+*(bark)* **THE PIE WOMAN:** Beat Deke Vessel! Pie's still a nickel.
 > **E5.4** -- TALK TO IGNATIUS FRAME
 
 ### THE CLARION OFFICE
@@ -1738,6 +1841,7 @@ REVEREND SOWERBY: *(A long, painful pause. He writes it down.)*
 
 ### MAIN STREET
 
+*(bark)* **THE PIE WOMAN:** Thought you'd passed.
 *(bark)* **THE PIE WOMAN:** Thought you'd passed.
 > **E6.2** -- TALK TO HOB
 
@@ -1776,19 +1880,49 @@ HOB: *(He signs Form 31-E against the lamp post, and hands it back.)*
 **REGISTRAR SUMP:** The statute does not require one. It never imagined it would need to.
 **REGISTRAR SUMP:** The night watchman. Holds no claim, owes nothing, is owed nothing, and has never filed so much as a complaint.
 **REGISTRAR SUMP:** Accepted.
-> **E7.1** -- goes to THE FUNERAL
-> **E7.2** -- LOOK AT THE GRAVE
+> **E6b.1** -- goes to BOOT HILL
+
+### BOOT HILL
+
+**THAD:** The procession has stopped at the gate. Everyone is looking at the mule, and the mule is looking at my coffin.
+> **E6b.2** -- TALK TO THE UNDERTAKER
+THE UNDERTAKER: *(low)*
+**THE UNDERTAKER:** She's never carried an empty box up this hill. I don't know how she can tell.
+**THAD:** I know exactly how she can tell.
+> **E6b.3** -- TALK TO REVEREND SOWERBY, AT THE GATE
+**THAD:** Reverend. Can a hill be blessed?
+*(bark)* **REVEREND SOWERBY:** O Lord, who made the hills, and saw fit to set this one at an incline…
+**REVEREND SOWERBY:** A hill? Anything can be blessed, sir. There is a rate.
+*(bark)* **REVEREND SOWERBY:** …look down upon this creature, who has borne so many of our brothers upward…
+**REVEREND SOWERBY:** …
+**REVEREND SOWERBY:** Hills are by the foot.
+**THAD:** It's a short hill.
+*(bark)* **REVEREND SOWERBY:** …and give her strength to bear one more, though he weighs, by every account, very little…
+**REVEREND SOWERBY:** It is a long foot.
+**REVEREND SOWERBY:** Let us bow our heads.
+*(bark)* **REVEREND SOWERBY:** …and her mother before her, who was also a mule, and also of firm opinions…
+> **E6b.4** -- USE THE HEARSE
+*(bark)* **REVEREND SOWERBY:** …the amen will be along shortly. I am paid to the foot.
+THAD: *(Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up.)*
+**THAD:** Ahead of schedule.
+**THAD:** Grievance went through the gate before the amen.
+**THAD:** Behind us, Reverend Sowerby asked the Lord to look kindly on this creature, and opened his eyes to find the creature gone.
+**THAD:** It was a smoother ride than the stagecoach. I recommend it to anyone, at the end.
 
 ### THE FUNERAL
 
+**THAD:** By the time the town caught us up, the coffin was on its trestles and I was at the back with my hat down, as out of breath as anybody.
+*(bark)* **REVEREND SOWERBY:** …a man of music, taken flat…
+> **E7.1** -- goes to THE FUNERAL
+> **E7.2** -- LOOK AT THE GRAVE
 **THAD:** Dug neat, in a good spot, uphill of the seepage — the undertaker does honest work for dishonest occasions. I am oddly touched by the drainage.
 *(bark)* **REVEREND SOWERBY:** …a man of music, taken flat…
 > **E7.3** -- LOOK AT THE GRAVE
 **THAD:** Six feet, measured. I am two inches shorter than the hole, which is the first time this town has given me room.
 **HOB:** Good turnout.
-*(bark)* **REVEREND SOWERBY:** …a man of music, taken flat…
 **HOB:** Better than mine.
 > **E7.4** -- USE THE COFFIN
+*(bark)* **REVEREND SOWERBY:** …a man of music, taken flat…
 **THAD:** This is the part of the plan where I lie down.
 **THE UNDERTAKER:** Lid stays loose. Knock twice when they've gone.
 > **E8.1** -- waits
@@ -1804,28 +1938,28 @@ HOB: *(He signs Form 31-E against the lamp post, and hands it back.)*
 - [ ] You said you didn't know Mott.
 - [ ] Who are you?
 - [ ] You have very neat handwriting.
-- [ ] Thank you. This has been clarifying.
+- [ ] I'll be quiet now.
 **THAD:** How did you know I was in there?
 **HOB:** I know where every hole in this town is. It's the job.
 *Options (HOB/HOB_C1):*
 - [x] You said you didn't know Mott.
 - [ ] Who are you?
 - [ ] You have very neat handwriting.
-- [ ] Thank you. This has been clarifying.
+- [ ] I'll be quiet now.
 **THAD:** You said you didn't know Mott.
 **HOB:** I said no. I didn't say I didn't know him.
 *Options (HOB/HOB_C1):*
 - [ ] Who are you?
 - [x] You have very neat handwriting.
-- [ ] Thank you. This has been clarifying.
+- [ ] I'll be quiet now.
 **THAD:** You have very neat handwriting.
 HOB: *(He looks at Thad for a long time.)*
 **HOB:** …Yes.
 *Options (HOB/HOB_C1):*
 - [ ] Who are you?
 - [ ] You have very neat handwriting. (asked)
-- [x] Thank you. This has been clarifying.
-**THAD:** Thank you. This has been clarifying.
+- [x] I'll be quiet now.
+**THAD:** I'll be quiet now.
 
 ### THE FUNERAL
 
@@ -1865,8 +1999,8 @@ HOB: *(He looks at Thad for a long time.)*
 - [ ] You could have picked a better thumb.
 - [ ] Grievance walked out after you, twelve years ago.
 - [ ] This photograph isn't you.
-- [x] I should go.
-**THAD:** I should go.
+- [x] Thank you for telling me.
+**THAD:** Thank you for telling me.
 **HOB:** Twelve years I watched them look. You're the first that listened.
 
 ## ACT IV
@@ -1886,11 +2020,6 @@ HOB: *(He looks at Thad for a long time.)*
 **THAD:** The hole is warm. It has been warm since the day I bought it: warm air, out of solid rock, all autumn.
 **THAD:** Air does not come out of rock. It comes through it.
 > **F1.3** -- goes to THE MERCANTILE
-
-### MAIN STREET
-
-*(bark)* **THE PIE WOMAN:** Thought you'd passed.
-*(bark)* **THE PIE WOMAN:** Thought you'd passed.
 > **F1.4** -- PICK UP THE PICKAXES
 
 ### THE MERCANTILE
@@ -1901,7 +2030,9 @@ HOB: *(He looks at Thad for a long time.)*
 
 ### PROSPERITY
 
-**THAD:** Three days. Forty feet. The head came off once, forwards, which I took as encouragement. I have borrowed the lamp from my room, and I will return it, which is the second time I have promised that to something in this territory. The draught got warmer the whole way down.
+**THAD:** Three days. Forty feet. The head came off once, forwards, which I took as encouragement.
+**THAD:** I have borrowed the lamp from my room. That is the second thing in this territory I have promised to give back.
+**THAD:** The draught got warmer the whole way down.
 > **F2.1** -- goes to THE LISTENING CHAMBER
 > **F2.2** -- LISTEN TO the rock (the tap)
 
@@ -1933,7 +2064,7 @@ THAD: *(A piece of the wall comes away in his hand. It is much heavier than a pi
 - [x] Run it.
 - [ ] You knew the nineteen names meant something.
 - [ ] Aren't you going to congratulate me?
-- [ ] I've taken enough of your time. I'll be taking more later.
+- [ ] Thank you. This has been clarifying.
 **THAD:** Run it.
 **WINNIE LEDGER:** Twenty-two hundred dollars to the ton.
 **WINNIE LEDGER:** Nine years I've waited to write down a number I believed.
@@ -1941,14 +2072,14 @@ THAD: *(A piece of the wall comes away in his hand. It is much heavier than a pi
 *Options (WINNIE/WIN_F1):*
 - [ ] You knew the nineteen names meant something.
 - [ ] Aren't you going to congratulate me?
-- [x] I've taken enough of your time. I'll be taking more later.
-**THAD:** I've taken enough of your time. I'll be taking more later.
+- [x] I'll see you at the Registrar's.
+**THAD:** I'll see you at the Registrar's.
 > **F4.3** -- goes to MAIN STREET
 *(sound)* CREEEAK
 
 ### MAIN STREET
 
-**COLONEL FANSHAWE:** No hard feelings, Mr. Grubb. It's simply how we settle things here. You'll find it very fair.
+**COLONEL FANSHAWE:** No hard feelings, Mr. Grubb. It's simply how we settle things here. You'll find it very fair. Lose, and nobody in town believes a word you file.
 **REVEREND SOWERBY:** 1. A man may not be interrupted in his account.
 **REVEREND SOWERBY:** 2. A man's account may be doubted only by a better one.
 **REVEREND SOWERBY:** 3. Truth is admissible but has never been raised.
@@ -1983,9 +2114,9 @@ THAD: *(A piece of the wall comes away in his hand. It is much heavier than a pi
 *Options (FANSHAWE/FAN_B1):*
 - [ ] I have been wrong about several. I find it restful.
 - [ ] Neither have I. I have only had the one.
-- [x] You have been right about exactly one, Colonel, and you have spent twelve years making sure nobody digs it.
+- [x] You have been right about exactly one, Colonel. You spent twelve years making sure nobody digs it.
 - [ ] That must be very lonely.
-**THAD:** You have been right about exactly one, Colonel, and you have spent twelve years making sure nobody digs it.
+**THAD:** You have been right about exactly one, Colonel. You spent twelve years making sure nobody digs it.
 *[a silence is held (REVEREND SOWERBY)]*
 **COLONEL FANSHAWE:** I have never told a lie in my life.
 *Options (FANSHAWE/FAN_B1):*
@@ -2029,7 +2160,7 @@ REGISTRAR SUMP: *(Stamp. Thad is alive.)*
 - [ ] Thaddeus Grubb.
 - [ ] Winnie Ledger.
 - [ ] The raccoon.
-- [ ] I am going to leave now, in a dignified manner.
+- [ ] Thank you. This has been clarifying.
 **THAD:** Obadiah Mott.
 **REGISTRAR SUMP:** …That's a very old claim number.
 **WINNIE LEDGER:** You're putting it in his name.
