@@ -1876,7 +1876,9 @@
   ],
   "figureLight": {
     "figures": [
-      "hitching_horses"
+      "hitching_horses",
+      "map_seller",
+      "duel_judge_1"
     ],
     "light": [
       0.88,
@@ -1885,7 +1887,27 @@
     ],
     "brightness": 0.85,
     "saturate": 0.75,
-    "note": "Errata 198. Tyler, 2026-11-08: the horses \"seem to be lit a little too bright ... make sure they're a bit dimmer for the night\". The group was drawn warmer, brighter and more saturated than the street's night cast (rest frame: mean luminance 70, 90th percentile 136, saturation 0.58, against Thad's 59/100/0.32 and the pie woman's 63/81/0.42), and it stands in the dark mud between the Company's windows and the Nugget, outside every lamp's movers field. Only the horses are named: Thad and the cast are drawn exactly as before. A cool light and less colour bring the group into the same night (graded, about 53/104/0.43). tools/art/hitching-rail-dawn.py starts Room 36's empty rail from the rail as graded here, so the dawn keeps following the night."
+    "note": "Errata 198. Tyler, 2026-11-08: the horses \"seem to be lit a little too bright ... make sure they're a bit dimmer for the night\". The group was drawn warmer, brighter and more saturated than the street's night cast (rest frame: mean luminance 70, 90th percentile 136, saturation 0.58, against Thad's 59/100/0.32 and the pie woman's 63/81/0.42), and it stands in the dark mud between the Company's windows and the Nugget, outside every lamp's movers field. Only the horses are named: Thad and the cast are drawn exactly as before. A cool light and less colour bring the group into the same night (graded, about 53/104/0.43). tools/art/hitching-rail-dawn.py starts Room 36's empty rail from the rail as graded here, so the dawn keeps following the night. Errata 260 (Tyler, 2026-11-10: \"Make all of the changes that you flagged\"): two figures join it. The map seller, painted in the office lantern's light, measured 1.90 of Thad where he stands while the pie woman in a like pool measured 1.05, and read yellow and washed beside the cast: he keeps a warm light of his own (still the lantern's, still far brighter than the night allows without it) at 0.72 and a little less colour. Duel judge 1 was sepia and half again as bright as the two judges beside him (1.03 against 0.70 and 0.71): a faintly cool light of his own, 0.72, and 0.9 of his colour put him with them (0.70). The first try used the street's light and 0.6 of his colour, and tests/skin-tone.test.mjs refused it: it left his face grey, the Colonel's mistake again.",
+    "perFigure": {
+      "map_seller": {
+        "light": [
+          1,
+          0.95,
+          0.86
+        ],
+        "brightness": 0.72,
+        "saturate": 0.85
+      },
+      "duel_judge_1": {
+        "light": [
+          0.94,
+          0.95,
+          1
+        ],
+        "brightness": 0.72,
+        "saturate": 0.9
+      }
+    }
   },
   "peopleResponses": {
     "wreath_fanshawe": {

@@ -60,7 +60,7 @@ test('no way out in the game is cut while it holds its travel for a scene', () =
 
 test('the scene cuts by this rule and no other: it asks before it places him, and forgets the walk on any other click', async () => {
   const scene = await readFile(resolve(ROOT, 'engine/scenes/GameScene.ts'), 'utf8');
-  const cut = scene.slice(scene.indexOf('A SECOND CLICK ON THE WAY OUT GOES AT ONCE'), scene.indexOf('A CHANGE OF MIND ABOUT A CONVERSATION'));
+  const cut = scene.slice(scene.indexOf('A SECOND CLICK ON THE WAY OUT GOES AT ONCE'), scene.indexOf('THE SAME CLICK AGAIN HURRIES HIM'));
   assert.ok(cut.includes('secondExitClick(') && cut.includes('leavesAtOnce('), 'the cut does not ask the rule');
   assert.ok(cut.indexOf('secondExitClick(') < cut.indexOf('placeAt('), 'he is placed before the rule is asked');
   assert.ok(/this\.exitWalk = null;\s*(\/\/\s*)?$/.test(cut.trimEnd()), 'a click that does not cut leaves the walk remembered');

@@ -78,7 +78,9 @@
     "newGameFadeOutSeconds": 1,
     "newGameFadeInSeconds": 1.5,
     "roomReadyLimitSeconds": 12,
-    "newGameNote": "Errata 157. NEW GAME fades the title to black over newGameFadeOutSeconds; the screen then holds black until Room 1 has arrived whole (plate, sky, cast), never longer than roomReadyLimitSeconds, and the opening fades up over newGameFadeInSeconds on the first frame of its pan down from the stars. Every room fade between rooms (errata 133) also waits for the whole room now, under the same limit. Interface timing: change after watching it."
+    "newGameNote": "Errata 157. NEW GAME fades the title to black over newGameFadeOutSeconds; the screen then holds black until Room 1 has arrived whole (plate, sky, cast), never longer than roomReadyLimitSeconds, and the opening fades up over newGameFadeInSeconds on the first frame of its pan down from the stars. Every room fade between rooms (errata 133) also waits for the whole room now, under the same limit. Interface timing: change after watching it.",
+    "hurry": 1.6,
+    "hurryNote": "Errata 260. A second click on the same place while he is walking there makes him hurry: his walk at this many times its speed until he arrives. His legs keep step, because his cycle is counted in ground covered. Not a run: there is no drawing of one. The crossing of Main Street, nineteen seconds end to end, becomes twelve."
   },
   "fullscreen": {
     "note": "Interface grammar, the same class as the map's. Two words rather than one because the button is a TOGGLE and has to say which way it goes -- 'FULL' when windowed, 'WINDOW' when full. Both fit the 336-unit cell at the scaled face: six glyphs is 216 units.",

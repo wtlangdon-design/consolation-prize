@@ -263,5 +263,17 @@
    }
   }
  ],
- "docBulletsNote": "Errata 245 (doc 117 O-5, doc 118): the livery man gives leave (T_BLANKET_ALLOWED, LIV_A1 option 5) and Thad takes the blanket off her himself. Errata 250, doc 121 N-4: a handful of oats from her bin, once (T_OATS_TAKEN)."
+ "docBulletsNote": "Errata 245 (doc 117 O-5, doc 118): the livery man gives leave (T_BLANKET_ALLOWED, LIV_A1 option 5) and Thad takes the blanket off her himself. Errata 250, doc 121 N-4: a handful of oats from her bin, once (T_OATS_TAKEN).",
+ "figureLight": {
+  "figures": [
+   "thad"
+  ],
+  "light": [
+   1.0,
+   0.89,
+   0.77
+  ],
+  "brightness": 0.86,
+  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+ }
 }

@@ -223,5 +223,17 @@
    "completes": "E9"
   }
  ],
- "sceneLinesNote": "Doc 57 E9's second way to see it: invariant 7 at work -- HOB_C1's [COMIC] option set T_HOB_HANDWRITING, and LOOKing at the file is enough. Nothing announces it."
+ "sceneLinesNote": "Doc 57 E9's second way to see it: invariant 7 at work -- HOB_C1's [COMIC] option set T_HOB_HANDWRITING, and LOOKing at the file is enough. Nothing announces it.",
+ "figureLight": {
+  "figures": [
+   "thad"
+  ],
+  "light": [
+   1.0,
+   0.93,
+   0.85
+  ],
+  "brightness": 0.76,
+  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+ }
 }

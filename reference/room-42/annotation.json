@@ -216,5 +216,17 @@
    }
   }
  ],
- "docBulletsNote": "Errata 258, doc 123 F-2: the lever of the barber's chair, tried once (T_CHAIR_TRIED)."
+ "docBulletsNote": "Errata 258, doc 123 F-2: the lever of the barber's chair, tried once (T_CHAIR_TRIED).",
+ "figureLight": {
+  "figures": [
+   "thad"
+  ],
+  "light": [
+   1.0,
+   0.93,
+   0.85
+  ],
+  "brightness": 0.86,
+  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+ }
 }

@@ -2454,6 +2454,9 @@ export interface UiFile {
     newGameFadeInSeconds?: number;
     /** Errata 157: the longest a room is held in black waiting to arrive whole, so a stalled load never strands the player. */
     roomReadyLimitSeconds?: number;
+    /** A second click on the same place while he walks there: his walk at this many times its speed (errata 260). */
+    hurry?: number;
+    hurryNote?: string;
   };
 }
 
@@ -3381,7 +3384,9 @@ export interface FigureLight {
    * figures takes its own brightness, contrast or saturation here, on top of
    * the shared light (Deke's shadows are shallower than Thad's).
    */
-  perFigure?: Record<string, { brightness?: number; contrast?: number; saturate?: number }>;
+  perFigure?: Record<string, { brightness?: number; contrast?: number; saturate?: number;
+    /** His own light in place of the room's (errata 260: the map seller keeps the lantern's warmth in a cool street). */
+    light?: [number, number, number] }>;
   note?: string;
 }
 

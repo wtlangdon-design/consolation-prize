@@ -276,5 +276,17 @@
     }
   ],
   "plateShipping": "art/backgrounds/room-05-assay-office.png",
-  "plateShippingHash": "92e3f8f5b70a98224f6126aa"
+  "plateShippingHash": "92e3f8f5b70a98224f6126aa",
+  "figureLight": {
+    "figures": [
+      "thad"
+    ],
+    "light": [
+      1.0,
+      0.98,
+      0.95
+    ],
+    "brightness": 0.83,
+    "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+  }
 }

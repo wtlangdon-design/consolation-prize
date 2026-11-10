@@ -28,7 +28,7 @@ const sheet = (path) => {
 };
 /** The room's grade as the renderer applies it: the light's multiply, then brightness, contrast and saturate. */
 function graded([r, g, b], grade, own = {}) {
-  const light = grade?.light ?? [1, 1, 1];
+  const light = own.light ?? grade?.light ?? [1, 1, 1];
   const brightness = own.brightness ?? grade?.brightness ?? 1;
   const contrast = own.contrast ?? grade?.contrast ?? 1;
   const s = own.saturate ?? grade?.saturate ?? 1;
