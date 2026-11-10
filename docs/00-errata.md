@@ -7078,3 +7078,15 @@ Lesson:
 - Doc 55 section 8: a figure cut apart from a plate is graded into the plate's light when the room is built, the protagonist included.
 - **Found on the way, and mine:** `art/staging/caps.json` and `art/staging/ledger.json` went to main with merge-conflict markers in them (PR 336: a conflicted merge committed before it was resolved; the two documents were put right and these two records were not). Nothing in the game reads them, so nothing failed; the image session would have, at its next operation. Both are whole again, with every entry from both sides (392 attempts; `press-pull` and `objects-second-pass` both capped). `tests/no-conflict-markers.test.mjs` now opens every tracked file for a marker and parses both records.
 
+## 262 · Each room a colour of its own (Tyler, 2026-11-10)
+
+Told that the game is dark and brown for a long time, and that the fix is variety between rooms rather than brightness, Tyler asked for a side-by-side. Shown four rooms graded beside themselves: **"I like the direction. I think it would be a nice way to differentiate different rooms from each other, so they don't all look exactly the same."**
+
+- **Thirteen interiors lean to a colour of their own** (`reference/room-grades.json`, with the reason for each): the hotel lobby green, the archive cold blue, the Registrar's grey-green, the Clarion ink blue, Thad's room teal, the laundry steam, the back room the green of its lamp, the schoolhouse slate, the boarding house rose, the barber's pale teal, the watchman's shack olive, and the church and the undertaker's lightly. Shadows and mid-tones lean; lamps and what they light stay warm.
+- **The warm rooms are left,** because they are what the others are told apart from: the Nugget, the mercantile, the livery, the Colonel's office and lobby. The night exteriors and the Gulch are not touched.
+- **No redrawing and no image operation.** One function of a pixel's own colour (`tools/art/room-grade.py`), applied to the plate and to every picture cut from it so that patches still match, always from the untouched originals kept in `art/staging/room-grade/originals/`. Taking a room off the list restores its plate.
+- Thad's light in each (errata 260) was read again from the graded plates.
+- Before and after from the real build: `renders/rooms-graded-before-after-1.png` and `-2.png`.
+
+Lesson: `tests/room-grades.test.mjs`: every graded picture is its original graded as the list says (a plate patched or regenerated without the tool fails), a grade is a lean and not a repaint, and the warm rooms stay off the list.
+

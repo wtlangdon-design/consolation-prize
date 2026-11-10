@@ -552,8 +552,8 @@
     ],
     "light": [
       1,
-      0.9,
-      0.82
+      0.89,
+      0.85
     ],
     "brightness": 0.85,
     "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
