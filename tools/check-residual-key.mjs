@@ -78,11 +78,16 @@ export function check() {
       const { width, height, pixels } = png;
       const at = (x, y) => pixels[(y * width + x) * 4 + 3];
       let count = 0;
+      // Index arithmetic, not a four-element array per pixel: the scan was the suite's slowest check (12 s), and
+      // nearly all of that was allocation. Alpha first, because most of most sheets is transparent.
       for (let y = 1; y < height - 1; y += 1) {
         for (let x = 1; x < width - 1; x += 1) {
           const i = (y * width + x) * 4;
-          const [r, g, b, a] = [pixels[i], pixels[i + 1], pixels[i + 2], pixels[i + 3]];
-          if (a <= 16 || Math.abs(r - b) > 1 || r - g < 8 || r >= 40) continue;
+          if (pixels[i + 3] <= 16) continue;
+          const r = pixels[i];
+          if (r >= 40) continue;
+          const b = pixels[i + 2];
+          if (r - b > 1 || b - r > 1 || r - pixels[i + 1] < 8) continue;
           if (at(x - 1, y) > 16 && at(x + 1, y) > 16 && at(x, y - 1) > 16 && at(x, y + 1) > 16) {
             count += 1;
           }
