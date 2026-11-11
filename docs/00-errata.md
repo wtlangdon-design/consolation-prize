@@ -7219,3 +7219,14 @@ Tyler, 2026-11-10, told that errata 270 left Thad able to walk across the lifted
 - **A floor that changes in front of him changes** (`GameState.boxes`). The walk boxes were read once, on coming into a room, so a box enabled or disabled by something that happens while he stands there stayed as it was until he left. They are rebuilt when the set of enabled boxes changes.
 
 Lesson: `tests/board-up.test.mjs`: the board is floor, then not, then floor again, without his leaving the room (it fails with the old once-per-room cache); his way across the room touches no point of the board; everyone's place is still floor. Doc 55 section 8: what is drawn in the way is in the way.
+
+## 272 · Main Street redrawn and Winnie's walk redrawn: funded and briefed (Tyler, 2026-11-10)
+
+Tyler, 2026-11-10, of what still worries him before playing (Main Street's drawing against the other streets, Winnie's walk reading as gliding, how still the rooms are, whether the puzzles are fun), offered two redraws and two passes by the builder: **"Fund both and go."**
+
+- **`room-02-redraw`, 5 operations**: Main Street redrawn in Lower Street's and the Lane's hand, the composition unchanged. No operation paints 3700 pixels, so the street is drawn down to the side streets' scale and redrawn in three overlapping windows, placed where their plates were cropped from, and stitched back (`tools/art/main-street-redraw.py`). Two operations are held for corrections. `reference/main-street-redraw/brief.md`.
+- **`winnie-walk-2`, 2 operations**: her walk with the front hand gathering the skirt and lifting its hem clear of the boots, so the stride shows. `reference/winnie-walk-2/brief.md`.
+- **The spend cap is not raised.** About 134,000 tokens are left of 4,250,000; seven operations at the dearest yet (18,347) would just fit. The briefs say to stop rather than pass it.
+- The builder's two passes, the stillest rooms given incidental motion from the art they have and the 45 puzzles reviewed for what makes a puzzle fun, are recorded when they land.
+
+Lesson: none -- a budget and two briefs, not a fix.

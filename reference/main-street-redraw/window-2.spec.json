@@ -1,0 +1,16 @@
+{
+ "assetId": "room-02-redraw",
+ "subject": "main-street-redraw-window-2",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/main-street-redraw/window.txt",
+ "out": "art/staging/room-02/redraw/out-2.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-02/redraw/window-2.png",
+  "art/staging/room-02/redraw/hand-lower-street.png",
+  "art/staging/room-02/redraw/hand-the-lane.png"
+ ],
+ "derivedFrom": "art/backgrounds/room-02-main-street.png"
+}
