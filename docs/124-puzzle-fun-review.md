@@ -48,3 +48,4 @@ Every earlier audit asked whether a puzzle is *fair* (doc 94: is the clue there)
 - Proposal 1: made. The certificate on Frame opens the obituary.
 - Proposal 4: kept as it is. The wait keeps WIN_B2's other questions open; see errata 274.
 - 2, 3 and 5: looked at again on Tyler's "can you just make them better now?"; left as they are, for the reasons in errata 274. They remain for his play.
+- 3, again (errata 278, Tyler: "Write them", then "Approve" of doc 125): B2 is now done by hand -- the question asked from the board of names, the tune heard by LISTENing. B1 is left as it is (doc 125).

@@ -7280,3 +7280,14 @@ Tyler, of the redrawn street at the Nugget: "It looks like maybe the redraw has 
 - `tools/art/main-street-redraw.py stitch` now cuts each overlap along the path where the two drawings differ least, so every pixel of the street is one window's own. The street was re-stitched from the same three drawings, and the gilt, the dawn and the empty rail re-derived from it.
 
 Lesson: `tests/main-street-seams.test.mjs`: sampled pixels across both overlaps are exactly some window's own (it fails on the blended plate: 3,510 of 4,000 were no window's). Doc 55 section 8: pictures painted in pieces are joined by a cut, never a blend.
+
+## 278 · The livery's errand, done by hand (Tyler, 2026-11-10)
+
+Doc 124 named B1 and B2, the two errands before Grievance, as "go and ask". Tyler: "Write them", then, of doc 125's proposal, "Approve". It is the fourteenth exception in CLAUDE.md and covers doc 125's eight lines and no others.
+
+- **The question comes from the board.** THE BOARD OF NAMES' own first LOOK (doc 09, unchanged) says somebody hired Grievance twelve years ago for four days and wrote down nowhere. Reading it writes `T_BOARD_GRIEVANCE` (the room annotation's new `verbSets`, which puts a `set` on a subject's own written chain so its repeats follow as before). LIV_A1 option 6 waits on it and is asked from it: "Your board says she went out once. Twelve years ago, four days, and nobody wrote down where." His answer is unchanged, and it ends with him going back to humming (doc 95 row 166, printed).
+- **The tune is heard, not asked for.** LISTEN TO THE LIVERY MAN has three lines before his story and three after (doc 125). The first after writes `T_HUM_HEARD`, unmarked: no sting, no cue, a LISTEN like every other. LIV_A1 option 4, "What's that tune?", now waits on `T_HUM_HEARD` and sets nothing; B3 still needs the flag, and has it from the ear.
+- B2 is still option 6, complete on his answer. Nothing else in the puzzle graph moved: the derived graph gains the one gate.
+- `content/checks/narration-allowlist.json` gains "four days" and "time like", which the approved lines carry to a fourth subject; it was the list's third loosening in fourteen days, and the review is in `proofs/check-friction.json` (no tune; the check counting phrases across punctuation is put to the twice-monthly review).
+
+Lesson: none -- a ruled change built, not a fix. Held by `tests/room-15.test.ts` (the question hidden before the board, the board's second look its repeat, no hum before the story, the hum heard and unmarked, then the question about it) and by the continuous playthrough's B2 steps, replayed in the real build from B2.1 to B3.1.

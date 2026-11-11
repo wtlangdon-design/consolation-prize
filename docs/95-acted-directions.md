@@ -200,6 +200,7 @@ Counts: **A 57 · B 0 · C 108** — 165 directions, every one flagged `"directi
 | 163 | C | ozymandia | Thad draws the rod up the paper. | rooms/ozymandias_tent slope USE |  |  |  |  |  | Errata 251, doc 120 I-3: as the stake. The line is drawn uphill as it is said. |
 | 164 | C | ozymandia | She hums. Thad moves the rod along the paper. She stops. | rooms/ozymandias_tent slope USE |  |  |  |  |  | Errata 251, doc 120 I-3: as the stake. Her hum is not a sound yet (doc 45 has no cue for it); told. |
 | 165 | C | ozymandia | She takes a Form 12-C from a stack of them and writes in purple ink. | rooms/ozymandias_tent stake USE |  |  |  |  |  | Errata 251, doc 120 I-3: doc 57 A7's own direction. Under the map; told. |
+| 166 | C | livery_man | He tips his chair back and goes on humming, under his breath. | dialogue/livery-man LIV_A1 option 6 |  |  |  |  |  | Errata 278, doc 125: his hum is not a sound (doc 45 writes none for him but LIV-HUM inside the tune); told, so that LISTEN TO THE LIVERY MAN, which hears it, follows from what the player has read. |
 
 ## When a B pose is drawn
 

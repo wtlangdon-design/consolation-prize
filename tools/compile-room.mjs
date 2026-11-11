@@ -1590,6 +1590,21 @@ for (const spec of [...(ann.verbRules ?? [])].reverse()) {
   const verbs = spec.verbs === 'ALL' ? ALL_VERBS : spec.verbs;
   for (const verb of verbs) (hotspot.responses[verb] ??= []).unshift({ ...rule });
 }
+// WHAT AN ORDINARY LOOK WRITES (errata 278). The annotation's
+// `verbSets.<hotspot>.<VERB>` puts a `set` on the subject's own written
+// chain -- the entry with no condition -- so the line read is the line it
+// always was, its repeats follow as before, and reading it is remembered:
+// the livery's board of names, whose first LOOK says somebody took Grievance
+// out twelve years ago, opens the question asked from it (doc 125).
+for (const [id, verbs] of Object.entries(ann.verbSets ?? {})) {
+  const hotspot = built.hotspots.find((one) => one.id === id);
+  if (!hotspot) fail(`verbSets: no hotspot "${id}" in this room`);
+  for (const [verb, set] of Object.entries(verbs)) {
+    const own = (hotspot.responses[verb] ?? []).filter((rule) => !rule.when && !rule.afterPuzzles && !rule.untilPuzzles && rule.say);
+    if (own.length !== 1) fail(`verbSets: ${id} ${verb} has ${own.length} unconditioned written entries, not one`);
+    own[0].set = { ...(own[0].set ?? {}), ...set };
+  }
+}
 // AN OVERRIDE THAT HOLDS ONLY IN A STATE (errata 96 F). Errata 68 E: doc 49's
 // THE RACCOON'S FORMER RESIDENCE · OPEN "is THE HOLE after A5". The
 // annotation's `overrideWhen.<id>.<VERB>` moves that override into a rule
@@ -1964,7 +1979,8 @@ for (const [id, entry] of examineEntries) {
     if (!run) fail(`peopleExamine: ${ref} has no **${label}** run`);
     const lines = [...run[1].matchAll(/\d "([^"]+)"/g)].map((m) => m[1]);
     if (lines.length !== 3) fail(`peopleExamine: ${ref} ${label} has ${lines.length} lines, not 3`);
-    (((built.peopleResponses ??= {})[id] ??= {})[verb] ??= []).push({ ...(entry.when ? { when: entry.when } : {}), say: lines[0], repeat: lines.slice(1) });
+    // And what hearing it writes (errata 278: the livery man's hum, T_HUM_HEARD), unmarked.
+    (((built.peopleResponses ??= {})[id] ??= {})[verb] ??= []).push({ ...(entry.when ? { when: entry.when } : {}), say: lines[0], repeat: lines.slice(1), ...(entry.set && (!entry.setVerbs || entry.setVerbs.includes(verb)) ? { set: entry.set } : {}) });
   }
 }
 for (const [spec, rule] of personBullets) {

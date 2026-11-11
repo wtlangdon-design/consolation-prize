@@ -1,6 +1,6 @@
 # 125 · The livery by hand: a proposal (2026-11-10)
 
-**PROPOSED. Not built. Every line below is new and waits on Tyler's word.**
+**APPROVED (Tyler, 2026-11-10: "Approve"). Built by errata 278.** The lines the build reads are under THE LINES at the end.
 
 Tyler, 2026-11-10, of doc 124's two errands before Grievance (B1, B2), offered a draft of an object step for each, in Thad's voice, to approve before anything goes in: **"Write them."**
 
@@ -46,3 +46,15 @@ Then "What's that tune?" is asked from what was heard (shown once `T_HUM_HEARD` 
 ## Lines new in this proposal
 
 Thad's option: 1. The direction: 1. LISTEN TO THE LIVERY MAN: 6. **Eight lines.** Nothing else is written.
+
+## THE LINES
+
+*The board's first LOOK is doc 09's, unchanged, and reading it is what opens Thad's question (`T_BOARD_GRIEVANCE`, set by the room's annotation, `verbSets`).*
+
+### THE LIVERY MAN, BEFORE THE STORY
+
+**LISTEN** 1 "Breathing, and the chair. He is a man at rest, and he means to stay one." · 2 "Nothing. He is listening to me listen to him." · 3 "The chair creaks. He has tipped it back another degree, to make a point."
+
+### THE LIVERY MAN, AFTER THE STORY
+
+**LISTEN** 1 "He's humming. The same eight bars, under his breath, over and over. The fourth bar sags every time, like a step worn hollow." · 2 "The tune again. The fourth bar sags again. Twelve years of practice have made it very reliably wrong." · 3 "Still humming. It is the only wrong note in the building, and the building is mostly wrong notes."
