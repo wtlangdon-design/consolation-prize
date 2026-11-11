@@ -751,6 +751,12 @@
    "date": "2026-11-10",
    "kind": "loosened",
    "why": "Not loosened in what it holds. The suite ran 181-182 s against CI's 180 s budget on two pull requests in a row, and this was its slowest check (12 s). Its pixel test was rewritten from a four-element array per pixel to index arithmetic, alpha first: the same four conditions in the same sense, 12 s to 7 s, the same 569 files and the same result. The friction check reads the rewritten `continue` lines as a loosening."
+  },
+  {
+   "check": "tests/night-streets.test.mjs",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 276. Tyler chose Main Street's redraw (\"Use the redraw\"), drawn in Lower Street's and the Lane's own hand and night. Its ground now measures 0.96 of theirs where the test, written for the old plate, required at least 1.0 (the lit street not darker than its back streets). The lower bound is 0.9: it still fails a Main Street much darker than the streets it opens onto, and the upper bound (1.5) and the glowing-puddle rule are unchanged."
   }
  ]
 }

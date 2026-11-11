@@ -79,7 +79,9 @@ def made(path, grade):
 
 def main():
     check = '--check' in sys.argv
-    jobs = [(MAIN, main_street)] + [(p, eased) for p in OVERLAYS] + [(p, side_street) for p in SIDE]
+    # Errata 276: Main Street is the redraw (reference/main-street-redraw), drawn in the side streets' hand; this tool no
+    # longer grades it, nor the gilt sign (tools/art/main-street-gilt.py lays that on the redrawn board).
+    jobs = [(p, eased) for p in OVERLAYS if 'gilt' not in p] + [(p, side_street) for p in SIDE]
     wrong = []
     for path, grade in jobs:
         out = made(path, grade)
