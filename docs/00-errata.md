@@ -7162,6 +7162,8 @@ Found by watching the filmed strips of errata 266.
 - **The raccoon was sold from across the claim.** An item used on a person, where the written pair opens no conversation, was answered from wherever Thad stood: Mr. Pratt opened his coat, counted the money and held out his hand to a man at the far edge of the plate. The person's stand was declared on the target and never walked to. He walks to it first now, exactly as TALK TO does; for a figure that is also a thing in its room (Grievance over her half door) he walks to where the room says to stand for the thing.
 - **Thad going down on his hands and knees at the séance was never seen.** The rule that acts it also sets the state in which the room hides him, and the room hid him first. While he holds a frame of an acted direction he is drawn (`hiddenNow`, `engine/core/Standing.ts`); when the act ends the room hides him as before.
 
+- **And so he walked in front of Grievance.** Replayed with the walk in place, the fork was sounded from in front of her half door: he hid her head, and she walked out of the stall through his back. She has a stand of her own now, to the right of the door, turned to her.
+
 Nothing written changed, and no puzzle, flag or line.
 
 Lesson: `tests/handover.test.ts`: the rule that hides him; the scene stages a handed item as it stages any thing with a stand; and everyone a staged handing-over can be made to has somewhere to stand for it. Doc 55 section 8: an item used on a person is a walk to the person.

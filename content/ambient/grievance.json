@@ -8,6 +8,12 @@
  "y": 430,
  "zone": 2,
  "approachRadius": 40,
+ "walkTo": {
+  "x": 1300,
+  "y": 857,
+  "facing": "left"
+ },
+ "walkToNote": "WHERE THAD STANDS TO SOUND THE FORK FOR HER (errata 267): to the right of her half door, turned to her. From in front of the door he hid her head, and she walked out of her stall through his back.",
  "note": "GRIEVANCE, a mule 'the color of a wet saddle' (doc 54), looking out over her half door. Five whole-mule poses on magenta, generated against a side-by-side with Thad (room-15 operation 4), cut at the door's top by tools/art/room15-figures.py, so `y` is the cut row, not her hooves. Her examine lines and the fork (B3) are the GRIEVANCE hotspot's. Doc 54's 'Her ears follow me round the stable' is frames 2 and 3.",
  "barks": {},
  "barksNote": "A mule; no barks.",
