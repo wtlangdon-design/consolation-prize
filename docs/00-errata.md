@@ -7330,3 +7330,26 @@ Shown the game's deliberate differences from Monkey Island, one of them that it 
 - The played route gives eleven times where it used: the fees, the map, the clarion, the letter, the deed, the log, the raccoon, the money, the form and the certificate.
 
 Lesson: `tests/give.test.ts` (on the game before it, there is no GIVE and every test fails): the verb, its cell and key, every hand-over doc 127 names answering GIVE and USE only where it says either, USE on Sump for the fee completing nothing, and GIVE's own lines.
+
+## 283 · A click with no verb walks, as in the first Monkey Island (Tyler, 2026-11-11)
+
+Shown that a click with no verb chosen performed the thing's own verb (errata 28b: LOOK AT, mostly), where the first Monkey Island walked Guybrush to it and Monkey Island 2 kept the obvious verb for the right button, Tyler chose: "Exactly MI1."
+
+- **A click on a thing or a person with no verb chosen walks him to it,** and does nothing else. The sentence line reads "Walk to THE MAP SELLER" while it is hovered; the ground itself still reads "Walk to". The right button is the left. A verb chosen is what a click does, and clears on use (errata 28b-i, unchanged). An inventory item keeps its own default: nobody walks to his own pocket. `content/ui/verbs.json` `bareClick`.
+- **A person is talked to with TALK TO.** A bare click walks to where a conversation with them would stand, and opens nothing.
+- **Hob at the coach stop is spoken to with TALK TO.** Doc 17 wrote THE LAMP · TALK TO "only before beat 8", when the player has no control, and the build said it after beat 8 too ("He's walking. I'll let him walk."), so TALK TO held beat 9 shut and the only way in was the bare click that looked at him. TALK TO now begins the exchange with no line in front of it; LOOK and LISTEN still do too. `proofs/written-not-built.json` records the line.
+- Exits are walked through by a bare click, as before: a doorway's walk is a walk.
+
+Lesson: `tests/mi1-click.test.ts` (fails under errata 28b, where a bare click on a thing performed its default): a bare click walks, left or right, a chosen verb wins, an item keeps its default, and a person is walked to with nothing opened. `tests/hob-gate.test.ts` now holds TALK TO speaking to Hob. Doc 55 section 8: one row.
+
+## 284 · The read-through of every conversation (Tyler, 2026-11-11)
+
+Tyler, of errata 280 and the conversations as they now play: "Should you audit the script based on where it's landed to see if it fun, MI-esque, and makes sense?" All 486 rows were read in their trees' order, as the lists now open, unfold and empty. Doc 126's "The read-through" records what was found. One change: Sheng's "Why does nobody know this?" waits for "You hold paper on the Improvement Company?", which is what it asks about. Nothing in the writing was rewritten; the silences (Hob's, Winnie's "Nineteen names") are left as written.
+
+Lesson: none -- a reading, recorded in doc 126; the one row it moved is held by the follow-up order test (`tests/follow-ups.test.ts`).
+
+## 285 · The map's Thad, seen while he walks (Tyler, 2026-11-11)
+
+Tyler: "We had created a small sprite Thad for the map. What happened to him?" Nothing had: errata 161 and 163's Thad was on the map and walked. Checked in the real build, the reason he looked gone: the place a player clicks is labelled in large type while the pointer is on it, the road to it runs under the label, and a figure thirty pixels tall walked behind the words for most of the way. The label is held back while he walks; the sentence line still names where he is going.
+
+Lesson: `tests/map-walk.test.ts` holds that the frame hands over no place label during the walk. Doc 55 section 8: one row -- check a claim about what the game does against the running game, not the documents (the audit said this map had no Thad, from two rulings that 163 had overturned).

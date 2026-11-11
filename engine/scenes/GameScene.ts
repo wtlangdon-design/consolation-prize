@@ -1064,7 +1064,9 @@ export class GameScene extends Phaser.Scene {
       // the area stays the conversation's from the greeting to the last word.
       showPanel: this.panelDrawn = panelShows({ opening: this.opening !== null, conversation: this.conversationOpen(),
         panelHidden: this.panelHidden, cutscene: this.carriedCutscene() }),
-      hoveredLocation: this.hoveredLocation,
+      // While he walks the map the place's big label is held back: the road he walks runs under it, and a
+      // figure thirty pixels tall vanished behind the words (Tyler, 2026-11-11: "What happened to him?").
+      hoveredLocation: this.mapWalk ? null : this.hoveredLocation,
       mapToken: this.mapTokenPose(),
       ripples: this.ripples.map((one) => ({ x: one.x, y: one.y, tail: one.tail,
         age: Math.max(0, Math.min(1, (this.time.now - one.start) / Math.max(1, one.end - one.start))) })),
@@ -1738,6 +1740,17 @@ export class GameScene extends Phaser.Scene {
         this.markDirty();
         return;
       }
+    }
+
+    // ERRATA 283 (Tyler: "Exactly MI1"): a person clicked with no verb chosen is walked to, not talked to. TALK TO
+    // talks. He stops at a conversational distance, as for a conversation, and nothing opens.
+    if (npc && chosen === null && this.state.verbs.bareClickWalks) {
+      const gap = Math.round(this.state.heightForZone(npc.zone) * 0.66);
+      const stand = npc.walkTo ?? { x: npc.x + (this.actor.x < npc.x ? -gap : gap), y: npc.y };
+      // Walked as a conversation's approach is (below): to the stand, in the room's coordinates.
+      this.actor.walkTo(stand.x, stand.y);
+      this.markDirty();
+      return;
     }
 
     if (npc?.tree) {

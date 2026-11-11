@@ -127,10 +127,21 @@ export class VerbSystem {
    * object's default answers -- falling back to the verbs file's default for
    * an object that has not declared one, which check-default-verbs reports.
    */
-  verbFor(target: Interactable | undefined, secondary = false): string {
+  verbFor(target: Interactable | undefined, secondary = false, isItem = false): string {
     const fallback = target?.defaultVerb ?? this.file.defaultVerb;
+    // ERRATA 283 (Tyler: "Exactly MI1"): with no verb chosen, a click on a thing or a person walks him to it, and
+    // the right button is the left. An inventory item keeps its own default. Without `bareClick`, errata 28b.
+    if (this.file.bareClick) {
+      if (this.selected) return this.selected;
+      return isItem ? fallback : this.file.bareClick;
+    }
     if (secondary) return fallback;
     return this.selected ?? fallback;
+  }
+
+  /** True when a click with no verb only walks (errata 283). */
+  get bareClickWalks(): boolean {
+    return this.file.bareClick === this.file.walkVerb.id;
   }
 
   get walkVerbId(): string {

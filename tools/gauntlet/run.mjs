@@ -6,6 +6,7 @@ import { browser } from '../lib/chromium.mjs';
 
 import { readJson, ROOT } from '../lib/content.mjs';
 import { refuseAnothersServer, stopGroup } from './own-server.mjs';
+import { verbRect } from './route.mjs';
 import { clickPoint, validateScript } from './schema.mjs';
 import { titleMusic } from './title-music.mjs';
 
@@ -517,6 +518,13 @@ async function drive(page, input, script, beat, state) {
       // silently. R5k.
       const { point, error } = clickPoint(script, action);
       if (error) throw new Error(`input: ${error}`);
+      // A VERB FIRST, as a player chooses one (errata 283: a click with none chosen only walks, as in the first
+      // Monkey Island). The cell is the panel's own, read from content.
+      if (action.verb) {
+        const cell = verbRect(action.verb);
+        await clickPlayArea(page, cell.x + cell.width / 2, cell.y + cell.height / 2);
+        await page.waitForTimeout(150);
+      }
       await clickPlayArea(page, point[0], point[1]);
       continue;
     }

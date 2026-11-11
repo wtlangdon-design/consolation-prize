@@ -44,8 +44,10 @@ test("the watchman's lamp says who carries it, and that figure answers TALK TO t
   const room = content.rooms.get('stage_road')!;
   const lamp = room.hotspots.find((spot) => spot.id === 'lamp')!;
   assert.equal(lamp.heldBy, 'hob', 'a click on Hob is a click on his lamp');
-  assert.ok(lamp.overrides?.TALK_TO, 'his written TALK TO override, which his body could not reach');
-  for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
+  // Errata 283: TALK TO speaks to him -- it begins beat 9 -- rather than playing doc 17's line for before beat 8,
+  // when the player has no control. Under the first Monkey Island's click, TALK TO is how anyone is spoken to.
+  assert.equal(lamp.overrides?.TALK_TO, undefined, 'no line in front of the exchange');
+  for (const verb of ['LOOK_AT', 'LISTEN_TO', 'TALK_TO']) {
     assert.ok(lamp.responses?.[verb]?.every((rule) => rule.set?.T_HOB_SPOKEN === true), `${verb} still speaks to him`);
   }
 });

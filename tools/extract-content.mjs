@@ -127,6 +127,8 @@ function monkeyIslandPlan() {
   let current = null;
   for (const raw of trees.split('\n')) {
     const line = raw.trim();
+    // A section that is not a tree (the read-through) ends the one before it.
+    if (/^## /.test(line)) { current = null; continue; }
     const heading = /^### `?([A-Za-z0-9_]+)`?/.exec(line);
     if (heading) {
       // A tree named twice adds to what was said of it the first time (the keepers, below the trees).
@@ -3517,6 +3519,13 @@ function openingCase() {
     if (!said?.length) throw new Error(`the lamp has no ${verb} response to carry the write`);
     for (const rule of said) rule.set = { ...(rule.set ?? {}), T_HOB_SPOKEN: true };
   }
+  // TALK TO IS SPEAKING TO HIM (errata 283). Doc 17 wrote THE LAMP · TALK TO "only before beat 8", and before beat 8
+  // the player has no control, so the override was never legitimately reachable -- and once a click with no verb
+  // only walks, as in the first Monkey Island, TALK TO is how a player speaks to anyone. After beat 8 it begins the
+  // exchange, with no line of Thad's in front of it: beat 9 is the talk.
+  if (lamp.overrides?.TALK_TO) delete lamp.overrides.TALK_TO;
+  if (lamp.overrides && !Object.keys(lamp.overrides).length) delete lamp.overrides;
+  lamp.responses.TALK_TO = [{ set: { T_HOB_SPOKEN: true } }];
   lamp.setNote = 'EVERY RESPONSE HERE WRITES T_HOB_SPOKEN, which is what holds doc 17 beat 9. '
     + 'Hob is a MOVER and not a target -- there is no rect on him and TALK_TO cannot reach him -- '
     + 'so the lamp he carries is the only part of him a player can address, and this hotspot '

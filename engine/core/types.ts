@@ -2397,6 +2397,9 @@ export interface VerbsFile {
   };
   approachNote?: string;
   /** Verbs that pick an item up to use on something else. Doc 24's USE. */
+  /** Errata 283: what a click with no verb chosen does to a thing or a person -- WALK_TO, as the first Monkey Island. */
+  bareClick?: string;
+  bareClickNote?: string;
   carryVerbs?: string[];
   carryVerbsNote?: string;
   /** What a click on an ambient character performs. */
