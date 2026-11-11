@@ -15,7 +15,8 @@ streets' own scale, and stitched back.
       reads art/staging/room-02/redraw/out-{1,2,3}.png (the operations' outputs; with --self-test, the inputs), crops
       each band, feathers the overlaps (each window weighted by its distance from its own edge), draws the street back
       up to 3700 x 864 with nearest-neighbour (the side streets' square pixels), and writes
-      art/staging/room-02/redraw/candidate-3700x864.png. It does not promote: the builder checks the doors and exits
+      art/staging/room-02/redraw/candidate-3700x864.png. --use N=FILE takes window N from FILE in the staging folder
+      instead (a correction, e.g. --use 2=out-2-fix.png), and records the choice in candidate.json. It does not promote: the builder checks the doors and exits
       against the room first (the brief's checks).
 """
 import os
@@ -55,10 +56,11 @@ def prepare():
         print('wrote', os.path.relpath(out, ROOT))
 
 
-def stitch(self_test=False):
+def stitch(self_test=False, use=None):
+    use = use or {}
     total = np.zeros((BAND, SMALL_W, 3)); weight = np.zeros((BAND, SMALL_W, 1))
     for n, x in enumerate(XS, 1):
-        path = os.path.join(STAGE, f'window-{n}.png' if self_test else f'out-{n}.png')
+        path = os.path.join(STAGE, f'window-{n}.png' if self_test else use.get(n, f'out-{n}.png'))
         image = Image.open(path).convert('RGB')
         assert image.size == CANVAS, f'{path} is {image.size}, not {CANVAS}'
         band = np.asarray(image).astype(float)[AT[1]:AT[1] + BAND, AT[0]:AT[0] + WIN]
@@ -74,6 +76,9 @@ def stitch(self_test=False):
     path = os.path.join(STAGE, 'candidate-3700x864.png')
     out.save(path)
     print('wrote', os.path.relpath(path, ROOT))
+    if not self_test:
+        import json
+        json.dump({str(n): use.get(n, f'out-{n}.png') for n in (1, 2, 3)}, open(os.path.join(STAGE, 'candidate.json'), 'w'), indent=1)
     if self_test:
         a = np.asarray(out).astype(float); b = np.asarray(Image.open(ORIGINAL if os.path.exists(ORIGINAL) else PLATE).convert('RGB')).astype(float)
         print('self-test: mean difference from the plate', round(float(np.abs(a - b).mean()), 2), '(the drawing down and up alone)')
@@ -83,7 +88,9 @@ if __name__ == '__main__':
     if sys.argv[1:2] == ['prepare']:
         prepare()
     elif sys.argv[1:2] == ['stitch']:
-        stitch('--self-test' in sys.argv)
+        use = {int(a.split('=')[0]): a.split('=')[1] for a in sys.argv[sys.argv.index('--use') + 1:] if '=' in a} \
+            if '--use' in sys.argv else {}
+        stitch('--self-test' in sys.argv, use)
     else:
         print(__doc__)
         sys.exit(2)
