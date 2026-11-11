@@ -811,6 +811,8 @@ export class GameScene extends Phaser.Scene {
     // had none: interactive dialogue waited for a click forever, which is what
     // made a conversation read as a menu of prompts rather than a performance.
     this.tickTimeline();
+    this.entering = this.awaitingEntrance(now);
+    if (this.entering) this.markDirty();
     if (this.performance?.tick(now)) this.showPerformance();
     if (this.actors.update(now)) this.markDirty();
     this.sweepSteps(now);
@@ -3510,7 +3512,7 @@ export class GameScene extends Phaser.Scene {
       ending: this.endingFrom === null ? null
         : endingAt(this.lastFrameAt - this.endingFrom, this.endingTiming()).phase,
       performing: this.performance !== null,
-      acting: (this.heldPoses() ?? []).map((pose) => pose.id),
+      acting: [...(this.heldPoses() ?? []).map((pose) => pose.id), ...(this.entering ? ['entrance'] : [])],
       panel: this.panelDrawn,
       optionsShown: this.state.dialogue.isActive && this.performance === null
         ? this.view.dialogueHitboxes(this.state.dialogue.presentOptions(), this.choiceScroll()).filter((box) => box.shown).length : 0,
@@ -4381,14 +4383,36 @@ export class GameScene extends Phaser.Scene {
 
   /** Who can act a direction here: the figures present, and Thad (doc 95; errata 148). */
   private performers() {
-    return performersWith(this.ambient.present, this.state.content.actor);
+    // And whoever waits in the wings for a direction of her own (AmbientExit.onAct; errata 270).
+    return performersWith([...this.ambient.present, ...this.ambient.wings], this.state.content.actor);
   }
+
+  /**
+   * THE BEAT UP IS ACTED BY SOMEBODY NOT YET IN THE ROOM (AmbientExit.onAct; errata 270): she is called, and the beat
+   * does not begin, and holds nobody's frame, until she has walked in. True while it waits.
+   */
+  private awaitingEntrance(now: number): boolean {
+    const beat = this.performance?.current?.poses ?? this.queuedPoses ?? null;
+    if (!beat?.length) { this.entranceTick = null; return false; }
+    const wings = new Set(this.ambient.wings.map((npc) => npc.id));
+    const due = beat.filter((pose) => wings.has(pose.id));
+    if (!due.length) { this.entranceTick = null; return false; }
+    for (const pose of due) this.ambient.summon(pose.id);
+    this.performance?.wait(now);
+    // A queued beat (a thing used, not a conversation) is put off by as long as she has walked.
+    if (!this.performance && this.sayUntil !== null && this.entranceTick !== null) this.sayUntil += now - this.entranceTick;
+    this.entranceTick = now;
+    return true;
+  }
+  private entranceTick: number | null = null;
+  /** Somebody the beat up needs is still walking in (`awaitingEntrance`). */
+  private entering = false;
 
   /** Which figures hold which frames now: an acted direction, in a conversation or queued (doc 95; errata 141). */
   private heldPoses(): HeldPose[] | null {
     // A rule's own picture of him (ResponseRule.holds) stays through an acted beat of somebody else's in the same
     // rule: Thad goes on pulling the plate while the Reverend's beat is played (errata 246).
-    const beat = this.performance?.current?.poses ?? this.queuedPoses ?? null;
+    const beat = this.entering ? null : this.performance?.current?.poses ?? this.queuedPoses ?? null;
     const spoken = this.spokenPose;
     const now = spoken && !beat?.some((pose) => pose.id === spoken.id) ? [...(beat ?? []), spoken] : beat;
     if (!this.lingering) return now;

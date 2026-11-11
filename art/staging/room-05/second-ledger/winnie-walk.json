@@ -1,0 +1,45 @@
+{
+ "sheet": "art/actors/winnie-walk.png",
+ "frames": [
+  [
+   2,
+   2,
+   255,
+   520
+  ],
+  [
+   259,
+   2,
+   255,
+   520
+  ],
+  [
+   516,
+   2,
+   255,
+   520
+  ],
+  [
+   773,
+   2,
+   255,
+   520
+  ],
+  [
+   1030,
+   2,
+   255,
+   520
+  ],
+  [
+   1287,
+   2,
+   255,
+   520
+  ]
+ ],
+ "figureHeight": 518,
+ "drawnFacing": "left",
+ "order": "drawn frames 1 3 4 2 3 4: stride, closing, feet together, twice",
+ "source": "room-05-second-ledger attempt 3 (art/staging/room-05/second-ledger/walk/sheet-03.png)"
+}

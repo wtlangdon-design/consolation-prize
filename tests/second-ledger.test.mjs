@@ -14,11 +14,14 @@ import { readPng } from '../tools/lib/png.mjs';
 const root = new URL('..', import.meta.url);
 const read = (path) => JSON.parse(readFileSync(new URL(path, root), 'utf8'));
 
-test('from T_SECOND_LEDGER on, the book is on the counter, and there is a book in the picture', () => {
+test('once she is back behind her counter, the book is on it, and there is a book in the picture', () => {
   const room = read('content/rooms/assay-office.json');
   const prop = (room.props ?? []).find((one) => one.id === 'second_ledger');
   assert.ok(prop, 'Room 5 never shows the second ledger on the counter');
-  assert.deepEqual(prop.when, { T_SECOND_LEDGER: true });
+  // Errata 270: in her hands at the loose board until Thad leaves; on the counter from his next coming in.
+  assert.deepEqual(prop.when, { T_LEDGER_ON_COUNTER: true });
+  assert.ok(room.onEnter.setWhen.some((rule) => rule.when.T_SECOND_LEDGER === true && rule.set.T_LEDGER_ON_COUNTER === true),
+    'nothing puts the ledger on the counter: coming back into the office does not write T_LEDGER_ON_COUNTER');
   const image = readPng(readFileSync(new URL(prop.sheet, root)));
   const [x, y, w, h] = prop.frame;
   let drawn = 0;

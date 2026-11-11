@@ -100,6 +100,7 @@ for (const path of manifest.ambient) {
 }
 
 const DISTINCT = 0.6;
+const DISTINCT_SKIRT = 0.72;
 const PACE = [0.35, 1.2];
 const DEPTH = 0.1;
 const rooms = new Map(manifest.rooms.map((p) => read(p)).map((r) => [r.id, r]));
@@ -146,7 +147,7 @@ function legOverlap(a, b) {
   }
   return either ? both / either : 1;
 }
-function cycle(who, frames) {
+function cycle(who, frames, skirt = false) {
   assert.ok(frames.length >= 6, `${who} is ${frames.length} frames: a walk needs six to show both strides and both passing poses`);
   const spreads = frames.map(footSpread);
   const widest = Math.max(...spreads);
@@ -158,7 +159,9 @@ function cycle(who, frames) {
   }
   const shares = frames.map((f, i) => legOverlap(f, frames[(i + 1) % frames.length]));
   const mean = shares.reduce((a, b) => a + b, 0) / shares.length;
-  assert.ok(mean < DISTINCT, `${who}'s consecutive frames share ${(mean * 100).toFixed(0)}% of their silhouette below the hem on average: one pose pumped, not a cycle`);
+  // A LONG SKIRT (errata 270): Winnie's hem is at her boots, so below the hem line is skirt in every frame and a
+  // true cycle shares more of it (her walk 68%; the same stride held six times would share 85-90%).
+  assert.ok(mean < (skirt ? DISTINCT_SKIRT : DISTINCT), `${who}'s consecutive frames share ${(mean * 100).toFixed(0)}% of their silhouette below the hem on average: one pose pumped, not a cycle`);
 }
 const cell = (png, [x0, y0, w, h]) => ({
   width: w, height: h, alpha: (x, y) => png.pixels[((y0 + y) * png.width + x0 + x) * 4 + 3] > 128,
@@ -270,7 +273,7 @@ for (const { id, kind, npc, walk } of walks) {
   if (npc.posture !== 'walking') {
     test(`${id}'s ${kind} walk is a cycle of six different poses`, () => {
       const png = readPng(readFileSync(resolve(ROOT, walk.sheet)));
-      cycle(`${id}'s ${kind}`, walk.frames.map((f) => cell(png, f)));
+      cycle(`${id}'s ${kind}`, walk.frames.map((f) => cell(png, f)), walk.skirt === true);
     });
   }
 }

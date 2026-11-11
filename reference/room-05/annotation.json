@@ -195,6 +195,11 @@
         "level": 1,
         "mask": "art/masks/room-05-plane-1.png",
         "note": "The brass cage bars that pass in front of her, read off plate-02 by tools/art/room05-mask.mjs --bars-only. The counter itself is NOT in this mask any more: since Tyler's counter-contact correction (2026-09-04) her behind-counter sheet (art/staging/room-05/winnie-02-counter/) is matted against the ledger's far edge and the counter's back edge by tools/rig/winnie-counter.py, and a counter block from y395 down would mask the hands that rest on the ledger. Assigned to Winnie by her ambient record's clipPlane, not by any walk box."
+      },
+      {
+        "level": 2,
+        "mask": "art/masks/room-05-plane-2.png",
+        "note": "WHAT WINNIE WALKS BEHIND ON HER WAY OUT (errata 270; tools/art/room05-behind-counter.py): plane 1's posts, the counter from its top's back edge down, the open book, the bell jar (its glass as glass) and the hanging lamp. Only her walk's first leg is drawn through it (AmbientExit.behind); nobody stands at this level."
       }
     ],
     "proofPoints": []
@@ -302,9 +307,9 @@
         23
       ],
       "when": {
-        "T_SECOND_LEDGER": true
+        "T_LEDGER_ON_COUNTER": true
       },
-      "note": "THE SECOND LEDGER ON HER COUNTER (errata 181; Tyler, 2026-11-08: \"After Winnie takes it from under the floorboard, the ledger lies on her counter for the rest of the game ... a prop image I can show from T_SECOND_LEDGER on\"). The small green cloth book, closed, between the grille's two brass posts, cut by tools/art/second-ledger-counter.py; wired by errata 269. It is a picture only: THE SECOND LEDGER and THE NAMES as things to examine on it wait on their lines."
+      "note": "THE SECOND LEDGER ON HER COUNTER (errata 181; Tyler, 2026-11-08: \"After Winnie takes it from under the floorboard, the ledger lies on her counter for the rest of the game ... a prop image I can show from T_SECOND_LEDGER on\"). The small green cloth book, closed, between the grille's two brass posts, cut by tools/art/second-ledger-counter.py; wired by errata 269. It is a picture only: THE SECOND LEDGER and THE NAMES as things to examine on it wait on their lines. Errata 270: it lies there once she is back behind the counter (T_LEDGER_ON_COUNTER); until Thad leaves the office it is in her hands at the loose board."
     }
   ]
 }

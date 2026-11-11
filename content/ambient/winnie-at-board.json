@@ -1,0 +1,182 @@
+{
+ "schema": 1,
+ "id": "winnie_at_board",
+ "name": "WINNIE LEDGER",
+ "posture": "standing",
+ "room": "assay_office",
+ "when": {
+  "T_SECOND_LEDGER": true,
+  "T_LEDGER_ON_COUNTER": false
+ },
+ "whenNote": "Errata 270: from the moment she produces the second ledger until Thad next comes into the office. Until the exchange that sends her has drained (the flag lands then) she is here because her direction called her (arrive.onAct).",
+ "standsInFor": "winnie",
+ "speaksAs": "winnie",
+ "x": 765,
+ "y": 770,
+ "zone": 1,
+ "approachRadius": 40,
+ "walkTo": {
+  "x": 960,
+  "y": 800,
+  "facing": "left"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HER AT THE BOARD: to her right, turned to her, clear of the lifted board.",
+ "tree": "WINNIE",
+ "note": "WINNIE AT THE LOOSE BOARD (errata 66 E: she produces the second ledger from under Room 5's floor herself; errata 181 drew it; errata 270 stages it). The only time she is out from behind her counter. She walks out when doc 95 row 74 is reached, kneels at the board's free end, reaches under it and stands with the ledger; she stays there, the ledger in her hands and the board lifted, until Thad leaves the office.",
+ "barks": {},
+ "barksNote": "Her barks are her counter figure's; she says none at the board.",
+ "sprite": {
+  "sheet": "art/actors/winnie-second-ledger.png",
+  "frames": [
+   [
+    1167,
+    2,
+    231,
+    522
+   ],
+   [
+    1167,
+    2,
+    231,
+    522
+   ],
+   [
+    2,
+    2,
+    231,
+    522
+   ],
+   [
+    468,
+    2,
+    231,
+    522
+   ],
+   [
+    701,
+    2,
+    231,
+    522
+   ],
+   [
+    934,
+    2,
+    231,
+    522
+   ]
+  ],
+  "frameNote": "0 and 1 standing, the small green ledger closed against her chest (her rest here) · 2 standing, hands folded · 3 kneeling, hands at the board's end · 4 crouched, reaching under the boards · 5 standing, the ledger open in her hands. Acted: 3 4 5 (doc 95 row 74). Every `breakEvery` seconds she opens the ledger and looks at it (errata 77).",
+  "rate": 0.25,
+  "phase": 0.2,
+  "breaks": [
+   [
+    5,
+    5,
+    5,
+    5,
+    0
+   ]
+  ],
+  "breakEvery": 9,
+  "talkFrame": 0,
+  "provenance": "reference/second-ledger/winnie-01.spec.json",
+  "figureHeight": 517,
+  "stature": 1.0,
+  "props": [
+   {
+    "sheet": "art/objects/room-05/board-lifted.png",
+    "x": 604,
+    "y": 790,
+    "frames": [
+     [
+      462,
+      718,
+      284,
+      73
+     ]
+    ],
+    "note": "THE LOOSE BOARD, LIFTED (errata 181; tools/art/second-ledger.py board): shown while she is at the board, in every frame."
+   }
+  ],
+  "statureNote": "Errata 270: recut at the room's man where she stands (518), as every standing figure is (tests/scale.test.ts). Errata 181 cut her at 0.95 of him."
+ },
+ "arrive": {
+  "path": [
+   [
+    1045,
+    693
+   ],
+   [
+    1605,
+    693
+   ],
+   [
+    1510,
+    745
+   ],
+   [
+    960,
+    742
+   ]
+  ],
+  "heights": [
+   468,
+   468,
+   499,
+   499,
+   518
+  ],
+  "pace": 0.62,
+  "speed": 300,
+  "sheet": "art/actors/winnie-walk.png",
+  "frames": [
+   [
+    2,
+    2,
+    255,
+    520
+   ],
+   [
+    259,
+    2,
+    255,
+    520
+   ],
+   [
+    516,
+    2,
+    255,
+    520
+   ],
+   [
+    773,
+    2,
+    255,
+    520
+   ],
+   [
+    1030,
+    2,
+    255,
+    520
+   ],
+   [
+    1287,
+    2,
+    255,
+    520
+   ]
+  ],
+  "fps": 6,
+  "strideRatio": 0.55,
+  "drawnFacing": "left",
+  "figureHeight": 518,
+  "onAct": true,
+  "behind": {
+   "plane": 2,
+   "legs": 1
+  },
+  "skirt": true,
+  "note": "HER WALK OUT (errata 270; reference/second-ledger/walk-brief.md; tools/art/second-ledger-walk.py). From where she stands at her window (her head where her counter figure's is: drawn 468 tall with her feet on the floor behind the counter at y 693) to the counter's far end, behind the counter, the book, the bell jar and the lamp (plane 2); round the end; back across the front of the room behind Thad; and down to the board's free end. The short way, round the stove end, would be a walk toward the camera, and she has only a profile walk."
+ }
+}

@@ -1617,7 +1617,12 @@ export class Renderer {
       if (moversHidden && figure.mover) continue;
       if (this.bystandersHidden && (figure.npc || figure.walker)) continue;
       if (figure.walker) {
-        this.drawWalker(figure.walker);
+        // BEHIND HER OWN COUNTER for the first of it (AmbientExit.behind; errata 270), and plainly after.
+        const behind = figure.walker.exit.behind;
+        const walker = figure.walker;
+        if (behind && (walker.pose.leg ?? 1) <= behind.legs) this.masked(figure.feetX, figure.feetY, () => this.drawWalker(walker), behind.plane);
+        else this.drawWalker(walker);
+        this.drawLeftBehind(walker.npc);
         continue;
       }
       if (figure.prop) {
@@ -1639,6 +1644,7 @@ export class Renderer {
         const drawnFrame = this.drawAmbient(npc);
         if (drawnFrame !== null) {
           this.drawProps(npc, drawnFrame);
+          this.drawLeftBehind(npc);
         } else {
           // A DECLARED SHEET THAT HAS NOT ARRIVED DRAWS NOTHING, NOT A SLAB.
           // Ambient sheets are deferred assets, so for the first seconds in a
@@ -1710,6 +1716,16 @@ export class Renderer {
     if (tint || grade) this.drawTinted(tint, [left, top, drawW, drawH], draw, grade);
     else draw();
     this.walkerBounds.set(npc.id, [left, top, drawW, drawH]);
+  }
+
+  /**
+   * WHAT SHE LEFT WHERE SHE STOOD (AmbientFile.standsInFor; errata 270): the things drawn with the figure she stands
+   * in for stay where they are, at rest. Winnie's ink stand is hers, drawn with her at the counter; it does not
+   * leave the counter because she has.
+   */
+  private drawLeftBehind(npc: AmbientFile): void {
+    const other = npc.standsInFor ? this.state.content.ambient.get(npc.standsInFor) : undefined;
+    if (other?.sprite?.props?.length) this.drawProps(other, 0);
   }
 
   /** A piece of furniture, 1:1, its bottom row on its base line. See RoomFile.props. */

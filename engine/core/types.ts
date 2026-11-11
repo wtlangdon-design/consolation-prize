@@ -534,6 +534,12 @@ export interface AmbientFile {
    */
   setDown?: string;
   /**
+   * THE SAME PERSON, SOMEWHERE ELSE IN THE ROOM (errata 270). While this figure is here, or on her way in, the one
+   * named is not drawn: Winnie at the loose board is Winnie, and there is nobody behind the counter while she is.
+   * The one swap this makes in view is a turn on the spot: her walk begins where the other stood.
+   */
+  standsInFor?: string;
+  /**
    * HOW HE LEAVES, when `when` stops holding while Thad is in the room. Tyler,
    * 2026-11-01: a character must never just disappear. Without this he is
    * simply absent; with it he walks the path and is gone at its end.
@@ -3295,6 +3301,19 @@ export interface AmbientExit {
    * and then steps away from it (errata 253); without this he would set off as he began to speak.
    */
   afterLines?: boolean;
+  /**
+   * As `arrive` only: SHE COMES OUT WHEN HER DIRECTION IS REACHED (errata 270). Winnie says her line at her counter,
+   * and only then comes round it to the loose board. A figure with this waits in the wings: a direction she acts
+   * (doc 95) can be hers before she is in the room, and when its beat comes up she is called, walks in, and the beat
+   * (and every line after it) waits until she is there. Flags land when an exchange has drained, which is too late
+   * to send anybody anywhere in the middle of one.
+   */
+  onAct?: boolean;
+  /**
+   * The first `legs` legs of the path are walked BEHIND something: the walker is drawn through the room's occlusion
+   * plane of this level for those legs, and plainly after. Winnie's first leg is behind her own counter.
+   */
+  behind?: { plane: number; legs: number };
   /** Pixels per second along the path. */
   speed: number;
   sheet: string;

@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 56 · B 1 · C 108** — 165 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 57 · B 0 · C 108** — 165 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -108,7 +108,7 @@ Counts: **A 56 · B 1 · C 108** — 165 directions, every one flagged `"directi
 | 71 | C | frame | He reaches for his pencil, then puts it down. | dialogue/frame FRA_A1 option 8 |  |  |  |  |  | Errata 172: the one story Frame will not write down, and the only time he doesn't. The joke is the restraint, which a pose can't show, so it stays printed. |
 | 72 | A | pratt | He rakes for a while. | dialogue/pratt PRA_A1 option 5 | pratt | 3 4 3 4 | 2.0 |  |  | Errata 172: his two rake strokes (frames 3 and 4, the ones his idle breaks with), twice, before he answers. |
 | 73 | A | pratt | He rakes. | dialogue/pratt PRA_A1 option 6 | pratt | 3 4 | 1.0 |  |  | Errata 172: one stroke, the short version of the pause above. |
-| 74 | B | winnie | She produces it from under the floor. | dialogue/winnie WIN_B2 option 3 |  |  |  |  |  | Errata 181, WIN_B3 built: her retrieval of the second ledger from Room 5's loose board (errata 66 D, E). Physical, and needs a pose she has not got (round the counter, down to the board) and the board's lifted state, so it stays printed until both are drawn (rule 4; reference/second-ledger/brief.md). Errata 264: her pose is drawn (ducking behind the counter, coming up with the ledger in both hands), and the row stays B: the board lifted is not drawn, and the direction says the floor. |
+| 74 | A | winnie | She produces it from under the floor. | dialogue/winnie WIN_B2 option 3 | thad:stand/left, winnie_at_board | 0 0 0 0 0 0 ; 3 3 4 4 5 5 | 6.0 | 0 ; 5 |  | Errata 270: acted. She comes out from behind her counter when the direction is reached (her walk, errata 270), kneels at the loose board's end (3), reaches under it (4) and stands with the small green ledger open (5), and reads the names from it; the board lies lifted while she is out. Thad turns to her. Was B: her kneeling and the board were drawn (errata 181) and her walk was not. |
 | 75 | C | fanshawe | He stops. For the only time in the game, he is completely still. | dialogue/fanshawe FAN_B1 option 6 |  |  |  |  |  | Errata 184, the war's payoff: the joke is that he is still for the only time in the game, which a held pose would not say. Narration, so it stays printed. |
 | 76 | C | boarding_a | She laughs for some time. | dialogue/amb-boarding-women root option 2 |  |  |  |  |  | Errata 183, Room 37 built: A's whole answer to "Have you ever prospected?" (doc 07 #14-15). The joke is how long she laughs, which a pose cannot hold, so it stays printed (rule 3). |
 | 77 | A | thad | It fumes. Thad retreats, coughing, as far as the claim marker. | combinations (tonic on hole, with the raccoon in) | thad:recoil/back@claim_marker | 0 1 2 3 | 1.6 |  |  | Errata 189's unacted moments (Tyler: all five). He recoils from the hole in his recoil clip, drawn from behind as he stands at it (the cough), then walks back to the claim marker's stand, and the beat lasts until he is there. The fume itself is not drawn: the engine has no smoke, and no image operation was spent on it. |

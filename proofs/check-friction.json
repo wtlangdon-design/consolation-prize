@@ -739,6 +739,12 @@
    "date": "2026-11-10",
    "kind": "loosened",
    "why": "Errata 264. It misfired on real art: Grievance's blanket, drawn in Thad's hands in the red and cream of its own icon (143/51/26), scored 33 on (r+b)/2-g against the limit of 30 with almost no blue in it, and so did his skin in two new poses. Magenta is red AND blue over green, so a pixel whose blue is not over its green now scores nothing. A true key fringe still scores as it did (the key lifts blue over green long before the score reaches 30), and the pixels in the same frames that did carry the key were despilled, not excused."
+  },
+  {
+   "check": "tests/walk-gait.test.mjs",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Errata 270. 'A cycle of six different poses' measures the silhouette below the hem line, which on a man in trousers is his legs. Winnie's skirt reaches her boots: below that line is skirt in every frame, and her walk, in a true order (stride, closing, feet together, twice), shares 68% where the limit is 60%. A walk that declares `skirt` is held to 72% instead. It still fails the fault it was written for: her sheet in the order it was drawn (the open stride five times in six) shares 75%, and fails the feet-pass rule too, which is not loosened. Tyler chose the walk (\"1\") after seeing it move."
   }
  ]
 }
