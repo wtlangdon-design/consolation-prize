@@ -101,3 +101,15 @@ x 1.263.
 - the dawn plate and the funeral notice overlay are re-derived from whatever is promoted.
 
 The seventh operation is held.
+
+## The Company's sign put back (Tyler, 2026-11-11: "It's missing the Consolation Improvement Company sign")
+
+All three window-1 drawings left the board blank. No operation spent: `tools/art/main-street-sign.py out-1-registered.png out-1-signed.png`
+lifts the lettering from the window itself (the shipping plate drawn down; Otsu's threshold on the board, pieces
+touching its frame dropped), puts it on a 2 px grid (the stitch draws it up 1.263x, so a letter pixel is ~2.5 px on the
+street), scales it to the redraw's slightly narrower board (0.923) and centres it there, and paints it in the old gilt
+darkened as the whole redraw is darker, lifted 15%, with a one-pixel shadow. The candidate is stitched from
+`out-1-signed.png` now (`candidate.json`). Old and new at game size: `renders/room-02-main-street-redraw-company-sign.png`.
+
+The lower line is a little cramped at this grain (the M of IMPROVEMENT is the tightest letter). The night overlay that
+lights the sign (the gilt) still has to be re-derived against this board by the builder.
