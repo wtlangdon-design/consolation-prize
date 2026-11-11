@@ -91,7 +91,7 @@
                 "atMost": 3
               }
             },
-            "say": "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he can't get wrong."
+            "say": "My own funeral notice, very prominently posted! 'THE PIANO MAN, MOURNED BY ALL.' At last, Frame has found a way of spelling me he can't get wrong."
           },
           {
             "when": {
@@ -100,13 +100,13 @@
                 "atMost": 4
               }
             },
-            "say": "Claims for sale, claims disputed, maps to Mott's strike. I've met Mott. He'd have bought a map."
+            "say": "Claims for sale, claims disputed, maps to Mott's strike. I've met Mott now. He'd have bought a map. He'd have bought two."
           },
           {
-            "say": "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. He's doing better than anyone.",
+            "say": "Opportunity, pinned up in rows! Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. Somewhere on this board is my fortune. I'm almost sure of it.",
             "repeat": [
-              "The lost dog notice has been up six weeks. The dog is on this street.",
-              "Four claims for sale today. There were three yesterday."
+              "The lost-dog notice has been up six weeks, poor soul. And there's a dog lying right here on this street, looking entirely unlost.",
+              "Four claims for sale today! There were three yesterday. Somebody's going to get a bargain, and I'd like it to be me."
             ]
           }
         ],
@@ -139,8 +139,8 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "They belong to the town. I've read them four times, which I consider a form of ownership.",
-        "OPEN": "They're already facing out. That's the whole design."
+        "PICK_UP": "I wouldn't dream of it. They belong to the town. Though I've read them four times now, which makes me practically a shareholder.",
+        "OPEN": "They're facing out already, bless them. Showing everything to everybody is a notice's whole career."
       },
       "walkTo": {
         "x": 1193,
@@ -168,13 +168,16 @@
                 "atMost": 3
               }
             },
-            "say": "My reflection, in three inches of water. For a dead man, I look surprisingly worried."
+            "say": "My reflection, in three inches of water. For a man the whole town has buried, I look remarkably well. A touch worried about the eyes."
           },
           {
-            "say": "A trough. Three inches of water and a great deal of ambition.",
+            "say": "A trough! Three inches of water and a great deal of ambition. I like it already.",
             "repeat": [
-              "The water hasn't improved. Neither has my opinion of it.",
-              "Three inches. I measured it with a stick. The most scientific thing anyone's done in Consolation this year."
+              "The water hasn't improved. I keep hoping, for both our sakes.",
+              "Three inches exactly. I measured it with a stick, which makes it the most scientific thing anyone's done in Consolation this year. Put that in the Clarion."
+            ],
+            "then": [
+              "We have a lot in common."
             ]
           }
         ],
@@ -198,8 +201,8 @@
         ]
       },
       "overrides": {
-        "USE": "I've drunk from it once. The “once” is doing a great deal of work in that sentence.",
-        "OPEN": "It's a trough. It's entirely open. It's nothing but open."
+        "USE": "I drank from it once, in a spirit of adventure. The “once” is doing a great deal of work in that sentence.",
+        "OPEN": "It's a trough. It's as open as a thing can be, and I admire that in a trough."
       },
       "walkTo": {
         "x": 1940,
@@ -227,13 +230,13 @@
                 "atMost": 4
               }
             },
-            "say": "The dog. He was here before the rumor, and he'll be here after it. I'd like to know his secret."
+            "say": "Good old dog. He was here before the rumor, he'll be here after it, and he's never once looked worried. I'd pay handsomely for his secret, if I had anything to pay with."
           },
           {
-            "say": "A dog with the settled look of an animal that has outlasted several owners.",
+            "say": "Now there's a dog! The settled look of an animal who's outlived several owners and holds no grudge against any of them.",
             "repeat": [
-              "He hasn't moved. He has the air of a creature waiting for the town to finish.",
-              "He's looking at me. I've got nothing to offer, and he knows it."
+              "He hasn't moved an inch. He has the air of a creature politely waiting for the town to finish.",
+              "He's looking at me. I've nothing to offer him yet. Yet, I said. He's welcome to wait."
             ]
           }
         ],
@@ -260,7 +263,7 @@
             "when": {
               "T_DOG_SCRATCHED": false
             },
-            "say": "I have scratched him behind the ear instead. He allowed it, the way he allows the town.",
+            "say": "I've scratched him behind the ear instead. He allowed it graciously, the way he allows the whole town.",
             "set": {
               "T_DOG_SCRATCHED": true
             },
@@ -270,15 +273,15 @@
             "when": {
               "T_DOG_SCRATCHED": true
             },
-            "say": "Once was an introduction. He has gone back to waiting, and I would not interrupt a professional.",
+            "say": "Once was an introduction. He's gone back to his waiting, and I'd never interrupt a professional.",
             "sceneLine": "docs/123-five-more-things-to-find.md::### F-1 · The dog: the lines · **A DOG** · *Main Street* - PICK UP, *again*"
           }
         ]
       },
       "overrides": {
-        "TALK_TO": "Good morning.",
-        "PICK_UP": "I'm not picking up a dog I haven't been introduced to.",
-        "PUSH": "I won't. Look at him."
+        "TALK_TO": "How do you do? Thaddeus Grubb, tuner of pianos, soon to be a man of considerable means. He's taken the news very calmly.",
+        "PICK_UP": "I couldn't possibly. We haven't been properly introduced.",
+        "PUSH": "Push him? Look at that face. I'd sooner push the church."
       },
       "walkTo": {
         "x": 2628,
@@ -302,8 +305,8 @@
           {
             "say": "The tallest thing in Consolation, and the only building that is as deep as it is tall.",
             "repeat": [
-              "Still the only honest building on the horizon.",
-              "Somebody built that properly. I'd like to meet them. I suspect they've left."
+              "Still the only honest building on the horizon. I find I'm terribly fond of it.",
+              "Somebody built that properly, with a level and everything! I'd love to shake their hand. I suspect they've left."
             ]
           }
         ],
@@ -321,9 +324,9 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "It's four hundred yards away and about forty feet tall. I admire the ambition.",
+        "PICK_UP": "It's four hundred yards away and forty feet tall. I have big plans, but not that big.",
         "TALK_TO": "I'm not going to shout at a church from the street. I was raised better than that. Slightly.",
-        "USE": "It's a steeple. Its use is being seen from everywhere, and it's already doing that."
+        "USE": "A steeple's whole use is being seen from everywhere, and it's managing splendidly without me."
       },
       "walkTo": {
         "x": 788,
@@ -361,7 +364,7 @@
                 "atMost": 3
               }
             },
-            "say": "Fresh gilt on the lettering. Business is good. The Company's business is the search, and the search has just outlived its most annoying obstacle. Me."
+            "say": "Fresh gilt on the lettering. Business is good. The Company's business is the search, and the search has just outlived its most annoying obstacle, which was me. I'm not finished being annoying."
           },
           {
             "when": {
@@ -370,13 +373,13 @@
                 "atMost": 4
               }
             },
-            "say": "CONSOLATION IMPROVEMENT COMPANY. Two coats of gilt on a rumor. I've met the man who started it. He'd have stopped at one coat."
+            "say": "CONSOLATION IMPROVEMENT COMPANY. Two coats of gilt on a rumor! I've met the man who started that rumor. He'd have stopped at one coat, and apologized."
           },
           {
-            "say": "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering.",
+            "say": "CONSOLATION IMPROVEMENT COMPANY, in gilt! Now that's a sign with prospects.",
             "repeat": [
-              "Gilt. Actual gilt. In a town where the road is a suggestion.",
-              "Painted twice, and the second time by a better man than the first."
+              "Gilt! Real gilt, in a town where the road is more of a suggestion. That's a company that's going places, and I'd like to go with it.",
+              "Painted twice, and the second time by a far better man. When I've a sign of my own, I'll have him do it."
             ],
             "then": [
               "The only sign in town that's been painted twice."
@@ -394,8 +397,8 @@
         ]
       },
       "overrides": {
-        "PULL": "It's screwed on. Thoroughly. Somebody paid extra for it to stay put.",
-        "TALK_TO": "I'm not going to talk to the sign. I'll talk to the man inside, when he'll see me."
+        "PULL": "It's screwed on, thoroughly, by somebody who was paid extra to be thorough. I respect a man who earns his money.",
+        "TALK_TO": "Talking to a sign is beneath a man of business. I'll talk to the man inside, the moment he'll see me."
       },
       "walkTo": {
         "x": 668,
@@ -423,16 +426,13 @@
                 "atMost": 3
               }
             },
-            "say": "Six inches above the mud. People still step aside for me, then remember I'm dead, and look embarrassed."
+            "say": "Six inches above the mud. People still step aside for me, then remember I'm dead and look terribly embarrassed. I raise my hat to put them at their ease."
           },
           {
-            "say": "Six inches above the mud.",
+            "say": "Six inches above the mud. In Consolation, that's the difference between a gentleman and a prospector, and I intend to be both.",
             "repeat": [
-              "Six inches. I've never been so aware of six inches.",
-              "The boards are good. Somebody spent money on the one thing that keeps a man out of the road."
-            ],
-            "then": [
-              "In Consolation, this is the difference between a gentleman and a prospector."
+              "Six inches! I've never in my life been so grateful for six inches.",
+              "Good, honest boards. Somebody spent real money on the one thing that keeps a man out of the road. God bless him, whoever he was."
             ]
           }
         ],
@@ -451,7 +451,7 @@
       },
       "overrides": {
         "PULL": "The loose board declines to come up. It is loose recreationally, not professionally.",
-        "PUSH": "Third from the end. Up an inch, down an inch. I did that four more times than I needed to."
+        "PUSH": "Third from the end. Up an inch, down an inch! I did that four more times than I needed to, and enjoyed every one."
       },
       "walkTo": {
         "x": 925,
@@ -491,10 +491,13 @@
             "say": "Every pick in those hills is after Mott's strike. Mott never struck anything. They all look so busy."
           },
           {
-            "say": "Gold country. Everyone here has looked at these hills for years and seen a number.",
+            "say": "Gold country! Every man here has looked at these hills for years and seen a number.",
             "repeat": [
-              "Still gold country. Still no gold.",
-              "The same hills as yesterday. I check."
+              "Still gold country, and still, so far as anyone can say, no gold. Early days.",
+              "The same hills as yesterday. I check every time, in case they've changed their minds about me."
+            ],
+            "then": [
+              "Give me a week and I'll see a bigger one."
             ]
           }
         ],
@@ -518,7 +521,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "They're hills.",
+        "PICK_UP": "They're hills. I'm ambitious, but I'm not unreasonable.",
         "TALK_TO": "No.",
         "USE": "I wouldn't know where to begin, and neither would they."
       },
@@ -548,16 +551,13 @@
                 "atMost": 3
               }
             },
-            "say": "The mud. The one thing on this street that treats me exactly as it did before I died."
+            "say": "Dear old mud. The one thing on this street that treats me exactly as it did before I died."
           },
           {
-            "say": "Mud, the full width of the street and six inches deep.",
+            "say": "Mud, the full width of the street and six inches deep! The boardwalk is six inches high. Somebody worked that out, and I'd like to buy him a drink.",
             "repeat": [
-              "The same mud. I've started to recognize individual portions of it.",
+              "The same mud. I've started to recognize individual portions of it, and nod to them.",
               "That portion there, I've named. I won't be sharing the name."
-            ],
-            "then": [
-              "The boardwalk is six inches high. Somebody worked that out."
             ]
           }
         ],
@@ -582,7 +582,7 @@
       },
       "overrides": {
         "PICK_UP": "I pick up some mud. I am now a man holding mud, in a street, at night. I put it back.",
-        "USE": "On what."
+        "USE": "Use it on what? I'm open to suggestions, but not to mud."
       }
     },
     {
@@ -605,7 +605,7 @@
                 "atMost": 2
               }
             },
-            "say": "Two stories in front, one behind, same as ever — but now every doorway says good morning to me by name. Approximately by name."
+            "say": "Two stories in front, one behind, same as ever — but now every doorway says good morning to me by name! Approximately by name. It's a start."
           },
           {
             "when": {
@@ -626,13 +626,10 @@
             "say": "Two stories in front, one behind. I used to call these the town's lie. I've since met the town's lie. These are just carpentry."
           },
           {
-            "say": "Half this street is two stories tall in front and one story deep.",
+            "say": "Half this street is two stories tall in front and one story deep. Consolation is a stage set people have moved into, and honestly, I think they've done wonders with it.",
             "repeat": [
-              "Still two stories of front and nothing behind. I keep hoping the back will turn up.",
+              "Still two stories of front and nothing behind. I keep hoping the back will turn up. It'd be such a nice surprise for everyone.",
               "I've counted. Six fronts, six sheds, one town."
-            ],
-            "then": [
-              "Consolation is a stage set people have moved into."
             ]
           }
         ],
@@ -674,7 +671,7 @@
         ]
       },
       "overrides": {
-        "PUSH": "I push the front of a building. It doesn't fall over. I'm honestly a little surprised.",
+        "PUSH": "I give the front of a building a friendly push. It doesn't fall over. I'm honestly a little surprised, and rather proud of it.",
         "PULL": "If I pull hard enough, the whole town comes down. I haven't decided how I feel about that.",
         "OPEN": "The front is the part that doesn't open. That is its entire function and its entire biography."
       },
@@ -700,9 +697,9 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The Bountiful Nugget. Batwing doors, which swing both ways. I suspect that's the whole philosophy of the place.",
+            "say": "The Bountiful Nugget! Batwing doors, which swing both ways. I suspect that's the whole philosophy of the place, and I can't wait to find out.",
             "repeat": [
-              "Somebody spent money on those doors and nothing else. I've looked.",
+              "Somebody spent good money on those doors and nothing else. I've looked. They're very fine doors.",
               "The Nugget. It's bountiful the way a promise is bountiful."
             ]
           }
@@ -719,7 +716,7 @@
       },
       "overrides": {
         "CLOSE": "They swing. Closing them is a temporary opinion.",
-        "TALK_TO": "I'd have to go in. Going in costs money.",
+        "TALK_TO": "I'd have to go in, and going in costs money. Still, a man of business has to speculate.",
         "PULL": "They swing outward, inward, and for some time afterwards."
       },
       "defaultVerb": "OPEN",
@@ -745,7 +742,7 @@
           {
             "say": "CONSOLATION IMPROVEMENT COMPANY. The door is a great deal heavier than the building needs.",
             "repeat": [
-              "Everyone who goes in comes out pleased. I've watched eleven men do it. I'd like to be the twelfth.",
+              "Everyone who goes in comes out pleased! I've watched eleven men do it, and I'd very much like to be the twelfth.",
               "Three stories from here. I've been round the back. It's one."
             ]
           }
@@ -799,7 +796,7 @@
           {
             "say": "The Consolation Clarion. One press, one man, and the front page of every issue for twelve years has been about a hole nobody can find.",
             "repeat": [
-              "The door's open. The door's always open. He's desperate for somebody to say something quotable.",
+              "The door's open. The door's always open. He's desperate for somebody to say something quotable, and as it happens, I'm extremely quotable. Wait till Providence reads about me.",
               "There's a bill in the window advertising the Clarion, printed by the Clarion, on the Clarion's press."
             ]
           }
@@ -841,7 +838,7 @@
           {
             "say": "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose.",
             "repeat": [
-              "Two miles. It looks further in the morning and considerably further at night.",
+              "Two miles. It looks further in the morning and considerably further at night, but every fortune in the territory is at the far end of it.",
               "Somewhere down there is forty feet of mud for any man fool enough to buy it."
             ]
           }
@@ -857,7 +854,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "It's a road. It's two miles long. No.",
+        "PICK_UP": "It's a road, and it's two miles long. No. But I like that I considered it.",
         "PULL": "It's a road. It's been pulled about enough.",
         "TALK_TO": "There's nobody on it.",
         "CLOSE": "I've considered it. Several of us have."
@@ -982,7 +979,7 @@
           {
             "say": "The Mercantile. Everything a man could need out here, in the window, at prices that suggest he'll need it badly.",
             "repeat": [
-              "Pans, picks and lamp oil in the window, arranged to look like a plan.",
+              "Pans, picks and lamp oil in the window, arranged to look like a plan. It's a very good plan. I want all of it.",
               "The lamp is still lit inside. Out here, a store that stays open is the nearest thing to a church that doesn't pass the plate."
             ]
           }

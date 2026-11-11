@@ -10,8 +10,8 @@
 ## THE NUGGET'S DOORS → Room 3
 
 **LOOK**
-1. "The Bountiful Nugget. Batwing doors, which swing both ways. I suspect that's the whole philosophy of the place."
-2. "Somebody spent money on those doors and nothing else. I've looked."
+1. "The Bountiful Nugget! Batwing doors, which swing both ways. I suspect that's the whole philosophy of the place, and I can't wait to find out."
+2. "Somebody spent good money on those doors and nothing else. I've looked. They're very fine doors."
 3. "The Nugget. It's bountiful the way a promise is bountiful."
 
 **LISTEN**
@@ -21,7 +21,7 @@
 
 **Overrides**
 > CLOSE — "They swing. Closing them is a temporary opinion."
-> TALK TO — "I'd have to go in. Going in costs money."
+> TALK TO — "I'd have to go in, and going in costs money. Still, a man of business has to speculate."
 > PULL — "They swing outward, inward, and for some time afterwards."
 
 ---
@@ -30,7 +30,7 @@
 
 **LOOK**
 1. "The Consolation Clarion. One press, one man, and the front page of every issue for twelve years has been about a hole nobody can find."
-2. "The door's open. The door's always open. He's desperate for somebody to say something quotable."
+2. "The door's open. The door's always open. He's desperate for somebody to say something quotable, and as it happens, I'm extremely quotable. Wait till Providence reads about me."
 3. "There's a bill in the window advertising the Clarion, printed by the Clarion, on the Clarion's press."
 
 **LISTEN**
@@ -48,7 +48,7 @@
 
 **LOOK**
 1. "CONSOLATION IMPROVEMENT COMPANY. The door is a great deal heavier than the building needs."
-2. "Everyone who goes in comes out pleased. I've watched eleven men do it. I'd like to be the twelfth."
+2. "Everyone who goes in comes out pleased! I've watched eleven men do it, and I'd very much like to be the twelfth."
 3. "Three stories from here. I've been round the back. It's one."
 
 **LISTEN**
@@ -67,7 +67,7 @@
 
 **LOOK**
 1. "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose."
-2. "Two miles. It looks further in the morning and considerably further at night."
+2. "Two miles. It looks further in the morning and considerably further at night, but every fortune in the territory is at the far end of it."
 3. "Somewhere down there is forty feet of mud for any man fool enough to buy it."
 
 **LISTEN**
@@ -76,7 +76,7 @@
 3. "Nothing coming back yet. They come back quiet."
 
 **Overrides**
-> PICK UP — "It's a road. It's two miles long. No."
+> PICK UP — "It's a road, and it's two miles long. No. But I like that I considered it."
 > PULL — "It's a road. It's been pulled about enough."
 > TALK TO — "There's nobody on it."
 > CLOSE — "I've considered it. Several of us have."

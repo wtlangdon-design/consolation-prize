@@ -472,9 +472,9 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The Bountiful Nugget. Batwing doors, which swing both ways. I suspect that's the whole philosophy of the place.",
+            "say": "The Bountiful Nugget! Batwing doors, which swing both ways. I suspect that's the whole philosophy of the place, and I can't wait to find out.",
             "repeat": [
-              "Somebody spent money on those doors and nothing else. I've looked.",
+              "Somebody spent good money on those doors and nothing else. I've looked. They're very fine doors.",
               "The Nugget. It's bountiful the way a promise is bountiful."
             ]
           }
@@ -491,7 +491,7 @@
       },
       "overrides": {
         "CLOSE": "They swing. Closing them is a temporary opinion.",
-        "TALK_TO": "I'd have to go in. Going in costs money.",
+        "TALK_TO": "I'd have to go in, and going in costs money. Still, a man of business has to speculate.",
         "PULL": "They swing outward, inward, and for some time afterwards."
       },
       "defaultVerb": "OPEN",
@@ -517,7 +517,7 @@
           {
             "say": "CONSOLATION IMPROVEMENT COMPANY. The door is a great deal heavier than the building needs.",
             "repeat": [
-              "Everyone who goes in comes out pleased. I've watched eleven men do it. I'd like to be the twelfth.",
+              "Everyone who goes in comes out pleased! I've watched eleven men do it, and I'd very much like to be the twelfth.",
               "Three stories from here. I've been round the back. It's one."
             ]
           }
@@ -560,7 +560,7 @@
           {
             "say": "The Consolation Clarion. One press, one man, and the front page of every issue for twelve years has been about a hole nobody can find.",
             "repeat": [
-              "The door's open. The door's always open. He's desperate for somebody to say something quotable.",
+              "The door's open. The door's always open. He's desperate for somebody to say something quotable, and as it happens, I'm extremely quotable. Wait till Providence reads about me.",
               "There's a bill in the window advertising the Clarion, printed by the Clarion, on the Clarion's press."
             ]
           }
@@ -602,7 +602,7 @@
           {
             "say": "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose.",
             "repeat": [
-              "Two miles. It looks further in the morning and considerably further at night.",
+              "Two miles. It looks further in the morning and considerably further at night, but every fortune in the territory is at the far end of it.",
               "Somewhere down there is forty feet of mud for any man fool enough to buy it."
             ]
           }
@@ -618,7 +618,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "It's a road. It's two miles long. No.",
+        "PICK_UP": "It's a road, and it's two miles long. No. But I like that I considered it.",
         "PULL": "It's a road. It's been pulled about enough.",
         "TALK_TO": "There's nobody on it.",
         "CLOSE": "I've considered it. Several of us have."

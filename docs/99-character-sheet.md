@@ -79,7 +79,7 @@ The facts in each come from docs 01, 04, 07 and 27. The angles are new.
 ## THADDEUS GRUBB
 - **Wants:** gold, in quantity, soon. Second, to be taken seriously as a man with an ear.
 - **Of himself:** a man of business who happens to be a piano tuner, on the brink of a fortune.
-- **Talks:** contractions; quick; enthusiastic. Prices things without being asked. Reports disaster calmly and hope excitedly. Says "I have decided" once a room, when the formality is the joke.
+- **Talks:** warm, buoyant and a little grand: a flourish, then an honest beat (his full voice is under "How each one sounds", errata 289). Prices things without being asked. Reports disaster calmly and hope excitedly. Says "I have decided" once a room, when the formality is the joke.
 - **Runs:**
   - his ear: he can hear what is wrong with anything and is a little proud of it;
   - his four dollars;
@@ -237,12 +237,50 @@ Six of the cast speak briefly. Part Two describes five of them in nearly the sam
 | The stage driver | he is leaving | a complaint, delivered over his shoulder |
 
 ## THADDEUS GRUBB
-- **Shape:** quick, in runs; a plan announced before it has been thought through; "and" joining things that should not be joined. He is the only one who talks in exclamations of hope.
-- **His words:** money in exact sums; his ear (flat, sharp, a quarter-tone, "pitch"); "I have decided"; his own name in full.
-  - **Never:** sarcasm, "I suppose", a sigh, or a joke at someone else's expense. Guybrush quipped; Thad means it.
-- **When cornered:** he doesn't dodge. He overshares, offers a credential nobody asked for, and carries on.
-- **Sounds like:** "I've tuned a cathedral organ. A bell is nothing." / "I'm Thaddeus Grubb. You'll have heard of me."
-- **Not to be confused with:** Frame, who is also eager. Frame wants a story about Thad; Thad wants to be the story.
+*Rewritten by errata 289. Tyler, 2026-11-11: "I haven't been loving his lines. He's so abrupt in the way he talks. He needs more personality and character and charisma and charm."*
+
+**What the audit found.** This page has always called Thad quick, enthusiastic and "the only one who talks in exclamations of hope". The lines never caught up with it. Across the game he has about 4,400 lines, and they read like this:
+- **Not one exclamation mark** in all of them.
+- **Short sentences:** nine words a sentence when he looks at something, six when he listens, five when he talks to people. Three-quarters of what he says in conversation is six words or fewer.
+- **A catalogue, not a man.** His LOOK lines open on "The" or "A" and describe the object: only one in five has "I" in it. He reports the world like a clerk reading an inventory.
+- **The first voice survives underneath.** Doc 01 asked for "the flat, procedural tone of a man reading a train timetable". Doc 59 loosened that, but its passes mostly added contractions. The deadpan stayed, and deadpan with no warmth under it reads as abrupt.
+
+**A hero we root for.** *Tyler, the same afternoon: "Guybrush was memorable because he was earnest and had a mission and energy and spunk. I don't mind Thad having deadpan moments, but we need a character we can root for and care about and want to succeed."* That is the centre of everything below. Charm without a want gives a pleasant narrator. The player stays with Thad because:
+- **He has a mission, and says so.** *Tyler, asked what Thad's dream is: "Make good, go home somebody."* He is a piano tuner from Providence whom nobody back home took seriously, and they told him he'd be home in a month with nothing. His father believed in him enough to write a letter of introduction, sealed, to the man who was meant to give him his start. He means to make his fortune and go home somebody.
+  - **The player hears it once, plainly,** on the road into town, in his own words (doc 17, beat 11; Tyler: "One clear line, then echoes"). The errand (Pike, the undertaker) still comes from the town, never from him (errata 279).
+  - **After that it echoes:** in what he notices and wants, room by room. Providence, the fortune, a sign of his own, being quoted in the papers. An echo is a glance, never a speech, and never more than one or two a room.
+  - **It supersedes doc 01's "Motive: gold. Concrete, greedy, unromantic."** He still wants the gold, and any character can still move him with a dollar. But the gold is how he means to become somebody, and that is what the player roots for. Doc 01's arc is unchanged and lands harder: he does go home somebody, by giving the fortune away.
+- **He has energy and spunk.** He tries things, gets knocked flat, and bounces straight back with a new plan. A setback is a joke he lands calmly, followed at once by the next idea. He never sulks and never gives up.
+- **He is earnest.** He means what he says. He believes people, likes them, wants them to like him, and is kind to anyone who has less than he does: the dog, the raccoon, the man leaving tomorrow.
+- **The deadpan is a beat, not a voice.** He can land a dry line when the world lets him down. It comes after the hope, as the honest landing, and never instead of it. A line that has no hope, no want and no Thad in it is the abrupt line Tyler heard.
+
+**Who he is, so the charm has somewhere to come from.**
+- **He likes everything, and everyone, on sight,** and gives them the benefit of the doubt while they rob him. He is delighted to be here.
+- **He is a performer.** A piano tuner who thinks of himself as a man of business and a gentleman of the West. He introduces himself, pays compliments, and narrates his own plans with a flourish he hasn't quite earned.
+- **He is vain about exactly one thing,** his ear. He's proud of it the way other men are proud of a horse.
+- **He is an optimist with a plan,** and every object might be the start of a fortune.
+- **He is courteous to everything:** mules, dogs, troughs and churches. He would apologise to a door.
+
+**How a line of his is built.**
+- **Flourish first, honest beat last.** He opens with delight, admiration or a plan, and the line turns on a short true tag. The deadpan comes *after* the warmth, never instead of it. Before: "A trough. Three inches of water and a great deal of ambition." After: "A trough! Three inches of water and a great deal of ambition. I like it already. We have a lot in common."
+- **He reacts; he doesn't catalogue.** Most LOOK lines have him in them: what he thinks, wants, admires or plans.
+- **The rhythm varies.** One long, buoyant sentence, then a short one. Never three clipped fragments in a row.
+- **Exclamations are his.** Roughly one LOOK in four. He is the only person in the game who uses them hopefully.
+- **His words:**
+  - splendid, capital, a man of business, prospects, enterprise;
+  - musical terms used with pride: pitch, a quarter-tone, B flat, "in tune";
+  - exact money;
+  - "I have decided", once a room.
+- **In conversation** he speaks in whole, sociable sentences: greetings, compliments, offers, introductions, his credentials. An interview question in five words is not him.
+
+**What stays.**
+- **LISTEN keeps its register.** Doc 05 makes LISTEN the truth: shorter than LOOK, often a fragment, never a joke on the LOOK. The three load-bearing LISTEN lines are never rewritten and must stay indistinguishable from the rest. So LISTEN lines stay short and are not given the flourish. His charm there is a tuner's precision and his care for what he hears, not length.
+- Puzzle facts, clue lines (doc 94), act truths (doc 92) and every flag stay as they are. Room 36's echo of the steeple stays.
+- **Never:** sarcasm, a sigh, weariness, a sneer, a joke at someone weaker, a modern word, or explaining the joke. Guybrush quipped; Thad means it.
+
+**Sounds like:** "Now there's a dog! The settled look of an animal who's outlived several owners and holds no grudge against any of them." / "I've tuned a cathedral organ. A bell is nothing."
+
+**Not to be confused with:** Frame, who is also eager. Frame wants a story about Thad; Thad wants to be the story.
 
 ## MISS WINNIE LEDGER
 - **Shape:** two to eight words. Imperatives and corrections. A second sentence only to close a door.

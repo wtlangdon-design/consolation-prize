@@ -79,23 +79,23 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 *The most-visited screen in the game. Nine hotspots. Lines must survive two hundred selections.*
 
 **THE FALSE FRONTS**
-> **LOOK:** "Half this street is two stories tall in front and one story deep. Consolation is a stage set people have moved into."
+> **LOOK:** "Half this street is two stories tall in front and one story deep. Consolation is a stage set people have moved into, and honestly, I think they've done wonders with it."
 > **LISTEN:** "Wind. There's a great deal of nothing behind half of these."
 
 **THE IMPROVEMENT COMPANY SIGN**
-> **LOOK:** "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. The only sign in town that's been painted twice."
+> **LOOK:** "CONSOLATION IMPROVEMENT COMPANY, in gilt! Now that's a sign with prospects. The only sign in town that's been painted twice."
 > **LISTEN:** "Nothing. It's the quietest building on the street, and it's always full."
 
 **THE WATER TROUGH**
-> **LOOK:** "A trough. Three inches of water and a great deal of ambition."
+> **LOOK:** "A trough! Three inches of water and a great deal of ambition. I like it already. We have a lot in common."
 > **LISTEN:** "Something is living in it. I've decided not to pursue this."
 
 **THE BOARDWALK**
-> **LOOK:** "Six inches above the mud. In Consolation, this is the difference between a gentleman and a prospector."
+> **LOOK:** "Six inches above the mud. In Consolation, that's the difference between a gentleman and a prospector, and I intend to be both."
 > **LISTEN:** "Loose board, third from the end. Everyone in town steps over it without thinking. Nobody has ever fixed it."
 
 **POSTED NOTICES**
-> **LOOK:** "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. He's doing better than anyone."
+> **LOOK:** "Opportunity, pinned up in rows! Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. Somewhere on this board is my fortune. I'm almost sure of it."
 > **LISTEN:** "Paper, in wind. A great deal of it."
 
 **THE CHURCH STEEPLE** *(distant)*
@@ -103,15 +103,15 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "The bell is a half-step flat. A man has rung it by hand for six years, and he doesn't care."
 
 **A DOG**
-> **LOOK:** "A dog with the settled look of an animal that has outlasted several owners."
+> **LOOK:** "Now there's a dog! The settled look of an animal who's outlived several owners and holds no grudge against any of them."
 > **LISTEN:** "Breathing. Contented. He's the only solvent resident of Consolation."
 
 **THE MUD** *(again)*
-> **LOOK:** "The same mud. I've started to recognize individual portions of it."
+> **LOOK:** "The same mud. I've started to recognize individual portions of it, and nod to them."
 > **LISTEN:** "Nothing new."
 
 **THE HILLS**
-> **LOOK:** "Gold country. Everyone here has looked at these hills for years and seen a number."
+> **LOOK:** "Gold country! Every man here has looked at these hills for years and seen a number. Give me a week and I'll see a bigger one."
 > **LISTEN:** "Nothing. They're extremely large, and they aren't doing anything."
 
 ---
@@ -1318,15 +1318,15 @@ bark budget, not here.
 ## ROOM 2 — MAIN STREET
 
 **THE FALSE FRONTS** *(act: 2)*
-> **LOOK:** "Two stories in front, one behind, same as ever — but now every doorway says good morning to me by name. Approximately by name."
+> **LOOK:** "Two stories in front, one behind, same as ever — but now every doorway says good morning to me by name! Approximately by name. It's a start."
 > **LISTEN:** "Wind behind them, and under it, my own name being discussed. Approximately my name."
 
 **POSTED NOTICES** *(act: 3)*
-> **LOOK:** "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he can't get wrong."
+> **LOOK:** "My own funeral notice, very prominently posted! 'THE PIANO MAN, MOURNED BY ALL.' At last, Frame has found a way of spelling me he can't get wrong."
 > **LISTEN:** "Paper in wind. One of those sheets is my whole official existence, flapping."
 
 **THE IMPROVEMENT COMPANY SIGN** *(act: 3)*
-> **LOOK:** "Fresh gilt on the lettering. Business is good. The Company's business is the search, and the search has just outlived its most annoying obstacle. Me."
+> **LOOK:** "Fresh gilt on the lettering. Business is good. The Company's business is the search, and the search has just outlived its most annoying obstacle, which was me. I'm not finished being annoying."
 
 **A DOG** *(act: 3)*
 > **LISTEN:** "He knows me. Tail, twice. The one resident who's never read a newspaper, so the one resident I'm still alive to."
@@ -1338,32 +1338,32 @@ bark budget, not here.
 > **LISTEN:** "Wind, and two men agreeing I was a fine fellow. Neither one ever met me. I'm touched."
 
 **THE WATER TROUGH** *(act: 3)*
-> **LOOK:** "My reflection, in three inches of water. For a dead man, I look surprisingly worried."
+> **LOOK:** "My reflection, in three inches of water. For a man the whole town has buried, I look remarkably well. A touch worried about the eyes."
 > **LISTEN:** "Something's still living in it. So am I, whatever the paper says."
 
 **THE BOARDWALK** *(act: 3)*
-> **LOOK:** "Six inches above the mud. People still step aside for me, then remember I'm dead, and look embarrassed."
+> **LOOK:** "Six inches above the mud. People still step aside for me, then remember I'm dead and look terribly embarrassed. I raise my hat to put them at their ease."
 
 **THE MUD** *(act: 3)*
-> **LOOK:** "The mud. The one thing on this street that treats me exactly as it did before I died."
+> **LOOK:** "Dear old mud. The one thing on this street that treats me exactly as it did before I died."
 > **LISTEN:** "Not a sound. The mud sent no flowers."
 
 **THE HILLS** *(act: 3)*
 > **LOOK:** "Every pick in those hills is still looking for Mott's strike. Nobody's looking for me. I find I mind."
 
 **POSTED NOTICES** *(act: 4)*
-> **LOOK:** "Claims for sale, claims disputed, maps to Mott's strike. I've met Mott. He'd have bought a map."
+> **LOOK:** "Claims for sale, claims disputed, maps to Mott's strike. I've met Mott now. He'd have bought a map. He'd have bought two."
 > **LISTEN:** "Paper in wind, every sheet rustling about one man. He's heard it for twelve years."
 
 **THE IMPROVEMENT COMPANY SIGN** *(act: 4)*
-> **LOOK:** "CONSOLATION IMPROVEMENT COMPANY. Two coats of gilt on a rumor. I've met the man who started it. He'd have stopped at one coat."
+> **LOOK:** "CONSOLATION IMPROVEMENT COMPANY. Two coats of gilt on a rumor! I've met the man who started that rumor. He'd have stopped at one coat, and apologized."
 
 **THE FALSE FRONTS** *(act: 4)*
 > **LOOK:** "Two stories in front, one behind. I used to call these the town's lie. I've since met the town's lie. These are just carpentry."
 > **LISTEN:** "Wind behind them, and nothing else. They never pretended otherwise."
 
 **A DOG** *(act: 4)*
-> **LOOK:** "The dog. He was here before the rumor, and he'll be here after it. I'd like to know his secret."
+> **LOOK:** "Good old dog. He was here before the rumor, he'll be here after it, and he's never once looked worried. I'd pay handsomely for his secret, if I had anything to pay with."
 
 **THE HILLS** *(act: 4)*
 > **LOOK:** "Every pick in those hills is after Mott's strike. Mott never struck anything. They all look so busy."
