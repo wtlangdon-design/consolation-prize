@@ -455,8 +455,14 @@
           "id": "winnie4",
           "tag": "COMIC",
           "text": "Are you all right?",
-          "afterUse": "remove",
-          "say": "I am professionally offended, Mr. Grubb. It is the worst kind."
+          "afterUse": "retain",
+          "say": "I am professionally offended, Mr. Grubb. It is the worst kind.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still offended. I'll tell you when it stops. It won't."
+            }
+          ]
         },
         {
           "id": "winniex",
@@ -571,8 +577,14 @@
           "id": "winnie2",
           "tag": "TOPIC",
           "text": "So my claim is worthless.",
-          "afterUse": "remove",
-          "say": "Comprehensively. It's certified. It's the most certain thing you own."
+          "afterUse": "retain",
+          "say": "Comprehensively. It's certified. It's the most certain thing you own.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Certified worthless. Asking twice won't lower it. Nothing could."
+            }
+          ]
         },
         {
           "id": "winnie3",
@@ -585,8 +597,14 @@
           "id": "winnie4",
           "tag": "COMIC",
           "text": "Was it the raccoon?",
-          "afterUse": "remove",
-          "say": "The raccoon is not an assayable substance. I have told you this."
+          "afterUse": "retain",
+          "say": "The raccoon is not an assayable substance. I have told you this.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "I have told you this twice now. I'm keeping count."
+            }
+          ]
         },
         {
           "id": "winniex",

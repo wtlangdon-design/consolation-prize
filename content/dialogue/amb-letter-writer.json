@@ -109,7 +109,8 @@
               "line": "You're not bad. You're honest, which is a phase."
             }
           ],
-          "afterUse": "remove"
+          "repeat": "So you keep saying. They'd sell better with a lie or two in. Everybody else's do.",
+          "afterUse": "retain"
         },
         {
           "id": "letter_writerx",

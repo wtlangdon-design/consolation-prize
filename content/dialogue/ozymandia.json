@@ -41,9 +41,10 @@
         {
           "id": "ozymandia2",
           "tag": "TOPIC",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "text": "How does the rod work?",
-          "say": "It is drawn to the hidden metal."
+          "say": "It is drawn to the hidden metal.",
+          "repeat": "It is drawn to the hidden metal. Asking twice is a dollar."
         },
         {
           "id": "ozymandia6",
@@ -58,7 +59,7 @@
         {
           "id": "ozymandia7",
           "tag": "TOPIC",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "text": "Do you know Ezra Pike?",
           "exchange": [
             {
@@ -72,7 +73,8 @@
           ],
           "when": {
             "T_PIKE_DEAD": false
-          }
+          },
+          "repeat": "The undertaker. Free, and no atmosphere whatsoever."
         },
         {
           "id": "ozymandia8",
@@ -96,7 +98,7 @@
         {
           "id": "ozymandia3",
           "tag": "COMIC",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "text": "Does it ever not work?",
           "exchange": [
             {
@@ -108,6 +110,7 @@
               "line": "It has occasionally been early."
             }
           ],
+          "repeat": "Never. I am adding the question to your account.",
           "after": [
             "ozymandia2"
           ]

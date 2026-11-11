@@ -129,7 +129,8 @@ function monkeyIslandPlan() {
     const line = raw.trim();
     const heading = /^### `?([A-Za-z0-9_]+)`?/.exec(line);
     if (heading) {
-      current = { waits: new Map(), flags: new Map(), stays: new Set(), goes: new Set(), added: [] };
+      // A tree named twice adds to what was said of it the first time (the keepers, below the trees).
+      current = miPlan.get(heading[1]) ?? { waits: new Map(), flags: new Map(), stays: new Set(), goes: new Set(), added: [] };
       miPlan.set(heading[1], current);
       continue;
     }

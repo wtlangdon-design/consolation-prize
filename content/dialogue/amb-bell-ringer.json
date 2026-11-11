@@ -74,8 +74,9 @@
           "id": "bell_ringer5",
           "text": "Doesn't it bother you?",
           "tag": "COMIC",
+          "repeat": "Ask me after the noon bell. I won't hear you. That's also the qualification.",
           "say": "Nothing bothers me. That's the qualification.",
-          "afterUse": "remove"
+          "afterUse": "retain"
         },
         {
           "id": "bell_ringerx",
