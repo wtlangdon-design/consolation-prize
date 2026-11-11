@@ -2178,13 +2178,19 @@ for (const [spec, rule] of personBullets) {
   const gatedObstacles = (ann.obstacles ?? []).filter((one) => one.when);
   const steadyObstacles = (ann.obstacles ?? []).filter((one) => !one.when);
   const gate = gatedObstacles.length ? Object.entries(gatedObstacles[0].when) : null;
-  if (gate && (gate.length !== 1 || typeof gate[0][1] !== 'boolean'
+  if (gate && (gate.length < 1 || gate.some(([, value]) => typeof value !== 'boolean')
     || gatedObstacles.some((one) => JSON.stringify(one.when) !== JSON.stringify(gatedObstacles[0].when)))) {
-    fail('obstacles: a gated obstacle\'s `when` is one boolean flag, the same for every gated obstacle');
+    fail('obstacles: a gated obstacle\'s `when` is boolean flags, the same for every gated obstacle');
   }
+  // MORE THAN ONE FLAG (errata 271: Room 5's loose board is up while T_SECOND_LEDGER holds and T_LEDGER_ON_COUNTER
+  // does not). A condition is flags that all hold, so "not all of them" is one floor for each way of failing: the
+  // first flag wrong; the first right and the second wrong; and so on. Exactly one floor is enabled in any state.
   const floorSets = gate
-    ? [{ obstacles: steadyObstacles, suffix: '', enabledWhen: { [gate[0][0]]: !gate[0][1] } },
-      { obstacles: ann.obstacles, suffix: `_${gate[0][0].toLowerCase()}`, enabledWhen: { [gate[0][0]]: gate[0][1] } }]
+    ? [...gate.map(([flag, value], index) => ({
+      obstacles: steadyObstacles, suffix: index === 0 ? '' : `_not_${flag.toLowerCase()}`,
+      enabledWhen: { ...Object.fromEntries(gate.slice(0, index)), [flag]: !value },
+    })),
+    { obstacles: ann.obstacles, suffix: `_${gate[0][0].toLowerCase()}`, enabledWhen: Object.fromEntries(gate) }]
     : [{ obstacles: ann.obstacles ?? [], suffix: '', enabledWhen: undefined }];
   const carve = (band, obstacles = steadyObstacles) => {
     let pieces = [band];

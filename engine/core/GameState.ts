@@ -223,6 +223,8 @@ export class GameState {
   private scroll = 0;
   private boxCache: WalkBoxes | null = null;
   private boxesFor: string | null = null;
+  /** Which gated boxes were enabled when the cache was built. */
+  private boxFloor = '';
   /** Doc 22 item 9: runtime object state, keyed room/object. Saved. */
   private objectStates = new Map<string, string>();
   /** Objects whose ownership has passed to the actor. Saved. */
@@ -1273,10 +1275,15 @@ export class GameState {
   get boxes(): WalkBoxes | undefined {
     const declared = this.room.walkBoxes;
     if (!declared) return undefined;
-    if (this.boxesFor !== this.currentRoomId || !this.boxCache) {
+    // AND REBUILT WHEN THE FLOOR CHANGES UNDER HIM (errata 271): a box's `enabledWhen` was read once, on entering,
+    // so a floor that changes while he stands in the room -- the loose board lifted in front of him -- did not.
+    const gated = declared.some((box) => box.enabledWhen);
+    const floor = gated ? declared.map((box) => (box.enabledWhen && !this.flags.test(box.enabledWhen) ? '0' : '1')).join('') : '';
+    if (this.boxesFor !== this.currentRoomId || !this.boxCache || floor !== this.boxFloor) {
       this.boxCache = new WalkBoxes(declared, (when) => this.flags.test(when),
         this.room.navigation?.frontOnly ?? []);
       this.boxesFor = this.currentRoomId;
+      this.boxFloor = floor;
     }
     return this.boxCache;
   }

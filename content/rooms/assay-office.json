@@ -679,6 +679,9 @@
   "walkBoxes": [
     {
       "id": "mud_far",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": false
+      },
       "points": [
         {
           "x": 60,
@@ -712,6 +715,9 @@
     },
     {
       "id": "mud_mid",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": false
+      },
       "points": [
         {
           "x": 60,
@@ -746,6 +752,9 @@
     },
     {
       "id": "mud_near",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": false
+      },
       "points": [
         {
           "x": 60,
@@ -775,6 +784,382 @@
       },
       "neighbours": [
         "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_far_not_t_ledger_on_counter",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": true
+      },
+      "points": [
+        {
+          "x": 60,
+          "y": 700
+        },
+        {
+          "x": 1690,
+          "y": 700
+        },
+        {
+          "x": 1690,
+          "y": 743
+        },
+        {
+          "x": 60,
+          "y": 743
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_mid_not_t_ledger_on_counter"
+      ]
+    },
+    {
+      "id": "mud_mid_not_t_ledger_on_counter",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": true
+      },
+      "points": [
+        {
+          "x": 60,
+          "y": 743
+        },
+        {
+          "x": 1690,
+          "y": 743
+        },
+        {
+          "x": 1690,
+          "y": 787
+        },
+        {
+          "x": 60,
+          "y": 787
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_far_not_t_ledger_on_counter",
+        "mud_near_not_t_ledger_on_counter"
+      ]
+    },
+    {
+      "id": "mud_near_not_t_ledger_on_counter",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": true
+      },
+      "points": [
+        {
+          "x": 60,
+          "y": 787
+        },
+        {
+          "x": 1690,
+          "y": 787
+        },
+        {
+          "x": 1690,
+          "y": 830
+        },
+        {
+          "x": 60,
+          "y": 830
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_mid_not_t_ledger_on_counter"
+      ]
+    },
+    {
+      "id": "mud_far_0_t_second_ledger",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": false
+      },
+      "points": [
+        {
+          "x": 60,
+          "y": 700
+        },
+        {
+          "x": 452,
+          "y": 700
+        },
+        {
+          "x": 452,
+          "y": 743
+        },
+        {
+          "x": 60,
+          "y": 743
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_mid_0_t_second_ledger"
+      ]
+    },
+    {
+      "id": "mud_far_1_t_second_ledger",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": false
+      },
+      "points": [
+        {
+          "x": 758,
+          "y": 700
+        },
+        {
+          "x": 1690,
+          "y": 700
+        },
+        {
+          "x": 1690,
+          "y": 743
+        },
+        {
+          "x": 758,
+          "y": 743
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_mid_1_t_second_ledger"
+      ]
+    },
+    {
+      "id": "mud_mid_0_t_second_ledger",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": false
+      },
+      "points": [
+        {
+          "x": 60,
+          "y": 743
+        },
+        {
+          "x": 452,
+          "y": 743
+        },
+        {
+          "x": 452,
+          "y": 787
+        },
+        {
+          "x": 60,
+          "y": 787
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_far_0_t_second_ledger",
+        "mud_near_0_t_second_ledger"
+      ]
+    },
+    {
+      "id": "mud_mid_1_t_second_ledger",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": false
+      },
+      "points": [
+        {
+          "x": 758,
+          "y": 743
+        },
+        {
+          "x": 1690,
+          "y": 743
+        },
+        {
+          "x": 1690,
+          "y": 787
+        },
+        {
+          "x": 758,
+          "y": 787
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_far_1_t_second_ledger",
+        "mud_near_1_t_second_ledger"
+      ]
+    },
+    {
+      "id": "mud_near_0_t_second_ledger",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": false
+      },
+      "points": [
+        {
+          "x": 60,
+          "y": 787
+        },
+        {
+          "x": 452,
+          "y": 787
+        },
+        {
+          "x": 452,
+          "y": 830
+        },
+        {
+          "x": 60,
+          "y": 830
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_mid_0_t_second_ledger",
+        "mud_near_2_t_second_ledger"
+      ]
+    },
+    {
+      "id": "mud_near_1_t_second_ledger",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": false
+      },
+      "points": [
+        {
+          "x": 758,
+          "y": 787
+        },
+        {
+          "x": 1690,
+          "y": 787
+        },
+        {
+          "x": 1690,
+          "y": 830
+        },
+        {
+          "x": 758,
+          "y": 830
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_mid_1_t_second_ledger",
+        "mud_near_2_t_second_ledger"
+      ]
+    },
+    {
+      "id": "mud_near_2_t_second_ledger",
+      "enabledWhen": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": false
+      },
+      "points": [
+        {
+          "x": 452,
+          "y": 796
+        },
+        {
+          "x": 758,
+          "y": 796
+        },
+        {
+          "x": 758,
+          "y": 830
+        },
+        {
+          "x": 452,
+          "y": 830
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_near_0_t_second_ledger",
+        "mud_near_1_t_second_ledger"
       ]
     }
   ],
