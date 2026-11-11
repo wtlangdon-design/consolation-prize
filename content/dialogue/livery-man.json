@@ -82,11 +82,8 @@
           "afterUse": "remove",
           "text": "What's that tune?",
           "say": "That's what the fella whistled. Twelve years I've been getting it wrong.",
-          "set": {
-            "T_HUM_HEARD": true
-          },
           "when": {
-            "T_GRIEVANCE_MOTT": true
+            "T_HUM_HEARD": true
           }
         },
         {
@@ -112,7 +109,7 @@
           "id": "livery_man6",
           "tag": "PROGRESS",
           "afterUse": "remove",
-          "text": "Has she ever moved for anybody?",
+          "text": "Your board says she went out once. Twelve years ago, four days, and nobody wrote down where.",
           "exchange": [
             {
               "speaker": "livery_man",
@@ -121,10 +118,18 @@
             {
               "speaker": "livery_man",
               "line": "Never saw him again. Never saw her move again, either."
+            },
+            {
+              "speaker": "livery_man",
+              "line": "He tips his chair back and goes on humming, under his breath.",
+              "direction": true
             }
           ],
           "set": {
             "T_GRIEVANCE_MOTT": true
+          },
+          "when": {
+            "T_BOARD_GRIEVANCE": true
           },
           "puzzle": {
             "B2": "complete"

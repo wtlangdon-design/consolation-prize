@@ -5415,7 +5415,8 @@ function liveryTree() {
   const ROUTE = {
     // Errata 245 (doc 117 O-5): he gives leave; Thad takes it off her himself (Room 15's hotspot).
     5: { set: { T_BLANKET_ALLOWED: true } },
-    6: { puzzle: { B2: 'complete' } },
+    // Errata 278 (doc 125): he goes back to humming, which is what LISTEN then hears. The row's last direction is kept.
+    6: { puzzle: { B2: 'complete' }, trailingDirection: true },
     7: { set: { ASSAY_PAIR_20: true } },
   };
   const options = [];
@@ -5430,8 +5431,11 @@ function liveryTree() {
     if (!tag || !text || !said.lines.length) throw new Error(`doc 04 LIV_A1: option ${number} does not read`);
     const state = rest.join(' ');
     const option = { id: `${SPEAKER}${number}`, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text };
-    if (said.lines.length === 1 && said.lines[0].speaker === SPEAKER) option.say = said.lines[0].line;
-    else option.exchange = said.lines;
+    const route0 = ROUTE[number] ?? {};
+    const trailing = route0.trailingDirection ? [...reply.matchAll(/\*\(([^)]*)\)\*/g)].map((m) => m[1]).filter((d) => d !== 'beat').pop() : undefined;
+    const spokenLines = trailing ? [...said.lines, { speaker: SPEAKER, line: trailing, direction: true }] : said.lines;
+    if (spokenLines.length === 1 && spokenLines[0].speaker === SPEAKER) option.say = spokenLines[0].line;
+    else option.exchange = spokenLines;
     const flags = [...state.matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1])
       .filter((f) => (!/req `/.test(state) || !state.includes(`req \`${f}\``)) && !state.includes(`unless \`${f}\``));
     const again = againCell ? /"([^"]+)"/.exec(againCell)?.[1] : undefined;
@@ -5531,8 +5535,11 @@ function ozymandiaTree() {
     for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 OZY_A1 option ${number} staging: ${d}\n`);
     if (!tag || !text || !said.lines.length) throw new Error(`doc 04 OZY_A1: option ${number} does not read`);
     const option = { id: `${SPEAKER}${number}`, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text };
-    if (said.lines.length === 1 && said.lines[0].speaker === SPEAKER) option.say = said.lines[0].line;
-    else option.exchange = said.lines;
+    const route0 = ROUTE[number] ?? {};
+    const trailing = route0.trailingDirection ? [...reply.matchAll(/\*\(([^)]*)\)\*/g)].map((m) => m[1]).filter((d) => d !== 'beat').pop() : undefined;
+    const spokenLines = trailing ? [...said.lines, { speaker: SPEAKER, line: trailing, direction: true }] : said.lines;
+    if (spokenLines.length === 1 && spokenLines[0].speaker === SPEAKER) option.say = spokenLines[0].line;
+    else option.exchange = spokenLines;
     const req = /req `([A-Z_0-9]+)`/.exec(responseCell);
     if (req) option.when = { [req[1]]: true };
     const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(responseCell);

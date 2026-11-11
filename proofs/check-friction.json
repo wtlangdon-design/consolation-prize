@@ -757,6 +757,24 @@
    "date": "2026-11-11",
    "kind": "loosened",
    "why": "Errata 276. Tyler chose Main Street's redraw (\"Use the redraw\"), drawn in Lower Street's and the Lane's own hand and night. Its ground now measures 0.96 of theirs where the test, written for the old plate, required at least 1.0 (the lit street not darker than its back streets). The lower bound is 0.9: it still fails a Main Street much darker than the streets it opens onto, and the upper bound (1.5) and the glowing-puddle rule are unchanged."
+  },
+  {
+   "check": "content/checks/narration-allowlist.json",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Errata 278: two phrases reached a fourth subject with doc 125's lines, which Tyler approved verbatim (\"Approve\") and the builder may not rewrite: \"four days\" (Thad's question quotes the board of names' fact) and \"time like\" (\"sags every time, like a step worn hollow\"). Genuinely looser by those two, named in the PR for Tyler."
+  },
+  {
+   "check": "content/checks/narration-allowlist.json",
+   "date": "2026-11-10",
+   "kind": "reviewed",
+   "why": "Errata 278, the review the third loosening in fourteen days asks for. All three were approved new writing reaching a fourth subject (errata 226's seed, doc 110's hearse, doc 125's livery), not the check misfiring on a correct line, and the builder may not rewrite approved lines to get past it: no tune is made and nothing is retired. One misfire was found and is put to the twice-monthly review rather than tuned here: phrases are counted across punctuation (\"every time, like a step\" is \"time like\"; \"Nothing. It's waiting\" is \"nothing it's waiting\"). Tried in this pull request: bounding phrases to a clause takes fourteen entries off the list but, once short sentences are still read whole, surfaces twelve new two-word findings (\"still air\", \"somewhere inside\"), which are the voice pass's to judge, not the builder's to allowlist. Keep the check; it is the only one that hears Thad repeating himself."
+  },
+  {
+   "check": "tests/room-15.test.ts",
+   "date": "2026-11-10",
+   "kind": "loosened",
+   "why": "Errata 278: not a misfire but the design changing under the test. B2's test asserted that option 4, asked, writes T_HUM_HEARD; Tyler approved doc 125, where the hum is heard by LISTEN and option 4 waits on it. The rewritten test asserts more than the old one (the question hidden before the board, the board's repeat, no hum before the story, the LISTEN rule unmarked), and nothing it held about B2's completion or the refusal was dropped."
   }
  ]
 }

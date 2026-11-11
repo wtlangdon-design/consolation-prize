@@ -1265,9 +1265,18 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "dialogue:LIVERY_MAN:LIV_A1:livery_man4"
+    "room:livery:livery_man:LISTEN_TO"
    ],
-   "note": "Doc 04 LIV_A1 option 4: the livery man hums the tune, badly (errata 68 F). B3 needs it."
+   "note": "Doc 04 LIV_A1 option 4: the livery man hums the tune, badly (errata 68 F). B3 needs it. Errata 278: written by LISTEN TO THE LIVERY MAN after he has told the story (doc 125); LIV_A1 option 4 now waits on it."
+  },
+  {
+   "id": "T_BOARD_GRIEVANCE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:livery:board_of_names:LOOK_AT"
+   ],
+   "note": "Errata 278 (doc 125): THE BOARD OF NAMES has been read; its first LOOK says somebody took Grievance out twelve years ago. Opens LIV_A1 option 6, asked from it."
   },
   {
    "id": "T_GRIEVANCE_MOTT",

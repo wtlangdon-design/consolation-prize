@@ -1765,6 +1765,13 @@
       "speaker": "ozymandia",
       "words": "She takes a Form 12-C from a stack of them and writes in purple ink.",
       "where": "rooms/ozymandias_tent stake USE"
+    },
+    {
+      "n": 166,
+      "class": "C",
+      "speaker": "livery_man",
+      "words": "He tips his chair back and goes on humming, under his breath.",
+      "where": "dialogue/livery-man LIV_A1 option 6"
     }
   ]
 }

@@ -850,14 +850,26 @@
    "room": "livery"
   },
   {
+   "id": "B2.1b",
+   "puzzle": "B2",
+   "do": "verb",
+   "verb": "LOOK_AT",
+   "on": "board_of_names",
+   "expect": {
+    "flags": {
+     "T_BOARD_GRIEVANCE": true
+    }
+   },
+   "note": "Errata 278 (doc 125): the board says somebody took her out twelve years ago."
+  },
+  {
    "id": "B2.2",
    "puzzle": "B2",
    "do": "talk",
    "npc": "livery_man",
    "choose": [
     "livery_man7",
-    "livery_man6",
-    "livery_man4"
+    "livery_man6"
    ],
    "leave": true,
    "expect": {
@@ -866,10 +878,22 @@
     ],
     "flags": {
      "T_GRIEVANCE_MOTT": true,
-     "T_HUM_HEARD": true,
      "ASSAY_PAIR_20": true
     }
    }
+  },
+  {
+   "id": "B2.3",
+   "puzzle": "B2",
+   "do": "verb",
+   "verb": "LISTEN_TO",
+   "on": "livery_man",
+   "expect": {
+    "flags": {
+     "T_HUM_HEARD": true
+    }
+   },
+   "note": "Errata 278: he goes back to humming, and the fourth bar sags."
   },
   {
    "id": "G1.1",

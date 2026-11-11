@@ -320,7 +320,8 @@
     {
      "site": "dialogue:LIVERY_MAN:LIV_A1:livery_man6",
      "requires": [
-      "n:LIVERY_MAN/LIV_A1"
+      "n:LIVERY_MAN/LIV_A1",
+      "T_BOARD_GRIEVANCE=true"
      ],
      "yields": [
       "o:LIVERY_MAN/LIV_A1/livery_man6",

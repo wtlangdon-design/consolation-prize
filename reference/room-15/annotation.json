@@ -309,5 +309,39 @@
    "id": "hay_dust",
    "note": ""
   }
- ]
+ ],
+ "peopleExamine": {
+  "livery_man": [
+   {
+    "ref": "docs/125-the-livery-by-hand.md::### THE LIVERY MAN, AFTER THE STORY",
+    "when": {
+     "T_GRIEVANCE_MOTT": true
+    },
+    "verbs": [
+     "LISTEN_TO"
+    ],
+    "set": {
+     "T_HUM_HEARD": true
+    }
+   },
+   {
+    "ref": "docs/125-the-livery-by-hand.md::### THE LIVERY MAN, BEFORE THE STORY",
+    "when": {
+     "T_GRIEVANCE_MOTT": false
+    },
+    "verbs": [
+     "LISTEN_TO"
+    ]
+   }
+  ]
+ },
+ "peopleExamineNote": "Errata 278 (doc 125, approved): LISTEN TO THE LIVERY MAN, three lines before he has told the story and three after; the first after writes T_HUM_HEARD, unmarked.",
+ "verbSets": {
+  "board_of_names": {
+   "LOOK_AT": {
+    "T_BOARD_GRIEVANCE": true
+   }
+  }
+ },
+ "verbSetsNote": "Errata 278 (doc 125): the board's own first LOOK (doc 09) says somebody hired Grievance twelve years ago for four days; reading it opens LIV_A1 option 6, asked from it. Nothing marks it."
 }

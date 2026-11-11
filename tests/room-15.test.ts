@@ -2,8 +2,8 @@
  * ROOM 15, THE LIVERY STABLE: its puzzles, played through the game state from
  * the room's own fixtures (content/fixtures/room-15.json).
  *
- * B2 (doc 57): LIV_A1's refusal, then the man she moved for, and only then
- * the tune. The blanket on loan (LIV_A1 option 5, doc 23): the bin is drawn
+ * B2 (doc 57): LIV_A1's refusal, then the man she moved for, asked from the
+ * board of names, and only then the tune, heard by LISTENing (errata 278). The blanket on loan (LIV_A1 option 5, doc 23): the bin is drawn
  * bare and the blanket is no subject while it is out. B3 (doc 54, doc 57):
  * the tuning fork on the mule in the stall -- refused before the hum and before the
  * hero knows where Vessel is; with both, the livery man's line, the ride
@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
+import { HeadlessPlayer } from './lib/headless-player.ts';
 
 // PLAYS: B2, B3
 
@@ -62,19 +63,55 @@ const ruleOf = (state: GameState, label: string) => {
   return rule;
 };
 
-test('B2: the tune waits for the man she moved for; option 6 is B2 and opens it', async () => {
+// ERRATA 278 (doc 125): the errand by hand. The question is asked from the
+// board, and the tune is heard, not asked for.
+const boardOf = (state: GameState) => {
+  const board = state.room.hotspots.find((one) => (one.responses?.LOOK_AT ?? []).some((rule) => rule.set?.T_BOARD_GRIEVANCE));
+  assert.ok(board, 'a hotspot whose LOOK writes T_BOARD_GRIEVANCE');
+  return state.findTarget(board.id)!;
+};
+const listenToHim = (state: GameState) => {
+  state.dialogue.end();
+  return new HeadlessPlayer(state).verb(hostOf(state).id, 'LISTEN_TO');
+};
+
+test('B2: asked from the board; the tune is heard, then asked about; option 6 is B2', async () => {
   const state = await inState('r15-a');
   state.dialogue.start(hostOf(state).tree as string);
   assert.equal(state.dialogue.positionSnapshot().node, 'LIV_A1');
+  assert.ok(!shown(state).includes(opt(state, '6')), 'nothing to ask from before the board is read');
   assert.ok(!shown(state).includes(opt(state, '4')), 'no tune before the story');
   state.dialogue.select(opt(state, '1'));
   assert.ok(!state.puzzleComplete('B2'), 'the refusal alone is not B2');
+  state.dialogue.end();
+
+  const before = listenToHim(state);
+  assert.ok(before.say, 'he can be listened to before the story');
+  assert.ok(!state.flags.get('T_HUM_HEARD'), 'no hum before the story');
+
+  const first = state.interact(boardOf(state), 'LOOK_AT');
+  assert.ok(state.flags.get('T_BOARD_GRIEVANCE'), 'the board has been read');
+  const second = state.interact(boardOf(state), 'LOOK_AT');
+  assert.notEqual(second.say, first.say, 'the board\'s second look is its repeat, not its first line again');
+
+  state.dialogue.start(hostOf(state).tree as string);
+  assert.ok(shown(state).includes(opt(state, '6')), 'now the question from the board');
   state.dialogue.select(opt(state, '6'));
   assert.ok(state.flags.get('T_GRIEVANCE_MOTT'));
   assert.ok(state.puzzleComplete('B2'));
-  assert.ok(shown(state).includes(opt(state, '4')), 'now the tune');
+  assert.ok(!shown(state).includes(opt(state, '4')), 'not asked for: the tune has to be heard first');
+
+  const hum = listenToHim(state);
+  assert.notEqual(hum.say, before.say, 'after the story he is humming');
+  assert.ok(state.flags.get('T_HUM_HEARD'), 'hearing it is what B3 needs');
+  // Unmarked (invariant 3's rule, kept here): the rule is a LISTEN like any other, with no cue of its own.
+  const rules = state.content.rooms.get(state.roomId)?.peopleResponses?.[hostOf(state).id]?.LISTEN_TO ?? [];
+  assert.ok(rules.length, 'his LISTEN lines are in the room');
+  for (const rule of rules) assert.deepEqual(Object.keys(rule).filter((key) => !['when', 'say', 'repeat', 'set'].includes(key)), []);
+
+  state.dialogue.start(hostOf(state).tree as string);
+  assert.ok(shown(state).includes(opt(state, '4')), 'now he can be asked what the tune is');
   state.dialogue.select(opt(state, '4'));
-  assert.ok(state.flags.get('T_HUM_HEARD'));
 });
 
 test('the blanket on loan: the bin is bare and the blanket is no subject while it is out', async () => {
