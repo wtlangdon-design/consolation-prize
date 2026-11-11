@@ -1193,6 +1193,16 @@
      "quote": "Every cent. Every time you climb those stairs, son, you're walking on your own four dollars."
     }
    ]
+  },
+  {
+   "id": "lamp-talk-before-beat-8",
+   "why": "Errata 283: doc 17 wrote THE LAMP · TALK TO \"only before beat 8\", when the player has no control, so it was never legitimately said; built, it answered TALK TO after beat 8 and held beat 9 shut. TALK TO on Hob now begins the exchange.",
+   "lines": [
+    {
+     "doc": "17-opening-sequence",
+     "quote": "He's walking. I'll let him walk. He seems to know where he's going, which makes one of us."
+    }
+   ]
   }
  ]
 }

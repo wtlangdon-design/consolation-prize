@@ -823,6 +823,24 @@
    "date": "2026-11-11",
    "kind": "loosened",
    "why": "Errata 282: the expected verb count is ten, with GIVE (Tyler, 2026-11-11: \"Add GIVE as a 10th verb\"). The check is as strict as before at the new count."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 283: the pool-rotation test read the hills' verb from a bare click, which now walks (as the first Monkey Island did); it chooses PUSH each time, which is what it meant. Its assertions are unchanged."
+  },
+  {
+   "check": "tests/hob-gate.test.ts",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 283: TALK TO on Hob now begins beat 9 instead of playing doc 17's line for before beat 8 (when the player has no control). The test held the override's presence; it now holds TALK TO speaking to him beside LOOK and LISTEN -- stricter, one more verb."
+  },
+  {
+   "check": "tools/gauntlet/opening.json",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 283: beat 9's input chooses TALK TO before clicking the lamp, as a player now must; a bare click only walks."
   }
  ]
 }

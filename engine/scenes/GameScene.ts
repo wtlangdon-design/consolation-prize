@@ -1740,6 +1740,17 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
+    // ERRATA 283 (Tyler: "Exactly MI1"): a person clicked with no verb chosen is walked to, not talked to. TALK TO
+    // talks. He stops at a conversational distance, as for a conversation, and nothing opens.
+    if (npc && chosen === null && this.state.verbs.bareClickWalks) {
+      const gap = Math.round(this.state.heightForZone(npc.zone) * 0.66);
+      const stand = npc.walkTo ?? { x: npc.x + (this.actor.x < npc.x ? -gap : gap), y: npc.y };
+      // Walked as a conversation's approach is (below): to the stand, in the room's coordinates.
+      this.actor.walkTo(stand.x, stand.y);
+      this.markDirty();
+      return;
+    }
+
     if (npc?.tree) {
       // A CONVERSATIONAL DISTANCE, NOT THE APPROACH RADIUS. `approachRadius`
       // is 40 world pixels and exists to decide when a bark fires; used as a

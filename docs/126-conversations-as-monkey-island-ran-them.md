@@ -167,3 +167,19 @@ The plank, and arithmetic, follow "What rules?"
 "Woooo." is the séance's running gag: the wind, then the persistent wind (doc 111).
 
 - `seance1` stays
+
+### SHENG
+
+"Why does nobody know this?" asks about the paper he holds on the Company, so it follows his saying so (the read-through, errata 284).
+
+- `sheng3` in `SHE_A1` waits for `sheng2`
+
+## The read-through (errata 284)
+
+*Tyler, 2026-11-11: "Should you audit the script based on where it's landed to see if it fun, MI-esque, and makes sense?" Every conversation was read as it now plays, all 486 rows, in the trees' own order: what opens the list, what each answer raises, what is left once the asked rows have gone.*
+
+- **It reads as Monkey Island's conversations do.** Short opening lists, a joke in nearly every one, answers that build on what Thad says rather than shutting him down (doc 99), and the running gags carried by the keepers. Nothing in the writing was rewritten.
+- **One row asked before its subject:** Sheng's "Why does nobody know this?" was offered beside "You hold paper on the Improvement Company?", and could be asked first. It now follows it (SHENG, above).
+- **Silences are written as silences.** Hob's "Do you know anything about Claim One?", "Do you ever sleep?" and "You could have picked a better thumb", and Winnie's "Nineteen names, Miss Ledger.", answer with nothing; that is the joke and the beat, and they are left as they are.
+- **Pike in every opening list is on purpose.** He is why Thad came, as Guybrush's wanting to be a pirate was; the run of townspeople who all send him to the undertaker is doc 98's joke. Thad no longer announces it on arrival (errata 279), so the list is where the player first sees it.
+- **A conversation asked out is short, not empty.** Once its rows have gone, a townsperson offers the way out and whatever was kept; the Pike questions change once he is dead. As Monkey Island's did.

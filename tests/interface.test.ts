@@ -547,7 +547,9 @@ test('object overrides repeat; global pools rotate', async () => {
   // The hills have no PUSH override, so PUSH falls to the global pool.
   const hills = state.findTarget('hills')!;
   const pool = content.verbFallbacks.pools['PUSH']!;
-  const drawn = [state.interact(hills, state.verbs.verbFor(hills)).say, state.interact(hills, state.verbs.verbFor(hills)).say, state.interact(hills, state.verbs.verbFor(hills)).say];
+  // PUSH, chosen each time: a verb clears on use (Q74), and a click with none chosen walks (errata 283).
+  const pushHills = () => { state.verbs.selectVerb('PUSH'); return state.interact(hills, state.verbs.verbFor(hills)).say; };
+  const drawn = [pushHills(), pushHills(), pushHills()];
   assert.equal(new Set(drawn).size, Math.min(3, pool.length), 'the pool rotates rather than repeating');
   for (let index = 1; index < drawn.length; index += 1) {
     assert.notEqual(drawn[index], drawn[index - 1], 'and never repeats consecutively');

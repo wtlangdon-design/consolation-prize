@@ -3169,7 +3169,7 @@ export class Renderer {
     // nothing selected is the hovered object's own default verb. Showing the
     // selection alone would have left the line blank in the state the ruling
     // makes the starting one.
-    const verb = this.state.verbs.verbFor(target ?? undefined);
+    const verb = this.state.verbs.verbFor(target ?? undefined, false, target ? this.state.isItemTarget(target) : false);
     const verbLabel = this.state.verbs.labelFor(verb);
     // Walking is not a sentence about a thing. Doc 06's walk template is just
     // the verb, so the road does not read "Walk to THE MUD".
@@ -3182,7 +3182,10 @@ export class Renderer {
     if (verb === this.state.verbs.walkVerbId) {
       // An Exit is an Interactable that names a destination. Nothing else does.
       const departure = targetName && target && 'to' in target;
-      if (!departure) return format(ui.sentence.walkTemplate, { verb: verbLabel });
+      // ERRATA 283: a thing walked to with no verb chosen is named, as the first Monkey Island's "Walk to the
+      // door" was. The ground itself -- a target whose own default is walking -- still is not.
+      const walkedTo = targetName && target && target.defaultVerb !== verb;
+      if (!departure && !walkedTo) return format(ui.sentence.walkTemplate, { verb: verbLabel });
       return format(ui.sentence.template, { verb: verbLabel, target: targetName });
     }
     const held = this.state.heldItem;
