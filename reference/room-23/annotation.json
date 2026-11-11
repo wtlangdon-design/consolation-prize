@@ -543,5 +543,20 @@
    }
   },
   "note": "Errata 238, as errata 207 B graded four figures into their night: Prosperity is night, and act3-estate-sale's hen was painted in daylight browns and its raccoon halfway out in neutral greys, a little lighter than the sitting raccoon, whose sheet is painted into the night (reference/act3-estate-sale/handback.md). The moon's colour as a multiply, then the hen a little darker and greyer, so she reads as a brown hen at night rather than in daylight, and the raccoon in the sitting sheet's cool grey. Graded by sheet for him (FigureLight.sheets): his sitting sheet is not touched. Judged by eye at the hole beside the sitting raccoon. tools/check-figure-light.mjs measures both against Thad."
- }
+ },
+ "motion": [
+  {
+   "kind": "twinkle",
+   "rect": [
+    0,
+    0,
+    1920,
+    170
+   ],
+   "amount": 25,
+   "rate": 0.15,
+   "id": "stars",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  }
+ ]
 }

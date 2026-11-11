@@ -932,5 +932,20 @@
    ]
   }
  ],
- "docBulletsNote": "Errata 246, doc 115 II-1 and doc 118 O-3 and O-6: the collection. The Reverend (sowerby_gate) is asked and refuses; THE TOWN, COMING DOWN used with a hymnal in hand puts the plate in Thad's hands (T_HOLDS_PLATE; Room.actorPoses); PULL on it is the game's solving PULL (doc 114 X-1) and pays the linen money, which arriving used to. The wreath is taken from Pike's marker once the town has gone."
+ "docBulletsNote": "Errata 246, doc 115 II-1 and doc 118 O-3 and O-6: the collection. The Reverend (sowerby_gate) is asked and refuses; THE TOWN, COMING DOWN used with a hymnal in hand puts the plate in Thad's hands (T_HOLDS_PLATE; Room.actorPoses); PULL on it is the game's solving PULL (doc 114 X-1) and pays the linen money, which arriving used to. The wreath is taken from Pike's marker once the town has gone.",
+ "motion": [
+  {
+   "kind": "twinkle",
+   "rect": [
+    0,
+    0,
+    1920,
+    170
+   ],
+   "amount": 30,
+   "rate": 0.15,
+   "id": "stars",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  }
+ ]
 }

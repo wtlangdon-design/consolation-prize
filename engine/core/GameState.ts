@@ -1540,11 +1540,13 @@ export class GameState {
    */
   evidencePairFor(itemId: string, npcId: string): CombinationPair | null {
     const pair = (this.content.combinations?.pairs ?? []).find((one) => one.item === itemId
-      && one.room === this.currentRoomId && one.target === npcId && one.opens && one.completes);
+      && one.room === this.currentRoomId && one.target === npcId && one.opens && (one.completes || one.opensNode));
     if (!pair) return null;
     if ((pair.requiresPuzzles ?? []).some((id) => this.puzzles.get(id) !== 'complete')) return null;
     if (Object.entries(pair.requiresFlags ?? {}).some(([flag, value]) => (this.flags.get(flag) === true) !== value)) return null;
-    if (this.puzzles.get(pair.completes as string) === 'complete') return null;
+    // A PAIR THAT ONLY OPENS (errata 274: the death certificate on Frame opens FRA_E1, whose own option completes E5)
+    // is live while its flags say so, and completes nothing itself.
+    if (pair.completes && this.puzzles.get(pair.completes) === 'complete') return null;
     return pair;
   }
 
@@ -1556,13 +1558,13 @@ export class GameState {
    * before -- a cancelled approach reaches this for nothing.
    */
   commitEvidence(pair: CombinationPair): void {
-    if (!pair.completes) throw new Error(`the pair ${pair.item} on ${pair.target} completes nothing`);
+    if (!pair.completes && !pair.opensNode) throw new Error(`the pair ${pair.item} on ${pair.target} completes nothing and opens nothing`);
     this.serial += 1;
     const id = `with:${this.currentRoomId}:${pair.target}:${pair.item}#${this.serial}`;
     const prefix = `with/${this.currentRoomId}/${pair.target}/${pair.item}`;
     const journal = this.journals.newJournal(id);
     const bundle = journal.reserve(`${id}/bundle`, [
-      { id: `${prefix}#${pair.completes}`, kind: 'puzzleProgress', puzzle: pair.completes, status: 'complete' },
+      ...(pair.completes ? [{ id: `${prefix}#${pair.completes}`, kind: 'puzzleProgress' as const, puzzle: pair.completes, status: 'complete' as const }] : []),
       ...flagEffects(prefix, pair.set),
     ]);
     journal.mark('line');

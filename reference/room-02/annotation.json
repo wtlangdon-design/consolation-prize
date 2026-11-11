@@ -745,5 +745,33 @@
    }
   ]
  },
- "exitTransitScenesNote": "Errata 246, doc 115 II-5: while the Colonel is in the Company's doorway the way in is him."
+ "exitTransitScenesNote": "Errata 246, doc 115 II-5: while the Colonel is in the Company's doorway the way in is him.",
+ "motion": [
+  {
+   "kind": "twinkle",
+   "rect": [
+    0,
+    0,
+    3700,
+    170
+   ],
+   "amount": 60,
+   "rate": 0.15,
+   "id": "stars",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  },
+  {
+   "kind": "shimmer",
+   "rect": [
+    1935,
+    568,
+    130,
+    14
+   ],
+   "amount": 1,
+   "rate": 0.5,
+   "id": "trough",
+   "note": ""
+  }
+ ]
 }

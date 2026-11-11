@@ -2237,5 +2237,20 @@
       "rooted": true,
       "note": "Doc 115 II-1 (errata 246): the plate stays in his hands, and he where he stands, until he pulls. The Reverend has the other side of it."
     }
+  ],
+  "motion": [
+    {
+      "kind": "twinkle",
+      "rect": [
+        0,
+        0,
+        1920,
+        170
+      ],
+      "amount": 30,
+      "rate": 0.15,
+      "id": "stars",
+      "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+    }
   ]
 }

@@ -90,6 +90,11 @@ export function twinkleOf(star: number, seconds: number, rate: number): number {
   return s > 0.7 ? 1 : s < -0.85 ? 0 : 0.5;
 }
 
+/** How far a `scroll` has run, in whole rows, within its repeat: `rate` rows a second. */
+export function scrollOffset(motion: RoomMotion, seconds: number, period: number): number {
+  return Math.floor(seconds * (motion.rate ?? 8)) % period;
+}
+
 export const snap = (v: number, block: number) => Math.round(v / block) * block;
 
 /** True when anything this room moves has changed between two instants at the room's tick. */
@@ -129,11 +134,33 @@ export class MotionLayer {
       if (motion.kind === 'shimmer' || motion.kind === 'sway') {
         // Water moves in bands of the room's pixel; a hanging thing turns row by row about its hook.
         const step = motion.kind === 'shimmer' ? size : 1;
+        // Rows that move by the same amount are one draw: a long bell rope is a handful of draws, not hundreds.
+        let from = y; let shiftFrom = Number.NaN;
+        const flush = (to: number) => {
+          if (shiftFrom && to > from) ctx.drawImage(plate, x, from, w, to - from, x + shiftFrom, from, w, to - from);
+        };
         for (let row = y; row < y + h; row += step) {
           const shift = motion.kind === 'shimmer' ? shimmerShift(motion, row, seconds, size) : swayShift(motion, row, seconds);
-          if (!shift) continue;
-          const rows = Math.min(step, y + h - row);
-          ctx.drawImage(plate, x, row, w, rows, x + shift, row, w, rows);
+          if (shift === shiftFrom) continue;
+          flush(row);
+          from = row; shiftFrom = shift;
+        }
+        flush(y + h);
+        continue;
+      }
+      if (motion.kind === 'scroll') {
+        // A pattern that runs along itself: a barber's pole turning, a fall of water. `amount` is the pattern's repeat
+        // in rows; the rect is drawn from itself shifted by `scrollOffset` rows, wrapping by that repeat.
+        const period = Math.min(h, Math.max(1, motion.amount ?? h));
+        const off = scrollOffset(motion, seconds, period);
+        // The rect is filled with its first `period` rows, repeated and run along by `off`: one repeat of the pattern
+        // drawn again and again, so the pattern never tears where it wraps.
+        const sign = motion.hinge === 'top' ? -1 : 1;   // 'top' runs downward, as water falls; otherwise up the pole
+        for (let d = 0; d < h;) {
+          const src = (((d + sign * off) % period) + period) % period;
+          const rows = Math.min(period - src, h - d);
+          ctx.drawImage(plate, x, y + src, w, rows, x, y + d, w, rows);
+          d += rows;
         }
         continue;
       }

@@ -27,6 +27,7 @@ Resolution runs most specific first.
 | **A9** | THE DEED on **the Registrar's counter** | "Filed. Mr Sump has written a number in a book, and the number is mine." |
 | **A9** | THE FILING FEE on **Registrar Sump** | "Two dollars, for a number in a book. He has taken it without looking at me, which I am told is the correct procedure." |
 | **C5** | THE SUBMISSION LOG on **Winnie** | *(→ opens `WIN_B2`; no line of its own -- the tree's authored opening is the showing; the log is kept. Errata 66 rulings A-C, Act II.)* |
+| **E5** | THE DEATH CERTIFICATE on **Frame** | *(→ opens `FRA_E1`; no line of its own -- the tree's authored opening is the showing; the certificate is kept for the county. Errata 274: the obituary is asked for with the death in hand, not by talking. TALK TO opens the same node.)* |
 
 ---
 

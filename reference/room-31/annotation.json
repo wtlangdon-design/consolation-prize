@@ -400,5 +400,20 @@
    },
    "note": "Doc 110 section 2 (errata 233): the first entry after the ride, Thad already at the back with his hat low as the town arrives (doc 48 S2 beat 1, rewritten as staging). Said once; from here S2 plays as written."
   }
+ ],
+ "motion": [
+  {
+   "kind": "twinkle",
+   "rect": [
+    0,
+    0,
+    1920,
+    170
+   ],
+   "amount": 25,
+   "rate": 0.15,
+   "id": "stars",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  }
  ]
 }

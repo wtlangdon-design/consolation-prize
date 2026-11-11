@@ -294,5 +294,72 @@
    }
   }
  ],
- "docBulletsNote": "Errata 250, doc 121 N-4: Mr. Pike's uncollected collar, once (T_COLLAR_TAKEN)."
+ "docBulletsNote": "Errata 250, doc 121 N-4: Mr. Pike's uncollected collar, once (T_COLLAR_TAKEN).",
+ "motion": [
+  {
+   "kind": "smoke",
+   "colour": [
+    214,
+    210,
+    202
+   ],
+   "alpha": 0.35,
+   "amount": 5,
+   "rate": 0.35,
+   "rise": 110,
+   "drift": 10,
+   "rect": [
+    250,
+    286,
+    16,
+    4
+   ],
+   "id": "copper_1",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  },
+  {
+   "kind": "smoke",
+   "colour": [
+    214,
+    210,
+    202
+   ],
+   "alpha": 0.35,
+   "amount": 5,
+   "rate": 0.35,
+   "rise": 110,
+   "drift": 10,
+   "rect": [
+    382,
+    316,
+    16,
+    4
+   ],
+   "seed": 2,
+   "id": "copper_2",
+   "note": ""
+  },
+  {
+   "kind": "smoke",
+   "colour": [
+    214,
+    210,
+    202
+   ],
+   "alpha": 0.35,
+   "amount": 5,
+   "rate": 0.35,
+   "rise": 110,
+   "drift": 10,
+   "rect": [
+    512,
+    296,
+    16,
+    4
+   ],
+   "seed": 3,
+   "id": "copper_3",
+   "note": ""
+  }
+ ]
 }

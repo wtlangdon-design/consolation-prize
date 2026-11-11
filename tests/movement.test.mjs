@@ -123,6 +123,7 @@ export function schedule(sprite, actions) {
   return { longestStill, longestWithout };
 }
 
+const BREATH = 0.5;
 const cases = [];
 for (const path of manifest.ambient) {
   const npc = read(path);
@@ -159,6 +160,13 @@ for (const { path, npc, room, sprite, posture } of cases) {
       `${path}: no frame changes ${ACTION * 100}% of the figure (largest ${(Math.max(...shares) * 100).toFixed(1)}%) `
       + '-- a breath is not a deliberate action');
 
+    // A BREATH IS SLOW (errata 273; Tyler, 2026-11-10, of the letter-writer at 0.9 a second: "breathing rapidly
+    // (shoulders rising and falling too quickly)"). The idle sway of a person is a breath, and a person at rest
+    // breathes a dozen to twenty times a minute: at most half a cycle a second. A figure whose idle is something
+    // other than a breath (the fiddler's bow, in time with the music) says so in `sprite.idleIsNotBreath`.
+    if (posture !== 'animal' && !sprite.idleIsNotBreath && sprite.rate !== undefined) {
+      assert.ok(sprite.rate <= BREATH, `${path}: breathes ${sprite.rate} times a second in ${room}; a person at rest breathes at most ${BREATH}`);
+    }
     const { longestStill, longestWithout } = schedule(sprite, actions);
     assert.ok(longestStill <= NEVER_STILL,
       `${path}: as played, holds one frame for ${longestStill.toFixed(1)} s; something must change at least `

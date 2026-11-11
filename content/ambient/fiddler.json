@@ -84,7 +84,8 @@
   "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). His crown to sole under his hat, read from his eyes and chin, is 279; 284 draws him 0.98 of Thad, inside the 3%, and keeps him far enough from the stage lamp's pool that his figure-light grade is still the thing holding him (tests/figure-light.test.mjs; at 279 the lamp's allowance grew and the ungraded figure slipped 1% under its limit). Was 288, the hat's top to his soles (errata 115's by-eye reading): 0.97 of Thad.",
   "levelMan": 288,
   "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs).",
-  "keepsTime": "music"
+  "keepsTime": "music",
+  "idleIsNotBreath": "His idle is the bow, in time with the Nugget's music (doc 22: the fiddler idles in time with the room's music), not a breath (errata 273)."
  },
  "barkCues": {
   "R_BORDERS_MOTT": "FID-FASTER",

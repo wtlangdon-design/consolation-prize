@@ -244,5 +244,20 @@
    "mud_near": 0
   },
   "planes": []
- }
+ },
+ "motion": [
+  {
+   "kind": "twinkle",
+   "rect": [
+    0,
+    0,
+    1920,
+    120
+   ],
+   "amount": 25,
+   "rate": 0.15,
+   "id": "stars",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  }
+ ]
 }

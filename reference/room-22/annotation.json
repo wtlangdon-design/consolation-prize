@@ -266,5 +266,86 @@
    ],
    "note": "The cabin at the top of the road, cut from the plate's own pixels by tools/art/room22-cabin.py, so it is invisible until someone is behind it. Its base is on the road's edge (y 201): the miners at the top of the road walk behind it and are hidden by it (Tyler, 2026-11-06: the men at the top were \"just randomly walking across a building\"; he chose \"Behind the cabin\"; errata 112 P)."
   }
+ ],
+ "motion": [
+  {
+   "kind": "twinkle",
+   "rect": [
+    0,
+    0,
+    1920,
+    320
+   ],
+   "amount": 40,
+   "rate": 0.15,
+   "id": "stars",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  },
+  {
+   "kind": "smoke",
+   "colour": [
+    140,
+    146,
+    170
+   ],
+   "alpha": 0.4,
+   "rect": [
+    158,
+    256,
+    12,
+    4
+   ],
+   "amount": 5,
+   "rate": 0.16,
+   "rise": 90,
+   "drift": 16,
+   "seed": 1,
+   "id": "town_smoke_1",
+   "note": ""
+  },
+  {
+   "kind": "smoke",
+   "colour": [
+    140,
+    146,
+    170
+   ],
+   "alpha": 0.4,
+   "rect": [
+    350,
+    266,
+    12,
+    4
+   ],
+   "amount": 5,
+   "rate": 0.18,
+   "rise": 90,
+   "drift": 14,
+   "seed": 2,
+   "id": "town_smoke_2",
+   "note": ""
+  },
+  {
+   "kind": "smoke",
+   "colour": [
+    140,
+    146,
+    170
+   ],
+   "alpha": 0.4,
+   "rect": [
+    1168,
+    200,
+    10,
+    4
+   ],
+   "amount": 4,
+   "rate": 0.18,
+   "rise": 70,
+   "drift": 12,
+   "seed": 3,
+   "id": "cabin_smoke",
+   "note": ""
+  }
  ]
 }

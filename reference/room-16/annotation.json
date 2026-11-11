@@ -995,5 +995,48 @@
   "covers": {
    "T_SURVEYING": true
   }
- }
+ },
+ "motion": [
+  {
+   "kind": "smoke",
+   "colour": [
+    190,
+    180,
+    200
+   ],
+   "alpha": 0.3,
+   "amount": 6,
+   "rate": 0.35,
+   "rise": 170,
+   "drift": 6,
+   "rect": [
+    355,
+    440,
+    10,
+    4
+   ],
+   "plates": [
+    "art/backgrounds/room-16-tent.png",
+    "seance"
+   ],
+   "id": "incense",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  },
+  {
+   "kind": "sway",
+   "rect": [
+    930,
+    10,
+    60,
+    170
+   ],
+   "amount": 3,
+   "rate": 0.18,
+   "plates": [
+    "art/backgrounds/room-16-tent.png"
+   ],
+   "id": "lantern",
+   "note": ""
+  }
+ ]
 }

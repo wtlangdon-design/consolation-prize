@@ -913,5 +913,20 @@
     "brightness": 0.95,
     "saturate": 0.85,
     "note": "Errata 207 (Tyler, 2026-11-08: \"Fix all five\"). tools/check-figure-light.mjs (errata 205) measured the man in the white shirt at 1.18 of Thad where he stands, against a limit of 1.12, in the dark of the row with no lamp near; boundary_a beside him is 0.96. Only he is named; Thad, boundary_a and the room are drawn as before. A cool light for the row's night (as errata 198's on the Main Street horses), a little less colour and a brightness of 0.95 take him to 1.03 of Thad (beside him: renders/fixed-boundary-b-beside-thad.png). A nudge is a number here (doc 55 §8, \"Light and colour\")."
-  }
+  },
+  "motion": [
+    {
+      "kind": "twinkle",
+      "rect": [
+        0,
+        0,
+        1920,
+        120
+      ],
+      "amount": 25,
+      "rate": 0.15,
+      "id": "stars",
+      "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+    }
+  ]
 }

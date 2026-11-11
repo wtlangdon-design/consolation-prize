@@ -285,5 +285,26 @@
    }
   }
  ],
- "docBulletsNote": "Errata 258, doc 123 F-5: the bottle turned to the lamp, once (T_CHAMPAGNE_TURNED)."
+ "docBulletsNote": "Errata 258, doc 123 F-5: the bottle turned to the lamp, once (T_CHAMPAGNE_TURNED).",
+ "motion": [
+  {
+   "kind": "motes",
+   "colour": [
+    255,
+    222,
+    170
+   ],
+   "alpha": 0.28,
+   "amount": 5,
+   "rate": 0.05,
+   "rect": [
+    1080,
+    560,
+    280,
+    220
+   ],
+   "id": "lamp_motes",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  }
+ ]
 }

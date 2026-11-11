@@ -815,6 +815,8 @@ export interface AmbientFile {
      * frame 0 -- the rest pose -- which is what the sway returns to anyway.
      */
     talkFrame?: number;
+    /** Errata 273: the idle sway is not a breath (the fiddler's bow), so tests/movement.test.mjs does not hold it to a breath's pace. Why, in words. */
+    idleIsNotBreath?: string;
     /**
      * THE FRAME HELD WHILE THE JUDGES WRITE A POINT DOWN (errata 131 B): the
      * holder of the pencil lowers it to mark the score (doc 45 U-ASSAY-PENCIL).
@@ -922,7 +924,7 @@ export interface AmbientFile {
 /** One thing in a room that moves by itself. See RoomFile.motion and engine/render/MotionLayer.ts. */
 export interface RoomMotion {
   id: string;
-  kind: 'smoke' | 'shimmer' | 'twinkle' | 'sway' | 'motes';
+  kind: 'smoke' | 'shimmer' | 'twinkle' | 'sway' | 'motes' | 'scroll';
   /** Room pixels: smoke rises from the top of it; the others move inside it. */
   rect: [number, number, number, number];
   /** Cycles per second (smoke: puffs' lives per second). */
@@ -937,7 +939,7 @@ export interface RoomMotion {
   /** Smoke: how high it rises, and how far it drifts sideways, over a puff's life. */
   rise?: number;
   drift?: number;
-  /** Sway: the edge it hangs from. */
+  /** Sway: the edge it hangs from. Scroll: 'top' runs downward (falling water); otherwise it runs up. */
   hinge?: 'top' | 'bottom';
   seed?: number;
   /** Only while the room shows one of these pictures (the plate's own path). Absent: always. */
