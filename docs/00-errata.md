@@ -7353,3 +7353,18 @@ Lesson: none -- a reading, recorded in doc 126; the one row it moved is held by 
 Tyler: "We had created a small sprite Thad for the map. What happened to him?" Nothing had: errata 161 and 163's Thad was on the map and walked. Checked in the real build, the reason he looked gone: the place a player clicks is labelled in large type while the pointer is on it, the road to it runs under the label, and a figure thirty pixels tall walked behind the words for most of the way. The label is held back while he walks; the sentence line still names where he is going.
 
 Lesson: `tests/map-walk.test.ts` holds that the frame hands over no place label during the walk. Doc 55 section 8: one row -- check a claim about what the game does against the running game, not the documents (the audit said this map had no Thad, from two rulings that 163 had overturned).
+
+## 286 · The street people, rewritten (Tyler, 2026-11-11)
+
+Tyler: "Even the click throughs I did on main street last night gave me the vibe of 'a robot wrote this'." Told why -- every exchange the same shape, everybody in one aphoristic voice, Thad's options plain interview questions, one premise per person stated once, jokes abstract where Monkey Island's are specific -- and offered a rewrite of Main Street's conversations as a sample: "Start with Main Street."
+
+The six people met in the first minutes in town are rewritten in doc 07, to doc 99's rules, which the passes before stated and did not reach:
+
+- **Each has a want and a voice of their own.** The map seller sells joy at a fair price ("It's FORTY-ONE maps to Mott's strike, sir!"); the pie woman negotiates and wins; the man leaving tomorrow finds a man arriving faintly offensive ("He says it the way other men say 'measles'."); the letter-writer improves every life into a better letter; the bell-ringer is proud he cannot hear; the message boy has cornered the market and sold the town Thad's name.
+- **Thad's options are jokes to choose.** One plain question, one vain or greedy (a refined palate; one map that is actually right; a cathedral organ), one wrong on purpose, and a running gag: he introduces himself, a little grandly, and nobody is impressed.
+- **Answers build** rather than shutting him down, and the details are concrete.
+- **Kept:** every Pike route to the undertaker and its after-death line, the Colonel's Boston letter, the bag's four years, the accounts, the flags the trees set, "Course you will." (and now the pie woman's own way out ends on it), and the keepers that were jokes (doc 126). Seven new directions are in doc 95: five physical ones printed until a pose is drawn (class B), two that stay printed.
+
+It is the sample: CLAUDE.md's sixteenth exception. No other character is rewritten until Tyler has played these and ruled.
+
+Lesson: doc 55 section 8, one row (a matter of taste: how a town comes to sound written by a machine, and what to do before writing a person). The tests that hold the trees to doc 07 and doc 95 hold the new lines.

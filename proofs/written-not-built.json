@@ -1083,6 +1083,16 @@
      "quote": "He's walking. I'll let him walk. He seems to know where he's going, which makes one of us."
     }
    ]
+  },
+  {
+   "id": "main-street-rewritten",
+   "why": "Errata 286 (Tyler, 2026-11-11: \"Start with Main Street\"): the street people's conversations rewritten in doc 07 for Monkey Island's voice. Doc 98 quotes the lines of the pass before, as its record.",
+   "lines": [
+    {
+     "doc": "98-main-street-pass",
+     "quote": "It's a nickel's worth of answer. The filling's a dime."
+    }
+   ]
   }
  ]
 }

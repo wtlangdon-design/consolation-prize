@@ -45,16 +45,36 @@
         },
         {
           "id": "letter_writer3",
-          "text": "Do you ever write the truth?",
+          "text": "Could you write one for me?",
           "tag": "TOPIC",
-          "say": "Once. Fella insisted. I charged him double and he cried the whole time.",
-          "after": [
-            "letter_writer2"
+          "exchange": [
+            {
+              "speaker": "letter_writer",
+              "line": "Delighted. 'Struck it rich the first day. More to follow.'"
+            },
+            {
+              "speaker": "thad",
+              "line": "I haven't struck anything."
+            },
+            {
+              "speaker": "letter_writer",
+              "line": "That's page two. Fifteen cents."
+            }
           ],
           "afterUse": "remove"
         },
         {
           "id": "letter_writer4",
+          "text": "Do you ever write the truth?",
+          "tag": "TOPIC",
+          "after": [
+            "letter_writer3"
+          ],
+          "say": "Once. Fella insisted. I charged him double and he cried the whole time.",
+          "afterUse": "remove"
+        },
+        {
+          "id": "letter_writer5",
           "text": "I'm looking for Ezra Pike.",
           "tag": "TOPIC",
           "exchange": [
@@ -82,7 +102,7 @@
           "afterUse": "remove"
         },
         {
-          "id": "letter_writer5",
+          "id": "letter_writer6",
           "text": "You knew Pike was dead.",
           "tag": "TOPIC",
           "when": {
@@ -92,7 +112,28 @@
           "afterUse": "remove"
         },
         {
-          "id": "letter_writer6",
+          "id": "letter_writer7",
+          "text": "Thaddeus Grubb. Musician, of some reputation.",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "letter_writer",
+              "line": "He writes it down.",
+              "direction": true
+            },
+            {
+              "speaker": "letter_writer",
+              "line": "'Gentleman of independent means, in music.'"
+            },
+            {
+              "speaker": "letter_writer",
+              "line": "That's how it'll read. You won't recognize yourself, and neither will anybody else."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "letter_writer8",
           "text": "I write my own.",
           "tag": "COMIC",
           "exchange": [

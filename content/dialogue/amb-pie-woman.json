@@ -30,16 +30,36 @@
         },
         {
           "id": "pie_woman2",
-          "text": "That isn't an answer.",
+          "text": "What kind of pie?",
           "tag": "TOPIC",
           "after": [
             "pie_woman1"
           ],
-          "say": "It's a nickel's worth of answer. The filling's a dime.",
+          "exchange": [
+            {
+              "speaker": "pie_woman",
+              "line": "The nickel kind."
+            },
+            {
+              "speaker": "thad",
+              "line": "And the dime kind?"
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "Same pie. I tell you what's in it."
+            }
+          ],
           "afterUse": "remove"
         },
         {
           "id": "pie_woman3",
+          "text": "I'm told I have a very refined palate.",
+          "tag": "TOPIC",
+          "say": "You're told wrong. It's a nickel either way.",
+          "afterUse": "remove"
+        },
+        {
+          "id": "pie_woman4",
           "text": "Do you know Ezra Pike?",
           "tag": "TOPIC",
           "exchange": [
@@ -70,7 +90,7 @@
           "afterUse": "remove"
         },
         {
-          "id": "pie_woman4",
+          "id": "pie_woman5",
           "text": "You knew Pike was dead.",
           "tag": "TOPIC",
           "when": {
@@ -80,7 +100,24 @@
           "afterUse": "remove"
         },
         {
-          "id": "pie_woman5",
+          "id": "pie_woman6",
+          "text": "Grubb. Pianos. You may have heard.",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "pie_woman",
+              "line": "I haven't."
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "She looks at his boots again, and knocks a penny off him.",
+              "direction": true
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "pie_woman7",
           "text": "I'll take a pie.",
           "tag": "COMIC",
           "say": "Course you will.",
@@ -89,9 +126,9 @@
         {
           "id": "pie_womanx",
           "tag": "EXIT",
-          "text": "I've taken enough of your time. I'll be taking more later.",
-          "universal": true,
-          "ends": true
+          "text": "I'll come back when I'm hungrier.",
+          "ends": true,
+          "say": "Course you will."
         }
       ]
     }

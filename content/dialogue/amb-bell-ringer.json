@@ -12,15 +12,18 @@
       "options": [
         {
           "id": "bell_ringer1",
-          "text": "That bell is flat.",
+          "text": "That bell is flat. I could hear it from the hotel.",
           "tag": "TOPIC",
-          "say": "It's loud, is what it is.",
+          "say": "Everybody can hear it from the hotel. That's what a bell's for.",
           "afterUse": "remove"
         },
         {
           "id": "bell_ringer2",
           "text": "I could show you where to strike it.",
           "tag": "TOPIC",
+          "after": [
+            "bell_ringer1"
+          ],
           "exchange": [
             {
               "speaker": "bell_ringer",
@@ -32,13 +35,30 @@
               "direction": true
             }
           ],
-          "after": [
-            "bell_ringer1"
-          ],
           "afterUse": "remove"
         },
         {
           "id": "bell_ringer3",
+          "text": "How long have you rung it?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "bell_ringer",
+              "line": "Since the day it came."
+            },
+            {
+              "speaker": "bell_ringer",
+              "line": "…"
+            },
+            {
+              "speaker": "bell_ringer",
+              "line": "It came on a Tuesday. I've been celebrating since."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "bell_ringer4",
           "text": "Did you know Ezra Pike?",
           "tag": "TOPIC",
           "exchange": [
@@ -61,7 +81,7 @@
           "afterUse": "remove"
         },
         {
-          "id": "bell_ringer4",
+          "id": "bell_ringer5",
           "text": "You knew Pike was dead.",
           "tag": "TOPIC",
           "when": {
@@ -71,11 +91,42 @@
           "afterUse": "remove"
         },
         {
-          "id": "bell_ringer5",
+          "id": "bell_ringer6",
+          "text": "I've tuned a cathedral organ. A bell is nothing.",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "bell_ringer",
+              "line": "He holds up his bottle, hopefully.",
+              "direction": true
+            },
+            {
+              "speaker": "bell_ringer",
+              "line": "Could you tune this?"
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "bell_ringer7",
           "text": "Doesn't it bother you?",
           "tag": "COMIC",
-          "repeat": "Ask me after the noon bell. I won't hear you. That's also the qualification.",
-          "say": "Nothing bothers me. That's the qualification.",
+          "exchange": [
+            {
+              "speaker": "bell_ringer",
+              "line": "Bother me?"
+            },
+            {
+              "speaker": "bell_ringer",
+              "line": "He looks up at the bell, then down at the bottle.",
+              "direction": true
+            },
+            {
+              "speaker": "bell_ringer",
+              "line": "I'm the only man in town who can't hear it."
+            }
+          ],
+          "repeat": "Say it louder. No. Don't.",
           "afterUse": "retain"
         },
         {

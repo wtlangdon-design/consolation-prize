@@ -12,24 +12,34 @@
       "opening": [
         {
           "speaker": "map_seller",
-          "line": "The map seller brightens considerably.",
+          "line": "The map seller sees Thad, and lights up like a lamp.",
           "direction": true
         }
       ],
       "options": [
         {
           "id": "map_seller1",
-          "text": "Where do the maps come from?",
+          "text": "Is that a map to Mott's strike?",
           "tag": "TOPIC",
-          "set": {
-            "T_MAPS_ASKED": true
-          },
-          "say": "I draw them, sir! From the accounts.",
+          "exchange": [
+            {
+              "speaker": "map_seller",
+              "line": "It's FORTY-ONE maps to Mott's strike, sir!"
+            },
+            {
+              "speaker": "thad",
+              "line": "They can't all be right."
+            },
+            {
+              "speaker": "map_seller",
+              "line": "They're all right about the strike, sir! They only disagree about where."
+            }
+          ],
           "afterUse": "remove"
         },
         {
           "id": "map_seller2",
-          "text": "What accounts?",
+          "text": "Where do you get them?",
           "tag": "TOPIC",
           "after": [
             "map_seller1"
@@ -37,15 +47,41 @@
           "exchange": [
             {
               "speaker": "map_seller",
-              "line": "Every man who's ever told me where Mott's strike is."
+              "line": "I draw them, sir! From the accounts."
             },
             {
               "speaker": "thad",
-              "line": "How many is that?"
+              "line": "Whose accounts?"
             },
             {
               "speaker": "map_seller",
-              "line": "Hundreds, sir. And every one of them agrees it's somewhere."
+              "line": "Every man who's ever told me where it is. Hundreds, sir, and not one of them disproved!"
+            }
+          ],
+          "set": {
+            "T_MAPS_ASKED": true
+          },
+          "afterUse": "remove"
+        },
+        {
+          "id": "map_seller3",
+          "text": "How much for one that's actually right?",
+          "tag": "TOPIC",
+          "after": [
+            "map_seller1"
+          ],
+          "exchange": [
+            {
+              "speaker": "map_seller",
+              "line": "That's the deluxe, sir. Four dollars."
+            },
+            {
+              "speaker": "thad",
+              "line": "What's different about it?"
+            },
+            {
+              "speaker": "map_seller",
+              "line": "Same map, sir. I look you in the eye while I sell it."
             }
           ],
           "afterUse": "remove"
@@ -57,7 +93,7 @@
           "exchange": [
             {
               "speaker": "map_seller",
-              "line": "Pike? Pike's on every one, sir. Little cross, top of the hill."
+              "line": "Pike? Pike's on every one, sir! Little cross, top of the hill."
             },
             {
               "speaker": "thad",
@@ -80,30 +116,51 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "say": "He's on the map, sir. I mark everybody. Very popular corner, that.",
+          "say": "He's on the map, sir! I mark everybody. That hill's my most popular corner.",
           "afterUse": "remove"
         },
         {
           "id": "map_seller6",
-          "text": "Do they work?",
+          "text": "Do you have one with pianos on? I'm a tuner.",
           "tag": "COMIC",
-          "say": "They've not been disproved.",
+          "exchange": [
+            {
+              "speaker": "map_seller",
+              "line": "I do now, sir!"
+            },
+            {
+              "speaker": "map_seller",
+              "line": "He draws a small piano on a map, beside a cross.",
+              "direction": true
+            },
+            {
+              "speaker": "map_seller",
+              "line": "There's your piano. Twelve feet down."
+            }
+          ],
           "afterUse": "remove"
         },
         {
-          "id": "map_seller3",
-          "text": "Have you ever dug where a map says?",
+          "id": "map_seller7",
+          "text": "Do they work?",
+          "tag": "COMIC",
+          "say": "They've not been disproved, sir!",
+          "afterUse": "remove"
+        },
+        {
+          "id": "map_seller8",
+          "text": "Have you ever dug where one says?",
           "tag": "TOPIC",
-          "say": "I'd not dig my own map, sir. That'd be like a man eating his own dinner.",
           "after": [
-            "map_seller6"
+            "map_seller7"
           ],
+          "say": "Dig my own map, sir? That'd be like a man eating his own dinner!",
           "afterUse": "remove"
         },
         {
           "id": "map_sellerx",
           "tag": "EXIT",
-          "text": "I should go.",
+          "text": "I've taken enough of your time. I'll be taking more later.",
           "universal": true,
           "ends": true
         }

@@ -31,7 +31,8 @@ test('every line of every townsperson\'s tree is written in doc 07', () => {
       const lines: string[] = [...(node.prompt ? [node.prompt] : []), ...(node.opening ?? []).map((one) => one.line)];
       for (const option of node.options) {
         if (option.tag === 'EXIT') {
-          if (option.text && !doc04.includes(normal(option.text))) missing.push(`${file}: exit "${option.text}"`);
+          // Doc 04's pool, or (errata 286) a way out of the character's own, written in doc 07 with its reply.
+          if (option.text && !doc04.includes(normal(option.text)) && !doc07.includes(normal(option.text))) missing.push(`${file}: exit "${option.text}"`);
           continue;
         }
         if (option.text) lines.push(option.text);

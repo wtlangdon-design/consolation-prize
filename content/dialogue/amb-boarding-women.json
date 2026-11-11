@@ -69,7 +69,7 @@
         {
           "id": "boardingx",
           "tag": "EXIT",
-          "text": "I've taken enough of your time. I'll be taking more later.",
+          "text": "I should go.",
           "universal": true,
           "ends": true
         }

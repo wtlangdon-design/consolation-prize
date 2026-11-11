@@ -21,6 +21,9 @@
           "id": "message_boy2",
           "text": "Tell me something.",
           "tag": "TOPIC",
+          "after": [
+            "message_boy1"
+          ],
           "exchange": [
             {
               "speaker": "message_boy",
@@ -35,9 +38,6 @@
               "line": "Knowing does. Not knowing's free. Most of the town's on that plan."
             }
           ],
-          "after": [
-            "message_boy1"
-          ],
           "afterUse": "remove"
         },
         {
@@ -45,6 +45,7 @@
           "text": "Here's your penny. Make it worth it.",
           "tag": "TOPIC",
           "after": [
+            "message_boy1",
             "message_boy2"
           ],
           "say": "…The Colonel gets a letter from Boston every month and burns it in the stove.",
@@ -52,6 +53,26 @@
         },
         {
           "id": "message_boy4",
+          "text": "How much for where Mott's gold is?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "message_boy",
+              "line": "That's not a penny. That's a dollar."
+            },
+            {
+              "speaker": "thad",
+              "line": "What do I get for a dollar?"
+            },
+            {
+              "speaker": "message_boy",
+              "line": "Same as for a penny. I say it slower."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "message_boy5",
           "text": "Where would I find Ezra Pike?",
           "tag": "TOPIC",
           "exchange": [
@@ -74,7 +95,7 @@
           "afterUse": "remove"
         },
         {
-          "id": "message_boy5",
+          "id": "message_boy6",
           "text": "You knew Pike was dead.",
           "tag": "TOPIC",
           "when": {
@@ -84,7 +105,27 @@
           "afterUse": "remove"
         },
         {
-          "id": "message_boy6",
+          "id": "message_boy7",
+          "text": "I'm Thaddeus Grubb. You'll have heard of me.",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "message_boy",
+              "line": "I know. The whole town knew by supper."
+            },
+            {
+              "speaker": "thad",
+              "line": "How?"
+            },
+            {
+              "speaker": "message_boy",
+              "line": "I told them. Penny each."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "message_boy8",
           "text": "Shouldn't you be in school?",
           "tag": "COMIC",
           "repeat": "A penny and I'll go. I'll come straight back, but I'll go.",
