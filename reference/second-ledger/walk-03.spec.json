@@ -1,0 +1,17 @@
+{
+ "assetId": "room-05-second-ledger",
+ "subject": "winnie-walk-left",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-05-assay-office",
+ "promptFile": "reference/second-ledger/walk-03.txt",
+ "out": "art/staging/room-05/second-ledger/walk/sheet-03.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-05/second-ledger/walk/template.png",
+  "art/staging/room-05/second-ledger/walk/winnie-second-ledger.png",
+  "art/staging/room-05/second-ledger/walk/thad-and-winnie-in-room-5.png",
+  "art/staging/room-05/second-ledger/walk/thad-walk-left-poses.png"
+ ],
+ "derivedFrom": "art/actors/winnie-second-ledger.png"
+}

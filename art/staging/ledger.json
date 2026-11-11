@@ -49676,6 +49676,151 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-10T20:46:05.038Z"
+  },
+  {
+   "attempt": 3,
+   "role": "canonical-design",
+   "assetId": "room-05-second-ledger",
+   "subject": "winnie-walk-left",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/winnie-second-ledger.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/second-ledger/walk-03.txt",
+   "promptHash": "30769f7857818f0e8be636d414c003157bcf1dc8aca838132cafcecf1f0abc38",
+   "references": [
+    {
+     "path": "art/staging/room-05/second-ledger/walk/template.png",
+     "hash": "0ab5d172f2bc972ba1188b3bdfa5182aebebbe3a18801f9d2eca6f4a9f469f3a",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/second-ledger/walk/winnie-second-ledger.png",
+     "hash": "e0aac47fee8ac6bec34cb38d0e4c5e857f9b50e2a36f4afc92a6e86a70d3e9eb",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/second-ledger/walk/thad-and-winnie-in-room-5.png",
+     "hash": "3b6131e03d62f6c35a15308fa748efe196caf2b218b1487b7b466e70951465c5",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/second-ledger/walk/thad-walk-left-poses.png",
+     "hash": "2330691dadb449f5271327a39129f1ac43ca443bf39405b4ec7badf86590cb89",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/composition-master-02.png",
+     "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "room-art",
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Room 1 cast -- the rendering anchor)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie)",
+      "path": "art/staging/room-05/composition-master-02.png",
+      "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "0ab5d172f2bc972ba1188b3bdfa5182aebebbe3a18801f9d2eca6f4a9f469f3a",
+   "sourcePath": "art/staging/room-05/second-ledger/walk/template.png",
+   "out": "art/staging/room-05/second-ledger/walk/sheet-03.png",
+   "outputHash": "a8c4ca6935a14717dca44c5f8a82c734c70b6442a165c61b06556a17029bfbae",
+   "bytes": 1319515,
+   "usage": {
+    "input_tokens": 13894,
+    "input_tokens_details": {
+     "image_tokens": 13440,
+     "text_tokens": 454
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 15445
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-11T01:17:11.577Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-11T01:17:11.595Z"
   }
  ],
  "promotions": [
