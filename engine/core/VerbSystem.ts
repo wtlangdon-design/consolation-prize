@@ -194,7 +194,7 @@ export class VerbSystem {
    */
   resolveWith(
     verbId: string, itemId: string, target: Interactable, roomId: string,
-    carried: readonly string[] = [],
+    carried: readonly string[] = [], isPerson = false,
   ): ResolvedAction {
     const table = this.combinations;
     // AN EVIDENCE PAIR IS NOT ANSWERED HERE. A pair that `opens` a tree (C5's
@@ -206,7 +206,9 @@ export class VerbSystem {
       (candidate) => candidate.item === itemId
         && candidate.room === roomId
         && candidate.target === target.id
-        && !candidate.opens,
+        && !candidate.opens
+        // ERRATA 282: a pair answers the carry verbs it names -- USE when it names none, GIVE for a hand-over.
+        && (candidate.verbs ?? ['USE']).includes(verbId),
     );
     // THE FIRST CASE WHOSE CIRCUMSTANCES HOLD (CombinationPair.rules).
     // Bounded by a puzzle as a room's own rules are (ResponseRule.untilPuzzles): the map is unrolled for the survey
@@ -257,6 +259,15 @@ export class VerbSystem {
       && (one.verb === undefined || one.verb === verbId) && !(one.except ?? []).includes(itemId));
     if (other?.lines.length) {
       return { say: this.rotate(`target:${roomId}/${target.id}`, other.lines), dialogue: null, goto: null, effects: [] };
+    }
+    // GIVE WITH NOTHING WRITTEN FOR IT (errata 282, doc 127). The pools below are about using a thing on a thing
+    // ("I have struck it against it"), and none of them is a line about handing something over.
+    if (verbId === 'GIVE') {
+      const lines = (isPerson ? table?.givePools?.people : table?.givePools?.things) ?? [];
+      if (lines.length) {
+        return { say: this.rotate(isPerson ? 'give:people' : 'give:things', lines), dialogue: null, goto: null, effects: [] };
+      }
+      return { say: null, dialogue: null, goto: null, effects: [] };
     }
     // AN ITEM'S LINES FOR A PLACE (doc 108, THE MINE · WRONG ANSWERS, ANYWHERE IN IT): after a pair, before the
     // item's own pool -- the brass rod and the fork, anywhere in the mine's four rooms, said in turn across them.

@@ -359,16 +359,16 @@ test('scene C: the raccoon is refused elsewhere, the sale pays, and the money bu
   const on = new HeadlessPlayer(loaded);
   for (const [room, who] of [['undertaker', 'undertaker'], ['laundry', 'sheng']] as [string, string][]) {
     on.go(room);
-    const answer = on.use('raccoon_in_coat', who);
+    const answer = on.give('raccoon_in_coat', who);
     assert.ok(written(answer.say), `${who}: doc 111's refusal`);
     assert.ok(loaded.carried.includes('raccoon_in_coat'), `${who} does not take it`);
   }
   assert.equal(loaded.flags.get('T_FUNERAL_BOOKED'), false);
   on.go(CLAIM);
   const pratt = hostWith(on, 'PRA_E3');
-  assert.ok(written(on.use('hen', pratt.id).say), 'the hen is on loan');
+  assert.ok(written(on.give('hen', pratt.id).say), 'the hen is on loan');
   assert.ok(loaded.carried.includes('hen'));
-  const sale = on.use('raccoon_in_coat', pratt.id);
+  const sale = on.give('raccoon_in_coat', pratt.id);
   for (const line of said(sale)) assert.ok(written(line), `"${line}" is doc 111's`);
   assert.ok(loaded.carried.includes('pratt_money'), 'two dollars and sixty cents');
   assert.ok(!loaded.carried.includes('hen') && !loaded.carried.includes('raccoon_in_coat'), 'the hen back, the raccoon sold');
@@ -378,14 +378,14 @@ test('scene C: the raccoon is refused elsewhere, the sale pays, and the money bu
   on.leave();
   // The undertaker: doc 57 E3.3's lines and gates, unchanged.
   on.go('undertaker');
-  const unsized = on.use('pratt_money', 'undertaker');
+  const unsized = on.give('pratt_money', 'undertaker');
   assert.ok(unsized.say && doc57.includes(unsized.say), 'not before the sizing');
   assert.ok(loaded.carried.includes('pratt_money'));
   on.talk('undertaker');
   const sizing = loaded.dialogue.presentOptions().find((one) => one.option.set?.T_COFFIN_SIZED)!;
   on.choose(sizing.option.id);
   on.leave();
-  const paid = on.use('pratt_money', 'undertaker');
+  const paid = on.give('pratt_money', 'undertaker');
   assert.ok(paid.say && doc57.includes(paid.say), 'paid, in doc 57\'s words');
   assert.ok(loaded.puzzleComplete('E3'));
   assert.equal(loaded.flags.get('T_FUNERAL_BOOKED'), true);

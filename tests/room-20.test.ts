@@ -95,12 +95,12 @@ test('E6: Hob on his rounds gives the form; the Registrar takes it once the deat
   state.holdItem(null);
   state.holdItem(form);
   state.flags.set('T_DECEASED', false);
-  assert.equal(state.interact(registrar, 'USE').say, caseOf(state, 'before T_DECEASED').say, 'not yet an estate');
+  assert.equal(state.interact(registrar, 'GIVE').say, caseOf(state, 'before T_DECEASED').say, 'not yet an estate');
   assert.ok(!state.puzzleComplete('E6'));
   state.flags.set('T_DECEASED', true);
   state.holdItem(null);
   state.holdItem(form);
-  const named = state.interact(registrar, 'USE');
+  const named = state.interact(registrar, 'GIVE');
   const rule = caseOf(state, 'with T_DECEASED');
   assert.equal(named.say, rule.say);
   assert.deepEqual(named.then, rule.then, 'the read-back, whole');

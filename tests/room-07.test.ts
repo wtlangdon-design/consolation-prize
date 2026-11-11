@@ -46,7 +46,9 @@ const ruleOf = (state: GameState, item: string, target: string, label: string) =
 const use = (state: GameState, item: string, target: Interactable) => {
   state.holdItem(null);
   state.holdItem(item);
-  return state.interact(target, 'USE');
+  // Errata 282: a hand-over is GIVE; a thing on the counter is USE.
+  const pair = state.content.combinations.pairs.find((one) => one.item === item && one.room === state.roomId && one.target === target.id);
+  return state.interact(target, (pair?.verbs ?? ['USE'])[0]!);
 };
 const counter = (state: GameState) => {
   const found = state.findTarget('counter');

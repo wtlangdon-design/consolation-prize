@@ -21,7 +21,7 @@ import { pathToFileURL } from 'node:url';
 
 import { Report, readJson, runCheck } from './lib/content.mjs';
 
-const HANDS = new Set(['verb', 'use', 'duel', 'tap', 'wait', 'opening']);
+const HANDS = new Set(['verb', 'use', 'give', 'duel', 'tap', 'wait', 'opening']);
 const TALK_VERB = 'TALK_TO';
 const LIMIT = 3;
 const ITEM_ON_ITEM = 5;
@@ -60,6 +60,7 @@ export function check() {
   for (const run of talkRuns(stops)) found.push(`talk-run from ${run.at}: ${run.rooms.join(' > ')}`);
   const used = new Set(steps.filter((step) => step.do === 'verb').map((step) => step.verb));
   if (steps.some((step) => step.do === 'use')) used.add('USE');
+  if (steps.some((step) => step.do === 'give')) used.add('GIVE');
   if (steps.some((step) => step.do === 'talk')) used.add(TALK_VERB);
   for (const verb of verbs) if (!used.has(verb)) found.push(`verb never used: ${verb}`);
   const items = new Set(readJson('content/manifest.json').items.map((file) => readJson(file).id));

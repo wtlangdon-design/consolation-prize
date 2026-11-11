@@ -985,7 +985,7 @@ export class GameState {
     // R5o: the predicate was written, correct, and unreached by the branch it
     // was written for.
     const action = this.held && this.verbs.carries(verb)
-      ? this.verbs.resolveWith(verb, this.held, target, room, this.carried)
+      ? this.verbs.resolveWith(verb, this.held, target, room, this.carried, this.content.ambient.has(target.id))
       // An item's lines are the item's wherever he stands: its cursor is in
       // the inventory's scope, so its repeat variants do not start over in
       // every room, and a room object that shares its id keeps its own.
@@ -1538,9 +1538,11 @@ export class GameState {
    * so the caller falls through to the ordinary pools exactly as an item on
    * scenery does. It fires once by construction.
    */
-  evidencePairFor(itemId: string, npcId: string): CombinationPair | null {
+  evidencePairFor(itemId: string, npcId: string, verb = 'USE'): CombinationPair | null {
     const pair = (this.content.combinations?.pairs ?? []).find((one) => one.item === itemId
-      && one.room === this.currentRoomId && one.target === npcId && one.opens && (one.completes || one.opensNode));
+      && one.room === this.currentRoomId && one.target === npcId && one.opens && (one.completes || one.opensNode)
+      // Errata 282: the verb the pair answers (GIVE, for the log handed to Winnie).
+      && (one.verbs ?? ['USE']).includes(verb));
     if (!pair) return null;
     if ((pair.requiresPuzzles ?? []).some((id) => this.puzzles.get(id) !== 'complete')) return null;
     if (Object.entries(pair.requiresFlags ?? {}).some(([flag, value]) => (this.flags.get(flag) === true) !== value)) return null;

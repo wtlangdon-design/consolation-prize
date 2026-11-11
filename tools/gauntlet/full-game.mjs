@@ -521,26 +521,26 @@ async function verbOn(page, verb, on) {
   }
 }
 
-async function use(page, item, on) {
-  const p = await requireIdle(page, `USE ${item} ON ${on}`);
+async function use(page, item, on, verb = 'USE') {
+  const p = await requireIdle(page, `${verb} ${item} ON ${on}`);
   if (!p.inventory.includes(item)) throw new StepError(`he is not carrying "${item}" (carrying: ${p.inventory.join(', ')})`);
   // ONE CARRIED ITEM ON ANOTHER (errata 244; doc 115's handkerchief on the ledger): the second click is its slot.
   const onItem = !p.targets.includes(on) && !p.present.includes(on) && p.inventory.includes(on);
   if (onItem) {
-    await clickVerb(page, 'USE');
+    await clickVerb(page, verb);
     await clickItem(page, item);
     const held = await probe(page);
-    if (held.held !== item) throw new StepError(`a USE click on ${item}'s slot left ${held.held ?? 'nothing'} in hand`);
+    if (held.held !== item) throw new StepError(`a ${verb} click on ${item}'s slot left ${held.held ?? 'nothing'} in hand`);
     await clickItem(page, on);
     return;
   }
   if (!p.targets.includes(on) && !p.present.includes(on)) {
     throw new StepError(`no "${on}" to use ${item} on in ${p.room} (targets: ${p.targets.join(', ')}; present: ${p.present.join(', ')})`);
   }
-  await clickVerb(page, 'USE');
+  await clickVerb(page, verb);
   await clickItem(page, item);
   const held = await probe(page);
-  if (held.held !== item) throw new StepError(`a USE click on ${item}'s slot left ${held.held ?? 'nothing'} in hand`);
+  if (held.held !== item) throw new StepError(`a ${verb} click on ${item}'s slot left ${held.held ?? 'nothing'} in hand`);
   await clickTarget(page, on);
 }
 
@@ -686,6 +686,7 @@ async function main() {
           case 'choose': break;
           case 'leave': await leave(page); break;
           case 'use': await use(page, step.item, step.on); break;
+          case 'give': await use(page, step.item, step.on, 'GIVE'); break;
           case 'verb': await verbOn(page, step.verb, step.on); break;
           case 'duel': await duel(page); break;
           case 'tap': await tap(page); break;

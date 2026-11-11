@@ -811,6 +811,18 @@
    "date": "2026-11-11",
    "kind": "reviewed",
    "why": "TUNED. Of the three loosenings in fourteen days, two were the design changing under it by Tyler's rulings (errata 245/247, the log stays with Winnie; errata 280, an asked question is gone) and one held a row's aftermath by hand. The tune: what WIN_B2's comic does once asked is read from its own afterUse, so the next change to the aftermath rule does not edit this test. Everything C5 itself holds (the pair opens WIN_B2, its rows move the world as doc 04 says, the states stay apart) is unchanged. Keep it."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 282: not a misfire but the design changing under the test. Tyler ruled a tenth verb, GIVE; the count of verbs the test holds goes from nine to ten. Everything it asserts of each verb is unchanged."
+  },
+  {
+   "check": "tools/check-content-schema.mjs",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 282: the expected verb count is ten, with GIVE (Tyler, 2026-11-11: \"Add GIVE as a 10th verb\"). The check is as strict as before at the new count."
   }
  ]
 }

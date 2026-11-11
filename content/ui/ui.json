@@ -7,7 +7,11 @@
     "verbOnly": "{verb}",
     "walkTemplate": "{verb}",
     "itemTemplate": "{verb} {item} on {target}",
-    "itemOnly": "{verb} {item}"
+    "itemOnly": "{verb} {item}",
+    "itemTemplates": {
+      "GIVE": "{verb} {item} to {target}"
+    },
+    "itemTemplatesNote": "Errata 282: a verb's own connective where it is not 'on' -- GIVE THE PIE TO THE COOK."
   },
   "dialogue": {
     "optionPrefix": "- ",

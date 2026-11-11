@@ -62,7 +62,7 @@ const asTarget = (state: GameState): Interactable => {
 const give = (state: GameState, item: string) => {
   state.holdItem(null);
   state.holdItem(item);
-  const result = state.interact(asTarget(state), 'USE');
+  const result = state.interact(asTarget(state), 'GIVE');
   state.holdItem(null);
   return result;
 };

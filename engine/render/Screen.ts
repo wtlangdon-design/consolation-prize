@@ -94,9 +94,14 @@ export class PanelLayout {
    * the two places on purpose. This is the verb grid's last free cell.
    */
   get fullscreenButton(): Rect | null {
-    if (!this.file.fullscreenButton) return null;
-    const { col, row } = this.file.fullscreenButton;
-    return this.verbButton(col, row);
+    const button = this.file.fullscreenButton;
+    if (!button) return null;
+    // Errata 282: ten verbs, MENU and MAP fill the grid, so the toggle has a rect of its own.
+    if (button.rect) {
+      const [x, y, width, height] = button.rect;
+      return { x, y, width, height };
+    }
+    return this.verbButton(button.col ?? 0, button.row ?? 0);
   }
 
   /** Icons visible at once. Errata 29: six to eight, and this is eight. */

@@ -50,14 +50,14 @@ test('the item is extracted from doc 23 with the owner\'s copy, and is held in t
 
 test('the pair is live in the ready state, and not before its puzzles or after its own', async () => {
   const { content, state, npc, pair } = await setup('r5-c');
-  assert.ok(state.evidencePairFor(pair.item, npc.id), 'live: the puzzles it needs are complete and its own is not');
+  assert.ok(state.evidencePairFor(pair.item, npc.id, 'GIVE'), 'live: the puzzles it needs are complete and its own is not');
   assert.equal(state.puzzleComplete(pair.completes as string), false, 'C5 is not written before contact');
   // Before its prerequisites: the same item held with C4 not complete.
   const early = new GameState(content, new MemoryStorage());
   early.applyFixture({ id: 'x', label: 'x', room: state.roomId, flags: {}, inventory: [pair.item] });
-  assert.equal(early.evidencePairFor(pair.item, npc.id), null, 'not live without its prerequisites');
+  assert.equal(early.evidencePairFor(pair.item, npc.id, 'GIVE'), null, 'not live without its prerequisites');
   // Another item on the same person: no pair.
-  assert.equal(state.evidencePairFor('tuning_fork', npc.id), null, 'an unrelated item has no pair here');
+  assert.equal(state.evidencePairFor('tuning_fork', npc.id, 'GIVE'), null, 'an unrelated item has no pair here');
 });
 
 test('contact commits C5 exactly once, leaves the item with her, and the tree then opens through the action', async () => {
@@ -67,7 +67,7 @@ test('contact commits C5 exactly once, leaves the item with her, and the tree th
   assert.equal(state.puzzleComplete('C5'), true);
   // Errata 247: she keeps it. Errata 66 A held the log "unless a later authored source consumes it"; this is that source.
   assert.ok(!state.carried.includes(pair.item), 'she keeps it, and goes on counting');
-  assert.equal(state.evidencePairFor(pair.item, npc.id), null, 'the pair does not fire again');
+  assert.equal(state.evidencePairFor(pair.item, npc.id, 'GIVE'), null, 'the pair does not fire again');
   const opening = state.dialogue.openingOf(tree, true);
   assert.equal(opening.length, 4, 'WIN_B2\'s four-line opening, for the action');
   assert.deepEqual(state.dialogue.openingOf(tree), [], 'and an ordinary TALK TO does not replay it');
@@ -166,5 +166,5 @@ test('the log on its person works once the log is held, whether or not the portr
   const noDrawer = new GameState(content, new MemoryStorage());
   noDrawer.applyFixture({ id: 'x', label: 'x', room: state.roomId, flags: { T_QUEUE_PADDED: true }, inventory: [pair.item] });
   assert.equal(noDrawer.puzzleComplete('C4'), false, 'the drawer was never opened');
-  assert.ok(noDrawer.evidencePairFor(pair.item, npc.id), 'the log still opens the tree');
+  assert.ok(noDrawer.evidencePairFor(pair.item, npc.id, 'GIVE'), 'the log still opens the tree');
 });

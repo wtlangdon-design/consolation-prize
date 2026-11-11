@@ -330,6 +330,9 @@
           "by": "sump",
           "say": "The money last, Mr. Grubb, so that nobody can say he paid for the paper."
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -366,7 +369,11 @@
       "item": "blanket",
       "room": "main_street",
       "target": "dog",
-      "say": "He is warmer than I am."
+      "say": "He is warmer than I am.",
+      "verbs": [
+        "USE",
+        "GIVE"
+      ]
     },
     {
       "item": "company_map",
@@ -394,7 +401,10 @@
         "T_LOG_WITH_WINNIE": true
       },
       "note": "ERRATA 66 A-C: SHOW / USE the submission log on Winnie is C5. The target is the room's ambient character, not a hotspot. No `say`: the pair's line is WIN_B2's opening, which the action launches at once. She keeps the log (errata 247). With C5 complete the pair yields to the ordinary pools (doc 36 Q113).",
-      "opensNode": "WIN_B2"
+      "opensNode": "WIN_B2",
+      "verbs": [
+        "GIVE"
+      ]
     },
     {
       "item": "death_certificate",
@@ -407,7 +417,10 @@
       },
       "opens": "FRAME",
       "note": "ERRATA 274: THE DEATH CERTIFICATE on Frame opens FRA_E1, the obituary. The target is the room's ambient character. No `say`: the pair's line is FRA_E1's opening. He hands it back; it is wanted at the county window (F5). TALK TO opens the same node, for a player who does not think of it.",
-      "opensNode": "FRA_E1"
+      "opensNode": "FRA_E1",
+      "verbs": [
+        "GIVE"
+      ]
     },
     {
       "item": "executor_form",
@@ -512,6 +525,9 @@
           "by": "undertaker",
           "say": "Stand straight first. Sizing's free."
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -562,6 +578,9 @@
           "by": "ozymandia",
           "say": "Put that away, darling. The rod has not yet told me what you owe."
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -616,6 +635,9 @@
           "say": "The earth has spoken once, darling. It does not repeat itself for the same two dollars.",
           "by": "ozymandia"
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -668,6 +690,9 @@
           "by": "sump",
           "say": "The office appoints executors to estates, Mr. Grubb. You are not yet an estate."
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -683,6 +708,9 @@
           "by": "winnie",
           "say": "I certified your death. I can't also tidy up after it."
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -698,6 +726,9 @@
           "by": "frame",
           "say": "Executor! Of the piano man! Can I print that I am?"
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -713,6 +744,9 @@
           "by": "sheng",
           "say": "I hold paper on your claim's neighbors. I would be executing myself."
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -728,6 +762,9 @@
           "by": "pratt",
           "say": "Eleven dollars for the claim."
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -743,6 +780,9 @@
           "by": "sowerby",
           "say": "I am to be paid out of the estate, Mr. Grubb. It would be indecent. Also impossible."
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -991,6 +1031,9 @@
             "T_MEMORIAL_BOOKED": true
           }
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -1436,6 +1479,9 @@
           },
           "completes": "G3"
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -1450,6 +1496,9 @@
           "say": "A deed! Jumper.",
           "by": "gulch_lookout"
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -1573,6 +1622,10 @@
           },
           "say": "He looks at the hen. The hen looks at him. Neither of them will settle this without my coat."
         }
+      ],
+      "verbs": [
+        "USE",
+        "GIVE"
       ]
     },
     {
@@ -1639,6 +1692,9 @@
             "T_RACCOON_SOLD": true
           }
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -1688,6 +1744,9 @@
           "by": "undertaker",
           "say": "Stand straight first. Sizing's free."
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -1702,6 +1761,9 @@
           "say": "Hen's on loan.",
           "by": "pratt"
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -1716,6 +1778,9 @@
           "say": "I don't take livestock. Not live, anyway.",
           "by": "undertaker"
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -1730,6 +1795,9 @@
           "say": "I hold paper, Mr. Grubb. I do not hold raccoons. Both bite.",
           "by": "sheng"
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -2053,6 +2121,9 @@
             }
           ]
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -2220,6 +2291,9 @@
           "say": "Refreshments? I was not consulted about refreshments.",
           "by": "sowerby"
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -3259,6 +3333,9 @@
           "say": "Keep it! I've a drawer of B's on order! You're the best thing that ever happened to the letter!",
           "by": "frame"
         }
+      ],
+      "verbs": [
+        "GIVE"
       ]
     },
     {
@@ -3372,7 +3449,7 @@
     {
       "room": "gulch_tents",
       "target": "gulch_lookout",
-      "verb": "USE",
+      "verb": "GIVE",
       "lines": [
         "That proves I own something. He wants it in writing that I don't."
       ],
@@ -3382,5 +3459,18 @@
       ],
       "source": "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT"
     }
-  ]
+  ],
+  "givePools": {
+    "people": [
+      "Declined. Politely, which in this town is the expensive way.",
+      "Not wanted. The face said so before the mouth could.",
+      "I held it out. It was looked at, and so, at some length, was I."
+    ],
+    "things": [
+      "It has no hands. I checked.",
+      "It is not in a position to accept.",
+      "Generosity, wasted. Most people would waste it too, but they at least say so."
+    ]
+  },
+  "givePoolsNote": "Errata 282, doc 127: GIVE with no pair -- to a person, or to a thing. Said in turn."
 }

@@ -7319,3 +7319,14 @@ Asked what errata 280 cost ("give me an example of what we're losing"), Tyler wa
 Doc 126's "The keepers" names thirty-four rows that stay on the list after they are asked, as Monkey Island kept a question where asking it again was the joke, each with the second answer quoted beside it. Not kept, whatever the line: the stage driver (the first conversation teaches the list), Fanshawe's dinner (its count of deferred pitches is the scene), and a list that is a puzzle's choice. The rest of errata 280 stands; `proofs/written-not-built.json`'s `asked-again-retired` is down by the thirty-two second answers that are back in the game.
 
 Lesson: `tests/mi-conversations.test.mjs` adds that every keeper doc 126 quotes is the second answer its row gives, so the list and the game cannot drift apart.
+## 282 · GIVE, the tenth verb (Tyler, 2026-11-11)
+
+Shown the game's deliberate differences from Monkey Island, one of them that it had no GIVE ("Give pie to cook"), Tyler: "Add GIVE as a 10th verb." Asked how it would earn its place: Monkey Island needed it about seven times, and this game had twenty-three hand-overs written as USE for want of the verb. Doc 127 is the source.
+
+- **The panel is Monkey Island 2's,** which had nine verbs with GIVE among them, as it laid them out -- Give, Pick up, Use / Open, Look at, Push / Close, Talk to, Pull -- with a fourth column for LISTEN TO, MENU and MAP. The keys follow the panel: Q W E R / A S D / Z X C. FULL moves to the right end of the sentence line.
+- **A hand-over is GIVE and only GIVE.** The twenty-three pairs doc 127 lists answer GIVE (`CombinationPair.verbs`); USE THE FEE ON SUMP is the fee's own wrong answer, as USE THE FISH ON THE TROLL would have been. Two that read as both (a blanket on a dog, a hen held out to a raccoon) answer either. The tools used on someone stay USE: the fork at Grievance, the chalk on Pratt. Doc 109's lookout pool, "GIVE anything else", answers GIVE.
+- **The sentence reads GIVE X TO Y** (`ui.sentence.itemTemplates`).
+- **GIVE with nothing written for it** has Thad's own lines, to a person and to a thing, and with nothing in hand (doc 127, written under errata 280's permission). The USE pools ("I have struck it against it") are not said for GIVE.
+- The played route gives eleven times where it used: the fees, the map, the clarion, the letter, the deed, the log, the raccoon, the money, the form and the certificate.
+
+Lesson: `tests/give.test.ts` (on the game before it, there is no GIVE and every test fails): the verb, its cell and key, every hand-over doc 127 names answering GIVE and USE only where it says either, USE on Sump for the fee completing nothing, and GIVE's own lines.

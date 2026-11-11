@@ -35,18 +35,20 @@ const inPrintShop = async (flags: Record<string, boolean>) => {
 
 test('the death certificate on Frame opens the obituary between the recorded death and the obituary, and not otherwise', async () => {
   const live = await inPrintShop({ T_DECEASED: true, T_OBITUARY: false });
-  const pair = live.evidencePairFor('death_certificate', 'frame');
+  const pair = live.evidencePairFor('death_certificate', 'frame', 'GIVE');
+  // Errata 282: handed over, as Monkey Island's were. USE THE CERTIFICATE ON FRAME is the certificate's pool.
+  assert.equal(live.evidencePairFor('death_certificate', 'frame', 'USE'), null, 'USE does not hand it over');
   assert.ok(pair, 'with the death recorded, the certificate on Frame does nothing');
   assert.equal(pair.opens, 'FRAME');
   assert.equal(pair.opensNode, 'FRA_E1');
   assert.equal(pair.completes, undefined, 'the pair completes E5 itself: FRA_E1 option 1 is what does');
-  assert.equal((await inPrintShop({ T_DECEASED: false })).evidencePairFor('death_certificate', 'frame'), null, 'live before the death is recorded');
-  assert.equal((await inPrintShop({ T_DECEASED: true, T_OBITUARY: true })).evidencePairFor('death_certificate', 'frame'), null, 'live again after the obituary');
+  assert.equal((await inPrintShop({ T_DECEASED: false })).evidencePairFor('death_certificate', 'frame', 'GIVE'), null, 'live before the death is recorded');
+  assert.equal((await inPrintShop({ T_DECEASED: true, T_OBITUARY: true })).evidencePairFor('death_certificate', 'frame', 'GIVE'), null, 'live again after the obituary');
 });
 
 test('showing it keeps it: the county wants it at the end', async () => {
   const state = await inPrintShop({ T_DECEASED: true, T_OBITUARY: false });
-  const pair = state.evidencePairFor('death_certificate', 'frame')!;
+  const pair = state.evidencePairFor('death_certificate', 'frame', 'GIVE')!;
   state.commitEvidence(pair);
   assert.ok(!(pair.set && 'T_OBITUARY' in pair.set), 'showing it writes the obituary without the conversation');
 });

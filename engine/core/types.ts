@@ -1168,6 +1168,11 @@ export interface ActorClip {
  */
 export interface CombinationPair {
   item: string;
+  /**
+   * Errata 282: the carry verbs this pair answers. USE when unnamed; a hand-over is GIVE, as Monkey Island's were
+   * (docs/127-give.md). A pair answers only the verbs it names; any other falls to the pools.
+   */
+  verbs?: string[];
   room: string;
   target: string;
   /** The state this combination moves the target to. Doc 22 item 9. */
@@ -1275,6 +1280,11 @@ export interface CombinationsFile {
   targetPools?: { room: string; target: string; verb?: string; lines: string[]; except?: string[]; source?: string }[];
   /** Anything on anything unhandled. Doc 24 tier 3. */
   globalPool: string[];
+  /**
+   * Errata 282: GIVE with nothing written for it -- to a person (`people`), or to a thing that is not one (`things`).
+   * Doc 127. The USE pools after a pair are about using a thing on a thing and are not said for GIVE.
+   */
+  givePools?: { people: string[]; things: string[] };
 }
 
 /** content/ui/item-icons.json -- errata 29's sheet, and where each icon sits in it. */
@@ -1300,7 +1310,8 @@ export interface PanelFile {
    * and it takes the verb grid's LAST free cell -- nine verbs fill three rows
    * of three, and the fourth row now holds MENU, MAP and this.
    */
-  fullscreenButton?: { note?: string; col: number; row: number };
+  /** Errata 282: at a rect of its own (the sentence line's right end) once the verbs fill the grid. */
+  fullscreenButton?: { note?: string; col?: number; row?: number; rect?: [number, number, number, number] };
   inventory: {
     note?: string;
     x: number;
@@ -2403,6 +2414,8 @@ export interface UiFile {
     walkTemplate: string;
     /** With an item held: verb, item, target. */
     itemTemplate: string;
+    /** Errata 282: a verb's own connective where it is not 'on' (GIVE X TO Y). */
+    itemTemplates?: Record<string, string>;
     /** With an item held and nothing under the pointer. */
     itemOnly: string;
   };
