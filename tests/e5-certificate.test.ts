@@ -22,28 +22,30 @@ import { MemoryStorage } from '../engine/core/SaveManager.ts';
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
 
-const inClarion = async (flags: Record<string, boolean>) => {
+const inPrintShop = async (flags: Record<string, boolean>) => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
-  const fixture = [...content.fixtures.values()].find((one) => one.room === 'clarion');
-  assert.ok(fixture, 'a fixture in the Clarion');
+  const pair = content.combinations.pairs.find((one) => one.item === 'death_certificate' && one.opensNode === 'FRA_E1');
+  assert.ok(pair, 'doc 24 pairs the death certificate with the printer');
+  const fixture = [...content.fixtures.values()].find((one) => one.room === pair.room);
+  assert.ok(fixture, 'a fixture in the print shop');
   assert.ok(state.applyFixture({ ...fixture, flags: { ...fixture.flags, ...flags } }));
   return state;
 };
 
 test('the death certificate on Frame opens the obituary between the recorded death and the obituary, and not otherwise', async () => {
-  const live = await inClarion({ T_DECEASED: true, T_OBITUARY: false });
+  const live = await inPrintShop({ T_DECEASED: true, T_OBITUARY: false });
   const pair = live.evidencePairFor('death_certificate', 'frame');
   assert.ok(pair, 'with the death recorded, the certificate on Frame does nothing');
   assert.equal(pair.opens, 'FRAME');
   assert.equal(pair.opensNode, 'FRA_E1');
   assert.equal(pair.completes, undefined, 'the pair completes E5 itself: FRA_E1 option 1 is what does');
-  assert.equal((await inClarion({ T_DECEASED: false })).evidencePairFor('death_certificate', 'frame'), null, 'live before the death is recorded');
-  assert.equal((await inClarion({ T_DECEASED: true, T_OBITUARY: true })).evidencePairFor('death_certificate', 'frame'), null, 'live again after the obituary');
+  assert.equal((await inPrintShop({ T_DECEASED: false })).evidencePairFor('death_certificate', 'frame'), null, 'live before the death is recorded');
+  assert.equal((await inPrintShop({ T_DECEASED: true, T_OBITUARY: true })).evidencePairFor('death_certificate', 'frame'), null, 'live again after the obituary');
 });
 
 test('showing it keeps it: the county wants it at the end', async () => {
-  const state = await inClarion({ T_DECEASED: true, T_OBITUARY: false });
+  const state = await inPrintShop({ T_DECEASED: true, T_OBITUARY: false });
   const pair = state.evidencePairFor('death_certificate', 'frame')!;
   state.commitEvidence(pair);
   assert.ok(!(pair.set && 'T_OBITUARY' in pair.set), 'showing it writes the obituary without the conversation');

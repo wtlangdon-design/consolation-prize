@@ -1002,6 +1002,12 @@ test('doc 24 rule 4: no authored pair exists without a written line', async () =
     // A PAIR THAT OPENS A TREE has its line in the tree's authored opening,
     // performed by the action (errata 66 C): it names what it opens and what
     // it completes, and the check confirms the tree opens on that puzzle.
+    if (pair.opens && !pair.completes) {
+      // A PAIR THAT ONLY OPENS (errata 274): it names its node, and the node's opening is its line.
+      assert.ok(pair.opensNode && content.dialogue.get(pair.opens)?.nodes[pair.opensNode]?.opening?.length,
+        `${pair.item} on ${pair.room}/${pair.target} opens a tree, completes nothing and names no written opening`);
+      continue;
+    }
     if (pair.opens) {
       assert.ok(pair.completes, `${pair.item} on ${pair.room}/${pair.target} opens a tree and completes nothing`);
       const tree = content.dialogue.get(pair.opens);
