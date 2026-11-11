@@ -7168,6 +7168,8 @@ Nothing written changed, and no puzzle, flag or line.
 
 Lesson: `tests/handover.test.ts`: the rule that hides him; the scene stages a handed item as it stages any thing with a stand; and everyone a staged handing-over can be made to has somewhere to stand for it. Doc 55 section 8: an item used on a person is a walk to the person.
 
+**The play-through, whole (the other of the two).** The route was played start to finish in the real build at commit efec32e5: 241 steps, the ending reached, no breaks. (Two props reported as not arrived at E0b.2 in the second half were the machine short of memory with two browsers open; replayed alone, the step is clean.) `renders/playthrough/` holds the transcript and the four sheets from that run. It was played before errata 267 and 268, so the scenes 267 changed (the séance, the raccoon sale, the fork on Grievance) were replayed on the fixed build and watched, and the sheets show the night streets as they were before 268. The two Pike-is-alive directions the route never reaches (the letter-writer's pen, Deke's glass) were played from a walkthrough of their own and are right.
+
 ## 268 · The town's streets at night, brought to one night (Tyler, 2026-11-10)
 
 Tyler, 2026-11-10: "do you think Main Street looks like it was drawn by the same hand as all of the other rooms?" Put beside Lower Street, the Lane and the Back Alley, it did not: finer grain, a hotter and brighter plate, a wide three-quarter view where they are flat fronts, and a busy ground twice as light as theirs with neon-blue puddles. Offered a tool pass, a pass on the other streets, or a redraw, he ruled: "Let's try the tool pass first and then make a decision", and, shown the before and after, "Proceed".
