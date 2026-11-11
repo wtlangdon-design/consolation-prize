@@ -5,7 +5,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { AmbientLayer } from '../engine/core/Ambient.ts';
-import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
+import { loadContent } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 
@@ -20,7 +20,7 @@ import { MemoryStorage } from '../engine/core/SaveManager.ts';
  * in the room did not change until he left and came back.
  */
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
+const fsReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
 const inOffice = async () => {
   const state = new GameState(await loadContent(fsReader), new MemoryStorage());
   const fixture = state.content.fixtures.get('r5-c');
@@ -30,18 +30,18 @@ const inOffice = async () => {
   return state;
 };
 // The middle of the plank, and the floor in front of it.
-const ON_BOARD = [600, 765] as const;
-const IN_FRONT = [600, 815] as const;
+const ON_BOARD = [600, 765];
+const IN_FRONT = [600, 815];
 
 test('the board is floor until it is lifted, not floor while it is up, and floor again when she is back', async () => {
   const state = await inOffice();
-  assert.ok(state.boxes!.boxAt(...ON_BOARD), 'before the ledger the board is walked on (it creaks)');
+  assert.ok(state.boxes.boxAt(...ON_BOARD), 'before the ledger the board is walked on (it creaks)');
   // In the room, in front of him: the floor changes without his leaving.
   state.flags.set('T_SECOND_LEDGER', true);
-  assert.equal(state.boxes!.boxAt(...ON_BOARD), undefined, 'he can stand on the lifted board');
-  assert.ok(state.boxes!.boxAt(...IN_FRONT), 'there is no way past in front of it');
+  assert.equal(state.boxes.boxAt(...ON_BOARD), undefined, 'he can stand on the lifted board');
+  assert.ok(state.boxes.boxAt(...IN_FRONT), 'there is no way past in front of it');
   state.flags.set('T_LEDGER_ON_COUNTER', true);
-  assert.ok(state.boxes!.boxAt(...ON_BOARD), 'the board is down and still not floor');
+  assert.ok(state.boxes.boxAt(...ON_BOARD), 'the board is down and still not floor');
 });
 
 test('he crosses the room round it: no point of the way is on the board', async () => {
@@ -54,9 +54,9 @@ test('he crosses the room round it: no point of the way is on the board', async 
   const obstacle = [452, 700, 306, 96];
   for (let leg = 1; leg < points.length; leg += 1) {
     for (let t = 0; t <= 1; t += 0.02) {
-      const x = points[leg - 1]!.x + (points[leg]!.x - points[leg - 1]!.x) * t;
-      const y = points[leg - 1]!.y + (points[leg]!.y - points[leg - 1]!.y) * t;
-      assert.ok(!(x > obstacle[0]! + 1 && x < obstacle[0]! + obstacle[2]! - 1 && y > obstacle[1]! + 1 && y < obstacle[1]! + obstacle[3]! - 1),
+      const x = points[leg - 1].x + (points[leg].x - points[leg - 1].x) * t;
+      const y = points[leg - 1].y + (points[leg].y - points[leg - 1].y) * t;
+      assert.ok(!(x > obstacle[0] + 1 && x < obstacle[0] + obstacle[2] - 1 && y > obstacle[1] + 1 && y < obstacle[1] + obstacle[3] - 1),
         `his way crosses the lifted board at ${Math.round(x)},${Math.round(y)}`);
     }
   }
@@ -65,11 +65,11 @@ test('he crosses the room round it: no point of the way is on the board', async 
 test('where anyone stands while it is up is still floor', async () => {
   const state = await inOffice();
   state.flags.set('T_SECOND_LEDGER', true);
-  const winnie = state.content.ambient.get('winnie_at_board')!;
-  assert.ok(state.boxes!.boxAt(winnie.x, winnie.y), 'she kneels where there is no floor');
-  assert.ok(state.boxes!.boxAt(winnie.walkTo!.x, winnie.walkTo!.y), 'he cannot stand where he talks to her');
-  const board = state.room.hotspots.find((one) => one.id === 'floorboard')!;
-  assert.ok(state.boxes!.boxAt(board.walkTo!.x, board.walkTo!.y), 'he cannot stand where he looks at the board');
+  const clerk = state.content.ambient.get('winnie_at_board');
+  assert.ok(state.boxes.boxAt(clerk.x, clerk.y), 'she kneels where there is no floor');
+  assert.ok(state.boxes.boxAt(clerk.walkTo.x, clerk.walkTo.y), 'he cannot stand where he talks to her');
+  const board = state.room.hotspots.find((one) => one.id === 'floorboard');
+  assert.ok(state.boxes.boxAt(board.walkTo.x, board.walkTo.y), 'he cannot stand where he looks at the board');
 });
 
 test('called by her direction she is in the room and her counter figure is not; uncalled, the reverse', async () => {
