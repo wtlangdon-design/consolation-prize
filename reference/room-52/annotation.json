@@ -184,7 +184,7 @@
  },
  "hotspotWalkTo": {
   "plank": {
-   "x": 1100,
+   "x": 1000,
    "y": 800,
    "facing": "back"
   },
@@ -199,12 +199,12 @@
    "facing": "back"
   },
   "watch": {
-   "x": 1140,
+   "x": 1040,
    "y": 800,
    "facing": "back"
   },
   "fiddle": {
-   "x": 560,
+   "x": 450,
    "y": 800,
    "facing": "back"
   }
@@ -400,5 +400,6 @@
   ],
   "brightness": 0.95,
   "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
- }
+ },
+ "hotspotWalkToNote": "Errata 266: filmed in the real build, he stood at the fiddle on top of the rule-keeper, whose acted beats (the dust, the fiddle played) were half behind his back; and at the plank and the watch on the Deacon. The fiddle's stand is to the left of its post (450), clear of the man on the barrel; the plank's and the watch's are left of the Deacon (1000, 1040)."
 }

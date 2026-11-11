@@ -123,7 +123,8 @@ function placed(roomId: string) {
   });
 }
 
-const acted = (read('content/acted-directions.json') as { directions: { where: string; performedBy?: string[]; frames?: number[]; framesBy?: number[][] }[] }).directions;
+const acted = (read('content/acted-directions.json') as { directions: { where: string; performedBy?: string[]; frames?: number[]; framesBy?: number[][] }[] }).directions
+  .filter((row) => row.performedBy?.length);
 for (const roomId of built) {
   const room = rooms.get(roomId);
   if (!room?.walkBoxes) continue;
@@ -172,6 +173,46 @@ for (const roomId of built) {
       if (covers > COVER) faults.push(`the player at ${stand.x},${stand.y} covers ${talker.npc.id} by ${(covers * 100).toFixed(0)}%`);
     }
     assert.deepEqual(faults, [], `${roomId}: move the stand or the figure`);
+  });
+
+  // HE DOES NOT STAND IN FRONT OF THE MAN WHO IS ACTING (errata 266). The acted directions were filmed in the real
+  // build on 2026-11-10: with the tuning fork used on the grog tent's fiddle, Thad walked to the fiddle and stood on
+  // the rule-keeper, whose two beats (the dust tipped, the fiddle played) were played half behind his back. Where a
+  // direction is acted by a figure because of a thing Thad uses or handles, he stands at that thing's own place
+  // (its walkTo); from there he may cover no more of the acting figure, in any frame of the act, than he may cover
+  // of a person he talks to.
+  test(`${roomId}: where he stands to do a thing, he is not in front of whoever acts because of it`, () => {
+    const faults: string[] = [];
+    for (const row of acted) {
+      const thing = /^combinations \([a-z_0-9]+ on ([a-z_0-9]+)/.exec(row.where)?.[1]
+        ?? (row.where.startsWith(`rooms/${roomId} `) ? row.where.split(' ')[1] : undefined);
+      if (!thing) continue;
+      const stand = [...(room.hotspots ?? []), ...(room.exits ?? [])].find((spot) => spot.id === thing)?.walkTo;
+      if (!stand) continue;
+      for (const [index, id] of (row.performedBy ?? []).entries()) {
+        const figure = people.find((one) => one.npc.id === id);
+        // A scenery figure's act is a walk that ends in another room (Grievance out of her stall, past him): not a pose.
+        if (!figure || figure.npc.scenery) continue;
+        const height = man(stand.x, stand.y);
+        // As he stands there: from behind he is half again as wide as in profile.
+        const facing = stand.facing === 'left' ? 'right' : stand.facing ?? 'right';
+        const frame0 = (player.clips.find((clip) => clip.id === 'stand' && clip.facing === facing) ?? player.clips.find((clip) => clip.id === 'stand' && clip.facing === 'right')!).frames[0]!;
+        const image = sheet(frame0);
+        const scale = height / (playerBox.bottom - playerBox.top + 1);
+        const body = maskOf(frame0, [0, playerBox.top, image.width, playerBox.bottom - playerBox.top + 1], scale, stand.x, stand.y, stand.facing === 'left');
+        const drawn = figure.sprite.figureHeight;
+        const figureScale = drawn ? (man(figure.x, figure.y) * (figure.sprite.stature ?? 1)) / drawn : 1;
+        for (const frame of new Set(row.framesBy?.[index] ?? row.frames ?? [])) {
+          const rect = figure.sprite.frames[frame] as [number, number, number, number] | undefined;
+          if (!rect) continue;
+          const pose = maskOf(figure.sprite.sheet, rect, figureScale, figure.x,
+            figure.y + drawnBelowFeet(rect[3], Math.max(1, Math.round(rect[3] * figureScale)), figure.sprite.footRow));
+          const covered = shared(body, pose) / Math.max(1, area(pose));
+          if (covered > COVER) faults.push(`at ${thing} (${stand.x},${stand.y}) the player covers ${(covered * 100).toFixed(0)}% of ${id} in frame ${frame} of "${row.where}"`);
+        }
+      }
+    }
+    assert.deepEqual(faults, [], `${roomId}: move the thing's stand`);
   });
 
   test(`${roomId}: no one who talks is drawn over another figure`, () => {

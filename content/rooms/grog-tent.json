@@ -209,7 +209,7 @@
         }
       ],
       "walkTo": {
-        "x": 1140,
+        "x": 1040,
         "y": 800,
         "facing": "back"
       }
@@ -262,7 +262,7 @@
         ]
       },
       "walkTo": {
-        "x": 560,
+        "x": 450,
         "y": 800,
         "facing": "back"
       }
@@ -340,7 +340,7 @@
         "PICK_UP": "It's the bar. You don't pick up a man's bar. Not here, and not with him watching."
       },
       "walkTo": {
-        "x": 1100,
+        "x": 1000,
         "y": 800,
         "facing": "back"
       }

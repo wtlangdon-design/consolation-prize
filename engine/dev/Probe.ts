@@ -213,6 +213,8 @@ export interface FrameReport {
    * SCREEN, not whether they exist.
    */
   performing: boolean;
+  /** Who is holding a frame of an acted direction now (doc 95): figure ids. Empty when nobody is. Ids only. */
+  acting: string[];
   /** The verb panel was drawn in the last frame: never while a conversation holds the interface (errata 143). */
   panel: boolean;
   /** How many of the offered options are in the list's scrolled window (errata 143); `choiceLines` counts them all. */

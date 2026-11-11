@@ -24,11 +24,11 @@
   "T_DUEL_ONE_CALLED": false
  },
  "walkTo": {
-  "x": 1120,
+  "x": 1060,
   "y": 800,
   "facing": "back"
  },
- "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: across the plank from him, in front of it, as a customer stands.",
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: across the plank from him, in front of it, as a customer stands. Errata 266: 1060, not 1120. Filmed, he stood in front of the Deacon's shoulder while the Deacon polished a glass; he stands to his left now, at the plank.",
  "barks": {},
  "sprite": {
   "note": "Vessel's own frames, shaved: 0 rest, 1 breath, 2 talking (held while spoken to), 3 pushing his hat back, 4 looking out at the room, 5 looking down. Breaks every 11 s, as his in the Nugget.",

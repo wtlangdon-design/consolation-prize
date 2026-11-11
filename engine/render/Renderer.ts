@@ -5,6 +5,7 @@ import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer, Departing } from '../core/Ambient.ts';
 import { breakAt, drawnBelowFeet, figureSpeaking } from '../core/Ambient.ts';
+import { hiddenNow } from '../core/Standing.ts';
 import { askedState } from '../dev/RoomState.ts';
 import { applyTint, moverTint, type MoverTint } from './LightFields.ts';
 
@@ -1611,7 +1612,8 @@ export class Renderer {
     // A figure on a loop is drawn where its walk has reached, not standing.
     for (const figure of depthOrder(roomFigures(this.ambient.present.filter((npc) => !npc.loop),
       this.actors.all(), props, this.ambient.departing))) {
-      if (playerHidden && figure.mover?.id === this.state.content.actor.id) continue;
+      if (figure.mover?.id === this.state.content.actor.id
+        && hiddenNow({ hidden: playerHidden, acting: this.poses?.some((pose) => pose.id === figure.mover!.id) ?? false })) continue;
       if (moversHidden && figure.mover) continue;
       if (this.bystandersHidden && (figure.npc || figure.walker)) continue;
       if (figure.walker) {

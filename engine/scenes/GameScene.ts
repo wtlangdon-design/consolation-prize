@@ -279,6 +279,8 @@ export class GameScene extends Phaser.Scene {
   private pendingSay: QueuedLine[] = [];
   /** A person's lines staged for a walk-up, and who answers after them (core/PersonLines.ts; errata 192). */
   private personTarget: ReturnType<typeof personLines> = null;
+  /** The person an item is being carried to (errata 267): kept while he walks there, as `personTarget` is. */
+  private itemTaker: Interactable | null = null;
   /** The frames an acted direction holds while it plays from the queue (doc 95; errata 141). */
   private queuedPoses: HeldPose[] | null = null;
   /** An acted beat's walk is under way, and the beat waits for it (ActStep.walk). */
@@ -1673,11 +1675,19 @@ export class GameScene extends Phaser.Scene {
     if (taker && held && chosen !== null) {
       const person = taker;
       const [hx, hy, hw, hh] = this.ambient.hitBox(person);
-      this.applyInteraction({
+      // Where a conversation with this person stands, as TALK TO does; or, for a figure that is also a thing in the
+      // room (Grievance over her half door), where the room says to stand for the thing.
+      const stand = person.walkTo ?? this.state.room.hotspots.find((one) => one.id === person.id)?.walkTo;
+      const handed = {
         id: person.id, name: person.name, rect: [hx, hy, hw, hh], colour: 0, responses: {},
-        // He walks to where a conversation with this person stands, as TALK TO does.
-        ...(person.walkTo ? { walkTo: person.walkTo } : {}),
-      } as Interactable, chosen);
+        ...(stand ? { walkTo: stand } : {}),
+      } as Interactable;
+      // AND HE DOES WALK THERE (errata 267). The stand was declared and never walked to: this answered from wherever
+      // he stood, so the raccoon was sold to Mr. Pratt, coat, coins, hen and all, from the far side of the claim.
+      // Staged as any thing with a stand is; the target is kept for the sequence's last step, as a person's lines are.
+      this.itemTaker = handed;
+      if (handed.walkTo) this.beginInteraction(handed, chosen);
+      else this.applyInteraction(handed, chosen);
       this.markDirty();
       return;
     }
@@ -2502,8 +2512,9 @@ export class GameScene extends Phaser.Scene {
   private saySequenceStep(step: Extract<SequenceStep, { kind: 'say' }>): number {
     if (step.interact) {
       // A PERSON'S LINES ARE NOT ONE OF THE ROOM'S HOTSPOTS (errata 192): the target staged for her is kept here.
-      const target = this.personTarget?.target.id === step.interact.target
-        ? this.personTarget.target : this.state.findTarget(step.interact.target);
+      const target = this.personTarget?.target.id === step.interact.target ? this.personTarget.target
+        : this.itemTaker?.id === step.interact.target ? this.itemTaker : this.state.findTarget(step.interact.target);
+      this.itemTaker = null;
       if (target) this.applyInteraction(target, step.interact.verb);
       return 0;
     }
@@ -3499,6 +3510,7 @@ export class GameScene extends Phaser.Scene {
       ending: this.endingFrom === null ? null
         : endingAt(this.lastFrameAt - this.endingFrom, this.endingTiming()).phase,
       performing: this.performance !== null,
+      acting: (this.heldPoses() ?? []).map((pose) => pose.id),
       panel: this.panelDrawn,
       optionsShown: this.state.dialogue.isActive && this.performance === null
         ? this.view.dialogueHitboxes(this.state.dialogue.presentOptions(), this.choiceScroll()).filter((box) => box.shown).length : 0,
