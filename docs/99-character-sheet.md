@@ -210,6 +210,171 @@ The ambient rule stands: each is **one premise**, fully committed, reacting to T
 
 ---
 
+# PART TWO, CONTINUED — HOW EACH ONE SOUNDS (errata 287)
+
+*Tyler, 2026-11-11, after the street people's rewrite: "I just remember the major characters in MI all having very distinct personalities, ways of speaking, etc." Part Two says what each person wants. This part says what they sound like, so that the rewrite gives each of them a voice nobody else has. Monkey Island's people are told apart by ear: the salesman's pitch, the Voodoo Lady's riddles, the pirate leaders' grunts.*
+
+**The test is "cover the name".** Take any line from the conversation and hide who said it. A reader should still be able to name the speaker. If two characters could have said the same line, one of them is written wrong.
+
+Each entry gives five things:
+- **Shape:** how long their sentences run, and how a turn is built.
+- **Their words,** and words they never use.
+- **When cornered:** what they do with a question they don't want to answer. This is where a character is most recognisable.
+- **Sounds like:** a line already in the game that passes the test. It is the tuning fork for the rest.
+- **Not to be confused with:** the nearest voice in the cast, and the difference.
+
+## The short-spoken six
+
+Six of the cast speak briefly. Part Two describes five of them in nearly the same words, and a rewrite that followed it would make them one voice. They differ in **why** they are short, and the why makes the sound:
+
+| Who | Short because | So a line of theirs is |
+|---|---|---|
+| Winnie | she is busy, and right | a ruling: an imperative, or a correction of his word |
+| Hob | anything more might give him away | the true answer to a question nobody asked |
+| The undertaker | the matter is closed | a date, a place, and then a full stop that stays |
+| Sheng | he is exact | a complete sentence, with every figure in it |
+| Pratt | he is slow | one fact, arrived at after some thought |
+| The stage driver | he is leaving | a complaint, delivered over his shoulder |
+
+## THADDEUS GRUBB
+- **Shape:** quick, in runs; a plan announced before it has been thought through; "and" joining things that should not be joined. He is the only one who talks in exclamations of hope.
+- **His words:** money in exact sums; his ear (flat, sharp, a quarter-tone, "pitch"); "I have decided"; his own name in full.
+  - **Never:** sarcasm, "I suppose", a sigh, or a joke at someone else's expense. Guybrush quipped; Thad means it.
+- **When cornered:** he doesn't dodge. He overshares, offers a credential nobody asked for, and carries on.
+- **Sounds like:** "I've tuned a cathedral organ. A bell is nothing." / "I'm Thaddeus Grubb. You'll have heard of me."
+- **Not to be confused with:** Frame, who is also eager. Frame wants a story about Thad; Thad wants to be the story.
+
+## MISS WINNIE LEDGER
+- **Shape:** two to eight words. Imperatives and corrections. A second sentence only to close a door.
+- **Her words:** the book, the window, four o'clock, numbers of men ahead of him, the right term ("assay", never "test").
+  - **Never:** "I think", "dear", "perhaps", or an exclamation mark.
+- **When cornered:** procedure. She tells him which queue the question belongs in, and that it is not hers.
+- **Sounds like:** "If this concerns an assay, say so." / "The undertaker has his paperwork. I'm not doing the undertaker's job."
+- **Not to be confused with:** Sump. Sump cites a rule that binds him; Winnie *is* the rule. She never names a statute.
+
+## COLONEL ABSALOM FANSHAWE
+- **Shape:** long, unhurried sentences of three clauses. The last clause is a compliment that is also a threat. His shortest line is still a dozen words.
+- **His words:** "Mr. Grubb!", capital, opportunity, partnership, "very wise", the war (wrong each time), the Company as "we".
+  - **Never:** "no", a short sentence, a raised voice, or a figure he can be held to.
+- **When cornered:** he agrees warmly with a different question, and invites Thad to dinner.
+- **Sounds like:** "Then you are the best-capitalized man to arrive this week, and I congratulate you, and I would keep a hand on them in the Nugget."
+- **Not to be confused with:** Deke. Deke sells one thing today and leaves; Fanshawe sells the future and stays forever.
+
+## HOB
+- **Shape:** one to five words. "No." is a whole turn. Present tense, no adjectives.
+- **His words:** what is in front of him: the lamp, the street, the hour.
+  - **Never:** a joke, a question back, or a word that isn't true.
+- **When cornered:** he walks on.
+- **Sounds like:** "No." / "I know the mud."
+- **Not to be confused with:** the undertaker. The undertaker answers the question asked, plainly; Hob answers one beside it, correctly.
+- **The rewrite touches only Thad's side of Hob's conversations.** Hob's lines are clues read backwards, and doc 59 §11, invariants 3 and 7 and the load-bearing LISTEN lines hold them as written.
+
+## IGNATIUS FRAME
+- **Shape:** starts mid-thought, with a dash. Headline fragments. CAPITALS when he's composing. Quotes Thad back, improved and wrong.
+- **His words:** quotable, exclusive, edition, "sources close to", "says mystery man", Thad's name spelled a new way.
+  - **Never:** "I don't know", or a fact he has checked.
+- **When cornered:** he turns the question into a headline and asks Thad for a quote about it.
+- **Sounds like:** "Everything! I wrote most of it." / "'I'd… rather… not,' says mystery man."
+- **Not to be confused with:** the letter-writer, who also improves the truth. The letter-writer does it for a client, quietly and for a fee; Frame does it to Thad, in print, for free.
+
+## NICKEL PRATT
+- **Shape:** one idea per sentence, subject first. A printed pause before anything that needs thought, which is most things.
+- **His words:** exact money ("two dollars and sixty cents"), "Mister", the hole, the bite.
+  - **Never:** a subordinate clause, a quip he knows is one, or hurry.
+- **When cornered:** he thinks about it for some time, then answers the question before last.
+- **Sounds like:** "Nine dollars for what?" / "Undertaker's got him."
+- **Not to be confused with:** the undertaker. Pratt is short because he is still working it out; the undertaker is short because he finished long ago.
+
+## MADAME OZYMANDIA
+- **Shape:** two registers, switched mid-sentence. Oracular grammar, then a price, then oracular again, as if the price were not said.
+- **Her words:** the rod *seeks*, the Spirits, "shall", "I am adding it to your account", dollars.
+  - **Never:** "I don't know", or any sign that her method works or that she noticed.
+- **When cornered:** the spirits are busy, or it is extra.
+- **Sounds like:** "The spirits know Ezra Pike. Intimately. Two dollars and I shall ask them where he is." / "Or the undertaker will tell you for nothing. He undercuts me terribly."
+- **Not to be confused with:** Sowerby, who also performs for money. Sowerby means every word; she means only the price.
+
+## AH-LAM SHENG
+- **Shape:** complete, grammatical sentences: subject, verb, the exact figure. Understatement. The punch is a precise fact said flatly.
+- **His words:** accounts, sums to the cent, dates, "pressed", "called for".
+  - **Never:** an exclamation, slang, broken English, or being the butt. Every joke in his scenes is at the town's expense.
+- **When cornered:** he answers exactly what was asked, and not one word more.
+- **Sounds like:** "Because I do laundry." / "Mr. Pike's shirts are still here. Four of them, pressed."
+- **Not to be confused with:** Winnie. Winnie is curt because she's busy; Sheng is complete because he's careful, and he has time for Thad.
+
+## REVEREND SOWERBY
+- **Shape:** pulpit cadence: adjectives in threes, a sentence that breaks off mid-word into grief, then his rates. "I KNOW." at full volume.
+- **His words:** beloved, departed, bereaved, the Lord's time, rates, by the adjective.
+  - **Never:** brevity, except "I KNOW."; and never cynicism. He feels all of it.
+- **When cornered:** he begins a eulogy for the subject.
+- **Sounds like:** "My deepest— are you well?" / "A man of— a man of real—"
+- **Not to be confused with:** the rule-keeper, written as his opposite: brief, confident and wrong where Sowerby is long, moved and paid.
+
+## REGISTRAR CADWALLADER SUMP
+- **Shape:** complete sentences, often passive. A form number, a section number, "in that order". Courteous, never moved.
+- **His words:** Form 12-C, "the statute", "the office", "Mr. Grubb", "I have checked".
+  - **Never:** an exclamation, an opinion, or an exception.
+- **When cornered:** there is a form for it, and he has it.
+- **Sounds like:** "Thereabouts is not a unit, Mr. Grubb. I have checked." / "I have issued one license this year. It was to a diviner."
+- **Not to be confused with:** the hotel clerk, who also keeps rules. Sump's rules protect Thad; the clerk's protect the hotel.
+
+## DEKE VESSEL (and the Deacon)
+- **Shape:** chummy, leaning in. Questions back at Thad that flatter him. Every sentence is technically true.
+- **His words:** "friend", "between us", "producing", "I'm getting out".
+  - **Never:** a lie, or a figure he couldn't defend in court.
+- **When cornered:** he makes the question about Thad's good judgement.
+- **Sounds like:** "Nothing. I'm getting out." / "Which is a kind of selling, I suppose."
+- **In the Gulch:** the same voice under a new name. He has never been happier, because everyone there can pay.
+- **Not to be confused with:** Fanshawe; see his entry.
+
+## THE UNDERTAKER
+- **Shape:** a date, a place, a full stop, and then he waits.
+- **His words:** years ("Eighteen fifty-two"), plot numbers, "up the hill", what is owed.
+  - **Never:** an adjective, a flourish, or a lie.
+- **When cornered:** he isn't. He is the one man in town who simply answers, which is why everyone sends Thad to him.
+- **Sounds like:** "Eighteen fifty-two. He's up the hill." / "I'm the one who says it."
+- **Not to be confused with:** Hob or Pratt; see theirs.
+
+## THE STAGE DRIVER
+- **Shape:** complaints, half-turned away, already climbing back up. He addresses everyone who has ever been on his coach: "you" means all of them.
+- **His words:** the axle, the road, the mule, prices in town.
+  - **Never:** help beyond one sentence.
+- **When cornered:** "Ask the undertaker."
+- **Sounds like:** "Hotel's five dollars." / "You've all got four."
+- **Not to be confused with:** the man leaving tomorrow. The driver is actually leaving.
+
+## THE LIVERY MAN
+- **Shape:** reports the mule's views in the third person, after a pause to consult her. His own opinion never appears.
+- **His words:** "She", "she's thinking", "then we'll know".
+  - **Never:** overrules the mule.
+- **When cornered:** Grievance hasn't decided.
+- **Sounds like:** "You don't hire Grievance. You apply. She'll look at you. Then we'll know."
+
+## THE HOTEL CLERK
+- **Shape:** front-desk procedure, polite and immovable. Policies stated as if they were weather.
+- **His words:** "as given", "the house", "guest", "the register", his spelling.
+  - **Never:** rude; and never wrong about a spelling, by his own account.
+- **When cornered:** it is the policy of the house.
+- **Sounds like:** "I've spelled it as given." / "It was given to *me* that way."
+
+## THE GULCH (doc 107)
+- **The rule-keeper:** brief, confident and wrong. He recites rules by number, and the numbers change between askings. Never hesitates.
+- **The lookout:** everything is evidence of claim-jumping, including denying it. He is reassured only by proof of poverty, and he asks for it in detail.
+- **The man upstream:** rich and miserable. He brags in units that have stopped making sense: "a nugget so big it needs its own tent".
+- **The two panners:** rich men with cold feet. Every answer measures one against the other ("He says his ground runs so rich the gravel pays him rent.").
+
+## THE TOWNSPEOPLE STILL TO COME
+The six on Main Street, Lower Street and the Lane are rewritten (errata 286), and their Part Two entries are their voices. The rest:
+- **The boundary men:** two voices, one argument. They finish each other's sentences in order to disagree with them; every turn is interrupted with a dash.
+- **The barber-dentist-surgeon:** everything in threes, with prices: "Shave, extraction, amputation. Two bits, four bits, a dollar." Cheerfully unreassuring.
+- **The photographer:** a wholesaler. Portraits by the gross, men in good collars from Ohio. He counts stock.
+- **The boarding house women:** A says one word, and B explains it, with "dear". They treat the gold rush as weather.
+- **The fiddler:** agreeable. Loyalty to the flat piano, offered as a virtue.
+- **The one-strike man:** wistful, and exactly specific: forty-nine, spring, a Tuesday. Every road leads back to it.
+- **The card sharp:** candour in the fewest words: "I am." "Still am." The one honest man at the table.
+- **The dog's owner:** every answer is about the dog, measured in weeks.
+
+---
+
 # PART THREE — HOW STEP 2 RUNS
 
 1. **Act I in play order:**
