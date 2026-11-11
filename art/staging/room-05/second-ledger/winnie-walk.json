@@ -4,42 +4,42 @@
   [
    2,
    2,
-   255,
+   265,
    520
   ],
   [
-   259,
+   269,
    2,
-   255,
+   265,
    520
   ],
   [
-   516,
+   536,
    2,
-   255,
+   265,
    520
   ],
   [
-   773,
+   803,
    2,
-   255,
+   265,
    520
   ],
   [
-   1030,
+   1070,
    2,
-   255,
+   265,
    520
   ],
   [
-   1287,
+   1337,
    2,
-   255,
+   265,
    520
   ]
  ],
  "figureHeight": 518,
  "drawnFacing": "left",
- "order": "drawn frames 1 3 4 2 3 4: stride, closing, feet together, twice",
- "source": "room-05-second-ledger attempt 3 (art/staging/room-05/second-ledger/walk/sheet-03.png)"
+ "order": "as drawn: contact, down, passing, contact, down, passing",
+ "source": "winnie-walk-2 attempt 2 (art/staging/room-05/second-ledger/walk2/sheet-04-fix.png): the hem lifted, errata 275"
 }

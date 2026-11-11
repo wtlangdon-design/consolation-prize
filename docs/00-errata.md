@@ -7251,3 +7251,12 @@ Tyler, 2026-11-10, on doc 124's two proposals: "You decide". And: "If you feel l
 - **The three to watch, looked at again.** The paperwork run (E4 to E6) is shorter by a conversation and longer by an object: proposal 1 was the fix that needs no new writing. The two errands before Grievance (B1, B2) each pose a question and answer it in one exchange, and they set up the best puzzle of Act II; an object step there would be padding, and new lines. Duel Two plays in about seventy seconds on the route, won; a lost one is no longer. None of the three is changed: the builder could make them different, not better, and a line the documents never wrote is still Tyler's to authorise.
 
 Lesson: `tests/e5-certificate.test.ts` (live only between the death and the obituary; completes nothing itself), proved against the content with the pair taken out; the walkthrough's E5.4 plays it.
+
+## 275 · Winnie's walk, with the hem lifted; and Main Street's redraw handed back, not yet promoted (Tyler, 2026-11-11)
+
+The image session handed back both of errata 272's redraws (`redraws-art`). Tyler raised `room-02-redraw` from 5 to 7 and the spend cap to 4,300,000 during it ("Raise both caps"; recorded in `art/staging/caps.json`).
+
+- **Winnie's walk is the new sheet** (`winnie-walk-2` attempt 2, `walk2/sheet-04-fix.png`): her front hand gathers the skirt and lifts the hem, and the boots and the stride show. `tools/art/second-ledger-walk.py` cuts it in its drawn order, at the room's man, graded to her sheet's fabric. It passes the walk test as any walk does (feet pass in both halves; frames share 51% below the hem), so errata 270's allowance for a skirt is no longer used by anyone; it stays in the test for the next long skirt. Replayed and filmed in the real build: she walks round the counter and kneels at the board as before.
+- **Main Street's redraw is handed back, not promoted.** The candidate (`art/staging/room-02/redraw/candidate-3700x864.png`) is the street in the side streets' hand, stitched from three windows, registered back onto the street (`tools/art/main-street-register.py`), with the Company's lettering restored (`tools/art/main-street-sign.py`; Tyler: "Looks good now"). It is shown to Tyler beside the street as it is before anything is re-placed.
+
+Lesson: none -- art cut and wired, no fix.
