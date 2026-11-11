@@ -857,7 +857,7 @@ export class GameScene extends Phaser.Scene {
     // rather than never: before this, the glow only moved when something else
     // happened to cause a frame. Ten a second is enough for a two-sine wobble
     // of a few per cent and far below the per-frame cost of walking.
-    if (this.state.room.lamps?.length
+    if ((this.state.room.lamps?.length || this.state.room.motion?.length)
       && Math.floor(before * GameScene.LAMP_TICKS) !== Math.floor(now * GameScene.LAMP_TICKS)) {
       this.markDirty();
     }

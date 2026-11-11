@@ -919,6 +919,31 @@ export interface AmbientFile {
  * interior needs CONTENT. Here the lamp is drawn, the fire is drawn, and the
  * glow only makes them flicker.
  */
+/** One thing in a room that moves by itself. See RoomFile.motion and engine/render/MotionLayer.ts. */
+export interface RoomMotion {
+  id: string;
+  kind: 'smoke' | 'shimmer' | 'twinkle' | 'sway' | 'motes';
+  /** Room pixels: smoke rises from the top of it; the others move inside it. */
+  rect: [number, number, number, number];
+  /** Cycles per second (smoke: puffs' lives per second). */
+  rate?: number;
+  /** How much: puffs or motes or stars counted; shimmer and sway in whole pixels of the room's level. */
+  amount?: number;
+  /** The square's size in screen pixels; the room's level when absent (its man over 115). */
+  block?: number;
+  colour?: [number, number, number];
+  alpha?: number;
+  /** Smoke: how high it rises, and how far it drifts sideways, over a puff's life. */
+  rise?: number;
+  drift?: number;
+  /** Sway: the edge it hangs from. */
+  hinge?: 'top' | 'bottom';
+  seed?: number;
+  /** Only while the room shows one of these pictures (the plate's own path). Absent: always. */
+  plates?: string[];
+  note?: string;
+}
+
 export interface RoomLamp {
   id: string;
   /** Centre, in room coordinates. */
@@ -1599,6 +1624,12 @@ export interface RoomFile {
    */
   /** Doc 18's flicker, by a mechanism that works on a generated plate. */
   lamps?: RoomLamp[];
+  /**
+   * THE ROOM'S OWN SMALL MOTION (errata 273; engine/render/MotionLayer.ts): smoke, water, a swinging sign, stars,
+   * dust in a light. Made from the plate's own pixels. It may wait on which picture of the room is shown and on
+   * nothing else (invariant 9).
+   */
+  motion?: RoomMotion[];
   /**
    * WHERE A VOICE WITH NO FIGURE SPEAKS FROM, by speaker id (errata 131 A).
    * Doc 30 section 3.1: "a speaker who is offscreen must use an explicit fixed

@@ -1,3 +1,4 @@
+import { MotionLayer } from './MotionLayer.ts';
 import { mapLayout as layoutMap, mapPlaceAt } from './MapLayout.ts';
 import type { GameState } from '../core/GameState.ts';
 import type { PresentedOption } from '../core/DialogueRunner.ts';
@@ -1076,6 +1077,9 @@ export class Renderer {
     this.screen.context.save();
     this.screen.context.translate(-camera, 0);
     this.drawRoom();
+    // THE ROOM'S OWN SMALL MOTION (errata 273): smoke, water, a sign, the stars. On the plate itself, before anything
+    // laid over it -- a strip of the plate moved must not wipe out a state image drawn on top of it.
+    this.drawMotion();
     this.drawObjectStates();
     // ON THE SLATE, under the lamp and behind the people (errata 136 A).
     this.drawTally(frame.tally ?? null);
@@ -1363,6 +1367,19 @@ export class Renderer {
       ctx.stroke();
     }
     ctx.restore();
+  }
+
+  private readonly motion = new MotionLayer();
+
+  private drawMotion(): void {
+    const room = this.state.room;
+    if (!room.motion?.length) return;
+    const plate = room.plateWhen?.find((entry) => this.state.flags.test(entry.when))?.plate ?? room.background ?? '';
+    const image = this.background(room.id);
+    const bottom = Math.max(...room.motion.map((one) => one.rect[1] + one.rect[3]));
+    const block = Math.max(2, Math.round((this.state.stagedHeightAt(room.motion[0]!.rect[0], bottom) ?? 460) / 115));
+    this.motion.draw(this.screen.context, room.motion, image, plate, this.clock, block,
+      (one) => !one.plates || one.plates.includes(plate));
   }
 
   private drawLamps(): void {
