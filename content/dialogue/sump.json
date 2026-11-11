@@ -270,8 +270,14 @@
           "id": "sump2",
           "tag": "TOPIC",
           "text": "Who else may see a sealed filing?",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "say": "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "The court, the claimholder, the executor of a deceased claimholder. Section nineteen has not changed since you asked. It is not that kind of section."
+            }
+          ],
           "set": {
             "T_SECTION_NINETEEN": true
           }
@@ -419,8 +425,14 @@
           "id": "sump3",
           "tag": "COMIC",
           "text": "Is dying difficult here?",
-          "afterUse": "remove",
-          "say": "It is the only thing in Consolation that requires no form in advance. Afterward there are several."
+          "afterUse": "retain",
+          "say": "It is the only thing in Consolation that requires no form in advance. Afterward there are several.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "No form in advance. I have checked again. I find it a serious gap."
+            }
+          ]
         },
         {
           "id": "sumpx",
@@ -460,8 +472,14 @@
           "id": "sump3",
           "tag": "COMIC",
           "text": "Is there a form for this?",
-          "afterUse": "remove",
-          "say": "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope."
+          "afterUse": "retain",
+          "say": "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "31-D. You are the first. I have made a note of it for the next printing."
+            }
+          ]
         },
         {
           "id": "sumpx",

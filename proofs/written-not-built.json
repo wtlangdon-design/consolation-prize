@@ -626,7 +626,7 @@
   },
   {
    "id": "asked-again-retired",
-   "why": "RETIRED BY ERRATA 280 (Tyler, 2026-11-11: \"I want it to be exactly like MI\"; doc 126): a question asked is a question gone, as Monkey Island rebuilt its lists, so these second answers -- written for questions that once stayed on the list, greyed (errata 57, doc 04 rule 4, errata 171 and 174) -- are no longer reached. The documents keep them; a question doc 126 names as one that stays keeps its own.",
+   "why": "RETIRED BY ERRATA 280 (Tyler, 2026-11-11: \"I want it to be exactly like MI\"; doc 126): a question asked is a question gone, as Monkey Island rebuilt its lists, so these second answers -- written for questions that once stayed on the list, greyed (errata 57, doc 04 rule 4, errata 171 and 174) -- are no longer reached. The documents keep them; a question doc 126 names as one that stays keeps its own. The keepers doc 126 names (Tyler, 2026-11-11: \"Yes\") are back in the game and off this list.",
    "lines": [
     {
      "doc": "04-dialogue-trees",
@@ -646,19 +646,7 @@
     },
     {
      "doc": "04-dialogue-trees",
-     "quote": "Still offended. I'll tell you when it stops. It won't."
-    },
-    {
-     "doc": "04-dialogue-trees",
      "quote": "Since Tuesday. The twentieth. Keep coming to the window, Mr. Grubb."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "Certified worthless. Asking twice won't lower it. Nothing could."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "I have told you this twice now. I'm keeping count."
     },
     {
      "doc": "04-dialogue-trees",
@@ -722,23 +710,7 @@
     },
     {
      "doc": "04-dialogue-trees",
-     "quote": "Newer still. I had them reupholstered while you were looking."
-    },
-    {
-     "doc": "04-dialogue-trees",
      "quote": "Because happiness is expensive, Mr. Grubb, and I never haggle over yours."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "Still! You're very loyal, Mr. Grubb. I shall have to name something after you."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "More than a minute ago! It keeps coming back to me. Some of it for the first time."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "THE photograph. I'd lend it to you, but then you'd have it."
     },
     {
      "doc": "04-dialogue-trees",
@@ -758,15 +730,7 @@
     },
     {
      "doc": "04-dialogue-trees",
-     "quote": "The undertaker. Free, and no atmosphere whatsoever."
-    },
-    {
-     "doc": "04-dialogue-trees",
      "quote": "The rod knows. The rod charges. These are its two qualities."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "Never. I am adding the question to your account."
     },
     {
      "doc": "04-dialogue-trees",
@@ -790,10 +754,6 @@
     },
     {
      "doc": "04-dialogue-trees",
-     "quote": "On Sundays. Banking only. Nobody believes me, which is also restful."
-    },
-    {
-     "doc": "04-dialogue-trees",
      "quote": "The feeling, free. The adjectives, on the board. 'Beloved' is the dear one."
     },
     {
@@ -803,10 +763,6 @@
     {
      "doc": "04-dialogue-trees",
      "quote": "Every Sunday. Unpaid. It is the purest grief I have."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "On the next occasion of grief, Mr. Grubb. I pray for one daily, in general terms."
     },
     {
      "doc": "04-dialogue-trees",
@@ -831,14 +787,6 @@
     {
      "doc": "04-dialogue-trees",
      "quote": "Lapsed. It is a perfectly good word. It has a form."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "No form in advance. I have checked again. I find it a serious gap."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "31-D. You are the first. I have made a note of it for the next printing."
     },
     {
      "doc": "04-dialogue-trees",
@@ -873,10 +821,6 @@
      "quote": "The undertaker. Grievance has nothing to add."
     },
     {
-     "doc": "04-dialogue-trees",
-     "quote": "Roomy's extra. Nobody's ever come back for that either."
-    },
-    {
      "doc": "07-ambient-layer",
      "quote": "Ten cents. I'd do you a discount, but discounts read badly at home."
     },
@@ -898,19 +842,11 @@
     },
     {
      "doc": "07-ambient-layer",
-     "quote": "So you keep saying. They'd sell better with a lie or two in. Everybody else's do."
-    },
-    {
-     "doc": "07-ambient-layer",
      "quote": "Same line. Same pine. He's still wrong."
     },
     {
      "doc": "07-ambient-layer",
      "quote": "Undertaker. On the Lane. And don't ask him about the pine."
-    },
-    {
-     "doc": "07-ambient-layer",
-     "quote": "You've asked twice now. He'll call that evidence."
     },
     {
      "doc": "07-ambient-layer",
@@ -926,19 +862,7 @@
     },
     {
      "doc": "07-ambient-layer",
-     "quote": "Ask me after the noon bell. I won't hear you. That's also the qualification."
-    },
-    {
-     "doc": "07-ambient-layer",
      "quote": "Penny. Same as last time. I'm fair."
-    },
-    {
-     "doc": "07-ambient-layer",
-     "quote": "A penny and I'll go. I'll come straight back, but I'll go."
-    },
-    {
-     "doc": "07-ambient-layer",
-     "quote": "Still pie. It's been pie all day."
     },
     {
      "doc": "07-ambient-layer",
@@ -958,23 +882,11 @@
     },
     {
      "doc": "07-ambient-layer",
-     "quote": "Tomorrow. I've told you. It's the one place I'm sure of."
-    },
-    {
-     "doc": "07-ambient-layer",
      "quote": "Still tuned to the piano. It's called loyalty."
     },
     {
      "doc": "07-ambient-layer",
      "quote": "Every funeral but his own. The undertaker'll tell you."
-    },
-    {
-     "doc": "07-ambient-layer",
-     "quote": "Still no. In tune, I'd be playing on my own."
-    },
-    {
-     "doc": "07-ambient-layer",
-     "quote": "Again? …Bless you. Nobody asks twice."
     },
     {
      "doc": "07-ambient-layer",
@@ -1018,10 +930,6 @@
     },
     {
      "doc": "07-ambient-layer",
-     "quote": "Good enough not to play you. You'd lose, and I'd feel it."
-    },
-    {
-     "doc": "07-ambient-layer",
      "quote": "Six weeks. Seven, tomorrow."
     },
     {
@@ -1039,14 +947,6 @@
     {
      "doc": "17-opening-sequence",
      "quote": "Five. You've got four. Arithmetic's free."
-    },
-    {
-     "doc": "27-minor-trees",
-     "quote": "Keep it. Paper's dear out here."
-    },
-    {
-     "doc": "27-minor-trees",
-     "quote": "That's how this town says it. It sends you to me."
     },
     {
      "doc": "27-minor-trees",
@@ -1102,10 +1002,6 @@
     },
     {
      "doc": "109-fiddlers-gulch-lines",
-     "quote": "Still thinking. That's the first honest offer I've had all year."
-    },
-    {
-     "doc": "109-fiddlers-gulch-lines",
      "quote": "Hasn't been right since. Neither have I, much."
     },
     {
@@ -1119,10 +1015,6 @@
     {
      "doc": "109-fiddlers-gulch-lines",
      "quote": "It came to me in the night and went again. Lovely rule, it was."
-    },
-    {
-     "doc": "109-fiddlers-gulch-lines",
-     "quote": "That one's called 'The Strike'. It's the same as the other one."
     },
     {
      "doc": "109-fiddlers-gulch-lines",
@@ -1173,20 +1065,8 @@
      "quote": "On everything. Ask it about you, sometime. Two dollars."
     },
     {
-     "doc": "111-scenes-b-and-c",
-     "quote": "He said that already. Still good."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb."
-    },
-    {
      "doc": "04-dialogue-trees",
      "quote": "'BELOVED CITIZEN.' Six advertisements unpaid, and still the kindest thing I've printed all year."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "The court, the claimholder, the executor of a deceased claimholder. Section nineteen has not changed since you asked. It is not that kind of section."
     },
     {
      "doc": "04-dialogue-trees",

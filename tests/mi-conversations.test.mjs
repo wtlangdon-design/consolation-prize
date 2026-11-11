@@ -35,7 +35,7 @@ test('every question doc 126 keeps on purpose has a second answer to give', () =
   for (const tree of trees) {
     for (const body of Object.values(tree.nodes)) {
       for (const option of body.options ?? []) {
-        if (!stays.has(option.id) || option.afterUse !== 'retain') continue;
+        if (!stays.has(option.id) || option.afterUse !== 'retain' || !['TOPIC', 'COMIC'].includes(option.tag)) continue;
         assert.ok(option.repeat || option.repeats?.length, `${tree.id}/${option.id} stays, and says something new the second time`);
       }
     }
@@ -48,4 +48,20 @@ test('the map seller opens short, and digging waits for "not been disproved"', (
   const dig = options.find((one) => one.id === 'map_seller3');
   assert.deepEqual(dig.after, ['map_seller6']);
   assert.ok(options.indexOf(dig) > options.findIndex((one) => one.id === 'map_seller6'), 'listed after what raises it');
+});
+
+test('every keeper doc 126 quotes is the second answer its row gives (Tyler, 2026-11-11: "Yes")', () => {
+  const keepers = [...doc.matchAll(/^- `([^`]+)`(?: in `([^`]+)`)? stays — "([^"]+)"/gm)];
+  assert.ok(keepers.length >= 30, 'the keepers are listed');
+  const text = (value) => (typeof value === 'string' ? value : value?.line ?? value?.say ?? (value?.exchange ?? []).map(text).join(' '));
+  for (const [, id, node, quote] of keepers) {
+    const rows = trees.flatMap((tree) => Object.entries(tree.nodes).filter(([name]) => !node || name === node)
+      .flatMap(([, body]) => (body.options ?? []).filter((option) => option.id === id)));
+    assert.ok(rows.length > 0, `${id}${node ? ` in ${node}` : ''} exists`);
+    for (const row of rows) {
+      assert.equal(row.afterUse, 'retain', `${id} stays on the list`);
+      const second = [row.repeat, ...(row.repeats ?? [])].flat().map(text).join(' ');
+      assert.ok(second.includes(quote.replace(/^"|"$/g, '')), `${id}'s second answer is the keeper quoted: ${quote}`);
+    }
+  }
 });

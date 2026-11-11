@@ -255,9 +255,10 @@
         {
           "id": "sheng5",
           "tag": "COMIC",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "text": "Do you ever take a day off?",
-          "say": "On Sundays I do no laundry. I do only banking. It is very restful."
+          "say": "On Sundays I do no laundry. I do only banking. It is very restful.",
+          "repeat": "On Sundays. Banking only. Nobody believes me, which is also restful."
         },
         {
           "id": "shengx",
