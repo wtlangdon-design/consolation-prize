@@ -25,14 +25,37 @@
           "id": "one_strike2",
           "text": "When was this?",
           "tag": "TOPIC",
-          "say": "Forty-nine. Spring. A Tuesday.",
           "after": [
             "one_strike1"
           ],
+          "say": "Forty-nine. Spring. A Tuesday.",
           "afterUse": "remove"
         },
         {
           "id": "one_strike3",
+          "text": "What did you do with it?",
+          "tag": "TOPIC",
+          "after": [
+            "one_strike1"
+          ],
+          "exchange": [
+            {
+              "speaker": "one_strike_man",
+              "line": "Drinks."
+            },
+            {
+              "speaker": "thad",
+              "line": "All of it?"
+            },
+            {
+              "speaker": "one_strike_man",
+              "line": "A story like that, you buy the man who's listening. It's cost me the nugget twice over."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "one_strike4",
           "text": "Did you know Ezra Pike?",
           "tag": "TOPIC",
           "exchange": [
@@ -55,7 +78,7 @@
           "afterUse": "remove"
         },
         {
-          "id": "one_strike4",
+          "id": "one_strike5",
           "text": "You knew Pike was dead.",
           "tag": "TOPIC",
           "when": {
@@ -65,7 +88,27 @@
           "afterUse": "remove"
         },
         {
-          "id": "one_strike5",
+          "id": "one_strike6",
+          "text": "Where exactly was this stream?",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "one_strike_man",
+              "line": "Can't say."
+            },
+            {
+              "speaker": "thad",
+              "line": "You don't remember?"
+            },
+            {
+              "speaker": "one_strike_man",
+              "line": "I remember. I can't say. You'd go and drink from it."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "one_strike7",
           "text": "And since?",
           "tag": "COMIC",
           "say": "Since what?",

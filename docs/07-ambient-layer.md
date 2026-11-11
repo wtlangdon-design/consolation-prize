@@ -126,16 +126,15 @@ is the whole of his character.
 **Premise:** the argument is the asset. Settling it would leave them with nothing.
 
 **Micro-tree** *(they answer alternately and interrupt each other)*
-> "What are you arguing about?" → **A:** "The line runs from the split pine —" **B:** "It runs from the *rock* —" **A:** "— which is what I said —" **B:** "— it is *not* what you said."
->   *Asked again:* "Same line. Same pine. He's still wrong."
-> "Is there gold on either claim?" → *(pause)* **A:** "No." **B:** "No." **A:** "Not a color." **B:** "Never has been." *(They resume immediately.)*
->   *Asked again:* "Still no. Lovely, isn't it."
+*Rewritten by errata 288: anything Thad says becomes evidence for one side, and they agree only against him.*
+> "What are you arguing about?" → **A:** "The line runs from the split pine —" **B:** "It runs from the *rock* —" **A:** "— which is what I *said* —" **B:** "— it is *not* what you said."
+> ↳ "Is there gold on either claim?" → *(pause)* **A:** "No." **B:** "No." **A:** "Not a color." **B:** "Never has been." *(They resume immediately.)*
+> ↳ "Then what are you fighting over?" → **B:** "Forty feet." **A:** "Forty-*one*." **B:** "He's counting the pine."
 > "Do either of you know Ezra Pike?" → **A:** "Pike's up the hill." **B:** "He's not *up* the hill. He's *in* the hill."
 >   *Thad:* "He has a mine?"
 >   → **A:** "…Ask the undertaker." **B:** "In town. On the Lane."
->   *Asked again:* "Undertaker. On the Lane. And don't ask him about the pine."
 > "You knew Pike was dead." → **A:** "Everybody knew." **B:** "I knew first." **A:** "You did *not*."
->   *Asked again:* "He did not know first."
+> `[COMIC]` "I've a very accurate ear, and I'd say it's the rock." → **B:** "*Thank* you." **A:** "He's from out of town." **B:** "That makes him *impartial*." **A:** "That makes him *wrong*."
 > `[COMIC]` "Have you tried settling it?" → **A:** "And do *what*?" **B:** "With our *evenings*?"
 >   *Asked again:* "You've asked twice now. He'll call that evidence."
 
@@ -323,8 +322,17 @@ is the whole of his character.
 *His shop. One man, three trades, one set of instruments. Period-accurate.*
 
 **Micro-tree**
+*Rewritten by errata 288: everything in threes, with prices, and cheerfully unreassuring.*
 > "What do you do here?" → "Shave, extraction, amputation. Two bits, four bits, a dollar."
-> "Do you use the same instruments?" → "I *clean* them."
+> ↳ "Do you use the same instruments?" → "I *clean* them."
+>   *Thad:* "Between customers?"
+>   → "Between *trades*."
+> ↳ "Where did you train?" → "Barbering, a year. Dentistry, a book. Surgery, a war."
+>   *Thad:* "Which war?"
+>   → "Didn't ask. I was on the side with the saw."
+> `[COMIC]` "I've been told I have exceptional teeth." → "Who told you?"
+>   *Thad:* "My dentist."
+>   → "Sit down. I'll give you a second opinion."
 > `[COMIC]` "I'd like a shave." → "Sit down. Don't look at the tray."
 >   *Asked again:* "You keep asking and not sitting. In my trade, that's how a shave turns into a tooth."
 
@@ -347,8 +355,13 @@ is the whole of his character.
 *His studio. Sells stock portraits by the gross. **Has the Mott photograph in his window.***
 
 **Micro-tree**
+*Rewritten by errata 288: a wholesaler. He counts stock.*
 > "Who is the man in the window?" → "Nobody. It's a portrait. Comes in the box, four dozen to the box."
-> "That's Obadiah Mott." → "It's a *portrait*, sir. It's a man in Ohio in a good collar."
+> ↳ "That's Obadiah Mott." → "It's a *portrait*, sir. It's a man in Ohio in a good collar."
+> "Could you take my portrait?" → "I could. Or you could have one of these, and save yourself sitting still for a minute and a half."
+>   *Thad:* "But it wouldn't be me."
+>   → "It'd be a man in a good collar. Nobody back home looks past the collar."
+> `[COMIC]` "I'm told I have a very distinguished profile." → "So has he, and he's twenty-five cents."
 > `[COMIC]` "May I buy it?" → "Twenty-five cents. I've thirty-one more."
 >   *Asked again:* "Twenty-five cents, still. Another ten and I'll frame him, and then he's an ancestor."
 
@@ -371,18 +384,21 @@ is the whole of his character.
 *The Nugget. Tuned to the flat piano, therefore flat. **Corrects first in Act IV.***
 
 **Micro-tree**
+*Rewritten by errata 288: agreeable, and loyal to the piano, which he offers as a virtue.*
 > "You're flat." → "I'm tuned to the piano."
->   *Asked again:* "Still tuned to the piano. It's called loyalty."
-> "The piano is flat." → "Then I'm tuned to the piano."
->   *Asked again:* "Then I'm loyal to a flat piano. Somebody has to be."
+> ↳ "The piano is flat." → "Then I'm tuned to the piano."
+> ↳ `[COMIC]` "Do you want me to fix it?" → "God, no. Then I'd be the only one right."
+>   *Asked again:* "Still no. In tune, I'd be playing on my own."
+> "Play me something." → "Anything you like, so long as the piano knows it."
+>   *Thad:* "What does the piano know?"
+>   → "Four songs, and the bottom half of a fifth."
 > "Did you know Ezra Pike?" → "Pike sang flat. Loudest man at every funeral in town."
 >   *Thad:* "Every funeral?"
 >   → "Bar one. Ask the undertaker about that one."
->   *Asked again:* "Every funeral but his own. The undertaker'll tell you."
 > "You knew Pike was dead." → "I'd have played at it. Nobody asked. Nobody ever asks the fiddle."
->   *Asked again:* "Nobody asks the fiddle."
-> `[COMIC]` "Do you want me to fix it?" → "God, no. Then I'd be the only one right."
->   *Asked again:* "Still no. In tune, I'd be playing on my own."
+> `[COMIC]` "I have perfect pitch." → "Oh, I'm sorry."
+>   *Thad:* "It's a gift."
+>   → "Not out here, it isn't. Out here you'll hear *everything*."
 
 **Barks** — *mostly just playing; three spoken*
 | State | Line |
@@ -420,20 +436,22 @@ is the whole of his character.
 *The Nugget. Found color once, in 1849. **Arcs — the strike shrinks every time and he never notices.***
 
 **Micro-tree**
-*Revised 2026-10-31 (Tyler): every payoff is spoken. He opens each conversation with his bark for the current state, so the first option answers it.*
+*Revised 2026-10-31 (Tyler): every payoff is spoken. He opens each conversation with his bark for the current state, so the first option answers it. Rewritten by errata 288: wistful, exactly specific, and every road leads back to forty-nine.*
 
 > "Tell me about it." → "Bent down to drink. There it was, winking up at me. I've been bending down ever since."
 >   *Asked again:* "Again? …Bless you. Nobody asks twice."
-> "When was this?" → "Forty-nine. Spring. A Tuesday."
->   *Asked again:* "Forty-nine. Spring. Possibly a Wednesday. The details go first."
+> ↳ "When was this?" → "Forty-nine. Spring. A Tuesday."
+> ↳ "What did you do with it?" → "Drinks."
+>   *Thad:* "All of it?"
+>   → "A story like that, you buy the man who's listening. It's cost me the nugget twice over."
 > "Did you know Ezra Pike?" → "Pike! Knew him in forty-nine."
 >   *Thad:* "Where is he now?"
 >   → "Ask the undertaker. He's kept up with Pike better than I have."
->   *Asked again:* "The undertaker. I only keep up with forty-nine."
 > "You knew Pike was dead." → "Pike? Knew him in forty-nine. Spring. A Tuesday."
->   *Asked again:* "A Tuesday. Lovely man. Never found a thing."
+> `[COMIC]` "Where exactly was this stream?" → "Can't say."
+>   *Thad:* "You don't remember?"
+>   → "I remember. I can't *say*. You'd go and drink from it."
 > `[COMIC]` "And since?" → "Since what?"
->   *Asked again:* "There's no since. There's '49, and then there's telling it."
 > `[EXIT]` "Thank you. This has been clarifying."
 
 **Barks**
@@ -455,8 +473,13 @@ is the whole of his character.
 *The parlour. Run the only solvent business in town. Regard the gold rush as a temporary weather event.*
 
 **Micro-tree**
+*Rewritten by errata 288: A says one word, and B explains it, with "dear". The gold rush is weather.*
 > "How's business?" → **A:** "Steady." **B:** "It's men. Men are steady."
 > "Have you ever prospected?" → **A:** *(She laughs for some time.)* **B:** "We've prospected the prospectors, dear."
+> "Have you a room?" → **A:** "Six." **B:** "Dollars, dear. The week."
+>   *Thad:* "That's more than I have."
+>   → **A:** "Then no." **B:** "Then not *yet*, dear. They all come to us in the end. The hotel spells their names wrong."
+> `[COMIC]` "I'm on the brink of a considerable fortune." → **A:** "Mm." **B:** "So's every man upstairs, dear. The brink's where they pay the rent from."
 > `[COMIC]` "Do you think there's gold here?" → **B:** "There's forty men upstairs at six dollars the week. That's the gold, dear."
 >   *Asked again:* **B:** "Same forty, dear. It never runs out, so long as you change the sheets."
 
@@ -520,20 +543,16 @@ is the whole of his character.
 *The Nugget. Cheats openly. Everyone knows. Nobody minds.*
 
 **Micro-tree**
-*Revised 2026-10-31 (Tyler): second-ask replies, one new option and a parting line; the original three answers are unchanged. He opens each conversation with his bark for the current state.*
+*Revised 2026-10-31 (Tyler): second-ask replies, one new option and a parting line; the original three answers are unchanged. He opens each conversation with his bark for the current state. Rewritten by errata 288: candour in the fewest words, and the one honest man at the table.*
 
 > "You're dealing off the bottom." → "I am."
->   *Asked again:* "Still am."
 > ↳ "Doesn't anyone object?" → "They know what I am. They don't know what the Colonel is. Which of us is the problem?"
->   *Asked again:* "Object to me? Son, I'm the only honest thing at this table."
 > "Did you know Ezra Pike?" → "Pike owed me eleven dollars. I've forgiven it."
 >   *Thad:* "That's generous."
 >   → "The undertaker hasn't. Ask him about Pike."
->   *Asked again:* "Eleven dollars. Forgiven. Ask the undertaker."
 > "You knew Pike was dead." → "I'm a card player. I knew the night he stopped losing."
->   *Asked again:* "He stopped losing. That's how you know."
 > `[COMIC]` "Deal me in." → "No. I like you."
->   *Asked again:* "I still like you. Don't make it difficult."
+> `[COMIC]` "I've been told I have a very good poker face." → "You've had four faces since you came in, and every one of them wanted my money."
 > `[COMIC]` "Are you any good?" → "I'm the best honest card player in the territory. Small field. I'm not in it."
 >   *Asked again:* "Good enough not to play you. You'd lose, and I'd feel it."
 > `[EXIT]` "I should go." → "Count your fingers on the way out."
@@ -557,17 +576,20 @@ is the whole of his character.
 *Back alley. Looking for the lost dog from the notice board. The dog is on Main Street.*
 
 **Micro-tree**
+*Rewritten by errata 288: every answer is about the dog, measured in weeks.*
 > "Are you looking for a dog?" → "Six weeks."
->   *Asked again:* "Six weeks. Seven, tomorrow."
+> ↳ "What does he look like?" → "Like a dog."
+>   *Thad:* "Could you narrow it down?"
+>   → "Brown. Answers to Bill. Or he did. Six weeks, he might have changed it."
+> ↳ `[COMIC]` "I have an exceptional ear. I could listen for him." → "He doesn't bark."
+>   *Thad:* "Then what would I be listening for?"
+>   → "That's what I've been asking myself. Six weeks."
 > "Did you know Ezra Pike?" → "Did he have a dog?"
 >   *Thad:* "I don't know."
 >   → "Then no." *(beat)* "Undertaker's right there. He knows everybody who hasn't got a dog."
->   *Asked again:* "Undertaker. Right there. Dogless, the lot of them."
 > "You knew Pike was dead." → "Did he have a dog?"
->   *Asked again:* "Then it's not my business."
 > "There's a dog on Main Street." → "…That's Bill?" *(He goes. **This is the resolution. It is worth nothing. It takes twenty seconds and it is the nicest thing in the game.**)*
 > `[COMIC]` *(after)* "How's Bill?" → "He'd been on Main Street the whole time. Six weeks. He'd been *fine*."
->   *Asked again:* "Still fine. Still on Main Street. I go and visit."
 
 **Barks**
 | State | Line |

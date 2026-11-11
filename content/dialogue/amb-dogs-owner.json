@@ -19,6 +19,52 @@
         },
         {
           "id": "dogs_owner2",
+          "text": "What does he look like?",
+          "tag": "TOPIC",
+          "after": [
+            "dogs_owner1"
+          ],
+          "exchange": [
+            {
+              "speaker": "dogs_owner",
+              "line": "Like a dog."
+            },
+            {
+              "speaker": "thad",
+              "line": "Could you narrow it down?"
+            },
+            {
+              "speaker": "dogs_owner",
+              "line": "Brown. Answers to Bill. Or he did. Six weeks, he might have changed it."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "dogs_owner3",
+          "text": "I have an exceptional ear. I could listen for him.",
+          "tag": "COMIC",
+          "after": [
+            "dogs_owner1"
+          ],
+          "exchange": [
+            {
+              "speaker": "dogs_owner",
+              "line": "He doesn't bark."
+            },
+            {
+              "speaker": "thad",
+              "line": "Then what would I be listening for?"
+            },
+            {
+              "speaker": "dogs_owner",
+              "line": "That's what I've been asking myself. Six weeks."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "dogs_owner4",
           "text": "Did you know Ezra Pike?",
           "tag": "TOPIC",
           "exchange": [
@@ -49,7 +95,7 @@
           "afterUse": "remove"
         },
         {
-          "id": "dogs_owner3",
+          "id": "dogs_owner5",
           "text": "You knew Pike was dead.",
           "tag": "TOPIC",
           "when": {
@@ -59,7 +105,7 @@
           "afterUse": "remove"
         },
         {
-          "id": "dogs_owner4",
+          "id": "dogs_owner6",
           "text": "There's a dog on Main Street.",
           "tag": "TOPIC",
           "set": {
@@ -72,7 +118,7 @@
           ]
         },
         {
-          "id": "dogs_owner5",
+          "id": "dogs_owner7",
           "text": "How's Bill?",
           "tag": "COMIC",
           "when": {

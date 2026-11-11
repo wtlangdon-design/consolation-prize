@@ -21,14 +21,70 @@
           "id": "barber2",
           "text": "Do you use the same instruments?",
           "tag": "TOPIC",
-          "say": "I clean them.",
           "after": [
             "barber1"
+          ],
+          "exchange": [
+            {
+              "speaker": "barber",
+              "line": "I clean them."
+            },
+            {
+              "speaker": "thad",
+              "line": "Between customers?"
+            },
+            {
+              "speaker": "barber",
+              "line": "Between trades."
+            }
           ],
           "afterUse": "remove"
         },
         {
           "id": "barber3",
+          "text": "Where did you train?",
+          "tag": "TOPIC",
+          "after": [
+            "barber1"
+          ],
+          "exchange": [
+            {
+              "speaker": "barber",
+              "line": "Barbering, a year. Dentistry, a book. Surgery, a war."
+            },
+            {
+              "speaker": "thad",
+              "line": "Which war?"
+            },
+            {
+              "speaker": "barber",
+              "line": "Didn't ask. I was on the side with the saw."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "barber4",
+          "text": "I've been told I have exceptional teeth.",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "barber",
+              "line": "Who told you?"
+            },
+            {
+              "speaker": "thad",
+              "line": "My dentist."
+            },
+            {
+              "speaker": "barber",
+              "line": "Sit down. I'll give you a second opinion."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "barber5",
           "text": "I'd like a shave.",
           "tag": "COMIC",
           "repeat": "You keep asking and not sitting. In my trade, that's how a shave turns into a tooth.",

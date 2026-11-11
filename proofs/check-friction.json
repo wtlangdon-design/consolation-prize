@@ -853,6 +853,12 @@
    "date": "2026-11-11",
    "kind": "loosened",
    "why": "Errata 286: the map seller's tree was rewritten and renumbered; the test found the digging and \"Do they work?\" by number. It now finds them by what they say. The property held is unchanged."
+  },
+  {
+   "check": "tests/room-37.test.ts",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 288: the boarding-house women's tree gained a second COMIC (\"I'm on the brink of a considerable fortune.\"), and the test took the first COMIC as the joke that asks again. It now finds the COMIC that has a second answer. The property held is unchanged: the joke's second answer is B's, as the first was."
   }
  ]
 }

@@ -45,6 +45,50 @@
         },
         {
           "id": "boarding3",
+          "text": "Have you a room?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "boarding_a",
+              "line": "Six."
+            },
+            {
+              "speaker": "boarding_b",
+              "line": "Dollars, dear. The week."
+            },
+            {
+              "speaker": "thad",
+              "line": "That's more than I have."
+            },
+            {
+              "speaker": "boarding_a",
+              "line": "Then no."
+            },
+            {
+              "speaker": "boarding_b",
+              "line": "Then not yet, dear. They all come to us in the end. The hotel spells their names wrong."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "boarding4",
+          "text": "I'm on the brink of a considerable fortune.",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "boarding_a",
+              "line": "Mm."
+            },
+            {
+              "speaker": "boarding_b",
+              "line": "So's every man upstairs, dear. The brink's where they pay the rent from."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "boarding5",
           "text": "Do you think there's gold here?",
           "tag": "COMIC",
           "exchange": [
