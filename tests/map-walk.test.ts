@@ -77,3 +77,10 @@ test('his sheet holds every frame the map names, and the walk cycles them', () =
   for (let t = 0; t < walk.seconds; t += 0.05) seen.add(walk.at(t).frame);
   assert.ok(seen.size >= token.walk.length, 'he walks through every walk frame');
 });
+
+test('while he walks the map, no place label is drawn over the road he walks (Tyler, 2026-11-11: "What happened to him?")', () => {
+  // The hovered place's label is large and sits where the pointer chose it, which is where he is walking: he walked
+  // under the words and could not be seen. Proved against the defect: the frame handing the label over regardless.
+  const scene = readFileSync(new URL('../engine/scenes/GameScene.ts', import.meta.url), 'utf8');
+  assert.match(scene, /hoveredLocation: this\.mapWalk \? null : this\.hoveredLocation,/);
+});

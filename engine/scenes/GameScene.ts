@@ -1064,7 +1064,9 @@ export class GameScene extends Phaser.Scene {
       // the area stays the conversation's from the greeting to the last word.
       showPanel: this.panelDrawn = panelShows({ opening: this.opening !== null, conversation: this.conversationOpen(),
         panelHidden: this.panelHidden, cutscene: this.carriedCutscene() }),
-      hoveredLocation: this.hoveredLocation,
+      // While he walks the map the place's big label is held back: the road he walks runs under it, and a
+      // figure thirty pixels tall vanished behind the words (Tyler, 2026-11-11: "What happened to him?").
+      hoveredLocation: this.mapWalk ? null : this.hoveredLocation,
       mapToken: this.mapTokenPose(),
       ripples: this.ripples.map((one) => ({ x: one.x, y: one.y, tail: one.tail,
         age: Math.max(0, Math.min(1, (this.time.now - one.start) / Math.max(1, one.end - one.start))) })),
