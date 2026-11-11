@@ -1,0 +1,12 @@
+Image 1 is a sheet on magenta from my pixel-art adventure game, set in an 1850s gold town: Winnie, the assay clerk, standing (the first figure) and then walking to the LEFT in six frames. The walk reads as gliding, because her long skirt hides her legs and every frame has nearly the same outline. Image 2 is her whole sheet as drawn in the game. Image 3 is the hero Thad's six-frame walk to the left: copy its leg timing.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other SIX as the same Winnie -- the same height from crown to boots, the same head, hair, face, charcoal blouse and long dark skirt, the same colours -- still in PROFILE walking to the LEFT, but now with her FRONT HAND GATHERING THE SKIRT at her hip and LIFTING ITS HEM CLEAR OF HER BOOTS, to the ankle, as a woman does crossing a dirty floor. Her other hand at her side. Both boots and the lower legs in dark stockings now show under the lifted hem, so the stride can be SEEN:
+2. contact: the left-hand boot stepping well forward, the other boot well back, a wide gap between them;
+3. down: the stride still open, the body a little lower;
+4. passing: the boots together, one passing the other, under the body;
+5. contact on the OTHER foot: the OTHER boot forward, a wide gap again;
+6. down;
+7. passing: the boots together.
+The hem swings with each step. Frames 2 and 5 must show DIFFERENT boots in front; frames 4 and 7 must show the boots together.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the first figure -- NOT sharper, NOT more detailed. All seven on one ground line. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No shadows, no ground, no text, no numbers, no border.
