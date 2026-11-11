@@ -56,21 +56,49 @@ def prepare():
         print('wrote', os.path.relpath(out, ROOT))
 
 
+def seam(a, b):
+    """The cheapest top-to-bottom path through two overlapping drawings: each row's column where they differ least,
+    moving at most one column a row. Left of it is `a`, right of it `b`. (Errata 277.)"""
+    cost = np.abs(a - b).sum(2)
+    h, w = cost.shape
+    acc = cost.copy(); back = np.zeros((h, w), int)
+    for y in range(1, h):
+        left = np.r_[np.inf, acc[y - 1, :-1]]; mid = acc[y - 1]; right = np.r_[acc[y - 1, 1:], np.inf]
+        choice = np.argmin(np.vstack([left, mid, right]), axis=0)
+        back[y] = choice - 1
+        acc[y] += np.minimum(np.minimum(left, mid), right)
+    path = np.zeros(h, int); path[-1] = int(np.argmin(acc[-1]))
+    for y in range(h - 1, 0, -1):
+        path[y - 1] = path[y] + back[y, path[y]]
+    return path
+
+
 def stitch(self_test=False, use=None):
+    """ERRATA 277: CUT, NOT BLENDED. The windows were first feathered into each other across their overlaps. Where two
+    drawings of one porch sit a few pixels apart, a blend shows both: Tyler saw the Nugget's porch posts doubled. Each
+    overlap is now cut along the path where the two drawings differ least, and each pixel comes from one drawing."""
     use = use or {}
-    total = np.zeros((BAND, SMALL_W, 3)); weight = np.zeros((BAND, SMALL_W, 1))
+    bands = []
     for n, x in enumerate(XS, 1):
         path = os.path.join(STAGE, f'window-{n}.png' if self_test else use.get(n, f'out-{n}.png'))
         image = Image.open(path).convert('RGB')
         assert image.size == CANVAS, f'{path} is {image.size}, not {CANVAS}'
-        band = np.asarray(image).astype(float)[AT[1]:AT[1] + BAND, AT[0]:AT[0] + WIN]
-        cols = np.arange(WIN)
-        edge = np.minimum(cols + 1, WIN - cols).astype(float)
-        if x == 0: edge[:WIN // 2] = WIN
-        if x + WIN == SMALL_W: edge[WIN // 2:] = WIN
-        w = np.clip(edge / 200.0, 0, 1)[None, :, None]
-        total[:, x:x + WIN] += band * w
-        weight[:, x:x + WIN] += w
+        bands.append(np.asarray(image).astype(float)[AT[1]:AT[1] + BAND, AT[0]:AT[0] + WIN])
+    total = np.zeros((BAND, SMALL_W, 3))
+    # Where each window takes over: between window 1 and 2 inside 705..1409 (clear of window 3), between 2 and 3
+    # inside 1520..2225 (clear of window 1).
+    spans = [(XS[1] + 20, XS[2] - 20), (XS[0] + WIN + 20, XS[1] + WIN - 20)]
+    cuts = []
+    for k, (lo, hi) in enumerate(spans):
+        a = bands[k][:, lo - XS[k]:hi - XS[k]]; b = bands[k + 1][:, lo - XS[k + 1]:hi - XS[k + 1]]
+        cuts.append(seam(a, b) + lo)
+    cols = np.arange(SMALL_W)[None, :]
+    owner = np.where(cols < cuts[0][:, None], 0, np.where(cols < cuts[1][:, None], 1, 2))
+    for k, x in enumerate(XS):
+        mask = owner == k
+        sub = np.zeros((BAND, SMALL_W, 3)); sub[:, x:x + WIN] = bands[k]
+        total[mask] = sub[mask]
+    weight = np.ones((BAND, SMALL_W, 1))
     small = Image.fromarray(np.clip(total / np.maximum(weight, 1e-6), 0, 255).astype(np.uint8))
     out = small.resize((W, H), Image.NEAREST)
     path = os.path.join(STAGE, 'candidate-3700x864.png')

@@ -218,6 +218,7 @@ Every row here shipped past a green suite and was found by Tyler playing, by a r
 | He walks through a thing that has just been put in his way | The loose board lifted in Room 5 was a picture over floor: Thad walked across the plank on end and the hollow under it (Tyler, 2026-11-10, errata 271) | What is drawn in the way is in the way: a state that puts a thing on the floor gets an obstacle on the same condition (`obstacles[].when` in the room's annotation). `tests/board-up.test.mjs`. |
 | A clip played at the wrong speed | The first room-motion sample was stitched from screenshots taken three times slower than it played back: Tyler judged the motion "high speed" when the game was not (errata 273) | A clip shown for judgement is recorded at the game's own speed (Playwright's `recordVideo`), never stitched from screenshots. |
 | A thing that hangs shakes instead of swinging | The lantern on Lower Street moved its lower half a whole step while its top stayed: "kind of shake in the middle" (Tyler, errata 273) | A hanging thing turns about its hook: the top row still, each row below moved in proportion, in single pixels. |
+| Doubled posts where two painted pieces meet | Main Street's redraw, painted in three windows and feathered together: the Nugget's porch posts stood twice (Tyler, 2026-11-11, errata 277) | Pieces of a picture are joined by a cut along where they agree, never a blend. `tests/main-street-seams.test.mjs`. |
 
 ### Not caught — the process that worked
 

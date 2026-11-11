@@ -7272,3 +7272,11 @@ Tyler, shown the street as it was beside the same-composition redraw (errata 272
 - The redrawn ground measures 0.96 of the side streets' (`tests/night-streets.test.mjs` now allows 0.9, recorded in `proofs/check-friction.json`): the same hand and the same night.
 
 Lesson: none -- art promoted on Tyler's ruling; the check loosened is recorded in `proofs/check-friction.json`.
+
+## 277 · Main Street's seams cut, not blended (Tyler, 2026-11-11)
+
+Tyler, of the redrawn street at the Nugget: "It looks like maybe the redraw has problems? The pillars look slightly doubled up?" They were. The redraw was painted in three overlapping windows (errata 272), and the stitch feathered each overlap; where the two drawings of one porch sat a few pixels apart, the blend showed both, and the Nugget's posts stood twice.
+
+- `tools/art/main-street-redraw.py stitch` now cuts each overlap along the path where the two drawings differ least, so every pixel of the street is one window's own. The street was re-stitched from the same three drawings, and the gilt, the dawn and the empty rail re-derived from it.
+
+Lesson: `tests/main-street-seams.test.mjs`: sampled pixels across both overlaps are exactly some window's own (it fails on the blended plate: 3,510 of 4,000 were no window's). Doc 55 section 8: pictures painted in pieces are joined by a cut, never a blend.

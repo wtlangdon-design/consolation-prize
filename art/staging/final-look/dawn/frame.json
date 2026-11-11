@@ -8,6 +8,6 @@
   "shiftY": 0
  },
  "blur": 4.0,
- "skyPixels": 608626,
+ "skyPixels": 584835,
  "why": "Room 2's pixels under operation 1's light (tools/art/room36-dawn.py)."
 }
