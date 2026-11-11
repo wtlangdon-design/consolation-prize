@@ -24,8 +24,9 @@
           "set": {
             "T_PIE_ASKED": true
           },
+          "repeat": "Still pie. It's been pie all day.",
           "say": "Crust. Under the crust, pie.",
-          "afterUse": "remove"
+          "afterUse": "retain"
         },
         {
           "id": "pie_woman2",

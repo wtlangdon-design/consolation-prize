@@ -85,16 +85,18 @@
           "id": "undertaker4",
           "text": "I had a letter for him.",
           "tag": "TOPIC",
+          "repeat": "Keep it. Paper's dear out here.",
           "after": [
             "undertaker1"
           ],
           "say": "You still have a letter for him.",
-          "afterUse": "remove"
+          "afterUse": "retain"
         },
         {
           "id": "undertaker7",
           "text": "Everybody in town sent me to you.",
           "tag": "TOPIC",
+          "repeat": "That's how this town says it. It sends you to me.",
           "after": [
             "undertaker2"
           ],
@@ -108,7 +110,7 @@
               "line": "I'm the one who says it."
             }
           ],
-          "afterUse": "remove"
+          "afterUse": "retain"
         },
         {
           "id": "undertaker5",
@@ -150,9 +152,15 @@
         {
           "id": "undertaker_c3",
           "tag": "COMIC",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "text": "Could you make it roomy?",
-          "say": "Everybody asks for roomy. Nobody's ever come back to complain."
+          "say": "Everybody asks for roomy. Nobody's ever come back to complain.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Roomy's extra. Nobody's ever come back for that either."
+            }
+          ]
         },
         {
           "id": "undertaker_cx",

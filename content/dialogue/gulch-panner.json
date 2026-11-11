@@ -63,7 +63,7 @@
           "id": "gulch_panner5",
           "tag": "COMIC",
           "text": "Can I have some gold?",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "exchange": [
             {
               "speaker": "gulch_panner",
@@ -73,7 +73,8 @@
               "speaker": "gulch_panner",
               "line": "No. But I'll remember you asked. That's worth something here."
             }
-          ]
+          ],
+          "repeat": "Still no. You're consistent. I like that in a beggar."
         },
         {
           "id": "gulch_panner6",

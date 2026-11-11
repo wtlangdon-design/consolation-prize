@@ -7311,3 +7311,11 @@ Tyler, playing on a tablet: "All the options are appearing at once for the conve
 - Lines move on by themselves at the Text speed set (errata 154); nothing in that changes.
 
 Lesson: `tests/mi-conversations.test.mjs` (fails on the trees as they were, on 230 rows). Doc 55 section 8: one row. The tests that held errata 37's never-shrinking list are rewritten to the MI property and recorded in `proofs/check-friction.json`.
+
+## 281 · The keepers: thirty-four questions that stay because asking again is the joke (Tyler, 2026-11-11)
+
+Asked what errata 280 cost ("give me an example of what we're losing"), Tyler was shown second answers that were restatements ("Still not been disproved") and second answers that were jokes ("It is drawn to the hidden metal. Asking twice is a dollar."), and offered the jokes back: "Yes."
+
+Doc 126's "The keepers" names thirty-four rows that stay on the list after they are asked, as Monkey Island kept a question where asking it again was the joke, each with the second answer quoted beside it. Not kept, whatever the line: the stage driver (the first conversation teaches the list), Fanshawe's dinner (its count of deferred pitches is the scene), and a list that is a puzzle's choice. The rest of errata 280 stands; `proofs/written-not-built.json`'s `asked-again-retired` is down by the thirty-two second answers that are back in the game.
+
+Lesson: `tests/mi-conversations.test.mjs` adds that every keeper doc 126 quotes is the second answer its row gives, so the list and the game cannot drift apart.

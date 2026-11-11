@@ -169,9 +169,15 @@
         {
           "id": "sowerby6",
           "tag": "TOPIC",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "text": "Mr. Sheng says you owe him for linens.",
           "say": "I do, and I shall pay him on the next occasion of grief. I carry no money on ordinary days, Mr. Grubb. It would only come between me and the poor.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "On the next occasion of grief, Mr. Grubb. I pray for one daily, in general terms."
+            }
+          ],
           "when": {
             "T_SHENG_TASK": true,
             "T_FUNERAL_DAY": false
