@@ -65,29 +65,39 @@ export function readPng(bytes) {
 
   // Undo the per-scanline filters. Five of them, and every one is needed:
   // an encoder picks per row and PIL uses most of them on a small sprite.
+  // One loop per filter, chosen once per row: the per-byte branch on the filter type made this the slowest thing in
+  // the check suite (every check that reads a sprite reads it through here), and the suite outgrew CI's budget.
   for (let row = 0; row < height; row += 1) {
     const filter = raw[row * (stride + 1)];
     const from = row * (stride + 1) + 1;
     const to = row * stride;
-    for (let index = 0; index < stride; index += 1) {
-      const value = raw[from + index];
-      const left = index >= bpp ? pixels[to + index - bpp] : 0;
-      const up = row > 0 ? pixels[to - stride + index] : 0;
-      const upLeft = row > 0 && index >= bpp ? pixels[to - stride + index - bpp] : 0;
-      let out;
-      if (filter === 0) out = value;
-      else if (filter === 1) out = value + left;
-      else if (filter === 2) out = value + up;
-      else if (filter === 3) out = value + ((left + up) >> 1);
-      else if (filter === 4) {
+    const prev = to - stride;
+    if (filter === 0) {
+      raw.copy(pixels, to, from, from + stride);
+    } else if (filter === 1) {
+      for (let i = 0; i < bpp; i += 1) pixels[to + i] = raw[from + i];
+      for (let i = bpp; i < stride; i += 1) pixels[to + i] = (raw[from + i] + pixels[to + i - bpp]) & 0xff;
+    } else if (filter === 2) {
+      if (row === 0) raw.copy(pixels, to, from, from + stride);
+      else for (let i = 0; i < stride; i += 1) pixels[to + i] = (raw[from + i] + pixels[prev + i]) & 0xff;
+    } else if (filter === 3) {
+      for (let i = 0; i < stride; i += 1) {
+        const left = i >= bpp ? pixels[to + i - bpp] : 0;
+        const up = row > 0 ? pixels[prev + i] : 0;
+        pixels[to + i] = (raw[from + i] + ((left + up) >> 1)) & 0xff;
+      }
+    } else if (filter === 4) {
+      for (let i = 0; i < stride; i += 1) {
+        const left = i >= bpp ? pixels[to + i - bpp] : 0;
+        const up = row > 0 ? pixels[prev + i] : 0;
+        const upLeft = row > 0 && i >= bpp ? pixels[prev + i - bpp] : 0;
         const p = left + up - upLeft;
         const dl = Math.abs(p - left);
         const du = Math.abs(p - up);
         const dul = Math.abs(p - upLeft);
-        out = value + (dl <= du && dl <= dul ? left : du <= dul ? up : upLeft);
-      } else throw new Error(`unknown PNG filter ${filter}`);
-      pixels[to + index] = out & 0xff;
-    }
+        pixels[to + i] = (raw[from + i] + (dl <= du && dl <= dul ? left : du <= dul ? up : upLeft)) & 0xff;
+      }
+    } else throw new Error(`unknown PNG filter ${filter}`);
   }
 
   // NORMALISED TO RGBA WHATEVER CAME IN. Every consumer of this reader
