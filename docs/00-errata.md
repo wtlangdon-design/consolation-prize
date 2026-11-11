@@ -7209,3 +7209,13 @@ The image session handed back her walk (`second-ledger-walk-art`; `reference/sec
 Not done: Thad can walk across the board while it lies lifted, and it does not creak or move under him then. Whether the walk reads as walking is Tyler's eye, in play.
 
 Lesson: none of a fix -- this is the first staging of the scene. Held by `tests/entrance.test.mjs` (the direction is hers; one woman, called by her direction, from where she stood; behind the counter only where she is behind it; she passes behind Thad and stops clear of him; the ledger in her hands until she is back) and the suite's own scale, level, gait, movement and standing checks, which she passes as any figure does.
+
+## 271 · While the loose board lies lifted, he walks round it (Tyler, 2026-11-10)
+
+Tyler, 2026-11-10, told that errata 270 left Thad able to walk across the lifted board: "Can you keep Thad from walking over the hole or board once it's up?"
+
+- **The board and the hollow are not floor while it is up** (`T_SECOND_LEDGER` true and `T_LEDGER_ON_COUNTER` false: while Winnie is out at the board). An obstacle in Room 5's annotation, x 452-758, y 700-796. He walks round it along the front of the room; where he stands to look at the board, where he talks to her, and where she kneels are all still floor. Before she lifts it and after she is back it is floor as it always was, and creaks.
+- **An obstacle can wait on more than one flag** (`tools/compile-room.mjs`): the floor is built once for each way the condition can fail and once carved, and exactly one is enabled in any state. Boot Hill's hearse, the one obstacle that waited on a flag before, compiles to the same boxes as it did.
+- **A floor that changes in front of him changes** (`GameState.boxes`). The walk boxes were read once, on coming into a room, so a box enabled or disabled by something that happens while he stands there stayed as it was until he left. They are rebuilt when the set of enabled boxes changes.
+
+Lesson: `tests/board-up.test.mjs`: the board is floor, then not, then floor again, without his leaving the room (it fails with the old once-per-room cache); his way across the room touches no point of the board; everyone's place is still floor. Doc 55 section 8: what is drawn in the way is in the way.

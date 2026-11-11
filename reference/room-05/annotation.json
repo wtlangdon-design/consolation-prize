@@ -175,6 +175,20 @@
         300
       ],
       "note": "The bench against the right wall; its footprint is never floor."
+    },
+    {
+      "id": "board_up",
+      "rect": [
+        452,
+        700,
+        306,
+        96
+      ],
+      "when": {
+        "T_SECOND_LEDGER": true,
+        "T_LEDGER_ON_COUNTER": false
+      },
+      "note": "THE LOOSE BOARD WHILE IT LIES LIFTED (errata 271; Tyler, 2026-11-10: \"Can you keep Thad from walking over the hole or board once it's up?\"). The plank raised and the hollow where it lay (x 462-745, y 718-791) are not floor while Winnie is out at the board with the second ledger. He walks round it, along the front of the room. Winnie kneels just past its free end (765), and the board's own stand, to look at it, is in front of it (605,828)."
     }
   ],
   "occlusion": {
