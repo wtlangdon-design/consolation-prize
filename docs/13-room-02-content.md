@@ -113,7 +113,7 @@ First selection, then second, then third. Third repeats indefinitely thereafter.
 **LISTEN** — 2 "Third from the end. Still loose." · 3 "It has a note. B flat, roughly. I've decided not to tell anyone."
 
 ## POSTED NOTICES
-**LOOK** — 2 "The lost-dog notice has been up six weeks, poor soul. And there's a dog lying right here on this street, looking entirely unlost." · 3 "Four claims for sale today! There were three yesterday. A shrewd man buys when everyone else is selling. I'm nearly certain that's how it goes."
+**LOOK** — 2 "The lost-dog notice has been up six weeks, poor soul. And there's a dog lying right here on this street, looking entirely unlost." · 3 "Four claims for sale today! There were three yesterday. Somebody's going to get a bargain, and I'd like it to be me."
 **LISTEN** — 2 "Paper. Still a great deal of it." · 3 "One corner has come loose and is knocking. It'll do that until somebody dies."
 
 ## THE CHURCH STEEPLE
