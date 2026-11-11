@@ -288,5 +288,23 @@
     ],
     "brightness": 0.83,
     "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
-  }
+  },
+  "props": [
+    {
+      "id": "second_ledger",
+      "sheet": "art/objects/room-05/second-ledger.png",
+      "x": 820,
+      "y": 406,
+      "frame": [
+        793,
+        383,
+        54,
+        23
+      ],
+      "when": {
+        "T_SECOND_LEDGER": true
+      },
+      "note": "THE SECOND LEDGER ON HER COUNTER (errata 181; Tyler, 2026-11-08: \"After Winnie takes it from under the floorboard, the ledger lies on her counter for the rest of the game ... a prop image I can show from T_SECOND_LEDGER on\"). The small green cloth book, closed, between the grille's two brass posts, cut by tools/art/second-ledger-counter.py; wired by errata 269. It is a picture only: THE SECOND LEDGER and THE NAMES as things to examine on it wait on their lines."
+    }
+  ]
 }

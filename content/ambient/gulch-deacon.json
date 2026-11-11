@@ -24,11 +24,11 @@
   "T_DUEL_ONE_CALLED": false
  },
  "walkTo": {
-  "x": 1060,
+  "x": 1005,
   "y": 800,
   "facing": "back"
  },
- "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: across the plank from him, in front of it, as a customer stands. Errata 266: 1060, not 1120. Filmed, he stood in front of the Deacon's shoulder while the Deacon polished a glass; he stands to his left now, at the plank.",
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: across the plank from him, in front of it, as a customer stands. Errata 266: 1060, not 1120. Filmed, he stood in front of the Deacon's shoulder while the Deacon polished a glass; he stands to his left now, at the plank. Errata 269: 1005, not 1060. Told to sign, the Deacon points down the bank, and from 1060 his hand ended behind Thad's shoulder (Tyler, 2026-11-10: \"Fix the Deacon point\").",
  "barks": {},
  "sprite": {
   "note": "Vessel's own frames, shaved: 0 rest, 1 breath, 2 talking (held while spoken to), 3 pushing his hat back, 4 looking out at the room, 5 looking down. Breaks every 11 s, as his in the Nugget.",
