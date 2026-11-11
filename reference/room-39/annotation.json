@@ -171,5 +171,47 @@
    "mud_near": 0
   },
   "planes": []
- }
+ },
+ "motion": [
+  {
+   "kind": "motes",
+   "colour": [
+    240,
+    228,
+    205
+   ],
+   "alpha": 0.24,
+   "amount": 14,
+   "rate": 0.05,
+   "rect": [
+    420,
+    80,
+    1000,
+    520
+   ],
+   "id": "flour",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  },
+  {
+   "kind": "smoke",
+   "colour": [
+    120,
+    100,
+    90
+   ],
+   "alpha": 0.25,
+   "rect": [
+    606,
+    276,
+    40,
+    4
+   ],
+   "amount": 4,
+   "rate": 0.2,
+   "rise": 90,
+   "drift": 4,
+   "id": "oven",
+   "note": ""
+  }
+ ]
 }

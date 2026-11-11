@@ -680,12 +680,12 @@
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the one way back to Room 5. NO DOCUMENT WRITES THIS SIDE OF THE DOOR: doc 25 writes Room 5's THE RECORDS ROOM DOOR, and docs 05, 08, 49 and 54 give the records room no door subject. So its examine layer is honestly absent, marked as a stub exit as Main Street's door to the hotel is, and reported in doc 36 Q149; the door works, and its LOOK and LISTEN wait for lines.",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 6 (errata 189)",
       "walkTo": {
         "x": 380,
         "y": 665,
         "facing": "back"
-      },
-      "waysOut": "docs/106-the-ways-out.md, ROOM 6 (errata 189)"
+      }
     }
   ],
   "ambient": [],
@@ -877,5 +877,47 @@
     ],
     "brightness": 0.72,
     "note": "Errata 109, from the pre-playthrough art audit: Thad is drawn in even light so he can go in every room, and here, where the room around him averages 15.6 (of 255) against his 57, he read as pasted on. Graded to about 41, the room's surround plus 25 -- the margin the lit rooms keep -- under a warm lamp multiply gentle enough to keep his coat blue, as the Nugget's (variant B, Tyler, 2026-11-01). A measurement, not a verdict: Tyler's playthrough decides."
-  }
+  },
+  "motion": [
+    {
+      "kind": "smoke",
+      "colour": [
+        214,
+        210,
+        202
+      ],
+      "alpha": 0.32,
+      "amount": 4,
+      "rate": 0.35,
+      "rise": 60,
+      "drift": 10,
+      "rect": [
+        790,
+        345,
+        10,
+        4
+      ],
+      "id": "kettle",
+      "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+    },
+    {
+      "kind": "motes",
+      "colour": [
+        255,
+        222,
+        170
+      ],
+      "alpha": 0.28,
+      "amount": 6,
+      "rate": 0.05,
+      "rect": [
+        940,
+        190,
+        240,
+        170
+      ],
+      "id": "lamp_motes",
+      "note": ""
+    }
+  ]
 }

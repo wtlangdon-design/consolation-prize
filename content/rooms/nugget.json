@@ -1697,5 +1697,49 @@
         "T_SWINDLED": true
       }
     }
+  ],
+  "motion": [
+    {
+      "kind": "smoke",
+      "colour": [
+        150,
+        140,
+        130
+      ],
+      "alpha": 0.25,
+      "rect": [
+        1030,
+        300,
+        16,
+        4
+      ],
+      "amount": 4,
+      "rate": 0.2,
+      "rise": 110,
+      "drift": 12,
+      "id": "stove_smoke",
+      "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+    },
+    {
+      "kind": "smoke",
+      "colour": [
+        170,
+        160,
+        150
+      ],
+      "alpha": 0.2,
+      "rect": [
+        880,
+        350,
+        30,
+        4
+      ],
+      "amount": 4,
+      "rate": 0.15,
+      "rise": 120,
+      "drift": -14,
+      "id": "card_table_smoke",
+      "note": ""
+    }
   ]
 }

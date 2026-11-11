@@ -67,6 +67,11 @@ export function check() {
         for (const rule of pair.rules ?? []) {
           if (typeof rule.say !== 'string' || !rule.say.trim()) report.fail(`${where}: case "${rule.case}" has no written line -- doc 24 rule 4`);
         }
+      } else if (pair.opens && !pair.completes && pair.opensNode) {
+        // A PAIR THAT ONLY OPENS (errata 274: the death certificate on the printer opens FRA_E1, whose own option
+        // completes E5): its line is the opening of the node it names, which must be written.
+        if (!tree) report.fail(`${where}: opens "${pair.opens}", which is not a tree`);
+        else if (!tree.nodes?.[pair.opensNode]?.opening?.length) report.fail(`${where}: ${pair.opens}/${pair.opensNode} has no authored opening to stand as the pair's line`);
       } else if (!pair.opens || !pair.completes) {
         report.fail(`${where}: authored pair with no written line -- doc 24 rule 4. `
           + 'It must be written or removed, not left to fall through to a pool');

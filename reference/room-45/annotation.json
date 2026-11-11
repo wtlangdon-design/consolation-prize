@@ -308,5 +308,35 @@
    0.86
   ],
   "note": "Errata 265 (Tyler, 2026-11-10, on the Gulch: \"I defer to you\"). In the Gulch's daylight Thad was the one cool, dark thing on a warm tan ground, apart from the Gulch's own men, who are painted in it. A warm light and nothing else: his coat stays blue and takes the sun."
- }
+ },
+ "motion": [
+  {
+   "kind": "sway",
+   "rect": [
+    370,
+    270,
+    90,
+    210
+   ],
+   "hinge": "bottom",
+   "amount": 2,
+   "rate": 0.12,
+   "id": "pine_1",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  },
+  {
+   "kind": "sway",
+   "rect": [
+    40,
+    380,
+    80,
+    180
+   ],
+   "hinge": "bottom",
+   "amount": 2,
+   "rate": 0.11,
+   "id": "pine_2",
+   "note": ""
+  }
+ ]
 }

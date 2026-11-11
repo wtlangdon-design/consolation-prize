@@ -2450,6 +2450,8 @@ for (const [spec, rule] of personBullets) {
   else delete built.population;
   // Doc 18's flicker, by the mechanism that works on a generated plate.
   if (ann.lamps) built.lamps = ann.lamps;
+  // The room's own small motion (errata 273; RoomFile.motion).
+  if (ann.motion) built.motion = ann.motion;
   // Where a voice with no figure speaks from (errata 131 A: the ring of chairs).
   if (ann.voices) built.voices = ann.voices;
   else delete built.voices;

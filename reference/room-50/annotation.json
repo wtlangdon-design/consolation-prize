@@ -187,5 +187,85 @@
    0.86
   ],
   "note": "Errata 265 (Tyler, 2026-11-10, on the Gulch: \"I defer to you\"). In the Gulch's daylight Thad was the one cool, dark thing on a warm tan ground, apart from the Gulch's own men, who are painted in it. A warm light and nothing else: his coat stays blue and takes the sun."
- }
+ },
+ "motion": [
+  {
+   "kind": "shimmer",
+   "rect": [
+    1220,
+    600,
+    160,
+    220
+   ],
+   "amount": 1,
+   "rate": 0.5,
+   "id": "river",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  },
+  {
+   "kind": "smoke",
+   "colour": [
+    200,
+    200,
+    205
+   ],
+   "alpha": 0.35,
+   "rect": [
+    1080,
+    380,
+    10,
+    4
+   ],
+   "amount": 4,
+   "rate": 0.15,
+   "rise": 80,
+   "drift": 10,
+   "id": "camp_smoke_1",
+   "note": ""
+  },
+  {
+   "kind": "smoke",
+   "colour": [
+    200,
+    200,
+    205
+   ],
+   "alpha": 0.35,
+   "rect": [
+    1250,
+    450,
+    10,
+    4
+   ],
+   "amount": 4,
+   "rate": 0.17,
+   "rise": 80,
+   "drift": 10,
+   "seed": 2,
+   "id": "camp_smoke_2",
+   "note": ""
+  },
+  {
+   "kind": "smoke",
+   "colour": [
+    200,
+    200,
+    205
+   ],
+   "alpha": 0.35,
+   "rect": [
+    1490,
+    470,
+    10,
+    4
+   ],
+   "amount": 4,
+   "rate": 0.16,
+   "rise": 80,
+   "drift": 10,
+   "seed": 3,
+   "id": "camp_smoke_3",
+   "note": ""
+  }
+ ]
 }

@@ -2160,5 +2160,84 @@
       "note": "The town downhill, west -- lit windows and nothing else, from lightSources[2]. Doc 17’s LOOK line is \"There are lamps on in about a third of it.\" Slowest and faintest of any lamp in the game: it is a hundred windows a mile off, and what moves is the air between, not the flames."
     }
   ],
-  "lampsNote": "Doc 18's flicker by the mechanism that survives errata 54 -- doc 36 Q13. HOB'S LAMP IS NOT HERE, and that is deliberate: it is carried, so it moves with him, and the renderer's own carriedLight pass now flickers it at a tenth of this amplitude. A fixed glow at a fixed point would be a second lamp lying on the road."
+  "lampsNote": "Doc 18's flicker by the mechanism that survives errata 54 -- doc 36 Q13. HOB'S LAMP IS NOT HERE, and that is deliberate: it is carried, so it moves with him, and the renderer's own carriedLight pass now flickers it at a tenth of this amplitude. A fixed glow at a fixed point would be a second lamp lying on the road.",
+  "motion": [
+    {
+      "id": "stars",
+      "kind": "twinkle",
+      "rect": [
+        0,
+        0,
+        1920,
+        190
+      ],
+      "amount": 45,
+      "rate": 0.15,
+      "note": "Errata 273. The stars the plate has, now and then brighter or gone for a moment."
+    },
+    {
+      "id": "smoke_town_1",
+      "kind": "smoke",
+      "rect": [
+        548,
+        300,
+        14,
+        4
+      ],
+      "amount": 5,
+      "rate": 0.18,
+      "rise": 90,
+      "drift": 22,
+      "alpha": 0.22,
+      "colour": [
+        120,
+        128,
+        150
+      ],
+      "seed": 1,
+      "note": "Chimney smoke over the town downhill."
+    },
+    {
+      "id": "smoke_town_2",
+      "kind": "smoke",
+      "rect": [
+        700,
+        318,
+        14,
+        4
+      ],
+      "amount": 5,
+      "rate": 0.16,
+      "rise": 80,
+      "drift": 20,
+      "alpha": 0.2,
+      "colour": [
+        120,
+        128,
+        150
+      ],
+      "seed": 2
+    },
+    {
+      "id": "smoke_town_3",
+      "kind": "smoke",
+      "rect": [
+        620,
+        350,
+        14,
+        4
+      ],
+      "amount": 4,
+      "rate": 0.2,
+      "rise": 70,
+      "drift": 18,
+      "alpha": 0.18,
+      "colour": [
+        120,
+        128,
+        150
+      ],
+      "seed": 3
+    }
+  ]
 }

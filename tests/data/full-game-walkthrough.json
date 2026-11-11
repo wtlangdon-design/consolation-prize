@@ -2595,8 +2595,22 @@
   {
    "id": "E5.4",
    "puzzle": "E5",
-   "do": "talk",
-   "npc": "frame",
+   "do": "use",
+   "item": "death_certificate",
+   "on": "frame",
+   "expect": {
+    "dialogue": "FRAME",
+    "node": "FRA_E1",
+    "carrying": [
+     "death_certificate"
+    ]
+   },
+   "note": "Errata 274: the obituary is asked for with the death in hand. TALK TO opens the same node."
+  },
+  {
+   "id": "E5.4b",
+   "puzzle": "E5",
+   "do": "choose",
    "choose": [
     "frame1"
    ],
@@ -2606,7 +2620,8 @@
      "E5"
     ],
     "carrying": [
-     "obituary"
+     "obituary",
+     "death_certificate"
     ],
     "flags": {
      "T_OBITUARY": true

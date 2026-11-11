@@ -820,5 +820,33 @@
         }
       }
     ]
-  }
+  },
+  "motion": [
+    {
+      "kind": "twinkle",
+      "rect": [
+        0,
+        0,
+        1920,
+        250
+      ],
+      "amount": 35,
+      "rate": 0.15,
+      "id": "stars",
+      "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+    },
+    {
+      "kind": "scroll",
+      "rect": [
+        1172,
+        374,
+        28,
+        100
+      ],
+      "amount": 76,
+      "rate": 10,
+      "id": "barber_pole",
+      "note": ""
+    }
+  ]
 }

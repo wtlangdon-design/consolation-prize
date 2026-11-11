@@ -1001,5 +1001,72 @@
     ],
     "brightness": 0.74,
     "note": "Errata 207 (Tyler, 2026-11-08: \"Fix all five\"). tools/check-figure-light.mjs (errata 205) measured Sheng at 1.54 of Thad where he stands, against a limit of 1.12, mostly the white sheet on the ironing board his frame carries. The stove's fire is a small glow in its firebox, well to his left, and does not light the sheet on the plate, so it is not declared as a lamp: he is graded instead. Only he is named; Thad and the room are drawn as before. A warm multiply for the room's light and a brightness of 0.74 take him to 1.07 of Thad, the sheet reading as linen in lamplight (beside him: renders/fixed-sheng-beside-thad.png). A nudge is a number here (doc 55 §8, \"Light and colour\")."
-  }
+  },
+  "motion": [
+    {
+      "kind": "smoke",
+      "colour": [
+        214,
+        210,
+        202
+      ],
+      "alpha": 0.35,
+      "amount": 5,
+      "rate": 0.35,
+      "rise": 110,
+      "drift": 10,
+      "rect": [
+        250,
+        286,
+        16,
+        4
+      ],
+      "id": "copper_1",
+      "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+    },
+    {
+      "kind": "smoke",
+      "colour": [
+        214,
+        210,
+        202
+      ],
+      "alpha": 0.35,
+      "amount": 5,
+      "rate": 0.35,
+      "rise": 110,
+      "drift": 10,
+      "rect": [
+        382,
+        316,
+        16,
+        4
+      ],
+      "seed": 2,
+      "id": "copper_2",
+      "note": ""
+    },
+    {
+      "kind": "smoke",
+      "colour": [
+        214,
+        210,
+        202
+      ],
+      "alpha": 0.35,
+      "amount": 5,
+      "rate": 0.35,
+      "rise": 110,
+      "drift": 10,
+      "rect": [
+        512,
+        296,
+        16,
+        4
+      ],
+      "seed": 3,
+      "id": "copper_3",
+      "note": ""
+    }
+  ]
 }

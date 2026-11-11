@@ -397,6 +397,19 @@
       "opensNode": "WIN_B2"
     },
     {
+      "item": "death_certificate",
+      "room": "clarion",
+      "target": "frame",
+      "puzzle": "E5",
+      "requiresFlags": {
+        "T_DECEASED": true,
+        "T_OBITUARY": false
+      },
+      "opens": "FRAME",
+      "note": "ERRATA 274: THE DEATH CERTIFICATE on Frame opens FRA_E1, the obituary. The target is the room's ambient character. No `say`: the pair's line is FRA_E1's opening. He hands it back; it is wanted at the county window (F5). TALK TO opens the same node, for a player who does not think of it.",
+      "opensNode": "FRA_E1"
+    },
+    {
       "item": "executor_form",
       "room": "archive",
       "target": "mott_file",

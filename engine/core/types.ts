@@ -815,6 +815,8 @@ export interface AmbientFile {
      * frame 0 -- the rest pose -- which is what the sway returns to anyway.
      */
     talkFrame?: number;
+    /** Errata 273: the idle sway is not a breath (the fiddler's bow), so tests/movement.test.mjs does not hold it to a breath's pace. Why, in words. */
+    idleIsNotBreath?: string;
     /**
      * THE FRAME HELD WHILE THE JUDGES WRITE A POINT DOWN (errata 131 B): the
      * holder of the pencil lowers it to mark the score (doc 45 U-ASSAY-PENCIL).
@@ -919,6 +921,32 @@ export interface AmbientFile {
  * interior needs CONTENT. Here the lamp is drawn, the fire is drawn, and the
  * glow only makes them flicker.
  */
+/** One thing in a room that moves by itself. See RoomFile.motion and engine/render/MotionLayer.ts. */
+export interface RoomMotion {
+  id: string;
+  kind: 'smoke' | 'shimmer' | 'twinkle' | 'sway' | 'motes' | 'scroll';
+  /** Room pixels: smoke rises from the top of it; the others move inside it. */
+  rect: [number, number, number, number];
+  /** Cycles per second (smoke: puffs' lives per second). */
+  rate?: number;
+  /** How much: puffs or motes or stars counted; shimmer in whole pixels of the room's level; sway, the swing at its
+   * bottom row in screen pixels (its top row is the hook and does not move). */
+  amount?: number;
+  /** The square's size in screen pixels; the room's level when absent (its man over 115). */
+  block?: number;
+  colour?: [number, number, number];
+  alpha?: number;
+  /** Smoke: how high it rises, and how far it drifts sideways, over a puff's life. */
+  rise?: number;
+  drift?: number;
+  /** Sway: the edge it hangs from. Scroll: 'top' runs downward (falling water); otherwise it runs up. */
+  hinge?: 'top' | 'bottom';
+  seed?: number;
+  /** Only while the room shows one of these pictures (the plate's own path). Absent: always. */
+  plates?: string[];
+  note?: string;
+}
+
 export interface RoomLamp {
   id: string;
   /** Centre, in room coordinates. */
@@ -1599,6 +1627,12 @@ export interface RoomFile {
    */
   /** Doc 18's flicker, by a mechanism that works on a generated plate. */
   lamps?: RoomLamp[];
+  /**
+   * THE ROOM'S OWN SMALL MOTION (errata 273; engine/render/MotionLayer.ts): smoke, water, a swinging sign, stars,
+   * dust in a light. Made from the plate's own pixels. It may wait on which picture of the room is shown and on
+   * nothing else (invariant 9).
+   */
+  motion?: RoomMotion[];
   /**
    * WHERE A VOICE WITH NO FIGURE SPEAKS FROM, by speaker id (errata 131 A).
    * Doc 30 section 3.1: "a speaker who is offscreen must use an explicit fixed

@@ -7230,3 +7230,24 @@ Tyler, 2026-11-10, of what still worries him before playing (Main Street's drawi
 - The builder's two passes, the stillest rooms given incidental motion from the art they have and the 45 puzzles reviewed for what makes a puzzle fun, are recorded when they land.
 
 Lesson: none -- a budget and two briefs, not a fix.
+
+## 273 · The rooms move by themselves (Tyler, 2026-11-10)
+
+Tyler, 2026-11-10, of what still worried him before playing: "animation density". Monkey Island's screens are never quite still; ours moved only where a person stood or a lamp breathed. Shown Lower Street with smoke, stars, a lantern and the trough moving: "I generally like all of the movement!", with two corrections, both made: the lantern "kind of shake[s] in the middle" (it now turns about its hook) and "everything looks in high speed" (the clip, stitched from screenshots, played three times fast; the game did not).
+
+- **The engine** (`engine/render/MotionLayer.ts`, `RoomFile.motion`, compiled from each room's annotation): six kinds, every one from the plate's own pixels or squares of the room's own pixel size, never a new picture. `smoke` (chimneys, stovepipes, campfires, a kettle's steam, incense) · `shimmer` (water) · `sway` (a lantern, a bell, a clock's pendulum, a bell rope, a pine; it turns about its hook) · `scroll` (the barber's pole, a waterfall) · `twinkle` (the plate's own stars) · `motes` (dust in lamplight and window light, flour in the bakehouse, hay dust in the livery loft). Drawn on the plate before anything laid over it, at the lamps' ten-a-second tick.
+- **Forty-eight rooms move.** Placed by eye on every plate; `tests/room-motion.test.mjs` holds what it may not do.
+- **What does not move, on purpose:** the coffin and the listening chamber (invariants 2 and 8); anything over a thing that completes a puzzle, so motion never points (invariant 9): the warm hole at Prosperity (F1), the watch in the grog tent (G4), the passages of the mine (G2), the Clarion's press and the stake in Ozymandia's tent. The road sign at the stage road has its lettering laid over it and does not swing. Nothing waits on a flag; a motion may wait only on which picture of the room is shown.
+- **Breathing slowed.** Tyler: "The man seems to be breathing rapidly (shoulders rising and falling too quickly)". The letter-writer breathed 0.9 times a second; he, the map seller, the pie woman, the message boy and the two boundary men now breathe 0.35-0.4. The fiddler's idle is his bow, in time with the music, and says so.
+
+Lesson: `tests/room-motion.test.mjs` (no motion in the two still rooms, none on a flag, none over a puzzle's thing, no strip of plate moved under a picture laid over it); `tests/movement.test.mjs` now holds a person's breath to half a cycle a second at most (it fails with the letter-writer's 0.9 put back). Doc 55 section 8: a clip shown for judgement is recorded at the game's own speed.
+
+## 274 · The death certificate on Frame; and what doc 124 found weak, settled (Tyler, 2026-11-10)
+
+Tyler, 2026-11-10, on doc 124's two proposals: "You decide". And: "If you feel like three puzzles are weak, can you just make them better now?"
+
+- **Proposal 1, made.** THE DEATH CERTIFICATE on Frame opens FRA_E1, the obituary, as the log on Winnie opens WIN_B2 (doc 24, E5). Live between the recorded death and the obituary; TALK TO still opens the same node. Thad keeps the certificate: the county wants it at the end (F5). The continuous playthrough now plays E5 this way, in the headless test and replayed in the real build. An evidence pair may now open a tree without completing a puzzle itself (`GameState.evidencePairFor`); FRA_E1's own option completes E5, as before.
+- **Proposal 4, not made.** The wait before Winnie's sparring is not only a wait: until Thad has left and come back, WIN_B2 stays her node, so "Now can I ask about Mott gold?" and the second ledger can still be asked after the assay is granted. Opening WIN_B4 at once would take them away from a player who asked for the assay and stepped out of the conversation. Leaving the office is something every player does anyway. Kept.
+- **The three to watch, looked at again.** The paperwork run (E4 to E6) is shorter by a conversation and longer by an object: proposal 1 was the fix that needs no new writing. The two errands before Grievance (B1, B2) each pose a question and answer it in one exchange, and they set up the best puzzle of Act II; an object step there would be padding, and new lines. Duel Two plays in about seventy seconds on the route, won; a lost one is no longer. None of the three is changed: the builder could make them different, not better, and a line the documents never wrote is still Tyler's to authorise.
+
+Lesson: `tests/e5-certificate.test.ts` (live only between the death and the obituary; completes nothing itself), proved against the content with the pair taken out; the walkthrough's E5.4 plays it.

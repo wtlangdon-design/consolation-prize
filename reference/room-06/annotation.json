@@ -231,5 +231,47 @@
   ],
   "brightness": 0.72,
   "note": "Errata 109, from the pre-playthrough art audit: Thad is drawn in even light so he can go in every room, and here, where the room around him averages 15.6 (of 255) against his 57, he read as pasted on. Graded to about 41, the room's surround plus 25 -- the margin the lit rooms keep -- under a warm lamp multiply gentle enough to keep his coat blue, as the Nugget's (variant B, Tyler, 2026-11-01). A measurement, not a verdict: Tyler's playthrough decides."
- }
+ },
+ "motion": [
+  {
+   "kind": "smoke",
+   "colour": [
+    214,
+    210,
+    202
+   ],
+   "alpha": 0.32,
+   "amount": 4,
+   "rate": 0.35,
+   "rise": 60,
+   "drift": 10,
+   "rect": [
+    790,
+    345,
+    10,
+    4
+   ],
+   "id": "kettle",
+   "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  },
+  {
+   "kind": "motes",
+   "colour": [
+    255,
+    222,
+    170
+   ],
+   "alpha": 0.28,
+   "amount": 6,
+   "rate": 0.05,
+   "rect": [
+    940,
+    190,
+    240,
+    170
+   ],
+   "id": "lamp_motes",
+   "note": ""
+  }
+ ]
 }

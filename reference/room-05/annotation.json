@@ -325,5 +325,28 @@
       },
       "note": "THE SECOND LEDGER ON HER COUNTER (errata 181; Tyler, 2026-11-08: \"After Winnie takes it from under the floorboard, the ledger lies on her counter for the rest of the game ... a prop image I can show from T_SECOND_LEDGER on\"). The small green cloth book, closed, between the grille's two brass posts, cut by tools/art/second-ledger-counter.py; wired by errata 269. It is a picture only: THE SECOND LEDGER and THE NAMES as things to examine on it wait on their lines. Errata 270: it lies there once she is back behind the counter (T_LEDGER_ON_COUNTER); until Thad leaves the office it is in her hands at the loose board."
     }
+  ],
+  "motion": [
+    {
+      "kind": "smoke",
+      "colour": [
+        214,
+        210,
+        202
+      ],
+      "alpha": 0.32,
+      "amount": 4,
+      "rate": 0.35,
+      "rise": 60,
+      "drift": 10,
+      "rect": [
+        618,
+        330,
+        10,
+        4
+      ],
+      "id": "kettle",
+      "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+    }
   ]
 }

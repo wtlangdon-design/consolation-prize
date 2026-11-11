@@ -830,5 +830,45 @@
     ],
     "brightness": 0.77,
     "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
-  }
+  },
+  "motion": [
+    {
+      "kind": "motes",
+      "colour": [
+        255,
+        222,
+        170
+      ],
+      "alpha": 0.3,
+      "amount": 10,
+      "rate": 0.05,
+      "rect": [
+        330,
+        240,
+        320,
+        280
+      ],
+      "id": "lamp_motes",
+      "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+    },
+    {
+      "kind": "motes",
+      "colour": [
+        190,
+        200,
+        230
+      ],
+      "alpha": 0.22,
+      "amount": 7,
+      "rate": 0.05,
+      "rect": [
+        1480,
+        140,
+        260,
+        320
+      ],
+      "id": "window_motes",
+      "note": ""
+    }
+  ]
 }

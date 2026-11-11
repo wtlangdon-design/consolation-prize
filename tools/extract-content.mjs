@@ -1137,6 +1137,14 @@ function combinations() {
       note: 'ERRATA 66 A-C: SHOW / USE the submission log on Winnie is C5. The target is the room\'s ambient character, not a hotspot. No `say`: the pair\'s line is WIN_B2\'s opening, which the action launches at once. She keeps the log (errata 247). With C5 complete the pair yields to the ordinary pools (doc 36 Q113).',
     },
   };
+  // ERRATA 274 (doc 124, proposal 1; Tyler, 2026-11-10: "You decide"): the obituary is asked for by handing Frame
+  // the death certificate, the way the log is shown to Winnie. Only between the recorded death and the obituary;
+  // after it, the certificate on Frame falls to the ordinary pools. TALK TO still opens FRA_E1.
+  OPENING_PAIRS['E5|THE DEATH CERTIFICATE|Frame'] = {
+    item: 'death_certificate', room: 'clarion', target: 'frame', puzzle: 'E5',
+    requiresFlags: { T_DECEASED: true, T_OBITUARY: false }, opens: 'FRAME',
+    note: 'ERRATA 274: THE DEATH CERTIFICATE on Frame opens FRA_E1, the obituary. The target is the room\'s ambient character. No `say`: the pair\'s line is FRA_E1\'s opening. He hands it back; it is wanted at the county window (F5). TALK TO opens the same node, for a player who does not think of it.',
+  };
   const pairs = [];
   const opening = [];
   for (const line of doc.split('\n')) {

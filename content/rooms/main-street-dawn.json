@@ -981,5 +981,63 @@
     "brightness": 0.84,
     "saturate": 0.85,
     "note": "Errata 265 (Tyler, 2026-11-10: \"Fix the dawn\"). Errata 263 relit this street to the very first light (mean 98.6 to 63.9) and left the two figures on it as bright as the old morning: the dog was an orange lamp on a dim street. A cold light, dimmer, and a little of their colour out, so they stand in the dawn the street is in."
-  }
+  },
+  "motion": [
+    {
+      "kind": "shimmer",
+      "rect": [
+        1935,
+        568,
+        130,
+        14
+      ],
+      "amount": 1,
+      "rate": 0.5,
+      "id": "trough",
+      "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+    },
+    {
+      "kind": "smoke",
+      "colour": [
+        170,
+        170,
+        185
+      ],
+      "alpha": 0.35,
+      "rect": [
+        292,
+        262,
+        12,
+        4
+      ],
+      "amount": 5,
+      "rate": 0.15,
+      "rise": 110,
+      "drift": 16,
+      "id": "chimney_1",
+      "note": ""
+    },
+    {
+      "kind": "smoke",
+      "colour": [
+        170,
+        170,
+        185
+      ],
+      "alpha": 0.35,
+      "rect": [
+        2860,
+        142,
+        12,
+        4
+      ],
+      "amount": 5,
+      "rate": 0.15,
+      "rise": 110,
+      "drift": 16,
+      "seed": 2,
+      "id": "chimney_2",
+      "note": ""
+    }
+  ]
 }
