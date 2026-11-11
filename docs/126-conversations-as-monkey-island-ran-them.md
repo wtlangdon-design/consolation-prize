@@ -59,16 +59,17 @@ Rewritten by errata 286 (doc 07): the bag follows "Tomorrow.", written as doc 07
 
 ### amb_boundary_men
 
-Whether there is gold is asked once he knows what they are arguing about.
+Rewritten by errata 288 (doc 07). Whether there is gold follows what they are arguing about, written as doc 07's follow-up; what they are fighting over follows the gold; Thad's side, and settling it, follow the argument.
 
-- `boundary2` waits for `boundary1`
+- `boundary3` waits for `boundary2`
+- `boundary6` waits for `boundary1`
+- `boundary7` waits for `boundary1`
 
 ### amb_barber
 
-The instruments are asked about once he has listed what they are for. The shave keeps the second answer errata 183 wrote for it.
+Rewritten by errata 288 (doc 07): the instruments and his training follow what he does, written as doc 07's follow-ups. The shave keeps the second answer errata 183 wrote for it.
 
-- `barber2` waits for `barber1`
-- `barber3` stays
+- `barber5` stays
 
 ### amb_bell_ringer
 
@@ -76,36 +77,35 @@ Rewritten by errata 286 (doc 07): the offer to show him follows his answer about
 
 ### amb_boarding_women
 
-The joke keeps the second answer errata 183 wrote for it.
+Rewritten by errata 288 (doc 07). The joke keeps the second answer errata 183 wrote for it.
 
-- `boarding3` stays
+- `boarding5` stays
 
 ### amb_photographer
 
-"That's Obadiah Mott." answers "Nobody." The joke keeps the second answer errata 183 wrote for it.
+Rewritten by errata 288 (doc 07): "That's Obadiah Mott." answers "Nobody.", written as doc 07's follow-up. The profile and the price are about the man in the window, so they follow him. The joke keeps the second answer errata 183 wrote for it.
 
-- `photographer2` waits for `photographer1`
-- `photographer3` stays
+- `photographer4` waits for `photographer1`
+- `photographer5` waits for `photographer1`
+- `photographer5` stays
 
 ### amb_dogs_owner
 
-He can only be told about the dog once he has said he is looking for one.
+Rewritten by errata 288 (doc 07). He can only be told about the dog once he has said he is looking for one.
 
-- `dogs_owner4` waits for `dogs_owner1`
+- `dogs_owner6` waits for `dogs_owner1`
 
 ### amb_fiddler
 
-"The piano is flat" answers "I'm tuned to the piano", and the offer to fix it needs something to fix.
+Rewritten by errata 288 (doc 07). "The piano is flat" answers "I'm tuned to the piano", written as doc 07's follow-up, and the offer to fix it needs the piano to be flat.
 
-- `fiddler2` waits for `fiddler1`
-- `fiddler5` waits for `fiddler1`
+- `fiddler3` waits for `fiddler2`
 
 ### amb_one_strike_man
 
-When, and since, follow the story.
+Rewritten by errata 288 (doc 07). When, and what he did with it, follow the story, written as doc 07's follow-ups; since follows when.
 
-- `one_strike2` waits for `one_strike1`
-- `one_strike5` waits for `one_strike2`
+- `one_strike7` waits for `one_strike2`
 
 ### LIVERY_MAN
 
@@ -170,15 +170,15 @@ The plank, and arithmetic, follow "What rules?"
 
 ### amb_boundary_men
 
-- `boundary5` stays — "You've asked twice now. He'll call that evidence."
+- `boundary7` stays — "You've asked twice now. He'll call that evidence."
 
 ### amb_card_sharp
 
-- `card_sharp6` stays — "Good enough not to play you. You'd lose, and I'd feel it."
+- `card_sharp7` stays — "Good enough not to play you. You'd lose, and I'd feel it."
 
 ### amb_fiddler
 
-- `fiddler5` stays — "Still no. In tune, I'd be playing on my own."
+- `fiddler3` stays — "Still no. In tune, I'd be playing on my own."
 
 ### amb_letter_writer
 

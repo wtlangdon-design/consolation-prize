@@ -21,18 +21,51 @@
           "id": "photographer2",
           "text": "That's Obadiah Mott.",
           "tag": "TOPIC",
+          "after": [
+            "photographer1"
+          ],
           "say": "It's a portrait, sir. It's a man in Ohio in a good collar.",
+          "afterUse": "remove"
+        },
+        {
+          "id": "photographer3",
+          "text": "Could you take my portrait?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "photographer",
+              "line": "I could. Or you could have one of these, and save yourself sitting still for a minute and a half."
+            },
+            {
+              "speaker": "thad",
+              "line": "But it wouldn't be me."
+            },
+            {
+              "speaker": "photographer",
+              "line": "It'd be a man in a good collar. Nobody back home looks past the collar."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "photographer4",
+          "text": "I'm told I have a very distinguished profile.",
+          "tag": "COMIC",
+          "say": "So has he, and he's twenty-five cents.",
           "after": [
             "photographer1"
           ],
           "afterUse": "remove"
         },
         {
-          "id": "photographer3",
+          "id": "photographer5",
           "text": "May I buy it?",
           "tag": "COMIC",
           "repeat": "Twenty-five cents, still. Another ten and I'll frame him, and then he's an ancestor.",
           "say": "Twenty-five cents. I've thirty-one more.",
+          "after": [
+            "photographer1"
+          ],
           "afterUse": "retain"
         },
         {

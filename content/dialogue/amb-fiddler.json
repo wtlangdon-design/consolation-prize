@@ -21,14 +21,46 @@
           "id": "fiddler2",
           "text": "The piano is flat.",
           "tag": "TOPIC",
-          "say": "Then I'm tuned to the piano.",
           "after": [
             "fiddler1"
           ],
+          "say": "Then I'm tuned to the piano.",
           "afterUse": "remove"
         },
         {
           "id": "fiddler3",
+          "text": "Do you want me to fix it?",
+          "tag": "COMIC",
+          "after": [
+            "fiddler1",
+            "fiddler2"
+          ],
+          "repeat": "Still no. In tune, I'd be playing on my own.",
+          "say": "God, no. Then I'd be the only one right.",
+          "afterUse": "retain"
+        },
+        {
+          "id": "fiddler4",
+          "text": "Play me something.",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "fiddler",
+              "line": "Anything you like, so long as the piano knows it."
+            },
+            {
+              "speaker": "thad",
+              "line": "What does the piano know?"
+            },
+            {
+              "speaker": "fiddler",
+              "line": "Four songs, and the bottom half of a fifth."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "fiddler5",
           "text": "Did you know Ezra Pike?",
           "tag": "TOPIC",
           "exchange": [
@@ -51,7 +83,7 @@
           "afterUse": "remove"
         },
         {
-          "id": "fiddler4",
+          "id": "fiddler6",
           "text": "You knew Pike was dead.",
           "tag": "TOPIC",
           "when": {
@@ -61,15 +93,24 @@
           "afterUse": "remove"
         },
         {
-          "id": "fiddler5",
-          "text": "Do you want me to fix it?",
+          "id": "fiddler7",
+          "text": "I have perfect pitch.",
           "tag": "COMIC",
-          "repeat": "Still no. In tune, I'd be playing on my own.",
-          "say": "God, no. Then I'd be the only one right.",
-          "after": [
-            "fiddler1"
+          "exchange": [
+            {
+              "speaker": "fiddler",
+              "line": "Oh, I'm sorry."
+            },
+            {
+              "speaker": "thad",
+              "line": "It's a gift."
+            },
+            {
+              "speaker": "fiddler",
+              "line": "Not out here, it isn't. Out here you'll hear everything."
+            }
           ],
-          "afterUse": "retain"
+          "afterUse": "remove"
         },
         {
           "id": "fiddlerx",

@@ -7383,3 +7383,41 @@ Two things found on the way:
 - **Doc 95's counts line drifted.** It read "B 0", with five B rows under it. It now agrees with the table.
 
 Lesson: `tests/movements-to-draw.test.mjs`, proved against both defects. It fails if a B row is missing from the list or under the wrong figure, if a listed row is no longer B, or if doc 95's counts line disagrees with its table. Doc 55 §8 gets one row: a new physical direction names only what the figure already carries, or its pose goes on the list with the prop.
+
+## 288 · The rest of the townspeople, rewritten; the main cast checked against the voice blocks (Tyler, 2026-11-11)
+
+Tyler, shown doc 99's voice blocks (errata 287): "I like it proceed".
+
+**The eight townspeople still in the first voice are rewritten in doc 07,** as errata 286 rewrote the six street people:
+- the boundary men;
+- the barber-dentist-surgeon;
+- the photographer;
+- the fiddler;
+- the one-strike man;
+- the boarding-house women;
+- the card sharp;
+- the dog's owner.
+
+Each now has a menu worth reading before anything is clicked:
+- a plain question;
+- a vain or greedy one, usually about Thad's ear, his teeth, his profile or his fortune;
+- one that is wrong on purpose.
+
+Answers build on what Thad says, in the voice doc 99 gives each person:
+- the boundary men take whatever Thad says as evidence for one side;
+- the barber prices everything in threes;
+- the photographer counts his stock;
+- the fiddler is loyal to the flat piano;
+- the one-strike man brings everything back to forty-nine;
+- the boarding-house women work as one word and its explanation;
+- the card sharp is candid in as few words as possible;
+- the dog's owner counts in weeks.
+
+**Kept:**
+- every Pike route to the undertaker, and its after-death line;
+- every flag a tree sets, and the dog's resolution;
+- the jokes doc 126 keeps on the list. Their numbers there follow the new order.
+
+**The main cast is checked, not rewritten.** Their trees were rewritten to doc 99 in the act passes (docs 100–103). Read against the voice blocks, each passes "cover the name". Rewriting lines that already pass would put the puzzles' facts at risk for no gain, so they are left as they are.
+
+Lesson: none -- a rewrite, no defect fixed. `tests/room-37.test.ts` found the women's joke as the first COMIC; it now finds the COMIC that asks again (recorded in `proofs/check-friction.json`).

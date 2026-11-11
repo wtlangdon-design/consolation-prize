@@ -38,6 +38,9 @@
           "id": "boundary2",
           "text": "Is there gold on either claim?",
           "tag": "TOPIC",
+          "after": [
+            "boundary1"
+          ],
           "exchange": [
             {
               "speaker": "boundary_a",
@@ -65,13 +68,34 @@
               "direction": true
             }
           ],
-          "after": [
-            "boundary1"
-          ],
           "afterUse": "remove"
         },
         {
           "id": "boundary3",
+          "text": "Then what are you fighting over?",
+          "tag": "TOPIC",
+          "after": [
+            "boundary1",
+            "boundary2"
+          ],
+          "exchange": [
+            {
+              "speaker": "boundary_b",
+              "line": "Forty feet."
+            },
+            {
+              "speaker": "boundary_a",
+              "line": "Forty-one."
+            },
+            {
+              "speaker": "boundary_b",
+              "line": "He's counting the pine."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "boundary4",
           "text": "Do either of you know Ezra Pike?",
           "tag": "TOPIC",
           "exchange": [
@@ -102,7 +126,7 @@
           "afterUse": "remove"
         },
         {
-          "id": "boundary4",
+          "id": "boundary5",
           "text": "You knew Pike was dead.",
           "tag": "TOPIC",
           "exchange": [
@@ -125,7 +149,34 @@
           "afterUse": "remove"
         },
         {
-          "id": "boundary5",
+          "id": "boundary6",
+          "text": "I've a very accurate ear, and I'd say it's the rock.",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "boundary_b",
+              "line": "Thank you."
+            },
+            {
+              "speaker": "boundary_a",
+              "line": "He's from out of town."
+            },
+            {
+              "speaker": "boundary_b",
+              "line": "That makes him impartial."
+            },
+            {
+              "speaker": "boundary_a",
+              "line": "That makes him wrong."
+            }
+          ],
+          "after": [
+            "boundary1"
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "boundary7",
           "text": "Have you tried settling it?",
           "tag": "COMIC",
           "exchange": [
@@ -139,6 +190,9 @@
             }
           ],
           "repeat": "You've asked twice now. He'll call that evidence.",
+          "after": [
+            "boundary1"
+          ],
           "afterUse": "retain"
         },
         {

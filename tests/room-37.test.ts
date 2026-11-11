@@ -36,7 +36,8 @@ test('the two women answer in two voices, and B asks again in her own (doc 07)',
   assert.ok(root);
   const doc07 = await readFile(resolve(ROOT, 'docs/07-ambient-layer.md'), 'utf8');
   for (const option of root.options) if (!option.ends) assert.ok(doc07.includes(`"${option.text}"`), `"${option.text}" is doc 07's`);
-  const comic = root.options.find((option) => option.tag === 'COMIC');
+  // THE JOKE is the COMIC that asks again (errata 183); errata 288 gave them a second COMIC, which does not.
+  const comic = root.options.find((option) => option.tag === 'COMIC' && option.repeats);
   assert.ok(comic?.repeats?.[0]?.exchange, 'the joke has a second answer, as an exchange');
   const first = (comic.exchange ?? []).map((line) => line.speaker);
   const again = comic.repeats[0].exchange!.map((line) => line.speaker);
