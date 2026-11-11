@@ -133,37 +133,37 @@
    [
     2,
     2,
-    255,
+    264,
     520
    ],
    [
-    259,
+    268,
     2,
-    255,
+    264,
     520
    ],
    [
-    516,
+    534,
     2,
-    255,
+    264,
     520
    ],
    [
-    773,
+    800,
     2,
-    255,
+    264,
     520
    ],
    [
-    1030,
+    1066,
     2,
-    255,
+    264,
     520
    ],
    [
-    1287,
+    1332,
     2,
-    255,
+    264,
     520
    ]
   ],
@@ -176,7 +176,6 @@
    "plane": 2,
    "legs": 1
   },
-  "skirt": true,
-  "note": "HER WALK OUT (errata 270; reference/second-ledger/walk-brief.md; tools/art/second-ledger-walk.py). From where she stands at her window (her head where her counter figure's is: drawn 468 tall with her feet on the floor behind the counter at y 693) to the counter's far end, behind the counter, the book, the bell jar and the lamp (plane 2); round the end; back across the front of the room behind Thad; and down to the board's free end. The short way, round the stove end, would be a walk toward the camera, and she has only a profile walk."
+  "note": "HER WALK OUT (errata 270; reference/second-ledger/walk-brief.md; tools/art/second-ledger-walk.py). From where she stands at her window (her head where her counter figure's is: drawn 468 tall with her feet on the floor behind the counter at y 693) to the counter's far end, behind the counter, the book, the bell jar and the lamp (plane 2); round the end; back across the front of the room behind Thad; and down to the board's free end. The short way, round the stove end, would be a walk toward the camera, and she has only a profile walk. Errata 275: the walk redrawn with the hem lifted in her front hand, so the boots and the stride show (winnie-walk-2); measured as any walk is, without errata 270's allowance for a skirt."
  }
 }

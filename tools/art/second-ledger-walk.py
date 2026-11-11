@@ -1,4 +1,6 @@
-"""Winnie's walk to the loose board, cut (reference/second-ledger/walk-brief.md, errata 270).
+"""Winnie's walk to the loose board, cut. Errata 275: from the hem-lifted sheet (winnie-walk-2); errata 270 cut the first.
+
+(Errata 270's account follows.) (reference/second-ledger/walk-brief.md, errata 270).
 
   python3 tools/art/second-ledger-walk.py
 
@@ -23,12 +25,12 @@ import numpy as np
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SHEET = os.path.join(ROOT, 'art/staging/room-05/second-ledger/walk/sheet-03.png')
+SHEET = os.path.join(ROOT, 'art/staging/room-05/second-ledger/walk2/sheet-04-fix.png')
 OUT = os.path.join(ROOT, 'art/actors/winnie-walk.png')
 RECORD = os.path.join(ROOT, 'art/staging/room-05/second-ledger/winnie-walk.json')
 MAN, TARGET = 518, 518
-ORDER = [0, 2, 3, 1, 2, 3]
-GRADE = np.array([45 / 53, 46 / 53, 45 / 50])
+ORDER = [0, 1, 2, 3, 4, 5]   # errata 275: the hem-lifted sheet is drawn in walking order
+GRADE = np.array([47.6 / 57.6, 47.4 / 54.4, 45.2 / 44.5])   # her fabric on her sheet over the fabric on this one
 KEY = np.array([255, 0, 255])
 
 src = open(os.path.join(ROOT, 'tools/art/one-level.py')).read()
@@ -40,7 +42,7 @@ snap = ns['snap']
 def main():
     a = np.asarray(Image.open(SHEET).convert('RGB')).astype(int)
     # Drawn pixels: far from the key, and not the key's own pink bled into an edge (red and blue both well over green).
-    fg = (np.abs(a - KEY).sum(2) > 120) & ~((np.minimum(a[..., 0], a[..., 2]) - a[..., 1]) > 22)
+    fg = (np.abs(a - KEY).sum(2) > 120) & ~((np.minimum(a[..., 0], a[..., 2]) - a[..., 1]) > 10)
     xs = np.flatnonzero(fg.any(0))
     groups, start, prev = [], xs[0], xs[0]
     for x in xs[1:]:
@@ -84,8 +86,8 @@ def main():
     sheet.save(OUT, optimize=True)
     tallest = max(int((np.asarray(c)[..., 3] > 0).any(1).sum()) for c in cells)
     record = {'sheet': os.path.relpath(OUT, ROOT), 'frames': frames, 'figureHeight': tallest, 'drawnFacing': 'left',
-              'order': 'drawn frames 1 3 4 2 3 4: stride, closing, feet together, twice',
-              'source': 'room-05-second-ledger attempt 3 (art/staging/room-05/second-ledger/walk/sheet-03.png)'}
+              'order': 'as drawn: contact, down, passing, contact, down, passing',
+              'source': 'winnie-walk-2 attempt 2 (art/staging/room-05/second-ledger/walk2/sheet-04-fix.png): the hem lifted, errata 275'}
     json.dump(record, open(RECORD, 'w'), indent=1)
     print(json.dumps(record))
 

@@ -1,0 +1,32 @@
+{
+ "window": 2,
+ "source": "out-2-fix.png",
+ "out": "out-2-fix-registered.png",
+ "tiles": 129,
+ "used": 84,
+ "filledFromWindowPx": 3399,
+ "filledColumns": [
+  1522,
+  1527
+ ],
+ "map": {
+  "x": [
+   1.012,
+   -0.002,
+   -4.2635
+  ],
+  "y": [
+   0.0026,
+   1.0424,
+   -18.9206
+  ]
+ },
+ "before": {
+  "median": 10.0,
+  "p90": 17.029386365926403
+ },
+ "after": {
+  "median": 3.605551275463989,
+  "p90": 10.074451073107504
+ }
+}

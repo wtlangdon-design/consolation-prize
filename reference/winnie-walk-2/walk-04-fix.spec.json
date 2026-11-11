@@ -1,0 +1,16 @@
+{
+ "assetId": "winnie-walk-2",
+ "subject": "winnie-walk-left-skirt-lifted",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-05-assay-office",
+ "promptFile": "reference/winnie-walk-2/walk-04-fix.txt",
+ "out": "art/staging/room-05/second-ledger/walk2/sheet-04-fix.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-05/second-ledger/walk2/last-try-04.png",
+  "art/staging/room-05/second-ledger/walk2/winnie-second-ledger.png",
+  "art/staging/room-05/second-ledger/walk2/thad-walk-left-poses.png"
+ ],
+ "derivedFrom": 1
+}
