@@ -21,23 +21,21 @@
           "id": "gulch_man_upstream1",
           "tag": "TOPIC",
           "text": "Who's 'he'?",
-          "afterUse": "retain",
-          "say": "Him. Downstream. In the coat. He's found something and he's hiding it in his fist.",
-          "repeat": "Ask him to open his hand. He won't."
+          "afterUse": "remove",
+          "say": "Him. Downstream. In the coat. He's found something and he's hiding it in his fist."
         },
         {
           "id": "gulch_man_upstream2",
           "tag": "TOPIC",
           "text": "Whose ground is it?",
-          "afterUse": "retain",
-          "say": "Mine. And his, he says. That's two of us and one ground, and neither of us is moving.",
-          "repeat": "Mine. I'd show you the paper, but he'd show you his."
+          "afterUse": "remove",
+          "say": "Mine. And his, he says. That's two of us and one ground, and neither of us is moving."
         },
         {
           "id": "gulch_man_upstream3",
           "tag": "TOPIC",
           "text": "Why not share it?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "gulch_man_upstream",
@@ -53,21 +51,22 @@
               "line": "Then we'd both be rich, and nobody'd be right."
             }
           ],
-          "repeat": "Rich and wrong. No, thank you."
+          "after": [
+            "gulch_man_upstream2"
+          ]
         },
         {
           "id": "gulch_man_upstream4",
           "tag": "TOPIC",
           "text": "Do you know Deke Vessel?",
-          "afterUse": "retain",
-          "say": "Never heard of him. Did he send you?",
-          "repeat": "Everybody sends somebody. Who sent him?"
+          "afterUse": "remove",
+          "say": "Never heard of him. Did he send you?"
         },
         {
           "id": "gulch_man_upstream5",
           "tag": "COMIC",
           "text": "I could measure it for you.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "gulch_man_upstream",
@@ -82,7 +81,9 @@
               "line": "…Get off my claim."
             }
           ],
-          "repeat": "Off. And take your fork."
+          "after": [
+            "gulch_man_upstream2"
+          ]
         },
         {
           "id": "gulch_man_upstream6",

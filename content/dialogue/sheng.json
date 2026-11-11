@@ -38,10 +38,9 @@
         {
           "id": "sheng2",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "You hold paper on the Improvement Company?",
           "say": "On rather a lot of it. They come in on Thursdays. They are very warm to me on Thursdays.",
-          "repeat": "Thursdays, Mr. Grubb. Warm as toast, and every one of them in arrears.",
           "when": {
             "T_SHENG_HOLDS_PAPER": true
           }
@@ -49,9 +48,8 @@
         {
           "id": "sheng3",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Why does nobody know this?",
-          "repeat": "Laundry, Mr. Grubb. It is the best disguise in the territory, and it pays.",
           "when": {
             "T_SHENG_HOLDS_PAPER": true
           },
@@ -70,7 +68,7 @@
         {
           "id": "sheng7",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Did you know Ezra Pike?",
           "exchange": [
             {
@@ -86,7 +84,6 @@
               "line": "He has not called for them in six years. The undertaker will tell you why."
             }
           ],
-          "repeat": "Four shirts. Pressed. The undertaker has the explanation, and I have the shirts.",
           "when": {
             "T_PIKE_DEAD": false
           }
@@ -94,10 +91,9 @@
         {
           "id": "sheng8",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "You knew Pike was dead.",
           "say": "A man who leaves four good shirts for six years is dead or married, Mr. Grubb. I checked the register.",
-          "repeat": "Not married. I checked.",
           "when": {
             "T_PIKE_DEAD": true
           }
@@ -245,26 +241,23 @@
         {
           "id": "sheng3",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Why help me?",
-          "say": "You are the first customer in nine years whose collar and whose story got dirty in the same place. It suggests the story is true.",
-          "repeat": "I have told you: your collar. I stand by your collar, Mr. Grubb."
+          "say": "You are the first customer in nine years whose collar and whose story got dirty in the same place. It suggests the story is true."
         },
         {
           "id": "sheng4",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "What do you think is under Claim One?",
-          "say": "Nothing. What is under a story? More story.",
-          "repeat": "More story. I do not lend against it."
+          "say": "Nothing. What is under a story? More story."
         },
         {
           "id": "sheng5",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Do you ever take a day off?",
-          "say": "On Sundays I do no laundry. I do only banking. It is very restful.",
-          "repeat": "On Sundays. Banking only. Nobody believes me, which is also restful."
+          "say": "On Sundays I do no laundry. I do only banking. It is very restful."
         },
         {
           "id": "shengx",

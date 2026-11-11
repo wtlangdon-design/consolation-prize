@@ -105,7 +105,12 @@ test('WIN_B2\'s rows move the world as doc 04 says, through W1, and the states s
   const after = state.dialogue.presentOptions().map((p) => p.option.id);
   assert.deepEqual(after, ['winnie4', 'winniex'], 'the three progress rows are removed; the comic and the exit remain');
   state.dialogue.select('winnie4');
-  assert.ok(state.dialogue.presentOptions().some((p) => p.option.id === 'winnie4' && p.exhausted), 'the comic is retained and greyed');
+  // What an asked row does next is its own aftermath's to say (errata 57, 280), read from it rather than held here:
+  // the friction review of 2026-11-11 found this test rewritten each time the aftermath rule moved.
+  const comic = state.content.dialogue.get(tree)!.nodes.WIN_B2!.options.find((o) => o.id === 'winnie4')!;
+  const still = state.dialogue.presentOptions().find((p) => p.option.id === 'winnie4');
+  if (comic.afterUse === 'remove') assert.equal(still, undefined, 'the comic, asked, is gone');
+  else assert.ok(still?.exhausted, 'the comic, asked, stays greyed');
   assert.equal(state.puzzleComplete('C5'), true, 'C5 stays complete');
   assert.ok(!state.carried.includes(pair.item), 'the log stays with her (errata 247)');
   // Apart: puzzle progress, topic flags, inventory, counts.

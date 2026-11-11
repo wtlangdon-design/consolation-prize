@@ -14,8 +14,8 @@
           "id": "leaving1",
           "text": "When are you leaving?",
           "tag": "TOPIC",
-          "repeat": "Tomorrow. It's always just round the corner.",
-          "say": "Tomorrow."
+          "say": "Tomorrow.",
+          "afterUse": "remove"
         },
         {
           "id": "leaving2",
@@ -35,7 +35,10 @@
               "line": "Pack a bag right, it holds."
             }
           ],
-          "repeat": "Four years. Holding beautifully."
+          "after": [
+            "leaving1"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "leaving3",
@@ -58,7 +61,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "Undertaker. Down the lane. Lucky devil."
+          "afterUse": "remove"
         },
         {
           "id": "leaving4",
@@ -67,8 +70,8 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "Other way. Tomorrow.",
-          "say": "I said he left. He left. I'm going the other way, mind. Tomorrow."
+          "say": "I said he left. He left. I'm going the other way, mind. Tomorrow.",
+          "afterUse": "remove"
         },
         {
           "id": "leaving5",
@@ -84,7 +87,7 @@
               "line": "Tomorrow."
             }
           ],
-          "repeat": "Tomorrow. I've told you. It's the one place I'm sure of."
+          "afterUse": "remove"
         },
         {
           "id": "leavingx",

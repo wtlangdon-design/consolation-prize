@@ -48,7 +48,7 @@
           "id": "frame2",
           "tag": "TOPIC",
           "text": "What do you know about Mott?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "frame",
@@ -71,12 +71,6 @@
               "line": "I'd have to check which."
             }
           ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "More than a minute ago! It keeps coming back to me. Some of it for the first time."
-            }
-          ],
           "set": {
             "T_MOTT_FACE_UNKNOWN": true
           }
@@ -85,23 +79,17 @@
           "id": "frame3",
           "tag": "TOPIC",
           "text": "Do you have a photograph of him?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "after": [
             "frame2"
           ],
-          "say": "I have the photograph of him.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "THE photograph. I'd lend it to you, but then you'd have it."
-            }
-          ]
+          "say": "I have the photograph of him."
         },
         {
           "id": "frame8",
           "tag": "TOPIC",
           "text": "Do you know Ezra Pike?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "frame",
@@ -117,12 +105,6 @@
               "line": "Old news, Mr. Grubbs. Very old. The undertaker has the current edition."
             }
           ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "The undertaker, Mr. Grubbe. He's got Pike on file."
-            }
-          ],
           "when": {
             "T_PIKE_DEAD": false
           }
@@ -131,7 +113,7 @@
           "id": "frame9",
           "tag": "TOPIC",
           "text": "You knew Pike was dead.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "frame",
@@ -144,12 +126,6 @@
             {
               "speaker": "frame",
               "line": "Nobody reads page six."
-            }
-          ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Page six. Between a cow and a correction."
             }
           ],
           "when": {
@@ -379,14 +355,8 @@
           "id": "frame3",
           "tag": "TOPIC",
           "text": "What did you print about Vessel leaving?",
-          "afterUse": "retain",
-          "say": "'BELOVED CITIZEN ANSWERS CALL OF COMMERCE.' He owed me for six advertisements. The headline was cheaper than forgiving the debt.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "'BELOVED CITIZEN.' Six advertisements unpaid, and still the kindest thing I've printed all year."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "'BELOVED CITIZEN ANSWERS CALL OF COMMERCE.' He owed me for six advertisements. The headline was cheaper than forgiving the debt."
         },
         {
           "id": "frame4",
@@ -409,14 +379,8 @@
           "id": "frame5",
           "tag": "COMIC",
           "text": "I've never done anything humiliating in my life.",
-          "afterUse": "retain",
-          "say": "'NEWCOMER CLAIMS SPOTLESS RECORD.' Nobody'll believe it. It'll sell out by noon.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "'…AND STILL CLAIMS IT.' A continuing story! You're spoiling me."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "'NEWCOMER CLAIMS SPOTLESS RECORD.' Nobody'll believe it. It'll sell out by noon."
         },
         {
           "id": "framex",
@@ -465,7 +429,7 @@
           "id": "frame2",
           "tag": "TOPIC",
           "text": "He owed you a quote.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "frame",
@@ -478,12 +442,6 @@
             {
               "speaker": "frame",
               "line": "I invented better. He never complained. That was the quote, probably."
-            }
-          ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "He'd have said something about a piano. He always did."
             }
           ]
         },

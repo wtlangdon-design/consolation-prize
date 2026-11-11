@@ -558,12 +558,10 @@ async function drive(page, input, script, beat, state) {
       await page.waitForTimeout(120);
     }
 
-    // AN INDEX INTO WHAT IS ON THE LIST NOW, and the list can grow. Errata 37
-    // is revoked so nothing is ever removed and a used row dims and stays --
-    // but the stage driver's EXIT is gated on the other three having been
-    // asked, so his list is three rows and then four. An index is still stable
-    // under both, because nothing reorders and nothing disappears; a text
-    // match would not be, and would also put dialogue in this file.
+    // AN INDEX INTO WHAT IS ON THE LIST NOW. Under errata 280 an asked row is
+    // gone (doc 126, as Monkey Island ran it), so the driver's list is three,
+    // two, one, and then the exit alone: opening.json chooses the top row each
+    // time. A text match would put dialogue in this file.
     //
     // WHICH MAKES THE INPUT'S ORDER LOAD-BEARING. Choosing 4 before 1, 2 and 3
     // asks for a row that is not there yet.

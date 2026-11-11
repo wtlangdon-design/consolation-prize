@@ -14,8 +14,8 @@
           "id": "dogs_owner1",
           "text": "Are you looking for a dog?",
           "tag": "TOPIC",
-          "repeat": "Six weeks. Seven, tomorrow.",
-          "say": "Six weeks."
+          "say": "Six weeks.",
+          "afterUse": "remove"
         },
         {
           "id": "dogs_owner2",
@@ -46,7 +46,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "Undertaker. Right there. Dogless, the lot of them."
+          "afterUse": "remove"
         },
         {
           "id": "dogs_owner3",
@@ -55,8 +55,8 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "Then it's not my business.",
-          "say": "Did he have a dog?"
+          "say": "Did he have a dog?",
+          "afterUse": "remove"
         },
         {
           "id": "dogs_owner4",
@@ -66,7 +66,10 @@
             "T_BILL_FOUND": true
           },
           "ends": true,
-          "say": "…That's Bill?"
+          "say": "…That's Bill?",
+          "after": [
+            "dogs_owner1"
+          ]
         },
         {
           "id": "dogs_owner5",
@@ -75,8 +78,8 @@
           "when": {
             "T_BILL_FOUND": true
           },
-          "repeat": "Still fine. Still on Main Street. I go and visit.",
-          "say": "He'd been on Main Street the whole time. Six weeks. He'd been fine."
+          "say": "He'd been on Main Street the whole time. Six weeks. He'd been fine.",
+          "afterUse": "remove"
         },
         {
           "id": "dogs_ownerx",

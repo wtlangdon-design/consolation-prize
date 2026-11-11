@@ -90,7 +90,7 @@ function assayAtOnce(tree) {
 }
 
 function write(relative, data, indent = 2) {
-  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = assayAtOnce(greetOnce(quietExits(performDirections(data))));
+  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = asMonkeyIslandRan(assayAtOnce(greetOnce(quietExits(performDirections(data)))));
   const path = resolve(ROOT, relative);
   const wanted = `${JSON.stringify(data, null, indent)}\n`;
   if (CHECKING) {
@@ -106,6 +106,129 @@ function write(relative, data, indent = 2) {
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, wanted);
   return relative;
+}
+
+// ---------------------------------------------------------------------------
+// CONVERSATIONS AS MONKEY ISLAND RAN THEM (doc 126, errata 280; Tyler,
+// 2026-11-11: "I want it to be exactly like MI"). A line asked is a line gone;
+// the list unfolds from the answers; a topic waits for what Thad knows. Read
+// from doc 126 and applied to every tree as it is written, last, so every
+// extractor's tree is run the same way.
+
+const MI_DOC = 'docs/126-conversations-as-monkey-island-ran-them.md';
+const MI_EXEMPT_TREES = new Set(['LETTERS_HOME', 'harness_tree']);
+let miPlan = null;
+function monkeyIslandPlan() {
+  if (miPlan) return miPlan;
+  const doc = read(MI_DOC);
+  const trees = doc.split(/^## The trees$/m)[1];
+  if (trees === undefined) throw new Error('doc 126: no "## The trees" section');
+  miPlan = new Map();
+  let current = null;
+  for (const raw of trees.split('\n')) {
+    const line = raw.trim();
+    const heading = /^### `?([A-Za-z0-9_]+)`?/.exec(line);
+    if (heading) {
+      current = { waits: new Map(), flags: new Map(), stays: new Set(), goes: new Set(), added: [] };
+      miPlan.set(heading[1], current);
+      continue;
+    }
+    if (!current || !line.startsWith('- ')) continue;
+    let m = /^- new `([^`]+)` in `([^`]+)` \((TOPIC|COMIC|PROGRESS)\)(?:, waits for ((?:`[^`]+`(?:, | and )?)+))?: "([^"]+)" → (.+)$/.exec(line);
+    if (m) {
+      const [, id, node, tag, waitsOn, text, said] = m;
+      const speeches = said.split(/ \/ /).map((part) => {
+        const thad = /^Thad: /.exec(part);
+        const words = [...part.matchAll(/"([^"]+)"/g)].map((q) => q[1]).join(' ');
+        if (!words) throw new Error(`doc 126: new ${id} has a speech with no quoted words: ${part}`);
+        return { thad: Boolean(thad), line: words };
+      });
+      const gates = [...(waitsOn ?? '').matchAll(/`([^`]+)`/g)].map((q) => q[1]);
+      current.added.push({ id, node, tag, text, speeches, gates });
+      continue;
+    }
+    // An option is named alone, or in one node: `option` in `NODE` (ids repeat across a tree's nodes).
+    m = /^- `([^`]+)`(?: in `([^`]+)`)? waits for ((?:`[^`]+`(?:, | and )?)+)/.exec(line);
+    if (m) {
+      const key = m[2] ? `${m[2]}/${m[1]}` : m[1];
+      for (const gate of [...m[3].matchAll(/`([^`]+)`/g)].map((q) => q[1])) {
+        const into = /^[A-Z][A-Z0-9_]+$/.test(gate) ? current.flags : current.waits;
+        if (!into.has(key)) into.set(key, []);
+        into.get(key).push(gate);
+      }
+      continue;
+    }
+    m = /^- `([^`]+)`(?: in `([^`]+)`)? stays\b/.exec(line);
+    if (m) { current.stays.add(m[2] ? `${m[2]}/${m[1]}` : m[1]); continue; }
+    m = /^- `([^`]+)`(?: in `([^`]+)`)? goes\b/.exec(line);
+    if (m) { current.goes.add(m[2] ? `${m[2]}/${m[1]}` : m[1]); continue; }
+    throw new Error(`doc 126: a line under ### that is none of the forms: ${line}`);
+  }
+  return miPlan;
+}
+
+function asMonkeyIslandRan(tree) {
+  if (MI_EXEMPT_TREES.has(tree.id)) return tree;
+  const plan = monkeyIslandPlan().get(tree.id) ?? { waits: new Map(), flags: new Map(), stays: new Set(), goes: new Set(), added: [] };
+  const speaker = tree.speaker;
+  const named = new Set();
+  for (const add of plan.added) {
+    const node = tree.nodes[add.node];
+    if (!node) throw new Error(`doc 126: ${tree.id} has no node ${add.node} for new ${add.id}`);
+    if (node.options.some((one) => one.id === add.id)) throw new Error(`doc 126: ${tree.id} already has ${add.id}`);
+    const option = { id: add.id, tag: add.tag, afterUse: 'remove', text: add.text };
+    const lines = add.speeches.map((one) => ({ speaker: one.thad ? 'thad' : speaker, line: one.line }));
+    if (lines.length === 1 && !add.speeches[0].thad) option.say = lines[0].line;
+    else option.exchange = lines;
+    const waits = add.gates.filter((gate) => !/^[A-Z][A-Z0-9_]+$/.test(gate));
+    const flags = add.gates.filter((gate) => /^[A-Z][A-Z0-9_]+$/.test(gate));
+    if (waits.length) option.after = waits;
+    if (flags.length) option.when = Object.fromEntries(flags.map((flag) => [flag, true]));
+    option.note = 'Written by doc 126 (errata 280).';
+    // Before the exits, which stay last.
+    const exitAt = node.options.findIndex((one) => one.tag === 'EXIT');
+    node.options.splice(exitAt < 0 ? node.options.length : exitAt, 0, option);
+  }
+  for (const [nodeId, node] of Object.entries(tree.nodes)) {
+    for (const option of node.options ?? []) {
+      const scoped = `${nodeId}/${option.id}`;
+      named.add(option.id);
+      named.add(scoped);
+      const waits = [...(plan.waits.get(option.id) ?? []), ...(plan.waits.get(scoped) ?? [])];
+      if (waits.length) option.after = [...new Set([...(option.after ?? []), ...waits])];
+      const flags = [...(plan.flags.get(option.id) ?? []), ...(plan.flags.get(scoped) ?? [])];
+      if (flags.length) option.when = { ...(option.when ?? {}), ...Object.fromEntries(flags.map((flag) => [flag, true])) };
+      const goes = plan.goes.has(option.id) || plan.goes.has(scoped);
+      if (!goes && !['TOPIC', 'COMIC'].includes(option.tag)) continue;
+      if (!goes && option.afterUse && option.afterUse !== 'retain') continue;
+      if (option.ends || option.end) continue;
+      if (plan.stays.has(option.id) || plan.stays.has(scoped)) { option.afterUse = 'retain'; continue; }
+      option.afterUse = 'remove';
+      // Its second answer is no longer reached: the documents keep it (doc 126).
+      delete option.repeat;
+      delete option.repeats;
+    }
+  }
+  // A follow-up is listed after what raises it, as the list unfolds (tests/follow-ups.test.ts).
+  for (const node of Object.values(tree.nodes)) {
+    const options = node.options ?? [];
+    for (let moved = true, guard = 0; moved && guard < 50; guard += 1) {
+      moved = false;
+      for (const option of [...options]) {
+        const at = options.indexOf(option);
+        const last = Math.max(-1, ...(option.after ?? []).map((id) => options.findIndex((one) => one.id === id)));
+        if (last > at) {
+          options.splice(at, 1);
+          options.splice(last, 0, option);
+          moved = true;
+        }
+      }
+    }
+  }
+  for (const id of [...plan.waits.keys(), ...plan.flags.keys(), ...plan.stays, ...plan.goes]) {
+    if (!named.has(id)) throw new Error(`doc 126: ${tree.id} names ${id}, which it does not have`);
+  }
+  return tree;
 }
 
 // ---------------------------------------------------------------------------

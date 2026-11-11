@@ -260,55 +260,25 @@ test('D30: exhaustion and repeat lines, with errata 37 revoked -- nothing is rem
   assert.ok(after.length > 0, 'the node it moved to has options of its own');
 });
 
-test("the driver's tree never loses an option, whatever the player clicks", async () => {
-  // THE PROPERTY, NOT THE NUMBER. This is the first conversation any player
-  // has, and under errata 37 it lost two of four rows inside one exchange
-  // while a third greyed -- with nothing on screen saying why, because the
-  // tag deciding it is invisible. What matters is not "four": it is that the
-  // list never shrinks, so nothing a player clicks reshuffles the rows under
-  // the cursor. Asserting the count would pass a tree that lost a row and
-  // gained one.
+test("the driver's tree loses each question as it is answered, and nothing else moves", async () => {
+  // ERRATA 280 (doc 126; Tyler, 2026-11-11: "exactly like MI"). Monkey Island
+  // rebuilt the list after every answer and what had been asked was gone. This
+  // was once "never loses an option" (errata 37's rows that never shrink); the
+  // property kept is the half that matters under the cursor: the rows left keep
+  // their order, so nothing jumps but the one that was asked.
   const state = await fresh();
   state.dialogue.start('STAGE_DRIVER');
-
   const before = state.dialogue.presentOptions();
-  assert.ok(before.length > 0, 'the tree opens with options');
-
-  // Every option except the one that ends the conversation, so the walk
-  // exhausts the node rather than leaving it.
-  const clickable = before
-    .filter((presented) => presented.option.tag !== 'EXIT')
-    .map((presented) => presented.option.id);
+  const clickable = before.filter((presented) => presented.option.tag !== 'EXIT').map((presented) => presented.option.id);
   assert.ok(clickable.length > 0, 'there is something to take');
-
-  let seen = before.length;
+  let left = before.map((presented) => presented.option.id);
   for (const id of clickable) {
     state.dialogue.select(id);
-    const now = state.dialogue.presentOptions();
-    assert.ok(now.length >= seen,
-      `taking ${id} cut the list from ${seen} to ${now.length}; a used option greys and stays`);
-    seen = now.length;
-
-    // And the ORDER is stable, which is the half a count cannot see: a row
-    // that vanished would make every row below it jump up under the cursor.
-    assert.deepEqual(
-      now.slice(0, before.length).map((presented) => presented.option.id),
-      before.map((presented) => presented.option.id),
-      `taking ${id} reordered the list`,
-    );
+    const now = state.dialogue.presentOptions().map((presented) => presented.option.id);
+    assert.ok(!now.includes(id), `${id} is gone once asked`);
+    left = left.filter((one) => one !== id);
+    assert.deepEqual(now.filter((one) => left.includes(one)), left, `taking ${id} reordered the rows left`);
   }
-
-  const end = state.dialogue.presentOptions();
-  // NEVER SHORTER. It may be LONGER, and in this tree it is: the EXIT option
-  // is gated on the other three having been asked, so the list is three rows
-  // and then four. That is the property this test states in its own opening
-  // comment -- "the list never shrinks" -- and an equality here asserted the
-  // number instead, which is the thing that comment says not to do.
-  assert.ok(end.length >= before.length, 'the node never ends the walk shorter');
-  assert.equal(end.filter((presented) => presented.exhausted).length, clickable.length,
-    'every option taken is marked exhausted, and every one of them is still listed');
-  assert.ok(end.some((presented) => presented.option.tag === 'EXIT' && !presented.exhausted),
-    'the way out is still there and has not been used');
 });
 
 /* =========================================================================
@@ -733,33 +703,28 @@ test("the driver's exit arrives when the other three have been asked", async () 
   // THE FIRST CONVERSATION IN THE GAME TEACHES FOUR THINGS and the fourth --
   // that one option ends a scene -- taught alone if the exit was clickable
   // first. A player who leaves immediately has learned that a conversation is
-  // a thing you get out of.
+  // a thing you get out of. Each question goes as it is answered (errata 280).
   const shown = () => state.dialogue.presentOptions().map((each) => each.option);
   const opening = shown();
   assert.equal(opening.filter((option) => option.tag === 'EXIT').length, 0,
     'the exit is not on the list before anything has been asked');
   assert.equal(opening.length, 3, 'and the three questions are');
 
-  // Asked one at a time, the list does not move until the last one lands.
   const questions = opening.map((option) => option.id);
   state.dialogue.select(questions[0]!);
-  assert.equal(shown().length, 3, 'one question is not enough');
+  assert.deepEqual(shown().map((option) => option.id), questions.slice(1), 'one question is not enough');
   state.dialogue.select(questions[1]!);
-  assert.equal(shown().length, 3, 'nor two');
+  assert.deepEqual(shown().map((option) => option.id), questions.slice(2), 'nor two');
   state.dialogue.select(questions[2]!);
 
   const withExit = shown();
-  assert.equal(withExit.length, 4, 'the third puts it there');
-  assert.equal(withExit[3]!.tag, 'EXIT', 'and it arrives at the bottom, under the three');
-  assert.deepEqual(withExit.slice(0, 3).map((option) => option.id), questions,
-    'without moving any of them: a row that jumped would jump under the cursor');
+  assert.equal(withExit.length, 1, 'the third puts it there, alone');
+  assert.equal(withExit[0]!.tag, 'EXIT');
 
   // NOTHING ANNOUNCES IT. Invariant 3's rule about load-bearing LISTEN lines
   // is the same rule: a player who can tell which click mattered is being
-  // told. The arriving option carries no marking of any kind -- it is an
-  // option like the three above it, and its tag is the tag EXIT always had.
-  const exit = withExit[3]!;
-  assert.equal(exit.tag, 'EXIT');
+  // told. The arriving option carries no marking of any kind.
+  const exit = withExit[0]!;
   assert.deepEqual(Object.keys(exit).filter((key) => !(
     ['id', 'text', 'tag', 'say', 'exchange', 'set', 'add', 'when', 'ends', 'goto', 'repeat']
       .includes(key)
@@ -772,23 +737,20 @@ test("the driver's exit cannot be locked away, however the player plays", async 
   // out of the first conversation -- so "the player cannot make the game
   // unwinnable" rests here in a way it does not rest anywhere else.
   //
-  // Nothing removes an option (doc 04 rule 4), so the three stay askable
-  // forever and the count only ever rises. Asserted by playing badly: the same
-  // question over and over, which is the worst a player can do.
-  const state = await fresh();
-  state.dialogue.start('STAGE_DRIVER');
-  const first = state.dialogue.presentOptions()[0]!.option.id;
-
-  for (let click = 0; click < 3; click += 1) {
-    assert.ok(state.dialogue.presentOptions().some((each) => each.option.id === first),
-      'an asked question is still askable');
-    state.dialogue.select(first);
+  // Each question goes as it is answered (errata 280), so the only way to play
+  // is to ask the next one; asserted for every order the three can be asked in,
+  // that the list is never empty and the exit is there at the end of each.
+  const opening = await (async () => { const state = await fresh(); state.dialogue.start('STAGE_DRIVER'); return state.dialogue.presentOptions().map((each) => each.option.id); })();
+  const orders = (ids: string[]): string[][] => (ids.length <= 1 ? [ids] : ids.flatMap((id) => orders(ids.filter((one) => one !== id)).map((rest) => [id, ...rest])));
+  for (const order of orders(opening)) {
+    const state = await fresh();
+    state.dialogue.start('STAGE_DRIVER');
+    for (const id of order) {
+      assert.ok(state.dialogue.presentOptions().length > 0, 'the list is never empty');
+      state.dialogue.select(id);
+    }
+    assert.ok(state.dialogue.presentOptions().some((each) => each.option.tag === 'EXIT'), `the exit arrives after ${order.join(', ')}`);
   }
-
-  assert.ok(
-    state.dialogue.presentOptions().some((each) => each.option.tag === 'EXIT'),
-    'and the exit arrives even for a player who only ever clicks one row',
-  );
 });
 
 test('there is one reading hold, and a scripted line gets the same one as an utterance', async () => {

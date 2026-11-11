@@ -59,7 +59,11 @@ test('remove: the option is gone after its first selection, and stays gone acros
 });
 
 test('retain: the option stays, greys, and answers with its authored repeat or its exchange again', async () => {
-  const { state, tree } = await setup();
+  // Errata 280 (doc 126): a retained row is now the exception, kept on purpose -- found wherever a tree opens on one.
+  const { state } = await setup();
+  const tree = [...state.content.dialogue.values()].find((one) => byMode(one, one.start, 'retain')
+    && !byMode(one, one.start, 'retain')!.when && !byMode(one, one.start, 'retain')!.after);
+  assert.ok(tree, 'some tree opens on a row kept on purpose');
   const retained = byMode(tree, tree.start, 'retain');
   assert.ok(retained);
   state.dialogue.start(tree.id);

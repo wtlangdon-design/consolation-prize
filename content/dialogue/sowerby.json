@@ -44,33 +44,21 @@
         {
           "id": "sowerby2",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "What do your services cost?",
-          "say": "Feeling is free. Articulated feeling is priced by the adjective. The board is by the door.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "The feeling, free. The adjectives, on the board. 'Beloved' is the dear one."
-            }
-          ]
+          "say": "Feeling is free. Articulated feeling is priced by the adjective. The board is by the door."
         },
         {
           "id": "sowerby3",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Do you believe in Mott's gold?",
-          "say": "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "I believe it most on Sundays. So does the collection plate."
-            }
-          ]
+          "say": "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement."
         },
         {
           "id": "sowerby9",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Did you know Ezra Pike?",
           "exchange": [
             {
@@ -94,12 +82,6 @@
               "line": "I never met him. The undertaker knew him best. Professionally."
             }
           ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "The undertaker. He knew Mr. Pike in a way I never had the privilege to."
-            }
-          ],
           "when": {
             "T_PIKE_DEAD": false
           }
@@ -107,7 +89,7 @@
         {
           "id": "sowerby10",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "You knew Pike was dead.",
           "exchange": [
             {
@@ -121,12 +103,6 @@
             {
               "speaker": "sowerby",
               "line": "Nobody has ever paid me to."
-            }
-          ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Every Sunday. Unpaid. It is the purest grief I have."
             }
           ],
           "when": {
@@ -193,15 +169,9 @@
         {
           "id": "sowerby6",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Mr. Sheng says you owe him for linens.",
           "say": "I do, and I shall pay him on the next occasion of grief. I carry no money on ordinary days, Mr. Grubb. It would only come between me and the poor.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "On the next occasion of grief, Mr. Grubb. I pray for one daily, in general terms."
-            }
-          ],
           "when": {
             "T_SHENG_TASK": true,
             "T_FUNERAL_DAY": false
@@ -210,15 +180,9 @@
         {
           "id": "sowerby7",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Could Mr. Pike have another service?",
           "say": "An anniversary! Grief keeps whatever calendar it likes. Have Frame print it.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Have Frame print it, and I shall be there. I am always there."
-            }
-          ],
           "when": {
             "T_MEMORIAL_BOOKED": true,
             "T_FUNERAL_DAY": false
@@ -284,15 +248,9 @@
         {
           "id": "sowerby_c1",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "He was a beloved and industrious young man of rare promise.",
           "say": "Beloved! Industrious! Young! Rare! Four adjectives, eight dollars, and every one of them deserved.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Beloved, industrious, young and rare, again! Grief gives no discount for repetition."
-            }
-          ],
           "add": {
             "SOWERBY_ADJECTIVES": 4
           }
@@ -300,14 +258,8 @@
         {
           "id": "sowerby_c2",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "He was a man.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still a census. I have counted him once already."
-            }
-          ],
           "exchange": [
             {
               "speaker": "sowerby",
@@ -343,14 +295,8 @@
         {
           "id": "sowerby_c4",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "He tuned pianos.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "He tuned pianos! Did I say? I shall say it again at the graveside. No charge."
-            }
-          ],
           "exchange": [
             {
               "speaker": "sowerby",

@@ -112,9 +112,8 @@
         {
           "id": "pratt2",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Nine dollars for what?",
-          "repeat": "Your claim. Nine dollars and a hen.",
           "exchange": [
             {
               "speaker": "pratt",
@@ -130,7 +129,7 @@
         {
           "id": "pratt5",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Did you know Ezra Pike?",
           "exchange": [
             {
@@ -147,7 +146,6 @@
               "line": "Undertaker's got him."
             }
           ],
-          "repeat": "Undertaker's got him. Has had for a while.",
           "when": {
             "T_PIKE_DEAD": false
           }
@@ -155,7 +153,7 @@
         {
           "id": "pratt6",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "You knew Pike was dead.",
           "exchange": [
             {
@@ -172,7 +170,6 @@
               "line": "Said so."
             }
           ],
-          "repeat": "Said the undertaker had him. That's what that means.",
           "when": {
             "T_PIKE_DEAD": true
           }
@@ -180,9 +177,8 @@
         {
           "id": "pratt3",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Lovely morning.",
-          "repeat": "Still is.",
           "exchange": [
             {
               "speaker": "pratt",
@@ -198,7 +194,7 @@
         {
           "id": "pratt4",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "How's the bite?",
           "say": "Healing wrong.",
           "when": {
@@ -272,7 +268,7 @@
         {
           "id": "pratt5",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "How's the bite?",
           "say": "Healing wrong."
         },
@@ -417,9 +413,8 @@
         {
           "id": "pratt2",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "What will you do now?",
-          "repeat": "Keep it tidy. Somebody ought to.",
           "exchange": [
             {
               "speaker": "pratt",
@@ -435,9 +430,8 @@
         {
           "id": "pratt3",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Twenty dollars and the hen.",
-          "repeat": "Hen's not for sale.",
           "exchange": [
             {
               "speaker": "pratt",
@@ -629,7 +623,7 @@
         {
           "id": "pratt_e3_3",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Why do you want him?",
           "exchange": [
             {
@@ -653,7 +647,6 @@
               "line": "Respect it."
             }
           ],
-          "repeat": "Respect it.",
           "after": [
             "pratt_e3_1"
           ]

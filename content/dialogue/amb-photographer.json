@@ -14,20 +14,26 @@
           "id": "photographer1",
           "text": "Who is the man in the window?",
           "tag": "TOPIC",
-          "say": "Nobody. It's a portrait. Comes in the box, four dozen to the box."
+          "say": "Nobody. It's a portrait. Comes in the box, four dozen to the box.",
+          "afterUse": "remove"
         },
         {
           "id": "photographer2",
           "text": "That's Obadiah Mott.",
           "tag": "TOPIC",
-          "say": "It's a portrait, sir. It's a man in Ohio in a good collar."
+          "say": "It's a portrait, sir. It's a man in Ohio in a good collar.",
+          "after": [
+            "photographer1"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "photographer3",
           "text": "May I buy it?",
           "tag": "COMIC",
           "repeat": "Twenty-five cents, still. Another ten and I'll frame him, and then he's an ancestor.",
-          "say": "Twenty-five cents. I've thirty-one more."
+          "say": "Twenty-five cents. I've thirty-one more.",
+          "afterUse": "retain"
         },
         {
           "id": "photographerx",

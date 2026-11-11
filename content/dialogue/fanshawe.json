@@ -59,14 +59,8 @@
           "id": "fanshawe1",
           "tag": "TOPIC",
           "text": "I'm looking for Ezra Pike.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "Dear Ezra. He has moved somewhere very quiet. The undertaker keeps his address.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Very quiet, very settled. The undertaker will tell you all about the neighbourhood."
-            }
-          ],
           "when": {
             "T_PIKE_DEAD": false
           }
@@ -75,14 +69,8 @@
           "id": "fanshawe5",
           "tag": "TOPIC",
           "text": "You knew Pike was dead.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "Knew it, Mr. Grubb? I sent flowers. I send flowers to everyone. It's cheaper than knowing them.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Flowers. Every time. You'll get some yourself one day."
-            }
-          ],
           "when": {
             "T_PIKE_DEAD": true
           }
@@ -91,26 +79,14 @@
           "id": "fanshawe2",
           "tag": "TOPIC",
           "text": "I don't want a claim.",
-          "afterUse": "retain",
-          "say": "Nobody does on the first day. On the second they've bought one, and on the third they come to me. I'll keep the chair warm.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Of course not. The chair is warm, whenever you're ready."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Nobody does on the first day. On the second they've bought one, and on the third they come to me. I'll keep the chair warm."
         },
         {
           "id": "fanshawe3",
           "tag": "TOPIC",
           "text": "I have four dollars.",
-          "afterUse": "retain",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still four? Splendid. Both hands, Mr. Grubb. Both hands."
-            }
-          ],
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "fanshawe",
@@ -127,14 +103,8 @@
           "id": "fanshawe4",
           "tag": "COMIC",
           "text": "Is it always this warm in here?",
-          "afterUse": "retain",
-          "say": "Always. I keep a fire in every season. Warm men are generous men, Mr. Grubb, and so are warm offices.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Always. A cold man counts his money, Mr. Grubb. I prefer them warm."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Always. I keep a fire in every season. Warm men are generous men, Mr. Grubb, and so are warm offices."
         },
         {
           "id": "fanshawex",
@@ -223,20 +193,14 @@
           "id": "fanshawe4",
           "tag": "COMIC",
           "text": "You have a great many chairs.",
-          "afterUse": "retain",
-          "say": "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Do sit, Mr. Grubb. You're standing again."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch."
         },
         {
           "id": "fanshawe5",
           "tag": "TOPIC",
           "text": "Is there gold under Prosperity?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "fanshawe",
@@ -249,12 +213,6 @@
             {
               "speaker": "fanshawe",
               "line": "I sell all three."
-            }
-          ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Depth, patience and paperwork. My door is open for all three."
             }
           ]
         },
@@ -281,26 +239,14 @@
           "id": "fanshawe1",
           "tag": "TOPIC",
           "text": "I'd be glad of a partner in it.",
-          "afterUse": "retain",
-          "say": "Partners! Then we are partners. We'll do the paper when we're sober. I never do paper in drink. It's the only rule I keep.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Partners still! The paper can wait. Paper always can; it's the great virtue of paper."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Partners! Then we are partners. We'll do the paper when we're sober. I never do paper in drink. It's the only rule I keep."
         },
         {
           "id": "fanshawe2",
           "tag": "TOPIC",
           "text": "You're welcome to the working of it while I learn the trade.",
-          "afterUse": "retain",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Sump will draw it up. I've made a note to write him a note."
-            }
-          ],
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "fanshawe",
@@ -317,15 +263,9 @@
           "id": "fanshawe3",
           "tag": "TOPIC",
           "text": "Whatever's in it, I'd sooner it went to someone who'd use it.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "after": [
             "fanshawe1"
-          ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Agreed again, and twice as entirely. Your glass, Mr. Grubb."
-            }
           ],
           "exchange": [
             {
@@ -343,7 +283,7 @@
           "id": "fanshawe4",
           "tag": "TOPIC",
           "text": "Put it down as a kindness, and I'll owe you.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "after": [
             "fanshawe2"
           ],
@@ -361,27 +301,15 @@
               "speaker": "fanshawe",
               "line": "Yet."
             }
-          ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Nothing, Mr. Grubb. I'm keeping very careful count of it."
-            }
           ]
         },
         {
           "id": "fanshawe5",
           "tag": "TOPIC",
           "text": "I'd sign anything that came with a wine like this.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "after": [
             "fanshawe3"
-          ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Nothing tonight. There is always tomorrow night. I dine every night."
-            }
           ],
           "exchange": [
             {
@@ -399,7 +327,7 @@
           "id": "fanshawe6",
           "tag": "TOPIC",
           "text": "I mean to work it myself.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "after": [
             "fanshawe2"
           ],
@@ -413,21 +341,14 @@
               "line": "He does not take the dish away.",
               "direction": true
             }
-          ],
-          "repeat": "Of course. Of course. Do try the fish."
+          ]
         },
         {
           "id": "fanshawe7",
           "tag": "COMIC",
           "text": "This is very good wine.",
-          "afterUse": "retain",
-          "say": "Isn't it! I have no idea what it is. I buy whatever costs most and let it explain itself.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still delicious, and still a mystery. In my experience the two go together."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Isn't it! I have no idea what it is. I buy whatever costs most and let it explain itself."
         },
         {
           "id": "fanshawex",
@@ -461,27 +382,15 @@
           "id": "fanshawe2",
           "tag": "TOPIC",
           "text": "What do you want for it?",
-          "afterUse": "retain",
-          "say": "Want? Mr. Grubb, a favor that costs something is a transaction. I deal only in favours.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Nothing at all. I've written it down, so that neither of us forgets."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Want? Mr. Grubb, a favor that costs something is a transaction. I deal only in favours."
         },
         {
           "id": "fanshawe3",
           "tag": "COMIC",
           "text": "Your clock is slow.",
-          "afterUse": "retain",
-          "say": "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it."
         },
         {
           "id": "fanshawe4",
@@ -501,7 +410,10 @@
           "say": "The Eleventh Ohio Mounted. Splendid men. I remember every one of their horses.",
           "set": {
             "T_ELEVENTH_OHIO": true
-          }
+          },
+          "after": [
+            "fanshawe4"
+          ]
         },
         {
           "id": "fanshawe6",
@@ -576,13 +488,7 @@
           "id": "fanshawe2",
           "tag": "TOPIC",
           "text": "Why does the Company keep copies of claim records?",
-          "afterUse": "retain",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Fire, Mr. Grubb. Flood. Sudden interest. One prepares."
-            }
-          ],
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "fanshawe",
@@ -619,14 +525,8 @@
           "id": "fanshawe4",
           "tag": "COMIC",
           "text": "The chairs are new.",
-          "afterUse": "retain",
-          "say": "They are! One must reinvest.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Newer still. I had them reupholstered while you were looking."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "They are! One must reinvest."
         },
         {
           "id": "fanshawex",
@@ -732,26 +632,14 @@
           "id": "fanshawe4",
           "tag": "TOPIC",
           "text": "Why does a worthless claim cost eleven thousand dollars?",
-          "afterUse": "retain",
-          "say": "Because you'd like it to be worth more, and I'd like you to be happy.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Because happiness is expensive, Mr. Grubb, and I never haggle over yours."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Because you'd like it to be worth more, and I'd like you to be happy."
         },
         {
           "id": "fanshawe5",
           "tag": "COMIC",
           "text": "I've named a raccoon after you.",
-          "afterUse": "retain",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still! You're very loyal, Mr. Grubb. I shall have to name something after you."
-            }
-          ],
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "fanshawe",

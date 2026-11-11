@@ -27,6 +27,10 @@
     "DECLARED INVALIDATIONS. A change that moves what a mark measures is declared",
     "here, so the next person reads it beside the mark rather than discovering it.",
     "",
+    "0. ERRATA 280: AN ASKED QUESTION IS GONE (doc 126, as Monkey Island ran it).",
+    "   Beat 4's input chooses the TOP ROW four times: each question leaves the list",
+    "   as it is answered, and the exit is the only row once all three have been.",
+    "",
     "1. THE DRIVER'S EXIT IS GATED. Option 4 is not on the list until options 1, 2",
     "   and 3 have been asked, so beat 4's input is now ORDER-DEPENDENT rather than",
     "   incidentally ordered. It already asks 1, 2, 3, 4 in that order and the run is",
@@ -145,7 +149,7 @@
         },
         {
           "do": "choose",
-          "option": 2
+          "option": 1
         },
         {
           "do": "wait",
@@ -153,7 +157,7 @@
         },
         {
           "do": "choose",
-          "option": 3
+          "option": 1
         },
         {
           "do": "wait",
@@ -161,7 +165,7 @@
         },
         {
           "do": "choose",
-          "option": 4
+          "option": 1
         },
         {
           "do": "wait",

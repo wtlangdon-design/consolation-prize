@@ -32,15 +32,17 @@
         {
           "id": "livery_man2",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Why 'Grievance'?",
           "say": "Had a partner once. She took his side.",
-          "repeat": "She took his side. She'd take it again, given the chance."
+          "after": [
+            "livery_man1"
+          ]
         },
         {
           "id": "livery_man8",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Did you know Ezra Pike?",
           "exchange": [
             {
@@ -52,7 +54,6 @@
               "line": "She's not a talker."
             }
           ],
-          "repeat": "The undertaker. Grievance has nothing to add.",
           "when": {
             "T_PIKE_DEAD": false
           }
@@ -60,10 +61,9 @@
         {
           "id": "livery_man9",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "You knew Pike was dead.",
           "say": "She knew. She looked at me funny for a week.",
-          "repeat": "A whole week. Funny.",
           "when": {
             "T_PIKE_DEAD": true
           }
@@ -71,10 +71,9 @@
         {
           "id": "livery_man3",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Is the mule all right?",
-          "say": "She's fine. She's just got a view.",
-          "repeat": "Still the same view. She's loyal to it."
+          "say": "She's fine. She's just got a view."
         },
         {
           "id": "livery_man4",

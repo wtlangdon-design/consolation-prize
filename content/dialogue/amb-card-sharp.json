@@ -17,8 +17,8 @@
           "set": {
             "T_SHARP_ACCUSED": true
           },
-          "repeat": "Still am.",
-          "say": "I am."
+          "say": "I am.",
+          "afterUse": "remove"
         },
         {
           "id": "card_sharp2",
@@ -27,8 +27,8 @@
           "after": [
             "card_sharp1"
           ],
-          "repeat": "Object to me? Son, I'm the only honest thing at this table.",
-          "say": "They know what I am. They don't know what the Colonel is. Which of us is the problem?"
+          "say": "They know what I am. They don't know what the Colonel is. Which of us is the problem?",
+          "afterUse": "remove"
         },
         {
           "id": "card_sharp3",
@@ -51,7 +51,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "Eleven dollars. Forgiven. Ask the undertaker."
+          "afterUse": "remove"
         },
         {
           "id": "card_sharp4",
@@ -60,22 +60,22 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "He stopped losing. That's how you know.",
-          "say": "I'm a card player. I knew the night he stopped losing."
+          "say": "I'm a card player. I knew the night he stopped losing.",
+          "afterUse": "remove"
         },
         {
           "id": "card_sharp5",
           "text": "Deal me in.",
           "tag": "COMIC",
-          "repeat": "I still like you. Don't make it difficult.",
-          "say": "No. I like you."
+          "say": "No. I like you.",
+          "afterUse": "remove"
         },
         {
           "id": "card_sharp6",
           "text": "Are you any good?",
           "tag": "COMIC",
-          "repeat": "Good enough not to play you. You'd lose, and I'd feel it.",
-          "say": "I'm the best honest card player in the territory. Small field. I'm not in it."
+          "say": "I'm the best honest card player in the territory. Small field. I'm not in it.",
+          "afterUse": "remove"
         },
         {
           "id": "card_sharpx",

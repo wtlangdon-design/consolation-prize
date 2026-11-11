@@ -24,8 +24,8 @@
           "set": {
             "T_PIE_ASKED": true
           },
-          "repeat": "Still pie. It's been pie all day.",
-          "say": "Crust. Under the crust, pie."
+          "say": "Crust. Under the crust, pie.",
+          "afterUse": "remove"
         },
         {
           "id": "pie_woman2",
@@ -34,8 +34,8 @@
           "after": [
             "pie_woman1"
           ],
-          "repeat": "Still a dime.",
-          "say": "It's a nickel's worth of answer. The filling's a dime."
+          "say": "It's a nickel's worth of answer. The filling's a dime.",
+          "afterUse": "remove"
         },
         {
           "id": "pie_woman3",
@@ -66,7 +66,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "Undertaker. Down the lane. Mention the three pies."
+          "afterUse": "remove"
         },
         {
           "id": "pie_woman4",
@@ -75,15 +75,15 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "Stopped buying pie. I don't need a doctor to tell me.",
-          "say": "I knew he'd stopped buying pie. Out here that's the same thing."
+          "say": "I knew he'd stopped buying pie. Out here that's the same thing.",
+          "afterUse": "remove"
         },
         {
           "id": "pie_woman5",
           "text": "I'll take a pie.",
           "tag": "COMIC",
-          "repeat": "Course you will. A nickel, when you do.",
-          "say": "Course you will."
+          "say": "Course you will.",
+          "afterUse": "remove"
         },
         {
           "id": "pie_womanx",
