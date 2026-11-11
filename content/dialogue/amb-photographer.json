@@ -38,7 +38,7 @@
         {
           "id": "photographerx",
           "tag": "EXIT",
-          "text": "I should go.",
+          "text": "I've taken enough of your time. I'll be taking more later.",
           "universal": true,
           "ends": true
         }

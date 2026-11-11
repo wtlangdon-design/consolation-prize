@@ -681,7 +681,7 @@
       "class": "A",
       "speaker": "letter_writer",
       "words": "He puts his pen down.",
-      "where": "dialogue/amb-letter-writer root option 4",
+      "where": "dialogue/amb-letter-writer root option 5",
       "performedBy": [
         "letter_writer"
       ],
@@ -1220,7 +1220,7 @@
       "n": 103,
       "class": "C",
       "speaker": "map_seller",
-      "words": "The map seller brightens considerably.",
+      "words": "The map seller sees Thad, and lights up like a lamp.",
       "where": "dialogue/amb-map-seller root opening"
     },
     {
@@ -1772,6 +1772,55 @@
       "speaker": "livery_man",
       "words": "He tips his chair back and goes on humming, under his breath.",
       "where": "dialogue/livery-man LIV_A1 option 6"
+    },
+    {
+      "n": 167,
+      "class": "B",
+      "speaker": "letter_writer",
+      "words": "He writes it down.",
+      "where": "dialogue/amb-letter-writer root option 7"
+    },
+    {
+      "n": 168,
+      "class": "B",
+      "speaker": "bell_ringer",
+      "words": "He holds up his bottle, hopefully.",
+      "where": "dialogue/amb-bell-ringer root option 6"
+    },
+    {
+      "n": 169,
+      "class": "B",
+      "speaker": "bell_ringer",
+      "words": "He looks up at the bell, then down at the bottle.",
+      "where": "dialogue/amb-bell-ringer root option 7"
+    },
+    {
+      "n": 170,
+      "class": "C",
+      "speaker": "pie_woman",
+      "words": "She looks at his boots again, and knocks a penny off him.",
+      "where": "dialogue/amb-pie-woman root option 6"
+    },
+    {
+      "n": 171,
+      "class": "C",
+      "speaker": "man_leaving_tomorrow",
+      "words": "He says it the way other men say 'measles'.",
+      "where": "dialogue/amb-man-leaving-tomorrow root option 3"
+    },
+    {
+      "n": 172,
+      "class": "B",
+      "speaker": "man_leaving_tomorrow",
+      "words": "He grips it with both hands.",
+      "where": "dialogue/amb-man-leaving-tomorrow root option 6"
+    },
+    {
+      "n": 173,
+      "class": "B",
+      "speaker": "map_seller",
+      "words": "He draws a small piano on a map, beside a cross.",
+      "where": "dialogue/amb-map-seller root option 6"
     }
   ]
 }

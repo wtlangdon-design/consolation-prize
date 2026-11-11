@@ -21,6 +21,9 @@
           "id": "leaving2",
           "text": "That bag's been packed a while.",
           "tag": "TOPIC",
+          "after": [
+            "leaving1"
+          ],
           "exchange": [
             {
               "speaker": "man_leaving_tomorrow",
@@ -35,13 +38,31 @@
               "line": "Pack a bag right, it holds."
             }
           ],
-          "after": [
-            "leaving1"
-          ],
           "afterUse": "remove"
         },
         {
           "id": "leaving3",
+          "text": "I've only just arrived.",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Arrived."
+            },
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "He says it the way other men say 'measles'.",
+              "direction": true
+            },
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Nobody arrives here, son. They just haven't left yet."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "leaving4",
           "text": "Did you know Ezra Pike?",
           "tag": "TOPIC",
           "exchange": [
@@ -64,7 +85,7 @@
           "afterUse": "remove"
         },
         {
-          "id": "leaving4",
+          "id": "leaving5",
           "text": "You knew Pike was dead.",
           "tag": "TOPIC",
           "when": {
@@ -74,7 +95,24 @@
           "afterUse": "remove"
         },
         {
-          "id": "leaving5",
+          "id": "leaving6",
+          "text": "Could I carry your bag to the coach?",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "He grips it with both hands.",
+              "direction": true
+            },
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "And have it go without me?"
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "leaving7",
           "text": "Where will you go?",
           "tag": "COMIC",
           "exchange": [

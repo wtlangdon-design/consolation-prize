@@ -232,7 +232,7 @@
      "T_PIKE_DEAD": true
     }
    },
-   "Where do the maps come from?": {
+   "Where do you get them?": {
     "set": {
      "T_MAPS_ASKED": true
     }

@@ -41,27 +41,21 @@ The first conversation in the game teaches the list: each question goes as it is
 
 ### amb_map_seller
 
-Opens on where the maps come from, Pike, and whether they work. The accounts wait for "From the accounts"; digging waits for "They've not been *disproved*", which is what raises it.
-
-- `map_seller3` waits for `map_seller6`
+Rewritten by errata 286 (doc 07): it opens on the strike, Pike and the joke options, and the accounts, the price and the digging follow the answers that raise them, written as doc 07's follow-ups.
 
 ### amb_letter_writer
 
-Opens on his rate, Pike, and Thad's own letters. "Going well?" already waits for the rate; the truth waits for "Bad weeks are my living", which is the question it raises.
-
-- `letter_writer3` waits for `letter_writer2`
+Rewritten by errata 286 (doc 07): his rate, a letter written for Thad, Pike and two jokes; going well and the truth follow the answers that raise them, written as doc 07's follow-ups.
 
 ### amb_message_boy
 
-"Everything. Pick a bit." is the answer that invites "Tell me something."
+Rewritten by errata 286 (doc 07). The penny is paid once he has named the price.
 
-- `message_boy2` waits for `message_boy1`
+- `message_boy3` waits for `message_boy2`
 
 ### amb_man_leaving_tomorrow
 
-The bag is noticed once he has said "Tomorrow."
-
-- `leaving2` waits for `leaving1`
+Rewritten by errata 286 (doc 07): the bag follows "Tomorrow.", written as doc 07's follow-up.
 
 ### amb_boundary_men
 
@@ -78,9 +72,7 @@ The instruments are asked about once he has listed what they are for. The shave 
 
 ### amb_bell_ringer
 
-He offers to show where to strike it once he has told the man it is flat.
-
-- `bell_ringer2` waits for `bell_ringer1`
+Rewritten by errata 286 (doc 07): the offer to show him follows his answer about the bell, written as doc 07's follow-up.
 
 ### amb_boarding_women
 
@@ -174,7 +166,7 @@ The plank, and arithmetic, follow "What rules?"
 
 ### amb_bell_ringer
 
-- `bell_ringer5` stays — "Ask me after the noon bell. I won't hear you. That's also the qualification."
+- `bell_ringer7` stays — "Say it louder. No. Don't."
 
 ### amb_boundary_men
 
@@ -190,15 +182,15 @@ The plank, and arithmetic, follow "What rules?"
 
 ### amb_letter_writer
 
-- `letter_writer6` stays — "So you keep saying."
+- `letter_writer8` stays — "So you keep saying."
 
 ### amb_man_leaving_tomorrow
 
-- `leaving5` stays — "Tomorrow. I've told you. It's the one place I'm sure of."
+- `leaving7` stays — "Tomorrow. I've told you. It's the one place I'm sure of."
 
 ### amb_message_boy
 
-- `message_boy6` stays — "A penny and I'll go. I'll come straight back, but I'll go."
+- `message_boy8` stays — "A penny and I'll go. I'll come straight back, but I'll go."
 
 ### amb_one_strike_man
 

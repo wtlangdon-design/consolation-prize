@@ -45,9 +45,11 @@ test('every question doc 126 keeps on purpose has a second answer to give', () =
 test('the map seller opens short, and digging waits for "not been disproved"', () => {
   const tree = trees.find((one) => one.id === 'amb_map_seller');
   const options = tree.nodes.root.options;
-  const dig = options.find((one) => one.id === 'map_seller3');
-  assert.deepEqual(dig.after, ['map_seller6']);
-  assert.ok(options.indexOf(dig) > options.findIndex((one) => one.id === 'map_seller6'), 'listed after what raises it');
+  // Read by what it says, not its number (errata 286 rewrote the tree): the digging waits for "Do they work?".
+  const dig = options.find((one) => /dug/.test(one.text));
+  const work = options.find((one) => one.text === 'Do they work?');
+  assert.deepEqual(dig.after, [work.id]);
+  assert.ok(options.indexOf(dig) > options.indexOf(work), 'listed after what raises it');
 });
 
 test('every keeper doc 126 quotes is the second answer its row gives (Tyler, 2026-11-11: "Yes")', () => {

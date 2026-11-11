@@ -841,6 +841,18 @@
    "date": "2026-11-11",
    "kind": "loosened",
    "why": "Errata 283: beat 9's input chooses TALK TO before clicking the lamp, as a player now must; a bare click only walks."
+  },
+  {
+   "check": "tests/town-trees-sourced.test.ts",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 286: not a misfire but the design widening. A townsperson's own way out (the pie woman's \"I'll come back when I'm hungrier.\" -> \"Course you will.\") is written in doc 07 with its reply, as errata 172 allowed; the test read exits only from doc 04's pool. It now reads doc 07 as well; every other line is still held to doc 07."
+  },
+  {
+   "check": "tests/mi-conversations.test.mjs",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 286: the map seller's tree was rewritten and renumbered; the test found the digging and \"Do they work?\" by number. It now finds them by what they say. The property held is unchanged."
   }
  ]
 }
