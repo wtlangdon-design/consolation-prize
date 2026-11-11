@@ -1,0 +1,12 @@
+Image 1 is one part of a street at night from my pixel-art adventure game, set in an 1850s gold-rush town. Images 2 and 3 are two other streets of the SAME town from the same game, drawn by the hand the whole game is drawn in.
+
+REDRAW IMAGE 1 IN THE HAND OF IMAGES 2 AND 3. Change the drawing, not the picture:
+- Keep EVERY building, door, window, porch, post, step, sign, barrel, trough, lamp and the road EXACTLY where it is, the same size and the same shape, edge for edge. Do not add, remove, move, widen or straighten anything. Doors and windows stay at the same pixel positions. The horizon, the mountains and the road stay where they are.
+- Redraw it with the larger, chunkier square pixels of Images 2 and 3, their flat, soft, low-texture shading, their calmer ground and their darker outlines. Fewer, broader planks. NOT finer, NOT sharper, NOT more detailed than Images 2 and 3.
+- Keep the night: a deep blue sky with stars, warm lamplight in the windows and pooling on the ground in front of the lit buildings, cool blue elsewhere. Puddles, if any, are a dull dark sheen, not bright blue.
+- Keep the signs' shapes and positions; letters on them stay as they are or become illegible marks. Do not write any new words.
+- The band above and below the street in Image 1 is padding: leave it as plain continuation of the sky and the ground.
+
+No people, no animals, no text, no border.
+
+THIS WINDOW HAS BEEN REDRAWN TWICE AND BOTH TIMES THE BUILDINGS MOVED AND GREW: the hotel (the tall two-storey front with two upper windows) and the small assay office on the right were drawn larger and pushed right, the saloon's front was raised, the trough and the road out moved. Image 4 is a TRACING of Image 1's own outlines, black lines on white, at exactly Image 1's size and place. YOUR PICTURE MUST FIT THAT TRACING: every roofline, false front, post, porch edge, door, window, step, the trough and the road out lie on its lines. The saloon's false front, the hotel and the assay office are exactly as tall, as wide and as far left or right as in Image 1 -- not one of them larger. Change only how it is drawn: larger, flatter pixels, as in Images 2 and 3.

@@ -1,5 +1,10 @@
 # Main Street, redrawn in the side streets' hand: handed back (reference/main-street-redraw/brief.md)
 
+> **Updated 2026-11-11, after "Raise both caps".** `room-02-redraw` 5 -> 7 and `spendTokensTotal` 4,250,000 ->
+> 4,300,000 (both recorded in `caps.json` with the ruling). **Six of seven are spent; one is held.** 4,234,534 billed
+> now (65,466 left); the ledger has 421 attempts. The section **The second round** below supersedes "The stitch" and
+> "For Tyler and the builder": the street is now stitched whole, without ghosting.
+
 **Budget.** `room-02-redraw`, cap 5: **all five spent** (ledger: room-02-redraw attempts 1-5) -- the three windows and
 the two held corrections. `caps.json` not changed. The spend cap: 4,217,842 billed of 4,250,000 now (32,158 left;
 `winnie-walk-2` took 2, this 5, together about 102,000). The ledger has 420 attempts.
@@ -54,3 +59,45 @@ builder's or Tyler's:
 3. Leave Main Street as it is.
 
 Every door, exit and stand still has to be checked against the room before any of it is promoted, as the brief says.
+
+
+## The second round (after "Raise both caps")
+
+**Operation 6, window 3 again** (`window-3-v2.txt`, `window-3-v2.spec.json` -> `out-3-v2.png`): the prompt plus a
+tracing of the window's own outlines (`window-3-outlines.png`) as a fourth image. Closer, still not in place: 20-40 px
+right and up, growing toward the right edge (`checks/edges-ov3v2.png`).
+
+**What all three window-3 tries had in common** was not re-composed buildings but one smooth error: the whole window
+drawn a few percent larger and shifted. That is undone by a tool, with no operation:
+`tools/art/main-street-register.py N SOURCE OUT` measures local shifts on a grid of tiles, fits one affine map by least
+squares (dropping tiles it does not explain), and resamples the output through it with nearest-neighbour. Where the
+operation pushed a strip off its canvas, the window's own street fills it, coarsened to the redraw's pixel size and
+graded to the redraw's colour row by row, feathered over 16 px. Each run writes `<out>.json`.
+
+| Window | Source | Map (x, y scale) | Off before (median / 90%) | Off after | Filled from the window |
+|---|---|---|---|---|---|
+| 1 | `out-1.png` | 1.006, 1.148 | 21 / 27 px | **4 / 10 px** | a 9 px sliver at the left edge |
+| 2 | `out-2-fix.png` | 1.012, 1.042 | 10 / 17 px | **4 / 10 px** | a 6 px sliver at the right edge |
+| 3 | `out-3.png` | 1.069, 1.194 | 39 / 55 px | **4 / 9 px** | ~90 px at the right (the far road and hills) and 11 px at the left |
+| 3 | `out-3-v2.png` | 1.064, 1.064 | 33 / 46 px | 5 / 12 px | (not used) |
+| 3 | `out-3-fix.png` | 1.048, 1.063 | 55 / 62 px | 7 / 17 px | (not used) |
+
+Window 3 uses the **first** try, registered: it lands closest and its pixels are crisper than v2's
+(`checks/edges-ov3-registered.png`). Numbers are at the window's 1536 x 1024 size; on the 3700-wide street each is
+x 1.263.
+
+**The candidate:** `python3 tools/art/main-street-redraw.py stitch --use 1=out-1-registered.png 2=out-2-fix-registered.png 3=out-3-registered.png`
+-> `candidate-3700x864.png` (`candidate.json` records the sources). **Both overlaps are clean now**
+(`checks/seam-2-3-registered.png`: the saloon and the trough appear once). Beside the plate:
+`renders/room-02-main-street-redraw-candidate-beside-the-plate.png`.
+
+**For the builder, still, before it is promoted:**
+- every door, exit and stand checked against the room: the fronts sit within ~5 px (median) of the plate at window
+  size, ~6 px on the street; the worst tiles are ~10-12 px;
+- **the y scales of windows 1 and 3 (1.15, 1.19)** mean those operations drew the street taller; registration
+  squeezes them back by dropping a row in every six or seven. It does not show at game size; look at the planks;
+- the far-right ~110 px of the street (the road out) is the old street coarsened, not redrawn;
+- the signs are blank boards (the gilt overlay needs its lettering from the old plate), the puddles dull;
+- the dawn plate and the funeral notice overlay are re-derived from whatever is promoted.
+
+The seventh operation is held.
