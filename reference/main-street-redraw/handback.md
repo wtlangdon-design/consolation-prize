@@ -111,5 +111,7 @@ street), scales it to the redraw's slightly narrower board (0.923) and centres i
 darkened as the whole redraw is darker, lifted 15%, with a one-pixel shadow. The candidate is stitched from
 `out-1-signed.png` now (`candidate.json`). Old and new at game size: `renders/room-02-main-street-redraw-company-sign.png`.
 
-The lower line is a little cramped at this grain (the M of IMPROVEMENT is the tightest letter). The night overlay that
+**Made more readable** (Tyler, 2026-11-11: "It's a bit hard to read now"): the letters are now kept at the old
+plate's own resolution (BLOCK 1, not the redraw's 2 px grid), the gilt is brighter (GILT 1.4: colour 116,95,46) and
+the shadow deeper. They are finer than the planks around them, which is the price of reading. The night overlay that
 lights the sign (the gilt) still has to be re-derived against this board by the builder.

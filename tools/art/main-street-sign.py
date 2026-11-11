@@ -18,8 +18,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 STAGE = os.path.join(ROOT, 'art/staging/room-02/redraw')
 BOARD = (430, 384, 640, 442)      # the lettered board in window 1 (x0, y0, x1, y1), at the window's 1536 x 1024
 MARGIN = 9         # window pixels of field left at each end of the lower line (the frame reads as field too)
-GILT = 1.15        # a little brighter than the plain darkening: the redraw's board is flatter than the old one
-BLOCK = 2          # the letters' strokes are 2-4 window pixels: on a coarser grid they do not read
+GILT = 1.4         # brighter than the plain darkening, so the letters stand off the redraw's flat board (Tyler: "a bit more readable")
+BLOCK = 1          # the old letters at their own resolution: on the redraw's coarser grid they were hard to read (Tyler, 2026-11-11)
 
 
 def main(source, out):
@@ -89,7 +89,7 @@ def main(source, out):
     gh, gw = h // BLOCK, wd // BLOCK
     grid = letters[:gh * BLOCK, :gw * BLOCK].reshape(gh, BLOCK, gw, BLOCK).mean((1, 3)) > 0.4
     gl, gn = ndi.label(grid)                                         # specks the scaling leaves are not letters
-    grid &= np.isin(gl, 1 + np.nonzero(ndi.sum(grid, gl, range(1, gn + 1)) >= 3)[0])
+    grid &= np.isin(gl, 1 + np.nonzero(ndi.sum(grid, gl, range(1, gn + 1)) >= 3 * BLOCK)[0])
     mask = np.zeros_like(letters)
     mask[:gh * BLOCK, :gw * BLOCK] = np.kron(grid, np.ones((BLOCK, BLOCK))).astype(bool)
     shadow = np.zeros_like(mask)
@@ -105,7 +105,7 @@ def main(source, out):
     # band of the two pictures), then lifted by GILT so it holds against the redraw's flatter board.
     k = o[170:854, 8:1528].reshape(-1, 3).mean(0) / w[170:854, 8:1528].reshape(-1, 3).mean(0)
     letter = np.clip(old_letter * k * GILT, 0, 255)
-    shade = np.clip(new_field * 0.6, 0, 255)
+    shade = np.clip(new_field * 0.4, 0, 255)
     res = o.copy()
     region = res[y0 + dy:y1 + dy, x0 + dx:x1 + dx]
     region[shadow] = shade
