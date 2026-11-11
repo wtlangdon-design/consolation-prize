@@ -42,7 +42,7 @@ snap = ns['snap']
 def main():
     a = np.asarray(Image.open(SHEET).convert('RGB')).astype(int)
     # Drawn pixels: far from the key, and not the key's own pink bled into an edge (red and blue both well over green).
-    fg = (np.abs(a - KEY).sum(2) > 120) & ~((np.minimum(a[..., 0], a[..., 2]) - a[..., 1]) > 22)
+    fg = (np.abs(a - KEY).sum(2) > 120) & ~((np.minimum(a[..., 0], a[..., 2]) - a[..., 1]) > 10)
     xs = np.flatnonzero(fg.any(0))
     groups, start, prev = [], xs[0], xs[0]
     for x in xs[1:]:
