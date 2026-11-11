@@ -54,7 +54,7 @@ test('C3: the funeral asked for, the letter answers who speaks for the deceased;
   state.dialogue.select(opt(state, '5'));
   assert.ok(state.flags.get('T_SOW_FUNERAL_ASKED'));
   state.holdItem('letter');
-  const out = state.interact(host(state), 'USE');
+  const out = state.interact(host(state), 'GIVE');
   const pair = state.content.combinations.pairs.find((one) => one.item === 'letter' && one.room === state.roomId);
   assert.equal(out.say, pair?.rules?.[0]?.say);
   assert.ok(state.flags.get('T_MEMORIAL_BOOKED'));

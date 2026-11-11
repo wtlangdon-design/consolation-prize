@@ -501,7 +501,7 @@
   {
    "id": "A7.3",
    "puzzle": "A7",
-   "do": "use",
+   "do": "give",
    "item": "filing_fee",
    "on": "ozymandia",
    "expect": {
@@ -516,7 +516,7 @@
   {
    "id": "A7.4",
    "puzzle": "A7",
-   "do": "use",
+   "do": "give",
    "item": "company_map",
    "on": "ozymandia",
    "expect": {
@@ -678,7 +678,7 @@
   {
    "id": "A9.4",
    "puzzle": "A9",
-   "do": "use",
+   "do": "give",
    "item": "filing_fee",
    "on": "sump",
    "expect": {
@@ -985,7 +985,7 @@
   {
    "id": "G3.2",
    "puzzle": "G3",
-   "do": "use",
+   "do": "give",
    "item": "clarion",
    "on": "gulch_lookout",
    "expect": {
@@ -1330,7 +1330,7 @@
   {
    "id": "C3.5",
    "puzzle": "C3",
-   "do": "use",
+   "do": "give",
    "item": "letter",
    "on": "sowerby",
    "expect": {
@@ -1404,7 +1404,7 @@
   {
    "id": "D2.1c",
    "puzzle": "D2",
-   "do": "use",
+   "do": "give",
    "item": "deed",
    "on": "pratt_jump",
    "expect": {
@@ -1842,7 +1842,7 @@
   {
    "id": "C5.2",
    "puzzle": "C5",
-   "do": "use",
+   "do": "give",
    "item": "padded_log",
    "on": "winnie",
    "expect": {
@@ -2463,7 +2463,7 @@
   {
    "id": "E3.9",
    "puzzle": "E3",
-   "do": "use",
+   "do": "give",
    "item": "raccoon_in_coat",
    "on": "pratt",
    "expect": {
@@ -2503,7 +2503,7 @@
   {
    "id": "E3.12",
    "puzzle": "E3",
-   "do": "use",
+   "do": "give",
    "item": "pratt_money",
    "on": "undertaker",
    "expect": {
@@ -2595,7 +2595,7 @@
   {
    "id": "E6.4",
    "puzzle": "E6",
-   "do": "use",
+   "do": "give",
    "item": "executor_form",
    "on": "sump",
    "expect": {
@@ -2619,7 +2619,7 @@
   {
    "id": "E5.4",
    "puzzle": "E5",
-   "do": "use",
+   "do": "give",
    "item": "death_certificate",
    "on": "frame",
    "expect": {

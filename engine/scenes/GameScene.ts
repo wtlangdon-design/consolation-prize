@@ -1641,7 +1641,7 @@ export class GameScene extends Phaser.Scene {
     const held = this.state.heldItem;
     const person = held && chosen !== null && this.state.verbs.carries(chosen) ? this.ambient.npcAt(wx, y) : undefined;
     if (person?.tree && held && chosen !== null) {
-      const pair = this.state.evidencePairFor(held, person.id);
+      const pair = this.state.evidencePairFor(held, person.id, chosen);
       if (pair && pair.opens === person.tree) {
         const npc = person;
         const stand = npc.walkTo ?? { x: npc.x, y: npc.y };

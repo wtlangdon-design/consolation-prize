@@ -47,7 +47,7 @@ const opt = (state: GameState, suffix: string) => `${hostOf(state).id}${suffix}`
 const pay = (state: GameState) => {
   state.holdItem(null);
   state.holdItem('loan');
-  return state.interact(host(state), 'USE');
+  return state.interact(host(state), 'GIVE');
 };
 const ruleOf = (state: GameState, label: string) => {
   const pair = state.content.combinations.pairs.find((one) => one.item === 'loan' && one.room === state.roomId);

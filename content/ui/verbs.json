@@ -1,19 +1,19 @@
 {
  "schema": 1,
- "note": "The nine verbs, per Bible v2 Part Two. Panel is a 3x3 grid occupying the bottom 56px natively. Labels live here so no verb string ever appears in a .ts file. transitVerbs walk the player through an exit and deliberately produce no line -- doc 14 engine note.",
+ "note": "The ten verbs: Bible v2 Part Two's nine, and GIVE (errata 282; Tyler, 2026-11-11: \"Add GIVE as a 10th verb\"), laid out as Monkey Island 2 laid out its panel with LISTEN TO in a fourth column. Labels live here so no verb string ever appears in a .ts file. transitVerbs walk the player through an exit and deliberately produce no line -- doc 14 engine note.",
  "walkVerb": {
   "id": "WALK_TO",
   "label": "Walk to"
  },
  "defaultVerb": "LOOK_AT",
  "grid": {
-  "cols": 3,
+  "cols": 4,
   "rows": 3
  },
  "verbs": [
   {
-   "id": "LOOK_AT",
-   "label": "Look at",
+   "id": "GIVE",
+   "label": "Give",
    "col": 0,
    "row": 0,
    "key": "Q"
@@ -21,55 +21,62 @@
   {
    "id": "PICK_UP",
    "label": "Pick up",
-   "col": 0,
-   "row": 1,
-   "key": "A"
-  },
-  {
-   "id": "TALK_TO",
-   "label": "Talk to",
-   "col": 0,
-   "row": 2,
-   "key": "Z"
-  },
-  {
-   "id": "OPEN",
-   "label": "Open",
    "col": 1,
    "row": 0,
    "key": "W"
   },
   {
-   "id": "CLOSE",
-   "label": "Close",
-   "col": 1,
-   "row": 1,
-   "key": "S"
-  },
-  {
    "id": "USE",
    "label": "Use",
-   "col": 1,
-   "row": 2,
-   "key": "X"
-  },
-  {
-   "id": "PUSH",
-   "label": "Push",
    "col": 2,
    "row": 0,
    "key": "E"
   },
   {
-   "id": "PULL",
-   "label": "Pull",
+   "id": "LISTEN_TO",
+   "label": "Listen to",
+   "col": 3,
+   "row": 0,
+   "key": "R"
+  },
+  {
+   "id": "OPEN",
+   "label": "Open",
+   "col": 0,
+   "row": 1,
+   "key": "A"
+  },
+  {
+   "id": "LOOK_AT",
+   "label": "Look at",
+   "col": 1,
+   "row": 1,
+   "key": "S"
+  },
+  {
+   "id": "PUSH",
+   "label": "Push",
    "col": 2,
    "row": 1,
    "key": "D"
   },
   {
-   "id": "LISTEN_TO",
-   "label": "Listen to",
+   "id": "CLOSE",
+   "label": "Close",
+   "col": 0,
+   "row": 2,
+   "key": "Z"
+  },
+  {
+   "id": "TALK_TO",
+   "label": "Talk to",
+   "col": 1,
+   "row": 2,
+   "key": "X"
+  },
+  {
+   "id": "PULL",
+   "label": "Pull",
    "col": 2,
    "row": 2,
    "key": "C"
@@ -83,9 +90,10 @@
  "npcVerb": "TALK_TO",
  "npcVerbNote": "What a click on an ambient character does. Errata 28b makes the sentence line show the verb a click would perform, and an ambient is always talked to -- so the verb has to be nameable from content rather than assumed in the scene.",
  "carryVerbs": [
-  "USE"
+  "USE",
+  "GIVE"
  ],
- "carryVerbsNote": "The verbs that pick an inventory item UP to apply it to something else, rather than resolving on the item where it stands. USE is the only one: doc 24's combinations are all USE X ON Y, and the other eight verbs are complete sentences about the item alone. Everything not named here answers in the inventory, which is what OPEN THE LETTER failing to say anything was -- the panel treated every verb but LOOK and LISTEN as a request to hold the item, so eight of the nine verbs produced no response at all and the interface read as broken. Named in content because everything else about a verb is.",
+ "carryVerbsNote": "The verbs that pick an inventory item UP to apply it to something else, rather than resolving on the item where it stands: USE (doc 24's USE X ON Y) and GIVE (errata 282: GIVE X TO Y, a hand-over to a person, as in Monkey Island). Everything not named here answers in the inventory, which is what OPEN THE LETTER failing to say anything was. Named in content because everything else about a verb is.",
  "examineVerbs": [
   "LOOK_AT",
   "LISTEN_TO"
@@ -98,5 +106,5 @@
   ]
  },
  "approachNote": "HOW CLOSE HE HAS TO GET BEFORE A VERB ANSWERS, IN HIS OWN BODY HEIGHTS.\n\nReported from playing: LOOK AT fired on the town sign from clear across Room 1, which reads as a man reading a plank from sixty feet away. The staged chain that walks him to a thing has existed since doc 22 -- walk, waitForActor, face, waitForActor, chore, say -- and only objects declaring a walkTo point ever used it, which in Room 1 was the case and nothing else.\n\nTHE UNIT IS BODY HEIGHTS, NOT PIXELS, and that is the whole of why this works at every depth. He is 240px for 5'10\", so a pixel is a third of an inch at the front of the band and nearly an inch up the road. A fixed pixel radius would mean arm's reach near the camera and across the yard at the back. Stride already scales this way; so does this.\n\nexamineHeights 2.0 -- about eleven feet. LOOK AT, LISTEN TO and TALK TO. Far enough that he is not nose to plank, close enough that he has plainly gone over to it. Two heights is also a conversational distance, which is why TALK TO sits here rather than with the hands.\n\nhandsOnHeights 0.5 -- about three feet, arm's reach. PICK UP, OPEN, CLOSE, USE, PUSH, PULL. 'All the way there' without requiring him to stand inside the object's rectangle, which is very often not walkable ground.\n\nMEASURED TO THE RECT'S NEAREST EDGE, NOT ITS CENTRE. THE MUD is 1920 wide; a centre measurement would walk him to the middle of the road to look at it.\n\nAN AUTHORED walkTo ALWAYS WINS. This is the floor for objects nobody has placed a point for. Geometry will happily stand him behind a fence post, so where the spot matters it should be authored -- and the hands-on verbs want authored points more than the examine ones do.\n\nTHE NUMBERS ARE A STARTING POINT chosen by reasoning about a man and a sign, and every number chosen that way in this project has needed correcting once somebody watched it. They live here so the correction is a number in a content file.",
- "keysNote": "Errata 252 (doc 122): each verb has a key, laid out as the panel is (Q W E / A S D / Z X C), as the first Monkey Island had. The key is content: no key is named in a .ts file. It selects the verb exactly as a click on its button does."
+ "keysNote": "Errata 252 (doc 122), and 282: each verb has a key, laid out as the panel is (Q W E R / A S D / Z X C). The key is content: no key is named in a .ts file. It selects the verb exactly as a click on its button does."
 }

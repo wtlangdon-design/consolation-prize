@@ -1951,8 +1951,13 @@ function combinations() {
   actOnePairs(rebuilt);
   // The not-done list (doc 121; errata 250): the letter delivered, the raccoon dressed, and where seven objects go.
   notDonePairs(rebuilt);
+  // GIVE (doc 127; errata 282): the hand-overs answer GIVE, and GIVE has its own lines where nothing is written.
+  const give = givePlan();
+  applyGive(rebuilt, giving.targetPools, give);
   return write('content/combinations.json', {
     ...existing, pairs: rebuilt, itemPools, areaPools: mine.areaPools, targetPools: giving.targetPools, globalPool: global,
+    givePools: { people: give.people, things: give.things },
+    givePoolsNote: 'Errata 282, doc 127: GIVE with no pair -- to a person, or to a thing. Said in turn.',
   });
 }
 
@@ -7224,6 +7229,54 @@ function notDoneItems() {
 }
 /** Where the raccoon is carried in his coat: the claim, Mr. Pratt's, and the ground between. */
 const RACCOON_ROOMS = ['prosperity', 'pratts_claim', 'claim_row', 'claims_road'];
+/**
+ * GIVE (doc 127; errata 282; Tyler, 2026-11-11: "Add GIVE as a 10th verb"). The hand-overs, by item and person,
+ * and the verb each now answers; the lookout's "anything else"; and Thad's lines for a GIVE nothing answers. Read
+ * from the document, never typed here.
+ */
+function givePlan() {
+  const doc = read('docs/127-give.md');
+  const rows = [...doc.matchAll(/^\| `([a-z0-9_]+)` \| `([a-z0-9_]+)` \| (GIVE|Either) \|$/gm)]
+    .map(([, item, target, verb]) => ({ item, target, verbs: verb === 'Either' ? ['USE', 'GIVE'] : ['GIVE'] }));
+  if (rows.length < 20) throw new Error(`doc 127: read ${rows.length} hand-overs, expected the table`);
+  const bullets = (heading) => {
+    const at = doc.indexOf(`**${heading}:**`);
+    if (at < 0) throw new Error(`doc 127: no "${heading}"`);
+    const rest = doc.slice(at).split('\n').slice(1);
+    const lines = [];
+    for (const line of rest) {
+      if (!line.trim()) { if (lines.length) break; continue; }
+      const m = /^- "(.+)"$/.exec(line.trim());
+      if (!m) break;
+      lines.push(m[1]);
+    }
+    if (!lines.length) throw new Error(`doc 127: "${heading}" has no lines`);
+    return lines;
+  };
+  return {
+    rows,
+    people: bullets('GIVE, to a person'),
+    things: bullets('GIVE, to a thing that is not a person'),
+    emptyPerson: bullets('GIVE, with nothing in hand, to a person'),
+    emptyThing: bullets('GIVE, with nothing in hand, to a thing'),
+  };
+}
+
+function applyGive(pairs, targetPools, give) {
+  for (const row of give.rows) {
+    const found = pairs.filter((pair) => pair.item === row.item && pair.target === row.target);
+    if (!found.length) throw new Error(`doc 127: no pair gives ${row.item} to ${row.target}`);
+    for (const pair of found) pair.verbs = row.verbs;
+  }
+  // Doc 109's THE LOOKOUT · GIVE anything else, built as USE before the verb existed.
+  for (const pool of targetPools) if (pool.target === 'gulch_lookout' && pool.verb === 'USE') pool.verb = 'GIVE';
+  // GIVE with nothing in hand: the verb's own fallback, beside the other verbs' (content/ui/verb-fallbacks.json).
+  const fallbacks = JSON.parse(read('content/ui/verb-fallbacks.json'));
+  fallbacks.pools.GIVE = give.emptyThing;
+  fallbacks.people.GIVE = give.emptyPerson;
+  write('content/ui/verb-fallbacks.json', fallbacks);
+}
+
 function notDonePairs(pairs) {
   const NOTE = 'Doc 121 (THE LINES; errata 250)';
   const rule = (start, speakers = {}) => papersRule(papersBullet(start, NOT_DONE_DOC), speakers);

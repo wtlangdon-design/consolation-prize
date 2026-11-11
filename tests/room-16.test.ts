@@ -46,7 +46,7 @@ const shown = (state: GameState) => state.dialogue.presentOptions().map((one) =>
 const useOn = (state: GameState, item: string) => {
   state.holdItem(null);
   state.holdItem(item);
-  return state.interact(host(state), 'USE');
+  return state.interact(host(state), 'GIVE');
 };
 const ruleOf = (state: GameState, item: string, label: string) => {
   const pair = state.content.combinations.pairs.find((one) => one.item === item && one.room === state.roomId);

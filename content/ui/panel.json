@@ -7,11 +7,12 @@
     "y": 872
   },
   "verbs": {
-    "note": "SCUMM had twelve verbs in three columns of four. We have nine, per Bible v2, so the fourth row carries MENU, MAP and FULL instead of three more verbs -- the grid is the reference's shape and no cell is left empty. Pitch 42 against a 28-unit glyph is 14 units of leading, and a 33-unit cell centres the label at +2 by the same arithmetic the menu buttons use, so every label in the grid sits on one line.",
+    "note": "Errata 282 (Tyler, 2026-11-11: \"Add GIVE as a 10th verb\"). Monkey Island 2's panel, which had nine verbs with GIVE among them, as it laid them out -- Give, Pick up, Use / Open, Look at, Push / Close, Talk to, Pull -- with a fourth column for this game's own LISTEN TO, MENU and MAP. Four columns of 252 hold \"Listen to\" (216 at the panel's glyph) and SKIP SCENE (240). The fourth row is no longer used. Pitch 42 against a 28-unit glyph is 14 units of leading, and a 33-unit cell centres the label at +2.",
     "cols": [
       24,
-      372,
-      720
+      288,
+      552,
+      816
     ],
     "rows": [
       911,
@@ -19,12 +20,12 @@
       995,
       1037
     ],
-    "width": 336,
+    "width": 252,
     "height": 33
   },
   "menuButton": {
-    "col": 0,
-    "row": 3
+    "col": 3,
+    "row": 1
   },
   "inventory": {
     "note": "Eight visible, the top of ruling 29's six-to-eight. Four columns across the right-hand block, two rows. The ITEM NAME still draws in the sentence line on hover and on selection -- ruling 29 condition 1, and it is not optional: an icon must never be the only way an item is identified, which is also why ruling 26's authored display names stand unchanged.",
@@ -43,13 +44,17 @@
     }
   },
   "mapButton": {
-    "note": "Doc 20 rule 2: the map is ALWAYS reachable. A hotspot in one room cannot satisfy that, so the map opens from the panel and not from a doorway. It sits in the verb grid's fourth row beside MENU, in geometry errata 26 already allocated and left empty -- nine verbs fill three rows of three, and the fourth row had one cell used and two spare.",
-    "col": 1,
-    "row": 3
+    "note": "Doc 20 rule 2: the map is ALWAYS reachable, so it opens from the panel. Errata 282: in the fourth column under LISTEN TO, beside MENU, where the ten verbs leave two cells.",
+    "col": 3,
+    "row": 2
   },
   "fullscreenButton": {
-    "note": "ERRATA 39, as ruled. Its fullscreen toggle wants a control in the menu overlay AND in the verb panel, 'per the mouse-only requirement' -- a control reachable only behind another control is one indirection from mouse-complete, and errata 39 names both on purpose. This takes the verb grid's LAST FREE CELL: nine verbs fill three rows of three, and the fourth row held MENU and MAP with one spare. There is no spare now, which is worth knowing before the next thing wants one.",
-    "col": 2,
-    "row": 3
+    "note": "ERRATA 39's toggle, in the panel as the ruling says. Errata 282: ten verbs, MENU and MAP fill the grid, so it sits at the right end of the sentence line, where no sentence reaches (the longest, a held form given to the undertaker, ends near x 1120).",
+    "rect": [
+      1800,
+      868,
+      96,
+      33
+    ]
   }
 }

@@ -51,11 +51,11 @@ test('errata 54: the panel occupies the bottom 216px of a 1920x1080 screen', () 
   assert.notEqual(PANEL_HEIGHT, 56 * 6);
 });
 
-test('all nine verbs are selectable, and every written examine line answers', async () => {
+test('all ten verbs are selectable, and every written examine line answers (errata 282: GIVE is the tenth)', async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
 
-  assert.equal(content.verbs.verbs.length, 9);
+  assert.equal(content.verbs.verbs.length, 10);
 
   for (const room of content.rooms.values()) {
     state.enterRoom(room.id);

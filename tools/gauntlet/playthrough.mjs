@@ -194,6 +194,7 @@ export function stepWords(step, room) {
     case 'go': return `goes to ${roomNames.get(step.room) ?? step.room}`;
     case 'talk': return `TALK TO ${who(step.npc)}`;
     case 'use': return `USE ${itemNames.get(step.item) ?? step.item} ON ${targetName(room, step.on)}`;
+    case 'give': return `GIVE ${itemNames.get(step.item) ?? step.item} TO ${targetName(room, step.on)}`;
     case 'verb': return `${verbNames.get(step.verb) ?? step.verb} ${targetName(room, step.on)}`;
     case 'duel': return 'the duel';
     case 'tap': return 'LISTEN TO the rock (the tap)';

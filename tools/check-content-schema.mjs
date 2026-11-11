@@ -2,7 +2,8 @@ import {
   allDialogueOptions, allInteractables, loadContent, PLAY_HEIGHT, Report, roomWidth, runCheck,
 } from './lib/content.mjs';
 
-const EXPECTED_VERB_COUNT = 9;
+// Errata 282: Bible v2's nine and GIVE (Tyler, 2026-11-11: "Add GIVE as a 10th verb").
+const EXPECTED_VERB_COUNT = 10;
 
 /**
  * Structural validation of everything the manifest points at. A broken

@@ -3196,7 +3196,7 @@ export class Renderer {
       // POSTED NOTICES" mixes the two conventions in one line.
       const item = this.state.itemLabel(held);
       if (!targetName) return format(ui.sentence.itemOnly, { verb: verbLabel, item });
-      return format(ui.sentence.itemTemplate, { verb: verbLabel, item, target: targetName });
+      return format(ui.sentence.itemTemplates?.[verb] ?? ui.sentence.itemTemplate, { verb: verbLabel, item, target: targetName });
     }
     if (!targetName) {
       return format(ui.sentence.verbOnly, { verb: verbLabel });

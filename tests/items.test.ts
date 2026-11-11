@@ -431,7 +431,7 @@ test('nothing the run needs later had already left: every USE in the walkthrough
   // game test holds the run to no breaks; this names the item if one leaves early.
   for (const [n, step] of walkthrough.steps.entries()) {
     const item = (step as { item?: string }).item;
-    if (!item || step.do !== 'use') continue;
+    if (!item || (step.do !== 'use' && step.do !== 'give')) continue;
     const before = n === 0 ? [] : whole.carriedAt[n - 1]!.carried;
     assert.ok(before.includes(item), `${step.id}: ${item} was not in hand`);
   }

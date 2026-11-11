@@ -113,7 +113,9 @@ test('A9: the fee paid after the deed and the survey, the clerk goes into the ba
     const on = state.content.combinations.pairs.find((one) => one.puzzle === 'A9' && one.item === item)!;
     player.use(item, on.target!);
   }
-  player.use(pair.item!, pair.target!);
+  // Errata 282: the fee is handed over (GIVE), as the pair says.
+  if ((pair.verbs ?? ['USE']).includes('GIVE')) player.give(pair.item!, pair.target!);
+  else player.use(pair.item!, pair.target!);
   assert.ok(state.puzzleComplete('A9'));
   assert.ok(state.carried.includes(copy), `${copy} is carried`);
   const said = (rule.then ?? []).filter((one) => typeof one === 'object' && one.direction).map((one) => (one as { line: string }).line);
