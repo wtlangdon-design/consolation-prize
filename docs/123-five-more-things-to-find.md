@@ -23,8 +23,8 @@ One voice, to doc 59. Each is a verb the room has never answered, on a thing tha
 ### F-1 · The dog: the lines
 
 **A DOG** · *Main Street*
-- PICK UP, *the first time* — "I have scratched him behind the ear instead. He allowed it, the way he allows the town." → `T_DOG_SCRATCHED`
-- PICK UP, *again* — "Once was an introduction. He has gone back to waiting, and I would not interrupt a professional."
+- PICK UP, *the first time* — "I've scratched him behind the ear instead. He allowed it graciously, the way he allows the whole town." → `T_DOG_SCRATCHED`
+- PICK UP, *again* — "Once was an introduction. He's gone back to his waiting, and I'd never interrupt a professional."
 
 ### F-2 · The chair: the lines
 

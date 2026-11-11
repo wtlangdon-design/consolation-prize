@@ -802,7 +802,9 @@ test('there is one reading hold, and a scripted line gets the same one as an utt
   const after = total((glyphs) => readingHold('a'.repeat(glyphs), hold));
 
   assert.ok(after > before, 'the merged hold is the longer of the two on this material');
-  assert.ok(Math.abs(before - 25.9) < 0.2, `the old opening held ${before.toFixed(1)}s of speech`);
+  // 25.9 s when the formulas merged; 29.2 s since errata 289 gave beat 11 Thad's dream in his own words (Tyler,
+  // 2026-11-11: "Make good, go home somebody"). The pin says what the opening's words cost under the old formula.
+  assert.ok(Math.abs(before - 29.2) < 0.2, `the old opening held ${before.toFixed(1)}s of speech`);
   // What the content's constants do to the opening, said rather than pinned: 31.2 s at doc 30's constants, 40.9 s
   // since errata 164. A change that shortens it below the old formula fails the line above and the loop below.
   console.log(`the opening holds ${after.toFixed(1)}s of speech (it held ${before.toFixed(1)}s under the old formula)`);

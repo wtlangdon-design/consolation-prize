@@ -7421,3 +7421,39 @@ Answers build on what Thad says, in the voice doc 99 gives each person:
 **The main cast is checked, not rewritten.** Their trees were rewritten to doc 99 in the act passes (docs 100–103). Read against the voice blocks, each passes "cover the name". Rewriting lines that already pass would put the puzzles' facts at risk for no gain, so they are left as they are.
 
 Lesson: none -- a rewrite, no defect fixed. `tests/room-37.test.ts` found the women's joke as the first COMIC; it now finds the COMIC that asks again (recorded in `proofs/check-friction.json`).
+
+## 289 · Thad's voice, and his dream: Main Street as the sample (Tyler, 2026-11-11)
+
+Tyler: "Let's apply the same voice audit to Thad. I haven't been loving his lines. He's so abrupt in the way he talks. He needs more personality and character and charisma and charm." Then, while the audit ran: "Guybrush was memorable because he was earnest and had a mission and energy and spunk. I don't mind Thad having deadpan moments, but we need a character we can root for and care about and want to succeed." And: "we as the game players have to care enough about his mission, and know enough about his mission, to know WHY we want to root him on and help him win."
+
+**The audit.** Across about 4,400 lines:
+- Thad uses no exclamation mark at all.
+- His sentences run nine words when he looks at something, six when he listens and five when he talks.
+- Only one LOOK line in five has him in it at all.
+
+Doc 01's "train timetable" voice survived every pass, which only added contractions. Doc 99 called him enthusiastic, and the lines never were.
+
+**His dream.** Asked, Tyler chose **"Make good, go home somebody"**:
+- He is a piano tuner from Providence whom nobody back home took seriously.
+- His father believed in him enough to write the letter of introduction.
+- He means to make his fortune and go home somebody.
+
+This supersedes doc 01's "Motive: gold. Concrete, greedy, unromantic". The gold is still the engine; becoming somebody is what the player roots for. Doc 01's arc stands and lands harder: he goes home somebody by giving the fortune away.
+
+**How plainly.** Tyler chose **"One clear line, then echoes"**:
+- **The line:** on the road, as he sets out: "Everyone in Providence said I'd be home in a month with nothing. I mean to go home somebody." (doc 17, beat 11, which replaces "A fresh beginning.").
+- **The echoes:** a glance or two a room, in what he notices and wants.
+- **The errand stays the town's** (errata 279).
+
+**The voice** is doc 99's new entry for Thad, built around those three answers:
+- a mission he says out loud;
+- energy and spunk, getting back up after every setback;
+- earnest warmth: flourish first, the honest beat last;
+- exclamations that are his;
+- deadpan as a landing, never instead of hope.
+
+LISTEN keeps its register (doc 05; invariant 3).
+
+**The sample is Main Street** (doc 128, before and after): fifty-eight LOOK and wrong-verb lines rewritten in their own documents, plus the dream on the road. This is CLAUDE.md's seventeenth exception. No other room is touched until Tyler has played it and ruled.
+
+Lesson: none -- a rewrite, no defect fixed. `tests/resolution.test.ts` pinned the opening's speech time to its old words; the pin moves with them (recorded in `proofs/check-friction.json`).
