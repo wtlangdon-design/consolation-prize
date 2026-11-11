@@ -219,6 +219,8 @@ Every row here shipped past a green suite and was found by Tyler playing, by a r
 | A clip played at the wrong speed | The first room-motion sample was stitched from screenshots taken three times slower than it played back: Tyler judged the motion "high speed" when the game was not (errata 273) | A clip shown for judgement is recorded at the game's own speed (Playwright's `recordVideo`), never stitched from screenshots. |
 | A thing that hangs shakes instead of swinging | The lantern on Lower Street moved its lower half a whole step while its top stayed: "kind of shake in the middle" (Tyler, errata 273) | A hanging thing turns about its hook: the top row still, each row below moved in proportion, in single pixels. |
 | Doubled posts where two painted pieces meet | Main Street's redraw, painted in three windows and feathered together: the Nugget's porch posts stood twice (Tyler, 2026-11-11, errata 277) | Pieces of a picture are joined by a cut along where they agree, never a blend. `tests/main-street-seams.test.mjs`. |
+| Thad announces the mission as he arrives | Walking onto Main Street he named Pike, the letter and the undertaker in one breath: "it was giving too much away" (Tyler, 2026-11-11, errata 279) | On arriving, Thad has an opinion of the place and nothing more. The errand comes from the people he talks to; he does not tell the player where to go next. |
+| An option lit before it is chosen, on a tablet | The last tap's place was kept as the pointer's, so the next list lit whichever option fell in that row (Tyler, 2026-11-11, errata 279) | A lifted finger rests nowhere: only a mouse lights the row under it. `tests/resting-pointer.test.ts`. |
 
 ### Not caught — the process that worked
 

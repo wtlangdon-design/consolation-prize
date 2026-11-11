@@ -605,6 +605,24 @@
      "quote": "Let's build the act 2 scenes you recommended."
     }
    ]
+  },
+  {
+   "id": "arrival-errand-withdrawn",
+   "why": "WITHDRAWN IN PLAY (errata 279, Tyler 2026-11-11: \"Cut both errand lines\"): errata 170's two errand lines on arriving at Main Street, which gave too much away, and the words of the ruling that withdrew them, quoted where doc 98 records it.",
+   "lines": [
+    {
+     "doc": "98-main-street-pass",
+     "quote": "The driver said ask the undertaker. An undertaker knows everybody, eventually."
+    },
+    {
+     "doc": "98-main-street-pass",
+     "quote": "it was giving too much away"
+    },
+    {
+     "doc": "98-main-street-pass",
+     "quote": "Cut both errand lines"
+    }
+   ]
   }
  ]
 }

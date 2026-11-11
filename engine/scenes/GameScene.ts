@@ -2,6 +2,7 @@ import { counterReading, priceText } from '../core/NodeCounter.ts';
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
+import { restingPoint } from '../core/RestingPointer.ts';
 import type { AmbientFile, Condition, Cutaway, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
@@ -1281,7 +1282,8 @@ export class GameScene extends Phaser.Scene {
     // THE ROW UNDER THE POINTER LIGHTS (errata 143; MI's highlight). Only
     // the pointer's place is kept here; which row that is, is worked out when
     // the frame is drawn, from the same layout the list is drawn from.
-    this.pointerAt = this.nativePoint(pointer);
+    // A lifted finger rests nowhere, so nothing lights under it (engine/core/RestingPointer.ts).
+    this.pointerAt = restingPoint(pointer, this.nativePoint(pointer));
     if (this.state.dialogue.isActive && !this.state.menu.isOpen) {
       // NOTHING IN THE ROOM IS UNDER THE POINTER WHILE IT IS ON THE LIST, so
       // the sentence line cannot come back naming what was hovered before the

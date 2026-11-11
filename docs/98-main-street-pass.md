@@ -8,6 +8,7 @@
 The design already gave Thad one: **A1, deliver the letter of introduction to Ezra Pike — "every character redirects you elsewhere"**, until the undertaker says Pike died six years ago (doc 02). The driver had pointed him at the undertaker in Room 1, and Hob and Frame redirected him, but nothing on Main Street knew Pike existed. Now:
 
 - **He arrives with the errand.** After his first look at the street: "Now. Mr. Ezra Pike, and my father's letter." / "The driver said ask the undertaker. An undertaker knows everybody, eventually." (`reference/room-02/annotation.json` `onEnterSay`, compiled into the room.)
+  *Withdrawn by errata 279 (Tyler, 2026-11-11, playing: "it was giving too much away"; "Cut both errand lines"). He arrives and remarks on the town, and nothing more; the errand is the driver's ("Ask the undertaker. He knows everybody.") and the townspeople's.*
 - **Every townsperson, asked after Pike, sends him to the undertaker down the lane — and none of them will say why.** Each one dodges in their own way. The player understands long before Thad does, and the run of dodges is the joke (doc 59 §6). It follows the euphemisms Hob ("Pike's up the hill") and Frame ("He has moved somewhere very quiet") already use. The question is offered only while Thad does not know (`T_PIKE_DEAD` false).
 - **After the undertaker, each of them answers "You knew Pike was dead."** That is the payoff, gated on `T_PIKE_DEAD`.
 

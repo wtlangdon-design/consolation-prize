@@ -7291,3 +7291,12 @@ Doc 124 named B1 and B2, the two errands before Grievance, as "go and ask". Tyle
 - `content/checks/narration-allowlist.json` gains "four days" and "time like", which the approved lines carry to a fourth subject; it was the list's third loosening in fourteen days, and the review is in `proofs/check-friction.json` (no tune; the check counting phrases across punctuation is put to the twice-monthly review).
 
 Lesson: none -- a ruled change built, not a fix. Held by `tests/room-15.test.ts` (the question hidden before the board, the board's second look its repeat, no hum before the story, the hum heard and unmarked, then the question about it) and by the continuous playthrough's B2 steps, replayed in the real build from B2.1 to B3.1.
+
+## 279 · Played on a tablet: an option lit before it was chosen; Thad no longer announces the mission (Tyler, 2026-11-11)
+
+Tyler, playing on a tablet: "The one about Ezra Pike was an extra bright color before I clicked on it, which shouldn't have been the case." And: "When he walks into consolation now he essentially sets up the mission. It felt like it was giving too much away."
+
+- **The lit option.** The choice list lights the row under the pointer (errata 143), and the pointer's place was kept from its last event. A finger's last event is the tap that chose the previous option, so when the list came back, whichever option now sat in that row was drawn bright with the selection marker -- one option set apart from its neighbours before the player touched it. A touch now leaves no resting place (`engine/core/RestingPointer.ts`); a mouse still lights the row it rests on.
+- **The arrival.** Asked what should change, Tyler: "Cut both errand lines." Errata 170's "Now. Mr. Ezra Pike, and my father's letter." and "The driver said ask the undertaker. An undertaker knows everybody, eventually." are gone from Main Street's first look. He arrives and remarks on the town; the errand is the driver's ("Ask the undertaker. He knows everybody.") and the townspeople's. Doc 98 records the withdrawal.
+
+Lesson: `tests/resting-pointer.test.ts` (fails with the scene keeping a tap's place, as it did). Doc 55 section 8, two rows: a lifted finger rests nowhere; on arriving, Thad has an opinion of the place and does not announce the errand.
