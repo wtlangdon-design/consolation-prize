@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 57 · B 0 · C 108** — 165 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 57 · B 5 · C 111** — 173 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -202,8 +202,8 @@ Counts: **A 57 · B 0 · C 108** — 165 directions, every one flagged `"directi
 | 165 | C | ozymandia | She takes a Form 12-C from a stack of them and writes in purple ink. | rooms/ozymandias_tent stake USE |  |  |  |  |  | Errata 251, doc 120 I-3: doc 57 A7's own direction. Under the map; told. |
 | 166 | C | livery_man | He tips his chair back and goes on humming, under his breath. | dialogue/livery-man LIV_A1 option 6 |  |  |  |  |  | Errata 278, doc 125: his hum is not a sound (doc 45 writes none for him but LIV-HUM inside the tune); told, so that LISTEN TO THE LIVERY MAN, which hears it, follows from what the player has read. |
 | 167 | B | letter_writer | He writes it down. | dialogue/amb-letter-writer root option 7 |  |  |  |  |  | Errata 286: physical; printed until a writing pose is drawn. |
-| 168 | B | bell_ringer | He holds up his bottle, hopefully. | dialogue/amb-bell-ringer root option 6 |  |  |  |  |  | Errata 286: physical; printed until the bottle raised is drawn. "Hopefully" is the joke and would stay printed beside it. |
-| 169 | B | bell_ringer | He looks up at the bell, then down at the bottle. | dialogue/amb-bell-ringer root option 7 |  |  |  |  |  | Errata 286: physical; printed until drawn. The order of the two looks is the joke. |
+| 168 | B | bell_ringer | He holds up his bottle, hopefully. | dialogue/amb-bell-ringer root option 6 |  |  |  |  |  | Errata 286: physical; printed until the bottle raised is drawn. He has no bottle on his sheet yet, so it is drawn into every frame first (reference/acted-directions-3). Acted, it prints nothing: his face carries "hopefully". |
+| 169 | B | bell_ringer | He looks up at the bell, then down at the bottle. | dialogue/amb-bell-ringer root option 7 |  |  |  |  |  | Errata 286: physical; printed until drawn, with the bottle (row 168). The order of the two looks is the joke, and the frames play in it. |
 | 170 | C | pie_woman | She looks at his boots again, and knocks a penny off him. | dialogue/amb-pie-woman root option 6 |  |  |  |  |  | Errata 286: the penny is what she thinks, not a thing she does; printed, as her opening is (row 102). |
 | 171 | C | man_leaving_tomorrow | He says it the way other men say 'measles'. | dialogue/amb-man-leaving-tomorrow root option 3 |  |  |  |  |  | Errata 286: a manner of speaking, and the simile is the joke; printed. |
 | 172 | B | man_leaving_tomorrow | He grips it with both hands. | dialogue/amb-man-leaving-tomorrow root option 6 |  |  |  |  |  | Errata 286: physical; printed until the bag gripped is drawn. |
@@ -211,7 +211,7 @@ Counts: **A 57 · B 0 · C 108** — 165 directions, every one flagged `"directi
 
 ## When a B pose is drawn
 
-`reference/acted-directions/brief.md` briefs the image session. When a sheet is cut and wired:
+`reference/acted-directions-3/brief.md` is the running list of every B row still to draw (errata 287; the first two passes were `reference/acted-directions/` and `reference/acted-directions-2/`). A row made B goes onto that list in the same pull request (`tests/movements-to-draw.test.mjs`). When a sheet is cut and wired:
 
 1. Add the new frames to the figure's sheet and ambient file, keeping every existing frame index as it is.
 2. Change the row here from B to A, and fill in **Performed by**, **Frames**, **Seconds** and, if a sound lands, **Cue**.

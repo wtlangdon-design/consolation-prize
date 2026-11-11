@@ -7368,3 +7368,18 @@ The six people met in the first minutes in town are rewritten in doc 07, to doc 
 It is the sample: CLAUDE.md's sixteenth exception. No other character is rewritten until Tyler has played these and ruled.
 
 Lesson: doc 55 section 8, one row (a matter of taste: how a town comes to sound written by a machine, and what to do before writing a person). The tests that hold the trees to doc 07 and doc 95 hold the new lines.
+
+## 287 · The rewrite goes to the whole cast; the movements it needs are a running list (Tyler, 2026-11-11)
+
+Tyler, on the street people's rewrite (errata 286): "This already seems better. I think we need to do it for the rest of the game." That is the ruling errata 286 waited for. The rewrite extends to every speaking character, in play order, under CLAUDE.md's sixteenth exception as amended.
+
+He asked whether written personalities for each character should come first, "or maybe those exist already?" They do: doc 99, approved 2026-11-07, which the street people were written from. Its entries are strong on what each person wants and thin on how each sounds; five of the cast are described in nearly the same words ("few words", dry). So before the next character is rewritten, each doc 99 entry gains a voice block that makes the cast distinguishable by ear, with the test "cover the name: can you tell who said it?". Tyler skims it before the rewriting begins.
+
+He also asked: "make a running list of new character movements that need to be created to bring the new dialogue to life, and we can create those via CC as a next step". The list is `reference/acted-directions-3/brief.md`, written as a brief the image session can draw from. It holds every class B row in doc 95, by figure, with the sheet, the frames each figure has, and what each new pose needs. It starts with the five from errata 286 and grows as each character is rewritten. It has no budget yet: Tyler sets it when a batch is worth a session, and `art/staging/caps.json` is not touched until he does.
+
+Two things found on the way:
+
+- **The bell-ringer has no bottle.** Doc 07 has him drunk, but his sheet shows none, and two of errata 286's directions are about it. They print a bottle the player cannot see until one is drawn into every frame of his sheet. The list says so.
+- **Doc 95's counts line drifted.** It read "B 0", with five B rows under it. It now agrees with the table.
+
+Lesson: `tests/movements-to-draw.test.mjs`, proved against both defects. It fails if a B row is missing from the list or under the wrong figure, if a listed row is no longer B, or if doc 95's counts line disagrees with its table. Doc 55 §8 gets one row: a new physical direction names only what the figure already carries, or its pose goes on the list with the prop.
