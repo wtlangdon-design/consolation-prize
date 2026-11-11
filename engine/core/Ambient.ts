@@ -177,6 +177,7 @@ export class AmbientLayer {
     this.fadings.clear();
     this.cued.clear();
     this.ranThisVisit.clear();
+    this.summoned.clear();
   }
 
   /**
@@ -200,8 +201,10 @@ export class AmbientLayer {
     // the moment he sets her down, and from then on she is one who was here.
     for (const npc of live) if (npc.setDown && !this.latched!.has(npc.id)) this.latched!.set(npc.id, npc);
     const out = live.filter((npc) => this.latched!.has(npc.id));
+    // Whoever somebody live stands in for (AmbientFile.standsInFor) has not stayed behind: she is the one walking.
+    const replaced = new Set(live.map((npc) => npc.standsInFor).filter((id): id is string => id !== undefined));
     for (const [id, npc] of this.latched) {
-      if (out.some((one) => one.id === id)) continue;
+      if (out.some((one) => one.id === id) || replaced.has(id)) continue;
       // HE ACTS HIS PART, THEN GOES (doc 54 A5: "The raccoon emerges, gives Thad one look of complete
       // contempt, and leaves at a walk"). While an acted beat of his is still to play in what sent him
       // away, a figure with a walk out stays; he walks when his last beat is over.
@@ -255,12 +258,38 @@ export class AmbientLayer {
   private get live(): AmbientFile[] {
     const ids = this.state.room.ambient ?? [];
     const roomId = this.state.room.id;
-    return ids
+    const here = ids
       .map((id) => this.state.content.ambient.get(id))
       .filter((npc): npc is AmbientFile => npc !== undefined)
-      // PRESENT ONLY WHILE THEIR CONDITION HOLDS, the room's placement first.
-      .filter((npc) => ambientHere(npc, roomId, (when) => this.state.flags.test(when)))
+      // PRESENT ONLY WHILE THEIR CONDITION HOLDS, the room's placement first -- or called out of the wings (`summon`).
+      .filter((npc) => ambientHere(npc, roomId, (when) => this.state.flags.test(when))
+        || (this.summoned.has(npc.id) && this.summonedRoom === roomId))
       .map((npc) => this.dressed(npc, roomId));
+    // THE SAME PERSON SOMEWHERE ELSE (AmbientFile.standsInFor): the one she stands in for is not here while she is.
+    const replaced = new Set(here.map((npc) => npc.standsInFor).filter((id): id is string => id !== undefined));
+    return replaced.size ? here.filter((npc) => !replaced.has(npc.id)) : here;
+  }
+
+  /** Called out of the wings this visit (AmbientExit.onAct). Not kept: the flags the scene writes take over. */
+  private readonly summoned = new Set<string>();
+  private summonedRoom: string | null = null;
+
+  /** Figures of this room who are not here and come in when a direction of theirs is reached (AmbientExit.onAct). */
+  get wings(): AmbientFile[] {
+    const roomId = this.state.room.id;
+    const here = new Set(this.present.map((npc) => npc.id));
+    return (this.state.room.ambient ?? [])
+      .map((id) => this.state.content.ambient.get(id))
+      .filter((npc): npc is AmbientFile => npc !== undefined && npc.arrive?.onAct === true && !here.has(npc.id))
+      .map((npc) => this.dressed(npc, roomId));
+  }
+
+  /** Her direction has come up: she comes in. True while she is still on her way. */
+  summon(id: string): boolean {
+    if (!this.wings.some((npc) => npc.id === id)) return false;
+    this.summoned.add(id);
+    this.summonedRoom = this.state.room.id;
+    return true;
   }
 
   /** A figure as he is drawn in this room now: the sheet the flags choose, and the room's own placement. */

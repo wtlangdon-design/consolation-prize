@@ -1639,6 +1639,15 @@
    "note": "Doc 57 C6: Thad has been out of the office and back since asking; WIN_B4 opens on the next TALK TO."
   },
   {
+   "id": "T_LEDGER_ON_COUNTER",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:assay_office:onEnter"
+   ],
+   "note": "Errata 270: Winnie is back behind her counter and the second ledger lies on it. Written on coming into the office once T_SECOND_LEDGER is true: she stays at the loose board with the ledger until Thad leaves, and is at her counter when he comes back."
+  },
+  {
    "id": "T_ASSAY_RETURNED",
    "type": "boolean",
    "initial": false,

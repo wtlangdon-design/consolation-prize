@@ -4,38 +4,38 @@
   [
    2,
    2,
-   219,
-   496
+   231,
+   522
   ],
   [
-   223,
+   235,
    2,
-   219,
-   496
+   231,
+   522
   ],
   [
-   444,
+   468,
    2,
-   219,
-   496
+   231,
+   522
   ],
   [
-   665,
+   701,
    2,
-   219,
-   496
+   231,
+   522
   ],
   [
-   886,
+   934,
    2,
-   219,
-   496
+   231,
+   522
   ],
   [
-   1107,
+   1167,
    2,
-   219,
-   496
+   231,
+   522
   ]
  ],
  "frameNames": [
@@ -46,8 +46,8 @@
   "ledger-open",
   "ledger-closed"
  ],
- "figureHeight": 492,
- "stature": 0.95,
+ "figureHeight": 517,
+ "stature": 1.0,
  "posture": "standing",
  "man": 518,
  "note": "Room 5 at the loose board (x 462-745, y ~770): the room's man is 518; she stands 0.95 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0. The kneeling and reaching frames stand on the same sole line as the standing ones.",

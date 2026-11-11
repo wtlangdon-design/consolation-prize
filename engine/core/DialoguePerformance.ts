@@ -229,6 +229,11 @@ export class DialoguePerformance {
     return this.shownAt + readingHold(line.line, this.timing);
   }
 
+  /** The beat up has not begun: somebody it needs is still walking in (AmbientExit.onAct). Its time starts now. */
+  wait(now: number): void {
+    this.shownAt = now;
+  }
+
   /** Whether input may dismiss the current line yet. Doc 30 section 4.2. */
   acceptsInput(now: number): boolean {
     if (this.current?.rest !== undefined) return false;

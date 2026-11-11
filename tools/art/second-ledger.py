@@ -28,7 +28,7 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 STAGE = os.path.join(ROOT, 'art/staging/room-05/second-ledger')
-MAN, STATURE = 518, 0.95
+MAN, STATURE = 518, 1.0   # errata 270: at the room's man, as every standing figure is (was 0.95)
 OUT = os.path.join(ROOT, 'art/actors/winnie-second-ledger.png')
 NAMES = ['standing', 'breath', 'kneel-lift', 'reach', 'ledger-open', 'ledger-closed']
 

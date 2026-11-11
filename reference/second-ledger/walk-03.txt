@@ -1,0 +1,12 @@
+Image 1 is a TEMPLATE on magenta from my pixel-art adventure game, set in an 1850s gold town: Winnie, the assay clerk -- dark hair in a bun, a dark charcoal high-necked blouse and a long dark skirt to her boots -- standing, seven times. Image 2 is her whole sheet as drawn in the game, at this size. Image 3 shows her in her assay office beside the hero Thad, at game size: Thad's look is the standard -- flat, soft shading, low texture. Image 4 is Thad's own six-frame walk to the LEFT, the walk the game passed: it is the POSE GUIDE for the stride.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other SIX as the SAME Winnie -- the same height from crown to boots, the same head, hair, face, blouse and skirt, the same colours -- now in PROFILE, facing and WALKING to the LEFT, six evenly spaced frames of one full stride, all on one ground line, each copying the leg timing of the matching frame of Image 4:
+2. contact: the front (left-hand) boot reaching forward under the hem, the skirt swung forward over it;
+3. down: the stride still open, the body lowest;
+4. passing: the back leg swinging through, the skirt hanging straight;
+5. contact on the OTHER foot: the other boot forward, the skirt swung the other way;
+6. down;
+7. passing.
+A plain, unhurried walk. The skirt swings with each step and the toes of her boots show under its hem. Her hands at her sides, or one lightly holding the front of the skirt, the same in every frame. Frames 2 and 5 must show DIFFERENT boots in front.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the first figure and as Thad -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No shadows, no ground, no text, no numbers, no border.

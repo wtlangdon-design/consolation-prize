@@ -748,10 +748,45 @@
     },
     {
       "n": 74,
-      "class": "B",
+      "class": "A",
       "speaker": "winnie",
       "words": "She produces it from under the floor.",
-      "where": "dialogue/winnie WIN_B2 option 3"
+      "where": "dialogue/winnie WIN_B2 option 3",
+      "performedBy": [
+        "thad:stand/left",
+        "winnie_at_board"
+      ],
+      "frames": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "framesBy": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          4,
+          4,
+          5,
+          5
+        ]
+      ],
+      "seconds": 6,
+      "holdsBy": [
+        0,
+        5
+      ]
     },
     {
       "n": 75,

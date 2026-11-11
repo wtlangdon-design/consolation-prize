@@ -164,6 +164,8 @@ for (const roomId of built) {
       const body = maskOf(playerStand, [0, playerBox.top, image.width, playerBox.bottom - playerBox.top + 1], scale, stand.x, stand.y, mirror);
       for (const other of people) {
         if (other.npc.id === talker.npc.id || !coexist(talker.when, other.when)) continue;
+        // The same person somewhere else in the room (AmbientFile.standsInFor; errata 270): never both drawn.
+        if ((talker.npc as { standsInFor?: string }).standsInFor === other.npc.id || (other.npc as { standsInFor?: string }).standsInFor === talker.npc.id) continue;
         if (other.posture === 'band') continue; // painted crowd, cut from the plate behind everyone
         const share = most([body], other.masks);
         if (share > TOUCH) faults.push(`talking to ${talker.npc.id} from ${stand.x},${stand.y}, the player overlaps `
