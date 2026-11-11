@@ -805,6 +805,12 @@
    "date": "2026-11-11",
    "kind": "loosened",
    "why": "Errata 280: 'leavable' counted a gated exit as no way out even when the node's own removable rows open it by being asked (the driver's exit counts his three questions, which now go as asked). It now credits a counter gate that those rows' adds reach. The rule that a node always keeps a way out is unchanged."
+  },
+  {
+   "check": "tests/c5.test.ts",
+   "date": "2026-11-11",
+   "kind": "reviewed",
+   "why": "TUNED. Of the three loosenings in fourteen days, two were the design changing under it by Tyler's rulings (errata 245/247, the log stays with Winnie; errata 280, an asked question is gone) and one held a row's aftermath by hand. The tune: what WIN_B2's comic does once asked is read from its own afterUse, so the next change to the aftermath rule does not edit this test. Everything C5 itself holds (the pair opens WIN_B2, its rows move the world as doc 04 says, the states stay apart) is unchanged. Keep it."
   }
  ]
 }
