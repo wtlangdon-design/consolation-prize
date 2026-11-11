@@ -7182,3 +7182,14 @@ Tyler, 2026-11-10: "do you think Main Street looks like it was drawn by the same
 The originals are kept in `reference/night-streets/originals/`. Nothing is redrawn and no image operation is spent.
 
 Lesson: `tests/night-streets.test.mjs`: Main Street's ground is no more than half again as light as the streets it opens onto, and no night street has glowing puddles. With the old plate put back both fail. Doc 55 section 8: a room is judged beside the rooms its doors open onto.
+
+## 269 · The Deacon's point is seen; the second ledger lies on the counter; and what the play-through left open (Tyler, 2026-11-10)
+
+Tyler, 2026-11-10, told what the play-through left: "Fix the Deacon point and handle the open items."
+
+- **The Deacon's point.** Told to sign, he points down the bank; from where Thad stood to talk to him (1060) the hand ended behind Thad's shoulder. Thad stands at 1005 now. Replayed and filmed: the whole arm and the pointing finger are clear.
+- **The second ledger lies on her counter from `T_SECOND_LEDGER` on.** Tyler ruled it on 2026-11-08 and the picture was drawn that day (errata 181); it was never shown. It is a prop in Room 5 now. It is a picture only: THE SECOND LEDGER and THE NAMES as things to examine on it still wait on their lines, and none is written here.
+- **Winnie's retrieval (doc 95 row 74) still waits on one drawing, and it is briefed.** Her kneeling, reaching and standing with the ledger are drawn, and so is the board lifted. What is missing is her walk from behind the counter to the board: nobody pops in or out of view, and a walk needs six frames. `reference/second-ledger/walk-brief.md` asks the image session for it, within the one operation left of the three Tyler approved for `room-05-second-ledger`. The row stays B until the sheet is back and she is staged.
+- **III-1 stays withdrawn.** "Handle the open items" is not read as "build III-1": the archive search was withdrawn by its author to protect invariants 3 and 7 (errata, doc 121), and it is built the day Tyler says those words.
+
+Lesson: `tests/second-ledger.test.mjs` (a ruled picture that was drawn and never shown: the prop is in the room on its flag, and its frame holds a book). The Deacon's hand is a matter of the eye: a model of it in `tests/staging-clear.test.ts` was tried and did not see the fault, so it is a row in doc 55 section 8.
