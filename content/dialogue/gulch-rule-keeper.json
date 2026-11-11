@@ -121,7 +121,7 @@
           "id": "gulch_rule_keeper7",
           "tag": "COMIC",
           "text": "Play me something.",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "when": {
             "T_PLANK_SEAT": true
           },
@@ -131,7 +131,8 @@
               "line": "He plays. It is very bad, and he is very happy.",
               "direction": true
             }
-          ]
+          ],
+          "repeat": "That one's called 'The Strike'. It's the same as the other one."
         },
         {
           "id": "gulch_rule_keeperx",

@@ -87,7 +87,8 @@
               "line": "Tomorrow."
             }
           ],
-          "afterUse": "remove"
+          "repeat": "Tomorrow. I've told you. It's the one place I'm sure of.",
+          "afterUse": "retain"
         },
         {
           "id": "leavingx",

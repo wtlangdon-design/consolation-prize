@@ -75,7 +75,7 @@
         {
           "id": "seance2",
           "tag": "COMIC",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "text": "I tune pianos.",
           "exchange": [
             {
@@ -90,6 +90,17 @@
             {
               "speaker": "ozymandia",
               "line": "The dead take up hobbies, darling."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "exchange": [
+                {
+                  "speaker": "seance_frame",
+                  "line": "He said that already. Still good."
+                }
+              ]
             }
           ]
         },

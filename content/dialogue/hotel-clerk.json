@@ -104,11 +104,12 @@
           "id": "hotel_clerk5",
           "text": "Is there anything cheaper?",
           "tag": "COMIC",
+          "repeat": "The road, as given. It keeps no register, which is its only appeal.",
           "after": [
             "hotel_clerk2"
           ],
           "say": "There is the road.",
-          "afterUse": "remove"
+          "afterUse": "retain"
         },
         {
           "id": "hotel_clerk6",

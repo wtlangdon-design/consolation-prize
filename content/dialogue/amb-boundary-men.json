@@ -138,7 +138,8 @@
               "line": "With our evenings?"
             }
           ],
-          "afterUse": "remove"
+          "repeat": "You've asked twice now. He'll call that evidence.",
+          "afterUse": "retain"
         },
         {
           "id": "boundaryx",

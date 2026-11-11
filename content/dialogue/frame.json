@@ -48,7 +48,7 @@
           "id": "frame2",
           "tag": "TOPIC",
           "text": "What do you know about Mott?",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "exchange": [
             {
               "speaker": "frame",
@@ -71,6 +71,12 @@
               "line": "I'd have to check which."
             }
           ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "More than a minute ago! It keeps coming back to me. Some of it for the first time."
+            }
+          ],
           "set": {
             "T_MOTT_FACE_UNKNOWN": true
           }
@@ -79,11 +85,17 @@
           "id": "frame3",
           "tag": "TOPIC",
           "text": "Do you have a photograph of him?",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "after": [
             "frame2"
           ],
-          "say": "I have the photograph of him."
+          "say": "I have the photograph of him.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "THE photograph. I'd lend it to you, but then you'd have it."
+            }
+          ]
         },
         {
           "id": "frame8",

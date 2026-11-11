@@ -168,6 +168,108 @@ The plank, and arithmetic, follow "What rules?"
 
 - `seance1` stays
 
+## The keepers
+
+*Tyler, 2026-11-11, shown what the rule cost ("give me an example of what we're losing") and offered the second answers that are a joke rather than a restatement: "Yes."* Monkey Island kept a question on the list where asking it again was the joke. These are the ones here that are: the second answer pays for the second ask, and most say so ("Asking twice is a dollar", "You've asked twice now"). A restatement ("Still not been disproved") stays gone. Not kept, whatever the line: the stage driver (the first conversation teaches the list), Fanshawe's dinner (its count of deferred pitches is the scene), and a list that is a puzzle's choice.
+
+### amb_bell_ringer
+
+- `bell_ringer5` stays — "Ask me after the noon bell. I won't hear you. That's also the qualification."
+
+### amb_boundary_men
+
+- `boundary5` stays — "You've asked twice now. He'll call that evidence."
+
+### amb_card_sharp
+
+- `card_sharp6` stays — "Good enough not to play you. You'd lose, and I'd feel it."
+
+### amb_fiddler
+
+- `fiddler5` stays — "Still no. In tune, I'd be playing on my own."
+
+### amb_letter_writer
+
+- `letter_writer6` stays — "So you keep saying."
+
+### amb_man_leaving_tomorrow
+
+- `leaving5` stays — "Tomorrow. I've told you. It's the one place I'm sure of."
+
+### amb_message_boy
+
+- `message_boy6` stays — "A penny and I'll go. I'll come straight back, but I'll go."
+
+### amb_one_strike_man
+
+- `one_strike1` stays — "Again? …Bless you. Nobody asks twice."
+
+### amb_pie_woman
+
+- `pie_woman1` stays — "Still pie. It's been pie all day."
+
+### UNDERTAKER
+
+- `undertaker4` stays — "Keep it. Paper's dear out here."
+- `undertaker7` stays — "That's how this town says it. It sends you to me."
+- `undertaker_c3` stays — "Roomy's extra. Nobody's ever come back for that either."
+
+### OZYMANDIA
+
+- `ozymandia2` stays — "Asking twice is a dollar."
+- `ozymandia3` stays — "I am adding the question to your account."
+- `ozymandia7` stays — "Free, and no atmosphere whatsoever."
+
+### FRAME
+
+- `frame3` in `FRA_A1` stays — "I'd lend it to you, but then you'd have it."
+- `frame2` in `FRA_A1` stays — "It keeps coming back to me. Some of it for the first time."
+
+### FANSHAWE
+
+- `fanshawe3` in `FAN_B1` stays — "Eleven minutes, every day, without fail."
+- `fanshawe4` in `FAN_B2` stays — "Newer still. I had them reupholstered while you were looking."
+- `fanshawe5` in `FAN_C1` stays — "I shall have to name something after you."
+
+### SUMP
+
+- `sump2` in `SUM_B1` stays — "Section nineteen has not changed since you asked. It is not that kind of section."
+- `sump3` in `SUM_C1` stays — "You are the first. I have made a note of it for the next printing."
+- `sump3` in `SUM_E1` stays — "No form in advance. I have checked again. I find it a serious gap."
+
+### WINNIE
+
+- `winnie4` in `WIN_B2` stays — "Still offended. I'll tell you when it stops. It won't."
+- `winnie2` in `WIN_B4` stays — "Certified worthless. Asking twice won't lower it."
+- `winnie4` in `WIN_B4` stays — "I have told you this twice now. I'm keeping count."
+
+### SOWERBY
+
+- `sowerby6` in `SOW_A1` stays — "I pray for one daily, in general terms."
+
+### SHENG
+
+- `sheng5` in `SHE_D1` stays — "Nobody believes me, which is also restful."
+
+### HOTEL_CLERK
+
+- `hotel_clerk5` stays — "The road, as given. It keeps no register, which is its only appeal."
+
+### PANNER
+
+- `gulch_panner5` stays — "Still no. You're consistent. I like that in a beggar."
+
+### RULE_KEEPER
+
+- `gulch_rule_keeper7` stays — "That one's called 'The Strike'. It's the same as the other one."
+
+### LOOKOUT
+
+- `gulch_lookout7` stays — "Still thinking. That's the first honest offer I've had all year."
+
+### SEANCE
+
+- `seance2` in `SEA_E1` stays — "He said that already. Still good."
 ### SHENG
 
 "Why does nobody know this?" asks about the paper he holds on the Company, so it follows his saying so (the read-through, errata 284).

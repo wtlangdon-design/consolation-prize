@@ -86,7 +86,7 @@
           "id": "gulch_lookout7",
           "tag": "COMIC",
           "text": "Would you like to buy a claim?",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "exchange": [
             {
               "speaker": "gulch_lookout",
@@ -100,7 +100,8 @@
               "speaker": "gulch_lookout",
               "line": "Then I'll think about it."
             }
-          ]
+          ],
+          "repeat": "Still thinking. That's the first honest offer I've had all year."
         },
         {
           "id": "gulch_lookoutx",
@@ -182,7 +183,7 @@
           "id": "gulch_lookout7",
           "tag": "COMIC",
           "text": "Would you like to buy a claim?",
-          "afterUse": "remove",
+          "afterUse": "retain",
           "exchange": [
             {
               "speaker": "gulch_lookout",
@@ -196,7 +197,8 @@
               "speaker": "gulch_lookout",
               "line": "Then I'll think about it."
             }
-          ]
+          ],
+          "repeat": "Still thinking. That's the first honest offer I've had all year."
         },
         {
           "id": "gulch_lookoutx",

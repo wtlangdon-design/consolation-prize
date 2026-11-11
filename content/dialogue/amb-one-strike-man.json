@@ -17,8 +17,9 @@
           "set": {
             "T_STRIKE_TOLD": true
           },
+          "repeat": "Again? …Bless you. Nobody asks twice.",
           "say": "Bent down to drink. There it was, winking up at me. I've been bending down ever since.",
-          "afterUse": "remove"
+          "afterUse": "retain"
         },
         {
           "id": "one_strike2",
