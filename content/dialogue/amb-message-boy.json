@@ -14,8 +14,8 @@
           "id": "message_boy1",
           "text": "What do you know?",
           "tag": "TOPIC",
-          "repeat": "Still everything. It's gone up.",
-          "say": "Everything. Pick a bit."
+          "say": "Everything. Pick a bit.",
+          "afterUse": "remove"
         },
         {
           "id": "message_boy2",
@@ -35,7 +35,10 @@
               "line": "Knowing does. Not knowing's free. Most of the town's on that plan."
             }
           ],
-          "repeat": "Penny. Same as last time. I'm fair."
+          "after": [
+            "message_boy1"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "message_boy3",
@@ -44,8 +47,8 @@
           "after": [
             "message_boy2"
           ],
-          "repeat": "That was a penny's worth. You've had it.",
-          "say": "…The Colonel gets a letter from Boston every month and burns it in the stove."
+          "say": "…The Colonel gets a letter from Boston every month and burns it in the stove.",
+          "afterUse": "remove"
         },
         {
           "id": "message_boy4",
@@ -68,7 +71,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "Still free. Still the undertaker."
+          "afterUse": "remove"
         },
         {
           "id": "message_boy5",
@@ -77,15 +80,15 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "Penny.",
-          "say": "Everybody knew. You never asked the right question. That one's a penny."
+          "say": "Everybody knew. You never asked the right question. That one's a penny.",
+          "afterUse": "remove"
         },
         {
           "id": "message_boy6",
           "text": "Shouldn't you be in school?",
           "tag": "COMIC",
-          "repeat": "A penny and I'll go. I'll come straight back, but I'll go.",
-          "say": "There's no teacher. There's a school."
+          "say": "There's no teacher. There's a school.",
+          "afterUse": "remove"
         },
         {
           "id": "message_boyx",

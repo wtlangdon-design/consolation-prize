@@ -775,6 +775,36 @@
    "date": "2026-11-10",
    "kind": "loosened",
    "why": "Errata 278: not a misfire but the design changing under the test. B2's test asserted that option 4, asked, writes T_HUM_HEARD; Tyler approved doc 125, where the hum is heard by LISTEN and option 4 waits on it. The rewritten test asserts more than the old one (the question hidden before the board, the board's repeat, no hum before the story, the LISTEN rule unmarked), and nothing it held about B2's completion or the refusal was dropped."
+  },
+  {
+   "check": "tests/resolution.test.ts",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 280: not a misfire but the design changing under the test. Tyler ruled conversations run exactly as Monkey Island ran them, a question asked is gone; the driver's tests held errata 37's opposite (rows never shrink, an asked question stays askable). Rewritten to the MI property: each question goes as asked, the rows left keep their order, the exit arrives after all three in every order they can be asked."
+  },
+  {
+   "check": "tests/c5.test.ts",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 280: WIN_B2's comic, asked, was asserted retained and greyed; under the MI ruling it is gone. Only that line changed."
+  },
+  {
+   "check": "tests/room-11.test.ts",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 280: the dinner test re-asked FAN_A2's rows; asked once, they are now gone. It now asks each once and asserts only the way out is left. The staging (two pitches deferred bring the honest answer) is unchanged."
+  },
+  {
+   "check": "tests/aftermath.test.ts",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 280: the retain test found its row in one tree's opening node, which no longer has one; it now finds any tree that opens on a row doc 126 keeps on purpose. The assertions are unchanged."
+  },
+  {
+   "check": "tools/check-dialogue-afteruse.mjs",
+   "date": "2026-11-11",
+   "kind": "loosened",
+   "why": "Errata 280: 'leavable' counted a gated exit as no way out even when the node's own removable rows open it by being asked (the driver's exit counts his three questions, which now go as asked). It now credits a counter gate that those rows' adds reach. The rule that a node always keeps a way out is unchanged."
   }
  ]
 }

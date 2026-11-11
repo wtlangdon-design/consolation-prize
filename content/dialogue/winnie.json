@@ -67,20 +67,14 @@
           "id": "winnie2",
           "tag": "TOPIC",
           "text": "What is it you actually do here?",
-          "afterUse": "retain",
-          "say": "I decide what things are. It's the only office in the territory that does.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Decide. Same as a minute ago. I've decided you're in the way."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "I decide what things are. It's the only office in the territory that does."
         },
         {
           "id": "winnie6",
           "tag": "TOPIC",
           "text": "Do you know a man named Ezra Pike?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "winnie",
@@ -93,12 +87,6 @@
             {
               "speaker": "winnie",
               "line": "The undertaker has his paperwork. I'm not doing the undertaker's job."
-            }
-          ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "The undertaker. Down the lane. I don't do directions either."
             }
           ],
           "when": {
@@ -138,14 +126,8 @@
           "id": "winnie4",
           "tag": "TOPIC",
           "text": "You knew Pike was dead.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "I knew him. Then I certified him. Then I stopped.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Certified. It's what I do. Nobody asked me to announce it."
-            }
-          ],
           "when": {
             "T_PIKE_DEAD": true
           }
@@ -272,14 +254,8 @@
             "winnie1"
           ],
           "text": "Eight months? Who's ahead of me?",
-          "afterUse": "retain",
-          "say": "The Improvement Company. Perpetually. Priority submissions.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "The Company. It hasn't moved since you asked. It never moves; that's how it stays ahead."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "The Improvement Company. Perpetually. Priority submissions."
         },
         {
           "id": "winnie3",
@@ -302,7 +278,7 @@
           "id": "winnie4",
           "tag": "COMIC",
           "text": "You have very good handwriting.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "winnie",
@@ -315,12 +291,6 @@
             {
               "speaker": "winnie",
               "line": "Nine years, and you're the first to mention it."
-            }
-          ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still legible."
             }
           ]
         },
@@ -485,14 +455,8 @@
           "id": "winnie4",
           "tag": "COMIC",
           "text": "Are you all right?",
-          "afterUse": "retain",
-          "say": "I am professionally offended, Mr. Grubb. It is the worst kind.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still offended. I'll tell you when it stops. It won't."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "I am professionally offended, Mr. Grubb. It is the worst kind."
         },
         {
           "id": "winniex",
@@ -535,14 +499,8 @@
           "id": "winnie1",
           "tag": "COMIC",
           "text": "Am I in the book?",
-          "afterUse": "retain",
-          "say": "You've been in the book since Tuesday.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Since Tuesday. The twentieth. Keep coming to the window, Mr. Grubb."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "You've been in the book since Tuesday."
         },
         {
           "id": "winniex",
@@ -613,40 +571,22 @@
           "id": "winnie2",
           "tag": "TOPIC",
           "text": "So my claim is worthless.",
-          "afterUse": "retain",
-          "say": "Comprehensively. It's certified. It's the most certain thing you own.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Certified worthless. Asking twice won't lower it. Nothing could."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Comprehensively. It's certified. It's the most certain thing you own."
         },
         {
           "id": "winnie3",
           "tag": "TOPIC",
           "text": "Thank you.",
-          "afterUse": "retain",
-          "say": "Don't thank me for a form. Thank me for something I chose.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still a form."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Don't thank me for a form. Thank me for something I chose."
         },
         {
           "id": "winnie4",
           "tag": "COMIC",
           "text": "Was it the raccoon?",
-          "afterUse": "retain",
-          "say": "The raccoon is not an assayable substance. I have told you this.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "I have told you this twice now. I'm keeping count."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "The raccoon is not an assayable substance. I have told you this."
         },
         {
           "id": "winniex",
@@ -831,14 +771,8 @@
           "id": "winnie2",
           "tag": "TOPIC",
           "text": "You knew the nineteen names meant something.",
-          "afterUse": "retain",
-          "say": "I knew they meant something. Knowing what is your department. Mine is the book.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Your department, Mr. Grubb. Go and be in it."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "I knew they meant something. Knowing what is your department. Mine is the book."
         },
         {
           "id": "winnie3",

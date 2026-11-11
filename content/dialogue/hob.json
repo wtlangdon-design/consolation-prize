@@ -33,7 +33,7 @@
           "id": "hob1",
           "tag": "TOPIC",
           "text": "Good evening.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "hob",
@@ -50,14 +50,14 @@
           "id": "hob2",
           "tag": "TOPIC",
           "text": "Do you know anything about Claim One?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "beat": "nothing"
         },
         {
           "id": "hob3",
           "tag": "TOPIC",
           "text": "Did you know Obadiah Mott?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "hob",
@@ -79,14 +79,14 @@
           "id": "hob4",
           "tag": "TOPIC",
           "text": "How long have you been in Consolation?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "Longer than it has."
         },
         {
           "id": "hob5",
           "tag": "COMIC",
           "text": "Do you ever sleep?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "beat": "nothing"
         },
         {
@@ -154,28 +154,28 @@
           "id": "hob2",
           "tag": "TOPIC",
           "text": "Will you come to the archive with me?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "No."
         },
         {
           "id": "hob3",
           "tag": "TOPIC",
           "text": "Have you ever been an executor before?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "No. I've buried a few things."
         },
         {
           "id": "hob4",
           "tag": "TOPIC",
           "text": "Why would you do this for me?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "You asked."
         },
         {
           "id": "hob5",
           "tag": "COMIC",
           "text": "Do you ever sleep?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "beat": "nothing"
         },
         {
@@ -233,7 +233,7 @@
           "id": "hob4",
           "tag": "COMIC",
           "text": "You have very neat handwriting.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "set": {
             "T_HOB_HANDWRITING": true
           },
@@ -327,21 +327,21 @@
           "id": "hob5",
           "tag": "COMIC",
           "text": "You could have picked a better thumb.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "beat": "He laughs. Once. It is the only laugh in the scene and it is awful."
         },
         {
           "id": "hob6",
           "tag": "TOPIC",
           "text": "Grievance walked out after you, twelve years ago.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "She wanted to see where I was going. I wasn't going anywhere. She's still waiting for me to start."
         },
         {
           "id": "hob7",
           "tag": "TOPIC",
           "text": "This photograph isn't you.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "It's a collar. Frame bought the plate off a drummer in '47. Mine was never taken."
         },
         {

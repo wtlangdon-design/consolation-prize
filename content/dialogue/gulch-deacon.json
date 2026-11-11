@@ -29,15 +29,14 @@
           "id": "gulch_deacon1",
           "tag": "TOPIC",
           "text": "Do I know you?",
-          "afterUse": "retain",
-          "say": "Everybody knows the Deacon, son. Small camp.",
-          "repeat": "You'd remember me, son. I'm very memorable."
+          "afterUse": "remove",
+          "say": "Everybody knows the Deacon, son. Small camp."
         },
         {
           "id": "gulch_deacon2",
           "tag": "TOPIC",
           "text": "I'm looking for Deke Vessel.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "gulch_deacon",
@@ -52,32 +51,31 @@
               "speaker": "gulch_deacon",
               "line": "Well, I hope you find him. Lovely man."
             }
-          ],
-          "repeat": "Keep looking, son. He's closer than you'd think."
+          ]
         },
         {
           "id": "gulch_deacon3",
           "tag": "TOPIC",
           "text": "Why do they call you the Deacon?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "My mother did. I've kept it. A man should keep something.",
-          "repeat": "Mother's choice. I've never once changed it."
+          "after": [
+            "gulch_deacon1"
+          ]
         },
         {
           "id": "gulch_deacon4",
           "tag": "TOPIC",
           "text": "Can I have a drink?",
-          "afterUse": "retain",
-          "say": "Gold on the plank, son. House rules. I wrote them.",
-          "repeat": "Dust first. The plank's very particular."
+          "afterUse": "remove",
+          "say": "Gold on the plank, son. House rules. I wrote them."
         },
         {
           "id": "gulch_deacon5",
           "tag": "COMIC",
           "text": "What happened to your lip?",
-          "afterUse": "retain",
-          "say": "Shaved it, son. For the heat. And a man starting over likes to see his own face.",
-          "repeat": "It's coming back thicker. They do."
+          "afterUse": "remove",
+          "say": "Shaved it, son. For the heat. And a man starting over likes to see his own face."
         },
         {
           "id": "gulch_deaconx",
@@ -150,14 +148,8 @@
           "id": "ves_g1_4",
           "tag": "COMIC",
           "text": "You'll answer for this someday.",
-          "afterUse": "retain",
-          "say": "I answer for it constantly. Nobody accepts the answer.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still answering, son. I've got the answer down very nice by now."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "I answer for it constantly. Nobody accepts the answer."
         },
         {
           "id": "ves_g1_6_seat",

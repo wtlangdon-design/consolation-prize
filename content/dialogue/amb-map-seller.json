@@ -24,8 +24,8 @@
           "set": {
             "T_MAPS_ASKED": true
           },
-          "repeat": "From the accounts, sir. Fresh ones every week.",
-          "say": "I draw them, sir! From the accounts."
+          "say": "I draw them, sir! From the accounts.",
+          "afterUse": "remove"
         },
         {
           "id": "map_seller2",
@@ -48,14 +48,7 @@
               "line": "Hundreds, sir. And every one of them agrees it's somewhere."
             }
           ],
-          "repeat": "Hundreds. Wonderful agreement on the somewhere."
-        },
-        {
-          "id": "map_seller3",
-          "text": "Have you ever dug where a map says?",
-          "tag": "TOPIC",
-          "repeat": "Like a man eating his own dinner, sir.",
-          "say": "I'd not dig my own map, sir. That'd be like a man eating his own dinner."
+          "afterUse": "remove"
         },
         {
           "id": "map_seller4",
@@ -78,7 +71,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "Little cross, sir. The undertaker'll explain."
+          "afterUse": "remove"
         },
         {
           "id": "map_seller5",
@@ -87,15 +80,25 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "Very popular corner.",
-          "say": "He's on the map, sir. I mark everybody. Very popular corner, that."
+          "say": "He's on the map, sir. I mark everybody. Very popular corner, that.",
+          "afterUse": "remove"
         },
         {
           "id": "map_seller6",
           "text": "Do they work?",
           "tag": "COMIC",
-          "repeat": "Still not been disproved.",
-          "say": "They've not been disproved."
+          "say": "They've not been disproved.",
+          "afterUse": "remove"
+        },
+        {
+          "id": "map_seller3",
+          "text": "Have you ever dug where a map says?",
+          "tag": "TOPIC",
+          "say": "I'd not dig my own map, sir. That'd be like a man eating his own dinner.",
+          "after": [
+            "map_seller6"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "map_sellerx",

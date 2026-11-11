@@ -23,7 +23,8 @@
               "speaker": "boarding_b",
               "line": "It's men. Men are steady."
             }
-          ]
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "boarding2",
@@ -39,7 +40,8 @@
               "speaker": "boarding_b",
               "line": "We've prospected the prospectors, dear."
             }
-          ]
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "boarding3",
@@ -61,7 +63,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "afterUse": "retain"
         },
         {
           "id": "boardingx",

@@ -14,15 +14,18 @@
           "id": "fiddler1",
           "text": "You're flat.",
           "tag": "TOPIC",
-          "repeat": "Still tuned to the piano. It's called loyalty.",
-          "say": "I'm tuned to the piano."
+          "say": "I'm tuned to the piano.",
+          "afterUse": "remove"
         },
         {
           "id": "fiddler2",
           "text": "The piano is flat.",
           "tag": "TOPIC",
-          "repeat": "Then I'm loyal to a flat piano. Somebody has to be.",
-          "say": "Then I'm tuned to the piano."
+          "say": "Then I'm tuned to the piano.",
+          "after": [
+            "fiddler1"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "fiddler3",
@@ -45,7 +48,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "Every funeral but his own. The undertaker'll tell you."
+          "afterUse": "remove"
         },
         {
           "id": "fiddler4",
@@ -54,15 +57,18 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "Nobody asks the fiddle.",
-          "say": "I'd have played at it. Nobody asked. Nobody ever asks the fiddle."
+          "say": "I'd have played at it. Nobody asked. Nobody ever asks the fiddle.",
+          "afterUse": "remove"
         },
         {
           "id": "fiddler5",
           "text": "Do you want me to fix it?",
           "tag": "COMIC",
-          "repeat": "Still no. In tune, I'd be playing on my own.",
-          "say": "God, no. Then I'd be the only one right."
+          "say": "God, no. Then I'd be the only one right.",
+          "after": [
+            "fiddler1"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "fiddlerx",

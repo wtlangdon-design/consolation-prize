@@ -14,8 +14,8 @@
           "id": "bell_ringer1",
           "text": "That bell is flat.",
           "tag": "TOPIC",
-          "repeat": "Loud. Flat's a matter of opinion. Loud isn't.",
-          "say": "It's loud, is what it is."
+          "say": "It's loud, is what it is.",
+          "afterUse": "remove"
         },
         {
           "id": "bell_ringer2",
@@ -32,7 +32,10 @@
               "direction": true
             }
           ],
-          "repeat": "You could. Still could."
+          "after": [
+            "bell_ringer1"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "bell_ringer3",
@@ -55,7 +58,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "The undertaker's got the list. I've got the rope."
+          "afterUse": "remove"
         },
         {
           "id": "bell_ringer4",
@@ -64,15 +67,15 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "Never complained. Best audience I've had.",
-          "say": "Rang for him, didn't I. Flat. He never complained."
+          "say": "Rang for him, didn't I. Flat. He never complained.",
+          "afterUse": "remove"
         },
         {
           "id": "bell_ringer5",
           "text": "Doesn't it bother you?",
           "tag": "COMIC",
-          "repeat": "Ask me after the noon bell. I won't hear you. That's also the qualification.",
-          "say": "Nothing bothers me. That's the qualification."
+          "say": "Nothing bothers me. That's the qualification.",
+          "afterUse": "remove"
         },
         {
           "id": "bell_ringerx",

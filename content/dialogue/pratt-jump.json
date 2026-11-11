@@ -84,9 +84,8 @@
         {
           "id": "pratt2",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "I'll fetch the law.",
-          "repeat": "Still closes at four. Every day. Never seen it fail.",
           "exchange": [
             {
               "speaker": "pratt",
@@ -102,9 +101,8 @@
         {
           "id": "pratt3",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "We got off on the wrong foot.",
-          "repeat": "Still nope.",
           "exchange": [
             {
               "speaker": "pratt",
@@ -185,7 +183,7 @@
         {
           "id": "pratt5",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "How's the bite?",
           "say": "Healing wrong."
         },

@@ -14,20 +14,26 @@
           "id": "barber1",
           "text": "What do you do here?",
           "tag": "TOPIC",
-          "say": "Shave, extraction, amputation. Two bits, four bits, a dollar."
+          "say": "Shave, extraction, amputation. Two bits, four bits, a dollar.",
+          "afterUse": "remove"
         },
         {
           "id": "barber2",
           "text": "Do you use the same instruments?",
           "tag": "TOPIC",
-          "say": "I clean them."
+          "say": "I clean them.",
+          "after": [
+            "barber1"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "barber3",
           "text": "I'd like a shave.",
           "tag": "COMIC",
           "repeat": "You keep asking and not sitting. In my trade, that's how a shave turns into a tooth.",
-          "say": "Sit down. Don't look at the tray."
+          "say": "Sit down. Don't look at the tray.",
+          "afterUse": "retain"
         },
         {
           "id": "barberx",

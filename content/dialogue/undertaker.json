@@ -75,27 +75,26 @@
           "id": "undertaker3",
           "text": "What did he die of?",
           "tag": "TOPIC",
-          "repeat": "Still nothing interesting. Most of them are.",
           "after": [
             "undertaker1"
           ],
-          "say": "Nothing interesting."
+          "say": "Nothing interesting.",
+          "afterUse": "remove"
         },
         {
           "id": "undertaker4",
           "text": "I had a letter for him.",
           "tag": "TOPIC",
-          "repeat": "Keep it. Paper's dear out here.",
           "after": [
             "undertaker1"
           ],
-          "say": "You still have a letter for him."
+          "say": "You still have a letter for him.",
+          "afterUse": "remove"
         },
         {
           "id": "undertaker7",
           "text": "Everybody in town sent me to you.",
           "tag": "TOPIC",
-          "repeat": "That's how this town says it. It sends you to me.",
           "after": [
             "undertaker2"
           ],
@@ -108,14 +107,15 @@
               "speaker": "undertaker",
               "line": "I'm the one who says it."
             }
-          ]
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "undertaker5",
           "text": "Do you know everybody?",
           "tag": "COMIC",
-          "repeat": "Everybody. Eventually.",
-          "say": "I know everybody who's finished."
+          "say": "I know everybody who's finished.",
+          "afterUse": "remove"
         },
         {
           "id": "undertaker6",
@@ -143,28 +143,16 @@
         {
           "id": "undertaker_c2",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "You haven't asked who it's for.",
-          "say": "It's for whoever fits.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still haven't."
-            }
-          ]
+          "say": "It's for whoever fits."
         },
         {
           "id": "undertaker_c3",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Could you make it roomy?",
-          "say": "Everybody asks for roomy. Nobody's ever come back to complain.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Roomy's extra. Nobody's ever come back for that either."
-            }
-          ]
+          "say": "Everybody asks for roomy. Nobody's ever come back to complain."
         },
         {
           "id": "undertaker_cx",

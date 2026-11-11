@@ -72,8 +72,13 @@ export function check() {
       }
       // LEAVABLE: with every removable option gone, an ungated ender remains.
       const survivors = (node.options ?? []).filter((o) => o.afterUse !== 'remove');
-      const ungatedEnder = survivors.some((o) => !o.when && (o.ends || o.tag === 'EXIT'));
-      const ungatedAny = survivors.some((o) => !o.when);
+      // A gate the node's own removable rows open by asking them is open by the time they are gone
+      // (errata 280: the driver's exit counts his three questions, and each question now goes as asked).
+      const added = {};
+      for (const o of node.options ?? []) if (o.afterUse === 'remove') for (const [flag, by] of Object.entries(o.add ?? {})) added[flag] = (added[flag] ?? 0) + by;
+      const opensItself = (o) => o.when && Object.entries(o.when).every(([flag, test]) => typeof test === 'object' && test && typeof test.atLeast === 'number' && Object.keys(test).length === 1 && (added[flag] ?? 0) >= test.atLeast);
+      const ungatedEnder = survivors.some((o) => (!o.when || opensItself(o)) && (o.ends || o.tag === 'EXIT'));
+      const ungatedAny = survivors.some((o) => !o.when || opensItself(o));
       if (!ungatedAny) report.fail(`${where}: once its removable options are gone, every remaining option is gated`);
       if (!ungatedEnder && survivors.some((o) => o.ends || o.tag === 'EXIT') === false && (node.options ?? []).some((o) => o.ends || o.tag === 'EXIT')) {
         report.fail(`${where}: every way out of this node removes itself (errata 57: a tree must always be leavable)`);

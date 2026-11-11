@@ -112,7 +112,9 @@ test('A10: holding the invitation, the table is laid and the dinner opens; nothi
   assert.ok(shown().includes(opt(state, '4')) && shown().includes(opt(state, '6')), 'two deferred pitches bring the honest answer');
   // Everything he can say is said, the honest answer among them, and it changes nothing.
   const before = [...state.carried];
-  for (const suffix of ['1', '2', '3', '4', '5', '7', '6', '6']) state.dialogue.select(opt(state, suffix));
+  // Each asked once, and gone (errata 280); the list ends on the way out.
+  for (const suffix of ['3', '4', '5', '7', '6']) state.dialogue.select(opt(state, suffix));
+  assert.deepEqual(shown(), [opt(state, 'x')], 'everything said, and only the way out left');
   assert.deepEqual(state.carried, before);
   assert.ok(!state.puzzleComplete('A10') && !state.flags.get('T_DINED'), 'said, agreed with, and the dish is still there');
   state.dialogue.select(opt(state, 'x'));

@@ -29,64 +29,64 @@
           "id": "gulch_lookout1",
           "tag": "TOPIC",
           "text": "I'm not a claim jumper.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "when": {
             "T_CAMP_TRUSTS": false
           },
-          "say": "That's what a claim jumper says.",
-          "repeat": "Still what they say. Word for word, usually."
+          "say": "That's what a claim jumper says."
         },
         {
           "id": "gulch_lookout2",
           "tag": "TOPIC",
           "text": "I'm looking for Deke Vessel.",
-          "afterUse": "retain",
-          "say": "Never heard of him. Is he rich? Then he's a jumper too.",
-          "repeat": "Never heard of him. Nobody here has. We don't take names, we take claims."
+          "afterUse": "remove",
+          "say": "Never heard of him. Is he rich? Then he's a jumper too."
         },
         {
           "id": "gulch_lookout3",
           "tag": "TOPIC",
           "text": "What would convince you?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "when": {
             "T_CAMP_TRUSTS": false
           },
           "say": "Proof you've got nothing worth jumping for. A man with nothing is the only man I trust.",
-          "repeat": "Proof. Of nothing. Bring me nothing, written down."
+          "after": [
+            "gulch_lookout1"
+          ]
         },
         {
           "id": "gulch_lookout4",
           "tag": "TOPIC",
           "text": "Why is everybody here so early?",
-          "afterUse": "retain",
-          "say": "Early? We keep the camp's time. The Deacon's watch, in the grog tent. You're the one who's late.",
-          "repeat": "The Deacon's watch says you're late. The Deacon's watch is never wrong."
+          "afterUse": "remove",
+          "say": "Early? We keep the camp's time. The Deacon's watch, in the grog tent. You're the one who's late."
         },
         {
           "id": "gulch_lookout5",
           "tag": "TOPIC",
           "text": "You trust me now?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "when": {
             "T_CAMP_TRUSTS": true
           },
-          "say": "I trust a man with nothing. It's men with something I watch.",
-          "repeat": "Nothing's the safest thing to own. Ask anybody here who owns something."
+          "say": "I trust a man with nothing. It's men with something I watch."
         },
         {
           "id": "gulch_lookout6",
           "tag": "COMIC",
           "text": "How rich are you, exactly?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "Rich enough to stand at the bottom of a path all day so nobody takes it.",
-          "repeat": "Richer than yesterday. Worse, mind."
+          "after": [
+            "gulch_lookout2"
+          ]
         },
         {
           "id": "gulch_lookout7",
           "tag": "COMIC",
           "text": "Would you like to buy a claim?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "gulch_lookout",
@@ -100,8 +100,7 @@
               "speaker": "gulch_lookout",
               "line": "Then I'll think about it."
             }
-          ],
-          "repeat": "Still thinking. That's the first honest offer I've had all year."
+          ]
         },
         {
           "id": "gulch_lookoutx",
@@ -126,64 +125,64 @@
           "id": "gulch_lookout1",
           "tag": "TOPIC",
           "text": "I'm not a claim jumper.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "when": {
             "T_CAMP_TRUSTS": false
           },
-          "say": "That's what a claim jumper says.",
-          "repeat": "Still what they say. Word for word, usually."
+          "say": "That's what a claim jumper says."
         },
         {
           "id": "gulch_lookout2",
           "tag": "TOPIC",
           "text": "I'm looking for Deke Vessel.",
-          "afterUse": "retain",
-          "say": "Never heard of him. Is he rich? Then he's a jumper too.",
-          "repeat": "Never heard of him. Nobody here has. We don't take names, we take claims."
+          "afterUse": "remove",
+          "say": "Never heard of him. Is he rich? Then he's a jumper too."
         },
         {
           "id": "gulch_lookout3",
           "tag": "TOPIC",
           "text": "What would convince you?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "when": {
             "T_CAMP_TRUSTS": false
           },
           "say": "Proof you've got nothing worth jumping for. A man with nothing is the only man I trust.",
-          "repeat": "Proof. Of nothing. Bring me nothing, written down."
+          "after": [
+            "gulch_lookout1"
+          ]
         },
         {
           "id": "gulch_lookout4",
           "tag": "TOPIC",
           "text": "Why is everybody here so early?",
-          "afterUse": "retain",
-          "say": "Early? We keep the camp's time. The Deacon's watch, in the grog tent. You're the one who's late.",
-          "repeat": "The Deacon's watch says you're late. The Deacon's watch is never wrong."
+          "afterUse": "remove",
+          "say": "Early? We keep the camp's time. The Deacon's watch, in the grog tent. You're the one who's late."
         },
         {
           "id": "gulch_lookout5",
           "tag": "TOPIC",
           "text": "You trust me now?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "when": {
             "T_CAMP_TRUSTS": true
           },
-          "say": "I trust a man with nothing. It's men with something I watch.",
-          "repeat": "Nothing's the safest thing to own. Ask anybody here who owns something."
+          "say": "I trust a man with nothing. It's men with something I watch."
         },
         {
           "id": "gulch_lookout6",
           "tag": "COMIC",
           "text": "How rich are you, exactly?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "Rich enough to stand at the bottom of a path all day so nobody takes it.",
-          "repeat": "Richer than yesterday. Worse, mind."
+          "after": [
+            "gulch_lookout2"
+          ]
         },
         {
           "id": "gulch_lookout7",
           "tag": "COMIC",
           "text": "Would you like to buy a claim?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "gulch_lookout",
@@ -197,8 +196,7 @@
               "speaker": "gulch_lookout",
               "line": "Then I'll think about it."
             }
-          ],
-          "repeat": "Still thinking. That's the first honest offer I've had all year."
+          ]
         },
         {
           "id": "gulch_lookoutx",

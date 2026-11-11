@@ -108,14 +108,8 @@
           "id": "sump2",
           "tag": "TOPIC",
           "text": "The deed's drawn wrong side up.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "Statute does not specify an orientation. You would be surprised how much statute does not specify. I would not. I have read it.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "It still does not specify. I have read it again since you asked."
-            }
-          ],
           "when": {
             "T_SWINDLED": true
           }
@@ -124,7 +118,7 @@
           "id": "sump5",
           "tag": "TOPIC",
           "text": "Do you know Ezra Pike?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "sump",
@@ -135,12 +129,6 @@
               "line": "The undertaker holds the rest of the file."
             }
           ],
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Lapsed. The undertaker has the remainder of the file."
-            }
-          ],
           "when": {
             "T_PIKE_DEAD": false
           }
@@ -149,14 +137,8 @@
           "id": "sump6",
           "tag": "TOPIC",
           "text": "You knew Pike was dead.",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "Lapsed, Mr. Grubb. In this office we say lapsed.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Lapsed. It is a perfectly good word. It has a form."
-            }
-          ],
           "when": {
             "T_PIKE_DEAD": true
           }
@@ -209,27 +191,15 @@
           "id": "sump1",
           "tag": "TOPIC",
           "text": "About Document A—",
-          "afterUse": "retain",
-          "say": "The Affidavit of Original Sale. Sworn by the vendor. The office does not require the vendor to be found. It requires him to sign.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Sworn by the vendor. Signed by the vendor. Found, optionally."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "The Affidavit of Original Sale. Sworn by the vendor. The office does not require the vendor to be found. It requires him to sign."
         },
         {
           "id": "sump1a",
           "tag": "TOPIC",
           "text": "About Document B—",
-          "afterUse": "retain",
-          "say": "The Assay of Record, from the Assay Office, on its own form. It need not find anything. It need only be issued.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Issued, Mr. Grubb. Not found. Issued."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "The Assay of Record, from the Assay Office, on its own form. It need not find anything. It need only be issued."
         },
         {
           "id": "sump1b",
@@ -300,14 +270,8 @@
           "id": "sump2",
           "tag": "TOPIC",
           "text": "Who else may see a sealed filing?",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "say": "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "The court, the claimholder, the executor of a deceased claimholder. Section nineteen has not changed since you asked. It is not that kind of section."
-            }
-          ],
           "set": {
             "T_SECTION_NINETEEN": true
           }
@@ -316,14 +280,8 @@
           "id": "sump3",
           "tag": "COMIC",
           "text": "Do you ever stamp anything just for the pleasure of it?",
-          "afterUse": "retain",
-          "say": "Pleasure is not a ground. I stamp on grounds.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still not a ground. I have consulted the statute, in case."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Pleasure is not a ground. I stamp on grounds."
         },
         {
           "id": "sumpx",
@@ -461,14 +419,8 @@
           "id": "sump3",
           "tag": "COMIC",
           "text": "Is dying difficult here?",
-          "afterUse": "retain",
-          "say": "It is the only thing in Consolation that requires no form in advance. Afterward there are several.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "No form in advance. I have checked again. I find it a serious gap."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "It is the only thing in Consolation that requires no form in advance. Afterward there are several."
         },
         {
           "id": "sumpx",
@@ -508,14 +460,8 @@
           "id": "sump3",
           "tag": "COMIC",
           "text": "Is there a form for this?",
-          "afterUse": "retain",
-          "say": "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "31-D. You are the first. I have made a note of it for the next printing."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope."
         },
         {
           "id": "sumpx",
@@ -631,31 +577,14 @@
           "id": "sump2",
           "tag": "TOPIC",
           "text": "Thaddeus Grubb.",
-          "afterUse": "retain",
-          "say": "Claim One is Mr. Mott's. You may file on his behalf. Not in your favor.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still Mr. Mott's. The box does not take hopes."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "Claim One is Mr. Mott's. You may file on his behalf. Not in your favor."
         },
         {
           "id": "sump3",
           "tag": "TOPIC",
           "text": "Winnie Ledger.",
-          "afterUse": "retain",
-          "repeats": [
-            {
-              "selection": 2,
-              "exchange": [
-                {
-                  "speaker": "winnie",
-                  "line": "I said don't."
-                }
-              ]
-            }
-          ],
+          "afterUse": "remove",
           "exchange": [
             {
               "speaker": "winnie",
@@ -667,14 +596,8 @@
           "id": "sump4",
           "tag": "COMIC",
           "text": "The raccoon.",
-          "afterUse": "retain",
-          "say": "The raccoon holds no license from this office.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still unlicensed, Mr. Grubb. It has never applied."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "The raccoon holds no license from this office."
         },
         {
           "id": "sumpx",

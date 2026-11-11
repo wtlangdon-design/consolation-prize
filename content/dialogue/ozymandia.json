@@ -41,23 +41,24 @@
         {
           "id": "ozymandia2",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "How does the rod work?",
-          "say": "It is drawn to the hidden metal.",
-          "repeat": "It is drawn to the hidden metal. Asking twice is a dollar."
+          "say": "It is drawn to the hidden metal."
         },
         {
           "id": "ozymandia6",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Could the rod find gold on my claim?",
           "say": "The rod finds gold everywhere, darling. It is the digging that disappoints.",
-          "repeat": "Everywhere. Digging is extra."
+          "when": {
+            "T_SWINDLED": true
+          }
         },
         {
           "id": "ozymandia7",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Do you know Ezra Pike?",
           "exchange": [
             {
@@ -71,13 +72,12 @@
           ],
           "when": {
             "T_PIKE_DEAD": false
-          },
-          "repeat": "The undertaker. Free, and no atmosphere whatsoever."
+          }
         },
         {
           "id": "ozymandia8",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "You knew Pike was dead.",
           "exchange": [
             {
@@ -91,13 +91,12 @@
           ],
           "when": {
             "T_PIKE_DEAD": true
-          },
-          "repeat": "The rod knows. The rod charges. These are its two qualities."
+          }
         },
         {
           "id": "ozymandia3",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Does it ever not work?",
           "exchange": [
             {
@@ -109,7 +108,9 @@
               "line": "It has occasionally been early."
             }
           ],
-          "repeat": "Never. I am adding the question to your account."
+          "after": [
+            "ozymandia2"
+          ]
         },
         {
           "id": "ozymandia4",
@@ -126,6 +127,9 @@
               "speaker": "ozymandia",
               "line": "…Hear?"
             }
+          ],
+          "after": [
+            "ozymandia2"
           ]
         },
         {
@@ -280,7 +284,7 @@
         {
           "id": "ozymandia_e1_1",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Is there room for one more?",
           "exchange": [
             {
@@ -295,8 +299,7 @@
               "speaker": "ozymandia",
               "line": "Then the spirits will tell you all about it afterwards, darling. Through me. For two dollars."
             }
-          ],
-          "repeat": "Two dollars, darling. The dead are not a charity. Neither am I."
+          ]
         },
         {
           "id": "ozymandia_e1_2",
@@ -325,7 +328,7 @@
         {
           "id": "ozymandia_e1_3",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Will Mott come?",
           "exchange": [
             {
@@ -340,16 +343,14 @@
               "speaker": "ozymandia",
               "line": "Some of them are slower than others."
             }
-          ],
-          "repeat": "Patience. The dead keep their own hours."
+          ]
         },
         {
           "id": "ozymandia_e1_4",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Does the rod work on ghosts?",
-          "say": "The rod works on everything, darling. That is its tragedy.",
-          "repeat": "On everything. Ask it about you, sometime. Two dollars."
+          "say": "The rod works on everything, darling. That is its tragedy."
         },
         {
           "id": "ozymandia_e1x",

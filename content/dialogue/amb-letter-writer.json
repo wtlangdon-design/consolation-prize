@@ -17,8 +17,8 @@
           "set": {
             "T_CHARGE_ASKED": true
           },
-          "repeat": "Ten cents. I'd do you a discount, but discounts read badly at home.",
-          "say": "Ten cents the page. Fifteen if it's going well."
+          "say": "Ten cents the page. Fifteen if it's going well.",
+          "afterUse": "remove"
         },
         {
           "id": "letter_writer2",
@@ -41,14 +41,17 @@
               "line": "Much more. Bad weeks are my living."
             }
           ],
-          "repeat": "Bad weeks. My living. Business is excellent."
+          "afterUse": "remove"
         },
         {
           "id": "letter_writer3",
           "text": "Do you ever write the truth?",
           "tag": "TOPIC",
-          "repeat": "Once. I've still got the blot where he cried on it.",
-          "say": "Once. Fella insisted. I charged him double and he cried the whole time."
+          "say": "Once. Fella insisted. I charged him double and he cried the whole time.",
+          "after": [
+            "letter_writer2"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "letter_writer4",
@@ -76,7 +79,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "The undertaker. I'd write it down for you, but that's ten cents."
+          "afterUse": "remove"
         },
         {
           "id": "letter_writer5",
@@ -85,8 +88,8 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "It still reads better from a professional.",
-          "say": "Everybody knew. I just thought it'd read better from a professional."
+          "say": "Everybody knew. I just thought it'd read better from a professional.",
+          "afterUse": "remove"
         },
         {
           "id": "letter_writer6",
@@ -106,7 +109,7 @@
               "line": "You're not bad. You're honest, which is a phase."
             }
           ],
-          "repeat": "So you keep saying. They'd sell better with a lie or two in. Everybody else's do."
+          "afterUse": "remove"
         },
         {
           "id": "letter_writerx",

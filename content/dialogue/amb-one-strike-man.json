@@ -17,15 +17,18 @@
           "set": {
             "T_STRIKE_TOLD": true
           },
-          "repeat": "Again? …Bless you. Nobody asks twice.",
-          "say": "Bent down to drink. There it was, winking up at me. I've been bending down ever since."
+          "say": "Bent down to drink. There it was, winking up at me. I've been bending down ever since.",
+          "afterUse": "remove"
         },
         {
           "id": "one_strike2",
           "text": "When was this?",
           "tag": "TOPIC",
-          "repeat": "Forty-nine. Spring. Possibly a Wednesday. The details go first.",
-          "say": "Forty-nine. Spring. A Tuesday."
+          "say": "Forty-nine. Spring. A Tuesday.",
+          "after": [
+            "one_strike1"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "one_strike3",
@@ -48,7 +51,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "The undertaker. I only keep up with forty-nine."
+          "afterUse": "remove"
         },
         {
           "id": "one_strike4",
@@ -57,15 +60,18 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "A Tuesday. Lovely man. Never found a thing.",
-          "say": "Pike? Knew him in forty-nine. Spring. A Tuesday."
+          "say": "Pike? Knew him in forty-nine. Spring. A Tuesday.",
+          "afterUse": "remove"
         },
         {
           "id": "one_strike5",
           "text": "And since?",
           "tag": "COMIC",
-          "repeat": "There's no since. There's '49, and then there's telling it.",
-          "say": "Since what?"
+          "say": "Since what?",
+          "after": [
+            "one_strike2"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "one_strikex",

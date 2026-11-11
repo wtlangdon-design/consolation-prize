@@ -39,8 +39,8 @@
           "id": "deke_vessel1",
           "text": "How did you know?",
           "tag": "TOPIC",
-          "repeat": "Still the newest thing in it. Enjoy it, son. It wears off by Thursday.",
-          "say": "Everybody knows. Small place, and you're the newest thing in it."
+          "say": "Everybody knows. Small place, and you're the newest thing in it.",
+          "afterUse": "remove"
         },
         {
           "id": "deke_vessel2",
@@ -108,17 +108,16 @@
           "id": "deke_vessel8",
           "text": "Is there gold on it?",
           "tag": "COMIC",
-          "repeat": "There's a claim on it, son, and a claim is where every fortune starts.",
           "after": [
             "deke_vessel3"
           ],
-          "say": "There's a deed on it, son. Your name'll be on it shortly."
+          "say": "There's a deed on it, son. Your name'll be on it shortly.",
+          "afterUse": "remove"
         },
         {
           "id": "deke_vessel5",
           "text": "You seem cheerful for a man with a poorly sister.",
           "tag": "COMIC",
-          "repeat": "Still a long way off, son. That's the main thing wrong with her.",
           "after": [
             "deke_vessel3"
           ],
@@ -135,13 +134,13 @@
               "speaker": "deke_vessel",
               "line": "She hasn't, but she's a long way off."
             }
-          ]
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "deke_vessel9",
           "text": "Do you know Ezra Pike?",
           "tag": "TOPIC",
-          "repeat": "Knew him. Past tense's the important bit. Ask the undertaker.",
           "when": {
             "T_PIKE_DEAD": false
           },
@@ -159,17 +158,18 @@
               "speaker": "deke_vessel",
               "line": "The undertaker can tell you all about him."
             }
-          ]
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "deke_vessel10",
           "text": "You knew Pike was dead.",
           "tag": "TOPIC",
-          "repeat": "Every word true, son. You'll come to appreciate it.",
           "when": {
             "T_PIKE_DEAD": true
           },
-          "say": "I said 'knew', didn't I? I never say a thing that isn't so."
+          "say": "I said 'knew', didn't I? I never say a thing that isn't so.",
+          "afterUse": "remove"
         },
         {
           "id": "deke_vessel6",
@@ -244,14 +244,8 @@
           "id": "ves_b1_4",
           "tag": "COMIC",
           "text": "You'll answer for this someday.",
-          "afterUse": "retain",
-          "say": "I answer for it constantly. Nobody accepts the answer.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still answering, son. I've got the answer down very nice by now."
-            }
-          ]
+          "afterUse": "remove",
+          "say": "I answer for it constantly. Nobody accepts the answer."
         },
         {
           "id": "ves_b1_5",
@@ -289,54 +283,30 @@
         {
           "id": "ves_f1_1",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "You bought the hotel.",
-          "say": "With your four dollars, and some other fellows' several thousand. A man has to put his money somewhere, and I put mine where people sleep.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Outright, son. First thing I ever bought that I meant to keep."
-            }
-          ]
+          "say": "With your four dollars, and some other fellows' several thousand. A man has to put his money somewhere, and I put mine where people sleep."
         },
         {
           "id": "ves_f1_2",
           "tag": "COMIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Was it worth it?",
-          "say": "The four dollars? Son, your four dollars built the mezzanine.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Every cent. Every time you climb those stairs, son, you're walking on your own four dollars."
-            }
-          ]
+          "say": "The four dollars? Son, your four dollars built the mezzanine."
         },
         {
           "id": "ves_f1_3",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Is my room still mine?",
-          "say": "Yours till noon, son. I've put the rate up, on account of the history.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Till noon. After noon it's a historic room, and those go for more."
-            }
-          ]
+          "say": "Yours till noon, son. I've put the rate up, on account of the history."
         },
         {
           "id": "ves_f1_4",
           "tag": "TOPIC",
-          "afterUse": "retain",
+          "afterUse": "remove",
           "text": "Did the clerk come with it?",
-          "say": "He came with the building. Like the damp. I've grown fond of them both.",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Like the damp. Neither of them takes instruction, and I've stopped asking."
-            }
-          ]
+          "say": "He came with the building. Like the damp. I've grown fond of them both."
         },
         {
           "id": "ves_f1_x",

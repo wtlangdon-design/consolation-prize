@@ -32,7 +32,7 @@
               "line": "— it is not what you said."
             }
           ],
-          "repeat": "Same line. Same pine. He's still wrong."
+          "afterUse": "remove"
         },
         {
           "id": "boundary2",
@@ -65,7 +65,10 @@
               "direction": true
             }
           ],
-          "repeat": "Still no. Lovely, isn't it."
+          "after": [
+            "boundary1"
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "boundary3",
@@ -96,7 +99,7 @@
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "Undertaker. On the Lane. And don't ask him about the pine."
+          "afterUse": "remove"
         },
         {
           "id": "boundary4",
@@ -119,7 +122,7 @@
           "when": {
             "T_PIKE_DEAD": true
           },
-          "repeat": "He did not know first."
+          "afterUse": "remove"
         },
         {
           "id": "boundary5",
@@ -135,7 +138,7 @@
               "line": "With our evenings?"
             }
           ],
-          "repeat": "You've asked twice now. He'll call that evidence."
+          "afterUse": "remove"
         },
         {
           "id": "boundaryx",
