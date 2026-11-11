@@ -70,13 +70,17 @@ export function shimmerShift(motion: RoomMotion, row: number, seconds: number, b
   return Math.round(v * (motion.amount ?? 1)) * block;
 }
 
-/** How far a row of `sway` is shifted: by its distance from the hinge, all one way, like a sign on its hooks. */
-export function swayShift(motion: RoomMotion, row: number, seconds: number, block: number): number {
+/**
+ * How far a row of `sway` is shifted: a pendulum from its hook. The rect's top row is the hook and never moves; each
+ * row below swings in proportion to its distance from it, in whole screen pixels, so the thing turns about the hook
+ * instead of shaking in the middle (Tyler, 2026-11-10: "why isn't the lantern swinging from its hook?"). `amount` is
+ * the swing at the bottom row, in screen pixels.
+ */
+export function swayShift(motion: RoomMotion, row: number, seconds: number): number {
   const [, y, , h] = motion.rect;
   const from = motion.hinge === 'bottom' ? (y + h - row) / h : (row - y) / h;
-  const t = seconds * (motion.rate ?? 0.3);
-  const v = Math.sin(t * Math.PI * 2) * 0.8 + Math.sin(t * Math.PI * 2 * 2.3 + 1) * 0.2;
-  return Math.round(v * (motion.amount ?? 1) * Math.max(0, Math.min(1, from))) * block;
+  const swing = Math.sin(seconds * (motion.rate ?? 0.3) * Math.PI * 2);
+  return Math.round(swing * (motion.amount ?? 4) * Math.max(0, Math.min(1, from)));
 }
 
 /** How bright a star is now, 0-1: most of the time itself, now and then brighter or nearly gone. */
@@ -123,10 +127,12 @@ export class MotionLayer {
       if (!plate) continue;
       const [x, y, w, h] = motion.rect;
       if (motion.kind === 'shimmer' || motion.kind === 'sway') {
-        for (let row = y; row < y + h; row += size) {
-          const shift = motion.kind === 'shimmer' ? shimmerShift(motion, row, seconds, size) : swayShift(motion, row, seconds, size);
+        // Water moves in bands of the room's pixel; a hanging thing turns row by row about its hook.
+        const step = motion.kind === 'shimmer' ? size : 1;
+        for (let row = y; row < y + h; row += step) {
+          const shift = motion.kind === 'shimmer' ? shimmerShift(motion, row, seconds, size) : swayShift(motion, row, seconds);
           if (!shift) continue;
-          const rows = Math.min(size, y + h - row);
+          const rows = Math.min(step, y + h - row);
           ctx.drawImage(plate, x, row, w, rows, x + shift, row, w, rows);
         }
         continue;

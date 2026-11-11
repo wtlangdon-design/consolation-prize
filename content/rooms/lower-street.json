@@ -899,15 +899,15 @@
       "id": "lantern",
       "kind": "sway",
       "rect": [
-        1726,
-        394,
-        50,
-        70
+        1730,
+        384,
+        44,
+        80
       ],
       "hinge": "top",
-      "amount": 1,
-      "rate": 0.18,
-      "note": "The lantern on its bracket by the livery door."
+      "amount": 5,
+      "rate": 0.32,
+      "note": "The lantern swinging from its hook on the bracket by the livery door (the rect's top row is the hook)."
     },
     {
       "id": "trough",

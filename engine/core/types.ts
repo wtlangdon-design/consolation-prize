@@ -927,7 +927,8 @@ export interface RoomMotion {
   rect: [number, number, number, number];
   /** Cycles per second (smoke: puffs' lives per second). */
   rate?: number;
-  /** How much: puffs or motes or stars counted; shimmer and sway in whole pixels of the room's level. */
+  /** How much: puffs or motes or stars counted; shimmer in whole pixels of the room's level; sway, the swing at its
+   * bottom row in screen pixels (its top row is the hook and does not move). */
   amount?: number;
   /** The square's size in screen pixels; the room's level when absent (its man over 115). */
   block?: number;
