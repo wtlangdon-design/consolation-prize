@@ -7260,3 +7260,15 @@ The image session handed back both of errata 272's redraws (`redraws-art`). Tyle
 - **Main Street's redraw is handed back, not promoted.** The candidate (`art/staging/room-02/redraw/candidate-3700x864.png`) is the street in the side streets' hand, stitched from three windows, registered back onto the street (`tools/art/main-street-register.py`), with the Company's lettering restored (`tools/art/main-street-sign.py`; Tyler: "Looks good now"). It is shown to Tyler beside the street as it is before anything is re-placed.
 
 Lesson: none -- art cut and wired, no fix.
+
+## 276 · Main Street is the redraw (Tyler, 2026-11-11)
+
+Tyler, shown the street as it was beside the same-composition redraw (errata 272, 275): **"Use the redraw."**
+
+- `art/backgrounds/room-02-main-street.png` is the redraw (`art/staging/room-02/redraw/candidate-3700x864.png`). The plate it replaces is kept at `reference/main-street-redraw/before/`. Every hotspot, exit and stand was drawn over both and sits on its thing; the cast was seen standing on the new street in the real build.
+- **Act III's fresh gilt** is laid on the redrawn board (`tools/art/main-street-gilt.py`): the old overlay's board stood out past the new one. The funeral notice still sits on the board as it was.
+- **The dawn** (Room 36) is carried from the new night as before (`tools/art/final-look-dawn.py`), and lifted back to errata 263's first light (63.9), because the redraw is darker than the old night; the coach stop still follows it (`tests/dawn.test.mjs`). The empty hitching rail is relit from it (`tools/art/hitching-rail-dawn.py`).
+- `tools/art/night-streets.py` no longer grades Main Street or its gilt sign; it keeps the side streets and the funeral notice.
+- The redrawn ground measures 0.96 of the side streets' (`tests/night-streets.test.mjs` now allows 0.9, recorded in `proofs/check-friction.json`): the same hand and the same night.
+
+Lesson: none -- art promoted on Tyler's ruling; the check loosened is recorded in `proofs/check-friction.json`.

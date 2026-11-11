@@ -58,12 +58,28 @@ def glow_east(path):
     Image.fromarray(np.clip(np.round(a), 0, 255).astype(np.uint8)).save(path)
 
 
+FIRST_LIGHT = 63.9   # errata 263's first light, as the plate measured when the coach stop was set to follow it (errata 265)
+
+
+def lift(path):
+    """ERRATA 276: the night street is the redraw now, darker overall than the old (31.8 against 40.8), so the same
+    light carried onto it came out dimmer than errata 263's first light. The whole plate is scaled back to that light,
+    so the dawn and the coach stop that follows it (tools/art/coach-stop-first-light.py) are where Tyler saw them."""
+    a = np.asarray(Image.open(path).convert('RGB')).astype(float)
+    k = FIRST_LIGHT / a.mean()
+    for _ in range(4):
+        out = np.clip(a * k, 0, 255)
+        k *= FIRST_LIGHT / out.mean()
+    Image.fromarray(np.clip(np.round(a * k), 0, 255).astype(np.uint8)).save(path)
+
+
 def main():
     if not os.path.exists(R(OLD)):
         shutil.copy(R(PLATE), R(OLD))
     subprocess.check_call([sys.executable, R('tools/art/room36-dawn.py'), '--staging', STAGE, '--shift-y', '0'], cwd=ROOT)
     shutil.copy(R(f'{STAGE}/candidate-3700x864.png'), R(PLATE))
     glow_east(R(PLATE))
+    lift(R(PLATE))
     print(json.dumps({'night': stats(NIGHT), 'oldDawn': stats(OLD), 'newDawn': stats(PLATE)}, indent=1))
 
     room = json.load(open(R('content/rooms/main-street-dawn.json')))

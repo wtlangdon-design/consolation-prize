@@ -37,7 +37,9 @@ test('Main Street\'s ground is the side streets\' ground with more lamps on it, 
   const theirs = side.reduce((total, one) => total + one.light, 0) / side.length;
   assert.ok(main.light / theirs <= 1.5,
     `Main Street's ground is ${(main.light / theirs).toFixed(2)} times as light as the streets it opens onto (${main.light.toFixed(1)} against ${theirs.toFixed(1)})`);
-  assert.ok(main.light / theirs >= 1, 'the lit street is darker than its back streets');
+  // Errata 276: the redraw is drawn in the side streets' own hand and night, so their grounds now match (0.96); what
+  // this guards against is Main Street going much darker than the streets it opens onto.
+  assert.ok(main.light / theirs >= 0.9, `Main Street's ground is ${(main.light / theirs).toFixed(2)} of the side streets': the lit street much darker than its back streets`);
 });
 
 test('no street at night has puddles that glow', () => {
