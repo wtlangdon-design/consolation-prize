@@ -42,3 +42,9 @@ Every earlier audit asked whether a puzzle is *fair* (doc 94: is the clue there)
 - Proposal 1 (the certificate on Frame): yes or no.
 - Proposal 4 (no wait for Winnie's sparring): yes or no.
 - 2, 3 and 5 are for his play: one sentence after he has played them is enough to act on.
+
+## Ruled, and done (errata 274)
+
+- Proposal 1: made. The certificate on Frame opens the obituary.
+- Proposal 4: kept as it is. The wait keeps WIN_B2's other questions open; see errata 274.
+- 2, 3 and 5: looked at again on Tyler's "can you just make them better now?"; left as they are, for the reasons in errata 274. They remain for his play.
