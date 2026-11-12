@@ -135,20 +135,10 @@
           "tag": "PROGRESS",
           "afterUse": "remove",
           "text": "Why do you want my claim?",
+          "say": "Told to.",
           "set": {
             "T_PRATT_PAID": true
-          },
-          "exchange": [
-            {
-              "speaker": "pratt",
-              "line": "Told to."
-            },
-            {
-              "speaker": "pratt",
-              "line": "He does not consider this strange.",
-              "direction": true
-            }
-          ]
+          }
         },
         {
           "id": "pratt2",

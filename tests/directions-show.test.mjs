@@ -7,7 +7,7 @@
 // say what they feel, mean or are like ("lights up like a lamp", "warmly", "He says
 // it the way other men say 'measles'"): that is the line's job, or the pose's.
 //
-// Main Street was done first. PENDING lists the files still to do, each with what
+// Main Street was done first (errata 294), and the rest of the game after (errata 295). PENDING lists the files still to do, each with what
 // it still prints; the list only shrinks. A file on it that no longer prints one
 // fails too, so the list cannot go stale.
 
@@ -18,20 +18,11 @@ import test from 'node:test';
 const ROOT = new URL('../content/', import.meta.url);
 
 // Words that explain a manner, a feeling or a meaning rather than show an action.
-const EXPLAINS = /\b(warmly|warmth|genuine(?:ly)?|delight|puzzled|wounded|savou?rs?|toneless|hopefully|lights up|prices him|as if|as though|the way other|says it|means it|respectful|painful|beaming|brightens|dislikes|does not consider|exactly who|both men note|most dangerous)\b/i;
+const EXPLAINS = /\b(warmly|warmth|genuine(?:ly)?|delight|puzzled|wounded|savou?rs?|toneless|hopefully|lights up|prices him|as if|as though|the way other|says it|means it|respectful|painful|brightens|dislikes|does not consider|exactly who|both men note|most dangerous)\b/i;
 
 const PENDING = {
   // Row 168 of reference/acted-directions-3: the pose is to be drawn, and once acted it prints nothing (doc 95 rule 1).
   'dialogue/amb-bell-ringer.json': 1,
-  'dialogue/fanshawe.json': 6,
-  'dialogue/frame.json': 1,
-  'dialogue/gulch-man-upstream.json': 1,
-  'dialogue/ozymandia.json': 1,
-  'dialogue/pratt-jump.json': 1,
-  'dialogue/pratt.json': 5,
-  'dialogue/sowerby.json': 3,
-  'dialogue/sump.json': 1,
-  'rooms/grog-tent.json': 1,
 };
 
 function files(dir, prefix = '') {

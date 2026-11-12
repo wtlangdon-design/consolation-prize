@@ -7558,3 +7558,40 @@ The rest of the game's thirty-odd explanations follow in their own pull request.
 
 Lesson: `tests/shortest-walk.test.ts`, proved against the old router (it fails both tests), and `tests/directions-show.test.mjs`, proved by restoring "measles"; two rows in doc 55 section 8.
 
+
+## 295 · Directions show, through the rest of the game (Tyler, 2026-11-11)
+
+This finishes errata 294 ("most of the characters demeanors should come out in their dialogue and movements vs parenthetical explanations") past Main Street. Every printed direction that explained a manner, a feeling or a meaning is cut, or turned into a pause or into the line itself:
+
+- **Fanshawe:**
+  - cut: "He knows exactly who is in the Nugget.", "He means it. It is the most dangerous thing he says all evening.", "He says it with real warmth. It is not a threat. It is worse — it is preparedness." and "genuine delight";
+  - "warmly" becomes a beat before "Yet.";
+  - "Thad has not mentioned the sealed filing… Both men note it." becomes a beat after he names the sealed filing, which leaves the slip in his own words for the player to catch.
+- **Frame:** "he savors it" becomes a beat before his punchline.
+- **Ozymandia:** "genuinely puzzled" is cut. "…Hear?" carries it, and the Act IV corroboration it plants is unchanged.
+- **Pratt:**
+  - cut: "He does not consider this strange.", "From this moment Pratt dislikes Thad…" and "He says it as though it were the weather.";
+  - "a long, respectful pause" becomes "long pause";
+  - his hen is handed over without the narrator saying what the hen thinks.
+- **Sowerby:**
+  - "He brightens, and then remembers to be grave." moves into his line: "A funeral!" *(beat)* "A funeral. For whom?";
+  - "wounded" is cut;
+  - the pause before "Present" is long, and no longer "painful".
+- **Sump:** "reading, toneless" becomes "reading".
+- **The man upstream:** "He looks at Thad as if Thad had suggested something unwell." is cut. "Share?" carries it.
+
+**Kept, because they show rather than explain, or carry what the player needs:**
+- Fanshawe's war corrections ("Buena Vista was February 1847."), which are how the player counts his contradictions;
+- Winnie stopping writing, which is how the player learns she is interested (C5);
+- Fanshawe going still at "You were never a colonel.";
+- Hob's beats;
+- the deacon beaming;
+- every physical action and every bare pause.
+
+The narrator's own jokes that explain nobody's feelings ("This is true, and it is the entire legal system.", "It is not.", "Sump is never asked.") stay for now. They are listed in the report to Tyler for his ruling.
+
+The bell-ringer's "He holds up his bottle, hopefully." waits for its pose (acted directions, row 168). Acted, it prints nothing.
+
+Doc 95 loses fifteen rows and three change their words.
+
+Lesson: `tests/directions-show.test.mjs`'s pending list is down to the bell-ringer, and it fails if any of these comes back.

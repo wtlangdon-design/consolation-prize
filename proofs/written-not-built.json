@@ -173,10 +173,6 @@
      "quote": "Square. Timbered properly. Swept — somebody has swept a mine. This is the finest piece of work in the territory and there has never been a thing in it."
     },
     {
-     "doc": "09-examine-batch-2",
-     "quote": "A mule. She has looked at me once, at length, and has not felt the need to do it again."
-    },
-    {
      "doc": "26-batch-a",
      "quote": "I have washed. It made less difference than I hoped."
     },
@@ -543,10 +539,6 @@
     {
      "doc": "98-main-street-pass",
      "quote": "This makes no sense and he is very firm about it."
-    },
-    {
-     "doc": "27-minor-trees",
-     "quote": "| `[PROGRESS]` · after 3 | **"
     },
     {
      "doc": "105-the-six-interiors",
@@ -947,6 +939,10 @@
     {
      "doc": "04-dialogue-trees",
      "quote": "Every cent. Every time you climb those stairs, son, you're walking on your own four dollars."
+    },
+    {
+     "doc": "109-fiddlers-gulch-lines",
+     "quote": "Rich and wrong. No, thank you."
     }
    ]
   },

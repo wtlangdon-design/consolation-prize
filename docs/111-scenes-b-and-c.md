@@ -226,7 +226,7 @@ To be written:
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
 | 1 | "I'm selling the effects of the late Mr. Grubb." | `[PROGRESS · remove]` | "Who?" — *"Me. In advance."* — *(He thinks about it for some time.)* "Raccoon." — *"The raccoon isn't mine."* — "Lives on your claim." *(beat)* "Effect." — *"How much?"* — "Two dollars and sixty cents." — *"That is exactly what I need."* — "Asked the undertaker." *(beat)* "Don't fetch." | sets `T_RACCOON_WANTED` |
-| 2 | "Could I borrow your hen?" | `[PROGRESS · remove]` · after 1 | "Hen comes back." — *"Of course."* — "Hen comes back." *(He hands Thad the hen. The hen looks at Thad as though the arrangement were hers.)* | gives THE HEN |
+| 2 | "Could I borrow your hen?" | `[PROGRESS · remove]` · after 1 | "Hen comes back." — *"Of course."* — "Hen comes back." *(He hands Thad the hen.)* | gives THE HEN |
 | 3 | "Why do you want him?" | `[COMIC · retain]` · after 1 | "Bit me." *(pause)* "Nobody's bit me in twenty years." *(pause)* "Respect it." *(second)* "Respect it." | |
 
 **THE RACCOON** · *in the hole, after `T_RACCOON_WANTED`*

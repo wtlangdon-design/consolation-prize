@@ -87,17 +87,7 @@
           "tag": "TOPIC",
           "text": "I have four dollars, and excellent prospects.",
           "afterUse": "remove",
-          "exchange": [
-            {
-              "speaker": "fanshawe",
-              "line": "Then you are the best-capitalized man to arrive this week, and I congratulate you, and I would keep a hand on them in the Nugget."
-            },
-            {
-              "speaker": "fanshawe",
-              "line": "He knows exactly who is in the Nugget.",
-              "direction": true
-            }
-          ]
+          "say": "Then you are the best-capitalized man to arrive this week, and I congratulate you, and I would keep a hand on them in the Nugget."
         },
         {
           "id": "fanshawe4",
@@ -294,8 +284,7 @@
             },
             {
               "speaker": "fanshawe",
-              "line": "warmly",
-              "direction": true
+              "line": "…"
             },
             {
               "speaker": "fanshawe",
@@ -311,17 +300,7 @@
           "after": [
             "fanshawe3"
           ],
-          "exchange": [
-            {
-              "speaker": "fanshawe",
-              "line": "Then you shall sign nothing tonight. I would never take advantage of a man at his dinner."
-            },
-            {
-              "speaker": "fanshawe",
-              "line": "He means it. It is the most dangerous thing he says all evening.",
-              "direction": true
-            }
-          ]
+          "say": "Then you shall sign nothing tonight. I would never take advantage of a man at his dinner."
         },
         {
           "id": "fanshawe6",
@@ -486,8 +465,7 @@
             },
             {
               "speaker": "fanshawe",
-              "line": "Thad has not mentioned the sealed filing. He watches Thad not mention it. Both men note it.",
-              "direction": true
+              "line": "…"
             }
           ]
         },
@@ -496,17 +474,7 @@
           "tag": "TOPIC",
           "text": "Why does the Company keep copies of claim records?",
           "afterUse": "remove",
-          "exchange": [
-            {
-              "speaker": "fanshawe",
-              "line": "Because the courthouse could burn down, Mr. Grubb. Buildings do."
-            },
-            {
-              "speaker": "fanshawe",
-              "line": "He says it with real warmth. It is not a threat. It is worse — it is preparedness.",
-              "direction": true
-            }
-          ]
+          "say": "Because the courthouse could burn down, Mr. Grubb. Buildings do."
         },
         {
           "id": "fanshawe3",
@@ -660,11 +628,6 @@
             }
           ],
           "exchange": [
-            {
-              "speaker": "fanshawe",
-              "line": "genuine delight",
-              "direction": true
-            },
             {
               "speaker": "fanshawe",
               "line": "Have you! What a splendid animal it must be."
