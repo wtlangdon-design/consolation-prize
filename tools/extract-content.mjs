@@ -1,4 +1,5 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { menuFirstSentence } from './lib/menu-line.mjs';
 import { dirname, resolve } from 'node:path';
 
 import { ROOT } from './lib/content.mjs';
@@ -90,7 +91,7 @@ function assayAtOnce(tree) {
 }
 
 function write(relative, data, indent = 2) {
-  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = asMonkeyIslandRan(assayAtOnce(greetOnce(quietExits(performDirections(data)))));
+  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = menuFirstSentence(asMonkeyIslandRan(assayAtOnce(greetOnce(quietExits(performDirections(data))))));
   const path = resolve(ROOT, relative);
   const wanted = `${JSON.stringify(data, null, indent)}\n`;
   if (CHECKING) {

@@ -10,7 +10,7 @@
       "options": [
         {
           "id": "drv1",
-          "text": "I'm expected by a Mr. Ezra Pike. Where would I find him?",
+          "text": "I'm expected by a Mr. Ezra Pike.",
           "tag": "PROGRESS",
           "say": "Ask the undertaker. He knows everybody.",
           "set": {
@@ -19,7 +19,8 @@
           "add": {
             "T_DRIVER_ASKED": 1
           },
-          "afterUse": "remove"
+          "afterUse": "remove",
+          "echo": "I'm expected by a Mr. Ezra Pike. Where would I find him?"
         },
         {
           "id": "drv2",
@@ -46,17 +47,18 @@
         },
         {
           "id": "drv3",
-          "text": "You don't think much of my chances. I can see it in your hat.",
+          "text": "You don't think much of my chances.",
           "tag": "COMIC",
           "say": "I don't think about them at all.",
           "add": {
             "T_DRIVER_ASKED": 1
           },
-          "afterUse": "remove"
+          "afterUse": "remove",
+          "echo": "You don't think much of my chances. I can see it in your hat."
         },
         {
           "id": "drv4",
-          "text": "Thank you for the ride! I'll mention you when I'm famous.",
+          "text": "Thank you for the ride!",
           "tag": "EXIT",
           "say": "Wasn't for you.",
           "set": {
@@ -67,7 +69,8 @@
             "T_DRIVER_ASKED": {
               "atLeast": 3
             }
-          }
+          },
+          "echo": "Thank you for the ride! I'll mention you when I'm famous."
         }
       ],
       "noPrompt": true,

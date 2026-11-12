@@ -101,7 +101,7 @@
         },
         {
           "id": "pie_woman6",
-          "text": "Grubb. Pianos. You may have heard.",
+          "text": "Grubb. Pianos.",
           "tag": "COMIC",
           "exchange": [
             {
@@ -114,7 +114,8 @@
               "direction": true
             }
           ],
-          "afterUse": "remove"
+          "afterUse": "remove",
+          "echo": "Grubb. Pianos. You may have heard."
         },
         {
           "id": "pie_woman7",

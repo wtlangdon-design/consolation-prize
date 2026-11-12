@@ -74,7 +74,7 @@
         },
         {
           "id": "deke_vessel4",
-          "text": "How much? Purely as a matter of business.",
+          "text": "How much?",
           "tag": "PROGRESS",
           "repeat": "Four dollars and the watch. I'm not a greedy man.",
           "after": [
@@ -102,7 +102,8 @@
               "speaker": "deke_vessel",
               "line": "And that."
             }
-          ]
+          ],
+          "echo": "How much? Purely as a matter of business."
         },
         {
           "id": "deke_vessel8",

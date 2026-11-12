@@ -388,7 +388,7 @@
         {
           "id": "fanshawe3",
           "tag": "COMIC",
-          "text": "Your clock is slow, Colonel. I've an ear for these things.",
+          "text": "Your clock is slow, Colonel.",
           "afterUse": "retain",
           "say": "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it.",
           "repeats": [
@@ -396,7 +396,8 @@
               "selection": 2,
               "say": "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb."
             }
-          ]
+          ],
+          "echo": "Your clock is slow, Colonel. I've an ear for these things."
         },
         {
           "id": "fanshawe4",

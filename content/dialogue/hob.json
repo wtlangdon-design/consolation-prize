@@ -133,7 +133,7 @@
         {
           "id": "hob1",
           "tag": "PROGRESS",
-          "text": "You'd be executor of my estate. It's forty feet of mud.",
+          "text": "You'd be executor of my estate.",
           "afterUse": "remove",
           "gives": [
             "executor_form"
@@ -148,7 +148,8 @@
               "line": "He signs Form 31-E against the lamp post, and hands it back.",
               "direction": true
             }
-          ]
+          ],
+          "echo": "You'd be executor of my estate. It's forty feet of mud."
         },
         {
           "id": "hob2",
