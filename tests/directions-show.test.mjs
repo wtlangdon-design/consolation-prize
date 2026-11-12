@@ -74,4 +74,9 @@ test("Main Street's people show it in what they say", () => {
     assert.deepEqual(explaining(data), [], tree);
     assert.equal(data.nodes.root.opening, undefined, `${tree} opens on its greeting, not a description of its speaker`);
   }
+  // With the description gone, the conversation must still open on something: the person's own bark.
+  for (const person of ['pie-woman', 'map-seller', 'man-leaving-tomorrow']) {
+    const ambient = JSON.parse(readFileSync(new URL(`ambient/${person}.json`, ROOT), 'utf8'));
+    assert.equal(ambient.greetsWithBark, true, `${person} greets Thad in their own voice`);
+  }
 });
