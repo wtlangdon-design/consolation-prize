@@ -86,8 +86,8 @@ Rotating pool available at every node:
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "I'd like to have some soil assayed." | `[PROGRESS · remove]` | "So would nine hundred men. Get in the book." | opens `WIN_A2` |
-| 2 | "What is it you actually do here?" | `[TOPIC · retain]` | "I decide what things are. It's the only office in the territory that does." *(second)* "Decide. Same as a minute ago. I've decided you're in the way." | — |
+| 1 | "How do you do! I'd like to have some soil assayed, please." | `[PROGRESS · remove]` | "So would nine hundred men. Get in the book." | opens `WIN_A2` |
+| 2 | "Forgive me. What is it you actually do here?" | `[TOPIC · retain]` | "I decide what things are. It's the only office in the territory that does." *(second)* "Decide. Same as a minute ago. I've decided you're in the way." | — |
 | 6 | "Do you know a man named Ezra Pike?" | `[TOPIC · retain]` | "Yes." *(beat)* "The undertaker has his paperwork. I'm not doing the undertaker's job." *(second)* "The undertaker. Down the lane. I don't do directions either." | unless `T_PIKE_DEAD` |
 | 3 | "I tune pianos." | `[COMIC · counted-repeat]` | *(long pause)* "Congratulations." | req `T_TUNES_PIANOS` |
 | 4 | "You knew Pike was dead." | `[TOPIC · retain]` | "I knew him. Then I certified him. Then I stopped." *(second)* "Certified. It's what I do. Nobody asked me to announce it." | req `T_PIKE_DEAD` |
@@ -106,7 +106,7 @@ The queue ledger, chained to the sill. *(Errata 75: getting in the book is not d
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Where do I sign?" | `[PROGRESS · remove]` | "You don't sign. You print. Signatures are for people the next clerk has to believe." | enters the queue |
+| 1 | "Splendid! Where do I sign?" | `[PROGRESS · remove]` | "You don't sign. You print. Signatures are for people the next clerk has to believe." | enters the queue |
 | 2 | "How long is the wait, honestly?" | `[TOPIC · rephrase]` | "Eight months." *(rephrases after C5 to "How long is the wait now?" → "Three weeks. It appears the queue has been on a diet.")* *(second)* "Eight months. Asking twice doesn't shorten it. I've watched men try." | — |
 | 3 | "What number am I?" | `[COMIC · counted-repeat]` | "Nine hundred and six." *(second)* "Nine hundred and six." *(third)* "Mr. Grubb, the number does not refresh with enthusiasm." | — |
 | 4 | `[EXIT · retain]` | | "Mind the window." *(It is ajar.)* | |
@@ -174,7 +174,7 @@ Its opening is said straight after WIN_B2 option 1 *(errata 232, Tyler, 2026-11-
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
 | 1 | "Teach me to answer a boast." | `[ASSAY · remove]` | "Sit." → **the Sparring** (doc 03), *played (errata 243)*: each of her five is a boast the player picks and she answers, flatly; the one doc 03's scene performs comes last, with that scene, and he can say them without apologizing | pairs 5–9 |
-| 2 | "So my claim is worthless." | `[TOPIC · retain]` | "Comprehensively. It's certified. It's the most certain thing you own." *(second)* "Certified worthless. Asking twice won't lower it. Nothing could." | — |
+| 2 | "So my claim is worthless. For now, I mean." | `[TOPIC · retain]` | "Comprehensively. It's certified. It's the most certain thing you own." *(second)* "Certified worthless. Asking twice won't lower it. Nothing could." | — |
 | 3 | "Thank you." | `[TOPIC · retain]` | "Don't thank me for a form. Thank me for something I chose." *(second)* "Still a form." | — |
 | 4 | "Was it the raccoon?" | `[COMIC · retain]` | "The raccoon is not an assayable substance. I have told you this." *(second)* "I have told you this twice now. I'm keeping count." | — |
 
@@ -261,7 +261,7 @@ FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK 
 | 1 | "I'm looking for Ezra Pike." | `[TOPIC · retain]` | "Dear Ezra. He has moved somewhere very quiet. The undertaker keeps his address." *(second)* "Very quiet, very settled. The undertaker will tell you all about the neighbourhood." → unless `T_PIKE_DEAD` |
 | 5 | "You knew Pike was dead." | `[TOPIC · retain]` | "Knew it, Mr. Grubb? I sent flowers. I send flowers to everyone. It's cheaper than knowing them." *(second)* "Flowers. Every time. You'll get some yourself one day." → req `T_PIKE_DEAD` |
 | 2 | "I don't want a claim." | `[TOPIC · retain]` | "Nobody does on the first day. On the second they've bought one, and on the third they come to me. I'll keep the chair warm." *(second)* "Of course not. The chair is warm, whenever you're ready." |
-| 3 | "I have four dollars." | `[TOPIC · retain]` | "Then you are the best-capitalized man to arrive this week, and I congratulate you, and I would keep a hand on them in the Nugget." *(He knows exactly who is in the Nugget.)* *(second)* "Still four? Splendid. Both hands, Mr. Grubb. Both hands." |
+| 3 | "I have four dollars, and excellent prospects." | `[TOPIC · retain]` | "Then you are the best-capitalized man to arrive this week, and I congratulate you, and I would keep a hand on them in the Nugget." *(He knows exactly who is in the Nugget.)* *(second)* "Still four? Splendid. Both hands, Mr. Grubb. Both hands." |
 | 4 | "Is it always this warm in here?" | `[COMIC · retain]` | "Always. I keep a fire in every season. Warm men are generous men, Mr. Grubb, and so are warm offices." *(second)* "Always. A cold man counts his money, Mr. Grubb. I prefer them warm." |
 
 *Errata 172, doc 99's rewrite: second answers for FAN_A0's questions; the Pike question only while Thad doesn't know, and "You knew Pike was dead." after. In FAN_A1, option 5 is the greedy question doc 99 rule 3 asks for. Fanshawe never refuses it; he sells it back to him. Neither changes the Fanshawe Rule ledger: nothing is received or given up in either.*
@@ -274,7 +274,7 @@ FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK 
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Number two. Prosperity." | `[PROGRESS · remove]` | "Prosperity! You've named it. Nobody names them. I like you enormously." *(He gives Thad a map of the district. Claim Two is already circled.)* | **He now knows.** Gives map *(errata 228: the map arrives on screen, as it does in option 2)* |
+| 1 | "Number two. I've named her Prosperity." | `[PROGRESS · remove]` | "Prosperity! You've named it. Nobody names them. I like you enormously." *(He gives Thad a map of the district. Claim Two is already circled.)* | **He now knows.** Gives map *(errata 228: the map arrives on screen, as it does in option 2)* |
 | 2 | "I'd rather not say." | `[PROGRESS · remove]` | "Very wise. Very wise indeed." *(He gives the map anyway. It has Claim Two circled.)* | Same outcome — **there is no way to withhold it, and the player will not notice until Act III** |
 | 3 | "Were you really a colonel?" | `[TOPIC · remove]` | "Chapultepec, '47. Terrible business. Wonderful weather." | `WAR_CONTRADICTIONS` +1 |
 | 4 | "You have a great many chairs." | `[COMIC · retain]` | "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch." *(second)* "Do sit, Mr. Grubb. You're standing again." | — |
@@ -332,7 +332,7 @@ Per the Fanshawe Rule: Thad receives the Registrar introduction; gives up that h
 |---|---|---|---|---|
 | 1 | "I need to see the Registrar about my boundary." | `[PROGRESS · remove]` | "Your *boundary*! A man who knows where he ends. Rare. I shall send a note ahead." *(The note is warm, correct, and mentions the boundary. By Thursday the Company has filed three priority submissions on the parcels beside Claim One.)* | receives: the note. gives up: contiguity |
 | 2 | "What do you want for it?" | `[TOPIC · retain]` | "Want? Mr. Grubb, a favor that costs something is a *transaction*. I deal only in favours." *(second)* "Nothing at all. I've written it down, so that neither of us forgets." | — |
-| 3 | "Your clock is slow." | `[COMIC · retain]` | "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it." *(second)* "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb." | — |
+| 3 | "Your clock is slow, Colonel. I've an ear for these things." | `[COMIC · retain]` | "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it." *(second)* "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb." | — |
 | 4 | "How does a man come to be a colonel?" | `[TOPIC · remove]` | "Young, Mr. Grubb. I took the rank at twenty-three. I'm thirty this spring, and I intend to stay there." | `WAR_CONTRADICTIONS` +1 |
 | 5 | "Which regiment, Colonel?" | `[TOPIC · remove]` | "The Eleventh Ohio Mounted. Splendid men. I remember every one of their horses." | sets `T_ELEVENTH_OHIO` |
 | 6 | "You were never a colonel." | `[TOPIC · remove]` | *(He stops. For the only time in the game, he is completely still.)* "No. I wasn't." *"…"* "Was there something else, Mr. Grubb?" | the war's payoff: from Act III, with all five contradictions |
@@ -661,7 +661,7 @@ The bible: "Thad names it (full Christian name, chosen by the player from three 
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "I need a boundary divined." | `[PROGRESS · remove]` | "The *earth* will speak — two dollars — the earth will speak to me of *lines and limits* — in advance —" *(req `T_SURVEY_NEEDED`; then doc 57 A7: the fee, the map, the divining)* |
+| 1 | "Madame! I need a boundary divined, and I'm told you're the finest in the territory." | `[PROGRESS · remove]` | "The *earth* will speak — two dollars — the earth will speak to me of *lines and limits* — in advance —" *(req `T_SURVEY_NEEDED`; then doc 57 A7: the fee, the map, the divining)* |
 | 2 | "How does the rod work?" | `[TOPIC · retain]` | "It is drawn to the *hidden metal*." *(It is brass. Brass is not drawn to gold. She humphs when this is raised and does not address it.)* *(second)* "It is drawn to the hidden metal. Asking twice is a dollar." |
 | 6 | "Could the rod find gold on my claim?" | `[TOPIC · retain]` | "The rod finds gold *everywhere*, darling. It is the digging that disappoints." *(second)* "Everywhere. Digging is extra." |
 | 7 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "The spirits know Ezra Pike. *Intimately.* Two dollars and I shall ask them where he is." *(beat)* "Or the undertaker will tell you for nothing. He undercuts me terribly." *(second)* "The undertaker. Free, and no atmosphere whatsoever." *(unless `T_PIKE_DEAD`)* |
@@ -734,7 +734,7 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "Tell me about the bell." | `[PROGRESS · remove]` | "A half-step flat since the day it was hung, and I have struck it every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it." *(Load-bearing for the funeral theme and the man does not know it.)* |
+| 1 | "Reverend, I couldn't help noticing your bell. Tell me about it." | `[PROGRESS · remove]` | "A half-step flat since the day it was hung, and I have struck it every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it." *(Load-bearing for the funeral theme and the man does not know it.)* |
 | 2 | "What do your services cost?" | `[TOPIC · retain]` | "Feeling is free. *Articulated* feeling is priced by the adjective. The board is by the door." *(second)* "The feeling, free. The adjectives, on the board. 'Beloved' is the dear one." |
 | 3 | "Do you believe in Mott's gold?" | `[TOPIC · retain]` | "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement." *(second)* "I believe it most on Sundays. So does the collection plate." |
 | 9 | "Did you know Ezra Pike?" | `[TOPIC · retain]` | "PIKE!" *(beat)* "A man of— a man of real—" *(beat)* "I never met him. The undertaker knew him best. Professionally." *(second)* "The undertaker. He knew Mr. Pike in a way I never had the privilege to." *(unless `T_PIKE_DEAD`)* |
@@ -777,7 +777,7 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "I need to file this deed." | `[PROGRESS · remove]` | "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'" *(He taps the word.)* "Thereabouts is not a unit, Mr. Grubb. I have checked." "With a boundary and two dollars, the office will file it." | *(errata 228: the fee, said before the money is called the filing fee)* sets `T_SURVEY_NEEDED` — **A6** *(errata 75: the refusal; the filing itself is doc 57 A9)* req `T_SWINDLED` *(errata 172: he has no deed before the swindle)* |
+| 1 | "Good day! I need to file this deed. It's my first." | `[PROGRESS · remove]` | "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'" *(He taps the word.)* "Thereabouts is not a unit, Mr. Grubb. I have checked." "With a boundary and two dollars, the office will file it." | *(errata 228: the fee, said before the money is called the filing fee)* sets `T_SURVEY_NEEDED` — **A6** *(errata 75: the refusal; the filing itself is doc 57 A9)* req `T_SWINDLED` *(errata 172: he has no deed before the swindle)* |
 | 1′ | "Where would I find a surveyor?" | `[PROGRESS · remove]` | "The territory licenses surveyors. Consolation has none. The statute accepts a boundary 'attested in good form by any person holding a trade license from this office.'" *(beat)* "I have issued one license this year. It was to a diviner." | req `T_SURVEY_NEEDED`; points to Ozymandia — A7 *(errata 75)* |
 | 1″ | "I have a survey." | `[PROGRESS · remove]` | "Then the deed, the survey and the fee. In that order. The order is in the statute, so that nobody can say he paid for the paper." | req THE SURVEY; doc 57 A9 *(errata 75)* |
 | 2 | "The deed's drawn wrong side up." | `[TOPIC · retain]` | "Statute does not specify an orientation. You would be surprised how much statute does not specify. I would not. I have read it." *(second)* "It still does not specify. I have read it again since you asked." | req `T_SWINDLED` |
@@ -856,10 +856,10 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "You sold me a worthless claim." | `[PROGRESS · remove]` | "I sold you a *claim*. Worth is your department. Mine's volume." *(He is genuinely pleased to see Thad. He remembers him fondly, the way a fisherman remembers a good fish.)* |
+| 1 | "You sold me a worthless claim, Mr. Vessel, and I've come to say so, firmly." | `[PROGRESS · remove]` | "I sold you a *claim*. Worth is your department. Mine's volume." *(He is genuinely pleased to see Thad. He remembers him fondly, the way a fisherman remembers a good fish.)* |
 | 2 | "I want my four dollars back." | `[TOPIC · counted-repeat]` | "They're working, son. Money *works* out here." *(second)* "They've been promoted." *(third)* "They're in hospitality now." |
 | 3 | "Teach me to lie like that." | `[ASSAY · remove]` | "Can't teach it. Can *demonstrate* it." → **Duel One.** He teaches Tier 1 by beating Thad with it, cheerfully, twice if asked |
-| 4 | "You'll answer for this someday." | `[COMIC · retain]` | "I answer for it *constantly*. Nobody accepts the answer." *(second)* "Still answering, son. I've got the answer down very nice by now." |
+| 4 | "You'll answer for this someday, and I'll be there, and I'll be rich." | `[COMIC · retain]` | "I answer for it *constantly*. Nobody accepts the answer." *(second)* "Still answering, son. I've got the answer down very nice by now." |
 | 5 | "I'd like a rematch." | `[ASSAY · counted-repeat]` | "Every man does, son. It's what keeps me in practice. Pull up the chair; the judges are getting bored." → **Duel Two** *(offered once Duel One is lost; errata 73 H. Counted-repeat, not greyed, while a rematch is still owed: errata 130 E)* |
 | 6 | "I need you to sign an affidavit." | `[PROGRESS · remove]` | "Sign a paper saying I sold you mud under false pretenses? Son, that's a confession with a stamp on it." *(beat)* "Tell you what. We'll settle it the local way." *(He pulls out the chair.)* → **B4**; **Duel One** *(errata 75)* |
 
@@ -882,7 +882,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "I need the mule for the diggings road." | `[PROGRESS · remove]` | "You don't hire Grievance. You *apply*. She'll look at you. Then we'll know." *(She looks. A long moment. She looks away.)* "…Well. Now we know." *(Errata 75: she will not move — B2's refusal. "D-travel" is withdrawn; travel is the map.)* |
+| 1 | "I need a mule for the diggings road, and I'm told she's the best." | `[PROGRESS · remove]` | "You don't hire Grievance. You *apply*. She'll look at you. Then we'll know." *(She looks. A long moment. She looks away.)* "…Well. Now we know." *(Errata 75: she will not move — B2's refusal. "D-travel" is withdrawn; travel is the map.)* |
 | 2 | "Why 'Grievance'?" | `[TOPIC · retain]` | "Had a partner once. She took his side." *(second)* "She took his side. She'd take it again, given the chance." |
 | 8 | "Did you know Ezra Pike?" | `[TOPIC · retain]` | "Grievance knew him. She'd tell you to ask the undertaker." *(beat)* "She's not a talker." *(second)* "The undertaker. Grievance has nothing to add." → unless `T_PIKE_DEAD` |
 | 9 | "You knew Pike was dead." | `[TOPIC · retain]` | "She knew. She looked at me funny for a week." *(second)* "A whole week. Funny." → req `T_PIKE_DEAD` |

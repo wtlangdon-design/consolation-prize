@@ -111,7 +111,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 ## ROOM 14 — BOOT HILL
 
 **THE GATE** · CLOSE — "It swings back. The latch is broken in the direction of welcome, which is not the direction you want a graveyard broken in."
-**PIKE'S HEADBOARD** · TALK_TO — "I read him my letter of introduction. It seemed only right. He took it as well as anything else I've said here."
+**PIKE'S HEADBOARD** · TALK_TO — "I read him my letter of introduction. It seemed only right. Then I told him I'd manage on my own. I think he'd have liked that."
 **THE FENCE** · PUSH — "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
 **THE WILD OATS** · PICK_UP — "Boot Hill's only harvest. I left it. It's theirs."
 **PLOT ELEVEN** · USE — "It's in use. That's the entire and only thing a plot can be."

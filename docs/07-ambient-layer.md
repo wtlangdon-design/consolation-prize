@@ -633,7 +633,7 @@ Six enterable buildings. No required items, no puzzle gates. 5–8 hotspots each
 **THE COUNTER** · **THE WINDOW** · **THE BACK ROOM**
 
 ## THE SCHOOLHOUSE — 6 hotspots
-**THE DESKS** — LOOK: "Fourteen desks, made by hand, well made. Nobody has ever sat in them." · LISTEN: "Nothing."
+**THE DESKS** — LOOK: "Fourteen desks, made by hand, well made. Nobody has ever sat in them. I'd like to be here the day somebody does." · LISTEN: "Nothing."
 **THE BLACKBOARD** — LOOK: "Blank. It has been washed. Somebody washed a blackboard that has never been written on." · LISTEN: "Nothing."
 **THE BELL ON THE DESK** — LISTEN: "…It's in tune. Of all the things in this town."
 **THE STOVE** · **THE WINDOW** · **THE DOOR**

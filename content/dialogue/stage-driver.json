@@ -10,7 +10,7 @@
       "options": [
         {
           "id": "drv1",
-          "text": "Where can I find Ezra Pike?",
+          "text": "I'm expected by a Mr. Ezra Pike. Where would I find him?",
           "tag": "PROGRESS",
           "say": "Ask the undertaker. He knows everybody.",
           "set": {
@@ -23,7 +23,7 @@
         },
         {
           "id": "drv2",
-          "text": "Where am I supposed to sleep?",
+          "text": "And where does a gentleman sleep in Consolation?",
           "tag": "PROGRESS",
           "exchange": [
             {
@@ -32,7 +32,7 @@
             },
             {
               "speaker": "thad",
-              "line": "I have four."
+              "line": "I have four. Four is very nearly five."
             },
             {
               "speaker": "stage_driver",
@@ -46,7 +46,7 @@
         },
         {
           "id": "drv3",
-          "text": "You don't think much of my chances.",
+          "text": "You don't think much of my chances. I can see it in your hat.",
           "tag": "COMIC",
           "say": "I don't think about them at all.",
           "add": {
@@ -56,7 +56,7 @@
         },
         {
           "id": "drv4",
-          "text": "Thank you for the ride.",
+          "text": "Thank you for the ride! I'll mention you when I'm famous.",
           "tag": "EXIT",
           "say": "Wasn't for you.",
           "set": {

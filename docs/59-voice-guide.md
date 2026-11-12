@@ -50,7 +50,7 @@ He talks like a person. "I have decided…" is his signature move, not his gramm
 
 ### 4 · The volume varies
 Across a hotspot's lines, and across a room:
-- **Most lines are quick and plain** — a fact, a shrug, one beat. "No." is a whole line. So is "That would cost money."
+- **Most lines are quick and plain** — a fact, a shrug, one beat. "No." is a whole line. So is "That would cost money, and I'm saving mine to make more of it."
 - **About one in three is a real joke**, built and landed.
 - **Each room gets one or two big swings** — a line that is properly silly, a running gag escalated, a set piece.
 - **Not every line ends on a turn.** If the last clause is "which is…" or "and I am not going to…", ask whether the line needed it.

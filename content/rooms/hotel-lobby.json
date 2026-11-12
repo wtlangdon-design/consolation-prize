@@ -126,7 +126,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A bell for summoning the clerk.",
+            "say": "A bell for summoning the clerk! I do enjoy a bell.",
             "repeat": [
               "A card beside it reads RING FOR SERVICE, in the same hand as the card that reads NO CREDIT.",
               "I've looked at this bell three times now. A lesser man would have rung it. So would a braver one."
@@ -220,7 +220,7 @@
           {
             "say": "There I am.",
             "repeat": [
-              "Forty-one names. I've read all of them, and I don't know one.",
+              "Forty-one names. I've read all of them, and I don't know one. By the end of the month they'll all know mine.",
               "Mine is the last, and it's spelled in a way I haven't previously encountered."
             ],
             "then": [
@@ -310,7 +310,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A mountain scene, signed.",
+            "say": "A mountain scene, signed with tremendous confidence.",
             "repeat": [
               "There is a goat on the nearest peak, looking out of the picture as though it was promised a better frame.",
               "The signature is larger than the mountain. That, at least, is an honest account of the painter's priorities."
@@ -530,7 +530,7 @@
             "say": "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor.",
             "repeat": [
               "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since.",
-              "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else."
+              "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else. One day somebody will ask me to. I'm keeping my hands warm."
             ]
           }
         ],
@@ -569,7 +569,7 @@
             "say": "Main Street through glass with a wave in it.",
             "repeat": [
               "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves.",
-              "My own reflection, rippling. Even the window hasn't decided whether I've arrived."
+              "My own reflection, rippling. Even the window hasn't decided whether I've arrived. Give it time."
             ],
             "then": [
               "The town ripples, like it has not set yet."
@@ -611,7 +611,7 @@
             "say": "A parlor stove with a nickel rail, polished.",
             "repeat": [
               "Unlit. It has been unlit since I arrived, in a lobby with a rail for drying gloves.",
-              "The rail is for drying gloves. Nobody in Consolation owns gloves."
+              "The rail is for drying gloves. Nobody in Consolation owns gloves. When I've made my fortune I'll buy a pair, just to dry them here."
             ],
             "then": [
               "It is the only thing in this building anyone has spent an afternoon on."
@@ -718,7 +718,7 @@
             "say": "The door out onto Main Street, with a bell that does not work and a mat that has given up.",
             "repeat": [
               "The bell is a formality. Everybody who comes in is already known.",
-              "The street, past it. It is always brighter than I remember."
+              "The street, past it. It's always brighter than I remember, which I choose to take as a good sign."
             ]
           }
         ],

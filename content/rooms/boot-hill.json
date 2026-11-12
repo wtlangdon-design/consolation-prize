@@ -374,10 +374,13 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Ezra Pike. The man I was sent to find. Six years.",
+            "say": "Ezra Pike. The man who was going to give me my start.",
             "repeat": [
               "A plain board, kept upright. The undertaker's work, and paid for, I would guess, by the undertaker.",
               "I have his letter of introduction in my coat. It introduces me to this."
+            ],
+            "then": [
+              "Six years gone, and nobody thought to tell my father."
             ]
           }
         ],
@@ -392,7 +395,7 @@
         ]
       },
       "overrides": {
-        "TALK_TO": "I read him my letter of introduction. It seemed only right. He took it as well as anything else I've said here.",
+        "TALK_TO": "I read him my letter of introduction. It seemed only right. Then I told him I'd manage on my own. I think he'd have liked that.",
         "USE": "It's in use. That's the entire and only thing a plot can be."
       },
       "walkTo": {

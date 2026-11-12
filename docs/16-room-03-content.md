@@ -10,7 +10,7 @@
 # PART ONE — NEWLY WRITTEN HOTSPOTS
 
 ## THE STAIRS
-**LOOK** 1 "Stairs, up to rooms I haven't been invited to. There's a man on the landing. There is always a man on the landing." · 2 "He hasn't moved. I'm starting to think he isn't waiting for anything. He came with the stairs." · 3 "Eleven steps. I've counted them from down here, which is as far up as I've got."
+**LOOK** 1 "Stairs, up to rooms I haven't been invited to. There's a man on the landing. There is always a man on the landing." · 2 "He hasn't moved. I'm starting to think he isn't waiting for anything. He came with the stairs." · 3 "Eleven steps. I've counted them from down here, which is as far up as I've got. So far."
 **LISTEN** 1 "Boards, overhead. Somebody pacing a room about the size of mine." · 2 "Four steps, turn. Four steps, turn. Definitely the size of mine." · 3 "He's stopped. Somehow that's worse."
 
 ## THE FADED PORTRAIT
@@ -58,7 +58,7 @@
 **LISTEN** 2 "Glasses. Talk. The bear is now eleven feet tall and has a grievance." · 3 "Somebody's being served ahead of somebody else, and it's being noticed."
 
 ## THE MIRROR
-**LOOK** 2 "Still me. I'd hoped for some improvement. The coat is doing its best." · 3 "Give it a few weeks and I'll look like I belong here. That was never the plan."
+**LOOK** 2 "Still me. I'd hoped for some improvement. The coat is doing its best." · 3 "Give it a few weeks and I'll look like I belong here. The plan is to look like I own it."
 **LISTEN** 2 "Still quiet. I keep expecting it to say something about the coat." · 3 "Nothing. I keep checking. It keeps not."
 
 ---
@@ -67,7 +67,7 @@
 
 > **PIANO** · USE — "I could tune it. Nobody's asked. I'm not going to ask to be asked. I'm going to stand near it until somebody has the idea."
 > **PIANO** · OPEN — "The lid comes up. Inside: a piano. Exactly what I expected, and somehow still a letdown."
-> **BAR** · USE — "That would cost money."
+> **BAR** · USE — "That would cost money, and I'm saving mine to make more of it."
 > **BAR** · PUSH — "It doesn't move. It's the only thing in town built to stay."
 > **CHANDELIER** · PULL — "It's nine feet up and heavier than I am. I'll admire it from down here, like everyone else."
 > **SPITTOON** · PICK UP — "No."
@@ -89,7 +89,7 @@
 ## THE BACK ROOM DOOR → Room 4
 *(Ruling 19b, resolved by doc 19 § 1: the LOOK named men going through a shut door. Moved to LISTEN, which may describe what sight cannot.)*
 
-**LOOK** 1 "A door behind the bar, shut. There's a room back there where things get settled." · 2 "Shut. It's been shut every time I've looked. That isn't the same as locked, and I've thought about the difference a lot." · 3 "Shut in a way that's been decided, not just closed. I didn't know doors could do that. This one can."
+**LOOK** 1 "A door behind the bar, shut. There's a room back there where things get settled. One day I'll be the one settling them." · 2 "Shut. It's been shut every time I've looked. That isn't the same as locked, and I've thought about the difference a lot." · 3 "Shut in a way that's been decided, not just closed. I didn't know doors could do that. This one can."
 **LISTEN** 1 "Nothing. Whatever happens back there happens quietly, and then everyone agrees about it." · 2 "A pencil. Somebody is writing something down." · 3 "Two men going in. A while later, two men coming out, and one of them pleased."
 
 **Overrides**

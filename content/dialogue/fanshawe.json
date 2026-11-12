@@ -85,7 +85,7 @@
         {
           "id": "fanshawe3",
           "tag": "TOPIC",
-          "text": "I have four dollars.",
+          "text": "I have four dollars, and excellent prospects.",
           "afterUse": "remove",
           "exchange": [
             {
@@ -136,7 +136,7 @@
         {
           "id": "fanshawe1",
           "tag": "PROGRESS",
-          "text": "Number two. Prosperity.",
+          "text": "Number two. I've named her Prosperity.",
           "afterUse": "remove",
           "gives": [
             "company_map"
@@ -388,7 +388,7 @@
         {
           "id": "fanshawe3",
           "tag": "COMIC",
-          "text": "Your clock is slow.",
+          "text": "Your clock is slow, Colonel. I've an ear for these things.",
           "afterUse": "retain",
           "say": "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it.",
           "repeats": [

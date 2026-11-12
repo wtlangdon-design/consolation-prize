@@ -29,7 +29,7 @@
     {
       "name": "THE SABRE",
       "LOOK_AT": [
-        "A cavalry sabre, mounted. Beautifully kept.",
+        "A cavalry sabre, mounted and beautifully kept! I've always wanted a sabre. I've no idea what I'd do with it.",
         "The scabbard is engraved with a battle honor. I would tell you which, but the engraving and the Colonel disagree.",
         "Not a nick on it. Either it's the finest blade in the territory, or it's never met anything."
       ],
@@ -126,7 +126,7 @@
       "LOOK_AT": [
         "A tall window over Main Street, curtained in velvet the color of good port. He can see the whole town from here, and the town can see him being generous.",
         "The glass is new, thick, and very slightly green. The town looks prosperous through it. That may be what the glass is for.",
-        "From here you can see the Assay Office door and the Registrar's, and how long the line is at each."
+        "From here you can see the Assay Office door and the Registrar's, and how long the line is at each. One day I'll have a window like this."
       ],
       "LISTEN_TO": [
         "Main Street, with the edges taken off. Even the noise is muffled into good manners in this room.",
@@ -210,7 +210,7 @@
     {
       "name": "MY GLASS",
       "LOOK_AT": [
-        "My glass. It was full when I sat down and it has been full ever since, whatever I do to it.",
+        "My glass! Crystal. I've never drunk from crystal, and I'm trying to look as though I do it every Tuesday. It was full when I sat down and it has been full ever since, whatever I do to it.",
         "The wine comes up to the same line each time, like a tide with a patron.",
         "I have never seen him pour. I have only seen the bottle put down."
       ],
@@ -223,7 +223,7 @@
     {
       "name": "THE BOTTLE",
       "LOOK_AT": [
-        "A dark bottle with a label in French. It has been at this table longer than I have and knows the form.",
+        "A dark bottle with a label in French. I can't read French. I'm nodding at it knowledgeably anyway. It has been at this table longer than I have and knows the form.",
         "It is never emptier. I am beginning to think there is a second one, and that they take turns.",
         "The label has a château on it. The château has more windows than Consolation."
       ],
@@ -251,7 +251,7 @@
       "LOOK_AT": [
         "'The undersigned, being of sound mind and well dined.' My name is in it already, spelled correctly, which in this town amounts to a warning.",
         "It is very warm, and very short, and the parsley is fresh. He has gone to more trouble over this than over the soup.",
-        "There is a line at the bottom with nothing on it. The whole dinner has been walking me toward that line."
+        "There is a line at the bottom with nothing on it. The whole dinner has been walking me toward that line, and I've been enjoying the walk."
       ],
       "LISTEN_TO": [
         "Paper, settling on hot china. It sounds comfortable there.",

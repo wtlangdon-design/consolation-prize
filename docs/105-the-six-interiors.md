@@ -164,7 +164,7 @@
 *Six subjects. On the map.*
 
 **THE DESKS**
-> **LOOK:** "Fourteen desks, made by hand, well made. Nobody has ever sat in them."
+> **LOOK:** "Fourteen desks, made by hand, well made. Nobody has ever sat in them. I'd like to be here the day somebody does."
 > **LISTEN:** "Nothing."
 
 **THE BLACKBOARD**

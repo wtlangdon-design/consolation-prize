@@ -17,10 +17,10 @@
 
 **THE PAINTING** — LOOK 2 "There is a goat on the nearest peak, looking out of the picture as though it was promised a better frame." · 3 "The signature is larger than the mountain. That, at least, is an honest account of the painter's priorities." | LISTEN 2 "The frame creaks. It is the most western thing about it." · 3 "Nothing. A painting of a mountain is quieter than a mountain, and that is the only improvement on offer."
 
-**THE FRONT WINDOW** — LOOK 2 "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves." · 3 "My own reflection, rippling. Even the window hasn't decided whether I've arrived." | LISTEN 2 "A wagon, a dog, a man insisting. The glass lets the insisting through." · 3 "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
+**THE FRONT WINDOW** — LOOK 2 "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves." · 3 "My own reflection, rippling. Even the window hasn't decided whether I've arrived. Give it time." | LISTEN 2 "A wagon, a dog, a man insisting. The glass lets the insisting through." · 3 "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
 
 ### THE PARLOR PIANO
-**LOOK** 1 "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor." · 2 "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since." · 3 "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else."
+**LOOK** 1 "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor." · 2 "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since." · 3 "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else. One day somebody will ask me to. I'm keeping my hands warm."
 **LISTEN** 1 "Nothing, until a cart goes by. Then every string answers, and every one of them is wrong in its own direction." · 2 "Still wrong. The A is the worst. The A is always the worst." · 3 "Four minutes' work, and a room for the night. I've done the arithmetic, which I gather is frowned on here."
 
 *Errata 75: A2's piano had no hotspot in any pass. It stands in the lobby's corner, which the hotel calls the parlor. Its LISTEN is the line A2 teaches LISTEN TO with.*
@@ -107,7 +107,7 @@
 
 **THE CLAIM MARKER** — LOOK 2 "The number is painted on with confidence and very little paint." · 3 "It leans. I've straightened it twice, and it's gone back to leaning, which I respect as a position." | LISTEN 2 "The stake creaks in the wind like a man trying to remember something." · 3 "Wind again. It comes through here on its way to somewhere better."
 
-**THE MUD** — LOOK 2 "Having stood in it, I can report on the unidentified thirty percent. It is cold, and it is personal." · 3 "This is the mud I own. I keep expecting to feel differently about it than about other mud. I don't." | LISTEN 2 "It sucks at my boot as I lift it. Possessive, for something I bought." · 3 "A slow settling. It has nowhere else to be, and neither, it turns out, do I."
+**THE MUD** — LOOK 2 "Having stood in it, I can report on the unidentified thirty percent. It is cold, and it is personal." · 3 "This is the mud I own. I keep expecting to feel differently about it than about other mud. I do, a little. It's mine." | LISTEN 2 "It sucks at my boot as I lift it. Possessive, for something I bought." · 3 "A slow settling. It has nowhere else to be, and neither, it turns out, do I."
 
 **THE HOLE** — LOOK 2 "The edges are old and smooth. Whatever dug this was in no hurry." · 3 "Forty feet of my land, and this is the only part of it that has shown any initiative." | LISTEN 2 "Air. Moving. It's warmer than the day." · 3 "Air. Moving. It's warmer than the day."
 
@@ -160,7 +160,7 @@
 **BACK EDITIONS** ≡ **BACK ISSUES**
 **THE SCHEDULE BOARD** ≡ **THE HEADLINE BOARD**
 
-**THE TYPE CASE** — LOOK 2 "The exclamation marks have a compartment of their own, and it is the largest." · 3 "Every letter is cast backward so that it prints forward. It is the most honest thing in the building and it does it in reverse." | LISTEN 2 "A faint rattle of lead when the press starts. The type knows what is coming." · 3 "Nothing. Several thousand words in that case, and not one of them in order."
+**THE TYPE CASE** — LOOK 2 "The exclamation marks have a compartment of their own, and it is the largest. I like this paper more every minute." · 3 "Every letter is cast backward so that it prints forward. It is the most honest thing in the building and it does it in reverse." | LISTEN 2 "A faint rattle of lead when the press starts. The type knows what is coming." · 3 "Nothing. Several thousand words in that case, and not one of them in order."
 
 **THE PRESS** — LOOK 2 "A sheet is half-printed in the bed: CONSOLATION REJOICES. The headline has not yet decided at what." · 3 "It is older than the town. It came over the mountains in pieces, which is more effort than anyone has put into the news since." | LISTEN 2 "The knock again, on the return. I could find it in a minute, and he'd print that I'd broken it." · 3 "A long iron sigh as the bed comes home, and then the knock, with the timing of a man repeating a joke."
 
@@ -220,7 +220,7 @@
 **LISTEN** 1 "Nothing. Iron this thick has heard nothing since it was cast." · 2 "Nothing. It doesn't tick, which is the first thing I listen for in a lock." · 3 "A dull note when the floor takes my weight. Heavy things have very little to say, and say it low."
 
 ### THE WINDOW
-**LOOK** 1 "A tall window over Main Street, curtained in velvet the color of good port. He can see the whole town from here, and the town can see him being generous." · 2 "The glass is new, thick, and very slightly green. The town looks prosperous through it. That may be what the glass is for." · 3 "From here you can see the Assay Office door and the Registrar's, and how long the line is at each."
+**LOOK** 1 "A tall window over Main Street, curtained in velvet the color of good port. He can see the whole town from here, and the town can see him being generous." · 2 "The glass is new, thick, and very slightly green. The town looks prosperous through it. That may be what the glass is for." · 3 "From here you can see the Assay Office door and the Registrar's, and how long the line is at each. One day I'll have a window like this."
 **LISTEN** 1 "Main Street, with the edges taken off. Even the noise is muffled into good manners in this room." · 2 "A wagon passing. Through this glass it sounds as if it is paying a call." · 3 "Nothing gets in that he has not let in. The street knocks politely and is not answered."
 
 ### THE STOCK PORTRAIT DRAWER
@@ -279,7 +279,7 @@
 
 **THE VIEW AHEAD** — LOOK 2 "From here every claim looks promising. Distance is an optimist." · 3 "Above it all, a bare ridge. Nobody digs up there. Nobody has a reason to." | LISTEN 2 "Picks, and between the picks a man swearing in a steady, careful rhythm, like a hymn." · 3 "Picks, still. Somebody up there is always certain it is the next swing."
 
-**THE MEN GOING OUT** — LOOK 2 "Every one of them is carrying something he bought at the Mercantile. The Mercantile is the only claim in the district that pays." · 3 "They walk fast. Optimism has a pace, and it is brisk." | LISTEN 2 "Plans, mostly. Each man is explaining to the man beside him what he will do with it." · 3 "A whistle somewhere in the middle, out of tune and cheerful about it."
+**THE MEN GOING OUT** — LOOK 2 "Every one of them is carrying something he bought at the Mercantile. The Mercantile is the only claim in the district that pays." · 3 "They walk fast. Optimism has a pace, and it is brisk. I keep up easily." | LISTEN 2 "Plans, mostly. Each man is explaining to the man beside him what he will do with it." · 3 "A whistle somewhere in the middle, out of tune and cheerful about it."
 
 **THE MEN COMING BACK** — LOOK 2 "Nobody is carrying anything he did not take out." · 3 "They walk slower than they walked out, and all at the same pace, without anyone having agreed to it." | LISTEN 2 "Boots. Only boots. Nobody even swears." · 3 "Nothing. Tomorrow they will talk again on the way out. This is the part nobody talks about."
 
@@ -401,7 +401,7 @@
 
 **THE MERCURY FLASK** — LOOK 2 "The chain is newer than the flask. Somebody learned something." · 3 "It is heavier than it looks. It is the only thing out here that is." | LISTEN 2 "A shift inside, slow and heavy, like something turning over in bed." · 3 "Nothing, until the chain moves, and then the slosh again, offended on principle."
 
-**THE BOOT PRINTS** — LOOK 2 "Hobnailed, patched, and one barefoot. That man has my sympathy and my attention." · 3 "Mine are among them now. I've been counted." | LISTEN 2 "Water seeping into the newest prints, filling them one at a time." · 3 "Nothing. Tomorrow's shift will print over today's, and nobody will be counted twice."
+**THE BOOT PRINTS** — LOOK 2 "Hobnailed, patched, and one barefoot. That man has my sympathy and my attention." · 3 "Mine are among them now! I've been counted." | LISTEN 2 "Water seeping into the newest prints, filling them one at a time." · 3 "Nothing. Tomorrow's shift will print over today's, and nobody will be counted twice."
 
 **THE WILLOW** — LOOK 2 "Twenty or thirty sets of initials are cut into the trunk, and not one of them inside a heart. Out here people commit to nothing but their names." · 3 "It leans over the water as though it were panning too, and having about the same luck." | LISTEN 2 "Leaves again. Softer than the water, softer than the men. The willow wins." · 3 "A bird somewhere inside it, saying one note and stopping, like a man who has thought better of it."
 
@@ -608,7 +608,7 @@
 
 **CLAIM MARKER — "EUREKA"** — LOOK 2 "Dated the spring of the rush. He was among the first, and the first to be wrong." · 3 "Someone has scratched a small question mark after it. Not the same hand. A later, sadder hand." | LISTEN 2 "The board ticks in the sun. It has dried out, like the word." · 3 "Nothing. Eureka is a word you only get to say once."
 
-**CLAIM MARKER — "PROVIDENCE"** — LOOK 2 "The lettering is careful, the hand schooled. Somebody's mother taught him that hand, in the same town as mine." · 3 "I find I've stood here longer than at the others. I'm not going to examine why." | LISTEN 2 "Wind across the face of it. It sounds like a Sunday afternoon a long way off." · 3 "Nothing. The reference is lost on the territory."
+**CLAIM MARKER — "PROVIDENCE"** — LOOK 2 "The lettering is careful, the hand schooled. Somebody's mother taught him that hand, in the same town as mine." · 3 "I find I've stood here longer than at the others. I'm not going to examine why. I'm going to go and dig." | LISTEN 2 "Wind across the face of it. It sounds like a Sunday afternoon a long way off." · 3 "Nothing. The reference is lost on the territory."
 
 **CLAIM MARKER — "THE SURE THING"** — LOOK 2 "Beneath the name, smaller, a date, and smaller still, a second date. On the second, he was sure of something else." · 3 "It is the best-made marker in the row. He was sure of the carpentry, at least." | LISTEN 2 "The nail again, ringing when the wind leans." · 3 "The nail, and then nothing. Even the one sure thing is working loose."
 
@@ -995,11 +995,11 @@
 
 **THE MAP OF HOLDINGS** — LOOK 2 "The green is hand-tinted, and someone has gone over the edges twice, so there is no doubt where the Company ends. It does not, much." · 3 "The legend has two entries: COMPANY and OTHER. OTHER is in very small type." | LISTEN 2 "Nothing. Paper with this much green on it is very composed." · 3 "The frame tapping the wall as the inner door shuts."
 
-**THE MODEL** — LOOK 2 "The opera house has tiny painted posters on it for an opera that has not been written." · 3 "The model's Main Street is paved. The real one is three yards away and is not." | LISTEN 2 "Nothing. A town in miniature is even quieter than the real one." · 3 "A tiny bell in the model church, ringing when I knock the table. It is in tune, which is how I know it is a model."
+**THE MODEL** — LOOK 2 "The opera house has tiny painted posters on it for an opera that hasn't been written. I'd tune its piano for nothing." · 3 "The model's Main Street is paved. The real one is three yards away and is not." | LISTEN 2 "Nothing. A town in miniature is even quieter than the real one." · 3 "A tiny bell in the model church, ringing when I knock the table. It is in tune, which is how I know it is a model."
 
 **THE MAP WALL** — LOOK 2 "Each one is priced. The more certain the map, the higher the price, and the most certain is very expensive indeed." · 3 "I've stood in front of them for a while now. The strike has been in eleven places, and I haven't moved." | LISTEN 2 "Nothing. Eleven confident maps, not arguing with each other in public." · 3 "The glass of one frame humming faintly when a wagon passes."
 
-**THE TESTIMONIALS** — LOOK 2 "One thanks the Company 'for everything'. It does not go into detail." · 3 "There is room on the wall for forty. Somebody planned for more gratitude than arrived." | LISTEN 2 "Nothing. Thanks, framed, goes very quiet after two years." · 3 "A frame settling on its wire. Even the gratitude is sagging."
+**THE TESTIMONIALS** — LOOK 2 "One thanks the Company 'for everything'. It does not go into detail." · 3 "There's room on the wall for forty. Somebody planned for more gratitude than arrived. I'd be delighted to be the fifth." | LISTEN 2 "Nothing. Thanks, framed, goes very quiet after two years." · 3 "A frame settling on its wire. Even the gratitude is sagging."
 
 **THE SUBSCRIPTION BOOK** — LOOK 2 "There is a pen beside it, inked and ready. It is the only pen in town that is always inked." · 3 "The last name on the page has subscribed for one share. It is spelled carefully, as if it mattered." | LISTEN 2 "The page lifting in the warm air off the stove." · 3 "Nothing. It's waiting for the next small number."
 
@@ -1294,7 +1294,7 @@
 *(PIKE'S HEADBOARD and PLOT ELEVEN are doc 49's names for Ezra Pike's grave — "Plot eleven" (UND_A1), "third row, second from the end" (doc 27). Doc 05 gives Pike's line as "the tenth marker the player checks"; errata 69 E makes his grave its own hotspot, findable from Act I, with doc 05's line as its first LOOK. THE GATE is the room's exit. Doc 49's THE WILD OATS names an object no pass places and is retired under errata 68 E. Its THE FENCE was retired too, until errata 185 described the fence the plate draws.)*
 
 ### PIKE'S MARKER
-**LOOK** 1 "Ezra Pike. The man I was sent to find. Six years." · 2 "A plain board, kept upright. The undertaker's work, and paid for, I would guess, by the undertaker." · 3 "I have his letter of introduction in my coat. It introduces me to this."
+**LOOK** 1 "Ezra Pike. The man who was going to give me my start. Six years gone, and nobody thought to tell my father." · 2 "A plain board, kept upright. The undertaker's work, and paid for, I would guess, by the undertaker." · 3 "I have his letter of introduction in my coat. It introduces me to this."
 **LISTEN** 1 "Nothing. I have come a very long way to hear it." · 2 "Nothing, still. He was never going to answer, and I keep asking anyway." · 3 "Wind in the grass over him, and that is all the reply there is."
 
 ## Newly written *(errata 185)*

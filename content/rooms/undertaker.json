@@ -239,13 +239,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "One good suit, in three sizes, rented for viewings and returned after.",
+            "say": "One good suit, in three sizes, rented for viewings and returned after. Half the men in Boot Hill were photographed in it. It has more friends than I do. Give me a month.",
             "repeat": [
               "Three sizes, on one hanger, and all three have been let out at the waist.",
               "It hangs better than most of the men who wore it. The suit, at least, has kept its shape."
-            ],
-            "then": [
-              "Half the men in Boot Hill were photographed in it. It has more friends than I do."
             ]
           }
         ],

@@ -7457,3 +7457,31 @@ LISTEN keeps its register (doc 05; invariant 3).
 **The sample is Main Street** (doc 128, before and after): fifty-eight LOOK and wrong-verb lines rewritten in their own documents, plus the dream on the road. This is CLAUDE.md's seventeenth exception. No other room is touched until Tyler has played it and ruled.
 
 Lesson: none -- a rewrite, no defect fixed. `tests/resolution.test.ts` pinned the opening's speech time to its old words; the pin moves with them (recorded in `proofs/check-friction.json`).
+
+## 290 · Thad's voice through the game: Act I first (Tyler, 2026-11-11)
+
+Tyler, having played the Main Street sample (errata 289): "I like it. Take the voice through the rest of the game." Then: "Can you push all the act 1 rewrites to the game when they're done so I can start playing them immediately? And then you can continue with acts 2-4 and push those together when they're done."
+
+**Act I is done.** Every room Act I visits was read against doc 99's entry for Thad, and every line in its own document. Rooms covered: the stage road, the Nugget, the assay office, the Clarion, the hotel, the Company lobby and the Colonel's office, the registrar, the undertaker's, the Lane, Lower Street, the back alley, the livery, Ozymandia's tent, the mercantile, the claims road, Prosperity, Pratt's claim, the claim row, the creek, Boot Hill, Thad's room, and the town's interiors.
+
+**What changed and what was left.** Where a line was a catalogue with no Thad in it, or a weary landing with no hope before it, it was rewritten. Each rewrite starts with a flourish of hope, wanting or delight and ends on the honest beat. The dream echoes once or twice a room: Providence, a sign of his own, a window like the Colonel's, "They're wrong. I can feel it." Lines that already carried him were left alone, and most of the town's rooms already did. Docs 59 and 99's passes had given them a person; what they lacked was his hope. Doc 128 lists every change, before and after.
+
+**The answers for anything.** The verb pools heard everywhere ("Nothing.", "It stays.", "No.") are rewritten in doc 13 Part One and doc 07, so a wrong verb now sounds like Thad trying. They were transcribed into content/ui/verb-fallbacks.json by hand, so a rewrite in the documents never reached the game. `tools/extract-content.mjs` now reads them from the documents.
+
+**His side of Act I's conversations.** He speaks in whole, sociable sentences where he was asking interview questions in five words:
+- "I'm expected by a Mr. Ezra Pike. Where would I find him?"
+- "Done! I'll take it."
+- "It's Grubb, actually. Two B's, no E."
+- "I had a letter for him. From my father."
+
+Every answer still answers the line before it, and no option's meaning or tag changed.
+
+**Kept:** every LISTEN line (doc 05; invariant 3), every puzzle fact and clue, every flag, the letters home, and Hob's lines.
+
+**Found on the way, and fixed with their lessons:**
+- **Compiled rooms went stale silently.** Only Rooms 2, 3 and 5 were registered generators, so a line rewritten in the documents for any other compiled room never reached its room file, and nothing said so. Rooms 9, 10 and 18 went stale in this pass. Room 23 had been stale since GIVE was added (errata 282): its fume lines did not answer GIVE. `tools/lib/generators.mjs` now registers the examine extractor and every compiled room, so `check-generated` fails on any of them. This was proved by changing a Room 18 line in the documents without regenerating.
+- **Thirty-two stale entries** leave `proofs/written-not-built.json`. They were lines errata 286 and 288 rewrote out of the documents.
+
+Lesson: the generator registry (above), proved against the defect.
+
+Acts II–IV follow, together, as Tyler asked.

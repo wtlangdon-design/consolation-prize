@@ -216,7 +216,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The order form, in triplicate.",
+            "say": "The order form, in triplicate. One day I'll fill one in, and send it, and pay.",
             "repeat": [
               "Under ITEM someone has written PIANO, under QUANTITY, ONE, and under PAYMENT, nothing at all.",
               "Delivery in six to ten weeks, it promises. It does not say from when."
@@ -297,7 +297,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Polished bright.",
+            "say": "Polished bright! The most honest-looking thing in the store.",
             "repeat": [
               "A little dish of lead shot sits beside them, for adjustments. The adjustments are made out of sight.",
               "They are the brightest object in the store. Something that busy keeps its shine."

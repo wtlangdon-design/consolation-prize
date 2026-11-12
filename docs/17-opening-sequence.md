@@ -41,7 +41,7 @@ That is the whole engine of the game in two exchanges: Thad believes he has arri
 | 3 | **"My name is Thaddeus Grubb. I have come to Consolation to make my fortune."** — *"Course you have."* | no | Sincere, then punctured |
 | 4 | *"Four dollars?"* — Thad checks — *"Four dollars."* — **"You've all got four."** | no | The predatory machinery, unexplained |
 | 5 | Thad asks after Ezra Pike — **"Ask the undertaker. He knows everybody."** | no | **One destination. Nothing else.** |
-| 6 | The case goes in the mud. *"Hotel's five dollars."* — *"I have four."* The driver climbs aboard | no | The material problem. He leaves before Thad can ask anything more |
+| 6 | The case goes in the mud. *"Hotel's five dollars."* — *"I have four. Four is very nearly five."* The driver climbs aboard | no | The material problem. He leaves before Thad can ask anything more |
 | 6b | **The coach DEPARTS — it does not vanish.** Team walks, wheels turn, it leaves frame right over two or three seconds and the sound goes with it | no · ~3s | Player-audit fix. A coach that disappears on a click is not a coach leaving |
 | 7 | The coach recedes east. A badly tuned piano, faint, from the town. **ACT CARD** | no · ~3s | **PART ONE — In Which Our Hero Is Robbed, and Enjoys It** |
 | 8 | **Control.** Verb panel appears | **yes** | ~60–70 seconds elapsed |
@@ -61,10 +61,10 @@ Confirmed since: Monkey Island's lookout exchange is genuinely automatic, not pl
 
 | Option | Tag | Response |
 |---|---|---|
-| "Where can I find Ezra Pike?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." *(again)* "The undertaker. He'll be the one measuring you." |
-| "Where am I supposed to sleep?" | `[PROGRESS]` | "Hotel's five dollars." — *"I have four."* — **"You've all got four."** *(again)* "Five. You've got four. Arithmetic's free." |
-| "You don't think much of my chances." | `[COMIC]` | "I don't think about them at all." *(again)* "Still not thinking about them." |
-| "Thank you for the ride." | `[EXIT]` | **"Wasn't for you."** *(He climbs aboard. The coach goes. Beat 7.)* |
+| "I'm expected by a Mr. Ezra Pike. Where would I find him?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." *(again)* "The undertaker. He'll be the one measuring you." |
+| "And where does a gentleman sleep in Consolation?" | `[PROGRESS]` | "Hotel's five dollars." — *"I have four. Four is very nearly five."* — **"You've all got four."** *(again)* "Five. You've got four. Arithmetic's free." |
+| "You don't think much of my chances. I can see it in your hat." | `[COMIC]` | "I don't think about them at all." *(again)* "Still not thinking about them." |
+| "Thank you for the ride! I'll mention you when I'm famous." | `[EXIT]` | **"Wasn't for you."** *(He climbs aboard. The coach goes. Beat 7.)* |
 
 **"Wasn't for you"** is the best line in the opening and it should be the last thing anyone says on that road. The coach was not a service Thad bought. He was freight.
 

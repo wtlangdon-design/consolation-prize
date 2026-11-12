@@ -100,7 +100,7 @@
 > **LISTEN:** "Nothing. It is the only place in Consolation where nobody is talking."
 
 **HIS MOTHER'S LETTERS**
-> **LOOK Act I:** "Three from home. She is proud of me. She has been given no reason to be."
+> **LOOK Act I:** "Three from home. She is proud of me. She has been given no reason to be. Yet."
 > **LOOK Act II:** "Four from home. She has told the neighbors. The neighbors are also proud of me."
 > **LOOK Act III:** "Five from home. She asks whether I am eating."
 > **LOOK Act IV:** "Six. I am going to answer this one properly."

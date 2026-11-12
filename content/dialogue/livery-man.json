@@ -17,7 +17,7 @@
           "id": "livery_man1",
           "tag": "PROGRESS",
           "afterUse": "remove",
-          "text": "I need the mule for the diggings road.",
+          "text": "I need a mule for the diggings road, and I'm told she's the best.",
           "exchange": [
             {
               "speaker": "livery_man",

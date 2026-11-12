@@ -78,7 +78,7 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 *Fanshawe's office, the dinner, from his chair.*
 
 **MY GLASS**
-**LOOK** 1 "My glass. It was full when I sat down and it has been full ever since, whatever I do to it." · 2 "The wine comes up to the same line each time, like a tide with a patron." · 3 "I have never seen him pour. I have only seen the bottle put down."
+**LOOK** 1 "My glass! Crystal. I've never drunk from crystal, and I'm trying to look as though I do it every Tuesday. It was full when I sat down and it has been full ever since, whatever I do to it." · 2 "The wine comes up to the same line each time, like a tide with a patron." · 3 "I have never seen him pour. I have only seen the bottle put down."
 **LISTEN** 1 "A small note, when the bottle touches the rim. He plays it very well." · 2 "Wine, arriving. It does not glug. He would not allow it to glug." · 3 "Nothing. It is full, and full things are quiet."
 
 **THE GLASS, TRIED**
@@ -87,12 +87,12 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 - PUSH — "I moved it away. He moved it back, with the air of a man returning my hat."
 
 **THE BOTTLE**
-**LOOK** 1 "A dark bottle with a label in French. It has been at this table longer than I have and knows the form." · 2 "It is never emptier. I am beginning to think there is a second one, and that they take turns." · 3 "The label has a château on it. The château has more windows than Consolation."
+**LOOK** 1 "A dark bottle with a label in French. I can't read French. I'm nodding at it knowledgeably anyway. It has been at this table longer than I have and knows the form." · 2 "It is never emptier. I am beginning to think there is a second one, and that they take turns." · 3 "The label has a château on it. The château has more windows than Consolation."
 **LISTEN** 1 "Nothing, while it stands. It is biding his time for him." · 2 "A cork somewhere under the table, being managed." · 3 "The glass, ringing a little, the way a thing does when it knows what is coming."
 
 **THE BOTTLE, TRIED**
 - PICK UP — "He has it before I do. He has had it since before I thought of it."
-- USE — "I do not pour at this table. I have looked for the chance."
+- USE — "I don't pour at this table. I've looked for the chance."
 - CLOSE — "It has no cork that I can find. I do not believe he has ever needed one."
 
 **THE COVERED DISH**
@@ -103,10 +103,10 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 - OPEN — *(Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract.)* **FANSHAWE:** "Ah! You've found the fish. Take your time with it, Mr. Grubb. I never hurry a man at his fish." → `T_CONTRACT_SERVED`
 - PICK UP — "It is the size of a saddle and it is his. I should need a horse and a reason."
 - PUSH — "It does not slide. It has been set down by a man who meant it to stay."
-- CLOSE — "It is closed. That is the difficulty with it."
+- CLOSE — "It's closed. That's the difficulty with it."
 
 **THE CONTRACT**
-**LOOK** 1 "'The undersigned, being of sound mind and well dined.' My name is in it already, spelled correctly, which in this town amounts to a warning." · 2 "It is very warm, and very short, and the parsley is fresh. He has gone to more trouble over this than over the soup." · 3 "There is a line at the bottom with nothing on it. The whole dinner has been walking me toward that line."
+**LOOK** 1 "'The undersigned, being of sound mind and well dined.' My name is in it already, spelled correctly, which in this town amounts to a warning." · 2 "It is very warm, and very short, and the parsley is fresh. He has gone to more trouble over this than over the soup." · 3 "There is a line at the bottom with nothing on it. The whole dinner has been walking me toward that line, and I've been enjoying the walk."
 **LISTEN** 1 "Paper, settling on hot china. It sounds comfortable there." · 2 "Nothing. It has said everything it means to, in small type." · 3 "The Colonel, not mentioning it. He is doing that quite loudly."
 
 **THE CONTRACT, TRIED**

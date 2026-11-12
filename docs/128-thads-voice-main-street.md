@@ -99,13 +99,13 @@
 
 | Where | Before | After |
 |---|---|---|
-| PICK UP, anything | > "It stays where it is." > "No. It is part of the town. | > "I gave it a good try. It stays where it is." > "I'd better not. It's part of the town, and I'm hoping the town will like me. |
-| USE, anything | > "I have no plan for it." > "Not usefully." > "I should want something first. I have not got a want to hand." > "That would require a purpose. | > "I've no plan for it yet. Give me time; I'm full of plans." > "Not usefully. Not yet." > "I'd need to want something from it first, and for once I don't." > "That would want a purpose, and I'm saving mine for the big things. |
-| OPEN, anything | > "It does not open. Very little here does." > "There is no way into it." > "It is not that kind of thing. | > "It doesn't open. Very little here does, but I live in hope." > "There's no way into it. I checked, thoroughly and with optimism." > "It isn't that kind of thing, more's the pity. |
-| CLOSE, anything | > "It is already as closed as it intends to be." > "It is not open." > "There is nothing to close. | > "It's already as closed as it means to be." > "It isn't open. I'd have noticed. I notice things." > "There's nothing to close. I'm almost disappointed. |
-| PUSH, anything | > "It does not move. I have committed to this now and it still does not move." > "Nothing." > "It stays. | > "It doesn't move. I've committed to this now, and it still doesn't move." > "Nothing. And I put my back into it, too." > "It stays. I'll give it this: it knows its own mind. |
-| PULL, anything | > "No." > "It is not coming. | > "No. Not for want of trying." > "It isn't coming. I can respect a thing that knows where it belongs. |
-| TALK TO, anything | > "I have decided against it." > "It has said nothing and I have said nothing and we are both content." > "I would like it on record that I considered it. | > "I've decided against it. I'll save my charm for something that can answer." > "It's said nothing, I've said nothing, and we're both perfectly content." > "I'd like it on record that I considered it. |
+| PICK UP, anything | "It stays where it is." / "No. It is part of the town." | "I gave it a good try. It stays where it is." / "I'd better not. It's part of the town, and I'm hoping the town will like me." |
+| USE, anything | "I have no plan for it." / "Not usefully." / "I should want something first. I have not got a want to hand." / "That would require a purpose." | "I've no plan for it yet. Give me time; I'm full of plans." / "Not usefully. Not yet." / "I'd need to want something from it first, and for once I don't." / "That would want a purpose, and I'm saving mine for the big things." |
+| OPEN, anything | "It does not open. Very little here does." / "There is no way into it." / "It is not that kind of thing." | "It doesn't open. Very little here does, but I live in hope." / "There's no way into it. I checked, thoroughly and with optimism." / "It isn't that kind of thing, more's the pity." |
+| CLOSE, anything | "It is already as closed as it intends to be." / "It is not open." / "There is nothing to close." | "It's already as closed as it means to be." / "It isn't open. I'd have noticed. I notice things." / "There's nothing to close. I'm almost disappointed." |
+| PUSH, anything | "It does not move. I have committed to this now and it still does not move." / "Nothing." / "It stays." | "It doesn't move. I've committed to this now, and it still doesn't move." / "Nothing. And I put my back into it, too." / "It stays. I'll give it this: it knows its own mind." |
+| PULL, anything | "No." / "It is not coming." | "No. Not for want of trying." / "It isn't coming. I can respect a thing that knows where it belongs." |
+| TALK TO, anything | "I have decided against it." / "It has said nothing and I have said nothing and we are both content." / "I would like it on record that I considered it." | "I've decided against it. I'll save my charm for something that can answer." / "It's said nothing, I've said nothing, and we're both perfectly content." / "I'd like it on record that I considered it." |
 | A PERSON · LOOK AT | "A person. I have decided to be polite about it. | "A person! I've decided to be polite about it. I'm polite to everyone; it's half my charm. |
 | A PERSON · PICK UP | "No. I have thought about it for exactly as long as it deserves. | "No. I've thought about it for exactly as long as it deserves. |
 | A PERSON · PUSH | "I have never pushed anybody. I am not starting on a street this muddy. | "I've never pushed anybody in my life, and I'm not starting on a street this muddy. |
@@ -113,3 +113,179 @@
 | A PERSON · USE | "I would not know where to begin, and the beginning is the part people object to. | "I wouldn't know where to begin, and the beginning is the part people object to. |
 | GIVE, nothing in hand, to a person | "Give what? I am holding nothing, and I have grown attached to it. | "Give what? I'm holding nothing, and I've grown rather attached to it. |
 | GIVE, nothing in hand, to a thing | "I would have to be holding something. It is the one rule of giving. | "I'd have to be holding something first. It's the one rule of giving. |
+
+## Room 3, the Nugget
+
+| Where | Before | After |
+|---|---|---|
+| MIRROR · LOOK 3 | Give it a few weeks and I'll look like I belong here. That was never the plan. | Give it a few weeks and I'll look like I belong here. The plan is to look like I own it. |
+| BAR · LOOK 1 | Mahogany. Genuine mahogany. | Mahogany! Genuine mahogany. Now that's a bar a man could do business at. |
+| BAR · USE | That would cost money. | That would cost money, and I'm saving mine to make more of it. |
+| BACK ROOM DOOR · LOOK 1 | There's a room back there where things get settled. | There's a room back there where things get settled. One day I'll be the one settling them. |
+| STAIRS · LOOK 3 | Eleven steps. I've counted them from down here, which is as far up as I've got. | Eleven steps. I've counted them from down here, which is as far up as I've got. So far. |
+
+## Room 4, the assay office
+
+| Where | Before | After |
+|---|---|---|
+| QUEUE BOOK · LOOK 3 | Eight months. I've counted forward. I arrive in March. | Eight months. I've counted forward. I arrive in March, unless I think of something, and I always think of something. |
+| CERTIFICATE · LOOK 3 | Somebody in a capital four hundred miles away has never got round to the other word. | Somebody in a capital four hundred miles away has never got round to the other word. I know the feeling. Providence never got round to the other word for me, either. |
+| SCALES · USE | I'm not touching it. | I'm not touching it. I've seen the look she gives a man who breathes on it. |
+
+## The Clarion
+
+| Where | Before | After |
+|---|---|---|
+| TYPE CASE · LOOK 2 | The exclamation marks have a compartment of their own, and it is the largest. | The exclamation marks have a compartment of their own, and it is the largest. I like this paper more every minute. |
+
+## The hotel lobby
+
+| Where | Before | After |
+|---|---|---|
+| BELL · LOOK 1 | A bell for summoning the clerk. | A bell for summoning the clerk! I do enjoy a bell. |
+| REGISTER · LOOK 2 | Forty-one names. I've read all of them, and I don't know one. | Forty-one names. I've read all of them, and I don't know one. By the end of the month they'll all know mine. |
+| PAINTING · LOOK 1 | A mountain scene, signed. | A mountain scene, signed with tremendous confidence. |
+| STOVE · LOOK 3 | The rail is for drying gloves. Nobody in Consolation owns gloves. | The rail is for drying gloves. Nobody in Consolation owns gloves. When I've made my fortune I'll buy a pair, just to dry them here. |
+| FRONT WINDOW · LOOK 3 | My own reflection, rippling. Even the window hasn't decided whether I've arrived. | My own reflection, rippling. Even the window hasn't decided whether I've arrived. Give it time. |
+| STREET DOOR · LOOK 3 | The street, past it. It is always brighter than I remember. | The street, past it. It's always brighter than I remember, which I choose to take as a good sign. |
+| PARLOR PIANO · LOOK 3 | He does not touch the keys. Neither does anyone else. | He does not touch the keys. Neither does anyone else. One day somebody will ask me to. I'm keeping my hands warm. |
+
+## The Company lobby
+
+| Where | Before | After |
+|---|---|---|
+| TESTIMONIALS · LOOK 3 | There is room on the wall for forty. Somebody planned for more gratitude than arrived. | There's room on the wall for forty. Somebody planned for more gratitude than arrived. I'd be delighted to be the fifth. |
+| MODEL · LOOK 2 | The opera house has tiny painted posters on it for an opera that has not been written. | The opera house has tiny painted posters on it for an opera that hasn't been written. I'd tune its piano for nothing. |
+| PORTRAIT · LOOK 1 | The Colonel, in oils, one hand on a globe. | The Colonel, in oils, one hand on a globe! Now there's a man who became somebody. |
+
+## Fanshawe's office
+
+| Where | Before | After |
+|---|---|---|
+| MY GLASS · LOOK 1 | My glass. | My glass! Crystal. I've never drunk from crystal, and I'm trying to look as though I do it every Tuesday. |
+| BOTTLE · LOOK 1 | A dark bottle with a label in French. | A dark bottle with a label in French. I can't read French. I'm nodding at it knowledgeably anyway. |
+| BOTTLE · USE, OPEN | I do not pour at this table. I have looked for the chance. | I don't pour at this table. I've looked for the chance. |
+| COVERED DISH · CLOSE | It is closed. That is the difficulty with it. | It's closed. That's the difficulty with it. |
+| CONTRACT · LOOK 3 | The whole dinner has been walking me toward that line. | The whole dinner has been walking me toward that line, and I've been enjoying the walk. |
+| SABRE · LOOK 1 | A cavalry sabre, mounted. Beautifully kept. | A cavalry sabre, mounted and beautifully kept! I've always wanted a sabre. I've no idea what I'd do with it. |
+| WINDOW · LOOK 3 | From here you can see the Assay Office door and the Registrar's, and how long the line is at each. | From here you can see the Assay Office door and the Registrar's, and how long the line is at each. One day I'll have a window like this. |
+
+## The claims registrar
+
+| Where | Before | After |
+|---|---|---|
+| NUMBER SPINDLE · LOOK 1 | A spindle of numbered tickets. I'm ninety-one. | A spindle of numbered tickets. I'm ninety-one! It's the first thing in Consolation anybody's given me for nothing. |
+| STREET DOOR · LOOK 2 | The bell has announced me four times today. | The bell has announced me four times today. I'm getting quite well known in here. |
+
+## The undertaker's and Lower Street
+
+| Where | Before | After |
+|---|---|---|
+| THE GOOD SUIT · LOOK (again) | Half the men in Boot Hill were photographed in it. It has more friends than I do. | Half the men in Boot Hill were photographed in it. It has more friends than I do. Give me a month. |
+| THE REGISTRAR'S WINDOW · LOOK 1 (Lower Street) | The Claims Registrar's window, lit. Somewhere behind the glare is a man who has never once been surprised. | The Claims Registrar's window, lit! Behind the glare is a man who has never once been surprised. I mean to be the first to surprise him. |
+
+## The livery
+
+| Where | Before | After |
+|---|---|---|
+| GRIEVANCE · LOOK 1 | A mule of settled convictions. | A mule of settled convictions. I like her enormously. It isn't mutual yet. |
+
+## Ozymandia's tent
+
+| Where | Before | After |
+|---|---|---|
+| CRYSTAL BALL · LOOK 1 | A glass ball on a brass stand. In it: the tent, upside down, and me, small. It is right about both. | A glass ball on a brass stand. In it: the tent, upside down, and me, small. It is right about both, for now. Give it a year and I'll fill it. |
+
+## The mercantile
+
+| Where | Before | After |
+|---|---|---|
+| SCALES · LOOK 1 | "Polished bright. They weigh dust honest | "Polished bright! The most honest-looking thing in the store. They weigh dust honest |
+| ORDER FORM · LOOK 1 | "The order form, in triplicate. Consolation's real currency | "The order form, in triplicate. One day I'll fill one in, and send it, and pay. Consolation's real currency |
+
+## The claims road
+
+| Where | Before | After |
+|---|---|---|
+| MEN GOING OUT · LOOK 3 | They walk fast. Optimism has a pace, and it is brisk. | They walk fast. Optimism has a pace, and it is brisk. I keep up easily. |
+
+## Prosperity, Thad's claim
+
+| Where | Before | After |
+|---|---|---|
+| CLAIM MARKER · LOOK 1 | "A stake with a number on it. Beyond it, | "A stake with a number on it, and the number is mine! My first property, my first anything. Beyond it, |
+| MUD · LOOK 3 | This is the mud I own. I keep expecting to feel differently about it than about other mud. I don't. | This is the mud I own. I keep expecting to feel differently about it than about other mud. I do, a little. It's mine. |
+| THE WAY DOWN · LOOK 3 | Down there are the town, the queue, and everybody who knows exactly what this claim is worth. | Down there are the town, the queue, and everybody who knows exactly what this claim is worth. They're wrong. I can feel it. |
+
+## The claim row
+
+| Where | Before | After |
+|---|---|---|
+| PROVIDENCE MARKER · LOOK 3 | I find I've stood here longer than at the others. I'm not going to examine why. | I find I've stood here longer than at the others. I'm not going to examine why. I'm going to go and dig. |
+
+## The creek
+
+| Where | Before | After |
+|---|---|---|
+| BOOT PRINTS · LOOK 3 | Mine are among them now. I've been counted. | Mine are among them now! I've been counted. |
+
+## Boot Hill
+
+| Where | Before | After |
+|---|---|---|
+| PIKE'S MARKER · LOOK 1 | Ezra Pike. The man I was sent to find. Six years. | Ezra Pike. The man who was going to give me my start. Six years gone, and nobody thought to tell my father. |
+| PIKE'S MARKER · TALK TO | I read him my letter of introduction. It seemed only right. He took it as well as anything else I've said here. | I read him my letter of introduction. It seemed only right. Then I told him I'd manage on my own. I think he'd have liked that. |
+
+## Thad's room
+
+| Where | Before | After |
+|---|---|---|
+| COAT ON THE DOOR · LOOK 2 | My good coat. The only thing I own that suggests I was once somebody's son with prospects. | My good coat. The only thing I own that suggests I was once somebody's son with prospects. I still am. The coat agrees. |
+| HIS MOTHER'S LETTERS · LOOK 1 | Three from home. She is proud of me. She has been given no reason to be. | Three from home. She is proud of me. She has been given no reason to be. Yet. |
+
+## The schoolhouse
+
+| Where | Before | After |
+|---|---|---|
+| DESKS · LOOK 1 | Fourteen desks, made by hand, well made. Nobody has ever sat in them. | Fourteen desks, made by hand, well made. Nobody has ever sat in them. I'd like to be here the day somebody does. |
+
+## Conversations: the stage driver, Deke, the hotel clerk, the livery man
+
+| Where | Before | After |
+|---|---|---|
+| STAGE DRIVER · option 1 | Where can I find Ezra Pike? | I'm expected by a Mr. Ezra Pike. Where would I find him? |
+| STAGE DRIVER · option 2 | Where am I supposed to sleep? | And where does a gentleman sleep in Consolation? |
+| STAGE DRIVER · option 3 | You don't think much of my chances. | You don't think much of my chances. I can see it in your hat. |
+| STAGE DRIVER · option 4 | Thank you for the ride. | Thank you for the ride! I'll mention you when I'm famous. |
+| DEKE · option 2 | What are you selling? | You have the look of a man with something to sell, and I'm a man of business. |
+| DEKE · option 4 | How much? | How much? Purely as a matter of business. |
+| DEKE · option 6 | All right. | Done! I'll take it. |
+| DEKE · after the swindle, option 1 | You sold me a worthless claim. | You sold me a worthless claim, Mr. Vessel, and I've come to say so, firmly. |
+| DEKE · after the swindle, option 4 | You'll answer for this someday. | You'll answer for this someday, and I'll be there, and I'll be rich. |
+| HOTEL CLERK · option 1 | It's Grubb. | It's Grubb, actually. Two B's, no E. You'll want it right; I'm going places. |
+| HOTEL CLERK · option 2 | I'd like a room. | I'd like your finest room, please. |
+| HOTEL CLERK · option 3 | I have four. | I have four. Could four be persuaded? |
+| LIVERY MAN · option 1 | I need the mule for the diggings road. | I need a mule for the diggings road, and I'm told she's the best. |
+| OPENING · BEAT 6 | *"Hotel's five dollars."* — *"I have four."* The driver climbs aboard | *"Hotel's five dollars."* — *"I have four. Four is very nearly five."* The driver climbs aboard |
+| HOTEL CLERK · option 4 | Your piano is out of tune. | Your piano is out of tune, you know. A quarter-tone, at least. |
+
+## Conversations: Winnie and the Colonel
+
+| Where | Before | After |
+|---|---|---|
+| WINNIE · A1 option 1 | I'd like to have some soil assayed. | How do you do! I'd like to have some soil assayed, please. |
+| WINNIE · A1 option 2 | What is it you actually do here? | Forgive me. What is it you actually do here? |
+| WINNIE · A2 option 1 | Where do I sign? | Splendid! Where do I sign? |
+| WINNIE · B4 option 2 | So my claim is worthless. | So my claim is worthless. For now, I mean. |
+| FANSHAWE · A0 option 3 | I have four dollars. | I have four dollars, and excellent prospects. |
+| FANSHAWE · A1 option 1 | Number two. Prosperity. | Number two. I've named her Prosperity. |
+| FANSHAWE · B1 option 3 | Your clock is slow. | Your clock is slow, Colonel. I've an ear for these things. |
+
+## Conversations: Ozymandia, Sowerby, Sump, the undertaker
+
+| Where | Before | After |
+|---|---|---|
+| OZYMANDIA · A1 option 1 | I need a boundary divined. | Madame! I need a boundary divined, and I'm told you're the finest in the territory. |
+| SOWERBY · A1 option 1 | Tell me about the bell. | Reverend, I couldn't help noticing your bell. Tell me about it. |
+| SUMP · A1 option 1 | I need to file this deed. | Good day! I need to file this deed. It's my first. |
+| UNDERTAKER · option 4 | I had a letter for him. | I had a letter for him. From my father. |
