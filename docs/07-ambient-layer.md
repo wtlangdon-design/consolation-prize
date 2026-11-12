@@ -47,6 +47,12 @@ the options when the conversation opens, when the character has one (errata
 An `[EXIT]` line is the option that ends the conversation, and the reply after
 its arrow, if any, is the character's last word.
 
+A `[COMIC]` line with ***Thad says:*** after its words is THE SWITCH (errata 293):
+the menu offers the first line, and what Thad actually says is the second. The
+menu's line is the bold one a player picks because it is wrong; Thad, who would
+apologise to a door, cannot bring himself to say it. Only ever on a `[COMIC]`
+option, so it can never hide what a choice does.
+
 An indented ***Thad:*** line inside a reply is an INTERJECTION: the character
 stops, Thad says that, and the rest of the reply follows. Doc 30 §5 requires
 any reply over three wrapped lines to be split at a rhetorical break, and
@@ -228,19 +234,19 @@ is the whole of his character.
 *Main Street. Pies of unstated provenance.*
 
 **Micro-tree**
-***Opening:*** *The pie woman looks at his coat, then his boots, and prices him.*
 *Rewritten by errata 286: every question is a negotiation, and she is winning it.*
 > "What's in the pie?" → "Crust. Under the crust, pie."
 >   *Asked again:* "Still pie. It's been pie all day."
 > ↳ "What kind of pie?" → "The nickel kind."
 >   *Thad:* "And the dime kind?"
 >   → "Same pie. I tell you what's in it."
+> ↳ `[COMIC]` "Madam, that pie is a crime against the territory." *Thad says:* "Madam, that pie is a cr— a credit to the territory! A credit. I'd say so in front of anybody." → "Insults are a penny extra. You very nearly bought one."
 > "I'm told I have a very refined palate." → "You're told wrong. It's a nickel either way."
 > "Do you know Ezra Pike?" → "Pike bought a pie off me every Sunday." *(beat)* "For a while."
 >   *Thad:* "And then?"
 >   → "And then the undertaker. Down the lane. Pike's still into me for three pies."
 > "You knew Pike was dead." → "I knew he'd stopped buying pie. Out here that's the same thing."
-> `[COMIC]` "Grubb. Pianos. You may have heard." → "I haven't." *(She looks at his boots again, and knocks a penny off him.)*
+> `[COMIC]` "Grubb. Pianos. You may have heard." → "I haven't." *(beat)* "Four cents to you, then."
 > `[COMIC]` "I'll take a pie." → "Course you will."
 > `[EXIT]` "I'll come back when I'm hungrier." → "Course you will."
 
@@ -269,7 +275,8 @@ is the whole of his character.
 > ↳ "That bag's been packed a while." → "Four years."
 >   *Thad:* "Four years?"
 >   → "Pack a bag right, it holds."
-> "I've only just arrived." → "*Arrived.*" *(He says it the way other men say 'measles'.)*
+> ↳ `[COMIC]` "You're never leaving this town, are you?" *Thad says:* "You're never leaving this town… without a proper send-off, I mean! I'll see to it myself." → "Tomorrow, then." *(beat)* "Don't be late."
+> "I've only just arrived." → "*Arrived.*"
 >   → "Nobody arrives here, son. They just haven't left yet."
 > "Did you know Ezra Pike?" → "Pike left."
 >   *Thad:* "Where to?"
@@ -504,7 +511,6 @@ is the whole of his character.
 **Premise:** the saddest character in the game, played entirely for laughs, and the truth changes nothing for him at all.
 
 **Micro-tree**
-***Opening:*** *The map seller sees Thad, and lights up like a lamp.*
 *Rewritten by errata 286: the true believer, selling joy at a fair price.*
 > "Is that a map to Mott's strike?" → "It's FORTY-ONE maps to Mott's strike, sir!"
 >   *Thad:* "They can't all be right."
@@ -515,6 +521,9 @@ is the whole of his character.
 > ↳ "How much for one that's actually right?" → "That's the deluxe, sir. Four dollars."
 >   *Thad:* "What's different about it?"
 >   → "Same map, sir. I look you in the eye while I sell it."
+> ↳ `[COMIC]` "Your maps are a swindle, sir, and I'll tell the whole town so!" *Thad says:* "Your maps are a sw— a wonder, sir! A wonder, and I'll tell the whole town so!" → "Tell them, sir! I'll draw you on the next one, telling them."
+>   *Thad:* "Me?"
+>   → "Little hat. Arm out. Top of the hill, beside Pike."
 > "Is Ezra Pike on any of your maps?" → "Pike? Pike's on every one, sir! Little cross, top of the hill."
 >   *Thad:* "That's his claim?"
 >   → "That's his… the undertaker explains it better, sir. Down the lane."

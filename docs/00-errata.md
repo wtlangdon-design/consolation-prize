@@ -7526,3 +7526,35 @@ Tyler, on the stage driver's menu after the voice pass: "In MI, it didn't reveal
 
 Lesson: `tests/menu-line.test.mjs` holds every tree to the rule, proved by extracting without it.
 
+## 293 · Surprises: the audit, and the switch on Main Street (Tyler, 2026-11-11)
+
+Tyler, after the menu's first-sentence rule: "'you pick a bold line and he chickens out' -- this is the kind of stuff that made MI magical and unique! Random things like this throughout the game. Do we have things like this?" Shown what the game has, and that nobody had checked room by room, he chose **"Audit, then write"**: list every room's surprises and the flat rooms, then write new ones, Main Street first as a sample for his ruling.
+
+**Doc 129** is the audit and the pass:
+- what a surprise is, and its kinds, with the best the game already has;
+- the audit, room by room: of thirty-eight rooms, twenty have a moment, ten are thin, nine are flat, and four are left alone on purpose;
+- the pass's rules, and Main Street's sample.
+
+**The switch.** The menu offers a bold line, and Thad, who "would apologise to a door" (doc 99), says something else. It is written in doc 07 as `*Thad says:*` after the menu's words, and becomes the option's `echo` (doc 30 section 6.2). It is only ever on a `[COMIC]` option, so the menu can never hide what a choice does, and a person has at most one. It takes its own id, `<prefix>s`, so adding one renumbers nothing a save or a document refers to.
+
+**Main Street's three:** the pie woman ("a cr— a credit"), the map seller ("a sw— a wonder") and the man leaving tomorrow ("You're never leaving this town… without a proper send-off, I mean!"). Each is a follow-up, offered once the conversation has given Thad a reason to be bold.
+
+**No other room gets new lines until Tyler has ruled on these.**
+
+Lesson: `tests/the-switch.test.mjs` holds every switch to its rules, proved by giving one a flag, and the extractor refuses a switch on an option that is not `[COMIC]`, proved by writing one.
+
+## 294 · Directions show, they don't explain; and the walk to the map seller (Tyler, 2026-11-11)
+
+Tyler, playing Main Street: "Thad took a very weird walk to get to the map salesman. Instead of going straight to him, he walked over by the dog and back around. I also don't like the (he lights up) sort of stage direction. I think most of the characters demeanors should come out in their dialogue and movements vs parenthetical explanations."
+
+**The walk.** The router took the chain with the fewest walk boxes. From the front of Main Street that chain went up through the box beside the dog's corner and back along the far band, as much as 7.6 times the distance. It now walks every chain up to two boxes longer on paper and takes the shortest walk; the worst on Main Street is now 1.25 times. Every room was checked: the only remaining detours of twice the distance are round the trough, which is in the way.
+
+**The directions.** Doc 95 rule 2 kept narration printed: a tone, a meaning, a feeling. That is reversed. A printed direction says what someone does; how they feel goes into their line or a pose. Pauses stay. Main Street's people first:
+- the map seller's opening, "The map seller sees Thad, and lights up like a lamp.", is cut, and he greets Thad with his bark;
+- the pie woman's opening, "looks at his coat, then his boots, and prices him", is cut, and so is "She looks at his boots again, and knocks a penny off him." The penny moves into her line: "I haven't." *(beat)* "Four cents to you, then.";
+- the man leaving tomorrow's "He says it the way other men say 'measles'." is cut. "*Arrived.*" carries it.
+
+The rest of the game's thirty-odd explanations follow in their own pull request.
+
+Lesson: `tests/shortest-walk.test.ts`, proved against the old router (it fails both tests), and `tests/directions-show.test.mjs`, proved by restoring "measles"; two rows in doc 55 section 8.
+

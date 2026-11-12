@@ -41,6 +41,30 @@
           "afterUse": "remove"
         },
         {
+          "id": "leavings",
+          "text": "You're never leaving this town, are you?",
+          "tag": "COMIC",
+          "echo": "You're never leaving this town… without a proper send-off, I mean! I'll see to it myself.",
+          "after": [
+            "leaving1"
+          ],
+          "exchange": [
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Tomorrow, then."
+            },
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "…"
+            },
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Don't be late."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
           "id": "leaving3",
           "text": "I've only just arrived.",
           "tag": "TOPIC",
@@ -48,11 +72,6 @@
             {
               "speaker": "man_leaving_tomorrow",
               "line": "Arrived."
-            },
-            {
-              "speaker": "man_leaving_tomorrow",
-              "line": "He says it the way other men say 'measles'.",
-              "direction": true
             },
             {
               "speaker": "man_leaving_tomorrow",
