@@ -1,4 +1,4 @@
-import { cpSync, existsSync } from 'node:fs';
+import { cpSync, existsSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, type Plugin } from 'vite';
 
@@ -39,8 +39,32 @@ function copyDataDirs(): Plugin {
         }
       }
       for (const path of runtimeStagingPaths(process.cwd()) as string[]) cpSync(path, `dist/${path}`, { recursive: true });
+      writeOfflineList();
     },
   };
+}
+
+/**
+ * OFFLINE PLAY (errata 291): the list public/offline.html saves. Every file the built game can ask for: the page,
+ * the bundle, every content JSON, and every art or sound file a content JSON names. Tools, renders and the
+ * unreferenced art are left out, which keeps the copy near half a gigabyte rather than the whole site.
+ */
+function writeOfflineList(): void {
+  const files = new Set<string>(['index.html']);
+  const walk = (dir: string): string[] => readdirSync(dir).flatMap((name) => {
+    const path = `${dir}/${name}`;
+    return statSync(path).isDirectory() ? walk(path) : [path];
+  });
+  for (const path of walk('dist/assets')) files.add(path.slice('dist/'.length));
+  for (const path of walk('dist/content')) {
+    files.add(path.slice('dist/'.length));
+    if (!path.endsWith('.json')) continue;
+    for (const match of readFileSync(path, 'utf8').matchAll(/"((?:art|audio)\/[^"]+?\.[a-z0-9]{2,5})"/g)) {
+      const asset = match[1]!;
+      if (existsSync(`dist/${asset}`) && statSync(`dist/${asset}`).isFile()) files.add(asset);
+    }
+  }
+  writeFileSync('dist/offline-files.json', JSON.stringify({ files: [...files].sort() }));
 }
 
 /**

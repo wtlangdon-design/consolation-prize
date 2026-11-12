@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play offline · The Last Claim in Consolation</title>
+<style>
+  :root { --bg: #17120d; --ink: #f1e6cf; --dim: #b8a684; --accent: #d9a441; --bar: #3a2e20; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.5 Georgia, 'Times New Roman', serif; }
+  main { max-width: 34rem; margin: 0 auto; padding: 48px max(20px, env(safe-area-inset-left, 0px)); }
+  h1 { font-size: 1.6rem; margin: 0 0 .25rem; color: var(--accent); font-weight: normal; letter-spacing: .02em; }
+  p { color: var(--dim); }
+  button, a.play { display: inline-block; margin-top: 1rem; padding: .7rem 1.4rem; font: inherit; color: var(--bg);
+    background: var(--accent); border: 0; border-radius: 4px; cursor: pointer; text-decoration: none; }
+  button[disabled] { opacity: .5; cursor: default; }
+  .bar { height: 14px; background: var(--bar); border-radius: 7px; overflow: hidden; margin: 1.5rem 0 .5rem; }
+  .fill { height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+  #status { color: var(--ink); min-height: 1.5em; }
+  #detail { font-size: .85rem; color: var(--dim); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Play offline</h1>
+  <p>Saves a full copy of the game on this device, so it plays with no internet. Do this on wifi; it is about
+  half a gigabyte and takes a few minutes. Keep this tab open until it says it is ready.</p>
+  <button id="go">Save the game for offline</button>
+  <div class="bar" hidden id="barwrap"><div class="fill" id="fill"></div></div>
+  <div id="status"></div>
+  <div id="detail"></div>
+  <a class="play" id="play" href="./" hidden>Open the game</a>
+</main>
+<script>
+const CACHE = 'consolation-offline-v1';
+const $ = (id) => document.getElementById(id);
+const say = (text, detail = '') => { $('status').textContent = text; $('detail').textContent = detail; };
+
+if (!('serviceWorker' in navigator) || !('caches' in window)) {
+  $('go').disabled = true;
+  say('This browser cannot keep an offline copy.');
+}
+
+$('go').addEventListener('click', async () => {
+  $('go').disabled = true;
+  $('barwrap').hidden = false;
+  try {
+    say('Getting ready…');
+    if (navigator.storage && navigator.storage.persist) { try { await navigator.storage.persist(); } catch (e) {} }
+    await navigator.serviceWorker.register('./sw.js', { scope: './' });
+    await navigator.serviceWorker.ready;
+    const list = await (await fetch('./offline-files.json', { cache: 'reload' })).json();
+    const files = list.files;
+    const cache = await caches.open(CACHE);
+    let done = 0, bytes = 0, failed = [];
+    const total = files.length;
+    const queue = files.slice();
+    const worker = async () => {
+      while (queue.length) {
+        const path = queue.shift();
+        const url = new URL(path, location.href).href;
+        try {
+          const response = await fetch(url, { cache: 'reload' });
+          if (!response.ok) throw new Error(String(response.status));
+          const blob = await response.clone().blob();
+          bytes += blob.size;
+          await cache.put(url, response);
+        } catch (error) {
+          failed.push(path);
+        }
+        done += 1;
+        $('fill').style.width = `${Math.round((done / total) * 100)}%`;
+        say(`Saving… ${Math.round((done / total) * 100)}%`, `${done} of ${total} files, ${(bytes / 1e6).toFixed(0)} MB`);
+      }
+    };
+    await Promise.all(Array.from({ length: 6 }, worker));
+    await cache.put(new URL('./index.html', location.href).href, await fetch('./index.html', { cache: 'reload' }));
+    if (failed.length) {
+      say(`Saved, except ${failed.length} file(s). Press the button again on wifi to retry.`, failed.slice(0, 5).join(', '));
+      $('go').disabled = false;
+    } else {
+      say('Ready. The game will now play with no internet.', `${total} files, ${(bytes / 1e6).toFixed(0)} MB saved on this device.`);
+    }
+    $('play').hidden = false;
+  } catch (error) {
+    say('Something went wrong. Check the wifi and press the button again.', String(error));
+    $('go').disabled = false;
+  }
+});
+</script>
+</body>
+</html>
