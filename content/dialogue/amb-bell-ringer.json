@@ -12,10 +12,11 @@
       "options": [
         {
           "id": "bell_ringer1",
-          "text": "That bell is flat. I could hear it from the hotel.",
+          "text": "That bell is flat.",
           "tag": "TOPIC",
           "say": "Everybody can hear it from the hotel. That's what a bell's for.",
-          "afterUse": "remove"
+          "afterUse": "remove",
+          "echo": "That bell is flat. I could hear it from the hotel."
         },
         {
           "id": "bell_ringer2",
@@ -92,7 +93,7 @@
         },
         {
           "id": "bell_ringer6",
-          "text": "I've tuned a cathedral organ. A bell is nothing.",
+          "text": "I've tuned a cathedral organ.",
           "tag": "COMIC",
           "exchange": [
             {
@@ -105,7 +106,8 @@
               "line": "Could you tune this?"
             }
           ],
-          "afterUse": "remove"
+          "afterUse": "remove",
+          "echo": "I've tuned a cathedral organ. A bell is nothing."
         },
         {
           "id": "bell_ringer7",

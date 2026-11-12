@@ -38,8 +38,9 @@
           "id": "sowerby1",
           "tag": "PROGRESS",
           "afterUse": "remove",
-          "text": "Reverend, I couldn't help noticing your bell. Tell me about it.",
-          "say": "A half-step flat since the day it was hung, and I have struck it every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it."
+          "text": "Reverend, I couldn't help noticing your bell.",
+          "say": "A half-step flat since the day it was hung, and I have struck it every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it.",
+          "echo": "Reverend, I couldn't help noticing your bell. Tell me about it."
         },
         {
           "id": "sowerby2",

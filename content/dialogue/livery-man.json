@@ -108,7 +108,7 @@
           "id": "livery_man6",
           "tag": "PROGRESS",
           "afterUse": "remove",
-          "text": "Your board says she went out once. Twelve years ago, four days, and nobody wrote down where.",
+          "text": "Your board says she went out once.",
           "exchange": [
             {
               "speaker": "livery_man",
@@ -132,7 +132,8 @@
           },
           "puzzle": {
             "B2": "complete"
-          }
+          },
+          "echo": "Your board says she went out once. Twelve years ago, four days, and nobody wrote down where."
         },
         {
           "id": "livery_man7",

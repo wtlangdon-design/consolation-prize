@@ -7513,3 +7513,16 @@ Doc 24's note 2 keeps "Nothing. I am beginning to think the fault is not with th
 **Kept:** every LISTEN line, puzzle fact, clue, flag and act truth, the letters home, and Hob.
 
 Lesson: none -- a rewrite, no defect fixed. One quoted, retired line in doc 13's errata 168 note is listed in `proofs/written-not-built.json` as not a line.
+
+## 292 · The menu shows the first sentence; Thad says the whole line (Tyler, 2026-11-11)
+
+Tyler, on the stage driver's menu after the voice pass: "In MI, it didn't reveal the whole line of text in the dialogue menu right? It was a portion, and then the longer text was revealed in the actual dialogue? This is now showing the whole line of text that's about to be said." Asked to check, it was found that the original games (*The Secret of Monkey Island*, *LeChuck's Revenge*) showed the full line and Guybrush said exactly what was clicked, and that *Tales of Monkey Island* showed a short version and Guybrush said a longer one. He chose "Tales style: first sentence, then more".
+
+**The rule** is doc 126's fifth: a choice of more than one sentence shows its first sentence on the menu, and Thad says the whole line, carried as the option's `echo` (doc 30 section 6.2, which the engine already plays). A greeting alone brings its next sentence. The Liar's Assay keeps its whole boast or counter, as Monkey Island's insults did; so do the universal exits, any authored `echo`, the letters home and the harness.
+
+**What changes:** twenty-six choices, in sixteen trees. For example, the driver's "I'm expected by a Mr. Ezra Pike." and the undertaker's "I have a death to record." Nothing in the documents is rewritten; the rule is applied as each tree is extracted (`tools/lib/menu-line.mjs`, called by `tools/extract-content.mjs`).
+
+**`tests/resolution.test.ts`, tuned.** Its third loosening in fourteen days came with this change, so it is reviewed in `proofs/check-friction.json`: the opening's speech time is reported rather than pinned to its words, and the driver's exit is held to carry no field that no other option in the game carries, instead of a fixed list each new field had to extend.
+
+Lesson: `tests/menu-line.test.mjs` holds every tree to the rule, proved by extracting without it.
+

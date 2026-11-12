@@ -72,7 +72,7 @@
           "id": "pratt1",
           "tag": "PROGRESS",
           "afterUse": "remove",
-          "text": "There's a raccoon in my hole. Would you get him out?",
+          "text": "There's a raccoon in my hole.",
           "exchange": [
             {
               "speaker": "pratt",
@@ -107,7 +107,8 @@
           },
           "set": {
             "T_PRATT_BITTEN": true
-          }
+          },
+          "echo": "There's a raccoon in my hole. Would you get him out?"
         },
         {
           "id": "pratt2",

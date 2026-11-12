@@ -253,9 +253,10 @@
           "after": [
             "winnie1"
           ],
-          "text": "Eight months? Who's ahead of me?",
+          "text": "Eight months?",
           "afterUse": "remove",
-          "say": "The Improvement Company. Perpetually. Priority submissions."
+          "say": "The Improvement Company. Perpetually. Priority submissions.",
+          "echo": "Eight months? Who's ahead of me?"
         },
         {
           "id": "winnie3",
@@ -576,7 +577,7 @@
         {
           "id": "winnie2",
           "tag": "TOPIC",
-          "text": "So my claim is worthless. For now, I mean.",
+          "text": "So my claim is worthless.",
           "afterUse": "retain",
           "say": "Comprehensively. It's certified. It's the most certain thing you own.",
           "repeats": [
@@ -584,7 +585,8 @@
               "selection": 2,
               "say": "Certified worthless. Asking twice won't lower it. Nothing could."
             }
-          ]
+          ],
+          "echo": "So my claim is worthless. For now, I mean."
         },
         {
           "id": "winnie3",

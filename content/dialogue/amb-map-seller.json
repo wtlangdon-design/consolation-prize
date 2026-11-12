@@ -121,7 +121,7 @@
         },
         {
           "id": "map_seller6",
-          "text": "Do you have one with pianos on? I'm a tuner.",
+          "text": "Do you have one with pianos on?",
           "tag": "COMIC",
           "exchange": [
             {
@@ -138,7 +138,8 @@
               "line": "There's your piano. Twelve feet down."
             }
           ],
-          "afterUse": "remove"
+          "afterUse": "remove",
+          "echo": "Do you have one with pianos on? I'm a tuner."
         },
         {
           "id": "map_seller7",

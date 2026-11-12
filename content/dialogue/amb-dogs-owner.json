@@ -42,7 +42,7 @@
         },
         {
           "id": "dogs_owner3",
-          "text": "I have an exceptional ear. I could listen for him.",
+          "text": "I have an exceptional ear.",
           "tag": "COMIC",
           "after": [
             "dogs_owner1"
@@ -61,7 +61,8 @@
               "line": "That's what I've been asking myself. Six weeks."
             }
           ],
-          "afterUse": "remove"
+          "afterUse": "remove",
+          "echo": "I have an exceptional ear. I could listen for him."
         },
         {
           "id": "dogs_owner4",

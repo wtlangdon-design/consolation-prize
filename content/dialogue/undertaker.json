@@ -83,14 +83,15 @@
         },
         {
           "id": "undertaker4",
-          "text": "I had a letter for him. From my father.",
+          "text": "I had a letter for him.",
           "tag": "TOPIC",
           "repeat": "Keep it. Paper's dear out here.",
           "after": [
             "undertaker1"
           ],
           "say": "You still have a letter for him.",
-          "afterUse": "retain"
+          "afterUse": "retain",
+          "echo": "I had a letter for him. From my father."
         },
         {
           "id": "undertaker7",

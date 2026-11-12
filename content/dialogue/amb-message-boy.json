@@ -42,14 +42,15 @@
         },
         {
           "id": "message_boy3",
-          "text": "Here's your penny. Make it worth it.",
+          "text": "Here's your penny.",
           "tag": "TOPIC",
           "after": [
             "message_boy1",
             "message_boy2"
           ],
           "say": "…The Colonel gets a letter from Boston every month and burns it in the stove.",
-          "afterUse": "remove"
+          "afterUse": "remove",
+          "echo": "Here's your penny. Make it worth it."
         },
         {
           "id": "message_boy4",
@@ -106,7 +107,7 @@
         },
         {
           "id": "message_boy7",
-          "text": "I'm Thaddeus Grubb. You'll have heard of me.",
+          "text": "I'm Thaddeus Grubb.",
           "tag": "COMIC",
           "exchange": [
             {
@@ -122,7 +123,8 @@
               "line": "I told them. Penny each."
             }
           ],
-          "afterUse": "remove"
+          "afterUse": "remove",
+          "echo": "I'm Thaddeus Grubb. You'll have heard of me."
         },
         {
           "id": "message_boy8",

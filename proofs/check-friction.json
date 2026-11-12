@@ -865,6 +865,12 @@
    "date": "2026-11-11",
    "kind": "loosened",
    "why": "Errata 289: beat 11's line now says Thad's dream (\"Everyone in Providence said I'd be home in a month with nothing. I mean to go home somebody.\"), so the opening's speech under the old formula is 29.2 s, not 25.9 s. The pin moves with the words; the properties held (the merged hold is longer, and no line gets shorter) are unchanged."
+  },
+  {
+   "check": "tests/resolution.test.ts",
+   "date": "2026-11-11",
+   "kind": "reviewed",
+   "why": "TUNED. Of the three loosenings in fourteen days, all were the writing or the option format changing under two pins, not the engine going wrong: the opening's speech time pinned to its words (25.9 s, then 29.2 s when errata 289 rewrote beat 11), and the driver's exit held to a fixed list of allowed fields, which every new field an option may carry (errata 292's `echo`) had to extend. The tune: the speech time is said, not pinned, and the properties the merged reading hold owes the opening (longer than the old formula, no line shorter) still fail; the exit is held to carry no field that no other option in the game's trees carries, which is the property (nothing marks it) asserted relatively. Proved by adding a field only the exit carries: test 23 fails. Keep it."
   }
  ]
 }

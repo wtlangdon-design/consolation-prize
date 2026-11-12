@@ -37,10 +37,11 @@
       "options": [
         {
           "id": "hotel_clerk1",
-          "text": "It's Grubb, actually. Two B's, no E. You'll want it right; I'm going places.",
+          "text": "It's Grubb, actually.",
           "tag": "TOPIC",
           "say": "It's as given.",
-          "afterUse": "remove"
+          "afterUse": "remove",
+          "echo": "It's Grubb, actually. Two B's, no E. You'll want it right; I'm going places."
         },
         {
           "id": "hotel_clerk7",
@@ -58,17 +59,18 @@
         },
         {
           "id": "hotel_clerk3",
-          "text": "I have four. Could four be persuaded?",
+          "text": "I have four.",
           "tag": "PROGRESS",
           "repeat": "Four dollars, no room. Still compatible.",
           "after": [
             "hotel_clerk2"
           ],
-          "say": "Then you have four dollars and no room. Those are compatible."
+          "say": "Then you have four dollars and no room. Those are compatible.",
+          "echo": "I have four. Could four be persuaded?"
         },
         {
           "id": "hotel_clerk4",
-          "text": "Your piano is out of tune, you know. A quarter-tone, at least.",
+          "text": "Your piano is out of tune, you know.",
           "tag": "PROGRESS",
           "repeat": "The piano first, Mr. Grubbe. Then nineteen.",
           "after": [
@@ -98,7 +100,8 @@
           ],
           "set": {
             "T_TUNES_PIANOS": true
-          }
+          },
+          "echo": "Your piano is out of tune, you know. A quarter-tone, at least."
         },
         {
           "id": "hotel_clerk5",

@@ -22,6 +22,14 @@ Every `TOPIC` and `COMIC` option that would stay on the list after it is asked (
 - the letters home (`LETTERS_HOME`), which is not a conversation, and the engine's test harness (`harness_tree`);
 - any option this document names under a tree with **stays**.
 
+## The menu line (errata 292)
+
+*Tyler, 2026-11-11, on the stage driver's menu: "In MI, it didn't reveal the whole line of text in the dialogue menu right? It was a portion, and then the longer text was revealed in the actual dialogue?" Told that the original games showed the full line and Tales of Monkey Island showed a short one with a longer line spoken, he chose "Tales style: first sentence, then more".*
+
+5. **The menu shows the first sentence; the hero says the whole line.** A choice of more than one sentence shows its first sentence, and Thad says all of it (the option's `echo`, doc 30 section 6.2). When the first sentence is only a greeting or a word ("Madame!", "How do you do!"), the menu shows the sentence after it too, since a greeting alone does not say what the choice is.
+
+Kept whole on the menu: the Liar's Assay (the boast or counter is the choice, as Monkey Island's insults were), the universal exits, an option whose `echo` is already authored as something else, the letters home and the harness. `tools/lib/menu-line.mjs` is the rule, applied as each tree is written; `tests/menu-line.test.mjs` holds every tree to it. The documents keep each line whole; nothing is rewritten.
+
 ## The trees
 
 Each tree below lists what changes in it. The forms are:
