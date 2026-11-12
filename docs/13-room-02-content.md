@@ -10,41 +10,41 @@
 Used when no object-specific line exists. Rotate within a pool; never repeat consecutively.
 
 **PICK UP**
-> "It stays where it is."
-> "No. It is part of the town."
+> "I gave it a good try. It stays where it is."
+> "I'd better not. It's part of the town, and I'm hoping the town will like me."
 
 *Errata 168 (Tyler, 2026-11-07, on picking up the trough's water: "it says it has opinions??? That doesn't even make sense"): "I have tried. It has views." and "That is not mine, and more to the point it will not come." are retired. This pool answers 347 things, among them water, mud, the sky and whole buildings, and those two lines fit only a solid object that could resist. The two that stay are true of anything.*
 
 **USE**
-> "I have no plan for it."
-> "Not usefully."
-> "I should want something first. I have not got a want to hand."
-> "That would require a purpose."
+> "I've no plan for it yet. Give me time; I'm full of plans."
+> "Not usefully. Not yet."
+> "I'd need to want something from it first, and for once I don't."
+> "That would want a purpose, and I'm saving mine for the big things."
 
 **OPEN**
-> "It does not open. Very little here does."
-> "There is no way into it."
-> "It is not that kind of thing."
+> "It doesn't open. Very little here does, but I live in hope."
+> "There's no way into it. I checked, thoroughly and with optimism."
+> "It isn't that kind of thing, more's the pity."
 
 **CLOSE**
-> "It is already as closed as it intends to be."
-> "It is not open."
-> "There is nothing to close."
+> "It's already as closed as it means to be."
+> "It isn't open. I'd have noticed. I notice things."
+> "There's nothing to close. I'm almost disappointed."
 
 **PUSH**
-> "It does not move. I have committed to this now and it still does not move."
-> "Nothing."
-> "It stays."
+> "It doesn't move. I've committed to this now, and it still doesn't move."
+> "Nothing. And I put my back into it, too."
+> "It stays. I'll give it this: it knows its own mind."
 
 **PULL**
 > "It stays where it is, and I look like a man pulling at a thing."
-> "No."
-> "It is not coming."
+> "No. Not for want of trying."
+> "It isn't coming. I can respect a thing that knows where it belongs."
 
 **TALK TO** *(non-persons)*
-> "I have decided against it."
-> "It has said nothing and I have said nothing and we are both content."
-> "I would like it on record that I considered it."
+> "I've decided against it. I'll save my charm for something that can answer."
+> "It's said nothing, I've said nothing, and we're both perfectly content."
+> "I'd like it on record that I considered it."
 
 ---
 

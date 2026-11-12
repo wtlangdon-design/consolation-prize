@@ -67,13 +67,13 @@ is the whole of his character.
 
 | Verb | Line |
 |---|---|
-| `LOOK_AT` | "A person. I have decided to be polite about it." |
-| `PICK_UP` | "No. I have thought about it for exactly as long as it deserves." |
-| `PUSH` | "I have never pushed anybody. I am not starting on a street this muddy." |
+| `LOOK_AT` | "A person! I've decided to be polite about it. I'm polite to everyone; it's half my charm." |
+| `PICK_UP` | "No. I've thought about it for exactly as long as it deserves." |
+| `PUSH` | "I've never pushed anybody in my life, and I'm not starting on a street this muddy." |
 | `PULL` | "Pulling a stranger is how a man ends up known for something." |
-| `OPEN` | "They are already as open as they intend to be." |
+| `OPEN` | "They're already as open as they mean to be." |
 | `CLOSE` | "One does not close a person. One is closed *by* them, usually at cards." |
-| `USE` | "I would not know where to begin, and the beginning is the part people object to." |
+| `USE` | "I wouldn't know where to begin, and the beginning is the part people object to." |
 | `LISTEN_TO` | "Breathing, and the particular silence of somebody deciding whether I am worth their afternoon." |
 
 ---

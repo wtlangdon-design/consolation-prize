@@ -1,5 +1,5 @@
 # THE LAST CLAIM IN CONSOLATION
-## 128 · Thad's voice — Main Street, the sample (errata 289)
+## 128 · Thad's voice (errata 289, 290)
 
 *Tyler, 2026-11-11: "Let's apply the same voice audit to Thad. I haven't been loving his lines. He's so abrupt in the way he talks. He needs more personality and character and charisma and charm." Then: "Guybrush was memorable because he was earnest and had a mission and energy and spunk. I don't mind Thad having deadpan moments, but we need a character we can root for and care about and want to succeed." And: "we as the game players have to care enough about his mission, and know enough about his mission, to know WHY we want to root him on and help him win." Asked what Thad's dream is: **"Make good, go home somebody."** Asked how plainly to say it: **"One clear line, then echoes."***
 
@@ -79,3 +79,37 @@
 | CLAIMS ROAD · LOOK 2 | Two miles. It looks further in the morning and considerably further at night. | Two miles. It looks further in the morning and considerably further at night, but every fortune in the territory is at the far end of it. |
 | CLAIMS ROAD · PICK UP | It's a road. It's two miles long. No. | It's a road, and it's two miles long. No. But I like that I considered it. |
 | MERCANTILE · LOOK 2 | Pans, picks and lamp oil in the window, arranged to look like a plan. | Pans, picks and lamp oil in the window, arranged to look like a plan. It's a very good plan. I want all of it. |
+
+## Room 1, the stage road
+
+| Where | Before | After |
+|---|---|---|
+| CASE · LOOK 1 | My case, in the mud, where it was put. | My case, face down in the mud. Not the start I'd planned, but it's a start. |
+| LAMP · LOOK 2 | Still crossing. He's in no hurry, and he isn't lost. I'm one of those. | Still crossing. He's in no hurry, and he isn't lost. I'm one of those, but only for tonight. |
+| LAMP · LOOK 3 | The only lit thing on this road, and it's going the other way. Story of my evening. | The only lit thing on this road, and it's going the other way. Never mind. I'm going this way. |
+| TEAM · LOOK 2 | Nobody's unhitched them. Nobody's stopping long. Nobody but me. | Nobody's unhitched them. Nobody's stopping long, except me. I'm stopping until I'm somebody. |
+| COACH, GONE · LOOK 3 | That's my whole connection to the rest of the world, filling in. | That's my whole connection to the rest of the world, filling in. Good. Onward. |
+| TOWN SIGN · TALK TO | Good evening. I'm new. Two thousand and one, and climbing. | Good evening! Thaddeus Grubb, lately of Providence. You may make it two thousand and one, and climbing. |
+| ROAD EAST · LOOK 3 | Home is that way. I'm not going to keep looking at it. That's three times now. | Home is that way, and I won't see it again until I've something to show them. That's three looks. That's enough looking. |
+| ROAD WEST, BLOCKED · LOOK 2 | The lamps won't wait up on my account. | The lamps won't wait up on my account. Not yet. Give them a week. |
+| ROAD WEST · LOOK 1 | Consolation. There are lamps on in about a third of it. I'll take a third. | Consolation! There are lamps on in about a third of it. I'll take a third, to start with. |
+| ROAD WEST · LOOK 3 | Two hundred yards. The shortest part of the journey, and I'm putting it off. | Two hundred yards. The shortest part of the journey, and the only part that counts. |
+
+## The answers for anything (doc 13 Part One, doc 07, doc 127)
+
+| Where | Before | After |
+|---|---|---|
+| PICK UP, anything | > "It stays where it is." > "No. It is part of the town. | > "I gave it a good try. It stays where it is." > "I'd better not. It's part of the town, and I'm hoping the town will like me. |
+| USE, anything | > "I have no plan for it." > "Not usefully." > "I should want something first. I have not got a want to hand." > "That would require a purpose. | > "I've no plan for it yet. Give me time; I'm full of plans." > "Not usefully. Not yet." > "I'd need to want something from it first, and for once I don't." > "That would want a purpose, and I'm saving mine for the big things. |
+| OPEN, anything | > "It does not open. Very little here does." > "There is no way into it." > "It is not that kind of thing. | > "It doesn't open. Very little here does, but I live in hope." > "There's no way into it. I checked, thoroughly and with optimism." > "It isn't that kind of thing, more's the pity. |
+| CLOSE, anything | > "It is already as closed as it intends to be." > "It is not open." > "There is nothing to close. | > "It's already as closed as it means to be." > "It isn't open. I'd have noticed. I notice things." > "There's nothing to close. I'm almost disappointed. |
+| PUSH, anything | > "It does not move. I have committed to this now and it still does not move." > "Nothing." > "It stays. | > "It doesn't move. I've committed to this now, and it still doesn't move." > "Nothing. And I put my back into it, too." > "It stays. I'll give it this: it knows its own mind. |
+| PULL, anything | > "No." > "It is not coming. | > "No. Not for want of trying." > "It isn't coming. I can respect a thing that knows where it belongs. |
+| TALK TO, anything | > "I have decided against it." > "It has said nothing and I have said nothing and we are both content." > "I would like it on record that I considered it. | > "I've decided against it. I'll save my charm for something that can answer." > "It's said nothing, I've said nothing, and we're both perfectly content." > "I'd like it on record that I considered it. |
+| A PERSON · LOOK AT | "A person. I have decided to be polite about it. | "A person! I've decided to be polite about it. I'm polite to everyone; it's half my charm. |
+| A PERSON · PICK UP | "No. I have thought about it for exactly as long as it deserves. | "No. I've thought about it for exactly as long as it deserves. |
+| A PERSON · PUSH | "I have never pushed anybody. I am not starting on a street this muddy. | "I've never pushed anybody in my life, and I'm not starting on a street this muddy. |
+| A PERSON · OPEN | "They are already as open as they intend to be. | "They're already as open as they mean to be. |
+| A PERSON · USE | "I would not know where to begin, and the beginning is the part people object to. | "I wouldn't know where to begin, and the beginning is the part people object to. |
+| GIVE, nothing in hand, to a person | "Give what? I am holding nothing, and I have grown attached to it. | "Give what? I'm holding nothing, and I've grown rather attached to it. |
+| GIVE, nothing in hand, to a thing | "I would have to be holding something. It is the one rule of giving. | "I'd have to be holding something first. It's the one rule of giving. |
