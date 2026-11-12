@@ -38,5 +38,6 @@ test('she calls out at least a minute apart', () => {
 });
 
 test('the check catches a faster timer', () => {
-  assert.ok(shoutGaps({ ...sprite, breakEvery: 15 }).some((gap) => gap < 60), 'a 15 s cycle passed, so this proves nothing');
+  // Five breaks since errata 296, so a 6 s cycle is the one that brings her call round in 30 s.
+  assert.ok(shoutGaps({ ...sprite, breakEvery: 6 }).some((gap) => gap < 60), 'a 6 s cycle passed, so this proves nothing');
 });

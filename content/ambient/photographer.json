@@ -72,13 +72,14 @@
     0
    ]
   ],
-  "breakEvery": 17,
+  "breakEvery": 12,
   "talkFrame": 3,
   "provenance": "art/staging/room-38/photographer/photographer.json",
   "frameNote": "0 rest, hands at his sides · 1 breath · 2 the card tilted to the light · 3 talking, a hand presenting.",
   "figureHeight": 438,
   "stature": 1,
-  "figureHeightNote": "The room's man at his feet (soles y 701): cut and snapped there by tools/art/interiors-people.py (errata 112's one level). The engine draws him at the room's man there."
+  "figureHeightNote": "The room's man at his feet (soles y 701): cut and snapped there by tools/art/interiors-people.py (errata 112's one level). The engine draws him at the room's man there.",
+  "breakEveryNote": "Errata 296 (Tyler, 2026-11-12, on the map seller: \"doesn't appear to have any movements\"): one held pose every 17 s read as standing still. Now every 12 s."
  },
  "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 10 · THE PHOTOGRAPHER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109)."
 }

@@ -84,14 +84,15 @@
     4
    ]
   ],
-  "breakEvery": 29,
+  "breakEvery": 12,
   "provenance": "reference/cast-unify-16.spec.json",
   "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 18 (reference/cast-unify-16.txt), full figure, holding his own thing in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet. Its own file: the sheet it replaces is written by an earlier cut.",
   "figureHeight": 153,
   "stature": 1,
   "figureHeightNote": "Crown to sole of the rest frame (tools/art/figure-height.py --hat: the bowler is not part of his height); the engine draws him at the room's man there.",
   "frameNote": "0 standing, his writing case under his arm · 1 breath (derived) · 2 the case held open, offering to write · 3 touching his hat · 4 the case closed at his chest. Errata 264 (reference/acted-directions-2): 5 the pen down on his board, his hand lifted from it. Acted only (doc 95 row 69).",
-  "rateNote": "Errata 273 (Tyler, 2026-11-10: \"The man seems to be breathing rapidly (shoulders rising and falling too quickly)\"): 0.35, was 0.9. A breath at rest is a slow thing; tests/movement.test.mjs holds a standing person's breath to 0.5 a second at most."
+  "rateNote": "Errata 273 (Tyler, 2026-11-10: \"The man seems to be breathing rapidly (shoulders rising and falling too quickly)\"): 0.35, was 0.9. A breath at rest is a slow thing; tests/movement.test.mjs holds a standing person's breath to 0.5 a second at most.",
+  "breakEveryNote": "Errata 296 (Tyler, 2026-11-12, on the map seller: \"doesn't appear to have any movements\"): one held pose every 29 s read as standing still. Now every 12 s."
  },
  "migrationNote": "ERRATA 54, x6. Was (30, 112) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "Back at the west end, beside the posted notices rather than clustered at the saloon with the other two. Was (2500, 712). THE CLUSTER WAS A MISTAKE OF MY OWN MAKING: I moved all three east on the reasoning that the saloon is the only lit thing at night, and the measurement says otherwise -- the mud at the Company and the Clarion reads 70-72 against the map seller’s 58, and only the saloon porch peaks at 84. Half a 3700px street had nobody in it. He belongs here anyway: doc 05 gives POSTED NOTICES to him, and a man who writes letters for the illiterate sets up where the town reads. Clear of the board rect and the Company steps. ERRATA 193 (Tyler, 2026-11-08) MOVED HIM TO LOWER STREET, Main Street having too many people: he stands in front of the livery's shut left door, in its lamplight, between the passage to the Lane and the livery's open doors, clear of both ways and well away from the bell-ringer at the church. His Pike answer in doc 07 now points from there ('Down the lane, there.'). The POSTED NOTICES line on Main Street still advertises him; the notice is his, not his presence.",

@@ -78,9 +78,25 @@
     4,
     4,
     4
+   ],
+   [
+    2,
+    2,
+    2,
+    3,
+    3,
+    3
+   ],
+   [
+    3,
+    3,
+    0,
+    0,
+    3,
+    3
    ]
   ],
-  "breakEvery": 26,
+  "breakEvery": 13,
   "breaksThatSpeak": [
    2
   ],
@@ -90,7 +106,8 @@
   "stature": 1,
   "figureHeightNote": "Crown to sole; stature 1.0 keeps her the size she was drawn (the street's man where she stands, 157). Errata 263: redrawn 1% smaller so that her raised hand stays in its cell (168 became 166).",
   "frameNote": "0 standing with her basket · 1 breath (derived) · 2 holding a pie out · 3 lifting the basket · 4 one hand up, calling out.",
-  "rateNote": "Errata 273 (Tyler, 2026-11-10: \"The man seems to be breathing rapidly (shoulders rising and falling too quickly)\"): 0.35, was 0.7. A breath at rest is a slow thing; tests/movement.test.mjs holds a standing person's breath to 0.5 a second at most."
+  "rateNote": "Errata 273 (Tyler, 2026-11-10: \"The man seems to be breathing rapidly (shoulders rising and falling too quickly)\"): 0.35, was 0.7. A breath at rest is a slow thing; tests/movement.test.mjs holds a standing person's breath to 0.5 a second at most.",
+  "breakEveryNote": "Errata 296 (Tyler, 2026-11-12, on the map seller: \"doesn't appear to have any movements\"): one held pose every 26 s read as standing still. Now every 13 s. Two silent breaks added (a pie offered then the basket lifted; the basket lifted twice), so that her call, break 2 of five, comes every 65 s, still over a minute apart (errata 224)."
  },
  "migrationNote": "ERRATA 54, x6. Was (150, 126) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "Between the Nugget's two right-hand porch posts, in front of the porch (Tyler, 2026-11-07: \"The pie woman should maybe be closer and between the two far right pillars of the nugget\"). Was (2180, 724), forward of the trough's end, in a line with everyone else on the street.",
