@@ -201,17 +201,63 @@ export class WalkBoxes {
     const landing = this.target(toX, toY);
     if (!start || !landing) return undefined;
 
-    const chain = this.path(start.id, landing.box.id);
-    if (chain.length === 0) return undefined;
+    const fewest = this.path(start.id, landing.box.id);
+    if (fewest.length === 0) return undefined;
 
+    // THE SHORTEST WALK, NOT THE FEWEST BOXES (Tyler, 2026-11-11: "Thad took a very weird walk to get to the map
+    // salesman. Instead of going straight to him, he walked over by the dog and back around."). The fewest boxes
+    // from the south side of Main Street went up through the box beside the dog and across; a box more, along the
+    // front, is the straight walk. Every chain up to two boxes longer than the fewest is walked on paper, and the
+    // shortest walk wins. The graphs are a dozen boxes; the cap is there so that a bad annotation cannot hang it.
+    let best: Route | undefined;
+    let bestLength = Number.POSITIVE_INFINITY;
+    for (const chain of this.chains(start.id, landing.box.id, fewest.length + 2)) {
+      const waypoints = this.waypointsFor(chain, landing.point);
+      let length = 0;
+      let at: Point = { x: fromX, y: fromY };
+      for (const point of waypoints) {
+        length += Math.hypot(point.x - at.x, point.y - at.y);
+        at = point;
+      }
+      if (length < bestLength - 1e-6) {
+        best = { boxes: chain, waypoints };
+        bestLength = length;
+      }
+    }
+    return best ?? { boxes: fewest, waypoints: this.waypointsFor(fewest, landing.point) };
+  }
+
+  private waypointsFor(chain: string[], toward: Point): Point[] {
     const waypoints: Point[] = [];
     for (let index = 0; index < chain.length - 1; index += 1) {
       const here = this.byId.get(chain[index] as string) as WalkBox;
       const next = this.byId.get(chain[index + 1] as string) as WalkBox;
-      waypoints.push(this.crossing(here, next, landing.point));
+      waypoints.push(this.crossing(here, next, toward));
     }
-    waypoints.push(landing.point);
-    return { boxes: chain, waypoints };
+    waypoints.push(toward);
+    return waypoints;
+  }
+
+  /** Every chain of boxes from `from` to `to` that visits no box twice, at most `limit` boxes long. */
+  private chains(from: string, to: string, limit: number): string[][] {
+    const found: string[][] = [];
+    const walk = (chain: string[]): void => {
+      if (found.length >= 4000) return;
+      const last = chain[chain.length - 1] as string;
+      if (last === to) {
+        found.push([...chain]);
+        return;
+      }
+      if (chain.length >= limit) return;
+      for (const next of this.byId.get(last)?.neighbours ?? []) {
+        if (!this.byId.has(next) || chain.includes(next)) continue;
+        chain.push(next);
+        walk(chain);
+        chain.pop();
+      }
+    };
+    walk([from]);
+    return found;
   }
 
   /** A point in the overlap of two adjacent boxes, as near `toward` as it gets. */

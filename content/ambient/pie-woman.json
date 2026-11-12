@@ -10,6 +10,8 @@
  "zone": 0,
  "approachRadius": 40,
  "tree": "amb_pie_woman",
+ "greetsWithBark": true,
+ "greetsWithBarkNote": "Errata 294: doc 07's opening stage line described the speaker instead of showing him, and is cut. TALK TO opens with the bark for the current reputation, so the first thing the player meets is the voice.",
  "barks": {
   "R_NOBODY": "Pie.",
   "R_SWINDLED": "Pie. Half price for the newly poor.",

@@ -1210,20 +1210,6 @@
       "where": "rooms/washout departure (the ride home)"
     },
     {
-      "n": 102,
-      "class": "C",
-      "speaker": "pie_woman",
-      "words": "The pie woman looks at his coat, then his boots, and prices him.",
-      "where": "dialogue/amb-pie-woman root opening"
-    },
-    {
-      "n": 103,
-      "class": "C",
-      "speaker": "map_seller",
-      "words": "The map seller sees Thad, and lights up like a lamp.",
-      "where": "dialogue/amb-map-seller root opening"
-    },
-    {
       "n": 104,
       "class": "C",
       "speaker": "fanshawe",
@@ -1793,20 +1779,6 @@
       "speaker": "bell_ringer",
       "words": "He looks up at the bell, then down at the bottle.",
       "where": "dialogue/amb-bell-ringer root option 7"
-    },
-    {
-      "n": 170,
-      "class": "C",
-      "speaker": "pie_woman",
-      "words": "She looks at his boots again, and knocks a penny off him.",
-      "where": "dialogue/amb-pie-woman root option 6"
-    },
-    {
-      "n": 171,
-      "class": "C",
-      "speaker": "man_leaving_tomorrow",
-      "words": "He says it the way other men say 'measles'.",
-      "where": "dialogue/amb-man-leaving-tomorrow root option 3"
     },
     {
       "n": 172,

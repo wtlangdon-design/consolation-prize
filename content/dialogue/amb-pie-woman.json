@@ -2,20 +2,13 @@
   "schema": 1,
   "id": "amb_pie_woman",
   "speaker": "pie_woman",
-  "note": "EXTRACTED from docs/07-ambient-layer.md (## 6 · THE PIE WOMAN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. The opening is doc 07's stage line. The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 6 · THE PIE WOMAN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
   "start": "root",
   "nodes": {
     "root": {
       "id": "root",
       "noPrompt": true,
-      "exceptionReason": "Doc 07's opening is a stage line, performed as a direction, not held over the options.",
-      "opening": [
-        {
-          "speaker": "pie_woman",
-          "line": "The pie woman looks at his coat, then his boots, and prices him.",
-          "direction": true
-        }
-      ],
+      "exceptionReason": "Doc 07 writes the micro-tree as options only; the greeting is the bark.",
       "options": [
         {
           "id": "pie_woman1",
@@ -49,6 +42,17 @@
               "line": "Same pie. I tell you what's in it."
             }
           ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "pie_womans",
+          "text": "Madam, that pie is a crime against the territory.",
+          "tag": "COMIC",
+          "echo": "Madam, that pie is a cr— a credit to the territory! A credit. I'd say so in front of anybody.",
+          "after": [
+            "pie_woman1"
+          ],
+          "say": "Insults are a penny extra. You very nearly bought one.",
           "afterUse": "remove"
         },
         {
@@ -110,8 +114,11 @@
             },
             {
               "speaker": "pie_woman",
-              "line": "She looks at his boots again, and knocks a penny off him.",
-              "direction": true
+              "line": "…"
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "Four cents to you, then."
             }
           ],
           "afterUse": "remove",

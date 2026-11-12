@@ -6335,6 +6335,9 @@ function hobRunning() {
 //   > ↳ "Q" → reply               a FOLLOW-UP: offered once the option above has been asked
 //   >   *Thad:* "x"               an INTERJECTION inside the reply above
 //   >   → "y"                     and the reply goes on
+//   > `[COMIC]` "Q" *Thad says:* "S" → reply
+//                                 THE SWITCH (errata 293): the menu offers Q, and what Thad says is S,
+//                                 the option's `echo` (doc 30 section 6.2)
 // In a reply, **A:** and **B:** name which of a pair is speaking, a quote is
 // the speaker's, and an italic parenthetical is a direction, performed or
 // hidden by doc 58's rules. An option line with no quoted words for Thad --
@@ -6417,8 +6420,15 @@ function townTrees() {
       if (arrow < 0) throw new Error(`doc 07 ${heading}: an option with no reply: "${text}"`);
       const asked = /"([^"]+)"/.exec(text.slice(0, arrow))?.[1];
       if (!asked) { reported.push(`${heading}: "${text.slice(0, arrow).trim()}" has no words for Thad to say -- left out`); continue; }
-      const id = `${spec.prefix}${options.length + 1}`;
-      const option = { id, text: plain(asked), tag: comic ? 'COMIC' : 'TOPIC',
+      // THE SWITCH (errata 293, Tyler: "you pick a bold line and he chickens out"): the menu offers one line and
+      // Thad, who would apologise to a door, says another. Written `*Thad says:* "..."` after the menu's words. It
+      // takes its own id, `<prefix>s`, so that adding one renumbers nothing a save or a document refers to, and
+      // a person has at most one (doc 129).
+      const says = /\*Thad says:\*\s*"([^"]+)"/.exec(text.slice(0, arrow))?.[1];
+      if (says && !comic) throw new Error(`doc 07 ${heading}: a switch on an option that is not [COMIC]: "${asked}"`);
+      if (says && options.some((option) => option.id === `${spec.prefix}s`)) throw new Error(`doc 07 ${heading}: a second switch`);
+      const id = says ? `${spec.prefix}s` : `${spec.prefix}${options.filter((option) => option.id !== `${spec.prefix}s`).length + 1}`;
+      const option = { id, text: plain(asked), tag: comic ? 'COMIC' : 'TOPIC', ...(says ? { echo: plain(says) } : {}),
         ...(followUp && lastTop ? { after: [lastTop] } : {}), exchange: spoken(text.slice(arrow + 1), speakers, spec.speaker) };
       Object.assign(option, routes[option.text] ?? {});
       if (!followUp) lastTop = id;

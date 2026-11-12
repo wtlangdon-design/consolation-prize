@@ -10,6 +10,8 @@
  "zone": 1,
  "approachRadius": 40,
  "tree": "amb_map_seller",
+ "greetsWithBark": true,
+ "greetsWithBarkNote": "Errata 294: doc 07's opening stage line described the speaker instead of showing him, and is cut. TALK TO opens with the bark for the current reputation, so the first thing the player meets is the voice.",
  "barks": {
   "R_NOBODY": "Map to Mott's strike! Dollar!",
   "R_SWINDLED": "Map, sir? Turn it round for you?",
