@@ -18,7 +18,7 @@
 **LISTEN** 1 "Somebody on the landing, not moving. There is always somebody on the landing not moving." · 2 "Still there." · 3 "Boards. Two rooms, both occupied, neither talking."
 
 ### THE STOVE
-**LOOK** 1 "A parlor stove with a nickel rail, polished. It is the only thing in this building anyone has spent an afternoon on." · 2 "Unlit. It has been unlit since I arrived, in a lobby with a rail for drying gloves." · 3 "The rail is for drying gloves. Nobody in Consolation owns gloves."
+**LOOK** 1 "A parlor stove with a nickel rail, polished. It is the only thing in this building anyone has spent an afternoon on." · 2 "Unlit. It has been unlit since I arrived, in a lobby with a rail for drying gloves." · 3 "The rail is for drying gloves. Nobody in Consolation owns gloves. When I've made my fortune I'll buy a pair, just to dry them here."
 **LISTEN** 1 "Nothing. Cold." · 2 "Nothing." · 3 "Nothing at all."
 
 ### THE SPITTOON
@@ -27,7 +27,7 @@
 
 ## Repeat variants for docs 09's four
 
-**THE REGISTER** — LOOK 2 "Forty-one names. I've read all of them, and I don't know one." · 3 "Mine is the last, and it's spelled in a way I haven't previously encountered." | LISTEN 2 "Nothing." · 3 "Nothing. It is a list of people who are elsewhere."
+**THE REGISTER** — LOOK 2 "Forty-one names. I've read all of them, and I don't know one. By the end of the month they'll all know mine." · 3 "Mine is the last, and it's spelled in a way I haven't previously encountered." | LISTEN 2 "Nothing." · 3 "Nothing. It is a list of people who are elsewhere."
 
 **THE KEY RACK** — LOOK 2 "Four out of forty. The four are not near each other." · 3 "Number nineteen is mine! I've looked at it more than a man should look at a key." | LISTEN 2 "Nothing." · 3 "Brass on wood, faintly, when the door goes."
 
@@ -47,7 +47,7 @@
 ## Exits
 
 **THE STREET DOOR → Room 2**
-**LOOK** 1 "The door out onto Main Street, with a bell that does not work and a mat that has given up." · 2 "The bell is a formality. Everybody who comes in is already known." · 3 "The street, past it. It is always brighter than I remember."
+**LOOK** 1 "The door out onto Main Street, with a bell that does not work and a mat that has given up." · 2 "The bell is a formality. Everybody who comes in is already known." · 3 "The street, past it. It's always brighter than I remember, which I choose to take as a good sign."
 **LISTEN** 1 "The street. Boots on the boardwalk." · 2 "Boots. Two men, and neither of them is coming in." · 3 "Nothing. It has gone quiet out there, which happens about four." *(Corrected — "Still the street." belongs to the assay office's door in doc 25.)*
 
 **THE STAIRS → Room 19**
@@ -68,7 +68,7 @@
 **LISTEN** 1 "Nothing. Water, when I move it." · 2 "Nothing." · 3 "Nothing."
 
 ### THE COAT ON THE DOOR
-**LOOK Acts I–II** 1 "My good coat. The only thing I own that suggests I was once somebody's son with prospects." · 2 "It has mud to the knee, and I've stopped attending to it." · 3 "Providence made this coat for a man walking to an office."
+**LOOK Acts I–II** 1 "My good coat. The only thing I own that suggests I was once somebody's son with prospects. I still am. The coat agrees." · 2 "It has mud to the knee, and I've stopped attending to it." · 3 "Providence made this coat for a man walking to an office."
 **LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing."
 
 ### THE WALL
@@ -81,7 +81,7 @@
 
 **HIS MOTHER'S LETTERS** — *Correction: I sent this to doc 23 in error. Doc 23 is inventory; the act-variant lines are doc 08's and they are ACT variants, not repeat variants. Act I's three repeats are written here. Later acts take doc 08's line as their variant 1 and reuse variants 2 and 3.*
 
-**LOOK Act I** 1 "Three from home. She is proud of me. She has been given no reason to be." · 2 "She asks about the weather here as though it were a place that has weather." · 3 "The most recent is six weeks old. It went to Sacramento and waited for me there."
+**LOOK Act I** 1 "Three from home. She is proud of me. She has been given no reason to be. Yet." · 2 "She asks about the weather here as though it were a place that has weather." · 3 "The most recent is six weeks old. It went to Sacramento and waited for me there."
 **LISTEN** 1 "Nothing. Paper is very quiet about this sort of thing." · 2 "Nothing." · 3 "Nothing. Three letters, and not one of them has asked me anything I would have to answer."
 
 **THE OUTGOING LETTER** — *Correction: doc 08 wrote its LOOK as a stage direction rather than a line, which cannot be wired. **These are the default lines, shown before any letter has been chosen, and they must always exist** — when the letters-home system lands it replaces variant 1 with the chosen text and leaves 2 and 3 alone.*

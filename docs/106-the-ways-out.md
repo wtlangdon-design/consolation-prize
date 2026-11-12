@@ -70,7 +70,7 @@
 
 ## ROOM 23 · PROSPERITY
 
-> **THE ROAD** — LOOK 1 "The way back down to the road, past my claim post. Forty feet is not far, and I have walked it a great many times." · 2 "The path down is worn mostly by me, and a little by a raccoon." · 3 "Down there are the town, the queue, and everybody who knows exactly what this claim is worth." | LISTEN 1 "The road below, empty, and the wind deciding which way to go along it." · 2 "Dry scrub rattling. It's the busiest thing on the hill." · 3 "Far down, a cart on the road, going somewhere with something in it."
+> **THE ROAD** — LOOK 1 "The way back down to the road, past my claim post. Forty feet is not far, and I have walked it a great many times." · 2 "The path down is worn mostly by me, and a little by a raccoon." · 3 "Down there are the town, the queue, and everybody who knows exactly what this claim is worth. They're wrong. I can feel it." | LISTEN 1 "The road below, empty, and the wind deciding which way to go along it." · 2 "Dry scrub rattling. It's the busiest thing on the hill." · 3 "Far down, a cart on the road, going somewhere with something in it."
 
 > **PRATT'S CLAIM** — LOOK 1 "Next door, Pratt's claim, swept and squared. Even his trickle of water runs in a straight line." · 2 "The trickle that crosses from his side is the only thing on his claim that has ever come toward mine of its own accord." · 3 "There's a fire over there most nights. He works by it, or sits by it and watches my side." | LISTEN 1 "Water running over stones next door, in a hurry to be somewhere else." · 2 "His fire, popping. It's the only warm sound on this side of the hill." · 3 "Nothing from Pratt. Pratt is quiet the way a man is quiet when he's listening."
 

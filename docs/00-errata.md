@@ -326,15 +326,15 @@ Doc 17 v1 had the coach depart on a timer at beat 5. Doc 17 v2 has it stand ther
 > LISTEN 1 "The team, shifting. The near axle's dry — it's been dry a long time." · 2 "Still dry. That axle is going to be heard from." · 3 "Somebody up top is rearranging the load and swearing at it. Mostly at my case."
 
 **THE COACH — state B, departed** *(hotspot becomes THE ROAD WEST OUT)*
-> LOOK 1 "Gone. It made very good time on the way out. Better than on the way in." · 2 "The next coach out is in four days. I've asked twice. The answer didn't improve." · 3 "The ruts are still filling in. That's my whole connection to the rest of the world, filling in."
+> LOOK 1 "Gone. It made very good time on the way out. Better than on the way in." · 2 "The next coach out is in four days. I've asked twice. The answer didn't improve." · 3 "The ruts are still filling in. That's my whole connection to the rest of the world, filling in. Good. Onward."
 > LISTEN 1 "The near axle, squealing away east. It'll fail on somebody else's stretch now. I wish them well. Mostly." · 2 "Faint now." · 3 "Nothing. It's a long way off, and getting longer."
 
 **THE TEAM — state A only** *(new hotspot; see the wheel-pair art)*
-> LOOK 1 "Two horses I can see, and I'm told four more I can't. Heads down. They've earned it." · 2 "Nobody's unhitched them. Nobody's stopping long. Nobody but me." · 3 "The near one has looked at me twice, which is twice more than the driver has."
+> LOOK 1 "Two horses I can see, and I'm told four more I can't. Heads down. They've earned it." · 2 "Nobody's unhitched them. Nobody's stopping long, except me. I'm stopping until I'm somebody." · 3 "The near one has looked at me twice, which is twice more than the driver has."
 > LISTEN 1 "Breathing, and harness. The most contented sound on this road, and none of it is mine." · 2 "Shifting. One of them is bored." · 3 "Quiet. They've gone to sleep standing up. I didn't know that was allowed. I'm going to try it later."
 
 **THE WATCHMAN'S LAMP — does not exist before beat 8.** Not a hotspot until Hob enters frame.
-> **Crossing:** LOOK 1 "A lamp, crossing the road, with a man behind it. He hasn't looked at me. I'm the newest thing on this road, and he hasn't looked." · 2 "Still crossing. He's in no hurry, and he isn't lost. I'm one of those." · 3 "The only lit thing on this road, and it's going the other way. Story of my evening."
+> **Crossing:** LOOK 1 "A lamp, crossing the road, with a man behind it. He hasn't looked at me. I'm the newest thing on this road, and he hasn't looked." · 2 "Still crossing. He's in no hurry, and he isn't lost. I'm one of those, but only for tonight." · 3 "The only lit thing on this road, and it's going the other way. Never mind. I'm going this way."
 > LISTEN 1 "Footsteps. Even ones. He is counting them." · 2 "Still even. You could set a watch by him." · 3 "He hasn't broken stride once. Not once, the whole length of the road. I broke stride getting off the coach."
 > **Gone:** LOOK 1 "The lamp, away up the street. It has not once looked back at me." · 2 "Small now." · 3 "Gone round the corner and taken the only light with it."
 > LISTEN 1 "Nothing. He has taken the sound with him too." · 2 "Nothing." · 3 "Nothing at all."
@@ -3835,7 +3835,7 @@ Twenty-six items (doc 23's rows; the fixture token is not one). Each was checked
 **B · Engine.**
 - **An item's repeat lines started again in every room.** The cursor was keyed to the room he stood in. It is now keyed to the inventory, as `GameState.scopeOf` always said it was.
 - **A room object that shares an item's id shared its lines.** Room 34's THE TUNING FORK is a hotspot. LOOK at the fork in the inventory twice, then at the one in the room, and the room's fork spoke its third line first. Room 11's THE HANDKERCHIEF was keyed the same way. Items are now told apart by what made them (`GameState.isItemTarget`), not by id.
-- **An item on a person with no pair got the people pool.** THE TUNING FORK on Winnie said "I would not know where to begin, and the beginning is the part people object to.", which is written for USE on a person with nothing in hand. Doc 24's tiers are for "this item on anything unhandled", so it now goes to the pair, then the item's pool, then the global pool. THE SUBMISSION LOG on Winnie after C5 is the same: "the pair yields to the ordinary pools" (its own note). Before, it said nothing.
+- **An item on a person with no pair got the people pool.** THE TUNING FORK on Winnie said "I wouldn't know where to begin, and the beginning is the part people object to.", which is written for USE on a person with nothing in hand. Doc 24's tiers are for "this item on anything unhandled", so it now goes to the pair, then the item's pool, then the global pool. THE SUBMISSION LOG on Winnie after C5 is the same: "the pair yields to the ordinary pools" (its own note). Before, it said nothing.
 - **Item on item was impossible.** Holding THE LETTER and pointing at THE TUNING FORK, the sentence read "Use THE LETTER on THE TUNING FORK", and the click swapped which item was held. Doc 22 asks for "item-to-item sentences". With USE selected and an item in hand, a click on a different item now performs that sentence through doc 24's tiers (`GameState.inventoryClick`). The global pool's "They are two separate objects and I should like them to remain so." is finally reachable. Clicking the held item still puts it down.
 - **The item stayed in hand after the sentence.** The verb cleared when "Use X on Y" finished, but the item did not. The next hover read "Look at THE TUNING FORK on THE COUNTER", and the next USE on an item carried the stale one. The item is now put down with the verb.
 - **The inventory scrolled one icon at a time** in a grid four wide. Every icon slid a cell and the first of each row wrapped onto the row above. It now moves a row at a time, so the bottom row comes up to the top.
@@ -7457,3 +7457,31 @@ LISTEN keeps its register (doc 05; invariant 3).
 **The sample is Main Street** (doc 128, before and after): fifty-eight LOOK and wrong-verb lines rewritten in their own documents, plus the dream on the road. This is CLAUDE.md's seventeenth exception. No other room is touched until Tyler has played it and ruled.
 
 Lesson: none -- a rewrite, no defect fixed. `tests/resolution.test.ts` pinned the opening's speech time to its old words; the pin moves with them (recorded in `proofs/check-friction.json`).
+
+## 290 · Thad's voice through the game: Act I first (Tyler, 2026-11-11)
+
+Tyler, having played the Main Street sample (errata 289): "I like it. Take the voice through the rest of the game." Then: "Can you push all the act 1 rewrites to the game when they're done so I can start playing them immediately? And then you can continue with acts 2-4 and push those together when they're done."
+
+**Act I is done.** Every room Act I visits was read against doc 99's entry for Thad, and every line in its own document. Rooms covered: the stage road, the Nugget, the assay office, the Clarion, the hotel, the Company lobby and the Colonel's office, the registrar, the undertaker's, the Lane, Lower Street, the back alley, the livery, Ozymandia's tent, the mercantile, the claims road, Prosperity, Pratt's claim, the claim row, the creek, Boot Hill, Thad's room, and the town's interiors.
+
+**What changed and what was left.** Where a line was a catalogue with no Thad in it, or a weary landing with no hope before it, it was rewritten. Each rewrite starts with a flourish of hope, wanting or delight and ends on the honest beat. The dream echoes once or twice a room: Providence, a sign of his own, a window like the Colonel's, "They're wrong. I can feel it." Lines that already carried him were left alone, and most of the town's rooms already did. Docs 59 and 99's passes had given them a person; what they lacked was his hope. Doc 128 lists every change, before and after.
+
+**The answers for anything.** The verb pools heard everywhere ("Nothing.", "It stays.", "No.") are rewritten in doc 13 Part One and doc 07, so a wrong verb now sounds like Thad trying. They were transcribed into content/ui/verb-fallbacks.json by hand, so a rewrite in the documents never reached the game. `tools/extract-content.mjs` now reads them from the documents.
+
+**His side of Act I's conversations.** He speaks in whole, sociable sentences where he was asking interview questions in five words:
+- "I'm expected by a Mr. Ezra Pike. Where would I find him?"
+- "Done! I'll take it."
+- "It's Grubb, actually. Two B's, no E."
+- "I had a letter for him. From my father."
+
+Every answer still answers the line before it, and no option's meaning or tag changed.
+
+**Kept:** every LISTEN line (doc 05; invariant 3), every puzzle fact and clue, every flag, the letters home, and Hob's lines.
+
+**Found on the way, and fixed with their lessons:**
+- **Compiled rooms went stale silently.** Only Rooms 2, 3 and 5 were registered generators, so a line rewritten in the documents for any other compiled room never reached its room file, and nothing said so. Rooms 9, 10 and 18 went stale in this pass. Room 23 had been stale since GIVE was added (errata 282): its fume lines did not answer GIVE. `tools/lib/generators.mjs` now registers the examine extractor and every compiled room, so `check-generated` fails on any of them. This was proved by changing a Room 18 line in the documents without regenerating.
+- **Thirty-two stale entries** leave `proofs/written-not-built.json`. They were lines errata 286 and 288 rewrote out of the documents.
+
+Lesson: the generator registry (above), proved against the defect.
+
+Acts II–IV follow, together, as Tyler asked.

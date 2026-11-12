@@ -133,7 +133,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "It ticks as it cools. The most expensive object in the territory, and it's hanging over mud."
 
 **THE BAR**
-> **LOOK:** "Mahogany. Genuine mahogany. Somebody spent real money on the one surface everybody leans on."
+> **LOOK:** "Mahogany! Genuine mahogany. Now that's a bar a man could do business at. Somebody spent real money on the one surface everybody leans on."
 > **LISTEN:** "Glasses. Talk. The story in the corner is on its fifth telling, and the bear has a name now."
 
 **THE MIRROR**
@@ -178,7 +178,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 *Ten hotspots. The anachronism pillar's showcase room.*
 
 **THE NUMBER SPINDLE**
-> **LOOK:** "A spindle of numbered tickets. I'm ninety-one. There's one other man in the room, and he's forty."
+> **LOOK:** "A spindle of numbered tickets. I'm ninety-one! It's the first thing in Consolation anybody's given me for nothing. There's one other man in the room, and he's forty."
 > **LISTEN:** "Nothing. It waits extremely well."
 
 **THE TWO LINES**
@@ -209,7 +209,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Nothing. Which is the first honest thing about it."
 
 **THE SABRE**
-> **LOOK:** "A cavalry sabre, mounted. Beautifully kept."
+> **LOOK:** "A cavalry sabre, mounted and beautifully kept! I've always wanted a sabre. I've no idea what I'd do with it."
 > **LISTEN:** "Nothing. It has never left this wall and it has never been sharpened."
 
 **THE CHAIRS**
@@ -232,7 +232,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 *Seven hotspots. Contains the game's answer, in Act I.*
 
 **THE CLAIM MARKER**
-> **LOOK:** "A stake with a number on it. Beyond it, forty feet of land that is legally, indisputably mine."
+> **LOOK:** "A stake with a number on it, and the number is mine! My first property, my first anything. Beyond it, forty feet of land that is legally, indisputably mine."
 > **LISTEN:** "Wind. It is not impressed either."
 
 **THE MUD**
@@ -297,7 +297,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > "Nothing."
 
 *The tenth marker the player checks:*
-> **LOOK:** "Ezra Pike. The man I was sent to find. Six years."
+> **LOOK:** "Ezra Pike. The man who was going to give me my start. Six years gone, and nobody thought to tell my father."
 > **LISTEN:** "Nothing. I have come a very long way to hear it."
 
 **PIKE'S NEIGHBOR** · **THE FRESH PLOT** *(dug in Act III, for Thad)*
@@ -368,7 +368,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Pages settling. Mine has already been turned."
 
 **THE CLERK'S BELL**
-> **LOOK:** "A bell for summoning the clerk. The handle is worn to bare brass, which tells you how often the clerk is elsewhere."
+> **LOOK:** "A bell for summoning the clerk! I do enjoy a bell. The handle is worn to bare brass, which tells you how often the clerk is elsewhere."
 > **LISTEN:** "It wants ringing. I decline."
 
 **THE KEY RACK**
@@ -388,7 +388,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "No."
 
 **THE PAINTING**
-> **LOOK:** "A mountain scene, signed. It is not one of our mountains; the painter never came west of the frame shop."
+> **LOOK:** "A mountain scene, signed with tremendous confidence. It is not one of our mountains; the painter never came west of the frame shop."
 > **LISTEN:** "Canvas, ticking in a draft. The draft is real, at least."
 
 **THE FRONT WINDOW**
@@ -447,7 +447,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Wood. It has absorbed a great deal of haggling and repeats none of it."
 
 **THE SCALES**
-> **LOOK:** "Polished bright. They weigh dust honest and flour otherwise, or so the men at the Nugget say."
+> **LOOK:** "Polished bright! The most honest-looking thing in the store. They weigh dust honest and flour otherwise, or so the men at the Nugget say."
 > **LISTEN:** "A faint tick as they settle. Always to the same side."
 
 **THE CREDIT LEDGER**
@@ -503,7 +503,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "I can nearly hear it. That is not the same as hearing it."
 
 **THE CATALOGUE — ORDER FORM**
-> **LOOK:** "The order form, in triplicate. Consolation's real currency is the promise of goods from elsewhere."
+> **LOOK:** "The order form, in triplicate. One day I'll fill one in, and send it, and pay. Consolation's real currency is the promise of goods from elsewhere."
 > **LISTEN:** "Carbon paper, whispering everything twice."
 
 ---
@@ -648,7 +648,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. It swallows footsteps whole. You could be robbed here politely and not hear it coming."
 
 **THE PORTRAIT OF FANSHAWE**
-> **LOOK:** "The Colonel, in oils, one hand on a globe. The globe is turned so his thumb covers the East."
+> **LOOK:** "The Colonel, in oils, one hand on a globe! Now there's a man who became somebody. The globe is turned so his thumb covers the East."
 > **LISTEN:** "Canvas. Even the painting says nothing without an appointment."
 
 **THE PROSPECTUS RACK**
@@ -685,7 +685,7 @@ The only prose line in the entire room, on the correct spot:
 *Nine hotspots. The teeth.*
 
 **THE GOOD SUIT**
-> **LOOK:** "One good suit, in three sizes, rented for viewings and returned after. Half the men in Boot Hill were photographed in it. It has more friends than I do."
+> **LOOK:** "One good suit, in three sizes, rented for viewings and returned after. Half the men in Boot Hill were photographed in it. It has more friends than I do. Give me a month."
 > **LISTEN:** "Wool, on a hanger, at rest. It has heard every eulogy in town and improved none of them."
 
 **THE COFFINS**
@@ -727,7 +727,7 @@ The only prose line in the entire room, on the correct spot:
 *Eight hotspots. Grievance is three of them.*
 
 **GRIEVANCE**
-> **LOOK:** "A mule of settled convictions. She has looked at me once, fully, and reached a verdict she sees no reason to revisit."
+> **LOOK:** "A mule of settled convictions. I like her enormously. It isn't mutual yet. She has looked at me once, fully, and reached a verdict she sees no reason to revisit."
 > **LISTEN:** "Breathing, slow and deliberate. She is not asleep. She is declining to participate."
 
 **GRIEVANCE'S BLANKET**
@@ -768,7 +768,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The cloth's tassels, moving without wind. There is a wind. It is just not one you can feel."
 
 **THE CRYSTAL BALL**
-> **LOOK:** "A glass ball on a brass stand. In it: the tent, upside down, and me, small. It is right about both."
+> **LOOK:** "A glass ball on a brass stand. In it: the tent, upside down, and me, small. It is right about both, for now. Give it a year and I'll fill it."
 > **LISTEN:** "Nothing. Glass keeps what it sees."
 
 **THE BRASS ROD**

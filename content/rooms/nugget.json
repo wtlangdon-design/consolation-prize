@@ -479,7 +479,7 @@
             "say": "Stairs, up to rooms I haven't been invited to. There's a man on the landing.",
             "repeat": [
               "He hasn't moved. I'm starting to think he isn't waiting for anything. He came with the stairs.",
-              "Eleven steps. I've counted them from down here, which is as far up as I've got."
+              "Eleven steps. I've counted them from down here, which is as far up as I've got. So far."
             ],
             "then": [
               "There is always a man on the landing."
@@ -599,7 +599,7 @@
             "say": "I look like a man about to make his fortune.",
             "repeat": [
               "Still me. I'd hoped for some improvement. The coat is doing its best.",
-              "Give it a few weeks and I'll look like I belong here. That was never the plan."
+              "Give it a few weeks and I'll look like I belong here. The plan is to look like I own it."
             ],
             "then": [
               "The mirror's seen a great many of those, and it's still here."
@@ -648,7 +648,7 @@
             "say": "They drank to my memory on Tuesday. I was there. I'm told I was spoken of very warmly, briefly, between rounds."
           },
           {
-            "say": "Mahogany. Genuine mahogany.",
+            "say": "Mahogany! Genuine mahogany. Now that's a bar a man could do business at.",
             "repeat": [
               "Mahogany, four hundred miles from the nearest tree that could have grown it. I'd like to meet the mule.",
               "The best-kept surface in town, and it's a bar. I don't think that's an accident."
@@ -681,7 +681,7 @@
         ]
       },
       "overrides": {
-        "USE": "That would cost money.",
+        "USE": "That would cost money, and I'm saving mine to make more of it.",
         "PUSH": "It doesn't move. It's the only thing in town built to stay.",
         "OPEN": "The barman watches me consider it. We both put the idea down gently."
       },
@@ -740,7 +740,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A door behind the bar, shut. There's a room back there where things get settled.",
+            "say": "A door behind the bar, shut. There's a room back there where things get settled. One day I'll be the one settling them.",
             "repeat": [
               "Shut. It's been shut every time I've looked. That isn't the same as locked, and I've thought about the difference a lot.",
               "Shut in a way that's been decided, not just closed. I didn't know doors could do that. This one can."

@@ -41,7 +41,7 @@ That is the whole engine of the game in two exchanges: Thad believes he has arri
 | 3 | **"My name is Thaddeus Grubb. I have come to Consolation to make my fortune."** — *"Course you have."* | no | Sincere, then punctured |
 | 4 | *"Four dollars?"* — Thad checks — *"Four dollars."* — **"You've all got four."** | no | The predatory machinery, unexplained |
 | 5 | Thad asks after Ezra Pike — **"Ask the undertaker. He knows everybody."** | no | **One destination. Nothing else.** |
-| 6 | The case goes in the mud. *"Hotel's five dollars."* — *"I have four."* The driver climbs aboard | no | The material problem. He leaves before Thad can ask anything more |
+| 6 | The case goes in the mud. *"Hotel's five dollars."* — *"I have four. Four is very nearly five."* The driver climbs aboard | no | The material problem. He leaves before Thad can ask anything more |
 | 6b | **The coach DEPARTS — it does not vanish.** Team walks, wheels turn, it leaves frame right over two or three seconds and the sound goes with it | no · ~3s | Player-audit fix. A coach that disappears on a click is not a coach leaving |
 | 7 | The coach recedes east. A badly tuned piano, faint, from the town. **ACT CARD** | no · ~3s | **PART ONE — In Which Our Hero Is Robbed, and Enjoys It** |
 | 8 | **Control.** Verb panel appears | **yes** | ~60–70 seconds elapsed |
@@ -61,10 +61,10 @@ Confirmed since: Monkey Island's lookout exchange is genuinely automatic, not pl
 
 | Option | Tag | Response |
 |---|---|---|
-| "Where can I find Ezra Pike?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." *(again)* "The undertaker. He'll be the one measuring you." |
-| "Where am I supposed to sleep?" | `[PROGRESS]` | "Hotel's five dollars." — *"I have four."* — **"You've all got four."** *(again)* "Five. You've got four. Arithmetic's free." |
-| "You don't think much of my chances." | `[COMIC]` | "I don't think about them at all." *(again)* "Still not thinking about them." |
-| "Thank you for the ride." | `[EXIT]` | **"Wasn't for you."** *(He climbs aboard. The coach goes. Beat 7.)* |
+| "I'm expected by a Mr. Ezra Pike. Where would I find him?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." *(again)* "The undertaker. He'll be the one measuring you." |
+| "And where does a gentleman sleep in Consolation?" | `[PROGRESS]` | "Hotel's five dollars." — *"I have four. Four is very nearly five."* — **"You've all got four."** *(again)* "Five. You've got four. Arithmetic's free." |
+| "You don't think much of my chances. I can see it in your hat." | `[COMIC]` | "I don't think about them at all." *(again)* "Still not thinking about them." |
+| "Thank you for the ride! I'll mention you when I'm famous." | `[EXIT]` | **"Wasn't for you."** *(He climbs aboard. The coach goes. Beat 7.)* |
 
 **"Wasn't for you"** is the best line in the opening and it should be the last thing anyone says on that road. The coach was not a service Thad bought. He was freight.
 
@@ -155,7 +155,7 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 > PICK UP — "It is eight feet up and it is not mine to reach for yet."
 
 **State B — in the mud, from beat 6**
-**LOOK** 1 "My case, in the mud, where it was put." · 2 "Everything I own. It isn't heavy, and that's the whole difficulty." · 3 "My father packed it. He put the tuning fork in first, which tells you what he thought of the rest."
+**LOOK** 1 "My case, face down in the mud. Not the start I'd planned, but it's a start." · 2 "Everything I own. It isn't heavy, and that's the whole difficulty." · 3 "My father packed it. He put the tuning fork in first, which tells you what he thought of the rest."
 **LISTEN** 1 "Nothing." · 2 "The tuning fork, against the clasp. A. Four hundred and forty, and the only thing for a hundred miles that's in tune." · 3 "Nothing. I've stopped shaking it to hear that. It's a low thing to be caught doing, and I was nearly caught."
 > **PICK UP — takes it.** *"I have it."* **This is the first PICK UP in the game and it teaches the verb.**
 > OPEN — "A shirt, a razor, three letters, and a tuning fork. I've checked it four times since Sacramento. The contents have been admirably consistent."
@@ -168,7 +168,7 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 **LISTEN** 2 "Even footsteps. Still counting." · 3 "He has not broken stride once. Not once, in the whole length of the street."
 
 ## THE ROAD EAST
-**LOOK** 2 "Three thousand miles. I've just come along it, and it didn't feel optional at the time." · 3 "Home is that way. I'm not going to keep looking at it. That's three times now."
+**LOOK** 2 "Three thousand miles. I've just come along it, and it didn't feel optional at the time." · 3 "Home is that way, and I won't see it again until I've something to show them. That's three looks. That's enough looking."
 **LISTEN** 2 "Nothing coming." · 3 "Nothing coming."
 
 ---
@@ -176,7 +176,7 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 # PART THREE — OVERRIDES
 
 > **THE SIGN** · PULL — "It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalizing the place."
-> **THE SIGN** · TALK TO — "Good evening. I'm new. Two thousand and one, and climbing." *(Nothing happens. It is a sign.)*
+> **THE SIGN** · TALK TO — "Good evening! Thaddeus Grubb, lately of Providence. You may make it two thousand and one, and climbing." *(Nothing happens. It is a sign.)*
 > **THE MUD** · PICK UP — "I've got plenty on my boots. I'm already carrying a fair amount of this town."
 > **THE COACH** · USE — "It's going. It's going with real enthusiasm."
 > **THE COACH** · PULL — "I've considered running after it. I'd like that on the record, and nowhere else."
@@ -187,14 +187,14 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 > **THE ROAD EAST** · PICK UP — "It's a road. I've got enough to carry."
 
 ## THE ROAD WEST → Room 2 *(exit)*
-**LOOK** 1 "Consolation. There are lamps on in about a third of it. I'll take a third." · 2 "Somebody's still awake down there, and somebody's playing a piano badly. Those are two separate facts, and only one of them is my business." · 3 "Two hundred yards. The shortest part of the journey, and I'm putting it off."
+**LOOK** 1 "Consolation! There are lamps on in about a third of it. I'll take a third, to start with." · 2 "Somebody's still awake down there, and somebody's playing a piano badly. Those are two separate facts, and only one of them is my business." · 3 "Two hundred yards. The shortest part of the journey, and the only part that counts."
 **LISTEN** 1 "A town at night, half of it asleep. A piano, flat, some distance off. I could fix that." · 2 "Still flat. Whoever's playing it isn't the problem. The piano is the problem." · 3 "Somebody laughing. The first cheerful sound I've heard since Sacramento."
 
 ## THE ROAD WEST, BEFORE THE CASE *(hotspot road_west_blocked — the same place, while the case is still in the mud)*
 *Errata 100: these lines were written straight into the extractor when the case became required, and no document carried them. They live here now, rewritten under doc 59. He will not leave without the case.*
 
 **WALK TO** 1 "Not without my case. Everything I own is in it. It isn't much, but it's all of it." · 2 "It's still in the mud, and it's still everything I own." · 3 "I'd rather arrive poor than arrive poor and without luggage."
-**LOOK** 1 "Consolation. And behind me, my case, still in the mud." · 2 "The lamps won't wait up on my account." · 3 "Two hundred yards. One errand first. A small, muddy errand."
+**LOOK** 1 "Consolation. And behind me, my case, still in the mud." · 2 "The lamps won't wait up on my account. Not yet. Give them a week." · 3 "Two hundred yards. One errand first. A small, muddy errand."
 **LISTEN** 1 "Not much from down there. A town, mostly gone in for the night." · 2 "A town at this hour is mostly lamps." · 3 "The wind. And, if I'm honest, my own delay."
 **ANY OTHER VERB** 1 "That can wait until I'm carrying my own belongings." · 2 "Not before the case. The case is everything." · 3 "There's an order to these things, and the case is first in it."
 

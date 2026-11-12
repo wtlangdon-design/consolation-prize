@@ -1196,7 +1196,7 @@ Played from a fresh save at `70e4db1f`: the whole opening, then every hotspot wi
 
 | gated on | LOOK | LISTEN |
 |---|---|---|
-| `case_mud` · `T_CASE_DOWN` | *My case, in the mud, where it was put.* | *Nothing.* |
+| `case_mud` · `T_CASE_DOWN` | *My case, face down in the mud. Not the start I'd planned, but it's a start.* | *Nothing.* |
 | `lamp` · `T_HOB_CROSSING` | *A lamp, crossing the road. There is a man behind it and he has not looked at me.* | *Footsteps. Even ones. He is counting them.* |
 | `lamp_gone` · `T_HOB_GONE` | *The lamp, away up the street. It has not once looked back at me.* | *Nothing. He has taken the sound with him too.* |
 | `coach_gone` · `T_COACH_DEPARTED` | *Gone. It made very good time on the way out.* | *The near axle, going away. It will fail on somebody else's stretch.* |

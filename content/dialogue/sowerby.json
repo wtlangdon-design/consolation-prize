@@ -38,7 +38,7 @@
           "id": "sowerby1",
           "tag": "PROGRESS",
           "afterUse": "remove",
-          "text": "Tell me about the bell.",
+          "text": "Reverend, I couldn't help noticing your bell. Tell me about it.",
           "say": "A half-step flat since the day it was hung, and I have struck it every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it."
         },
         {

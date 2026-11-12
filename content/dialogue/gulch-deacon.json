@@ -94,7 +94,7 @@
         {
           "id": "ves_g1_1",
           "tag": "PROGRESS",
-          "text": "You sold me a worthless claim.",
+          "text": "You sold me a worthless claim, Mr. Vessel, and I've come to say so, firmly.",
           "afterUse": "remove",
           "say": "I sold you a claim. Worth is your department. Mine's volume."
         },
@@ -147,7 +147,7 @@
         {
           "id": "ves_g1_4",
           "tag": "COMIC",
-          "text": "You'll answer for this someday.",
+          "text": "You'll answer for this someday, and I'll be there, and I'll be rich.",
           "afterUse": "remove",
           "say": "I answer for it constantly. Nobody accepts the answer."
         },

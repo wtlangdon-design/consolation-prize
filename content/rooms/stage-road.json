@@ -1604,7 +1604,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "My case, in the mud, where it was put.",
+            "say": "My case, face down in the mud. Not the start I'd planned, but it's a start.",
             "repeat": [
               "Everything I own. It isn't heavy, and that's the whole difficulty.",
               "My father packed it. He put the tuning fork in first, which tells you what he thought of the rest."
@@ -1672,8 +1672,8 @@
           {
             "say": "A lamp, crossing the road, with a man behind it. He hasn't looked at me. I'm the newest thing on this road, and he hasn't looked.",
             "repeat": [
-              "Still crossing. He's in no hurry, and he isn't lost. I'm one of those.",
-              "The only lit thing on this road, and it's going the other way. Story of my evening."
+              "Still crossing. He's in no hurry, and he isn't lost. I'm one of those, but only for tonight.",
+              "The only lit thing on this road, and it's going the other way. Never mind. I'm going this way."
             ],
             "set": {
               "T_HOB_SPOKEN": true
@@ -1776,7 +1776,7 @@
           {
             "say": "Two horses I can see, and I'm told four more I can't. Heads down. They've earned it.",
             "repeat": [
-              "Nobody's unhitched them. Nobody's stopping long. Nobody but me.",
+              "Nobody's unhitched them. Nobody's stopping long, except me. I'm stopping until I'm somebody.",
               "The near one has looked at me twice, which is twice more than the driver has."
             ]
           }
@@ -1814,7 +1814,7 @@
             "say": "Gone. It made very good time on the way out. Better than on the way in.",
             "repeat": [
               "The next coach out is in four days. I've asked twice. The answer didn't improve.",
-              "The ruts are still filling in. That's my whole connection to the rest of the world, filling in."
+              "The ruts are still filling in. That's my whole connection to the rest of the world, filling in. Good. Onward."
             ]
           }
         ],
@@ -1862,7 +1862,7 @@
       },
       "overrides": {
         "PULL": "It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalizing the place.",
-        "TALK_TO": "Good evening. I'm new. Two thousand and one, and climbing.",
+        "TALK_TO": "Good evening! Thaddeus Grubb, lately of Providence. You may make it two thousand and one, and climbing.",
         "PUSH": "It leans. It rights itself. The sign has survived worse than me."
       },
       "defaultVerb": "LOOK_AT",
@@ -1890,7 +1890,7 @@
             "say": "Home is that way. It's three thousand miles that way, which robs the gesture of some of its force.",
             "repeat": [
               "Three thousand miles. I've just come along it, and it didn't feel optional at the time.",
-              "Home is that way. I'm not going to keep looking at it. That's three times now."
+              "Home is that way, and I won't see it again until I've something to show them. That's three looks. That's enough looking."
             ]
           }
         ],
@@ -1978,7 +1978,7 @@
           {
             "say": "Consolation. And behind me, my case, still in the mud.",
             "repeat": [
-              "The lamps won't wait up on my account.",
+              "The lamps won't wait up on my account. Not yet. Give them a week.",
               "Two hundred yards. One errand first. A small, muddy errand."
             ]
           }
@@ -2022,10 +2022,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Consolation. There are lamps on in about a third of it. I'll take a third.",
+            "say": "Consolation! There are lamps on in about a third of it. I'll take a third, to start with.",
             "repeat": [
               "Somebody's still awake down there, and somebody's playing a piano badly. Those are two separate facts, and only one of them is my business.",
-              "Two hundred yards. The shortest part of the journey, and I'm putting it off."
+              "Two hundred yards. The shortest part of the journey, and the only part that counts."
             ]
           }
         ],

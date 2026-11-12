@@ -264,7 +264,7 @@
     },
     {
       "beat": "6",
-      "description": "The case goes in the mud. \"Hotel's five dollars.\" — \"I have four.\" The driver climbs aboard",
+      "description": "The case goes in the mud. \"Hotel's five dollars.\" — \"I have four. Four is very nearly five.\" The driver climbs aboard",
       "control": "player",
       "note": "The material problem. He leaves before Thad can ask anything more",
       "set": {
@@ -294,7 +294,7 @@
         },
         {
           "speaker": "thad",
-          "line": "I have four."
+          "line": "I have four. Four is very nearly five."
         }
       ]
     },

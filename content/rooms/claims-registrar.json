@@ -276,13 +276,10 @@
             "say": "A spindle of numbered tickets. I was ninety-one. The dead don't queue, but I've kept my ticket."
           },
           {
-            "say": "A spindle of numbered tickets. I'm ninety-one.",
+            "say": "A spindle of numbered tickets. I'm ninety-one! It's the first thing in Consolation anybody's given me for nothing. There's one other man in the room, and he's forty.",
             "repeat": [
               "Ninety-one. The other man is still forty.",
               "I've taken ninety-two, to see. Nobody stopped me. I'm now two people in the queue."
-            ],
-            "then": [
-              "There's one other man in the room, and he's forty."
             ]
           }
         ],
@@ -711,7 +708,7 @@
           {
             "say": "The door out. It has a bell on a spring that announces everyone.",
             "repeat": [
-              "The bell has announced me four times today.",
+              "The bell has announced me four times today. I'm getting quite well known in here.",
               "Mr Sump hasn't looked up at that bell in years, I'd guess."
             ]
           }

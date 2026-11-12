@@ -196,6 +196,15 @@
             ]
           }
         ],
+        "GIVE": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
         "OPEN": [
           {
             "when": {
@@ -205,7 +214,7 @@
             "sceneLine": true
           }
         ],
-        "CLOSE": [
+        "PUSH": [
           {
             "when": {
               "T_FUMES": true
@@ -214,7 +223,7 @@
             "sceneLine": true
           }
         ],
-        "PUSH": [
+        "CLOSE": [
           {
             "when": {
               "T_FUMES": true
@@ -328,13 +337,10 @@
             "say": "Prosperity. Named by a liar, bought by a fool, and correct the entire time. There is a sermon in that and Sowerby cannot have it."
           },
           {
-            "say": "A stake with a number on it.",
+            "say": "A stake with a number on it, and the number is mine! My first property, my first anything. Beyond it, forty feet of land that is legally, indisputably mine.",
             "repeat": [
               "The number is painted on with confidence and very little paint.",
               "It leans. I've straightened it twice, and it's gone back to leaning, which I respect as a position."
-            ],
-            "then": [
-              "Beyond it, forty feet of land that is legally, indisputably mine."
             ]
           }
         ],
@@ -559,7 +565,7 @@
             "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - **THE HOLE** · USE, *before the hen*"
           }
         ],
-        "PICK_UP": [
+        "GIVE": [
           {
             "when": {
               "T_FUMES": true
@@ -568,7 +574,7 @@
             "sceneLine": true
           }
         ],
-        "TALK_TO": [
+        "PICK_UP": [
           {
             "when": {
               "T_FUMES": true
@@ -592,6 +598,15 @@
             "sceneLine": true
           }
         ],
+        "PUSH": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
         "CLOSE": [
           {
             "when": {
@@ -601,7 +616,7 @@
             "sceneLine": true
           }
         ],
-        "PUSH": [
+        "TALK_TO": [
           {
             "when": {
               "T_FUMES": true
@@ -685,7 +700,7 @@
             "say": "Approximately forty percent mud, thirty percent rock, and thirty percent a substance I haven't yet identified.",
             "repeat": [
               "Having stood in it, I can report on the unidentified thirty percent. It is cold, and it is personal.",
-              "This is the mud I own. I keep expecting to feel differently about it than about other mud. I don't."
+              "This is the mud I own. I keep expecting to feel differently about it than about other mud. I do, a little. It's mine."
             ]
           }
         ],
@@ -722,7 +737,7 @@
             "say": "The way back down to the road, past my claim post. Forty feet is not far, and I have walked it a great many times.",
             "repeat": [
               "The path down is worn mostly by me, and a little by a raccoon.",
-              "Down there are the town, the queue, and everybody who knows exactly what this claim is worth."
+              "Down there are the town, the queue, and everybody who knows exactly what this claim is worth. They're wrong. I can feel it."
             ]
           }
         ],

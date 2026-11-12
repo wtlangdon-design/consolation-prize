@@ -44,7 +44,7 @@
         },
         {
           "id": "deke_vessel2",
-          "text": "What are you selling?",
+          "text": "You have the look of a man with something to sell, and I'm a man of business.",
           "tag": "PROGRESS",
           "repeat": "Nothing at all. Getting out's free.",
           "exchange": [
@@ -74,7 +74,7 @@
         },
         {
           "id": "deke_vessel4",
-          "text": "How much?",
+          "text": "How much? Purely as a matter of business.",
           "tag": "PROGRESS",
           "repeat": "Four dollars and the watch. I'm not a greedy man.",
           "after": [
@@ -173,7 +173,7 @@
         },
         {
           "id": "deke_vessel6",
-          "text": "All right.",
+          "text": "Done! I'll take it.",
           "tag": "PROGRESS",
           "after": [
             "deke_vessel4"
@@ -219,7 +219,7 @@
         {
           "id": "ves_b1_1",
           "tag": "PROGRESS",
-          "text": "You sold me a worthless claim.",
+          "text": "You sold me a worthless claim, Mr. Vessel, and I've come to say so, firmly.",
           "afterUse": "remove",
           "say": "I sold you a claim. Worth is your department. Mine's volume."
         },
@@ -243,7 +243,7 @@
         {
           "id": "ves_b1_4",
           "tag": "COMIC",
-          "text": "You'll answer for this someday.",
+          "text": "You'll answer for this someday, and I'll be there, and I'll be rich.",
           "afterUse": "remove",
           "say": "I answer for it constantly. Nobody accepts the answer."
         },

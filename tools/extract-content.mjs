@@ -7282,9 +7282,44 @@ function applyGive(pairs, targetPools, give) {
   for (const pool of targetPools) if (pool.target === 'gulch_lookout' && pool.verb === 'USE') pool.verb = 'GIVE';
   // GIVE with nothing in hand: the verb's own fallback, beside the other verbs' (content/ui/verb-fallbacks.json).
   const fallbacks = JSON.parse(read('content/ui/verb-fallbacks.json'));
+  Object.assign(fallbacks.pools, verbFallbackPools());
+  Object.assign(fallbacks.people, personVerbLines());
   fallbacks.pools.GIVE = give.emptyThing;
   fallbacks.people.GIVE = give.emptyPerson;
   write('content/ui/verb-fallbacks.json', fallbacks);
+}
+
+// THE ANSWERS FOR ANYTHING, EXTRACTED (errata 290). The pools were transcribed by hand from doc 13 Part One and
+// doc 07's table, and a rewrite of either in the documents changed nothing in the game until somebody retyped
+// it. They are read from the documents now, as every other line is.
+const POOL_VERBS = { 'PICK UP': 'PICK_UP', USE: 'USE', OPEN: 'OPEN', CLOSE: 'CLOSE', PUSH: 'PUSH', PULL: 'PULL', 'TALK TO': 'TALK_TO' };
+function verbFallbackPools() {
+  const doc = read('docs/13-room-02-content.md');
+  const part = doc.slice(doc.indexOf('# PART ONE — GLOBAL VERB FALLBACKS'), doc.indexOf('# PART TWO'));
+  const pools = {};
+  let verb = null;
+  for (const line of part.split('\n')) {
+    const head = line.match(/^\*\*([A-Z ]+)\*\*/);
+    if (head) { verb = POOL_VERBS[head[1].trim()] ?? null; if (!verb) throw new Error(`doc 13 Part One: no verb called ${head[1]}`); pools[verb] = []; continue; }
+    const quoted = line.match(/^> "(.*)"\s*$/);
+    if (quoted && verb) pools[verb].push(quoted[1]);
+  }
+  for (const id of Object.values(POOL_VERBS)) {
+    if (!pools[id]?.length) throw new Error(`doc 13 Part One writes no ${id} pool`);
+  }
+  return pools;
+}
+function personVerbLines() {
+  const doc = read('docs/07-ambient-layer.md');
+  const part = doc.slice(doc.indexOf('## VERBS OTHER THAN TALK TO, ON ANY PERSON'));
+  const lines = {};
+  for (const row of part.split('\n')) {
+    const cell = row.match(/^\| `([A-Z_]+)` \| "(.*)" \|\s*$/);
+    if (cell) lines[cell[1]] = [cell[2].replace(/\*/g, '')];
+    else if (Object.keys(lines).length && !row.startsWith('|')) break;
+  }
+  if (Object.keys(lines).length < 8) throw new Error(`doc 07: the person-verb table has ${Object.keys(lines).length} rows`);
+  return lines;
 }
 
 function notDonePairs(pairs) {

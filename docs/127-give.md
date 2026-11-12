@@ -57,8 +57,8 @@ Monkey Island answered a hand-over it had not planned for with a short refusal. 
 
 **GIVE, with nothing in hand, to a person:**
 
-- "Give what? I am holding nothing, and I have grown attached to it."
+- "Give what? I'm holding nothing, and I've grown rather attached to it."
 
 **GIVE, with nothing in hand, to a thing:**
 
-- "I would have to be holding something. It is the one rule of giving."
+- "I'd have to be holding something first. It's the one rule of giving."

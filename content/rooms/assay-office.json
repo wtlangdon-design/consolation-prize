@@ -152,7 +152,7 @@
             "say": "Eight months of names. Two-thirds of them in the same hand.",
             "repeat": [
               "Two-thirds of these entries are in the same hand and the same ink.",
-              "Eight months. I've counted forward. I arrive in March."
+              "Eight months. I've counted forward. I arrive in March, unless I think of something, and I always think of something."
             ]
           }
         ],
@@ -192,7 +192,7 @@
             "say": "A territorial commission, framed, appointing W. LEDGER acting assayer.",
             "repeat": [
               "Acting. Nine years of acting.",
-              "Somebody in a capital four hundred miles away has never got round to the other word."
+              "Somebody in a capital four hundred miles away has never got round to the other word. I know the feeling. Providence never got round to the other word for me, either."
             ],
             "then": [
               "The word acting has been there nine years."
@@ -380,7 +380,7 @@
         ]
       },
       "overrides": {
-        "USE": "I'm not touching it.",
+        "USE": "I'm not touching it. I've seen the look she gives a man who breathes on it.",
         "PICK_UP": "It's under glass, and I wouldn't touch it if it weren't."
       },
       "walkTo": {

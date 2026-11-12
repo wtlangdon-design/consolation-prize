@@ -58,7 +58,7 @@
         {
           "id": "winnie1",
           "tag": "PROGRESS",
-          "text": "I'd like to have some soil assayed.",
+          "text": "How do you do! I'd like to have some soil assayed, please.",
           "afterUse": "remove",
           "say": "So would nine hundred men. Get in the book.",
           "goto": "WIN_A2"
@@ -66,7 +66,7 @@
         {
           "id": "winnie2",
           "tag": "TOPIC",
-          "text": "What is it you actually do here?",
+          "text": "Forgive me. What is it you actually do here?",
           "afterUse": "remove",
           "say": "I decide what things are. It's the only office in the territory that does."
         },
@@ -166,7 +166,7 @@
         {
           "id": "winnie1",
           "tag": "PROGRESS",
-          "text": "Where do I sign?",
+          "text": "Splendid! Where do I sign?",
           "afterUse": "remove",
           "say": "You don't sign. You print. Signatures are for people the next clerk has to believe."
         },
@@ -576,7 +576,7 @@
         {
           "id": "winnie2",
           "tag": "TOPIC",
-          "text": "So my claim is worthless.",
+          "text": "So my claim is worthless. For now, I mean.",
           "afterUse": "retain",
           "say": "Comprehensively. It's certified. It's the most certain thing you own.",
           "repeats": [

@@ -37,7 +37,7 @@
       "options": [
         {
           "id": "hotel_clerk1",
-          "text": "It's Grubb.",
+          "text": "It's Grubb, actually. Two B's, no E. You'll want it right; I'm going places.",
           "tag": "TOPIC",
           "say": "It's as given.",
           "afterUse": "remove"
@@ -51,14 +51,14 @@
         },
         {
           "id": "hotel_clerk2",
-          "text": "I'd like a room.",
+          "text": "I'd like your finest room, please.",
           "tag": "PROGRESS",
           "repeat": "Still five. The price doesn't have feelings either.",
           "say": "Five dollars."
         },
         {
           "id": "hotel_clerk3",
-          "text": "I have four.",
+          "text": "I have four. Could four be persuaded?",
           "tag": "PROGRESS",
           "repeat": "Four dollars, no room. Still compatible.",
           "after": [
@@ -68,7 +68,7 @@
         },
         {
           "id": "hotel_clerk4",
-          "text": "Your piano is out of tune.",
+          "text": "Your piano is out of tune, you know. A quarter-tone, at least.",
           "tag": "PROGRESS",
           "repeat": "The piano first, Mr. Grubbe. Then nineteen.",
           "after": [

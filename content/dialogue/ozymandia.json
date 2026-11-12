@@ -29,7 +29,7 @@
           "id": "ozymandia1",
           "tag": "PROGRESS",
           "afterUse": "remove",
-          "text": "I need a boundary divined.",
+          "text": "Madame! I need a boundary divined, and I'm told you're the finest in the territory.",
           "say": "The earth will speak — two dollars — the earth will speak to me of lines and limits — in advance —",
           "when": {
             "T_SURVEY_NEEDED": true
