@@ -77,7 +77,7 @@
     0
    ]
   ],
-  "breakEvery": 18.947,
+  "breakEvery": 9.4735,
   "talkFrame": 4,
   "frameNote": "HE KEEPS TIME WITH THE PIANO (doc 22: the fiddler idles in time with the musical bar grid; errata 118): `keepsTime` reads the Nugget bed's own position at its tempo, 152, so 0, the bow out at the start of the stroke, and 1, drawn across to its end, alternate once a beat, and a break comes every twelve bars (18.95 s), on a bar line. 2 mid-stroke, for a busier passage in the second break; 3 TUNE, the fiddle at his chest, a peg turned -- the first break; 4 TALK, fiddle and bow lowered.",
   "provenance": "art/staging/townspeople-110/fiddler/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 115)",
@@ -85,7 +85,8 @@
   "levelMan": 288,
   "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs).",
   "keepsTime": "music",
-  "idleIsNotBreath": "His idle is the bow, in time with the Nugget's music (doc 22: the fiddler idles in time with the room's music), not a breath (errata 273)."
+  "idleIsNotBreath": "His idle is the bow, in time with the Nugget's music (doc 22: the fiddler idles in time with the room's music), not a breath (errata 273).",
+  "breakEveryNote": "Errata 296 (Tyler, 2026-11-12, on the map seller: \"doesn't appear to have any movements\"): one held pose every 18.947 s read as standing still. Now every 9.4735 s. Two bars of the bed, so a break still starts on a bar line."
  },
  "barkCues": {
   "R_BORDERS_MOTT": "FID-FASTER",

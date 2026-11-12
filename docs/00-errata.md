@@ -7595,3 +7595,18 @@ The bell-ringer's "He holds up his bottle, hopefully." waits for its pose (acted
 Doc 95 loses fifteen rows and three change their words.
 
 Lesson: `tests/directions-show.test.mjs`'s pending list is down to the bell-ringer, and it fails if any of these comes back.
+
+## 296 · The townspeople move often enough to be seen moving (Tyler, 2026-11-12)
+
+Tyler, on Main Street: "The map seller doesn't appear to have any movements." He had them: a one-pixel breath, and one of three poses held for about a second and a half every 23 seconds. That passed the movement rule, whose slowest allowed pace (30 s) came from Main Street's own three. Played, it reads as a man standing still.
+
+- **The map seller** now breaks every 9 s. Four breaks, chosen fresh each time: the map offered, waved low and high, pointed at, and offered then pointed at. He is a hawker, and he hawks.
+- **The other slow figures** come to 12 s from 17 to 29 s: the letter-writer, the sign painter, the barber, the bell-ringer, the two boarding women, the man leaving tomorrow and the photographer. The fiddler comes to two bars of the bed, from four.
+- **The pie woman** comes to 13 s, from 26, with two silent breaks added (a pie offered then the basket lifted; the basket lifted twice). That way her call, one break in five, still comes every 65 s, over the minute errata 224 set.
+- **`tests/movement.test.mjs`:**
+  - the longest gap between actions goes from 30 s to 15 s;
+  - a breath no longer counts as the action. The map seller's derived breath shifts his whole upper body a pixel, which changes a quarter of the figure, so the check had been reading it as a deliberate action every few seconds. On a sheet with poses beyond the idle, the breath frame is now never the action. A two-frame sheet, like the procession's, has no breath; its second frame is the action.
+
+No new art: every pose was already drawn.
+
+Lesson: `tests/movement.test.mjs`, proved by restoring the map seller as he was. It passed him before, and fails him now. `tests/pie-shout-timer.test.ts`'s own proof moves to a 6 s cycle, the one that brings her call round in 30 s now that she has five breaks.

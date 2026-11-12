@@ -59,7 +59,7 @@
     0
    ]
   ],
-  "breakEvery": 17,
+  "breakEvery": 12,
   "talkFrame": 3,
   "provenance": "art/staging/room-37/woman-a/woman-a.json",
   "frameNote": "0 rest, hands folded · 1 breath · 2 a hand to her pinned hair · 3 talking, a palm turned up.",
@@ -68,7 +68,8 @@
   "statureNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Stature 0.98: a woman a little under Thad, inside the 3% (was 0.97: 0.969 of Thad).",
   "levelMan": 445.360825,
   "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs).",
-  "figureHeightNote": "0.97 of the room's man at her feet, crown to sole, as the master drew them: cut and snapped there by tools/art/interiors-people.py (errata 112's one level)."
+  "figureHeightNote": "0.97 of the room's man at her feet, crown to sole, as the master drew them: cut and snapped there by tools/art/interiors-people.py (errata 112's one level).",
+  "breakEveryNote": "Errata 296 (Tyler, 2026-11-12, on the map seller: \"doesn't appear to have any movements\"): one held pose every 17 s read as standing still. Now every 12 s."
  },
  "faces": "left",
  "barkExchange": {

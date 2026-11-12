@@ -65,24 +65,39 @@
     2,
     2,
     2,
+    2,
+    2,
     2
    ],
    [
     3,
     3,
+    0,
+    0,
     3,
     3,
-    3,
-    3
+    0,
+    0
    ],
    [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   [
+    2,
+    2,
+    2,
     4,
     4,
     4,
     4
    ]
   ],
-  "breakEvery": 23,
+  "breakEvery": 9,
   "provenance": "reference/cast-unify-16.spec.json",
   "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 18 (reference/cast-unify-16.txt), full figure, holding his own thing in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet. Its own file: the sheet it replaces is written by an earlier cut.",
   "figureHeight": 153,
@@ -91,7 +106,8 @@
   "levelMan": 160,
   "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs).",
   "frameNote": "0 standing, the map held up beside him · 1 breath (derived) · 2 the map held out, offered · 3 the map lowered · 4 pointing at the map.",
-  "rateNote": "Errata 273 (Tyler, 2026-11-10: \"The man seems to be breathing rapidly (shoulders rising and falling too quickly)\"): 0.35, was 0.8. A breath at rest is a slow thing; tests/movement.test.mjs holds a standing person's breath to 0.5 a second at most."
+  "rateNote": "Errata 273 (Tyler, 2026-11-10: \"The man seems to be breathing rapidly (shoulders rising and falling too quickly)\"): 0.35, was 0.8. A breath at rest is a slow thing; tests/movement.test.mjs holds a standing person's breath to 0.5 a second at most.",
+  "breakEveryNote": "Errata 296 (Tyler, 2026-11-12, on the map seller: \"doesn't appear to have any movements\"): one held pose every 23 s read as standing still. Now every 9 s. A hawker hawks: the map offered, waved low and high, pointed at, and offered then pointed at, chosen fresh each time."
  },
  "migrationNote": "ERRATA 54, x6. Was (250, 116) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "Clear of the small office’s steps. Was (3120, 658).",

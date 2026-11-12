@@ -27,8 +27,10 @@ import { readPng } from '../tools/lib/png.mjs';
  *      figure (Room 4's first back row, Winnie's and Deke's breaths), so a
  *      breath alone fails; a lean, a gesture, a turned head or a drink passes.
  *   3. OFTEN ENOUGH. As played, no more than ACTION_EVERY seconds pass without
- *      an action frame. 30 s is the slowest pace Tyler has approved (Main
- *      Street's three, 23-29 s between actions).
+ *      an action frame. It was 30 s, from Main Street's three at 23-29 s; then
+ *      Tyler, 2026-11-12, on the map seller at 23 s: "doesn't appear to have
+ *      any movements" (errata 296). One held pose every 23 s reads as a man
+ *      standing still. 15 s now, and every figure was brought to 12 s or less.
  *
  * THE SCHEDULE IS SAMPLED, NOT READ. The first version accepted any positive
  * `rate` and any action found in any break pool; the review on #100 showed a
@@ -42,7 +44,7 @@ import { readPng } from '../tools/lib/png.mjs';
  */
 const NEVER_STILL = 10;
 const ACTION = 0.10;
-const ACTION_EVERY = 30;
+const ACTION_EVERY = 15;
 const SPAN = 600;     // seconds of play sampled
 const DT = 0.05;
 
@@ -156,6 +158,11 @@ for (const { path, npc, room, sprite, posture } of cases) {
     const shares = [0];
     for (let i = 1; i < frames; i += 1) shares.push(changeOf(sprite, i));
     const actions = new Set(shares.map((share, i) => (share >= ACTION ? i : -1)).filter((i) => i > 0));
+    // A BREATH IS NEVER THE ACTION (errata 296). With breaks and poses beyond the idle, frames 0 and 1 are the pose
+    // and its derived breath (the renderer's sway). A breath that shifts the whole upper body a pixel changes a quarter
+    // of the figure and measured as an action, which is how the map seller, holding one pose every 23 s, passed as
+    // moving. A two-frame sheet (the procession's) has no breath: its second frame is the action.
+    if (sprite.breaks?.length && frames > 2) actions.delete(1);
     assert.ok(actions.size > 0,
       `${path}: no frame changes ${ACTION * 100}% of the figure (largest ${(Math.max(...shares) * 100).toFixed(1)}%) `
       + '-- a breath is not a deliberate action');
