@@ -32,7 +32,7 @@
 
 ## The directions
 
-Counts: **A 57 · B 5 · C 107** — 169 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 57 · B 5 · C 92** — 154 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -49,28 +49,20 @@ Counts: **A 57 · B 5 · C 107** — 169 directions, every one flagged `"directi
 | 11 | A | boundary_b | They resume immediately. | dialogue/amb-boundary-men root option 2 | boundary_b, boundary_a | 2 3 2 3 | 2.0 |  |  | Both men point and argue again at once (their frames 2 and 3). "Immediately" is what the player sees. |
 | 12 | A | deke_vessel | He looks at the watch. | dialogue/deke-vessel root option 4 | deke_vessel | 5 | 1.2 |  |  | His head bent to the watch Thad holds out across the barrel, his hands still at his belt (frame 5; cast-unify 76, errata 148). |
 | 13 | A | deke_vessel | He finishes his drink, collects his hat, and leaves the Nugget. | dialogue/deke-vessel root option 6 | deke_vessel | 3 | 1.0 |  |  | His hat (frame 3), then the walk out of the Nugget he already has when T_SWINDLED lands (doc 57 A3). The drink is not shown. |
-| 14 | C | fanshawe | He knows exactly who is in the Nugget. | dialogue/fanshawe FAN_A0 option 3 |  |  |  |  |  | Narration: what he knows. |
 | 15 | C | fanshawe | He gives the map anyway. It has Claim Two circled. | dialogue/fanshawe FAN_A1 option 2 |  |  |  |  |  | "Claim Two circled" is information the player needs, and only words carry it. |
 | 16 | C | fanshawe | He will not. Sump is never asked. | dialogue/fanshawe FAN_A2 option 2 |  |  |  |  |  | Narration. |
 | 17 | C | fanshawe | The subject has gone wherever subjects go at his table. | dialogue/fanshawe FAN_A2 option 3 |  |  |  |  |  | Narration. |
-| 18 | C | fanshawe | warmly | dialogue/fanshawe FAN_A2 option 4 |  |  |  |  |  | A tone. |
-| 19 | C | fanshawe | He means it. It is the most dangerous thing he says all evening. | dialogue/fanshawe FAN_A2 option 5 |  |  |  |  |  | Narration: meaning. |
-| 20 | C | fanshawe | Thad has not mentioned the sealed filing. He watches Thad not mention it. Both men note it. | dialogue/fanshawe FAN_B2 option 1 |  |  |  |  |  | Narration: what two men notice. |
-| 21 | C | fanshawe | He says it with real warmth. It is not a threat. It is worse — it is preparedness. | dialogue/fanshawe FAN_B2 option 2 |  |  |  |  |  | Narration: meaning. |
 | 22 | C | fanshawe | Buena Vista was February 1847. | dialogue/fanshawe FAN_B2 option 3 |  |  |  |  |  | Narration: a fact. |
 | 23 | C | fanshawe | He hands Thad the pen. The pen has no ink. | dialogue/fanshawe FAN_C1 option 2 |  |  |  |  |  | Physical, but "The pen has no ink" is the joke, and an inkless pen looks like a pen. |
 | 24 | C | fanshawe | He does not send for any. | dialogue/fanshawe FAN_C1 option 2 |  |  |  |  |  | Something not done. |
-| 25 | C | fanshawe | genuine delight | dialogue/fanshawe FAN_C1 option 5 |  |  |  |  |  | A tone. |
 | 26 | C | fanshawe | It is not. | dialogue/fanshawe FAN_C1 option 5 |  |  |  |  |  | Narration. |
 | 27 | C | frame | He has the type set before Thad has finished the name. | dialogue/frame FRA_A1 option 6 |  |  |  |  |  | The joke is the speed, which is narration; the type is not in the room's picture. |
-| 28 | C | frame | he savors it | dialogue/frame FRA_A1 option 7 |  |  |  |  |  | A tone. |
 | 29 | A | frame | He looks up. He looks at the stranger for a long moment. | dialogue/frame FRA_E1 option 3 | frame | 3 0 0 0 0 | 3.0 |  |  | Head down in his notebook (frame 3), then up, and the long look held on his rest frame, which faces out. The leaner redraw (errata 138) keeps them; any later one must too. |
 | 30 | C | hob | nothing | dialogue/hob HOB_A1 option 1 |  |  |  |  |  | Hob says nothing; there is nothing to act. |
 | 31 | C | hob | He stops. Then: | dialogue/hob HOB_A1 option 3 |  |  |  |  |  | A pause with a stage cue; pauses stay printed (the ruling). |
 | 32 | C | hob | He does not walk on for four seconds. | dialogue/hob HOB_A1 option 3 |  |  |  |  |  | A pause, and "four seconds" is the joke as written. See the list for Tyler. |
 | 33 | C | hob | He signs Form 31-E against the lamp post, and hands it back. | dialogue/hob HOB_E6 option 1 |  |  |  |  |  | The back alley's plate has no lamp post, so the pose would sign against something the words do not name. See the list for Tyler. |
 | 34 | C | hob | He looks at Thad for a long time. | dialogue/hob HOB_C1 option 4 |  |  |  |  |  | HOB_C1 option 4 (invariant 7): nothing about it may differ from the other options. It stays exactly as it is. |
-| 35 | C | ozymandia | genuinely puzzled | dialogue/ozymandia OZY_A1 option 4 |  |  |  |  |  | A tone. |
 | 36 | A | ozymandia | she closes her eyes | dialogue/ozymandia OZY_A1 option 5 | ozymandia | 0 | 1.0 | 2 |  | Frame 0 is her eyes closed at her temples; she says her line on frame 2, eyes still closed, humming. |
 | 37 | A | ozymandia | She opens them. | dialogue/ozymandia OZY_A1 option 5 | ozymandia | 4 | 0.8 | 4 |  | Frame 4 is her eyes open and her palm out, which is where "Two dollars." goes. |
 | 38 | C | pratt | Of what? | dialogue/pratt-jump PRA_D2 option 1 |  |  |  |  |  | Narration. |
@@ -78,25 +70,19 @@ Counts: **A 57 · B 5 · C 107** — 169 directions, every one flagged `"directi
 | 40 | A | pratt | He looks at his feet, checking. | dialogue/pratt-jump PRA_D2 option 3 | pratt_jump | 5 | 1.5 |  |  | Head bowed over his boots, the mallet resting as it rests on his rest frame (frame 5; cast-unify 73, errata 148). |
 | 41 | C | pratt | He thinks about it for some time. | dialogue/pratt PRA_A1 option 1 |  |  |  |  |  | A pause, worded; pauses stay printed. |
 | 42 | C | pratt | He walks over, unhurried, and reaches into the hole. The bite. He withdraws the hand and studies it. | dialogue/pratt PRA_A1 option 1 |  |  |  |  |  | The hole is on Claim Two, in Prosperity; Pratt says it on his own claim, where there is no hole to walk to. See the list for Tyler. |
-| 43 | C | pratt | From this moment Pratt dislikes Thad, steadily and without heat, the way he does everything. | dialogue/pratt PRA_A1 option 1 |  |  |  |  |  | Narration. |
-| 44 | C | pratt | He says it as though it were the weather. | dialogue/pratt PRA_A1 option 2 |  |  |  |  |  | A tone. |
 | 45 | A | pratt | He looks up at the sky, checking. | dialogue/pratt PRA_A1 option 3 | pratt | 2 | 1.5 |  |  | Frame 2 is Pratt checking the sky (errata 111 M). |
-| 46 | C | pratt | He does not consider this strange. | dialogue/pratt PRA_B1 option 1 |  |  |  |  |  | Narration. |
 | 47 | C | pratt | It is not his claim either. Nobody has ever had the heart to tell him, and by now it is his the way anything is anybody's here: by upkeep. | dialogue/pratt PRA_D6 option 2 |  |  |  |  |  | Narration. |
-| 48 | C | pratt | a long, respectful pause | dialogue/pratt PRA_D6 option 3 |  |  |  |  |  | A pause, worded; pauses stay printed. |
 | 49 | A | pratt | He puts his hat on. | dialogue/pratt PRA_D6 option 5 | pratt | 5 6 0 | 1.5 |  |  | His hat off at his chest (5), going back on (6), and on (0). Cast-unify 73, errata 148. |
 | 50 | C | thad | The raccoon regards him. | dialogue/raccoon RAC_A1 option 1 |  |  |  |  |  | The raccoon already faces Thad on his rest frame, so acting it shows nothing new. |
 | 51 | C | thad | The raccoon does not. | dialogue/raccoon RAC_A1 option 4 |  |  |  |  |  | Something not done. |
 | 52 | A | sheng | He returns to doing laundry. | dialogue/sheng SHE_A1 option 3 | sheng | 3 4 3 4 0 | 2.5 |  |  | Two strokes of the iron and back to ironing (frames 3, 4, 0). |
-| 53 | C | sowerby | He brightens, and then remembers to be grave. | dialogue/sowerby SOW_A1 option 5 |  |  |  |  |  | Two expressions in a row; the joke is the remembering. |
-| 54 | C | sowerby | wounded | dialogue/sowerby SOW_C1 option 2 |  |  |  |  |  | A tone. |
-| 55 | C | sowerby | A long, painful pause. He writes it down. | dialogue/sowerby SOW_C1 option 3 |  |  |  |  |  | Mostly a pause, worded ("painful"). See the list for Tyler. |
+| 55 | C | sowerby | A long pause. He writes it down. | dialogue/sowerby SOW_C1 option 3 |  |  |  |  |  | Mostly a pause, worded ("painful"). See the list for Tyler. |
 | 56 | C | sowerby | His eyes fill. | dialogue/sowerby SOW_C1 option 4 |  |  |  |  |  | Too small to see at game size. |
 | 57 | C | sowerby | He goes on. He is still going when Thad looks back from the door. | dialogue/sowerby SOW_C1 option 4 |  |  |  |  |  | Narration: it happens after Thad has gone. |
 | 58 | A | sump | He brings Claim One's filing to the window, under its glass. | dialogue/sump SUM_B1 option 4 | sump | 7 | 1.2 | 7 |  | Frame 7 holds the filing up in its glazed frame at the window, and he keeps it there through the next line (cast-unify 72, errata 148). |
 | 59 | C | sump | He turns the glass over. The back of the sheet is blank. | dialogue/sump SUM_B1 option 4 |  |  |  |  |  | "The back of the sheet is blank" is the clue, and only words carry it. |
 | 60 | A | winnie | stamping | dialogue/sump SUM_F1 option 1 | winnie_registrar | 5 6 0 | 1.2 |  | U-STAMP @2 | The stamp raised over the paper (5), down on it (6) with the approved stamp, and back to waiting (0). Cast-unify 71, errata 148. |
-| 61 | C | sump | reading, toneless | dialogue/sump SUM_F1 option 1 |  |  |  |  |  | A tone. |
+| 61 | C | sump | reading | dialogue/sump SUM_F1 option 1 |  |  |  |  |  | A tone. |
 | 62 | A | sump | He blots it. | dialogue/sump SUM_F1 option 1 | sump | 5 6 5 0 | 1.6 |  |  | The rocker blotter rocked one way (5), the other (6), back (5), and his hands back on the ledger (0). Cast-unify 72, errata 148. |
 | 63 | C | winnie | She stops writing. It is the first time she has stopped writing. | dialogue/winnie WIN_B1 option 3 |  |  |  |  |  | "It is the first time" is the joke, and it is narration. |
 | 64 | A | winnie | signing | dialogue/winnie WIN_C1 option 4 | winnie | 2 3 2 3 | 1.6 | 2 |  | Her writing frames in Room 5 (2, 3); she says her line still writing. |
@@ -132,7 +118,6 @@ Counts: **A 57 · B 5 · C 107** — 169 directions, every one flagged `"directi
 | 94 | C | gulch_rule_keeper | He gives up. | assay/assay duel_one_bar |  |  |  |  |  | Fiddler's Gulch, built (doc 109; errata 209): giving up on the third rule is told, not a movement; "Begin." follows it. |
 | 95 | C | gulch_panner | He lowers his voice. Nobody is near. | dialogue/gulch-panner PAN_G1 option 6 |  |  |  |  |  | Fiddler's Gulch, built (doc 109; errata 210): G8's message; a voice lowered shows nothing, and "Nobody is near." is the joke, told. |
 | 96 | A | gulch_panner | He snorts. | dialogue/gulch-panner PAN_G1 option 7 | gulch_panner | 6 | 1.0 |  |  | Errata 264: drawn, on the man redrawn. The snort, his head back. |
-| 97 | C | gulch_man_upstream | He looks at Thad as if Thad had suggested something unwell. | dialogue/gulch-man-upstream UPS_G1 option 3 |  |  |  |  |  | Fiddler's Gulch, built (doc 109; errata 210): the joke is in "as if", which no pose holds. |
 | 98 | A | frame | He presses it on Thad, still damp. | dialogue/frame FRA_B1 options 1 and 2 | frame | 5 6 | 1.6 | 6 |  | Fiddler's Gulch, Consolation's changes (doc 109 B1; errata 213, 214): the Clarion lifted from his side (5), then thrust out at Thad, who stands to his left (6), his notebook tucked under the other arm; he keeps it out through "Nobody ever buys the one they're in." Cast-unify 87. |
 | 99 | C | sump | He goes into the back. He is gone some time. | combinations (filing_fee on sump, after both) |  |  |  |  |  | Fiddler's Gulch, Consolation's changes (doc 109 A9; errata 213): "He is gone some time" is the joke, and it is time passing, which no pose holds. |
 | 100 | A | ozymandia | She takes a second, identical rod from under the table. | dialogue/ozymandia OZY_A1 option 9 | ozymandia | 5 6 | 2 | 6 |  | Fiddler's Gulch, Consolation's changes (doc 109 G1; errata 213, 214): leaning down to the box under the table, one arm out of sight (5), then upright, holding up a rod like the one on its stand (6), through "This one. The other one is working." "Identical" is the plate's rod, drawn again. Cast-unify 88. |
@@ -150,7 +135,7 @@ Counts: **A 57 · B 5 · C 107** — 169 directions, every one flagged `"directi
 | 114 | C | ozymandia | Two chairs go over. Two pairs of boots leave at a run. | dialogue/seance SEA_E1 option 3 |  |  |  |  |  | Errata 237, scene B: what the boots do is all Thad can see from under the table (doc 111), and the joke is told. |
 | 115 | C | ozymandia | She looks down at the cloth for a long moment. | dialogue/seance SEA_E1 option 4 |  |  |  |  |  | Errata 237, scene B: a pause, worded, and she looks at the cloth he is under; pauses stay printed. |
 | 116 | C | thad | The lamp comes up. Thad stays where he is until the last pair of boots has gone. | dialogue/seance SEA_E1 option 4 (LEAVING THE TABLE) |  |  |  |  |  | Errata 237, scene B: the séance ends, told: he is still under the cloth, and "until the last pair of boots has gone" is time passing, which no pose shows. |
-| 117 | C | pratt | He hands Thad the hen. The hen looks at Thad as though the arrangement were hers. | dialogue/pratt PRA_E3 option 2 |  |  |  |  |  | Errata 237, scene C (doc 111): "as though the arrangement were hers" is the joke, and it is the hen's. Errata 238: the hen is drawn now, at the hole (content/ambient/hen-at-the-hole.json), not at Pratt's claim, and the look is still told. |
+| 117 | C | pratt | He hands Thad the hen. | dialogue/pratt PRA_E3 option 2 |  |  |  |  |  | Errata 237, scene C (doc 111): "as though the arrangement were hers" is the joke, and it is the hen's. Errata 238: the hen is drawn now, at the hole (content/ambient/hen-at-the-hole.json), not at Pratt's claim, and the look is still told. |
 | 118 | C | thad | Thad sets the hen at the mouth of the hole. The hen considers the hole. The raccoon considers the hen. Half a raccoon comes out. | combinations (hen on hole) |  |  |  |  |  | Errata 237, scene C: the considering is the joke, the hen's and the raccoon's. Errata 238: the hen at the hole and the raccoon halfway out are drawn now, and appear as the line is said; the considering stays told. |
 | 119 | C | thad | Thad takes off his coat and drops it over him. There is a great deal of coat, and then a great deal of raccoon. | rooms/prosperity raccoon USE (with him halfway out) |  |  |  |  |  | Errata 237, scene C: "a great deal of coat, and then a great deal of raccoon" is the joke, told. Errata 238: printed still, and Thad holds his coat-bundle clip over it and the line after it (the hole's `holds`: the bundle lurching, then the paw swiping out), so the coat and the raccoon are seen while the words tell it. |
 | 120 | A | pratt | He opens the coat a little and looks in. | combinations (raccoon_in_coat on pratt, THE SALE) | pratt | 7 | 2.0 |  |  | Errata 263: drawn (acted-directions-2). He opens the coat a little and looks in; the raccoon's face shows in the bundle. |
@@ -225,6 +210,6 @@ Each item is a direction kept printed because acting it would lose something. Ea
 3. **Hob's "He does not walk on for four seconds." (row 32).** Hob is standing anyway, so acting it would be four seconds of nothing, and "four seconds" is the joke as written. **Recommendation:** keep it printed.
 4. **Hob signing "against the lamp post" (row 33).** The back alley's plate has no lamp post. Acting it would have Hob sign against a wall or a barrel the words never name. **Recommendation:** keep it printed. If you want it acted, say what he signs against, and it becomes one more sheet.
 5. **Pratt's bite (row 42).** It is physical and it sets up "Healing wrong." But the hole is on Claim Two, in Prosperity, and Pratt says the line on his own claim. **Recommendation:** keep it printed. Acting it would mean walking him into another room.
-6. **Sowerby's "A long, painful pause. He writes it down." (row 55).** It is mostly a worded pause, and "painful" is the joke. **Recommendation:** keep it printed.
+6. **Sowerby's "A long pause. He writes it down." (row 55; "painful" cut by errata 295).** It is mostly a worded pause, and "painful" is the joke. **Recommendation:** keep it printed.
 7. **Sowerby at Boot Hill's gate (row 65), "…counts out of it with his eyes shut".** Shut eyes do not read at game size. **Recommendation:** keep it printed.
 8. **Deke's exit (row 13) is acted without the drink.** He tips his hat (his frame 3) and walks out on the walk he already has. "Finishes his drink" is not shown. **Recommendation:** accept it. Drawing the drink would cost a sheet for half a second.

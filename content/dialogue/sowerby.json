@@ -135,8 +135,11 @@
           "exchange": [
             {
               "speaker": "sowerby",
-              "line": "He brightens, and then remembers to be grave.",
-              "direction": true
+              "line": "A funeral!"
+            },
+            {
+              "speaker": "sowerby",
+              "line": "…"
             },
             {
               "speaker": "sowerby",
@@ -267,17 +270,7 @@
           "tag": "TOPIC",
           "afterUse": "remove",
           "text": "He was a man.",
-          "exchange": [
-            {
-              "speaker": "sowerby",
-              "line": "wounded",
-              "direction": true
-            },
-            {
-              "speaker": "sowerby",
-              "line": "That is not a eulogy, that is a census."
-            }
-          ]
+          "say": "That is not a eulogy, that is a census."
         },
         {
           "id": "sowerby_c3",
@@ -290,7 +283,7 @@
           "exchange": [
             {
               "speaker": "sowerby",
-              "line": "A long, painful pause. He writes it down.",
+              "line": "A long pause. He writes it down.",
               "direction": true
             },
             {

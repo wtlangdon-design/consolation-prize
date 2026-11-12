@@ -95,11 +95,6 @@
             {
               "speaker": "pratt",
               "line": "He's in there."
-            },
-            {
-              "speaker": "pratt",
-              "line": "From this moment Pratt dislikes Thad, steadily and without heat, the way he does everything.",
-              "direction": true
             }
           ],
           "when": {
@@ -115,17 +110,7 @@
           "tag": "TOPIC",
           "afterUse": "remove",
           "text": "Nine dollars for what?",
-          "exchange": [
-            {
-              "speaker": "pratt",
-              "line": "Your claim."
-            },
-            {
-              "speaker": "pratt",
-              "line": "He says it as though it were the weather.",
-              "direction": true
-            }
-          ]
+          "say": "Your claim."
         },
         {
           "id": "pratt5",
@@ -221,20 +206,10 @@
           "tag": "PROGRESS",
           "afterUse": "remove",
           "text": "Why do you want my claim?",
+          "say": "Told to.",
           "set": {
             "T_PRATT_PAID": true
-          },
-          "exchange": [
-            {
-              "speaker": "pratt",
-              "line": "Told to."
-            },
-            {
-              "speaker": "pratt",
-              "line": "He does not consider this strange.",
-              "direction": true
-            }
-          ]
+          }
         },
         {
           "id": "pratt2",
@@ -436,8 +411,7 @@
           "exchange": [
             {
               "speaker": "pratt",
-              "line": "a long, respectful pause",
-              "direction": true
+              "line": "…"
             },
             {
               "speaker": "pratt",
@@ -610,7 +584,7 @@
             },
             {
               "speaker": "pratt",
-              "line": "He hands Thad the hen. The hen looks at Thad as though the arrangement were hers.",
+              "line": "He hands Thad the hen.",
               "direction": true
             }
           ],

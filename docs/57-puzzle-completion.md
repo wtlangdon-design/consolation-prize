@@ -470,7 +470,7 @@ Asking anyone else to be executor is answered by the interest rule:
 
 **Beat 4 — the read-back:**
 
-> **SUMP:** *(reading, toneless)* "Amended location, Claim One. Holder, Obadiah Mott. 'The strike lies at the place herein described.'" *(beat)* "Which is now described." *(beat)* "Under statute, a claim must be worked by its holder within thirty days, or it reverts to the Territory."
+> **SUMP:** *(reading)* "Amended location, Claim One. Holder, Obadiah Mott. 'The strike lies at the place herein described.'" *(beat)* "Which is now described." *(beat)* "Under statute, a claim must be worked by its holder within thirty days, or it reverts to the Territory."
 > **THAD:** "So Mr. Mott will have to come forward."
 > **SUMP:** "In person. To this window. Within thirty days." *(He blots it.)* "I shall look forward to it."
 > → `T_FILED`, **F5**. Room 36.

@@ -290,7 +290,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 |---|---|---|---|
 | 1 | "Who's 'he'?" | `[TOPIC · retain]` | "Him. Downstream. In the coat. He's found something and he's hiding it in his fist." *(second)* "Ask him to open his hand. He won't." |
 | 2 | "Whose ground is it?" | `[TOPIC · retain]` | "Mine. And his, he says. That's two of us and one ground, and neither of us is moving." *(second)* "Mine. I'd show you the paper, but he'd show you his." |
-| 3 | "Why not share it?" | `[TOPIC · retain]` | "Share?" *(He looks at Thad as if Thad had suggested something unwell.)* "Then we'd both be rich, and nobody'd be right." *(second)* "Rich and wrong. No, thank you." |
+| 3 | "Why not share it?" | `[TOPIC · retain]` | "Share?" "Then we'd both be rich, and nobody'd be right." *(second)* "Rich and wrong. No, thank you." |
 | 4 | "Do you know Deke Vessel?" | `[TOPIC · retain]` | "Never heard of him. Did he send you?" *(second)* "Everybody sends somebody. Who sent him?" |
 | 5 | "I could measure it for you." | `[COMIC · retain]` | "With what?" — *"A tuning fork."* — "…Get off my claim." *(second)* "Off. And take your fork." |
 

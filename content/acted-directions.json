@@ -167,13 +167,6 @@
       "seconds": 1
     },
     {
-      "n": 14,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "He knows exactly who is in the Nugget.",
-      "where": "dialogue/fanshawe FAN_A0 option 3"
-    },
-    {
       "n": 15,
       "class": "C",
       "speaker": "fanshawe",
@@ -193,34 +186,6 @@
       "speaker": "fanshawe",
       "words": "The subject has gone wherever subjects go at his table.",
       "where": "dialogue/fanshawe FAN_A2 option 3"
-    },
-    {
-      "n": 18,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "warmly",
-      "where": "dialogue/fanshawe FAN_A2 option 4"
-    },
-    {
-      "n": 19,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "He means it. It is the most dangerous thing he says all evening.",
-      "where": "dialogue/fanshawe FAN_A2 option 5"
-    },
-    {
-      "n": 20,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "Thad has not mentioned the sealed filing. He watches Thad not mention it. Both men note it.",
-      "where": "dialogue/fanshawe FAN_B2 option 1"
-    },
-    {
-      "n": 21,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "He says it with real warmth. It is not a threat. It is worse — it is preparedness.",
-      "where": "dialogue/fanshawe FAN_B2 option 2"
     },
     {
       "n": 22,
@@ -244,13 +209,6 @@
       "where": "dialogue/fanshawe FAN_C1 option 2"
     },
     {
-      "n": 25,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "genuine delight",
-      "where": "dialogue/fanshawe FAN_C1 option 5"
-    },
-    {
       "n": 26,
       "class": "C",
       "speaker": "fanshawe",
@@ -263,13 +221,6 @@
       "speaker": "frame",
       "words": "He has the type set before Thad has finished the name.",
       "where": "dialogue/frame FRA_A1 option 6"
-    },
-    {
-      "n": 28,
-      "class": "C",
-      "speaker": "frame",
-      "words": "he savors it",
-      "where": "dialogue/frame FRA_A1 option 7"
     },
     {
       "n": 29,
@@ -323,13 +274,6 @@
       "speaker": "hob",
       "words": "He looks at Thad for a long time.",
       "where": "dialogue/hob HOB_C1 option 4"
-    },
-    {
-      "n": 35,
-      "class": "C",
-      "speaker": "ozymandia",
-      "words": "genuinely puzzled",
-      "where": "dialogue/ozymandia OZY_A1 option 4"
     },
     {
       "n": 36,
@@ -404,20 +348,6 @@
       "where": "dialogue/pratt PRA_A1 option 1"
     },
     {
-      "n": 43,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "From this moment Pratt dislikes Thad, steadily and without heat, the way he does everything.",
-      "where": "dialogue/pratt PRA_A1 option 1"
-    },
-    {
-      "n": 44,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "He says it as though it were the weather.",
-      "where": "dialogue/pratt PRA_A1 option 2"
-    },
-    {
       "n": 45,
       "class": "A",
       "speaker": "pratt",
@@ -432,25 +362,11 @@
       "seconds": 1.5
     },
     {
-      "n": 46,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "He does not consider this strange.",
-      "where": "dialogue/pratt PRA_B1 option 1"
-    },
-    {
       "n": 47,
       "class": "C",
       "speaker": "pratt",
       "words": "It is not his claim either. Nobody has ever had the heart to tell him, and by now it is his the way anything is anybody's here: by upkeep.",
       "where": "dialogue/pratt PRA_D6 option 2"
-    },
-    {
-      "n": 48,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "a long, respectful pause",
-      "where": "dialogue/pratt PRA_D6 option 3"
     },
     {
       "n": 49,
@@ -501,24 +417,10 @@
       "seconds": 2.5
     },
     {
-      "n": 53,
-      "class": "C",
-      "speaker": "sowerby",
-      "words": "He brightens, and then remembers to be grave.",
-      "where": "dialogue/sowerby SOW_A1 option 5"
-    },
-    {
-      "n": 54,
-      "class": "C",
-      "speaker": "sowerby",
-      "words": "wounded",
-      "where": "dialogue/sowerby SOW_C1 option 2"
-    },
-    {
       "n": 55,
       "class": "C",
       "speaker": "sowerby",
-      "words": "A long, painful pause. He writes it down.",
+      "words": "A long pause. He writes it down.",
       "where": "dialogue/sowerby SOW_C1 option 3"
     },
     {
@@ -581,7 +483,7 @@
       "n": 61,
       "class": "C",
       "speaker": "sump",
-      "words": "reading, toneless",
+      "words": "reading",
       "where": "dialogue/sump SUM_F1 option 1"
     },
     {
@@ -1157,13 +1059,6 @@
       "seconds": 1
     },
     {
-      "n": 97,
-      "class": "C",
-      "speaker": "gulch_man_upstream",
-      "words": "He looks at Thad as if Thad had suggested something unwell.",
-      "where": "dialogue/gulch-man-upstream UPS_G1 option 3"
-    },
-    {
       "n": 98,
       "class": "A",
       "speaker": "frame",
@@ -1326,7 +1221,7 @@
       "n": 117,
       "class": "C",
       "speaker": "pratt",
-      "words": "He hands Thad the hen. The hen looks at Thad as though the arrangement were hers.",
+      "words": "He hands Thad the hen.",
       "where": "dialogue/pratt PRA_E3 option 2"
     },
     {

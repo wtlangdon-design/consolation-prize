@@ -120,17 +120,7 @@
           "tag": "TOPIC",
           "afterUse": "remove",
           "text": "Do you ever hear anything?",
-          "exchange": [
-            {
-              "speaker": "ozymandia",
-              "line": "genuinely puzzled",
-              "direction": true
-            },
-            {
-              "speaker": "ozymandia",
-              "line": "…Hear?"
-            }
-          ],
+          "say": "…Hear?",
           "after": [
             "ozymandia2"
           ]
