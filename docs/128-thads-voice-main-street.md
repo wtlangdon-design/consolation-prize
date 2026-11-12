@@ -289,3 +289,42 @@
 | SOWERBY · A1 option 1 | Tell me about the bell. | Reverend, I couldn't help noticing your bell. Tell me about it. |
 | SUMP · A1 option 1 | I need to file this deed. | Good day! I need to file this deed. It's my first. |
 | UNDERTAKER · option 4 | I had a letter for him. | I had a letter for him. From my father. |
+
+## The laundry
+
+| Where | Before | After |
+|---|---|---|
+| COLLARS · LOOK 3 | There is a box with my name on it. It holds one collar, which is the right number. | There is a box with my name on it. It holds one collar, which is the right number. One day it'll need a bigger box. |
+
+## The church
+
+| Where | Before | After |
+|---|---|---|
+| SUBSCRIPTION LIST · LOOK 3 | At the bottom, in pencil: ORGAN FUND — $3.15. It has been $3.15 for some years. | At the bottom, in pencil: ORGAN FUND — $3.15. It has been $3.15 for some years. When I'm rich, I'm putting in the rest. Then I'm tuning it. |
+
+## The back room of the Nugget
+
+| Where | Before | After |
+|---|---|---|
+| SCOREBOARD · LOOK 1 | A slate of past Assays. | A slate of past Assays. My name isn't on it. There's room. |
+
+## The high ridge
+
+| Where | Before | After |
+|---|---|---|
+| ROAD EAST · LOOK 2 | The coach road, a pale thread going over the edge of the world. I came in on it. | The coach road, a pale thread going over the edge of the world. I came in on it. When I go out on it, I'll be somebody. |
+
+## Using things on things (doc 24)
+
+| Where | Before | After |
+|---|---|---|
+| THE TUNING FORK, on anything (1) | > "I have struck it against it. The fork is still A. The world is unchanged. | > "I've struck it against it. The fork is still a perfect A. The world remains slightly out of tune. |
+| THE TUNING FORK, on anything (2) | > "It rings. Nothing else does. | > "It rings beautifully. Nothing else does, but give it time. |
+| THE TUNING FORK, on anything (3) | > "That cannot be tuned. I have established this experimentally, which tells you something about my week. | > "That can't be tuned. I've established this experimentally, which tells you something about my week. |
+| THE TUNING FORK, on anything (4) | > "A. Four hundred and forty. Everything else remains as it was. | > "A. Four hundred and forty. Everything else remains as it was, which is its loss. |
+| THE BLANKET, on anything | > "It is a blanket. It goes over things, or under them, and that is the whole of its range." > "I have put a blanket on it. Nothing has improved." > "No. | > "It's a blanket. It goes over things, or under them, and that's the whole of its range." > "I've put a blanket on it. Nothing's improved, though it does look cosier." > "No. Even I can see that, and I'm an optimist. |
+| THE COMPANY MAP, on anything | > "It is a map. It tells me where things are. It does not do anything to them." > "I have held a map against it. We are both embarrassed. | > "It's a map. It tells me where things are. It doesn't do anything to them." > "I've held a map against it. We're both embarrassed. |
+| THE DEED, on anything | > "I am not going to wave a legal document at it." > "It is a paper saying that forty feet of mud belongs to me. It has no further powers. | > "I'm not going to wave a legal document at it. It's far too precious." > "It's a paper saying that forty feet of mud belongs to me. It has no further powers, and I'm keeping an open mind. |
+| THE LETTER, on anything | > "It is sealed and it is addressed to a dead man. I am not opening it for this. | > "It's sealed, and it's addressed to a dead man. I'm not opening it for this. |
+| FOUR DOLLARS, on anything | > "That is money, and that is not a thing money buys." > "I have four dollars. I am not spending them on that. | > "That's money, and that isn't a thing money buys." > "I have four dollars, and they have a future. It isn't that. |
+| ANYTHING ON ANYTHING | > "That accomplishes nothing I can see." > "No. They are two separate objects and I should like them to remain so." > "I have tried it. Nothing about the arrangement improved." > "I do not know what I expected. | > "That accomplishes nothing I can see, and I looked hard." > "No. They're two separate objects, and I'd like them to stay friends." > "I've tried it. Nothing about the arrangement improved." > "I don't know what I expected. Something wonderful, probably. I usually do. |

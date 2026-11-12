@@ -322,7 +322,7 @@
 
 **THE CLAIMS** — LOOK 2 "From here you can see which ones are worked and which have been left. More have been left." · 3 "Mine is near the edge, beside the famous one. From up here they are exactly the same size, because they are." | LISTEN 2 "Nothing, and then, very faint, one pick somewhere. One man who has not given up." · 3 "Nothing. From up here the whole rush is a silent picture."
 
-**THE ROAD EAST** — LOOK 2 "The coach road, a pale thread going over the edge of the world. I came in on it." · 3 "From up here it looks almost walkable. That is the view's one lie." | LISTEN 2 "Nothing coming." · 3 "Nothing coming."
+**THE ROAD EAST** — LOOK 2 "The coach road, a pale thread going over the edge of the world. I came in on it. When I go out on it, I'll be somebody." · 3 "From up here it looks almost walkable. That is the view's one lie." | LISTEN 2 "Nothing coming." · 3 "Nothing coming."
 
 *THE ROAD EAST's LISTEN repeats are doc 10's line word for word, as Room 1's are (doc 17, note 3: "Do not vary them").*
 
@@ -771,7 +771,7 @@
 
 **THE DOOR, ALWAYS UNLOCKED** — LOOK 2 "The hinge pin has been tapped half out and tapped back in. Somebody tried to oil it and was overruled." · 3 "It stands open more than it is shut. Sowerby says a church should be easy to enter. He says nothing about leaving." | LISTEN 2 "The hinge, as I pass. It has my name ready." · 3 "The street through the gap, and the hinge waiting to comment on whoever comes next."
 
-**THE SUBSCRIPTION LIST** — LOOK 2 "The Colonel's name is in gilt four times. Everyone else's is in ink once, and some have been crossed out and written in again, smaller." · 3 "At the bottom, in pencil: ORGAN FUND — $3.15. It has been $3.15 for some years." | LISTEN 2 "Nothing. Gratitude, framed and hung, makes no sound." · 3 "The frame tapping the wall when the door goes. The Colonel, knocking politely."
+**THE SUBSCRIPTION LIST** — LOOK 2 "The Colonel's name is in gilt four times. Everyone else's is in ink once, and some have been crossed out and written in again, smaller." · 3 "At the bottom, in pencil: ORGAN FUND — $3.15. It has been $3.15 for some years. When I'm rich, I'm putting in the rest. Then I'm tuning it." | LISTEN 2 "Nothing. Gratitude, framed and hung, makes no sound." · 3 "The frame tapping the wall when the door goes. The Colonel, knocking politely."
 
 **THE FLOOR** — LOOK 2 "A worn path runs from the door to the stove and another from the stove to the door. The pews are mostly decorative." · 3 "Not a nail head standing proud in the whole floor. Whoever laid it believed in something." | LISTEN 1 "Solid underfoot. Not a creak in it, which in this town is a kind of miracle." · 2 "My own footsteps, sounding more certain than I feel." · 3 "Nothing. It was built to be quiet, and it is."
 
@@ -1050,7 +1050,7 @@
 
 **THE LEDGER** — LOOK 2 "The laundry columns total to the cent. The other column totals to a great deal more than laundry." · 3 "He saw me reading it and did not close it. In this town that is a kind of respect." | LISTEN 2 "Nothing. Figures that balance make no noise." · 3 "The page lifting in the steam and settling again, heavy with damp and arithmetic."
 
-**THE COLLARS** — LOOK 2 "Each box is labeled with a name. The Colonel has six. The Reverend has one, very clean." · 3 "There is a box with my name on it. It holds one collar, which is the right number." | LISTEN 2 "Nothing. Starch keeps a straight face." · 3 "A box lid settling. Somebody's dignity, put away for the week."
+**THE COLLARS** — LOOK 2 "Each box is labeled with a name. The Colonel has six. The Reverend has one, very clean." · 3 "There is a box with my name on it. It holds one collar, which is the right number. One day it'll need a bigger box." | LISTEN 2 "Nothing. Starch keeps a straight face." · 3 "A box lid settling. Somebody's dignity, put away for the week."
 
 **THE THURSDAY BOOK** — LOOK 2 "The entries are short: a date, a name, a sum. Every date is a Thursday." · 3 "It is shelved a hand's width from the laundry book. A hand's width is the distance between washing and banking in this town." | LISTEN 2 "Nothing. Thursdays are kept quiet." · 3 "The spine creaking as I lean near it. It is not used to visitors on a Monday."
 

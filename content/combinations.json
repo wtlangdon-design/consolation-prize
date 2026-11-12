@@ -3371,31 +3371,31 @@
   ],
   "itemPools": {
     "tuning_fork": [
-      "I have struck it against it. The fork is still A. The world is unchanged.",
-      "It rings. Nothing else does.",
-      "That cannot be tuned. I have established this experimentally, which tells you something about my week.",
-      "A. Four hundred and forty. Everything else remains as it was.",
+      "I've struck it against it. The fork is still a perfect A. The world remains slightly out of tune.",
+      "It rings beautifully. Nothing else does, but give it time.",
+      "That can't be tuned. I've established this experimentally, which tells you something about my week.",
+      "A. Four hundred and forty. Everything else remains as it was, which is its loss.",
       "Nothing. I am beginning to think the fault is not with the fork."
     ],
     "blanket": [
-      "It is a blanket. It goes over things, or under them, and that is the whole of its range.",
-      "I have put a blanket on it. Nothing has improved.",
-      "No."
+      "It's a blanket. It goes over things, or under them, and that's the whole of its range.",
+      "I've put a blanket on it. Nothing's improved, though it does look cosier.",
+      "No. Even I can see that, and I'm an optimist."
     ],
     "company_map": [
-      "It is a map. It tells me where things are. It does not do anything to them.",
-      "I have held a map against it. We are both embarrassed."
+      "It's a map. It tells me where things are. It doesn't do anything to them.",
+      "I've held a map against it. We're both embarrassed."
     ],
     "deed": [
-      "I am not going to wave a legal document at it.",
-      "It is a paper saying that forty feet of mud belongs to me. It has no further powers."
+      "I'm not going to wave a legal document at it. It's far too precious.",
+      "It's a paper saying that forty feet of mud belongs to me. It has no further powers, and I'm keeping an open mind."
     ],
     "letter": [
-      "It is sealed and it is addressed to a dead man. I am not opening it for this."
+      "It's sealed, and it's addressed to a dead man. I'm not opening it for this."
     ],
     "four_dollars": [
-      "That is money, and that is not a thing money buys.",
-      "I have four dollars. I am not spending them on that."
+      "That's money, and that isn't a thing money buys.",
+      "I have four dollars, and they have a future. It isn't that."
     ],
     "filing_fee": [
       "That's the filing fee. It has one job, and this isn't it.",
@@ -3408,10 +3408,10 @@
   },
   "itemPoolNote": "Rotated in order, so a line never follows itself -- the same rule doc 13 sets for the verb pools. Doc 24 note 1: the fork pool is the highest-traffic piece of writing in Act I, because striking the fork against things is what the character does and the player finds that out within minutes.",
   "globalPool": [
-    "That accomplishes nothing I can see.",
-    "No. They are two separate objects and I should like them to remain so.",
-    "I have tried it. Nothing about the arrangement improved.",
-    "I do not know what I expected."
+    "That accomplishes nothing I can see, and I looked hard.",
+    "No. They're two separate objects, and I'd like them to stay friends.",
+    "I've tried it. Nothing about the arrangement improved.",
+    "I don't know what I expected. Something wonderful, probably. I usually do."
   ],
   "areaPools": [
     {

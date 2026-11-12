@@ -7485,3 +7485,31 @@ Every answer still answers the line before it, and no option's meaning or tag ch
 Lesson: the generator registry (above), proved against the defect.
 
 Acts II–IV follow, together, as Tyler asked.
+
+## 291 · Thad's voice through Acts II–IV, and the things he tries (Tyler, 2026-11-11)
+
+This finishes errata 290 ("I like it. Take the voice through the rest of the game"), and Acts II–IV ship together, as Tyler asked.
+
+**Read, room by room, against doc 99:**
+- the laundry, the church, the Nugget's back room, the watchman's shack, the archive, the assay records, the Company vault, the high ridge, Mott's site, under Prosperity, the funeral and Main Street at dawn;
+- the Gulch's six rooms and the mine's four;
+- every Act II–IV conversation.
+
+**Most of it already has him.** These rooms were written later, by the act and scene passes (docs 100–123), in a voice that hopes, wants and gets back up: "I'm not going back without Vessel. I've told the road, and it took it well." The dawn street's "Gold country. For the first time since I arrived, that is simply a true statement." is the dream answered. These lines are left alone; rewriting a line that already passes would only risk its facts. Four lines gain his hope, each listed in doc 128:
+- the laundry's box of collars;
+- the church's organ fund;
+- the Nugget's back room's scoreboard;
+- the high ridge's coach road.
+
+The later conversations' short lines are beats, not interviews ("Run it.", "Obadiah Mott.", the eulogy choices), and they stay.
+
+**The things he tries.** Doc 24's pools for using anything on anything are heard in every act, as often as the verb pools of errata 290: the tuning fork's, the blanket's, the map's, the deed's, the letter's, the four dollars', and the global one. They are rewritten to his voice:
+- "It rings beautifully. Nothing else does, but give it time."
+- "No. They're two separate objects, and I'd like them to stay friends."
+- "I don't know what I expected. Something wonderful, probably. I usually do."
+
+Doc 24's note 2 keeps "Nothing. I am beginning to think the fault is not with the fork." as it is, buried in the rotation.
+
+**Kept:** every LISTEN line, puzzle fact, clue, flag and act truth, the letters home, and Hob.
+
+Lesson: none -- a rewrite, no defect fixed. One quoted, retired line in doc 13's errata 168 note is listed in `proofs/written-not-built.json` as not a line.
