@@ -521,7 +521,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. It's written every verdict in town and holds no opinion."
 
 **THE SCOREBOARD**
-> **LOOK:** "A slate of past Assays. The same three names win and the same eleven lose, and all fourteen keep playing."
+> **LOOK:** "A slate of past Assays. My name isn't on it. There's room. The same three names win and the same eleven lose, and all fourteen keep playing."
 > **LISTEN:** "Chalk dust, settling. The sound of standings."
 
 **THE LAMP OVER THE TABLE**

@@ -37,31 +37,31 @@ Resolution runs most specific first.
 
 Thad strikes the fork against things. It is his whole character in one gesture, and the player will do it constantly.
 
-> "I have struck it against it. The fork is still A. The world is unchanged."
-> "It rings. Nothing else does."
-> "That cannot be tuned. I have established this experimentally, which tells you something about my week."
-> "A. Four hundred and forty. Everything else remains as it was."
+> "I've struck it against it. The fork is still a perfect A. The world remains slightly out of tune."
+> "It rings beautifully. Nothing else does, but give it time."
+> "That can't be tuned. I've established this experimentally, which tells you something about my week."
+> "A. Four hundred and forty. Everything else remains as it was, which is its loss."
 > "Nothing. I am beginning to think the fault is not with the fork."
 
 ## HORSE BLANKET
-> "It is a blanket. It goes over things, or under them, and that is the whole of its range."
-> "I have put a blanket on it. Nothing has improved."
-> "No."
+> "It's a blanket. It goes over things, or under them, and that's the whole of its range."
+> "I've put a blanket on it. Nothing's improved, though it does look cosier."
+> "No. Even I can see that, and I'm an optimist."
 
 ## THE COMPANY MAP
-> "It is a map. It tells me where things are. It does not do anything to them."
-> "I have held a map against it. We are both embarrassed."
+> "It's a map. It tells me where things are. It doesn't do anything to them."
+> "I've held a map against it. We're both embarrassed."
 
 ## THE DEED
-> "I am not going to wave a legal document at it."
-> "It is a paper saying that forty feet of mud belongs to me. It has no further powers."
+> "I'm not going to wave a legal document at it. It's far too precious."
+> "It's a paper saying that forty feet of mud belongs to me. It has no further powers, and I'm keeping an open mind."
 
 ## THE LETTER
-> "It is sealed and it is addressed to a dead man. I am not opening it for this."
+> "It's sealed, and it's addressed to a dead man. I'm not opening it for this."
 
 ## FOUR DOLLARS
-> "That is money, and that is not a thing money buys."
-> "I have four dollars. I am not spending them on that."
+> "That's money, and that isn't a thing money buys."
+> "I have four dollars, and they have a future. It isn't that."
 
 ## THE FILING FEE
 *Its own pool from errata 127 (doc 94): it had shared FOUR DOLLARS', and said "I have four dollars" while Thad held two.*
@@ -78,10 +78,10 @@ Thad strikes the fork against things. It is his whole character in one gesture, 
 
 Anything on anything, unhandled.
 
-> "That accomplishes nothing I can see."
-> "No. They are two separate objects and I should like them to remain so."
-> "I have tried it. Nothing about the arrangement improved."
-> "I do not know what I expected."
+> "That accomplishes nothing I can see, and I looked hard."
+> "No. They're two separate objects, and I'd like them to stay friends."
+> "I've tried it. Nothing about the arrangement improved."
+> "I don't know what I expected. Something wonderful, probably. I usually do."
 
 ---
 
