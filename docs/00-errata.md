@@ -7665,3 +7665,25 @@ Lesson: `tests/main-street-lights.test.mjs` now holds every room:
 - the dark rooms with lights glow;
 - within a room no two lights share a period or a seed;
 - no glow lies over a strip that swings or runs.
+
+## 299 · The trough is where it is drawn (Tyler, 2026-11-13)
+
+Tyler, with a screenshot of Thad standing in the water: "He's walking through the water trough. I thought we made sure that couldn't happen?"
+
+It had been made so, on the street as first drawn. The trough's rect is shared by its hotspot and its obstacle ("one truth, not two"), and the walk boxes are cut round the obstacle. When the plate was redrawn, the trough moved about 45 px to the right and its rect stayed where it was. So:
+- the walk boxes were cut round a patch of empty mud;
+- the trough's right half and its front were floor;
+- the hotspot's own stand, where a click on the trough sends him, was inside the drawn trough.
+
+Dawn's Main Street, the same street, carried the same rect.
+
+**Fixed:** the rect is re-laid on the drawn trough, rim to feet and left leg to right corner ([1905, 550, 226, 96]), in both streets. The walk boxes now go round it, with a strip in front between the far band and the middle of the street, and his stand for the trough is in front of it (2018, 698).
+
+**Checked:** every other room's obstacles, each drawn over its plate. Only the trough had moved. The unused Main Street draft's are stale, and it is not in the game.
+
+Lesson: `tests/trough-solid.test.mjs`, proved against the old rects (both its tests fail on them):
+- the trough's drawn landmarks and every pixel of its water lie inside its obstacle, in both streets;
+- no walk box takes in the drawn trough;
+- no walk across the street passes through it.
+
+It is held against the plate's own pixels, not the annotation. And a row in doc 55 section 8: when a plate is redrawn, every rect laid on the old one is laid again on the new one.

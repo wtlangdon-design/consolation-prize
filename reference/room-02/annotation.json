@@ -88,10 +88,10 @@
    66
   ],
   "water_trough": [
-   1862,
-   543,
-   155,
-   62
+   1905,
+   550,
+   226,
+   96
   ],
   "boardwalk": [
    95,
@@ -401,12 +401,12 @@
   {
    "id": "water_trough",
    "rect": [
-    1862,
-    543,
-    155,
-    62
+    1905,
+    550,
+    226,
+    96
    ],
-   "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough’s own hotspot rect -- one truth, not two."
+   "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough’s own hotspot rect -- one truth, not two. Errata 299 (Tyler, 2026-11-13, a screenshot of Thad standing in it: \"He's walking through the water trough. I thought we made sure that couldn't happen?\"): the rect was the trough of the plate before the redraw, 45 px to the left of the one drawn now, so it fenced off the trough's left two-thirds of nothing and left its right half and its front walkable. Re-laid on the drawn trough, from its rim (550) to the foot of its legs (646) and from its left leg (1905) to its right corner (2131)."
   },
   {
    "id": "dog",

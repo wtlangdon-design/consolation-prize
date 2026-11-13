@@ -106,10 +106,10 @@
    80
   ],
   "water_trough": [
-   1862,
-   543,
-   155,
-   62
+   1905,
+   550,
+   226,
+   96
   ],
   "boardwalk": [
    95,
@@ -193,12 +193,12 @@
   {
    "id": "water_trough",
    "rect": [
-    1862,
-    543,
-    155,
-    62
+    1905,
+    550,
+    226,
+    96
    ],
-   "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough’s own hotspot rect -- one truth, not two."
+   "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough’s own hotspot rect -- one truth, not two. Errata 299: re-laid on the drawn trough with Main Street's (the same street, the same trough)."
   },
   {
    "id": "dog",

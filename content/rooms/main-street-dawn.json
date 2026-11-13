@@ -242,42 +242,6 @@
       }
     },
     {
-      "id": "water_trough",
-      "name": "THE WATER TROUGH",
-      "rect": [
-        1862,
-        543,
-        155,
-        62
-      ],
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Three inches of water, and this morning, the whole sky in it.",
-            "repeat": [
-              "Somebody has cleaned it. It is still three inches of water, and it is clean water.",
-              "I can see my own face in it, and the sky behind, and neither of us looks worried."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "The thing that lives in it, surfacing. We have both made it through.",
-            "repeat": [
-              "A small ripple. It has decided I am not a threat.",
-              "Nothing for a moment, then a bubble. We are both still here."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 1940,
-        "y": 652,
-        "facing": "back"
-      }
-    },
-    {
       "id": "dog",
       "name": "A DOG",
       "rect": [
@@ -394,6 +358,42 @@
       "walkTo": {
         "x": 668,
         "y": 620,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "water_trough",
+      "name": "THE WATER TROUGH",
+      "rect": [
+        1905,
+        550,
+        226,
+        96
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Three inches of water, and this morning, the whole sky in it.",
+            "repeat": [
+              "Somebody has cleaned it. It is still three inches of water, and it is clean water.",
+              "I can see my own face in it, and the sky behind, and neither of us looks worried."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The thing that lives in it, surfacing. We have both made it through.",
+            "repeat": [
+              "A small ripple. It has decided I am not a threat.",
+              "Nothing for a moment, then a bubble. We are both still here."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 2018,
+        "y": 698,
         "facing": "back"
       }
     },
@@ -564,11 +564,11 @@
           "y": 584
         },
         {
-          "x": 1862,
+          "x": 1905,
           "y": 584
         },
         {
-          "x": 1862,
+          "x": 1905,
           "y": 675
         },
         {
@@ -596,7 +596,7 @@
       "id": "mud_far_1",
       "points": [
         {
-          "x": 2017,
+          "x": 2131,
           "y": 584
         },
         {
@@ -608,7 +608,7 @@
           "y": 675
         },
         {
-          "x": 2017,
+          "x": 2131,
           "y": 675
         }
       ],
@@ -632,19 +632,19 @@
       "id": "mud_far_2",
       "points": [
         {
-          "x": 1862,
-          "y": 605
+          "x": 1905,
+          "y": 646
         },
         {
-          "x": 2017,
-          "y": 605
+          "x": 2131,
+          "y": 646
         },
         {
-          "x": 2017,
+          "x": 2131,
           "y": 675
         },
         {
-          "x": 1862,
+          "x": 1905,
           "y": 675
         }
       ],
