@@ -1402,6 +1402,22 @@
       "rate": 0.2,
       "id": "lantern",
       "note": ""
+    },
+    {
+      "kind": "glow",
+      "id": "glow_1",
+      "rect": [
+        644,
+        456,
+        46,
+        37
+      ],
+      "rate": 0.05,
+      "seed": 1201,
+      "amount": 0.5,
+      "flame": true,
+      "halo": 63,
+      "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
     }
   ]
 }

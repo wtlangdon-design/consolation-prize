@@ -301,6 +301,22 @@
    "rate": 0.5,
    "id": "clock_pendulum",
    "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+  },
+  {
+   "kind": "glow",
+   "id": "glow_1",
+   "rect": [
+    304,
+    565,
+    37,
+    49
+   ],
+   "rate": 0.05,
+   "seed": 1001,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 67,
+   "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
   }
  ]
 }

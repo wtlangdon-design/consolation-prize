@@ -847,6 +847,74 @@
       "rate": 10,
       "id": "barber_pole",
       "note": ""
+    },
+    {
+      "kind": "glow",
+      "id": "glow_1",
+      "rect": [
+        17,
+        350,
+        110,
+        136
+      ],
+      "rate": 0.28,
+      "seed": 4401,
+      "amount": 0.38,
+      "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
+    },
+    {
+      "kind": "glow",
+      "id": "glow_2",
+      "rect": [
+        1793,
+        350,
+        61,
+        167
+      ],
+      "rate": 0.05,
+      "seed": 4402,
+      "amount": 0.38
+    },
+    {
+      "kind": "glow",
+      "id": "glow_3",
+      "rect": [
+        987,
+        406,
+        93,
+        200
+      ],
+      "rate": 0.165,
+      "seed": 4403,
+      "amount": 0.38
+    },
+    {
+      "kind": "glow",
+      "id": "glow_4",
+      "rect": [
+        713,
+        383,
+        71,
+        107
+      ],
+      "rate": 0.223,
+      "seed": 4404,
+      "amount": 0.38
+    },
+    {
+      "kind": "glow",
+      "id": "glow_5",
+      "rect": [
+        934,
+        487,
+        22,
+        118
+      ],
+      "rate": 0.108,
+      "seed": 4405,
+      "amount": 0.5,
+      "flame": true,
+      "halo": 110
     }
   ]
 }

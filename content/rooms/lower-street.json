@@ -918,6 +918,63 @@
       "amount": 1,
       "rate": 0.5,
       "note": "The water in the livery trough."
+    },
+    {
+      "kind": "glow",
+      "id": "glow_1",
+      "rect": [
+        409,
+        400,
+        88,
+        174
+      ],
+      "rate": 0.203,
+      "seed": 4301,
+      "amount": 0.38,
+      "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
+    },
+    {
+      "kind": "glow",
+      "id": "glow_2",
+      "rect": [
+        1419,
+        431,
+        82,
+        97
+      ],
+      "rate": 0.28,
+      "seed": 4302,
+      "amount": 0.38
+    },
+    {
+      "kind": "glow",
+      "id": "glow_3",
+      "rect": [
+        73,
+        423,
+        32,
+        33
+      ],
+      "rate": 0.127,
+      "seed": 4303,
+      "amount": 0.5,
+      "flame": true,
+      "halo": 43
+    },
+    {
+      "kind": "glow",
+      "id": "glow_4",
+      "rect": [
+        129,
+        423,
+        28,
+        24
+      ],
+      "rate": 0.05,
+      "seed": 4304,
+      "amount": 0.5,
+      "flame": true,
+      "halo": 40
     }
   ]
 }

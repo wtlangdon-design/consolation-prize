@@ -504,6 +504,20 @@
       "drift": 4,
       "id": "oven",
       "note": ""
+    },
+    {
+      "kind": "glow",
+      "id": "glow_1",
+      "rect": [
+        585,
+        309,
+        107,
+        89
+      ],
+      "rate": 0.05,
+      "seed": 3901,
+      "amount": 0.38,
+      "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
     }
   ]
 }

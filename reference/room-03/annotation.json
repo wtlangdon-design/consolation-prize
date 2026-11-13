@@ -475,6 +475,67 @@
    "drift": -14,
    "id": "card_table_smoke",
    "note": ""
+  },
+  {
+   "kind": "glow",
+   "id": "glow_1",
+   "rect": [
+    1830,
+    171,
+    33,
+    68
+   ],
+   "rate": 0.05,
+   "seed": 301,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 96,
+   "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
+  },
+  {
+   "kind": "glow",
+   "id": "glow_2",
+   "rect": [
+    816,
+    105,
+    23,
+    59
+   ],
+   "rate": 0.28,
+   "seed": 302,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 82
+  },
+  {
+   "kind": "glow",
+   "id": "glow_3",
+   "rect": [
+    863,
+    260,
+    26,
+    42
+   ],
+   "rate": 0.203,
+   "seed": 303,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 57
+  },
+  {
+   "kind": "glow",
+   "id": "glow_4",
+   "rect": [
+    1346,
+    249,
+    28,
+    45
+   ],
+   "rate": 0.127,
+   "seed": 304,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 61
   }
  ]
 }

@@ -7639,3 +7639,29 @@ Lesson: `tests/main-street-lights.test.mjs`:
 - no two lights share a period;
 - no two rise and fall together;
 - the wave stays between -1 and 1.
+
+## 298 · Every dark room's lights glow (Tyler, 2026-11-13)
+
+Tyler, of Main Street's new glow (errata 297): "I thought you were doing that treatment to every room already." Errata 273's pass had given forty-eight rooms smoke, water, swinging lanterns, stars and dust, but its only lamp light was the halo that breathed too little to see.
+
+**`tools/art/place-glows.py`** finds each dark room's lights from its plate and writes a `glow` for each into the room's annotation, on its own period and its own seed. A light, for the tool, is:
+- a warm-lit patch with a white-hot core, clearly brighter than its surroundings, and outdoors not on the ground (a reflection in the mud is not a lamp);
+- or the patch at a lamp the room already declares, which was placed by eye at a real flame.
+
+Brass, books and pots catch light but have no core, and are left alone. The tool's review sheets were looked at room by room. Three picks are excluded by name:
+- the camera's brass glint;
+- the photographer's lit portrait in the lane;
+- a light over a thing that completes a puzzle. These were the *Clarion*'s press and the stake in Ozymandia's tent, which `tests/room-motion.test.mjs` caught (invariant 9).
+
+A lantern that already swings is left to swing, since a glow over it would draw it twice.
+
+**Rooms that glow:**
+- Twenty-two rooms, from one lamp to five lights each: the Nugget, the hotel lobby, Lower Street, the lane, the church, the parlour, Thad's room, the mercantile, the *Clarion*, the registrar's, the watchman's shack, the bakehouse's oven, the laundry's fires, Ozymandia's tent and others.
+- None in daylight, the coffin or the listening chamber (invariants 2 and 8), the dawn rooms or the map.
+
+Seen in the real build: the hotel lobby, the lane and the parlour.
+
+Lesson: `tests/main-street-lights.test.mjs` now holds every room:
+- the dark rooms with lights glow;
+- within a room no two lights share a period or a seed;
+- no glow lies over a strip that swings or runs.
