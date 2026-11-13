@@ -918,6 +918,35 @@
       ],
       "id": "lamp_motes",
       "note": ""
+    },
+    {
+      "kind": "glow",
+      "id": "glow_1",
+      "rect": [
+        997,
+        197,
+        112,
+        130
+      ],
+      "rate": 0.05,
+      "seed": 601,
+      "amount": 0.38,
+      "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
+    },
+    {
+      "kind": "glow",
+      "id": "glow_2",
+      "rect": [
+        771,
+        458,
+        30,
+        29
+      ],
+      "rate": 0.28,
+      "seed": 602,
+      "amount": 0.5,
+      "flame": true,
+      "halo": 40
     }
   ]
 }

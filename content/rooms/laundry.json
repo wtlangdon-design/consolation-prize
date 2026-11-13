@@ -1067,6 +1067,37 @@
       "seed": 3,
       "id": "copper_3",
       "note": ""
+    },
+    {
+      "kind": "glow",
+      "id": "glow_1",
+      "rect": [
+        413,
+        533,
+        33,
+        34
+      ],
+      "rate": 0.28,
+      "seed": 2801,
+      "amount": 0.5,
+      "flame": true,
+      "halo": 45,
+      "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
+    },
+    {
+      "kind": "glow",
+      "id": "glow_2",
+      "rect": [
+        289,
+        551,
+        37,
+        41
+      ],
+      "rate": 0.05,
+      "seed": 2802,
+      "amount": 0.5,
+      "flame": true,
+      "halo": 55
     }
   ]
 }

@@ -101,3 +101,37 @@ test('a glow is a wave: between -1 and 1, and the same at the same instant', () 
     assert.ok(Math.max(...values) - Math.min(...values) > 1, `${glow.id} hardly moves`);
   }
 });
+
+// EVERY ROOM'S LIGHTS (errata 298). Tyler, of Main Street's: "I thought you were doing that treatment to every room
+// already." tools/art/place-glows.py found every dark room's lamps, fires and lit windows from its plate. Held here:
+// the rooms that have lights glow; within a room no two share a period or move together; and no glow lies over a
+// strip that swings or runs, where the two would draw the lantern twice.
+import { readdirSync } from 'node:fs';
+
+const ROOMS = new URL('../content/rooms/', import.meta.url);
+const all = readdirSync(ROOMS).filter((name) => name.endsWith('.json'))
+  .map((name) => JSON.parse(readFileSync(new URL(name, ROOMS), 'utf8')));
+
+test('the dark rooms with lights glow', () => {
+  const glowing = all.filter((one) => (one.motion ?? []).some((motion) => motion.kind === 'glow')).map((one) => one.id);
+  for (const id of ['nugget', 'hotel_lobby', 'lower_street', 'the_lane', 'church', 'boarding_house_parlour', 'thads_room',
+    'mercantile', 'clarion', 'claims_registrar', 'watchmans_shack', 'bakehouse', 'ozymandias_tent']) {
+    assert.ok(glowing.includes(id), `${id} has lights and none glows`);
+  }
+  for (const id of ['coffin', 'listening_chamber']) assert.ok(!glowing.includes(id), `${id} is still by invariant`);
+});
+
+test('in every room, each light keeps its own time, and none is drawn twice', () => {
+  const overlaps = (a, b) => !(a[0] + a[2] <= b[0] || b[0] + b[2] <= a[0] || a[1] + a[3] <= b[1] || b[1] + b[3] <= a[1]);
+  for (const one of all) {
+    const own = (one.motion ?? []).filter((motion) => motion.kind === 'glow');
+    if (own.length === 0) continue;
+    assert.equal(new Set(own.map((glow) => glow.rate)).size, own.length, `${one.id}: two lights share a period`);
+    assert.equal(new Set(own.map((glow) => glow.seed)).size, own.length, `${one.id}: two lights share a seed`);
+    const moving = (one.motion ?? []).filter((motion) => ['sway', 'shimmer', 'scroll'].includes(motion.kind));
+    for (const glow of own) {
+      const under = moving.filter((motion) => overlaps(glow.rect, motion.rect)).map((motion) => motion.id);
+      assert.deepEqual(under, [], `${one.id}: ${glow.id} lies over ${under.join(', ')}`);
+    }
+  }
+});

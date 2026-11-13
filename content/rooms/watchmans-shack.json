@@ -595,6 +595,20 @@
       ],
       "id": "lamp_motes",
       "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
+    },
+    {
+      "kind": "glow",
+      "id": "glow_1",
+      "rect": [
+        927,
+        426,
+        67,
+        78
+      ],
+      "rate": 0.05,
+      "seed": 2101,
+      "amount": 0.38,
+      "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
     }
   ]
 }
