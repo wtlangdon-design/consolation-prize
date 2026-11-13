@@ -770,6 +770,350 @@
    "rate": 0.5,
    "id": "trough",
    "note": ""
+  },
+  {
+   "kind": "glow",
+   "id": "lantern_mercantile",
+   "rect": [
+    140,
+    445,
+    52,
+    72
+   ],
+   "rate": 0.21,
+   "seed": 1,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 80,
+   "note": "Errata 297 (Tyler, 2026-11-13: \"make the lamps and windows on main street glow and pulse at different intervals\"). Its own lit pixels swell and sink, each light on its own period and at its own place in it."
+  },
+  {
+   "kind": "glow",
+   "id": "lantern_company_left",
+   "rect": [
+    500,
+    418,
+    59,
+    81
+   ],
+   "rate": 0.17,
+   "seed": 2,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 90
+  },
+  {
+   "kind": "glow",
+   "id": "lantern_company_right",
+   "rect": [
+    812,
+    423,
+    52,
+    69
+   ],
+   "rate": 0.23,
+   "seed": 3,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 90
+  },
+  {
+   "kind": "glow",
+   "id": "lamp_porch",
+   "rect": [
+    1335,
+    449,
+    42,
+    45
+   ],
+   "rate": 0.19,
+   "seed": 4,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 70
+  },
+  {
+   "kind": "glow",
+   "id": "lantern_nugget_left",
+   "rect": [
+    2165,
+    423,
+    40,
+    35
+   ],
+   "rate": 0.26,
+   "seed": 5,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 70
+  },
+  {
+   "kind": "glow",
+   "id": "lantern_nugget_right",
+   "rect": [
+    2415,
+    423,
+    35,
+    41
+   ],
+   "rate": 0.2,
+   "seed": 6,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 70
+  },
+  {
+   "kind": "glow",
+   "id": "lantern_office",
+   "rect": [
+    3036,
+    468,
+    56,
+    77
+   ],
+   "rate": 0.28,
+   "seed": 7,
+   "amount": 0.5,
+   "flame": true,
+   "halo": 90
+  },
+  {
+   "kind": "glow",
+   "id": "window_company_left",
+   "rect": [
+    548,
+    418,
+    66,
+    100
+   ],
+   "rate": 0.07,
+   "seed": 11,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_company_right",
+   "rect": [
+    748,
+    433,
+    60,
+    60
+   ],
+   "rate": 0.09,
+   "seed": 12,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_lamp_table",
+   "rect": [
+    982,
+    434,
+    57,
+    58
+   ],
+   "rate": 0.13,
+   "seed": 13,
+   "amount": 0.38,
+   "flame": true
+  },
+  {
+   "kind": "glow",
+   "id": "window_row_1",
+   "rect": [
+    1553,
+    444,
+    40,
+    31
+   ],
+   "rate": 0.06,
+   "seed": 14,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_row_2",
+   "rect": [
+    1700,
+    447,
+    34,
+    37
+   ],
+   "rate": 0.11,
+   "seed": 15,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_nugget",
+   "rect": [
+    2234,
+    416,
+    68,
+    84
+   ],
+   "rate": 0.08,
+   "seed": 16,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "door_nugget",
+   "rect": [
+    2326,
+    433,
+    52,
+    80
+   ],
+   "rate": 0.1,
+   "seed": 17,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_hotel",
+   "rect": [
+    2457,
+    410,
+    76,
+    115
+   ],
+   "rate": 0.05,
+   "seed": 18,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_upstairs",
+   "rect": [
+    2740,
+    255,
+    34,
+    54
+   ],
+   "rate": 0.12,
+   "seed": 19,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_low",
+   "rect": [
+    2832,
+    471,
+    36,
+    51
+   ],
+   "rate": 0.075,
+   "seed": 20,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_row_3",
+   "rect": [
+    1638,
+    440,
+    32,
+    40
+   ],
+   "rate": 0.095,
+   "seed": 21,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_row_4",
+   "rect": [
+    1845,
+    440,
+    26,
+    30
+   ],
+   "rate": 0.14,
+   "seed": 22,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_row_5",
+   "rect": [
+    2068,
+    436,
+    40,
+    36
+   ],
+   "rate": 0.065,
+   "seed": 23,
+   "amount": 0.38
+  },
+  {
+   "kind": "glow",
+   "id": "window_upstairs_2",
+   "rect": [
+    2846,
+    262,
+    36,
+    46
+   ],
+   "rate": 0.105,
+   "seed": 24,
+   "amount": 0.38
+  },
+  {
+   "kind": "smoke",
+   "id": "stovepipe",
+   "rect": [
+    1770,
+    268,
+    14,
+    8
+   ],
+   "amount": 6,
+   "rate": 0.18,
+   "rise": 110,
+   "drift": 22,
+   "alpha": 0.22,
+   "colour": [
+    118,
+    122,
+    140
+   ],
+   "note": "Errata 297: the one stovepipe on the street's roofs, drawing."
+  },
+  {
+   "kind": "motes",
+   "id": "nugget_doorway_dust",
+   "rect": [
+    2300,
+    470,
+    110,
+    80
+   ],
+   "amount": 8,
+   "rate": 0.05,
+   "alpha": 0.22,
+   "note": "Errata 297: dust in the light from the Nugget's doors."
+  },
+  {
+   "kind": "motes",
+   "id": "moths_office_lantern",
+   "rect": [
+    3025,
+    445,
+    85,
+    85
+   ],
+   "amount": 3,
+   "rate": 0.35,
+   "alpha": 0.5,
+   "colour": [
+    235,
+    215,
+    175
+   ],
+   "seed": 9,
+   "note": "Errata 297: a few moths at the map seller's lantern."
   }
  ]
 }

@@ -7610,3 +7610,32 @@ Tyler, on Main Street: "The map seller doesn't appear to have any movements." He
 No new art: every pose was already drawn.
 
 Lesson: `tests/movement.test.mjs`, proved by restoring the map seller as he was. It passed him before, and fails him now. `tests/pie-shout-timer.test.ts`'s own proof moves to a 6 s cycle, the one that brings her call round in 30 s now that she has five breaks.
+
+## 297 · Main Street's lamps and windows glow, each in its own time (Tyler, 2026-11-13)
+
+Tyler: "Is it possible to make the lamps and windows on main street glow and pulse at different intervals? Anything else you can do to make main street feel more alive? I thought you were doing that treatment to every room already."
+
+**What errata 273 had given the street:**
+- the stars, twinkling;
+- the trough, shimmering;
+- three lamp halos breathing by five to eleven per cent, too little to see.
+
+The pass that gave other rooms their smoke and swinging lanterns found nothing else here to move.
+
+**What is new:**
+- **`glow`, a seventh kind of room motion** (`engine/render/MotionLayer.ts`). A light's own lit pixels, and only those, swell brighter (added to themselves) and sink dimmer (multiplied by themselves). So it is the painted light that pulses, never a new light laid over the wall: errata 54's lesson about fog in doorways stands.
+  - A window lit from inside swells on two slow waves of unrelated periods.
+  - A flame (a lantern, the lamp on the table in the shop window) adds a quicker waver, and a soft halo at the height of its swell.
+  - Each light has its own period, from 4 to 20 seconds, and its own place in it, so no two on the street rise together.
+- **Twenty-one lights on Main Street:** seven lanterns and lamps, and every lit window and doorway, found from the plate's own lit pixels.
+- **A stovepipe drawing** on the one roof that has one.
+- **Dust** turning in the light from the Nugget's doors.
+- **A few moths** at the map seller's lantern.
+
+**Invariant 9 holds:** every light pulses, all the time, on every plate of the street. Nothing waits on a flag, and no light is set apart.
+
+Lesson: `tests/main-street-lights.test.mjs`:
+- every lit window and lamp found on the plate has a glow over it (it fails with the Nugget's window taken out, and with every glow taken out);
+- no two lights share a period;
+- no two rise and fall together;
+- the wave stays between -1 and 1.

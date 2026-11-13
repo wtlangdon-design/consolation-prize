@@ -924,7 +924,7 @@ export interface AmbientFile {
 /** One thing in a room that moves by itself. See RoomFile.motion and engine/render/MotionLayer.ts. */
 export interface RoomMotion {
   id: string;
-  kind: 'smoke' | 'shimmer' | 'twinkle' | 'sway' | 'motes' | 'scroll';
+  kind: 'smoke' | 'shimmer' | 'twinkle' | 'sway' | 'motes' | 'scroll' | 'glow';
   /** Room pixels: smoke rises from the top of it; the others move inside it. */
   rect: [number, number, number, number];
   /** Cycles per second (smoke: puffs' lives per second). */
@@ -942,6 +942,10 @@ export interface RoomMotion {
   /** Sway: the edge it hangs from. Scroll: 'top' runs downward (falling water); otherwise it runs up. */
   hinge?: 'top' | 'bottom';
   seed?: number;
+  /** Glow: a flame (a lantern, a lamp in a window) flickers on top of its slow swell; a window lit from inside only
+   * swells. `halo` is the radius, in room pixels, of a soft light laid round it at the swell's height. */
+  flame?: boolean;
+  halo?: number;
   /** Only while the room shows one of these pictures (the plate's own path). Absent: always. */
   plates?: string[];
   note?: string;
