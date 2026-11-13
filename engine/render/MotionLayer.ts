@@ -90,6 +90,21 @@ export function twinkleOf(star: number, seconds: number, rate: number): number {
   return s > 0.7 ? 1 : s < -0.85 ? 0 : 0.5;
 }
 
+/**
+ * How a `glow` stands at `seconds`, -1 to 1: below 0 it is dimmer than painted, above 0 brighter (errata 297; Tyler,
+ * 2026-11-13: "make the lamps and windows on main street glow and pulse at different intervals"). Two slow waves of
+ * unrelated periods, so it swells and settles and never ticks; a flame adds a quicker waver on top. Each light's seed
+ * puts it at its own place in its own cycle, so no two lights on a street rise together.
+ */
+export function glowOf(motion: RoomMotion, seconds: number): number {
+  const rate = motion.rate ?? 0.12;
+  const s = hash((motion.seed ?? 0) + 7);
+  const t = seconds * rate + s;
+  let v = 0.65 * Math.sin(t * Math.PI * 2) + 0.35 * Math.sin((t * 2.71 + s * 3) * Math.PI * 2);
+  if (motion.flame) v = 0.55 * v + 0.3 * Math.sin((seconds * 1.37 + s * 5) * Math.PI * 2) + 0.15 * Math.sin((seconds * 2.9 + s * 11) * Math.PI * 2);
+  return Math.max(-1, Math.min(1, v));
+}
+
 /** How far a `scroll` has run, in whole rows, within its repeat: `rate` rows a second. */
 export function scrollOffset(motion: RoomMotion, seconds: number, period: number): number {
   return Math.floor(seconds * (motion.rate ?? 8)) % period;
@@ -108,6 +123,7 @@ export function motionTicks(motions: readonly RoomMotion[] | undefined): boolean
  */
 export class MotionLayer {
   private readonly stars = new Map<string, [number, number][]>();
+  private readonly lit = new Map<string, HTMLCanvasElement | null>();
 
   draw(ctx: CanvasRenderingContext2D, motions: readonly RoomMotion[], plate: CanvasImageSource | null,
     plateKey: string, seconds: number, block: number, shown: (motion: RoomMotion) => boolean): void {
@@ -164,6 +180,37 @@ export class MotionLayer {
         }
         continue;
       }
+      if (motion.kind === 'glow') {
+        // The plate's own lit pixels in the rect, and only those: the glass, the flame, the light on the frame. Read
+        // once per plate and kept. Brightened by adding them to themselves, dimmed by multiplying them by themselves,
+        // so it is the painted light that swells and sinks, never a new light laid over the wall.
+        const key = `${plateKey}|${motion.id}`;
+        let lit = this.lit.get(key);
+        if (lit === undefined) {
+          lit = litPixels(plate, motion.rect);
+          this.lit.set(key, lit);
+        }
+        if (!lit) continue;
+        const v = glowOf(motion, seconds);
+        const amount = motion.amount ?? 0.4;
+        ctx.save();
+        ctx.globalCompositeOperation = v > 0 ? 'lighter' : 'multiply';
+        ctx.globalAlpha = Math.min(1, amount * Math.abs(v) * (v > 0 ? 1 : 0.7));
+        ctx.drawImage(lit, x, y);
+        if (motion.halo && v > 0) {
+          const cx = x + w / 2; const cy = y + h / 2;
+          const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, motion.halo);
+          const warm = (alpha: number) => ['rgba(255,178,92,', alpha.toFixed(3), ')'].join('');
+          glow.addColorStop(0, warm(0.16 * amount * v));
+          glow.addColorStop(1, warm(0));
+          ctx.globalCompositeOperation = 'lighter';
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = glow;
+          ctx.fillRect(cx - motion.halo, cy - motion.halo, motion.halo * 2, motion.halo * 2);
+        }
+        ctx.restore();
+        continue;
+      }
       if (motion.kind === 'twinkle') {
         const key = `${plateKey}|${motion.id}`;
         let stars = this.stars.get(key);
@@ -192,6 +239,30 @@ export class MotionLayer {
       }
     }
   }
+}
+
+/** True for a pixel lit warm by a flame: bright, and red well above blue. Exported so a test can hold the rule. */
+export const litWarm = (r: number, g: number, b: number) => r > 120 && g > 70 && r - b > 60 && r * 0.3 + g * 0.59 + b * 0.11 > 80;
+
+/** A rect of the plate with only its warm-lit pixels kept, everything else clear. Read once per plate and kept. */
+export function litPixels(plate: CanvasImageSource, rect: [number, number, number, number]): HTMLCanvasElement | null {
+  if (typeof document === 'undefined') return null;
+  const [x, y, w, h] = rect;
+  const canvas = document.createElement('canvas');
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  if (!ctx) return null;
+  ctx.drawImage(plate, x, y, w, h, 0, 0, w, h);
+  const image = ctx.getImageData(0, 0, w, h);
+  const data = image.data;
+  let kept = 0;
+  for (let i = 0; i < data.length; i += 4) {
+    if (litWarm(data[i]!, data[i + 1]!, data[i + 2]!)) kept += 1;
+    else data[i + 3] = 0;
+  }
+  if (kept === 0) return null;
+  ctx.putImageData(image, 0, 0);
+  return canvas;
 }
 
 /** The brightest small points in a rect of the plate: its stars. Read once per plate and kept. */
