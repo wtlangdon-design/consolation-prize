@@ -7687,3 +7687,28 @@ Lesson: `tests/trough-solid.test.mjs`, proved against the old rects (both its te
 - no walk across the street passes through it.
 
 It is held against the plate's own pixels, not the annotation. And a row in doc 55 section 8: when a plate is redrawn, every rect laid on the old one is laid again on the new one.
+
+## 300 · Main Street's floor is the ground, meeting each porch at its foot (Tyler, 2026-11-13)
+
+Tyler, with a screenshot of Thad standing against the Nugget's window: "Thad can walk partway up the side of a building. And he just randomly walks up the edge of the porch instead of going up the stairs. On every building."
+
+**What the floor was.** Main Street's floor still had two things from the street as first drawn:
+- a boardwalk strip (the "lip", errata 28a) the width of the street at y532 to 582;
+- a far band starting at y584.
+
+The redrawn street has a porch to each of its ten buildings, each at its own depth with its own stairs, and gaps between them. So the strip ran across the gaps and up building sides, and the far band climbed every porch's front. Thad stepped up wherever the line he was walking crossed the edge.
+
+**What it is now.** He walks on the ground only:
+- the street from y666 down;
+- in front of each building, a strip up to the foot of what stands there: the porch's posts, the foot of its stairs, the notice board's legs, the barrels. Each was read off the plate at 2x (`walkBoxesExtra`).
+
+The compiler builds no lip for a room that says `boardwalkLip: false`. Every door was already reached from the street. The hotel's and the assay office's stands and arrivals, which were on their porches, move to the foot of their stairs. The dawn street, the same street, takes the same ground.
+
+Seen in the real build: clicked on the hotel's stairs, he stops on the ground beside them.
+
+Lesson: `tests/main-street-ground.test.mjs`, held against points read off the plate in both streets. It fails on the old floor.
+- On seventeen points (every porch, every stairs, the walls by the trough, the Nugget's window from the screenshot) he cannot stand.
+- At ten (the foot of every stair, in front of every building, the road out) he can, and can walk there.
+- Every door's stand is on the ground.
+
+`tests/interface.test.ts`'s lip test now asserts there is no lip. And a row in doc 55 section 8.

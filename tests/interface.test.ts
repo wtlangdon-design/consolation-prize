@@ -391,7 +391,7 @@ test('the floor resolves everywhere, and a nearer point is never a smaller man',
   }
 });
 
-test('Room 2 declares one fixed box at the lip, and no step until Q6 draws one', async () => {
+test('Room 2 has no lip and no fixed box, and no step anywhere (errata 300)', async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
   state.enterRoom('main_street');
@@ -414,13 +414,14 @@ test('Room 2 declares one fixed box at the lip, and no step until Q6 draws one',
   // straddles the boardwalk band, so the lip is now the piece west of it and
   // the piece east of it. What 28a binds is that the FIXED SCALE belongs to
   // the lip and to nothing else, which is what is asserted.
+  //
+  // AND THEN THE LIP WENT (errata 300; Tyler, 2026-11-13: "Thad can walk partway up the side of a building. And he
+  // just randomly walks up the edge of the porch instead of going up the stairs."). The lip was a boardwalk the width
+  // of the street, from the street as first drawn; the redrawn street has a porch to each building and the strip ran
+  // up all of them. He walks on the ground now, which is all on the curve, so no box is fixed at all.
   const fixed = room.walkBoxes!.filter((box) => box.scaleMode.kind === 'fixed');
-  assert.ok(fixed.length >= 1, 'the lip is a fixed box');
-  for (const box of fixed) {
-    assert.ok(/^boardwalk/.test(box.id), `${box.id} is fixed but is not the lip`);
-  }
-  const heights = new Set(fixed.map((box) => (box.scaleMode as { height: number }).height));
-  assert.equal(heights.size, 1, 'every piece of the lip is fixed at the same height');
+  assert.deepEqual(fixed.map((box) => box.id), [], 'nothing on the street is fixed: there is no lip');
+  assert.ok(!room.walkBoxes!.some((box) => /^boardwalk/.test(box.id)), 'and no boardwalk strip');
 
   const jumps: { y: number; from: number; to: number }[] = [];
   let previous: number | null = null;
