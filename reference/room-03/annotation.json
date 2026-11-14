@@ -217,12 +217,12 @@
   {
    "id": "spittoon",
    "rect": [
-    1364,
+    1321,
     740,
-    90,
+    162,
     78
    ],
-   "note": "Brass, on the floor, and emptied more diligently than anything else in the building. He walks round it. Same rect as the hotspot, so the thing you click and the thing you cannot walk through are one truth."
+   "note": "Brass, on the floor, painted into the plate, so he can never pass behind it without being drawn over it. The rect is the spittoon as drawn (1364-1454, 740-818) and his boots past it each side, as the barrel's is: his feet reach 29 px left and 43 px right of his centre at this depth, so a rect the spittoon's own width let him stand with a boot in the brass (Tyler, 2026-11-14: \"He also can walk through the spittoon in the Nugget\"; errata 316). He walks round it."
   },
   {
    "id": "card_table",

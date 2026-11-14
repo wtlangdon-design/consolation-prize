@@ -255,7 +255,7 @@
 |---|---|---|
 | STAGE DRIVER · option 1 | Where can I find Ezra Pike? | I'm expected by a Mr. Ezra Pike. Where would I find him? |
 | STAGE DRIVER · option 2 | Where am I supposed to sleep? | And where does a gentleman sleep in Consolation? |
-| STAGE DRIVER · option 3 | You don't think much of my chances. | You don't think much of my chances. I can see it in your hat. |
+| STAGE DRIVER · option 3 | You don't think much of my chances. | You don't think much of my chances. You haven't said a word to me in four days. |
 | STAGE DRIVER · option 4 | Thank you for the ride. | Thank you for the ride! I'll mention you when I'm famous. |
 | DEKE · option 2 | What are you selling? | You have the look of a man with something to sell, and I'm a man of business. |
 | DEKE · option 4 | How much? | How much? Purely as a matter of business. |

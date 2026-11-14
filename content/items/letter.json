@@ -48,6 +48,20 @@
      "Nothing."
     ]
    }
+  ],
+  "OPEN": [
+   {
+    "when": {
+     "T_PIKE_DEAD": true
+    },
+    "say": "It was sealed for Mr. Pike, and it will reach him sealed. Somehow."
+   },
+   {
+    "when": {
+     "T_PIKE_DEAD": false
+    },
+    "say": "It's sealed, and it's for Mr. Pike to open. An introduction is meant to arrive sealed; opened, it's only a letter."
+   }
   ]
  },
  "startsHeldNote": "REMOVED. This item is granted by the case's PICK UP in Room 1 -- stage-road.json case_mud gives letter, tuning_fork and four_dollars -- so startsHeld put it in the inventory a second time, before the case had been lifted. Reported from a play-through as the case's contents already being carried. The inventory is EMPTY until the case is picked up; the case is the only thing that grants these."

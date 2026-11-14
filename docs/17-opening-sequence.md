@@ -63,7 +63,7 @@ Confirmed since: Monkey Island's lookout exchange is genuinely automatic, not pl
 |---|---|---|
 | "I'm expected by a Mr. Ezra Pike. Where would I find him?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." *(again)* "The undertaker. He'll be the one measuring you." |
 | "And where does a gentleman sleep in Consolation?" | `[PROGRESS]` | "Hotel's five dollars." — *"I have four. Four is very nearly five."* — **"You've all got four."** *(again)* "Five. You've got four. Arithmetic's free." |
-| "You don't think much of my chances. I can see it in your hat." | `[COMIC]` | "I don't think about them at all." *(again)* "Still not thinking about them." |
+| "You don't think much of my chances. You haven't said a word to me in four days." | `[COMIC]` | "I don't think about them at all." *(again)* "Still not thinking about them." |
 | "Thank you for the ride! I'll mention you when I'm famous." | `[EXIT]` | **"Wasn't for you."** *(He climbs aboard. The coach goes. Beat 7.)* |
 
 **"Wasn't for you"** is the best line in the opening and it should be the last thing anyone says on that road. The coach was not a service Thad bought. He was freight.

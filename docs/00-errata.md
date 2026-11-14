@@ -7998,3 +7998,21 @@ Lesson:
 - `tests/no-parentheticals.test.mjs`: the cap is 0. Nothing is printed anywhere in the game, and any new printed direction fails the build. Proved by putting a direction back (it fails).
 - `tests/acted-directions.test.ts`: HOB_C1's options are all shaped alike, with no direction on any of them (invariant 7).
 
+## 315 · The stage driver's hat (Tyler, 2026-11-14)
+
+Tyler: "'You don't think much of my chances. I can see it in your hat.' -- I can see it in your hat makes literally no sense to me."
+
+It was built to sound like a saying, and there is no such saying. The second sentence is now one the player can picture, and the driver's reply answers it: "You don't think much of my chances. You haven't said a word to me in four days." -- "I don't think about them at all." Changed in doc 17 (and doc 128's record of Thad's Main Street voice); the menu still shows the first sentence.
+
+Lesson: a doc 55 section 8 row (a matter of taste): a made-up figure of speech has to work as a picture on its own, first read.
+
+## 316 · Three things from the playthrough: the case, the spittoon, the letter; and the false fronts said plainly (Tyler, 2026-11-14)
+
+- **The case and the spittoon.** "Thad is able to walk through the bag in Room 1. He should have to walk around it. He also can walk through the spittoon in the Nugget." The case was never carved out of the stage road's floor. It now is while it lies in the mud (`T_CASE_TAKEN` false): its drawn width and his boots past it, y823-853, in four boxes round it. The spittoon was carved at its own width, and his boots reach past his centre. Its obstacle (reference/room-03) is now its drawn width plus that reach, 1321-1483, as the barrel's is.
+- **The letter.** "When you try to open the letter in the inventory it says it doesn't open, which doesn't make sense. Maybe instead it should say something like it needs to be delivered sealed?" OPEN now has its own line in each state (doc 23): "It's sealed, and it's for Mr. Pike to open. An introduction is meant to arrive sealed; opened, it's only a letter." After Pike is known dead: "It was sealed for Mr. Pike, and it will reach him sealed. Somehow." That is what he does at the board.
+- **The false fronts.** "I don't think it's clear with that line and the line or two that come before it that the town is kind of like a false front." Main Street's arrival (doc 131; reference/room-02) now reads: "So this is Consolation." "Half the street is false fronts: two stories of painted board, with a shed behind." "The other half is real. That's the half with the money." It is true to the plate: the saloon and the hotel are the real ones, and they have the money.
+
+Lesson:
+- `tests/feet-clear.test.ts`: from no point of the floor do his boots stand in the case, the spittoon or the barrel, at that point's own height. Proved on the old floors: the case and the spittoon fail, and the barrel, carved right, passes.
+- Doc 55 section 8, two rows: a thing on the floor is carved at its width plus his reach; and an item a player would naturally try a verb on gets its own line for it, not a fallback written for scenery.
+
