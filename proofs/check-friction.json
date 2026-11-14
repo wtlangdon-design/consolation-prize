@@ -931,6 +931,24 @@
    "date": "2026-11-14",
    "kind": "loosened",
    "why": "Errata 308 (no parentheticals, Tyler's ruling): the Colonel's map was handed over by a printed direction; it is now handed over in his words (\"Take a map of the district, with my compliments.\"), the way the test's NAMED_IN_SPEECH list already allows. Two entries added there, and the self-test's fixture moved to a node id no entry names. It did not misfire: the rule it holds (errata 228, no gift arrives unseen) still holds."
+  },
+  {
+   "check": "tests/no-parentheticals.test.mjs",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 310: tightened, not loosened. Its rooms-done list grows to Act I's trees and its cap falls from 129 to 122; the friction reader sees the list edited."
+  },
+  {
+   "check": "tests/openings-voiced.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 310: doc 27 gained a root for every visit after the first (the hotel clerk asks 'Name?' once, then says 'Mr. Grubbe.'); the test now voices that line with the node's openingOnce flag set, as the engine does. It did not misfire: the content changed under it."
+  },
+  {
+   "check": "tests/room-20.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 310: Hob's Mott question waits until the map seller has told Thad who Mott was, and his stop and four seconds are '…' pauses (no parentheticals, doc 130). The test sets T_MOTT_TOLD and asserts the pauses and the word instead of printed directions. It did not misfire: the ruling changed the content."
   }
  ]
 }
