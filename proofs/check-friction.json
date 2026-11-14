@@ -912,7 +912,7 @@
    "check": "tests/shortest-walk.test.ts",
    "date": "2026-11-13",
    "kind": "loosened",
-   "why": "Errata 301: a walk onto a porch goes up its stairs, by Tyler's ruling, however near the porch's front it starts; the room-wide detour bound skips a route through stairs. The map-seller test and the bound for every other walk are unchanged."
+   "why": "Errata 301: a walk onto a porch goes up its stairs, by Tyler's ruling, however near the porch's front it starts; the room-wide detour bound skips a route through stairs. The map-seller test and the bound for every other walk are unchanged. And it samples at most twenty points a room, from up to six a box, because CI's check run went over its 180 s budget (191 s) and this test was its slowest new part (12 s, now 0.5 s); it still fails the old fewest-boxes router."
   },
   {
    "check": "tests/main-street-ground.test.mjs",

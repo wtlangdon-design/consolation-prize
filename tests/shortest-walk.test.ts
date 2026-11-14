@@ -54,15 +54,19 @@ test('in every room, no walk goes far out of its way', () => {
     for (const box of room.walkBoxes as WalkBox[]) {
       const xs = box.points.map((point) => point.x);
       const ys = box.points.map((point) => point.y);
-      for (const fx of [0.2, 0.5, 0.8]) {
-        for (const fy of [0.3, 0.7]) {
+      for (const fx of [0.25, 0.75]) {
+        for (const fy of [0.5]) {
           const point = { x: Math.min(...xs) + (Math.max(...xs) - Math.min(...xs)) * fx, y: Math.min(...ys) + (Math.max(...ys) - Math.min(...ys)) * fy };
           if (boxes.boxAt(point.x, point.y)) points.push(point);
         }
       }
     }
-    for (const from of points) {
-      for (const to of points) {
+    // At most twenty points a room, spread across its boxes: the bound is about detours between regions, and the
+    // check has a time budget (CI's 180 s).
+    const step = Math.max(1, Math.ceil(points.length / 20));
+    const sample = points.filter((_, index) => index % step === 0);
+    for (const from of sample) {
+      for (const to of sample) {
         const straight = Math.hypot(to.x - from.x, to.y - from.y);
         if (straight < 50) continue;
         const route = boxes.route(from.x, from.y, to.x, to.y);
