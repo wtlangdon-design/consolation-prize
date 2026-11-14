@@ -191,9 +191,13 @@ test('no narration and no waiting direction is acted, and no figure acts what do
       assert.ok(given.has(`${npc.id}::${words}`), `${npc.id} performs "${words}", which doc 95 does not give him`);
     }
   }
-  // Invariant 7: HOB_C1 option 4 is presented exactly as the options around it.
-  const hob = table.directions.find((row) => row.where.includes('HOB_C1 option 4'));
-  assert.equal(hob?.class, 'C', 'HOB_C1 option 4\'s look is left printed, unmarked');
+  // Invariant 7: HOB_C1 option 4 is presented exactly as the options around it. Since errata 314 nothing is
+  // printed anywhere (doc 130): his look is gone, acted by nobody, and option 4 is one said line like the rest.
+  assert.equal(table.directions.find((row) => row.where.includes('HOB_C1 option 4')), undefined, 'HOB_C1 option 4 has no direction, acted or printed');
+  const hobTree = [...content.dialogue.values()].find((tree) => tree.nodes.HOB_C1)!;
+  const shapes = hobTree.nodes.HOB_C1!.options.filter((one) => one.tag !== 'EXIT')
+    .map((one) => [typeof one.say === 'string', (one.exchange ?? []).length, (one.exchange ?? []).some((line) => line.direction)].join());
+  assert.equal(new Set(shapes).size, 1, `HOB_C1's options are all shaped alike: ${shapes.join(' | ')}`);
 });
 
 test('a frame held through speech is the speaker\'s own, and lasts until his next act (doc 95 Holds)', async () => {

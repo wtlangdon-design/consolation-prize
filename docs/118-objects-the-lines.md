@@ -150,7 +150,7 @@ With it, doc 57's three lines stand, "I have borrowed the lamp from my room" amo
 **LISTEN** 1 "Wire and wax. It creaks like a gate." · 2 "The ribbon, whispering one word." · 3 "Nothing. It is saving itself for the occasion."
 
 **THE COFFIN** · USE THE COLONEL'S WREATH, *at the funeral*
-> *(Thad lays the wreath on his own coffin and straightens the ribbon.)*
+> "My own wreath, on my own coffin. I have straightened the ribbon."
 > **THE UNDERTAKER:** "Flowers weren't paid for."
 > **THAD:** "They were. Not by me."
 > **THE UNDERTAKER:** "Mm."

@@ -157,7 +157,7 @@ test('the prayer cannot be lost: leave and come back, still praying; his breaks 
 test('the ride completes E6b, goes over black, and lands in Room 31, where his arrival is said once', async () => {
   const { state } = await inFixture('r14-stall-b');
   const ride = state.interact(target(state, 'hearse'), 'USE');
-  assert.ok(ride.direction && written(ride.say), 'he climbs in, printed (doc 95 row 108)');
+  assert.ok(!ride.direction && written(ride.say), 'he climbs in, and says so: nothing printed (doc 130; errata 314)');
   const then = ride.then ?? [];
   const over = then.filter((one) => typeof one !== 'string' && one.overBlack);
   assert.equal(over.length, 3, 'THE RIDE: three lines over black');
@@ -179,12 +179,13 @@ test('the ride completes E6b, goes over black, and lands in Room 31, where his a
   assert.ok(again.state.flags.test({ T_RIDE_ARRIVED: true }));
 });
 
-test('the undertaker speaks low the first time, and the second time his line is said, not printed', async () => {
+test('the undertaker speaks the first time, and the second time says another line', async () => {
   const { state } = await inFixture('r14-stall-a');
   const first = state.interact(target(state, 'undertaker'), 'TALK_TO');
   assert.equal(first.by, 'procession_undertaker');
-  assert.ok(first.direction && written(`*(${first.say})*`), 'his tone, printed first (doc 95 row 107)');
-  assert.ok((first.then ?? []).every((one) => written(words(one))) && (first.then ?? []).length === 2);
+  // Errata 314 (doc 130): his "low" was a printed tone; he simply says it now, and Thad answers.
+  assert.ok(!first.direction && written(first.say), 'his line, said, nothing printed');
+  assert.ok((first.then ?? []).every((one) => written(words(one))) && (first.then ?? []).length === 1);
   const second = state.interact(target(state, 'undertaker'), 'TALK_TO');
   assert.equal(second.by, 'procession_undertaker');
   assert.ok(!second.direction, 'a repeat is a line, not the first answer\'s direction');

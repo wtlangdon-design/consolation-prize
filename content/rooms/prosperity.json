@@ -125,9 +125,10 @@
               "T_RACCOON_OUT": true,
               "T_RACCOON_IN_COAT": false
             },
-            "say": "Thad takes off his coat and drops it over him. There is a great deal of coat, and then a great deal of raccoon.",
-            "direction": true,
+            "say": "Coat off, and over him.",
             "then": [
+              "…",
+              "There was a great deal of coat, and then a great deal of raccoon.",
               "I have him. I am not sure which of us is winning."
             ],
             "set": {

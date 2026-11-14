@@ -36,13 +36,6 @@
       }
     },
     {
-      "n": 3,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad swings. The head flies off into the dark and lands somewhere he cannot see.",
-      "where": "combinations (pickaxe on every_rock_surface, first)"
-    },
-    {
       "n": 4,
       "class": "A",
       "speaker": "thad",
@@ -61,13 +54,6 @@
       "seconds": 2.5
     },
     {
-      "n": 5,
-      "class": "C",
-      "speaker": "thad",
-      "words": "The head comes off again, gently, as if apologizing.",
-      "where": "combinations (pickaxe on every_rock_surface, second)"
-    },
-    {
       "n": 6,
       "class": "A",
       "speaker": "thad",
@@ -82,27 +68,6 @@
         0
       ],
       "seconds": 1.5
-    },
-    {
-      "n": 7,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad holds the head on with one hand and swings with the other. The rock gives. Warm air comes through, and behind it a dark that goes a long way down.",
-      "where": "combinations (pickaxe on every_rock_surface, third)"
-    },
-    {
-      "n": 8,
-      "class": "C",
-      "speaker": "thad",
-      "words": "A piece of the wall comes away in his hand. It is much heavier than a piece of wall should be.",
-      "where": "combinations (pickaxe on every_rock_surface, third)"
-    },
-    {
-      "n": 9,
-      "class": "C",
-      "speaker": "sump",
-      "words": "Stamp. Thad is alive.",
-      "where": "combinations (death_certificate on counter, at the filing)"
     },
     {
       "n": 10,
@@ -189,20 +154,6 @@
       "seconds": 3
     },
     {
-      "n": 33,
-      "class": "C",
-      "speaker": "hob",
-      "words": "He signs Form 31-E against the lamp post, and hands it back.",
-      "where": "dialogue/hob HOB_E6 option 1"
-    },
-    {
-      "n": 34,
-      "class": "C",
-      "speaker": "hob",
-      "words": "He looks at Thad for a long time.",
-      "where": "dialogue/hob HOB_C1 option 4"
-    },
-    {
       "n": 36,
       "class": "A",
       "speaker": "ozymandia",
@@ -261,13 +212,6 @@
       "seconds": 1.5
     },
     {
-      "n": 41,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "He thinks about it for some time.",
-      "where": "dialogue/pratt PRA_E3 option 1"
-    },
-    {
       "n": 49,
       "class": "A",
       "speaker": "pratt",
@@ -318,27 +262,6 @@
       "seconds": 2.5
     },
     {
-      "n": 55,
-      "class": "C",
-      "speaker": "sowerby",
-      "words": "A long pause. He writes it down.",
-      "where": "dialogue/sowerby SOW_C1 option 3"
-    },
-    {
-      "n": 56,
-      "class": "C",
-      "speaker": "sowerby",
-      "words": "His eyes fill.",
-      "where": "dialogue/sowerby SOW_C1 option 4"
-    },
-    {
-      "n": 57,
-      "class": "C",
-      "speaker": "sowerby",
-      "words": "He goes on. He is still going when Thad looks back from the door.",
-      "where": "dialogue/sowerby SOW_C1 option 4"
-    },
-    {
       "n": 58,
       "class": "A",
       "speaker": "sump",
@@ -372,13 +295,6 @@
         "id": "U-STAMP",
         "frame": 2
       }
-    },
-    {
-      "n": 61,
-      "class": "C",
-      "speaker": "sump",
-      "words": "reading",
-      "where": "dialogue/sump SUM_F1 option 1"
     },
     {
       "n": 62,
@@ -555,13 +471,6 @@
         0,
         5
       ]
-    },
-    {
-      "n": 75,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "He stops. For the only time in the game, he is completely still.",
-      "where": "dialogue/fanshawe FAN_B1 option 6"
     },
     {
       "n": 77,
@@ -915,20 +824,6 @@
       "holds": 6
     },
     {
-      "n": 107,
-      "class": "C",
-      "speaker": "procession_undertaker",
-      "words": "low",
-      "where": "rooms/boot_hill undertaker TALK TO (the stalled procession)"
-    },
-    {
-      "n": 108,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up.",
-      "where": "rooms/boot_hill hearse USE, OPEN (the ride up)"
-    },
-    {
       "n": 109,
       "class": "A",
       "speaker": "ozymandia",
@@ -970,27 +865,6 @@
         2
       ],
       "seconds": 1.5
-    },
-    {
-      "n": 117,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "He hands Thad the hen.",
-      "where": "dialogue/pratt PRA_E3 option 2"
-    },
-    {
-      "n": 118,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad sets the hen at the mouth of the hole. The hen considers the hole. The raccoon considers the hen. Half a raccoon comes out.",
-      "where": "combinations (hen on hole)"
-    },
-    {
-      "n": 119,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad takes off his coat and drops it over him. There is a great deal of coat, and then a great deal of raccoon.",
-      "where": "rooms/prosperity raccoon USE (with him halfway out)"
     },
     {
       "n": 120,
@@ -1155,55 +1029,6 @@
       ],
       "seconds": 1.6,
       "holds": 2
-    },
-    {
-      "n": 142,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad lays the wreath on his own coffin and straightens the ribbon.",
-      "where": "combinations (wreath on coffin)"
-    },
-    {
-      "n": 146,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
-      "where": "combinations (obituary on wreath)"
-    },
-    {
-      "n": 155,
-      "class": "C",
-      "speaker": "thad",
-      "words": "The hen eats out of Thad's hand, briskly, like a clerk stamping forms.",
-      "where": "combinations (oats on hen)"
-    },
-    {
-      "n": 156,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad lays the B on the lid, beside the name plate.",
-      "where": "combinations (capital_b on coffin)"
-    },
-    {
-      "n": 158,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad works the button into the coat's empty top buttonhole. The raccoon permits it.",
-      "where": "combinations (button on raccoon_in_coat)"
-    },
-    {
-      "n": 159,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.",
-      "where": "combinations (pikes_collar on raccoon_in_coat)"
-    },
-    {
-      "n": 160,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad puts the sprig in the coat's lapel.",
-      "where": "combinations (parsley on raccoon_in_coat)"
     },
     {
       "n": 167,

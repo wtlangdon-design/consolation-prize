@@ -104,7 +104,7 @@ Icons for all seven are asked for in the brief; until they are drawn the panel s
 **LISTEN** 1 "A dry whisper, like a jury." · 2 "Nothing. Oats are patient. It is the mule who is not." · 3 "A trickle, down the lining of my coat."
 
 **THE HEN** · USE A HANDFUL OF OATS
-- USE A HANDFUL OF OATS — *(The hen eats out of Thad's hand, briskly, like a clerk stamping forms.)* "She has taken the lot, and looked at the hand afterwards as though it had come up short." → A HANDFUL OF OATS leaves inventory.
+- USE A HANDFUL OF OATS — "She eats out of my hand, briskly, like a clerk stamping forms." "She has taken the lot, and looked at the hand afterwards as though it had come up short." → A HANDFUL OF OATS leaves inventory.
 
 **THE CONTRACT** · PICK UP *(in place of doc 120's line)*
 - PICK UP, *the first time* — "A man who picks up a contract at this table has as good as read it aloud. I have picked up the parsley." → A SPRIG OF PARSLEY
@@ -123,7 +123,7 @@ Icons for all seven are asked for in the brief; until they are drawn the panel s
 **LISTEN** 1 "Nothing. It has been pressed into my name so often it has no more to say." · 2 "A dull click against the tuning fork. Lead does not ring. It was never meant to." · 3 "Nothing. One letter is not yet an opinion."
 
 **THE COFFIN** · USE A CAPITAL B, *at the funeral*
-- USE A CAPITAL B — *(Thad lays the B on the lid, beside the name plate.)* "My name has had more B's out of this town than it ever had from my family. I return one, with the rest of me." → A CAPITAL B leaves inventory.
+- USE A CAPITAL B — "A B for the lid, beside the name plate." "My name has had more B's out of this town than it ever had from my family. I return one, with the rest of me." → A CAPITAL B leaves inventory.
 
 **THE WRONG TRIES** · *with the B*
 - **IGNATIUS FRAME** · USE A CAPITAL B — **FRAME:** "Keep it! I've a drawer of B's on order! You're the best thing that ever happened to the letter!"
@@ -157,9 +157,9 @@ Icons for all seven are asked for in the brief; until they are drawn the panel s
 - USE MY ROOM KEY, *again* — "It is locked. I heard it try the door a moment ago, from the inside, and give up."
 
 **THE RACCOON, DRESSED** · *with THE RACCOON, IN MY COAT in hand*
-- USE A BUTTON — *(Thad works the button into the coat's empty top buttonhole. The raccoon permits it.)* "The coat has wanted that button since Sacramento. It took a raccoon to make me see to it." → A BUTTON leaves inventory.
-- USE MR. PIKE'S COLLAR — *(Thad fastens Mr. Pike's collar round the raccoon's neck. The raccoon's expression does not change, which in a collar is correct.)* "Mr. Pike's collar, on a caller at last. He has the neck for it." → MR. PIKE'S COLLAR leaves inventory.
-- USE A SPRIG OF PARSLEY — *(Thad puts the sprig in the coat's lapel.)* "A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table." → A SPRIG OF PARSLEY leaves inventory.
+- USE A BUTTON — "Into the empty top buttonhole. He permits it." "The coat has wanted that button since Sacramento. It took a raccoon to make me see to it." → A BUTTON leaves inventory.
+- USE MR. PIKE'S COLLAR — "Round his neck. His expression has not changed, which in a collar is correct." "Mr. Pike's collar, on a caller at last. He has the neck for it." → MR. PIKE'S COLLAR leaves inventory.
+- USE A SPRIG OF PARSLEY — "In the lapel." "A buttonhole. He came out of a hole in my claim, and he is now dressed for the Colonel's table." → A SPRIG OF PARSLEY leaves inventory.
 
 ---
 

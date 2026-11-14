@@ -16,6 +16,9 @@ const NAMED_IN_SPEECH = {
   'FAN_A1/fanshawe1': 'the reply names it: "Take a map of the district, with my compliments."',
   'FAN_A1/fanshawe2': 'the reply names it: "Take a map of the district all the same."',
   // Errata 313 (Act II, no parentheticals): she runs it in a pause, not a printed direction, and hands it over in words.
+  // Errata 314 (Acts III and IV, no parentheticals): the hand-over is said, in the giver's own few words.
+  'HOB_E6/hob1': 'the reply names it: "Signed. Form 31-E."',
+  'PRA_E3/pratt_e3_2': 'the reply names it: "Hen."',
   'WIN_B2/winnie1': 'the reply names it: "Your assay.", and Thad names it again: "Then there\'s no Document B."',
 };
 

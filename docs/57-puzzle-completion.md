@@ -438,7 +438,7 @@ Asking anyone else to be executor is answered by the interest rule:
 
 *Room 33 → Room 34's second state.* Doc 54's three swings. On the third, after "a dark that goes a long way down":
 
-> *(A piece of the wall comes away in his hand. It is much heavier than a piece of wall should be.)* → THE SAMPLE; `T_BROKE_THROUGH`; `T_STRIKE_FOUND` → **F3**.
+> "A piece of the wall has come away in my hand. It is much heavier than a piece of wall should be." → THE SAMPLE; `T_BROKE_THROUGH`; `T_STRIKE_FOUND` → **F3**.
 
 *Doc 49's THE SEAM · PICK UP refusal stands: Thad takes nothing more. This one he will file.*
 
@@ -456,7 +456,7 @@ Asking anyone else to be executor is answered by the interest rule:
 
 **Beat 1 — the documents, laid down one by one, in any order:**
 
-> **THE COUNTER** · USE THE DEATH CERTIFICATE — **SUMP:** "You are deceased." — "I was. I'd like to stop." — **SUMP:** "Form 31-F. Notice of Return. It was printed in hope." *(Stamp. Thad is alive.)*
+> **THE COUNTER** · USE THE DEATH CERTIFICATE — **SUMP:** "You are deceased." — "I was. I'd like to stop." — **SUMP:** "Form 31-F. Notice of Return. It was printed in hope." *(Stamp.)* "Alive."
 > **THE COUNTER** · USE THE DEED — **SUMP:** "Claim Two. The adjoining holder." *(Stamp.)*
 > **THE COUNTER** · USE THE CERTIFICATE — **SUMP:** "Contiguity. A neighbor holding a Certificate of Contiguity may file an amended location on behalf of an absent claimholder. Section nineteen, sub-section four." *(beat)* "Nobody has ever read sub-section four." — "I have." — **SUMP:** "Yes. I saw you."
 > **THE COUNTER** · USE THE SAMPLE — **WINNIE:** "Twenty-two hundred to the ton. Assayed this morning, at my window, by me." *(She signs beside it.)*
@@ -470,7 +470,7 @@ Asking anyone else to be executor is answered by the interest rule:
 
 **Beat 4 — the read-back:**
 
-> **SUMP:** *(reading)* "Amended location, Claim One. Holder, Obadiah Mott. 'The strike lies at the place herein described.'" *(beat)* "Which is now described." *(beat)* "Under statute, a claim must be worked by its holder within thirty days, or it reverts to the Territory."
+> **SUMP:** "Amended location, Claim One. Holder, Obadiah Mott. 'The strike lies at the place herein described.'" *(beat)* "Which is now described." *(beat)* "Under statute, a claim must be worked by its holder within thirty days, or it reverts to the Territory."
 > **THAD:** "So Mr. Mott will have to come forward."
 > **SUMP:** "In person. To this window. Within thirty days." *(He blots it.)* "I shall look forward to it."
 > → `T_FILED`, **F5**. Room 36.

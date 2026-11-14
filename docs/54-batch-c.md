@@ -1429,9 +1429,9 @@
 ## F3 — breaking through *(errata 70 E)*
 
 > **THE ROCK** · USE THE PICKAXE, *before the void is found* — "I have dug enough holes in this territory on faith."
-> **THE VOID** · USE THE PICKAXE, *first* — *(Thad swings. The head flies off into the dark and lands somewhere he cannot see.)* "The Mercantile's pickaxe, performing to its price." *(He finds it and fits it back.)*
-> **THE VOID** · USE THE PICKAXE, *second* — *(The head comes off again, gently, as if apologizing.)* "Twice. It is consistent. Down here I have come to value that." *(He fits it back.)*
-> **THE VOID** · USE THE PICKAXE, *third* — *(Thad holds the head on with one hand and swings with the other. The rock gives. Warm air comes through, and behind it a dark that goes a long way down.)* → F3, `T_BROKE_THROUGH`; Room 34's second state.
+> **THE VOID** · USE THE PICKAXE, *first* — "The head has flown off into the dark, somewhere I cannot see." "The Mercantile's pickaxe, performing to its price." *(He finds it and fits it back.)*
+> **THE VOID** · USE THE PICKAXE, *second* — "Off again. Gently, as if it were apologizing." "Twice. It is consistent. Down here I have come to value that." *(He fits it back.)*
+> **THE VOID** · USE THE PICKAXE, *third* — "One hand on the head and one on the handle." *(beat)* "It gives. Warm air, and behind it a dark that goes a long way down." → F3, `T_BROKE_THROUGH`; Room 34's second state.
 
 ## Overrides
 

@@ -83,3 +83,25 @@ Read in play order: the Registrar and the three papers, Fiddler's Gulch and back
 | A long or very long pause, anywhere | Printed: "long pause", "a very long pause" | The speaker says "…" (doc 58 rule 2), in every extractor | doc 130 |
 
 What is still printed is Act III's and Act IV's: 58 places, by `tests/no-parentheticals.test.mjs`.
+
+## Acts III and IV
+
+Read in play order: the offer, the petition, the eulogy's price, the estate sale, the certificate, the executor, the séance, the hearse, the coffin, the archive, the confession; then the Listening, the strike, the assay and the filing. The trees and scenes held up better than the first two acts. These did not, and every printed direction left in the game went with them.
+
+| Where | Was | Now | Why |
+|---|---|---|---|
+| Winnie, WIN_F1 | "I congratulated you about the pianos. Consult your records." | "Congratulations are for people the next clerk has to believe. I have written it down instead." | 2: only true if the player had once picked "I tune pianos" |
+| Hob, HOB_C2 | *(He laughs. Once. It is the only laugh in the scene and it is awful.)*, shown as nothing | "Ha." | doc 130: the laugh is heard |
+| Hob, HOB_C1 option 4 | *(He looks at Thad for a long time.)* "…Yes." | "…Yes." | doc 130, and invariant 7: now shaped exactly like the options around it |
+| Hob, HOB_E6 | *(He signs Form 31-E against the lamp post, and hands it back.)* | "I know the mud." … "Signed. Form 31-E." | doc 130 |
+| The Colonel, "You were never a colonel." | *(He stops. For the only time in the game, he is completely still.)* | "…" | doc 130 |
+| Sowerby, the eulogy | *(A long pause. He writes it down.)*; *(His eyes fill.)* … *(He goes on. He is still going when Thad looks back from the door.)* | "…" "Present. …"; "Oh!" "He tuned pianos. …" — Thad: "I believe he will be some time." | doc 130 |
+| Pratt, the estate sale | *(He thinks about it for some time.)*; *(He hands Thad the hen.)* | "…"; "Hen." | doc 130 |
+| Sump | *(Stamp. Thad is alive.)*; *(reading)* | *(Stamp.)* "Alive."; nothing | doc 130 |
+| The undertaker at the gate | *(low)* | nothing: he says it | doc 130 |
+| The hearse | *(Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up.)* | "In the back, and into my own box." "Ahead of schedule." | doc 130 |
+| The pickaxe, three swings and the piece of wall | Printed (doc 95 had kept them printed) | "The head has flown off into the dark, somewhere I cannot see."; "Off again. Gently, as if it were apologizing."; "One hand on the head and one on the handle." … "It gives. …"; "A piece of the wall has come away in my hand. …" The refitting stays acted. | doc 130 |
+| The hen and the raccoon | Printed actions: the hen at the hole, the coat, the oats, the button, the collar, the sprig | Said in a few words each ("The hen, at the mouth of the hole." … "She considers the hole. The hole considers her."; "Coat off, and over him." …) | doc 130 |
+| The funeral's wreath, card and B | Printed | "My own wreath, on my own coffin. I have straightened the ribbon."; "Folded, and tucked under the ribbon."; "A B for the lid, beside the name plate." | doc 130 |
+
+Nothing in the game is printed in parentheses now. Doc 95 keeps only the 65 acted directions.

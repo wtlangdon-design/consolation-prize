@@ -481,14 +481,9 @@
         ],
         "TALK_TO": [
           {
-            "say": "low",
+            "say": "She's never carried an empty box up this hill. I don't know how she can tell.",
             "by": "procession_undertaker",
-            "direction": true,
             "then": [
-              {
-                "speaker": "procession_undertaker",
-                "line": "She's never carried an empty box up this hill. I don't know how she can tell."
-              },
               "I know exactly how she can tell."
             ],
             "repeat": [
@@ -1018,8 +1013,7 @@
             "when": {
               "T_HILL_PRAYER": true
             },
-            "say": "Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up.",
-            "direction": true,
+            "say": "In the back, and into my own box.",
             "then": [
               "Ahead of schedule.",
               {
@@ -1060,8 +1054,7 @@
             "when": {
               "T_HILL_PRAYER": true
             },
-            "say": "Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up.",
-            "direction": true,
+            "say": "In the back, and into my own box.",
             "then": [
               "Ahead of schedule.",
               {
