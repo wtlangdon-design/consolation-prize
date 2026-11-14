@@ -42,6 +42,11 @@ const scenarios = {
   'pick-fit': { fixture: 'r33-b', steps: [{ use: 'pickaxe', on: 'every_rock_surface' }], burst: 24 },
   'deke-watch': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { talk: 'deke_vessel' }, { option: 'deke_vessel2' }, { option: 'deke_vessel3' }, { option: 'deke_vessel4' }], burst: 12 },
   'deke': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { talk: 'deke_vessel' }, { option: 'deke_vessel2' }, { option: 'deke_vessel3' }, { option: 'deke_vessel4' }, { option: 'deke_vessel6' }], burst: 20 },
+  // Errata 308, the no-parentheticals sample: Act I from the swindle to the claim.
+  'np-fanshawe-map': { fixture: 'r11-a', steps: [{ enter: 'fanshawe_office' }, { wait: 3 }, { talk: 'fanshawe' }, { option: 'fanshawe1' }], burst: 10 },
+  'np-pratt': { fixture: 'r25-a', steps: [{ enter: 'pratts_claim' }, { wait: 3 }, { talk: 'pratt' }, { option: 'pratt1' }], burst: 10 },
+  'np-raccoon': { fixture: 'r23-a', steps: [{ enter: 'prosperity' }, { wait: 3 }, { talk: 'raccoon' }, { option: 'raccoon1' }], burst: 8 },
+  'np-egg': { fixture: 'r23-a', steps: [{ enter: 'prosperity' }, { wait: 3 }, { flags: { T_EGGS_IMPROVED: true } }, { use: 'eggs', on: 'hole' }], burst: 16 },
   // Errata 307: the toast takes the glass off the barrel, and puts it back.
   'deke-toast': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { flags: { T_PIKE_DEAD: false } }, { talk: 'deke_vessel' }, { option: 'deke_vessel9' }], burst: 6 },
 };

@@ -120,7 +120,7 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 **BEAT 3** *(doc 57 A10, word for word; said after the CLOSE)*
 > **FANSHAWE:** *(Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.)* "Keep it. I have dozens."
 
-**`FAN_A2` option 6**, *"I mean to work it myself."* — **FANSHAWE:** "Of course you do." *(He does not take the dish away.)* *(second)* **FANSHAWE:** "Of course. Of course. Do try the fish."
+**`FAN_A2` option 6**, *"I mean to work it myself."* — **FANSHAWE:** "Of course you do." **FANSHAWE:** "Don't let your fish go cold." *(second)* **FANSHAWE:** "Of course. Of course. Do try the fish."
 
 **`FAN_A2`, leaving the conversation** — **FANSHAWE:** "Eat, eat. I can talk enough for two, and frequently do."
 
@@ -196,10 +196,10 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 ### The eggs, improved
 
 **DR. PURVIS'S TONIC** · USE *on THE PICKLED EGGS*
-- USE DR. PURVIS'S TONIC — *(Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.)* "The eggs have been restored. I could not say to what, and I notice the label does not either." → the eggs, improved; the tonic is not spent.
+- USE DR. PURVIS'S TONIC — "A drop of Dr. Purvis." *(beat)* "The brine has gone the color of a bruise. The eggs have been restored. I could not say to what, and I notice the label does not either." → the eggs, improved; the tonic is not spent.
 
 **THE HOLE** · USE THE PICKLED EGGS, *improved, with the raccoon in*
-- USE THE PICKLED EGGS, *improved* — "An egg at the entrance, with Dr. Purvis's compliments." *(The egg goes in. There is a pause. The egg comes back out, at speed.)* "He has returned it. I did not know they could throw."
+- USE THE PICKLED EGGS, *improved* — "An egg at the entrance, with Dr. Purvis's compliments." *(beat)* *(Thad ducks.)* "He has sent it back, at speed. I did not know they could throw."
 
 ### The card
 

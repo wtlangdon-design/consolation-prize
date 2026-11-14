@@ -7858,3 +7858,42 @@ Lessons:
 - `tests/held-props.test.mjs`: while a figure holds something, it is gone from where it stood; and he is seen to finish the drink before the glass stands empty. Proved by removing `heldBy` (it fails).
 - `tests/cutaways.test.ts`: no cut-away plays on the swindle alone.
 - Doc 55 section 8: a line that points at something the player cannot see.
+
+## 308 · No parentheticals (Tyler, 2026-11-14)
+
+Tyler, told that Monkey Island printed nothing on screen but what people say, and hid the inventory during a conversation: "I don't like the parentheticals. Id prefer to find other ways to make all the parentheticals happen (dialogue, actions, movements, etc)".
+
+It reverses doc 58's rule that a direction is shown, in parentheses, in the quieter ink, and doc 95's confirmation that the directions whose wording carries the joke stay printed. **Doc 130** is the audit and the record. All 98 printed directions are given a way:
+- **cut**, where what is said or shown already carries it;
+- **said by Thad**, in the first person, as Guybrush does;
+- **said by the other person**;
+- **acted**, in frames the figure has;
+- **put on the image list**;
+- **a pause**, shown as "…".
+
+**The rules** (doc 130 Part One):
+- Nothing a direction carried for the game is lost.
+- A narrator's dry aside never becomes Thad's: he is never sarcastic.
+- HOB_C1 option 4 gets nothing it did not have.
+- No new art in the pass.
+- A sample first.
+
+**The sample: Act I, from the swindle to the claim.** Twelve rows, written in their own documents (docs 04, 27 and 120):
+- Vessel's hand out, for the hand-over.
+- Fanshawe's map, handed over in words ("Take a map of the district, with my compliments."; "… all the same."), as errata 228 requires; its LOOK says it is circled.
+- Fanshawe's two dinner asides, cut. They gave the Fanshawe Rule away.
+- The dish, which ends the dinner, now pointed at by the Colonel: "Don't let your fish go cold."
+- Pratt, who is next door and cannot be seen to walk over: "Put my hand in there once." … "He's in there."
+- The raccoon turning his head before he is named, and "He declines." on its own.
+- Thad's own words for the tonic in the eggs.
+- The egg coming back, with Thad ducking (doc 95 row 175).
+
+Thad's reach, for every hand-over in the game, is on the image list.
+
+CLAUDE.md's nineteenth exception records the permission. **No other room changes until Tyler has played the sample.**
+
+Lesson: `tests/no-parentheticals.test.mjs`:
+- in the rooms done, nothing is printed;
+- across the game the printed count only goes down (129 places after the sample; a pass lowers it).
+
+Proved by restoring the old Pratt and Fanshawe trees (both tests fail).

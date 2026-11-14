@@ -128,12 +128,6 @@
           "tag": "PROGRESS",
           "text": "Number two. I've named her Prosperity.",
           "afterUse": "remove",
-          "gives": [
-            "company_map"
-          ],
-          "puzzle": {
-            "A4": "complete"
-          },
           "exchange": [
             {
               "speaker": "fanshawe",
@@ -141,22 +135,25 @@
             },
             {
               "speaker": "fanshawe",
-              "line": "He gives Thad a map of the district. Claim Two is already circled.",
-              "direction": true
+              "line": "…"
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "Take a map of the district, with my compliments."
             }
-          ]
+          ],
+          "gives": [
+            "company_map"
+          ],
+          "puzzle": {
+            "A4": "complete"
+          }
         },
         {
           "id": "fanshawe2",
           "tag": "PROGRESS",
           "text": "I'd rather not say.",
           "afterUse": "remove",
-          "gives": [
-            "company_map"
-          ],
-          "puzzle": {
-            "A4": "complete"
-          },
           "exchange": [
             {
               "speaker": "fanshawe",
@@ -164,10 +161,19 @@
             },
             {
               "speaker": "fanshawe",
-              "line": "He gives the map anyway. It has Claim Two circled.",
-              "direction": true
+              "line": "…"
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "Take a map of the district all the same."
             }
-          ]
+          ],
+          "gives": [
+            "company_map"
+          ],
+          "puzzle": {
+            "A4": "complete"
+          }
         },
         {
           "id": "fanshawe3",
@@ -237,17 +243,7 @@
           "tag": "TOPIC",
           "text": "You're welcome to the working of it while I learn the trade.",
           "afterUse": "remove",
-          "exchange": [
-            {
-              "speaker": "fanshawe",
-              "line": "A lease! How modern of you. I'll have Sump draw something up."
-            },
-            {
-              "speaker": "fanshawe",
-              "line": "He will not. Sump is never asked.",
-              "direction": true
-            }
-          ]
+          "say": "A lease! How modern of you. I'll have Sump draw something up."
         },
         {
           "id": "fanshawe3",
@@ -257,17 +253,7 @@
           "after": [
             "fanshawe1"
           ],
-          "exchange": [
-            {
-              "speaker": "fanshawe",
-              "line": "Then we agree entirely, and that is the best foundation for anything. More wine?"
-            },
-            {
-              "speaker": "fanshawe",
-              "line": "The subject has gone wherever subjects go at his table.",
-              "direction": true
-            }
-          ]
+          "say": "Then we agree entirely, and that is the best foundation for anything. More wine?"
         },
         {
           "id": "fanshawe4",
@@ -317,8 +303,7 @@
             },
             {
               "speaker": "fanshawe",
-              "line": "He does not take the dish away.",
-              "direction": true
+              "line": "Don't let your fish go cold."
             }
           ]
         },

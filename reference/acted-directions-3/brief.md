@@ -65,11 +65,10 @@ When done, commit to a branch named `acted-directions-3-art`, with `reference/ac
 - **Row 172** (his root list, option 6: "Could I carry your bag to the coach?", answered "It goes when I go."): *He grips it with both hands.*
   - **Needs:** the bag held up against his chest in both arms, protective, as a man holds something he will not be parted from. Frame 3 is one-handed and does not stand in.
 
-### `deke_vessel` (the Nugget; the pose is Thad's)
+### `thad` (every hand-over in the game)
 
-- **The row is Vessel's conversation, but the movement is Thad's.** Thad's clips are in `content/actors/thad.json`. Thad stands across the whiskey barrel from Vessel, facing right (`art/actors/thad-stand-right/`). His `give-offer` clip is from the older profile drawing (doc 36 Q107) and jumps from his stand, so it does not stand in.
-- **Row 174** (Vessel's root list, option 6: "Done! I'll take it.", answered "Pleasure, son. Look after her. She's got character."): *Thad hands over four dollars and the watch.*
-  - **Needs:** a clip `hand-over`, facing right. Frame 0 his right stand frame, byte for byte. Then his near arm out at chest height, the coins and the watch's chain in his hand; then the hand back at his side, empty. Three frames. Vessel takes them in his own frame 2 (his hand out, palm up), which he already has.
+- **Clips:** `content/actors/thad.json`. His `give-offer` clip is from the older profile drawing (doc 36 Q107) and jumps from his stand, so it does not stand in.
+- **Needs (errata 307, 308):** Monkey Island's one reusable reach, for every time Thad hands something over: Vessel's four dollars and the watch first. A clip `hand-over`, facing right and facing left. Frame 0 his stand frame in that facing, byte for byte; then his near arm out at chest height, his hand closed on something small; then the hand back at his side, empty. Three frames a facing. No row waits on it: until it is drawn, the other person's hand carries the moment (doc 95 row 174).
 
 ### `map_seller` (Main Street)
 

@@ -925,6 +925,12 @@
    "date": "2026-11-14",
    "kind": "loosened",
    "why": "Errata 307: by Tyler's ruling (he chose to cut the Clarion cut-away after the swindle: \"so abrupt and odd ... we're SOOO early in the story\"), doc 96's three cut-aways are two. The test's count of three and its positional lookups follow the ruling; it gains a test that no cut-away plays on the swindle alone. It did not misfire: the content changed under it."
+  },
+  {
+   "check": "tests/gifts-shown.test.mjs",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 308 (no parentheticals, Tyler's ruling): the Colonel's map was handed over by a printed direction; it is now handed over in his words (\"Take a map of the district, with my compliments.\"), the way the test's NAMED_IN_SPEECH list already allows. Two entries added there, and the self-test's fixture moved to a node id no entry names. It did not misfire: the rule it holds (errata 228, no gift arrives unseen) still holds."
   }
  ]
 }

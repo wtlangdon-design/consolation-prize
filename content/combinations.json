@@ -808,12 +808,13 @@
           },
           "say": "An egg at the entrance, with Dr. Purvis's compliments.",
           "then": [
+            "…",
             {
               "speaker": "thad",
-              "line": "The egg goes in. There is a pause. The egg comes back out, at speed.",
+              "line": "Thad ducks.",
               "direction": true
             },
-            "He has returned it. I did not know they could throw."
+            "He has sent it back, at speed. I did not know they could throw."
           ],
           "takes": [
             "eggs"
@@ -2430,7 +2431,7 @@
       "room": "prosperity",
       "target": "eggs",
       "otherwise": "pool",
-      "say": "Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.",
+      "say": "A drop of Dr. Purvis.",
       "note": "Doc 120 (THE LINES; errata 248): Dr. Purvis's tonic on the pickled eggs, either way round, at the claim. The tonic is not spent (doc 118's handkerchief wants it later).",
       "rules": [
         {
@@ -2438,10 +2439,10 @@
           "when": {
             "T_EGGS_IMPROVED": false
           },
-          "say": "Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.",
-          "direction": true,
+          "say": "A drop of Dr. Purvis.",
           "then": [
-            "The eggs have been restored. I could not say to what, and I notice the label does not either."
+            "…",
+            "The brine has gone the color of a bruise. The eggs have been restored. I could not say to what, and I notice the label does not either."
           ],
           "set": {
             "T_EGGS_IMPROVED": true
@@ -2454,7 +2455,7 @@
       "room": "prosperity",
       "target": "tonic",
       "otherwise": "pool",
-      "say": "Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.",
+      "say": "A drop of Dr. Purvis.",
       "note": "Doc 120 (THE LINES; errata 248): Dr. Purvis's tonic on the pickled eggs, either way round, at the claim. The tonic is not spent (doc 118's handkerchief wants it later).",
       "rules": [
         {
@@ -2462,10 +2463,10 @@
           "when": {
             "T_EGGS_IMPROVED": false
           },
-          "say": "Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.",
-          "direction": true,
+          "say": "A drop of Dr. Purvis.",
           "then": [
-            "The eggs have been restored. I could not say to what, and I notice the label does not either."
+            "…",
+            "The brine has gone the color of a bruise. The eggs have been restored. I could not say to what, and I notice the label does not either."
           ],
           "set": {
             "T_EGGS_IMPROVED": true

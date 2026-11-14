@@ -12,6 +12,9 @@ const NAMED_IN_SPEECH = {
   'FRA_E1/frame1': 'the reply names it: an obituary',
   'LIV_A1/livery_man5': 'the reply is about the blanket in his hand, asked for by name in the option',
   'SHE_D1/sheng2': 'the reply names the sum, and the sum is the item',
+  // Errata 308 (no parentheticals): the Colonel hands the map over in words, as Monkey Island would, not in a printed direction.
+  'FAN_A1/fanshawe1': 'the reply names it: "Take a map of the district, with my compliments."',
+  'FAN_A1/fanshawe2': 'the reply names it: "Take a map of the district all the same."',
 };
 
 export function bareGifts(trees) {
@@ -38,6 +41,7 @@ test('every gift in a conversation is shown being given, or named as it is', () 
 });
 
 test('the check catches the map that arrived unseen', () => {
-  const old = [{ id: 'T', nodes: { FAN_A1: { options: [{ id: 'fanshawe1', gives: ['company_map'], say: 'x' }] } } }];
+  // The map as it once arrived, under a node id no exception names (the real one now hands it over in words).
+  const old = [{ id: 'T', nodes: { FAN_X1: { options: [{ id: 'fanshawe1', gives: ['company_map'], say: 'x' }] } } }];
   assert.equal(bareGifts(old).length, 1);
 });
