@@ -955,6 +955,12 @@
    "date": "2026-11-14",
    "kind": "loosened",
    "why": "Errata 311: tightened, not loosened. The six poses waiting on art are drawn and acted, so the cap falls from 122 to 117; the friction reader sees the number edited."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 312 (Tyler: \"Try the camera zoom\"): Main Street's view is 1920/1.5 room pixels across and scrolls down as well, so the follow test measures against the view's width and the click test goes through toScreen and toWorldPoint, both coordinates. It did not misfire: the camera changed under it, and it still asks whether a thing is clickable exactly where it is drawn."
   }
  ]
 }
