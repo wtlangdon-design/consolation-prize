@@ -286,12 +286,11 @@
           "exchange": [
             {
               "speaker": "sowerby",
-              "line": "A long pause. He writes it down.",
-              "direction": true
+              "line": "…"
             },
             {
               "speaker": "sowerby",
-              "line": "…Present. Three words, and one of them is 'was'. I shall add an 'amen' at no charge; I cannot send a man into the ground on three."
+              "line": "Present. Three words, and one of them is 'was'. I shall add an 'amen' at no charge; I cannot send a man into the ground on three."
             }
           ]
         },
@@ -303,17 +302,15 @@
           "exchange": [
             {
               "speaker": "sowerby",
-              "line": "His eyes fill.",
-              "direction": true
+              "line": "Oh!"
             },
             {
               "speaker": "sowerby",
               "line": "He tuned pianos. He brought order to the very instruments of praise, and asked nothing, and was paid less—"
             },
             {
-              "speaker": "sowerby",
-              "line": "He goes on. He is still going when Thad looks back from the door.",
-              "direction": true
+              "speaker": "thad",
+              "line": "I believe he will be some time."
             }
           ]
         },

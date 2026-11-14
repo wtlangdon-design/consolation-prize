@@ -99,7 +99,8 @@ test('F3: before the score is in tune the rock refuses; then three swings, and t
   });
   for (const swing of swings.slice(0, 2)) {
     assert.ok(swing.say && docs.includes(swing.say), 'the head comes off');
-    assert.equal(swing.direction, true, 'performed as a direction');
+    // Errata 314 (doc 130): Thad says where the head went; nothing is printed. The refitting stays acted (pick-fit).
+    assert.ok(!swing.direction, 'said, not printed');
   }
   assert.ok(state.flags.test({ T_BROKE_THROUGH: true, T_STRIKE_FOUND: true }));
   assert.ok(state.puzzleComplete('F3'));

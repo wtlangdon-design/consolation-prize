@@ -225,18 +225,18 @@ To be written:
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "I'm selling the effects of the late Mr. Grubb." | `[PROGRESS · remove]` | "Who?" — *"Me. In advance."* — *(He thinks about it for some time.)* "Raccoon." — *"The raccoon isn't mine."* — "Lives on your claim." *(beat)* "Effect." — *"How much?"* — "Two dollars and sixty cents." — *"That is exactly what I need."* — "Asked the undertaker." *(beat)* "Don't fetch." | sets `T_RACCOON_WANTED` |
-| 2 | "Could I borrow your hen?" | `[PROGRESS · remove]` · after 1 | "Hen comes back." — *"Of course."* — "Hen comes back." *(He hands Thad the hen.)* | gives THE HEN |
+| 1 | "I'm selling the effects of the late Mr. Grubb." | `[PROGRESS · remove]` | "Who?" — *"Me. In advance."* — *(long pause)* "Raccoon." — *"The raccoon isn't mine."* — "Lives on your claim." *(beat)* "Effect." — *"How much?"* — "Two dollars and sixty cents." — *"That is exactly what I need."* — "Asked the undertaker." *(beat)* "Don't fetch." | sets `T_RACCOON_WANTED` |
+| 2 | "Could I borrow your hen?" | `[PROGRESS · remove]` · after 1 | "Hen comes back." — *"Of course."* — "Hen comes back." *(beat)* "Hen." | gives THE HEN |
 | 3 | "Why do you want him?" | `[COMIC · retain]` · after 1 | "Bit me." *(pause)* "Nobody's bit me in twenty years." *(pause)* "Respect it." *(second)* "Respect it." | |
 
 **THE RACCOON** · *in the hole, after `T_RACCOON_WANTED`*
 - PICK UP, *or* USE — "Not while he's in the hole. I have seen how that goes, and so has Mr. Pratt's thumb."
 - USE THE TUNING FORK — "He has heard a great deal of A in his time. None of it has moved him."
 - **THE HOLE** · USE, *before the hen* — "My coat over the hole would only make it warmer. He would write to thank me."
-- USE THE HEN, *on THE HOLE* — *(Thad sets the hen at the mouth of the hole. The hen considers the hole. The raccoon considers the hen. Half a raccoon comes out.)* "Halfway. He is a careful animal." → `T_RACCOON_OUT`
+- USE THE HEN, *on THE HOLE* — "The hen, at the mouth of the hole." *(beat)* "She considers the hole. The hole considers her." *(beat)* "Halfway. He is a careful animal." → `T_RACCOON_OUT`
 - PICK UP, *with the raccoon halfway out* — "With my hands? Mr. Pratt tried that, and now he has respect."
 - USE THE HEN, *with the raccoon halfway out* — "He looks at the hen. The hen looks at him. Neither of them will settle this without my coat."
-- USE, *with the raccoon halfway out* — *(Thad takes off his coat and drops it over him. There is a great deal of coat, and then a great deal of raccoon.)* "I have him. I am not sure which of us is winning." → THE RACCOON, IN MY COAT
+- USE, *with the raccoon halfway out* — "Coat off, and over him." *(beat)* "There was a great deal of coat, and then a great deal of raccoon." "I have him. I am not sure which of us is winning." → THE RACCOON, IN MY COAT
 
 **THE SALE** · USE THE RACCOON, IN MY COAT *on Pratt*
 > **PRATT:** *(He opens the coat a little and looks in.)* "Raccoon."

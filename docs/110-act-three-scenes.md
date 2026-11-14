@@ -120,7 +120,7 @@ Funeral day, after the séance. The procession has reached the foot of Boot Hill
 **LISTEN** 1 "He is turning pages to find his place, and finding it twice." · 2 "He hums the opening of a hymn under his breath, to see if it still fits." · 3 "Nothing. He is saving it."
 
 **TALK TO THE UNDERTAKER** · *while stalled*
-> **UNDERTAKER:** *(low)* "She's never carried an empty box up this hill. I don't know how she can tell."
+> **UNDERTAKER:** "She's never carried an empty box up this hill. I don't know how she can tell."
 > **THAD:** "I know exactly how she can tell."
 > *(second)* **UNDERTAKER:** "Nine years, sir, and she has never once stopped at this gate."
 
@@ -149,7 +149,7 @@ Funeral day, after the séance. The procession has reached the foot of Boot Hill
 
 **THE HEARSE** · USE, *or* OPEN
 - *while stalled, before the prayer* — "Not with half the town watching. A man climbing into his own coffin draws a crowd, and I already have one."
-- *while the prayer runs* — *(Thad opens the back of the hearse, climbs in and lies down in his own coffin. Grievance's ears come up.)* **THAD:** "Ahead of schedule." → `T_RODE_UP`, **E6b**, and the ride.
+- *while the prayer runs* — **THAD:** "In the back, and into my own box." "Ahead of schedule." → `T_RODE_UP`, **E6b**, and the ride.
 
 **THE RIDE** · *over black*
 1. "Grievance went through the gate before the amen."

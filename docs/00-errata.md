@@ -7985,3 +7985,16 @@ Lesson:
 - `tests/no-parentheticals.test.mjs` now covers Act II's trees and rooms, and its cap falls from 117 to 58. Proved by putting a direction back into the rule-keeper's tree (it fails).
 - Doc 55 section 8: an opening is heard on every visit and before any choice, so it never answers a question nobody has asked.
 
+## 314 · The dialogue pass, Acts III and IV; nothing printed (Tyler, 2026-11-14)
+
+Under errata 310's standard and permission ("Fix all lines that should be fixed, even weak ones. I only want to play the result."), with doc 130's parentheticals done in each room. Doc 132's Acts III and IV table is the record.
+
+- **Lines.** Winnie's Act IV callback to "the pianos" was true only if the player had picked an optional line in Act I; it now calls back a line every player hears. Hob's one laugh in the confession had been shown as nothing; it is "Ha."
+- **Every printed direction left in the game is gone**: 58 places, from Hob, the Colonel, Sowerby, Pratt, Sump, the undertaker, the hearse, the pickaxe, the hen and the raccoon, and the funeral's wreath, card and B. Each is said in a few words by the one doing it, or is a pause ("…"), or is cut. The pickaxe extractor reads a spoken line and a pause (`tools/extract-content.mjs`, F3).
+- **Invariant 7.** HOB_C1 option 4 loses its printed look and gains nothing: it is "…Yes.", one said line, as every option beside it is. The check that it was "left printed, unmarked" now checks that it has no direction at all and that the node's options are all shaped alike.
+- **Doc 95** keeps its 65 acted rows; the last 25 printed rows are said now. A 65 · B 0 · C 0.
+
+Lesson:
+- `tests/no-parentheticals.test.mjs`: the cap is 0. Nothing is printed anywhere in the game, and any new printed direction fails the build. Proved by putting a direction back (it fails).
+- `tests/acted-directions.test.ts`: HOB_C1's options are all shaped alike, with no direction on any of them (invariant 7).
+

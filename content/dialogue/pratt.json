@@ -521,8 +521,7 @@
             },
             {
               "speaker": "pratt",
-              "line": "He thinks about it for some time.",
-              "direction": true
+              "line": "…"
             },
             {
               "speaker": "pratt",
@@ -593,8 +592,11 @@
             },
             {
               "speaker": "pratt",
-              "line": "He hands Thad the hen.",
-              "direction": true
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Hen."
             }
           ],
           "after": [

@@ -204,7 +204,7 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 ### The card
 
 **THE OBITUARY** · USE *on THE COLONEL'S WREATH*
-- USE THE OBITUARY — *(Thad folds the obituary and tucks it under the ribbon, where a card goes.)* "Every wreath wants a card. This one says THADEUS GRUBBE, twice wrong, and SINCERELY, which I shall take on trust." → THE OBITUARY leaves inventory.
+- USE THE OBITUARY — "Folded, and tucked under the ribbon." "Every wreath wants a card. This one says THADEUS GRUBBE, twice wrong, and SINCERELY, which I shall take on trust." → THE OBITUARY leaves inventory.
 
 **THE COFFIN** · USE THE COLONEL'S WREATH, *with the card in it* — doc 118's exchange, then:
 > **THE UNDERTAKER:** "Card's spelled wrong."

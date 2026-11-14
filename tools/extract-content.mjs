@@ -1771,8 +1771,10 @@ function combinations() {
     // (T_IN_TUNE): before it, the rock's case answers wherever he swings.
     const r33 = d54.slice(d54.indexOf('# ROOM 33 · THE LISTENING CHAMBER'));
     const f3Body = r33.slice(r33.indexOf('## F3'), r33.indexOf('\n## ', r33.indexOf('## F3') + 5));
+    // A bare pause is Thad's "…" (doc 58 rule 2); since doc 130 the swings are said, not printed.
     const performed = (text) => [...text.matchAll(/\*\(([^)]*)\)\*|"([^"]+)"/g)]
-      .map((m) => (m[1] !== undefined ? { speaker: 'thad', line: m[1], direction: true } : m[2]));
+      .map((m) => (m[1] === undefined ? m[2] : /^(beat|pause|long pause)$/i.test(m[1].trim()) ? '…'
+        : { speaker: 'thad', line: m[1], direction: true }));
     const swing = (subject, label) => {
       const m = new RegExp(`^> \\*\\*${subject}\\*\\* · USE THE PICKAXE, \\*${label}\\* — (.+)$`, 'm').exec(f3Body);
       if (!m) throw new Error(`doc 54 Room 33: no "${subject} · USE THE PICKAXE, ${label}"`);
@@ -1783,8 +1785,8 @@ function combinations() {
       ...(rest.length ? { then: rest } : {}),
     });
     const f3 = d57.slice(d57.indexOf('## F3 '), d57.indexOf('\n## ', d57.indexOf('## F3 ') + 5));
-    const piece = performed(/^> (\*\(.+?\)\*) →/m.exec(f3)?.[1] ?? '');
-    if (!piece.length) throw new Error('doc 57 F3: no direction for the piece of wall');
+    const piece = performed(/^> (\*\(.+?\)\*|".+?") →/m.exec(f3)?.[1] ?? '');
+    if (!piece.length) throw new Error('doc 57 F3: no line or direction for the piece of wall');
     rebuilt.push({
       item: 'pickaxe', room: 'listening_chamber', target: 'every_rock_surface', puzzle: 'F3', say: swing('THE ROCK', 'before the void is found')[0],
       note: 'Doc 54 Room 33 (errata 70 E): the pickaxe on the rock before the void is found; on the void, three swings, then F3 -- THE SAMPLE, T_BROKE_THROUGH, T_STRIKE_FOUND -- and Room 34\'s second state (errata 69 A, 99 H).',

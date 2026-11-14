@@ -151,8 +151,11 @@
             },
             {
               "speaker": "hob",
-              "line": "He signs Form 31-E against the lamp post, and hands it back.",
-              "direction": true
+              "line": "…"
+            },
+            {
+              "speaker": "hob",
+              "line": "Signed. Form 31-E."
             }
           ],
           "echo": "You'd be executor of my estate. It's forty feet of mud."
@@ -241,20 +244,10 @@
           "tag": "COMIC",
           "text": "You have very neat handwriting.",
           "afterUse": "remove",
+          "say": "…Yes.",
           "set": {
             "T_HOB_HANDWRITING": true
-          },
-          "exchange": [
-            {
-              "speaker": "hob",
-              "line": "He looks at Thad for a long time.",
-              "direction": true
-            },
-            {
-              "speaker": "hob",
-              "line": "…Yes."
-            }
-          ]
+          }
         },
         {
           "id": "hobx",
@@ -335,7 +328,7 @@
           "tag": "COMIC",
           "text": "You could have picked a better thumb.",
           "afterUse": "remove",
-          "beat": "He laughs. Once. It is the only laugh in the scene and it is awful."
+          "say": "Ha."
         },
         {
           "id": "hob6",

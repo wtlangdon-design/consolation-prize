@@ -215,7 +215,7 @@ Then:
 |---|---|---|---|
 | 1 | "Run it." | `[PROGRESS · remove]` | *(She runs it herself, at the window, in front of him. It is very good gold.)* *(The first assay the player ever watches happen.)* "Twenty-two hundred dollars to the ton." *(beat)* "Nine years I've waited to write down a number I believed." *(She writes it down.)* "File it. I'll be at the Registrar's when you do." *(sets `T_ASSAY_RUN`; errata 75)* |
 | 2 | "You knew the nineteen names meant something." | `[TOPIC · retain]` | "I knew they meant something. Knowing what is your department. Mine is the book." *(second)* "Your department, Mr. Grubb. Go and be in it." |
-| 3 | "Aren't you going to congratulate me?" | `[COMIC · counted-repeat]` | "No." *(second)* "I congratulated you about the pianos. Consult your records." |
+| 3 | "Aren't you going to congratulate me?" | `[COMIC · counted-repeat]` | "No." *(second)* "Congratulations are for people the next clerk has to believe. I have written it down instead." |
 
 **`WIN_F2` — the certification (F5)** is the scripted exchange above ("You're putting it in his name."), staged in doc 48's S6. No options; it plays as written.
 
@@ -335,7 +335,7 @@ Per the Fanshawe Rule: Thad receives the Registrar introduction; gives up that h
 | 3 | "Your clock is slow, Colonel. I've an ear for these things." | `[COMIC · retain]` | "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it." *(second)* "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb." | — |
 | 4 | "How does a man come to be a colonel?" | `[TOPIC · remove]` | "Young, Mr. Grubb. I took the rank at twenty-three. I'm thirty this spring, and I intend to stay there." | `WAR_CONTRADICTIONS` +1 |
 | 5 | "Which regiment, Colonel?" | `[TOPIC · remove]` | "The Eleventh Ohio Mounted. Splendid men. I remember every one of their horses." | sets `T_ELEVENTH_OHIO` |
-| 6 | "You were never a colonel." | `[TOPIC · remove]` | *(He stops. For the only time in the game, he is completely still.)* "No. I wasn't." *"…"* "Was there something else, Mr. Grubb?" | the war's payoff: from Act III, with all five contradictions |
+| 6 | "You were never a colonel." | `[TOPIC · remove]` | *(long pause)* "No. I wasn't." *"…"* "Was there something else, Mr. Grubb?" | the war's payoff: from Act III, with all five contradictions |
 
 ## ACT II — `FAN_B2`: the index card *(W1 growth)*
 
@@ -413,7 +413,7 @@ The first real conversation with Hob. Open once `T_EXECUTOR_RULE` is set and unt
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "You'd be executor of my estate. It's forty feet of mud." | `[PROGRESS · remove]` | "I know the mud." *(He signs Form 31-E against the lamp post, and hands it back.)* | gives THE EXECUTOR'S FORM |
+| 1 | "You'd be executor of my estate. It's forty feet of mud." | `[PROGRESS · remove]` | "I know the mud." *(beat)* "Signed. Form 31-E." | gives THE EXECUTOR'S FORM |
 | 2 | "Will you come to the archive with me?" | `[TOPIC · retain]` | "No." | — |
 | 3 | "Have you ever been an executor before?" | `[TOPIC · retain]` | "No. I've buried a few things." | — |
 | 4 | "Why would you do this for me?" | `[TOPIC · retain]` | "You asked." | — |
@@ -432,7 +432,7 @@ He digs Thad out and speaks in complete sentences for the first time, and the ef
 | 1 | "How did you know I was in there?" | `[PROGRESS · remove]` | "I know where every hole in this town is. It's the job." |
 | 2 | "You said you didn't know Mott." | `[PROGRESS · remove]` | "I said no. I didn't say I didn't know him." → `T_HOB_KNOWS` |
 | 3 | "Who *are* you?" | `[PROGRESS · retain]` | "The night watchman." *(True. Also the most complete lie in the game.)* |
-| 4 | "You have very neat handwriting." | `[COMIC · retain]` | *(He looks at Thad for a long time.)* "…Yes." → **secretly sets `T_HOB_HANDWRITING`.** The `[COMIC]` option is the one that solves the mystery. It is the only time this happens in the game and it happens here. |
+| 4 | "You have very neat handwriting." | `[COMIC · retain]` | "…Yes." → **secretly sets `T_HOB_HANDWRITING`.** The `[COMIC]` option is the one that solves the mystery. It is the only time this happens in the game and it happens here. |
 
 ## ACT III — `HOB_C2`: the confession (E10)
 
@@ -449,7 +449,7 @@ He digs Thad out and speaks in complete sentences for the first time, and the ef
 | 2 | "Why didn't you leave?" | `[PROGRESS · retain]` | "Leaving proves it. Staying just looks like a man sweeping up." |
 | 3 | "Twelve years." | `[PROGRESS · retain]` | "It's a long time to watch something you made." |
 | 4 | "Did you ever think about telling them?" | `[PROGRESS · retain]` | "Every night. Then it gets light and there's a town there." |
-| 5 | "You could have picked a better thumb." | `[COMIC · retain]` | *(He laughs. Once. It is the only laugh in the scene and it is awful.)* |
+| 5 | "You could have picked a better thumb." | `[COMIC · retain]` | "Ha." |
 | 6 | "Grievance walked out after you, twelve years ago." | `[TOPIC · retain]` | "She wanted to see where I was going. I wasn't going anywhere. She's still waiting for me to start." *(req `T_GRIEVANCE_MOTT`; errata 75)* |
 | 7 | "This photograph isn't you." | `[TOPIC · retain]` | "It's a collar. Frame bought the plate off a drummer in '47. Mine was never taken." *(req THE PHOTOGRAPH; errata 75)* |
 
@@ -760,8 +760,8 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 |---|---|---|---|
 | 1 | "He was a beloved and industrious young man of rare promise." | `[TOPIC · retain]` | "Beloved! Industrious! Young! *Rare!* Four adjectives, eight dollars, and every one of them deserved." *(+4 adjectives, $8)* *(second)* "Beloved, industrious, young and rare, again! Grief gives no discount for repetition." |
 | 2 | "He was a man." | `[TOPIC · retain]` | "That is not a eulogy, that is a census." *(+0)* *(second)* "Still a census. I have counted him once already." |
-| 3 | "He was present." | `[PROGRESS · remove]` | *(A long pause. He writes it down.)* "…Present. Three words, and one of them is 'was'. I shall add an 'amen' at no charge; I cannot send a man into the ground on three." *(Four words, fifty cents. The counter stops. Sets `T_SOWERBY_PRICE`.)* |
-| 4 | "He tuned pianos." | `[COMIC · retain]` | *(His eyes fill.)* "He tuned pianos. He brought order to the very instruments of praise, and asked nothing, and was paid less—" *(He goes on. He is still going when Thad looks back from the door.)* *(+0, free, unprompted.)* *(second)* "He tuned pianos! Did I say? I shall say it again at the graveside. No charge." |
+| 3 | "He was present." | `[PROGRESS · remove]` | *(long pause)* "Present. Three words, and one of them is 'was'. I shall add an 'amen' at no charge; I cannot send a man into the ground on three." *(Four words, fifty cents. The counter stops. Sets `T_SOWERBY_PRICE`.)* |
+| 4 | "He tuned pianos." | `[COMIC · retain]` | "Oh!" "He tuned pianos. He brought order to the very instruments of praise, and asked nothing, and was paid less—" — *"I believe he will be some time."* *(+0, free, unprompted.)* *(second)* "He tuned pianos! Did I say? I shall say it again at the graveside. No charge." |
 
 **Correct solution:** "He was present." The cheapest possible funeral in the history of the territory, and the sole reason Thad can afford to die. *(The money is Sheng's loan, paid at the undertaker's, who bills for the Reverend: doc 57 E3.)*
 
