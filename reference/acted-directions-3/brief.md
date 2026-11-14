@@ -62,7 +62,7 @@ When done, commit to a branch named `acted-directions-3-art`, with `reference/ac
   - 3 lifting it in one hand;
   - 4 setting it down, a hand on the handle;
   - 5 talking.
-- **Row 172** (his root list, option 6: "Could I carry your bag to the coach?", answered "And have it go without me?"): *He grips it with both hands.*
+- **Row 172** (his root list, option 6: "Could I carry your bag to the coach?", answered "It goes when I go."): *He grips it with both hands.*
   - **Needs:** the bag held up against his chest in both arms, protective, as a man holds something he will not be parted from. Frame 3 is one-handed and does not stand in.
 
 ### `map_seller` (Main Street)
