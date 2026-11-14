@@ -1039,6 +1039,18 @@
    "date": "2026-11-14",
    "kind": "loosened",
    "why": "Errata 314: Hob signs the executor's form and Pratt lends the hen in words now ('Signed. Form 31-E.'; 'Hen.'), not in printed directions. Two NAMED_IN_SPEECH entries, each with its reason."
+  },
+  {
+   "check": "tests/gifts-shown.test.mjs",
+   "date": "2026-11-14",
+   "kind": "reviewed",
+   "why": "TUNED. Three entries in two weeks, each a gift that doc 130 moved from a printed direction into words, each needing a hand-written exception. Since nothing is printed now, that is the usual case, so the test reads it: a reply that says a word of the item's name hands the item over (namedInSpeech), and the exception list falls from eight to the two whose words hand the thing over without its name. A new test proves a named gift passes and an unnamed one fails; the old map case still fails."
+  },
+  {
+   "check": "tests/acted-directions.test.ts",
+   "date": "2026-11-14",
+   "kind": "reviewed",
+   "why": "Reviewed: three edits in two weeks, each because a pass of doc 130 changed doc 95's table under it (rows acted, rows said). It did not misfire; it is the test that keeps doc 95 and the content in step, and each time it named exactly the rows that had changed. Invariant 7's assertion was rewritten for a game with nothing printed, to the invariant itself (HOB_C1's options shaped alike). With every printed row gone the table should now be stable. Keep it."
   }
  ]
 }
