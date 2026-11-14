@@ -7806,3 +7806,32 @@ He is drawn turned to our left, and `tests/faces.test.mjs` measures that from hi
 - One exception is a ruling: the boundary men argue facing each other and are talked to from their right, because the hitching horses stand in the near mud on their left (errata 187).
 
 Lesson: `tests/talk-faces.test.mjs`, proved by restoring his old stand (it fails).
+
+## 305 · The man leaving tomorrow gets Thad's best wishes, not a send-off (Tyler, 2026-11-14)
+
+Tyler, of errata 293's switch on the man leaving tomorrow: "it seems odd that Thad would immediately offer to throw him a send off within minutes of entering Consolation for the first time, no?" It was. The bold line stays ("You're never leaving this town, are you?"). Thad's save is now something a stranger can offer, and the man's answer is in his own voice. He chose this over a self-aware farewell and over cutting it.
+
+- Thad: "You're never leaving this town… without my very best wishes, I mean! There. You have them."
+- The man: "Keep them. You'll need them more."
+
+Doc 129's rule 2 gains it: a save is something Thad could say to whoever it is, at that point in the story.
+
+Lesson: a row in doc 55 section 8 (a matter of taste). `tests/the-switch.test.mjs` still holds the switch's structure.
+
+
+## 306 · The man leaving tomorrow, rewritten; and Thad asks after Pike in the present tense (Tyler, 2026-11-14)
+
+Tyler: "'Did you know Ezra Pike?' -- why wouldn't Thad ask this in the present tense?" and "Honestly, all of the dialogue with the guy leaving tomorrow strikes me as odd."
+
+**Pike.** Thad comes to Consolation with a letter of introduction to Ezra Pike (doc 02, A1) and believes him alive until the undertaker tells him (`T_PIKE_DEAD`). Ten people were asked "Did you know Ezra Pike?", which is how you ask after a man you know is dead. All ten now ask "Do you know Ezra Pike?", as Winnie, Frame, Ozymandia, Pratt and the registrar already did. The answers are unchanged: each still turns him toward the undertaker without saying why, and their past tenses are theirs to let slip, not his.
+
+**The man leaving tomorrow** (doc 07 section 7, rewritten under doc 59, one voice). What was odd: Thad opened by asking a stranger when he was leaving, guessed how long his bag had been packed, and was answered with lines that did not follow ("Pack a bag right, it holds"; "And have it go without me?"). Now every line Thad says is one a newcomer would say to a man with a bag at the coach stop, and every answer follows from it:
+- "Waiting for the coach?" / "Tomorrow's." / "Have you been waiting long?" / "Four years." / "Four years? Doesn't it come?" / "It comes. It's always today's."
+- after it, "Why not take today's?" / "I'm packed for tomorrow."
+- after it, the switch, as errata 305 left it, now that he has heard "four years" and has a reason to be bold.
+- "Could I carry your bag to the coach?" / *(He grips it with both hands.)* "It goes when I go."
+- Kept: "I've only just arrived", the Pike pair (present tense), "Where will you go?" / "Tomorrow.", the barks.
+
+The option ids, order, flags and the undertaker redirect are unchanged; nothing in the tree carries the game.
+
+Lesson: `tests/pike-tense.test.mjs`: before `T_PIKE_DEAD`, no option asks after Pike in the past tense. Proved by restoring one "Did you know" (it fails). And doc 55 section 8's row "A line that forgets where the story is" now names both.

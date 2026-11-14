@@ -169,7 +169,7 @@ is the whole of his character.
 > "That bell is flat. I could hear it from the hotel." → "Everybody can hear it from the hotel. That's what a bell's for."
 > ↳ "I could show you where to strike it." → "You could." *(He does not move.)*
 > "How long have you rung it?" → "Since the day it came." *(beat)* "It came on a Tuesday. I've been celebrating since."
-> "Did you know Ezra Pike?" → "Rang for him."
+> "Do you know Ezra Pike?" → "Rang for him."
 >   *Thad:* "Rang for him?"
 >   → "Ask the undertaker. He keeps the list."
 > "You knew Pike was dead." → "Rang for him, didn't I. Flat. He never complained."
@@ -270,22 +270,23 @@ is the whole of his character.
 *Outside the hotel. Has been leaving tomorrow for four years. **Arcs.***
 
 **Micro-tree**
-*Rewritten by errata 286: everything is about leaving, and a man arriving is faintly offensive.*
-> "When are you leaving?" → "Tomorrow."
-> ↳ "That bag's been packed a while." → "Four years."
->   *Thad:* "Four years?"
->   → "Pack a bag right, it holds."
-> ↳ `[COMIC]` "You're never leaving this town, are you?" *Thad says:* "You're never leaving this town… without a proper send-off, I mean! I'll see to it myself." → "Tomorrow, then." *(beat)* "Don't be late."
+*Rewritten by errata 286: everything is about leaving, and a man arriving is faintly offensive. Rewritten again by errata 306 (Tyler, 2026-11-14: "Honestly, all of the dialogue with the guy leaving tomorrow strikes me as odd"): every line Thad says is one a newcomer would say to a man with a bag at the coach stop, and every answer follows from it.*
+> "Waiting for the coach?" → "Tomorrow's."
+>   *Thad:* "Have you been waiting long?"
+>   → "Four years."
+>   *Thad:* "Four years? Doesn't it come?"
+>   → "It comes. It's always today's."
+> ↳ "Why not take today's?" → "I'm packed for tomorrow."
+> ↳ `[COMIC]` "You're never leaving this town, are you?" *Thad says:* "You're never leaving this town… without my very best wishes, I mean! There. You have them." → "Keep them. You'll need them more."
 > "I've only just arrived." → "*Arrived.*"
 >   → "Nobody arrives here, son. They just haven't left yet."
-> "Did you know Ezra Pike?" → "Pike left."
+> "Do you know Ezra Pike?" → "Pike left."
 >   *Thad:* "Where to?"
 >   → "Ask the undertaker, down the lane. Pike's the only man I know who left on time."
 > "You knew Pike was dead." → "I said he left. He left. I'm going the other way, mind. Tomorrow."
-> `[COMIC]` "Could I carry your bag to the coach?" → *(He grips it with both hands.)* "And have it go without me?"
+> `[COMIC]` "Could I carry your bag to the coach?" → *(He grips it with both hands.)* "It goes when I go."
 > `[COMIC]` "Where will you go?" → *(long pause)* "Tomorrow."
 >   *Asked again:* "Tomorrow. I've told you. It's the one place I'm sure of."
-
 
 **Barks**
 | State | Line |
@@ -399,7 +400,7 @@ is the whole of his character.
 > "Play me something." → "Anything you like, so long as the piano knows it."
 >   *Thad:* "What does the piano know?"
 >   → "Four songs, and the bottom half of a fifth."
-> "Did you know Ezra Pike?" → "Pike sang flat. Loudest man at every funeral in town."
+> "Do you know Ezra Pike?" → "Pike sang flat. Loudest man at every funeral in town."
 >   *Thad:* "Every funeral?"
 >   → "Bar one. Ask the undertaker about that one."
 > "You knew Pike was dead." → "I'd have played at it. Nobody asked. Nobody ever asks the fiddle."
@@ -451,7 +452,7 @@ is the whole of his character.
 > ↳ "What did you do with it?" → "Drinks."
 >   *Thad:* "All of it?"
 >   → "A story like that, you buy the man who's listening. It's cost me the nugget twice over."
-> "Did you know Ezra Pike?" → "Pike! Knew him in forty-nine."
+> "Do you know Ezra Pike?" → "Pike! Knew him in forty-nine."
 >   *Thad:* "Where is he now?"
 >   → "Ask the undertaker. He's kept up with Pike better than I have."
 > "You knew Pike was dead." → "Pike? Knew him in forty-nine. Spring. A Tuesday."
@@ -556,7 +557,7 @@ is the whole of his character.
 
 > "You're dealing off the bottom." → "I am."
 > ↳ "Doesn't anyone object?" → "They know what I am. They don't know what the Colonel is. Which of us is the problem?"
-> "Did you know Ezra Pike?" → "Pike owed me eleven dollars. I've forgiven it."
+> "Do you know Ezra Pike?" → "Pike owed me eleven dollars. I've forgiven it."
 >   *Thad:* "That's generous."
 >   → "The undertaker hasn't. Ask him about Pike."
 > "You knew Pike was dead." → "I'm a card player. I knew the night he stopped losing."
@@ -593,7 +594,7 @@ is the whole of his character.
 > ↳ `[COMIC]` "I have an exceptional ear. I could listen for him." → "He doesn't bark."
 >   *Thad:* "Then what would I be listening for?"
 >   → "That's what I've been asking myself. Six weeks."
-> "Did you know Ezra Pike?" → "Did he have a dog?"
+> "Do you know Ezra Pike?" → "Did he have a dog?"
 >   *Thad:* "I don't know."
 >   → "Then no." *(beat)* "Undertaker's right there. He knows everybody who hasn't got a dog."
 > "You knew Pike was dead." → "Did he have a dog?"

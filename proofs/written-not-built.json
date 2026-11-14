@@ -591,6 +591,10 @@
     {
      "doc": "13-room-02-content",
      "quote": "I have tried. It has views."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Honestly, all of the dialogue with the guy leaving tomorrow strikes me as odd"
     }
    ]
   },
@@ -958,11 +962,15 @@
   },
   {
    "id": "main-street-rewritten",
-   "why": "Errata 286 (Tyler, 2026-11-11: \"Start with Main Street\"): the street people's conversations rewritten in doc 07 for Monkey Island's voice. Doc 98 quotes the lines of the pass before, as its record.",
+   "why": "Errata 286 (Tyler, 2026-11-11: \"Start with Main Street\"): the street people's conversations rewritten in doc 07 for Monkey Island's voice. Doc 98 quotes the lines of the pass before, as its record. Errata 306 rewrote the man leaving tomorrow again, so doc 98's quotation of the line before it is also a record.",
    "lines": [
     {
      "doc": "98-main-street-pass",
      "quote": "It's a nickel's worth of answer. The filling's a dime."
+    },
+    {
+     "doc": "98-main-street-pass",
+     "quote": "That bag's been packed a while."
     }
    ]
   }

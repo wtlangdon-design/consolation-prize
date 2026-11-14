@@ -12,56 +12,51 @@
       "options": [
         {
           "id": "leaving1",
-          "text": "When are you leaving?",
+          "text": "Waiting for the coach?",
           "tag": "TOPIC",
-          "say": "Tomorrow.",
-          "afterUse": "remove"
-        },
-        {
-          "id": "leaving2",
-          "text": "That bag's been packed a while.",
-          "tag": "TOPIC",
-          "after": [
-            "leaving1"
-          ],
           "exchange": [
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Tomorrow's."
+            },
+            {
+              "speaker": "thad",
+              "line": "Have you been waiting long?"
+            },
             {
               "speaker": "man_leaving_tomorrow",
               "line": "Four years."
             },
             {
               "speaker": "thad",
-              "line": "Four years?"
+              "line": "Four years? Doesn't it come?"
             },
             {
               "speaker": "man_leaving_tomorrow",
-              "line": "Pack a bag right, it holds."
+              "line": "It comes. It's always today's."
             }
           ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "leaving2",
+          "text": "Why not take today's?",
+          "tag": "TOPIC",
+          "after": [
+            "leaving1"
+          ],
+          "say": "I'm packed for tomorrow.",
           "afterUse": "remove"
         },
         {
           "id": "leavings",
           "text": "You're never leaving this town, are you?",
           "tag": "COMIC",
-          "echo": "You're never leaving this town… without a proper send-off, I mean! I'll see to it myself.",
+          "echo": "You're never leaving this town… without my very best wishes, I mean! There. You have them.",
           "after": [
             "leaving1"
           ],
-          "exchange": [
-            {
-              "speaker": "man_leaving_tomorrow",
-              "line": "Tomorrow, then."
-            },
-            {
-              "speaker": "man_leaving_tomorrow",
-              "line": "…"
-            },
-            {
-              "speaker": "man_leaving_tomorrow",
-              "line": "Don't be late."
-            }
-          ],
+          "say": "Keep them. You'll need them more.",
           "afterUse": "remove"
         },
         {
@@ -82,7 +77,7 @@
         },
         {
           "id": "leaving4",
-          "text": "Did you know Ezra Pike?",
+          "text": "Do you know Ezra Pike?",
           "tag": "TOPIC",
           "exchange": [
             {
@@ -125,7 +120,7 @@
             },
             {
               "speaker": "man_leaving_tomorrow",
-              "line": "And have it go without me?"
+              "line": "It goes when I go."
             }
           ],
           "afterUse": "remove"

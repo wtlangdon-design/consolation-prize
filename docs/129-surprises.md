@@ -100,7 +100,8 @@ Read from every room's objects: every line that is not LOOK or LISTEN, every ite
 ## The rules
 
 1. **One or two a room, never more.** A room of surprises is a room of noise.
-2. **The switch: a person has at most one,** and only on a `[COMIC]` option, so the menu can never hide what a choice does. Thad starts the bold line and saves himself: a word cut off and replaced ("a cr— a credit") or a sentence rescued by its ending ("You're never leaving this town… without a proper send-off, I mean!"). The other person answers the line he *nearly* said, in their own voice.
+2. **The switch: a person has at most one,** and Thad's save is something he could say to whoever it is, at that point in the story: a stranger gets good wishes, not a party (errata 305).
+   The switch and only on a `[COMIC]` option, so the menu can never hide what a choice does. Thad starts the bold line and saves himself: a word cut off and replaced ("a cr— a credit") or a sentence rescued by its ending ("You're never leaving this town… without a proper send-off, I mean!"). The other person answers the line he *nearly* said, in their own voice.
 3. **Nothing a surprise touches carries the game.** No flag, puzzle, clue, act truth or LISTEN line (invariants 3 and 9, doc 92). A surprise never points at a solution.
 4. **Nothing the plate does not show,** and no new art. A surprise is told in what people say or in a pose a figure already has. A direction says what is seen, never what someone feels (errata 294).
 5. **True whenever it is read,** in every act the room is visited.
@@ -114,8 +115,8 @@ Three switches, one for each of the street's people who talks with Thad at lengt
 |---|---|---|---|
 | The pie woman, after "What's in the pie?" | "Madam, that pie is a crime against the territory." | "Madam, that pie is a cr— a credit to the territory! A credit. I'd say so in front of anybody." | "Insults are a penny extra. You very nearly bought one." |
 | The map seller, after "Is that a map to Mott's strike?" | "Your maps are a swindle, sir, and I'll tell the whole town so!" | "Your maps are a sw— a wonder, sir! A wonder, and I'll tell the whole town so!" | "Tell them, sir! I'll draw you on the next one, telling them." — "Me?" — "Little hat. Arm out. Top of the hill, beside Pike." |
-| The man leaving tomorrow, after "When are you leaving?" | "You're never leaving this town, are you?" | "You're never leaving this town… without a proper send-off, I mean! I'll see to it myself." | "Tomorrow, then." *(beat)* "Don't be late." |
+| The man leaving tomorrow, after "When are you leaving?" | "You're never leaving this town, are you?" | "You're never leaving this town… without my very best wishes, I mean! There. You have them." | "Keep them. You'll need them more." |
 
-The pie woman answers in money, as she answers everything. The map seller takes it as the best news of his week and adds a detail nobody asked for (doc 99 rule 4). The man leaving tomorrow accepts a send-off for a departure that will never happen, and his tomorrow moves again.
+The pie woman answers in money, as she answers everything. The map seller takes it as the best news of his week and adds a detail nobody asked for (doc 99 rule 4). The man leaving tomorrow hands Thad's good wishes straight back: a newcomer will need them more (errata 305). *It was a send-off, "I'll see to it myself"; Tyler, 2026-11-14: "it seems odd that Thad would immediately offer to throw him a send off within minutes of entering Consolation for the first time". A save has to be something a stranger could offer.*
 
 **Waiting on Tyler's ruling.** No other room gets new lines until he has played these.

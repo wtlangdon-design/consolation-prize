@@ -140,7 +140,7 @@
      "T_BILL_FOUND": true
     }
    },
-   "Did you know Ezra Pike?": {
+   "Do you know Ezra Pike?": {
     "when": {
      "T_PIKE_DEAD": false
     }
@@ -210,7 +210,7 @@
    }
   },
   "7 · THE MAN LEAVING TOMORROW": {
-   "Did you know Ezra Pike?": {
+   "Do you know Ezra Pike?": {
     "when": {
      "T_PIKE_DEAD": false
     }
@@ -240,7 +240,7 @@
   },
   "_pikeNote": "Errata 170, the Main Street pass (Tyler, 2026-11-07): every Main Street townsperson is asked after Ezra Pike only while Thad does not know he is dead (T_PIKE_DEAD false), and each sends him to the undertaker without saying so; once the undertaker has told him, 'You knew Pike was dead.' takes its place. The three ASKED flags are kept as they were, set by the question they always followed.",
   "11 · THE FIDDLER": {
-   "Did you know Ezra Pike?": {
+   "Do you know Ezra Pike?": {
     "when": {
      "T_PIKE_DEAD": false
     }
@@ -252,7 +252,7 @@
    }
   },
   "13 · THE ONE-STRIKE MAN": {
-   "Did you know Ezra Pike?": {
+   "Do you know Ezra Pike?": {
     "when": {
      "T_PIKE_DEAD": false
     }
@@ -269,7 +269,7 @@
    }
   },
   "17 · THE CARD SHARP": {
-   "Did you know Ezra Pike?": {
+   "Do you know Ezra Pike?": {
     "when": {
      "T_PIKE_DEAD": false
     }
@@ -286,7 +286,7 @@
    }
   },
   "4 · THE BELL-RINGER": {
-   "Did you know Ezra Pike?": {
+   "Do you know Ezra Pike?": {
     "when": {
      "T_PIKE_DEAD": false
     }
