@@ -895,6 +895,12 @@
    "date": "2026-11-13",
    "kind": "loosened",
    "why": "Errata 300. Its Room 2 lip test asserted the lip exists. The lip was a boardwalk the width of the street, from the street as first drawn, and it is what let Thad walk up the side of a building and every porch's edge (Tyler). The lip is gone, so the test now asserts there is none and that nothing on the street is fixed-scale; its no-step assertion is unchanged."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-13",
+   "kind": "reviewed",
+   "why": "KEEP, and no tune is owed. The three in this fortnight are three design rulings landing on a broad test, not the test misfiring: GIVE as a tenth verb (errata 282), a bare click that walks (errata 283), and now Main Street's lip removed because it let Thad walk up buildings (errata 300). Each changed what the game is, and each time the test was taught the new truth and still fails on its defect. It is a file of many unrelated interface tests, so it will keep collecting entries as the interface changes; splitting the Room 2 floor tests out of it would cut the noise, and tests/main-street-ground.test.mjs now carries Main Street's floor, so the lip test here is the one to retire at the next twice-monthly review."
   }
  ]
 }
