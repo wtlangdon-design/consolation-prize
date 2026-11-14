@@ -949,6 +949,12 @@
    "date": "2026-11-14",
    "kind": "loosened",
    "why": "Errata 310: Hob's Mott question waits until the map seller has told Thad who Mott was, and his stop and four seconds are '…' pauses (no parentheticals, doc 130). The test sets T_MOTT_TOLD and asserts the pauses and the word instead of printed directions. It did not misfire: the ruling changed the content."
+  },
+  {
+   "check": "tests/no-parentheticals.test.mjs",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 311: tightened, not loosened. The six poses waiting on art are drawn and acted, so the cap falls from 122 to 117; the friction reader sees the number edited."
   }
  ]
 }
