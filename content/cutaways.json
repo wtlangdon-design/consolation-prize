@@ -3,40 +3,6 @@
   "note": "EXTRACTED from docs/96-cutaways.md by tools/extract-content.mjs (errata 158). Each cut-away shows `room` without Thad, says its lines, and comes back exactly where it was; it plays once, at the first quiet moment after `when` holds, with Thad in another room, and writes `done` and nothing else. Change a line in doc 96 and re-extract.",
   "cutaways": [
     {
-      "id": "clarion_press",
-      "room": "clarion",
-      "when": {
-        "T_SWINDLED": true
-      },
-      "done": "T_CUTAWAY_CLARION",
-      "lines": [
-        {
-          "speaker": "frame",
-          "line": "‘Eastern gentleman buys Claim Two.’"
-        },
-        {
-          "speaker": "frame",
-          "line": "‘Is delighted.’"
-        },
-        {
-          "speaker": "frame",
-          "line": "Grubb."
-        },
-        {
-          "speaker": "frame",
-          "line": "No. Grubb looks like a misprint."
-        },
-        {
-          "speaker": "frame",
-          "line": "Grubbs. Now it looks like a family."
-        },
-        {
-          "speaker": "frame",
-          "line": "‘Mr. T. Grubbs of Providence.’ Front page. Within the hour."
-        }
-      ]
-    },
-    {
       "id": "pratts_voice",
       "room": "prosperity",
       "when": {

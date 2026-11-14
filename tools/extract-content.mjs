@@ -6582,7 +6582,10 @@ function cutaways() {
   const SPEAKER = { FRAME: 'frame', PRATT: 'pratt', FANSHAWE: 'fanshawe', VOICE: 'cutaway_voice' };
   const ROUTE = {
     // After the swindle, which is the edition GRUBBS (errata 9).
-    1: { id: 'clarion_press', room: 'clarion', when: { T_SWINDLED: true }, done: 'T_CUTAWAY_CLARION' },
+    // WITHDRAWN (errata 307; Tyler, 2026-11-14: "the cutaway to the printing guy is so abrupt and odd. How would
+    // news reach him that quickly? And also we're SOOO early in the story"). The headline board tells the same joke
+    // when Thad next walks down Main Street (doc 57). Doc 96 keeps the lines as the record.
+    1: { withdrawn: 'errata 307' },
     // After Thad has caught him pulling up the stake: D2 is open.
     // Errata 244: cut to Prosperity, where he is in fact still on it (doc 115 II-2), and only while he is.
     // The figure who says it there is the one drawn there, on the claim (pratt_jump), not the one at his own.
@@ -6620,6 +6623,7 @@ function cutaways() {
     const number = Number(part.match(/^(\d+)/)[1]);
     const route = ROUTE[number];
     if (!route) throw new Error(`doc 96 section ${number}: no route for it in the extractor`);
+    if (route.withdrawn) return null;
     const lines = [];
     for (const row of part.split('\n')) {
       const cell = row.match(/^\| (\d+) \| ([A-Z]+) \| "(.+)" \|$/);
@@ -6648,7 +6652,7 @@ function cutaways() {
     note: 'EXTRACTED from docs/96-cutaways.md by tools/extract-content.mjs (errata 158). Each cut-away shows `room` without '
       + 'Thad, says its lines, and comes back exactly where it was; it plays once, at the first quiet moment after `when` '
       + 'holds, with Thad in another room, and writes `done` and nothing else. Change a line in doc 96 and re-extract.',
-    cutaways: out,
+    cutaways: out.filter(Boolean),
   });
 }
 

@@ -7835,3 +7835,26 @@ Tyler: "'Did you know Ezra Pike?' -- why wouldn't Thad ask this in the present t
 The option ids, order, flags and the undertaker redirect are unchanged; nothing in the tree carries the game.
 
 Lesson: `tests/pike-tense.test.mjs`: before `T_PIKE_DEAD`, no option asks after Pike in the past tense. Proved by restoring one "Did you know" (it fails). And doc 55 section 8's row "A line that forgets where the story is" now names both.
+
+## 307 · Deke's swindle, as seen: the lines, the glass, the hand-over, and no cut-away (Tyler, 2026-11-14)
+
+Tyler, playing the Nugget:
+- "Deke says something about how leaving is a form of selling? That line doesn't make sense to me."
+- "Deke says 'And that.' What is he even referencing?"
+- "Deke in one of his animations holds up a full glass of beer. He doesn't take it off the barrel in front of him so it just kind of appears and disappears with the animation."
+- "After Thad buys the claim from Deke -- the cutaway to the printing guy is so abrupt and odd. How would news reach him that quickly? And also we're SOOO early in the story that a quick jump/cut like that is jarring. Also, Thad never actually hands him money, so that feels like a skipped beat. And then the beer glass on the barrel is just suddenly empty."
+
+**The lines** (doc 27, rewritten under doc 59; he still never says anything untrue):
+- "Which is a kind of selling, I suppose." is now "Of course, a man getting out leaves things behind." It is what leads Thad to ask "Getting out of what?"
+- "And that." is now "And that watch." His look at the watch is acted, not printed, so the words have to say what he is looking at.
+
+**The glass.** While Vessel holds his glass (frames 6 and 7: the Pike toast, and now the drink), the barrel is drawn without it (`RoomProp.heldBy`; `art/props/room-03-barrel-lifted.png`, made by `tools/art/lift-glass.py`, no image operation). After the swindle he is seen to finish it: glass up, drink, then his hat pushed back as the glass stands on the barrel empty (doc 95 row 13, frames 6 7 7 6 8; frame 8 is frame 3's drawing). Then he walks out, as before.
+
+**The hand-over.** Doc 27's option 6 wrote "The swindle. Four dollars and the watch for the deed." and nothing played it. It is now a direction, "Thad hands over four dollars and the watch.", printed until Thad's hand-over pose is drawn: doc 95 row 174, class B, on the running list in `reference/acted-directions-3/brief.md`. His `give-offer` clip is from the older profile drawing and would jump from his stand (doc 36 Q107), so it does not stand in.
+
+**The cut-away.** Asked whether to cut it, move it later or keep it, Tyler chose to cut it. Doc 96's first cut-away is withdrawn; its lines stay in doc 96 as the record. The headline board on Main Street tells the same joke ("EASTERN GENTLEMAN BUYS CLAIM TWO, IS DELIGHTED.") when Thad next walks past it. `T_CUTAWAY_CLARION` stays declared, written by nothing, so an old save still loads. The Pratt and Fanshawe cut-aways stay.
+
+Lessons:
+- `tests/held-props.test.mjs`: while a figure holds something, it is gone from where it stood; and he is seen to finish the drink before the glass stands empty. Proved by removing `heldBy` (it fails).
+- `tests/cutaways.test.ts`: no cut-away plays on the swindle alone.
+- Doc 55 section 8: a line that points at something the player cannot see.

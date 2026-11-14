@@ -15,6 +15,8 @@ A cut-away leaves Thad where he is and shows somewhere else. The screen fades to
 
 ## 1 · THE CLARION — after the swindle (A3)
 
+**Withdrawn (errata 307).** *Tyler, 2026-11-14: "After Thad buys the claim from Deke -- the cutaway to the printing guy is so abrupt and odd. How would news reach him that quickly? And also we're SOOO early in the story that a quick jump/cut like that is jarring." Asked whether to cut it, move it later or keep it, he chose to cut it. The headline board on Main Street tells the same joke when Thad next walks past it (doc 57). The lines stay here as the record; they are not played.*
+
 Ignatius Frame, alone at his paper, setting the edition the headline board shows after A3 (doc 57: "EASTERN GENTLEMAN BUYS CLAIM TWO, IS DELIGHTED. 'Mr. T. GRUBBS of Providence.' The S is new.").
 
 | # | Speaker | Line |

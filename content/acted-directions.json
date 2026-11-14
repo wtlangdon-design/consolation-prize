@@ -162,9 +162,13 @@
         "deke_vessel"
       ],
       "frames": [
-        3
+        6,
+        7,
+        7,
+        6,
+        8
       ],
-      "seconds": 1
+      "seconds": 3
     },
     {
       "n": 15,
@@ -1688,6 +1692,13 @@
       "speaker": "map_seller",
       "words": "He draws a small piano on a map, beside a cross.",
       "where": "dialogue/amb-map-seller root option 6"
+    },
+    {
+      "n": 174,
+      "class": "B",
+      "speaker": "deke_vessel",
+      "words": "Thad hands over four dollars and the watch.",
+      "where": "dialogue/deke-vessel root option 6"
     }
   ]
 }

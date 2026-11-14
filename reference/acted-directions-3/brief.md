@@ -65,6 +65,12 @@ When done, commit to a branch named `acted-directions-3-art`, with `reference/ac
 - **Row 172** (his root list, option 6: "Could I carry your bag to the coach?", answered "It goes when I go."): *He grips it with both hands.*
   - **Needs:** the bag held up against his chest in both arms, protective, as a man holds something he will not be parted from. Frame 3 is one-handed and does not stand in.
 
+### `deke_vessel` (the Nugget; the pose is Thad's)
+
+- **The row is Vessel's conversation, but the movement is Thad's.** Thad's clips are in `content/actors/thad.json`. Thad stands across the whiskey barrel from Vessel, facing right (`art/actors/thad-stand-right/`). His `give-offer` clip is from the older profile drawing (doc 36 Q107) and jumps from his stand, so it does not stand in.
+- **Row 174** (Vessel's root list, option 6: "Done! I'll take it.", answered "Pleasure, son. Look after her. She's got character."): *Thad hands over four dollars and the watch.*
+  - **Needs:** a clip `hand-over`, facing right. Frame 0 his right stand frame, byte for byte. Then his near arm out at chest height, the coins and the watch's chain in his hand; then the hand back at his side, empty. Three frames. Vessel takes them in his own frame 2 (his hand out, palm up), which he already has.
+
 ### `map_seller` (Main Street)
 
 - **Sheet:** `art/actors/ambient-map-seller-master.png`. Five frames:

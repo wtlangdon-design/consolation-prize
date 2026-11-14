@@ -3447,6 +3447,12 @@ export interface RoomProp {
   frame: [number, number, number, number];
   /** Drawn only while this holds: two props for one object's two states. */
   when?: Condition;
+  /**
+   * WHAT A FIGURE PICKS UP OFF IT (errata 307). While the named figure is drawn in one of these frames, the prop is
+   * drawn from that frame's sheet instead: the glass in his hand is the glass off the barrel, so the barrel is drawn
+   * without it, and the glass he puts back is drawn as he left it. Keys are the figure's frame indices.
+   */
+  heldBy?: { figure: string; sheets: Record<string, string> };
   note?: string;
 }
 

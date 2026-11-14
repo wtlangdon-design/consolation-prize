@@ -67,14 +67,14 @@
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "How did you know?" | `[TOPIC]` | "Everybody knows. Small place, and you're the newest thing in it." *(again)* "Still the newest thing in it. Enjoy it, son. It wears off by Thursday." |
-| 2 | "You have the look of a man with something to sell, and I'm a man of business." | `[PROGRESS]` | "Nothing. I'm getting out." *(beat)* "Which is a kind of selling, I suppose." *(again)* "Nothing at all. Getting out's free." |
+| 2 | "You have the look of a man with something to sell, and I'm a man of business." | `[PROGRESS]` | "Nothing. I'm getting out." *(beat)* "Of course, a man getting out leaves things behind." *(again)* "Nothing at all. Getting out's free." |
 | 3 | "Getting out of what?" | `[PROGRESS]` · after 2 | "Claim Two. A producing claim, mind you. It's never once stopped producing. But my sister's poorly, and Sacramento's four days." *(again)* "Claim Two. Producing. Never stopped once. You can ask anybody." |
-| 4 | "How much? Purely as a matter of business." | `[PROGRESS]` · after 3 | **"What have you got?"** — *"Four dollars."* — "Four dollars." *(He looks at the watch.)* "And that." *(again)* "Four dollars and the watch. I'm not a greedy man." |
+| 4 | "How much? Purely as a matter of business." | `[PROGRESS]` · after 3 | **"What have you got?"** — *"Four dollars."* — "Four dollars." *(He looks at the watch.)* "And that watch." *(again)* "Four dollars and the watch. I'm not a greedy man." |
 | 8 | "Is there gold on it?" | `[COMIC]` · after 3 | "There's a deed on it, son. Your name'll be on it shortly." *(again)* "There's a claim on it, son, and a claim is where every fortune starts." |
 | 5 | "You seem cheerful for a man with a poorly sister." | `[COMIC]` · after 3 | "I've made my peace with it." *(beat)* "She hasn't, but she's a long way off." *(again)* "Still a long way off, son. That's the main thing wrong with her." |
 | 9 | "Do you know Ezra Pike?" | `[TOPIC]` · unless `T_PIKE_DEAD` | "Everybody knew Ezra." *(He raises his glass an inch.)* "The undertaker can tell you all about him." *(again)* "Knew him. Past tense's the important bit. Ask the undertaker." |
 | 10 | "You knew Pike was dead." | `[TOPIC]` · when `T_PIKE_DEAD` | "I said 'knew', didn't I? I never say a thing that isn't so." *(again)* "Every word true, son. You'll come to appreciate it." |
-| 6 | "Done! I'll take it." | `[PROGRESS] ✓` · after 4 · ends | *(The swindle. Four dollars and the watch for the deed.)* "Pleasure, son. Look after her. She's got character." *(He finishes his drink, collects his hat, and leaves the Nugget.)* → `T_SWINDLED` · **A3** |
+| 6 | "Done! I'll take it." | `[PROGRESS] ✓` · after 4 · ends | *(Thad hands over four dollars and the watch.)* "Pleasure, son. Look after her. She's got character." *(He finishes his drink, collects his hat, and leaves the Nugget.)* → `T_SWINDLED` · **A3** |
 | 7 | `[EXIT]` "I'll think about it." | | "Course you will." |
 
 *Errata 172, doc 99's rewrite: every question has an asked-again answer (`*(again)*`), and three rows are new. Row 8 is the greedy question doc 99 rule 3 asks every menu to offer, answered, as always, with nothing untrue. Rows 9 and 10 are the town's Pike thread (doc 98), which Vessel cannot lie about either. "Knew" is past tense, and he says so afterwards.*

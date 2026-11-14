@@ -32,7 +32,7 @@
 
 ## The directions
 
-Counts: **A 57 · B 5 · C 92** — 154 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 57 · B 6 · C 92** — 155 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -48,7 +48,7 @@ Counts: **A 57 · B 5 · C 92** — 154 directions, every one flagged `"directio
 | 10 | A | winnie | She signs beside it. | combinations (sample on counter, at the filing) | winnie_registrar | 7 7 0 | 1.5 |  |  | Her frame 7 signs a paper on the closed book at her end of the counter, head bent (cast-unify 71, errata 148). |
 | 11 | A | boundary_b | They resume immediately. | dialogue/amb-boundary-men root option 2 | boundary_b, boundary_a | 2 3 2 3 | 2.0 |  |  | Both men point and argue again at once (their frames 2 and 3). "Immediately" is what the player sees. |
 | 12 | A | deke_vessel | He looks at the watch. | dialogue/deke-vessel root option 4 | deke_vessel | 5 | 1.2 |  |  | His head bent to the watch Thad holds out across the barrel, his hands still at his belt (frame 5; cast-unify 76, errata 148). |
-| 13 | A | deke_vessel | He finishes his drink, collects his hat, and leaves the Nugget. | dialogue/deke-vessel root option 6 | deke_vessel | 3 | 1.0 |  |  | His hat (frame 3), then the walk out of the Nugget he already has when T_SWINDLED lands (doc 57 A3). The drink is not shown. |
+| 13 | A | deke_vessel | He finishes his drink, collects his hat, and leaves the Nugget. | dialogue/deke-vessel root option 6 | deke_vessel | 6 7 7 6 8 | 3.0 |  |  | Errata 307 (Tyler, 2026-11-14: "the beer glass on the barrel is just suddenly empty"): the drink is shown. He takes the glass off the barrel (6: the barrel is drawn without it while he holds it, RoomProp.heldBy), drinks (7), and puts it back empty as he pushes his hat back (8, frame 3's drawing; the barrel shows the glass empty). Then the walk out of the Nugget he already has when T_SWINDLED lands (doc 57 A3). Was frame 3 alone, and the drink was not shown. |
 | 15 | C | fanshawe | He gives the map anyway. It has Claim Two circled. | dialogue/fanshawe FAN_A1 option 2 |  |  |  |  |  | "Claim Two circled" is information the player needs, and only words carry it. |
 | 16 | C | fanshawe | He will not. Sump is never asked. | dialogue/fanshawe FAN_A2 option 2 |  |  |  |  |  | Narration. |
 | 17 | C | fanshawe | The subject has gone wherever subjects go at his table. | dialogue/fanshawe FAN_A2 option 3 |  |  |  |  |  | Narration. |
@@ -190,6 +190,7 @@ Counts: **A 57 · B 5 · C 92** — 154 directions, every one flagged `"directio
 | 169 | B | bell_ringer | He looks up at the bell, then down at the bottle. | dialogue/amb-bell-ringer root option 7 |  |  |  |  |  | Errata 286: physical; printed until drawn, with the bottle (row 168). The order of the two looks is the joke, and the frames play in it. |
 | 172 | B | man_leaving_tomorrow | He grips it with both hands. | dialogue/amb-man-leaving-tomorrow root option 6 |  |  |  |  |  | Errata 286: physical; printed until the bag gripped is drawn. |
 | 173 | B | map_seller | He draws a small piano on a map, beside a cross. | dialogue/amb-map-seller root option 6 |  |  |  |  |  | Errata 286: physical; printed until a drawing pose is drawn. The cross is the joke (Pike's, row 103's hill). |
+| 174 | B | deke_vessel | Thad hands over four dollars and the watch. | dialogue/deke-vessel root option 6 |  |  |  |  |  | Errata 307 (Tyler, 2026-11-14: "Thad never actually hands him money, so that feels like a skipped beat"): doc 27's option 6 said "The swindle. Four dollars and the watch for the deed." and nothing played it. Physical; printed until Thad's hand-over is drawn (reference/acted-directions-3). His give-offer clip is from the older profile drawing and would jump from his stand (doc 36 Q107). |
 
 ## When a B pose is drawn
 

@@ -58,7 +58,7 @@
             },
             {
               "speaker": "deke_vessel",
-              "line": "Which is a kind of selling, I suppose."
+              "line": "Of course, a man getting out leaves things behind."
             }
           ]
         },
@@ -100,7 +100,7 @@
             },
             {
               "speaker": "deke_vessel",
-              "line": "And that."
+              "line": "And that watch."
             }
           ],
           "echo": "How much? Purely as a matter of business."
@@ -187,6 +187,11 @@
             "T_SWINDLED": true
           },
           "exchange": [
+            {
+              "speaker": "deke_vessel",
+              "line": "Thad hands over four dollars and the watch.",
+              "direction": true
+            },
             {
               "speaker": "deke_vessel",
               "line": "Pleasure, son. Look after her. She's got character."

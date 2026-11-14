@@ -41,7 +41,9 @@ const scenarios = {
   'pratt-boots': { fixture: 'r25-c', steps: [{ enter: 'prosperity' }, { talk: 'pratt_jump' }, { option: 'pratt3' }], burst: 12 },
   'pick-fit': { fixture: 'r33-b', steps: [{ use: 'pickaxe', on: 'every_rock_surface' }], burst: 24 },
   'deke-watch': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { talk: 'deke_vessel' }, { option: 'deke_vessel2' }, { option: 'deke_vessel3' }, { option: 'deke_vessel4' }], burst: 12 },
-  'deke': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { talk: 'deke_vessel' }, { option: 'deke_vessel2' }, { option: 'deke_vessel3' }, { option: 'deke_vessel4' }, { option: 'deke_vessel6' }], burst: 12 },
+  'deke': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { talk: 'deke_vessel' }, { option: 'deke_vessel2' }, { option: 'deke_vessel3' }, { option: 'deke_vessel4' }, { option: 'deke_vessel6' }], burst: 20 },
+  // Errata 307: the toast takes the glass off the barrel, and puts it back.
+  'deke-toast': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { flags: { T_PIKE_DEAD: false } }, { talk: 'deke_vessel' }, { option: 'deke_vessel9' }], burst: 6 },
 };
 
 const server = await serve();

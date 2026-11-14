@@ -4,7 +4,7 @@
  * it was. Tyler, 2026-11-07: "You decide, and I want them included now so
  * that they're part of my play through."
  *
- * What can be held without a browser: the three are extracted with their
+ * What can be held without a browser: the two are extracted with their
  * rooms, flags and speakers; nobody in one is anyone who could give the game
  * away; the claim jumper's scene names no money; and a visit changes nothing in the
  * story -- no flag, no standing place, and a save taken during one lands in
@@ -22,9 +22,10 @@ import { MemoryStorage } from '../engine/core/SaveManager.ts';
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
 
-test('three cut-aways, each with a room, a once-only flag, and lines spoken by people who are there', async () => {
+test('two cut-aways, each with a room, a once-only flag, and lines spoken by people who are there', async () => {
   const content = await loadContent(fsReader);
-  assert.equal(content.cutaways.length, 3, 'doc 96 has three');
+  // Doc 96 wrote three; the newspaper's, straight after the swindle, is withdrawn (errata 307).
+  assert.deepEqual(content.cutaways.map((cut) => cut.id), ['pratts_voice', 'fanshawe_chairs']);
   const flags = new Set(content.flags.flags.map((flag) => flag.id));
   for (const cut of content.cutaways) {
     assert.ok(content.rooms.has(cut.room), `${cut.id}: ${cut.room}`);
@@ -50,12 +51,12 @@ test('no cut-away holds the reveal or the answer', async () => {
     assert.notEqual(cut.room, 'watchmans_shack', `${cut.id}: not the watchman's shack`);
   }
   // D5 is solved by working out how the claim jumper is paid: his scene names no money.
-  const jumper = content.cutaways[1]!;
+  const jumper = content.cutaways.find((cut) => cut.id === 'pratts_voice')!;
   for (const { line } of jumper.lines) {
     assert.ok(!/[\d$]|dollar|fee|paid|pay|money|week/i.test(line), `no money in the claim jumper's scene: "${line}"`);
   }
   // The Colonel only once the Act II turn has landed (doc 01's rule for him).
-  const colonel = content.cutaways[2]!;
+  const colonel = content.cutaways.find((cut) => cut.id === 'fanshawe_chairs')!;
   assert.deepEqual(colonel.when.ACT, { atLeast: 3, atMost: 3 });
 });
 
@@ -66,7 +67,7 @@ test('a visit is not an arrival: it changes nothing, and a save in one lands whe
   state.enterRoom('main_street');
   state.rememberStanding(1234, 760);
   const flagsBefore = JSON.stringify(state.flags.snapshot());
-  const elsewhere = content.cutaways[2]!.room;
+  const elsewhere = content.cutaways.find((cut) => cut.id === 'fanshawe_chairs')!.room;
   state.cutTo(elsewhere);
   assert.equal(state.roomId, elsewhere);
   assert.equal(state.inCutaway, true);
@@ -85,7 +86,7 @@ test('a visit is not an arrival: it changes nothing, and a save in one lands whe
 test('a close-up is declared exactly when both its frames are drawn, at the play area\'s size (errata 159)', async () => {
   const { existsSync, readdirSync, readFileSync } = await import('node:fs');
   const content = await loadContent(fsReader);
-  const colonel = content.cutaways[2]!;
+  const colonel = content.cutaways.find((cut) => cut.id === 'fanshawe_chairs')!;
   // The frames are whatever the image session delivered into art/cutaways/: a rest and a talk.
   const dir = resolve(ROOT, 'art/cutaways');
   const files = existsSync(dir) ? readdirSync(dir) : [];
@@ -97,20 +98,20 @@ test('a close-up is declared exactly when both its frames are drawn, at the play
     assert.equal(bytes.readUInt32BE(16), 1920, `${path} width`);
     assert.equal(bytes.readUInt32BE(20), 864, `${path} height`);
   }
-  assert.ok(content.cutaways.slice(0, 2).every((one) => !one.closeup), 'the two comic scenes play in their rooms');
+  assert.ok(content.cutaways.filter((one) => one.id !== 'fanshawe_chairs').every((one) => !one.closeup), 'the comic scene plays in its room');
 });
 
 test('the Colonel\'s scene opens on the Company from the street, under its own darker music (errata 160)', async () => {
   const { existsSync } = await import('node:fs');
   const content = await loadContent(fsReader);
-  const colonel = content.cutaways[2]!;
+  const colonel = content.cutaways.find((cut) => cut.id === 'fanshawe_chairs')!;
   const shot = colonel.establishing!;
   assert.ok(shot && existsSync(resolve(ROOT, shot.image)), 'the opening shot is a picture the game has');
   assert.ok(shot.seconds >= 2 && shot.seconds <= 8 && shot.push > 0 && shot.push <= 0.15, 'a held shot, creeping, not zooming');
   const music = colonel.music!;
   assert.ok(music && existsSync(resolve(ROOT, music.src)), 'its music is a file the game has');
   assert.ok(music.rate! > 0.6 && music.rate! < 1, 'played slower and lower than written');
-  assert.ok(content.cutaways.slice(0, 2).every((one) => !one.establishing && !one.music), 'the comic scenes play in their rooms');
+  assert.ok(content.cutaways.filter((one) => one.id !== 'fanshawe_chairs').every((one) => !one.establishing && !one.music), 'the comic scenes play in their rooms');
 });
 
 test('a bed played at a rate is slowed on top of the score\'s detune, and is a different bed', async () => {
@@ -176,4 +177,16 @@ test('a fixture past a cut-away\'s moment starts with it played (errata 161)', a
     }
   }
   assert.ok(checked > 0, 'no fixture is past any cut-away: the test proves nothing');
+});
+
+// NOT THE MOMENT AFTER THE FIRST THING HE DOES (errata 307). Tyler, 2026-11-14: "the cutaway to the printing guy is so
+// abrupt and odd. How would news reach him that quickly? And also we're SOOO early in the story that a quick jump/cut
+// like that is jarring." A cut-away waits until the story is under way: none plays on the swindle alone, the first
+// thing the player does in town.
+test('no cut-away plays on the swindle alone', async () => {
+  const content = await loadContent(fsReader);
+  for (const cut of content.cutaways) {
+    assert.ok(!(Object.keys(cut.when).length === 1 && 'T_SWINDLED' in cut.when), `${cut.id} plays straight after the swindle`);
+  }
+  assert.ok(!content.cutaways.some((cut) => cut.when.T_SWINDLED === true), 'the newspaper cut-away is withdrawn');
 });

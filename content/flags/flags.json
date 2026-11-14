@@ -1795,10 +1795,8 @@
    "id": "T_CUTAWAY_CLARION",
    "type": "boolean",
    "initial": false,
-   "writtenBy": [
-    "cutaway:clarion_press"
-   ],
-   "note": "Errata 158 (doc 96): the cut-away to the Clarion, after the swindle has played. Its only effect on the game: it plays once."
+   "writtenBy": [],
+   "note": "Errata 158 (doc 96): the cut-away to the Clarion, after the swindle. WITHDRAWN by errata 307 (Tyler, 2026-11-14, chose to cut it): nothing writes it now. Kept declared so a save that holds it still loads."
   },
   {
    "id": "T_CUTAWAY_PRATT",
