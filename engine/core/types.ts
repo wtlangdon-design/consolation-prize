@@ -1952,6 +1952,14 @@ export interface RoomFile {
    * plane only says which of those pixels are in front of an actor at that
    * level. `clipPlane: 0` on a walk box means masked by nothing.
    */
+  /**
+   * THINGS STANDING ON THE FLOOR THAT A FIGURE CAN BE BEHIND, each a rect of the plate and the row it stands on
+   * (errata 302: Main Street's porch posts; Tyler, 2026-11-13: "make sure Thad isn't walking in front of posts on the
+   * porch when he should be walking behind them"). A figure whose feet are above `baseY` is behind the thing, and the
+   * rect is cut out of him; at or below it he is in front of it. A plane is one decision per walk box; a post on a
+   * porch is in front of a man at the back of the deck and behind a man at its edge, which a box cannot say.
+   */
+  occluders?: { id: string; rect: [number, number, number, number]; baseY: number; note?: string }[];
   occlusionPlanes?: {
     level: number;
     note?: string;

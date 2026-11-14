@@ -2614,6 +2614,8 @@ for (const [spec, rule] of personBullets) {
   // declares none keeps whatever it already had, so nothing is lost by not
   // having been converted yet.
   if (ann.occlusion?.planes) built.occlusionPlanes = ann.occlusion.planes;
+  // Things on the floor a figure can be behind, each with the row it stands on (RoomFile.occluders, errata 302).
+  if (ann.occluders) built.occluders = ann.occluders; else delete built.occluders;
   // The authored points a proof stands the actor on, and the plane each is
   // meant to be masked by. Carried so `check-occlusion` and the room proof
   // read ONE set of numbers a person wrote down rather than each deriving its

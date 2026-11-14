@@ -2471,5 +2471,148 @@
       "id": "chimney_2",
       "note": ""
     }
+  ],
+  "occluders": [
+    {
+      "id": "post_mercantile_left",
+      "rect": [
+        177,
+        400,
+        18,
+        182
+      ],
+      "baseY": 582,
+      "note": "Errata 302 (Tyler, 2026-11-13: \"make sure Thad isn't walking in front of posts on the porch when he should be walking behind them\"). Every porch post on the street, read off the plate at 3x: its column from the roof beam to its foot, and the row its foot stands on. A man whose feet are above that row is behind the post and it is cut out of him; at or below it he is in front. The Nugget's posts stand twenty pixels back from the deck's edge and the hotel's at three depths, which is why it is per post and not per box. The Company's and the assay office's columns are pilasters on their walls, and nobody stands behind those. The hotel's two left-hand posts stand at the back of its deck, behind anyone who can stand on it, and are not listed."
+    },
+    {
+      "id": "post_mercantile_right",
+      "rect": [
+        427,
+        400,
+        16,
+        182
+      ],
+      "baseY": 582
+    },
+    {
+      "id": "post_clarion_left",
+      "rect": [
+        940,
+        395,
+        20,
+        167
+      ],
+      "baseY": 562
+    },
+    {
+      "id": "post_clarion_right",
+      "rect": [
+        1138,
+        410,
+        14,
+        152
+      ],
+      "baseY": 562
+    },
+    {
+      "id": "post_row_1_left",
+      "rect": [
+        1320,
+        415,
+        18,
+        145
+      ],
+      "baseY": 560
+    },
+    {
+      "id": "post_row_1_right",
+      "rect": [
+        1512,
+        420,
+        16,
+        140
+      ],
+      "baseY": 560
+    },
+    {
+      "id": "post_row_2_left",
+      "rect": [
+        1585,
+        410,
+        15,
+        140
+      ],
+      "baseY": 550
+    },
+    {
+      "id": "post_row_2_right",
+      "rect": [
+        1793,
+        410,
+        15,
+        140
+      ],
+      "baseY": 550
+    },
+    {
+      "id": "post_nugget_1",
+      "rect": [
+        2138,
+        400,
+        19,
+        158
+      ],
+      "baseY": 558
+    },
+    {
+      "id": "post_nugget_2",
+      "rect": [
+        2258,
+        400,
+        18,
+        160
+      ],
+      "baseY": 560
+    },
+    {
+      "id": "post_nugget_3",
+      "rect": [
+        2398,
+        400,
+        22,
+        160
+      ],
+      "baseY": 560
+    },
+    {
+      "id": "post_nugget_4",
+      "rect": [
+        2530,
+        400,
+        22,
+        160
+      ],
+      "baseY": 560
+    },
+    {
+      "id": "post_hotel_3",
+      "rect": [
+        2866,
+        398,
+        24,
+        208
+      ],
+      "baseY": 606
+    },
+    {
+      "id": "post_hotel_4",
+      "rect": [
+        2933,
+        405,
+        17,
+        187
+      ],
+      "baseY": 592
+    }
   ]
 }

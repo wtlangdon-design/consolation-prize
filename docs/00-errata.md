@@ -7739,3 +7739,24 @@ Lesson: `tests/main-street-ground.test.mjs`, in both streets:
 - every porch is drawn at the ground's height at its foot.
 
 `tests/interface.test.ts`'s Room 2 lip test is merged into it, as its review proposed. `tests/shortest-walk.test.ts` no longer counts a walk up a porch's stairs as a detour.
+
+## 302 · Behind the porch posts when he is behind them (Tyler, 2026-11-13)
+
+Tyler: "make sure Thad isn't walking in front of posts on the porch when he should be walking behind them."
+
+A plane hides a man by the walk box under his feet, so a whole porch would be all in front of its posts or all behind them. Main Street's posts stand at different depths: at the deck's front edge on the mercantile, the *Clarion* and the row, twenty pixels back on the Nugget, and at three depths on the hotel. And its planes were made for the street before its redraw (errata 276), so they are skipped.
+
+**New: `occluders`,** things standing on the floor that a figure can be behind (RoomFile, compiled from the annotation). Each is a rect of the plate and the row its foot stands on. The renderer cuts the rect out of any figure whose feet are above that row: behind the post, it hides him; at or below it, he is in front.
+
+**Fourteen posts on Main Street, read off the plate at 3x,** and the same fourteen on the dawn street.
+- Not listed: the Company's and the assay office's columns, which are pilasters on their walls, and the hotel's two left-hand posts, which stand behind anyone who can stand on its deck.
+
+**Seen in the real build:**
+- At the back of the Nugget's porch, the post hides his legs. At its edge, he is in front of it.
+- Directly behind the hotel's corner post, only his arms show either side of it, and one step forward he is in front.
+
+Lesson: `tests/main-street-ground.test.mjs`, in both streets. It fails with the posts taken out.
+- Every porch with posts has them.
+- Each post stands on a porch.
+- Nobody anywhere but on a porch is ever behind one.
+- Someone at the back of the Nugget's porch is behind its posts.

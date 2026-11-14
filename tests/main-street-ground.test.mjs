@@ -106,3 +106,36 @@ test('a porch and its stairs are drawn at the height of the ground at their foot
     }
   }
 });
+
+// BEHIND THE POSTS WHEN HE IS BEHIND THEM (errata 302; Tyler, 2026-11-13: "make sure Thad isn't walking in front of
+// posts on the porch when he should be walking behind them"). Each post is a rect of the plate and the row it stands
+// on (RoomFile.occluders); the renderer cuts it out of a figure whose feet are above that row.
+test('every porch with posts has them, each standing on its porch, and nobody on the ground is ever behind one', () => {
+  for (const room of streets) {
+    const posts = room.occluders ?? [];
+    assert.ok(posts.length >= 14, `${room.id}: ${posts.length} posts`);
+    const span = (box) => {
+      const xs = box.points.map((point) => point.x); const ys = box.points.map((point) => point.y);
+      return [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)];
+    };
+    const decks = room.walkBoxes.filter((box) => box.id.startsWith('deck_'));
+    for (const name of ['mercantile', 'clarion', 'row_1', 'row_2', 'nugget', 'hotel']) {
+      const [x0, , x1] = span(decks.find((deck) => deck.id === `deck_${name}`));
+      assert.ok(posts.some(({ rect: [x, , w] }) => x < x1 && x + w > x0), `${room.id}: the ${name} porch's posts are not there`);
+    }
+    for (const post of posts) {
+      const [px, , pw] = post.rect;
+      // It stands on a porch: its foot is on a deck's rows, or at a deck's front edge.
+      const on = decks.some((deck) => { const [x0, y0, x1, y1] = span(deck); return px < x1 + 40 && px + pw > x0 - 40 && post.baseY >= y0 - 6 && post.baseY <= y1 + 8; });
+      assert.ok(on, `${room.id}: ${post.id} does not stand on a porch`);
+      // Nobody standing anywhere but a porch is behind it.
+      for (const box of room.walkBoxes.filter((one) => !one.id.startsWith('deck_'))) {
+        const [x0, y0, x1] = span(box);
+        if (px < x1 && px + pw > x0) assert.ok(y0 >= post.baseY, `${room.id}: on ${box.id} a man would be behind ${post.id}`);
+      }
+    }
+    // And someone at the back of a porch, where a post stands nearer than him, is behind it.
+    const nugget = span(decks.find((deck) => deck.id === 'deck_nugget'));
+    assert.ok(posts.some((post) => nugget[1] < post.baseY && post.rect[0] > nugget[0] && post.rect[0] < nugget[2]), `${room.id}: nobody at the back of the Nugget's porch is behind a post`);
+  }
+});
