@@ -234,6 +234,182 @@
         430,
         66
       ]
+    },
+    {
+      "id": "deck_mercantile",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        152,
+        566,
+        303,
+        16
+      ]
+    },
+    {
+      "id": "stairs_mercantile",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        212,
+        582,
+        90,
+        50
+      ]
+    },
+    {
+      "id": "deck_company",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        470,
+        556,
+        400,
+        20
+      ]
+    },
+    {
+      "id": "stairs_company",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        695,
+        576,
+        75,
+        44
+      ]
+    },
+    {
+      "id": "deck_clarion",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        885,
+        551,
+        235,
+        15
+      ]
+    },
+    {
+      "id": "stairs_clarion",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        968,
+        566,
+        85,
+        42
+      ]
+    },
+    {
+      "id": "deck_row_1",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1250,
+        545,
+        290,
+        15
+      ]
+    },
+    {
+      "id": "stairs_row_1",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1388,
+        560,
+        82,
+        44
+      ]
+    },
+    {
+      "id": "deck_row_2",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1545,
+        535,
+        235,
+        15
+      ]
+    },
+    {
+      "id": "stairs_row_2",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1640,
+        550,
+        62,
+        32
+      ]
+    },
+    {
+      "id": "deck_nugget",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        2130,
+        550,
+        410,
+        32
+      ]
+    },
+    {
+      "id": "stairs_nugget",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        2210,
+        582,
+        80,
+        30
+      ]
+    },
+    {
+      "id": "deck_hotel",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        2600,
+        588,
+        360,
+        24
+      ]
+    },
+    {
+      "id": "stairs_hotel",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        2605,
+        612,
+        90,
+        43
+      ]
+    },
+    {
+      "id": "deck_assay",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        3000,
+        605,
+        200,
+        32
+      ]
+    },
+    {
+      "id": "stairs_assay",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        3035,
+        637,
+        90,
+        29
+      ]
     }
   ],
   "hotspots": [
@@ -898,7 +1074,7 @@
       "defaultVerb": "OPEN",
       "walkTo": {
         "x": 2317,
-        "y": 624,
+        "y": 566,
         "facing": "back"
       }
     },
@@ -952,7 +1128,7 @@
       ],
       "walkTo": {
         "x": 689,
-        "y": 642,
+        "y": 566,
         "facing": "back"
       }
     },
@@ -994,7 +1170,7 @@
       "defaultVerb": "OPEN",
       "walkTo": {
         "x": 1097,
-        "y": 639,
+        "y": 558,
         "facing": "back"
       }
     },
@@ -1093,8 +1269,8 @@
         "TALK_TO": "I've tried talking to it. The building isn't the problem."
       },
       "walkTo": {
-        "x": 3060,
-        "y": 672,
+        "x": 3113,
+        "y": 621,
         "facing": "back"
       }
     },
@@ -1134,8 +1310,8 @@
       "note": "Doc 20: the hotel is one of the six facades. Stub until doc 14 covers it, as it did not cover the assay office until Room 5 was written.",
       "waysOut": "docs/106-the-ways-out.md, ROOM 2 (errata 189)",
       "walkTo": {
-        "x": 2630,
-        "y": 660,
+        "x": 2707,
+        "y": 600,
         "facing": "back"
       }
     },
@@ -1175,8 +1351,8 @@
       "note": "Doc 20: one of Main Street's six façades, the store with goods in its window west of the Company. It had no door until Room 12 was built (errata 85 E). Doc 14 writes no lines for it, so it carries none (doc 36 Q155).",
       "waysOut": "docs/106-the-ways-out.md, ROOM 2 (errata 189)",
       "walkTo": {
-        "x": 260,
-        "y": 640,
+        "x": 300,
+        "y": 574,
         "facing": "back"
       }
     },
@@ -1375,7 +1551,8 @@
         "ground_hotel",
         "ground_office",
         "ground_barrel",
-        "ground_east_end"
+        "ground_east_end",
+        "stairs_assay"
       ]
     },
     {
@@ -1693,7 +1870,8 @@
       "neighbours": [
         "mud_far_0",
         "ground_west_end",
-        "ground_company"
+        "ground_company",
+        "stairs_mercantile"
       ]
     },
     {
@@ -1728,7 +1906,8 @@
       "neighbours": [
         "mud_far_0",
         "ground_mercantile",
-        "ground_clarion"
+        "ground_clarion",
+        "stairs_company"
       ]
     },
     {
@@ -1763,7 +1942,8 @@
       "neighbours": [
         "mud_far_0",
         "ground_company",
-        "ground_notices"
+        "ground_notices",
+        "stairs_clarion"
       ]
     },
     {
@@ -1834,7 +2014,8 @@
         "mud_far_0",
         "mud_far_2",
         "ground_notices",
-        "ground_row_2"
+        "ground_row_2",
+        "stairs_row_1"
       ]
     },
     {
@@ -1870,7 +2051,8 @@
         "mud_far_1",
         "mud_far_2",
         "ground_row_1",
-        "ground_gap"
+        "ground_gap",
+        "stairs_row_2"
       ]
     },
     {
@@ -2010,7 +2192,8 @@
       "neighbours": [
         "mud_far_1",
         "ground_nugget_west",
-        "ground_nugget_east"
+        "ground_nugget_east",
+        "stairs_nugget"
       ]
     },
     {
@@ -2082,7 +2265,8 @@
         "mud_far_3",
         "mud_far_4",
         "ground_nugget_east",
-        "ground_office"
+        "ground_office",
+        "stairs_hotel"
       ]
     },
     {
@@ -2185,6 +2369,494 @@
       "neighbours": [
         "mud_far_3",
         "ground_barrel"
+      ]
+    },
+    {
+      "id": "deck_mercantile",
+      "points": [
+        {
+          "x": 152,
+          "y": 566
+        },
+        {
+          "x": 455,
+          "y": 566
+        },
+        {
+          "x": 455,
+          "y": 582
+        },
+        {
+          "x": 152,
+          "y": 582
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 122
+      },
+      "neighbours": [
+        "stairs_mercantile"
+      ]
+    },
+    {
+      "id": "stairs_mercantile",
+      "points": [
+        {
+          "x": 212,
+          "y": 582
+        },
+        {
+          "x": 302,
+          "y": 582
+        },
+        {
+          "x": 302,
+          "y": 632
+        },
+        {
+          "x": 212,
+          "y": 632
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 122
+      },
+      "neighbours": [
+        "ground_mercantile",
+        "deck_mercantile"
+      ]
+    },
+    {
+      "id": "deck_company",
+      "points": [
+        {
+          "x": 470,
+          "y": 556
+        },
+        {
+          "x": 870,
+          "y": 556
+        },
+        {
+          "x": 870,
+          "y": 576
+        },
+        {
+          "x": 470,
+          "y": 576
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 118
+      },
+      "neighbours": [
+        "stairs_company"
+      ]
+    },
+    {
+      "id": "stairs_company",
+      "points": [
+        {
+          "x": 695,
+          "y": 576
+        },
+        {
+          "x": 770,
+          "y": 576
+        },
+        {
+          "x": 770,
+          "y": 620
+        },
+        {
+          "x": 695,
+          "y": 620
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 118
+      },
+      "neighbours": [
+        "ground_company",
+        "deck_company"
+      ]
+    },
+    {
+      "id": "deck_clarion",
+      "points": [
+        {
+          "x": 885,
+          "y": 551
+        },
+        {
+          "x": 1120,
+          "y": 551
+        },
+        {
+          "x": 1120,
+          "y": 566
+        },
+        {
+          "x": 885,
+          "y": 566
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 113
+      },
+      "neighbours": [
+        "stairs_clarion"
+      ]
+    },
+    {
+      "id": "stairs_clarion",
+      "points": [
+        {
+          "x": 968,
+          "y": 566
+        },
+        {
+          "x": 1053,
+          "y": 566
+        },
+        {
+          "x": 1053,
+          "y": 608
+        },
+        {
+          "x": 968,
+          "y": 608
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 113
+      },
+      "neighbours": [
+        "ground_clarion",
+        "deck_clarion"
+      ]
+    },
+    {
+      "id": "deck_row_1",
+      "points": [
+        {
+          "x": 1250,
+          "y": 545
+        },
+        {
+          "x": 1540,
+          "y": 545
+        },
+        {
+          "x": 1540,
+          "y": 560
+        },
+        {
+          "x": 1250,
+          "y": 560
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 112
+      },
+      "neighbours": [
+        "stairs_row_1"
+      ]
+    },
+    {
+      "id": "stairs_row_1",
+      "points": [
+        {
+          "x": 1388,
+          "y": 560
+        },
+        {
+          "x": 1470,
+          "y": 560
+        },
+        {
+          "x": 1470,
+          "y": 604
+        },
+        {
+          "x": 1388,
+          "y": 604
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 112
+      },
+      "neighbours": [
+        "ground_row_1",
+        "deck_row_1"
+      ]
+    },
+    {
+      "id": "deck_row_2",
+      "points": [
+        {
+          "x": 1545,
+          "y": 535
+        },
+        {
+          "x": 1780,
+          "y": 535
+        },
+        {
+          "x": 1780,
+          "y": 550
+        },
+        {
+          "x": 1545,
+          "y": 550
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 105
+      },
+      "neighbours": [
+        "stairs_row_2"
+      ]
+    },
+    {
+      "id": "stairs_row_2",
+      "points": [
+        {
+          "x": 1640,
+          "y": 550
+        },
+        {
+          "x": 1702,
+          "y": 550
+        },
+        {
+          "x": 1702,
+          "y": 582
+        },
+        {
+          "x": 1640,
+          "y": 582
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 105
+      },
+      "neighbours": [
+        "ground_row_2",
+        "deck_row_2"
+      ]
+    },
+    {
+      "id": "deck_nugget",
+      "points": [
+        {
+          "x": 2130,
+          "y": 550
+        },
+        {
+          "x": 2540,
+          "y": 550
+        },
+        {
+          "x": 2540,
+          "y": 582
+        },
+        {
+          "x": 2130,
+          "y": 582
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 115
+      },
+      "neighbours": [
+        "stairs_nugget"
+      ]
+    },
+    {
+      "id": "stairs_nugget",
+      "points": [
+        {
+          "x": 2210,
+          "y": 582
+        },
+        {
+          "x": 2290,
+          "y": 582
+        },
+        {
+          "x": 2290,
+          "y": 612
+        },
+        {
+          "x": 2210,
+          "y": 612
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 115
+      },
+      "neighbours": [
+        "ground_nugget",
+        "deck_nugget"
+      ]
+    },
+    {
+      "id": "deck_hotel",
+      "points": [
+        {
+          "x": 2600,
+          "y": 588
+        },
+        {
+          "x": 2960,
+          "y": 588
+        },
+        {
+          "x": 2960,
+          "y": 612
+        },
+        {
+          "x": 2600,
+          "y": 612
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 131
+      },
+      "neighbours": [
+        "stairs_hotel"
+      ]
+    },
+    {
+      "id": "stairs_hotel",
+      "points": [
+        {
+          "x": 2605,
+          "y": 612
+        },
+        {
+          "x": 2695,
+          "y": 612
+        },
+        {
+          "x": 2695,
+          "y": 655
+        },
+        {
+          "x": 2605,
+          "y": 655
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 131
+      },
+      "neighbours": [
+        "ground_hotel",
+        "deck_hotel"
+      ]
+    },
+    {
+      "id": "deck_assay",
+      "points": [
+        {
+          "x": 3000,
+          "y": 605
+        },
+        {
+          "x": 3200,
+          "y": 605
+        },
+        {
+          "x": 3200,
+          "y": 637
+        },
+        {
+          "x": 3000,
+          "y": 637
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 135
+      },
+      "neighbours": [
+        "stairs_assay"
+      ]
+    },
+    {
+      "id": "stairs_assay",
+      "points": [
+        {
+          "x": 3035,
+          "y": 637
+        },
+        {
+          "x": 3125,
+          "y": 637
+        },
+        {
+          "x": 3125,
+          "y": 666
+        },
+        {
+          "x": 3035,
+          "y": 666
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 135
+      },
+      "neighbours": [
+        "mud_far_3",
+        "deck_assay"
       ]
     }
   ],
@@ -2352,47 +3024,47 @@
     {
       "from": "company_lobby",
       "at": [
-        689,
-        642
+        765,
+        568
       ],
       "facing": "front",
-      "note": "Out of company_lobby’s door, facing the street."
+      "note": "Out of the Company's door onto its porch, beside the doorway, facing the street (errata 301): in Act III Fanshawe stands in the doorway with the wreath, and the doorway itself would be on top of him."
     },
     {
       "from": "clarion",
       "at": [
         1097,
-        639
+        558
       ],
       "facing": "front",
-      "note": "Out of clarion’s door, facing the street."
+      "note": "Out of clarion's door onto its porch, facing the street (errata 301)."
     },
     {
       "from": "nugget",
       "at": [
         2317,
-        624
+        566
       ],
       "facing": "front",
-      "note": "Out of nugget’s door, facing the street."
+      "note": "Out of nugget's door onto its porch, facing the street (errata 301)."
     },
     {
       "from": "hotel_lobby",
       "at": [
-        2630,
-        660
+        2707,
+        600
       ],
       "facing": "front",
-      "note": "Out of hotel_lobby's door and down its stairs, facing the street (errata 300)."
+      "note": "Out of hotel_lobby's door onto its porch, facing the street (errata 301)."
     },
     {
       "from": "assay_office",
       "at": [
-        3060,
-        672
+        3113,
+        621
       ],
       "facing": "front",
-      "note": "Out of assay_office's door and down its stairs, facing the street (errata 300)."
+      "note": "Out of assay_office's door onto its porch, facing the street (errata 301)."
     },
     {
       "from": "claims_road",
@@ -2406,11 +3078,11 @@
     {
       "from": "mercantile",
       "at": [
-        260,
-        640
+        300,
+        574
       ],
       "facing": "front",
-      "note": "Out of the Mercantile's door, on its steps, facing the street."
+      "note": "Out of mercantile's door onto its porch, facing the street (errata 301)."
     },
     {
       "from": "back_alley",
@@ -2528,6 +3200,14 @@
     }
   ],
   "occlusionBands": [
+    "deck_assay",
+    "deck_clarion",
+    "deck_company",
+    "deck_hotel",
+    "deck_mercantile",
+    "deck_nugget",
+    "deck_row_1",
+    "deck_row_2",
     "ground_barrel",
     "ground_clarion",
     "ground_company",
@@ -2546,7 +3226,15 @@
     "ground_west_end",
     "mud_far",
     "mud_mid",
-    "mud_near"
+    "mud_near",
+    "stairs_assay",
+    "stairs_clarion",
+    "stairs_company",
+    "stairs_hotel",
+    "stairs_mercantile",
+    "stairs_nugget",
+    "stairs_row_1",
+    "stairs_row_2"
   ],
   "figureLight": {
     "figures": [

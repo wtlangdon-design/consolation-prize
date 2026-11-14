@@ -147,27 +147,27 @@
  "exitWalkTo": {
   "to_company": {
    "x": 689,
-   "y": 642,
+   "y": 566,
    "facing": "back"
   },
   "to_clarion": {
    "x": 1097,
-   "y": 639,
+   "y": 558,
    "facing": "back"
   },
   "to_nugget": {
    "x": 2317,
-   "y": 624,
+   "y": 566,
    "facing": "back"
   },
   "to_hotel": {
-   "x": 2630,
-   "y": 660,
+   "x": 2707,
+   "y": 600,
    "facing": "back"
   },
   "to_assay_office": {
-   "x": 3060,
-   "y": 672,
+   "x": 3113,
+   "y": 621,
    "facing": "back"
   },
   "to_claims_road": {
@@ -176,8 +176,8 @@
    "facing": "back"
   },
   "to_mercantile": {
-   "x": 260,
-   "y": 640,
+   "x": 300,
+   "y": 574,
    "facing": "back"
   },
   "to_back_alley": {
@@ -188,28 +188,28 @@
  },
  "arrivalBySource": {
   "company": {
-   "x": 689,
-   "y": 642,
+   "x": 765,
+   "y": 568,
    "facing": "front"
   },
   "clarion": {
    "x": 1097,
-   "y": 639,
+   "y": 558,
    "facing": "front"
   },
   "nugget": {
    "x": 2317,
-   "y": 624,
+   "y": 566,
    "facing": "front"
   },
   "hotel": {
-   "x": 2630,
-   "y": 660,
+   "x": 2707,
+   "y": 600,
    "facing": "front"
   },
   "assay_office": {
-   "x": 3060,
-   "y": 672,
+   "x": 3113,
+   "y": 621,
    "facing": "front"
   },
   "claims_road": {
@@ -266,47 +266,47 @@
   {
    "from": "company_lobby",
    "at": [
-    689,
-    642
+    765,
+    568
    ],
    "facing": "front",
-   "note": "Out of company_lobby’s door, facing the street."
+   "note": "Out of the Company's door onto its porch, beside the doorway, facing the street (errata 301): in Act III Fanshawe stands in the doorway with the wreath, and the doorway itself would be on top of him."
   },
   {
    "from": "clarion",
    "at": [
     1097,
-    639
+    558
    ],
    "facing": "front",
-   "note": "Out of clarion’s door, facing the street."
+   "note": "Out of clarion's door onto its porch, facing the street (errata 301)."
   },
   {
    "from": "nugget",
    "at": [
     2317,
-    624
+    566
    ],
    "facing": "front",
-   "note": "Out of nugget’s door, facing the street."
+   "note": "Out of nugget's door onto its porch, facing the street (errata 301)."
   },
   {
    "from": "hotel_lobby",
    "at": [
-    2630,
-    660
+    2707,
+    600
    ],
    "facing": "front",
-   "note": "Out of hotel_lobby's door and down its stairs, facing the street (errata 300)."
+   "note": "Out of hotel_lobby's door onto its porch, facing the street (errata 301)."
   },
   {
    "from": "assay_office",
    "at": [
-    3060,
-    672
+    3113,
+    621
    ],
    "facing": "front",
-   "note": "Out of assay_office's door and down its stairs, facing the street (errata 300)."
+   "note": "Out of assay_office's door onto its porch, facing the street (errata 301)."
   },
   {
    "from": "claims_road",
@@ -320,11 +320,11 @@
   {
    "from": "mercantile",
    "at": [
-    260,
-    640
+    300,
+    574
    ],
    "facing": "front",
-   "note": "Out of the Mercantile's door, on its steps, facing the street."
+   "note": "Out of mercantile's door onto its porch, facing the street (errata 301)."
   },
   {
    "from": "back_alley",
@@ -526,7 +526,23 @@
    "ground_hotel": 2,
    "ground_office": 2,
    "ground_barrel": 2,
-   "ground_east_end": 2
+   "ground_east_end": 2,
+   "deck_mercantile": 2,
+   "stairs_mercantile": 2,
+   "deck_company": 2,
+   "stairs_company": 2,
+   "deck_clarion": 2,
+   "stairs_clarion": 2,
+   "deck_row_1": 2,
+   "stairs_row_1": 2,
+   "deck_row_2": 2,
+   "stairs_row_2": 2,
+   "deck_nugget": 2,
+   "stairs_nugget": 2,
+   "deck_hotel": 2,
+   "stairs_hotel": 2,
+   "deck_assay": 2,
+   "stairs_assay": 2
   },
   "clipPlaneNote": "BY BAND, NOT BY CARVED PIECE. The compiler cuts each band around the obstacles standing in it -- mud_far becomes three pieces around the trough -- and every piece of one band is at the same depth, so authoring a plane per piece would be authoring the same decision three times and inviting the three to disagree. A piece inherits its band's value; a band with no authored value is a build failure naming the band.",
   "proofPoints": [
@@ -1252,7 +1268,168 @@
     430,
     66
    ]
+  },
+  {
+   "id": "deck_mercantile",
+   "rect": [
+    152,
+    566,
+    303,
+    16
+   ],
+   "fixedAt": 632
+  },
+  {
+   "id": "stairs_mercantile",
+   "rect": [
+    212,
+    582,
+    90,
+    50
+   ],
+   "fixedAt": 632
+  },
+  {
+   "id": "deck_company",
+   "rect": [
+    470,
+    556,
+    400,
+    20
+   ],
+   "fixedAt": 620
+  },
+  {
+   "id": "stairs_company",
+   "rect": [
+    695,
+    576,
+    75,
+    44
+   ],
+   "fixedAt": 620
+  },
+  {
+   "id": "deck_clarion",
+   "rect": [
+    885,
+    551,
+    235,
+    15
+   ],
+   "fixedAt": 608
+  },
+  {
+   "id": "stairs_clarion",
+   "rect": [
+    968,
+    566,
+    85,
+    42
+   ],
+   "fixedAt": 608
+  },
+  {
+   "id": "deck_row_1",
+   "rect": [
+    1250,
+    545,
+    290,
+    15
+   ],
+   "fixedAt": 604
+  },
+  {
+   "id": "stairs_row_1",
+   "rect": [
+    1388,
+    560,
+    82,
+    44
+   ],
+   "fixedAt": 604
+  },
+  {
+   "id": "deck_row_2",
+   "rect": [
+    1545,
+    535,
+    235,
+    15
+   ],
+   "fixedAt": 582
+  },
+  {
+   "id": "stairs_row_2",
+   "rect": [
+    1640,
+    550,
+    62,
+    32
+   ],
+   "fixedAt": 582
+  },
+  {
+   "id": "deck_nugget",
+   "rect": [
+    2130,
+    550,
+    410,
+    32
+   ],
+   "fixedAt": 612
+  },
+  {
+   "id": "stairs_nugget",
+   "rect": [
+    2210,
+    582,
+    80,
+    30
+   ],
+   "fixedAt": 612
+  },
+  {
+   "id": "deck_hotel",
+   "rect": [
+    2600,
+    588,
+    360,
+    24
+   ],
+   "fixedAt": 655
+  },
+  {
+   "id": "stairs_hotel",
+   "rect": [
+    2605,
+    612,
+    90,
+    43
+   ],
+   "fixedAt": 655
+  },
+  {
+   "id": "deck_assay",
+   "rect": [
+    3000,
+    605,
+    200,
+    32
+   ],
+   "fixedAt": 666
+  },
+  {
+   "id": "stairs_assay",
+   "rect": [
+    3035,
+    637,
+    90,
+    29
+   ],
+   "fixedAt": 666
   }
  ],
- "walkBoxesExtraNote": "Errata 300 (Tyler, 2026-11-13: \"Thad can walk partway up the side of a building. And he just randomly walks up the edge of the porch instead of going up the stairs. On every building.\"). The street as redrawn has a porch to each building at its own depth, with its own stairs and gaps between, and the old floor ran one boardwalk strip the width of the street across all of it. Now he walks on the ground only: the street from y666 down, and in front of each building a strip up to the foot of what stands there -- the porch's posts, the foot of its stairs, the notice board's legs, the barrels -- each read off the plate. The doors are reached from the street at the foot of their stairs, as every exit's stand already was."
+ "walkBoxesExtraNote": "Errata 300 (Tyler, 2026-11-13: \"Thad can walk partway up the side of a building. And he just randomly walks up the edge of the porch instead of going up the stairs. On every building.\"). The street as redrawn has a porch to each building at its own depth, with its own stairs and gaps between, and the old floor ran one boardwalk strip the width of the street across all of it. Now he walks on the ground only: the street from y666 down, and in front of each building a strip up to the foot of what stands there -- the porch's posts, the foot of its stairs, the notice board's legs, the barrels -- each read off the plate. The doors are reached from the street at the foot of their stairs, as every exit's stand already was.",
+ "porchesNote": "Errata 301 (Tyler, 2026-11-13: \"I would like him to actually walk up steps onto porches.\"). Each porch is a deck, read off the plate from the wall's foot to the deck's front edge, joined to the street only by its stairs, from the deck's edge to the stairs' foot. Nothing else touches a deck, so the only way up is the steps. Deck and stairs are drawn at the height of the ground at the stairs' foot (fixedAt), since a man on a porch is that far away, raised. Each door's stand is on its porch, in front of it."
 }
