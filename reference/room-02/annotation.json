@@ -8,35 +8,11 @@
  "walkable": [
   [
    60,
-   622
-  ],
-  [
-   900,
-   614
-  ],
-  [
-   1750,
-   610
-  ],
-  [
-   2100,
-   600
-  ],
-  [
-   2600,
-   596
-  ],
-  [
-   3050,
-   606
-  ],
-  [
-   3330,
-   584
+   666
   ],
   [
    3690,
-   612
+   666
   ],
   [
    3690,
@@ -185,13 +161,13 @@
    "facing": "back"
   },
   "to_hotel": {
-   "x": 2707,
-   "y": 624,
+   "x": 2630,
+   "y": 660,
    "facing": "back"
   },
   "to_assay_office": {
-   "x": 3113,
-   "y": 627,
+   "x": 3060,
+   "y": 672,
    "facing": "back"
   },
   "to_claims_road": {
@@ -227,13 +203,13 @@
    "facing": "front"
   },
   "hotel": {
-   "x": 2707,
-   "y": 624,
+   "x": 2630,
+   "y": 660,
    "facing": "front"
   },
   "assay_office": {
-   "x": 3113,
-   "y": 627,
+   "x": 3060,
+   "y": 672,
    "facing": "front"
   },
   "claims_road": {
@@ -317,20 +293,20 @@
   {
    "from": "hotel_lobby",
    "at": [
-    2707,
-    624
+    2630,
+    660
    ],
    "facing": "front",
-   "note": "Out of hotel_lobby’s door, facing the street."
+   "note": "Out of hotel_lobby's door and down its stairs, facing the street (errata 300)."
   },
   {
    "from": "assay_office",
    "at": [
-    3113,
-    627
+    3060,
+    672
    ],
    "facing": "front",
-   "note": "Out of assay_office’s door, facing the street."
+   "note": "Out of assay_office's door and down its stairs, facing the street (errata 300)."
   },
   {
    "from": "claims_road",
@@ -532,10 +508,25 @@
  "occlusion": {
   "note": "WHICH FOREGROUND PLANE MASKS AN ACTOR STANDING IN EACH BAND. Tyler's ruling, and it is authored here rather than emitted by the compiler because occlusion geometry is a reading of the PICTURE and every room's is different. The compiler previously wrote `clipPlane: 12` into every box it made -- a constant that named no plane this room declares, so Renderer.masked() looked it up, found nothing, and drew straight through. Two masks loaded and occluded nobody, and no validator could see it because none of them asked whether the number on a box named a plane the room had. Doc 36 Q14.\n\nTHE ASSIGNMENT FOLLOWS THE PLANES' OWN NOTES. Plane 1 is the near corner alone -- the lumber stack and the wagon wheel -- so an actor in the near mud passes BEHIND that and IN FRONT of the trough. Plane 2 is plane 1 plus the hitching rail and the trough, so an actor in the middle band or further back is behind all of it. No box in this room is clipPlane 0: doc 22 defines 0 as always-in-front and nothing on Main Street is nearer than the wagon wheel, whose base sits on the bottom row of the frame.\n\nBOTH PLANES ARE maskPending. The assignment above is Tyler's ruling and is what the room will use; the masks it points at were authored against an earlier, narrower Main Street and describe objects the current plate does not contain. The clip planes are right and the art is stale, and those are two different repairs.",
   "clipPlane": {
-   "boardwalk": 2,
    "mud_far": 2,
    "mud_mid": 2,
-   "mud_near": 1
+   "mud_near": 1,
+   "ground_west_end": 2,
+   "ground_mercantile": 2,
+   "ground_company": 2,
+   "ground_clarion": 2,
+   "ground_notices": 2,
+   "ground_row_1": 2,
+   "ground_row_2": 2,
+   "ground_gap": 2,
+   "ground_trough_front": 2,
+   "ground_nugget_west": 2,
+   "ground_nugget": 2,
+   "ground_nugget_east": 2,
+   "ground_hotel": 2,
+   "ground_office": 2,
+   "ground_barrel": 2,
+   "ground_east_end": 2
   },
   "clipPlaneNote": "BY BAND, NOT BY CARVED PIECE. The compiler cuts each band around the obstacles standing in it -- mud_far becomes three pieces around the trough -- and every piece of one band is at the same depth, so authoring a plane per piece would be authoring the same decision three times and inviting the three to disagree. A piece inherits its band's value; a band with no authored value is a build failure naming the band.",
   "proofPoints": [
@@ -554,8 +545,8 @@
      700
     ],
     "expect": 2,
-    "box": "mud_mid",
-    "note": "In the middle band where plane 2 adds coverage beyond plane 1's corner: a hitching rail, two posts and a crossbar, drawn precisely, and there is no hitching rail in the plate there. Same state as the near point and kept for the same reason."
+    "box": "mud_far",
+    "note": "In the middle band where plane 2 adds coverage beyond plane 1's corner: a hitching rail, two posts and a crossbar, drawn precisely, and there is no hitching rail in the plate there. Same state as the near point and kept for the same reason. Errata 300: the street's bands now start at y666, so this point is in the far band; plane 2 for both, so nothing it proves changes."
    }
   ],
   "planes": [
@@ -1115,5 +1106,153 @@
    "seed": 9,
    "note": "Errata 297: a few moths at the map seller's lantern."
   }
- ]
+ ],
+ "boardwalkLip": false,
+ "walkBoxesExtra": [
+  {
+   "id": "ground_west_end",
+   "rect": [
+    60,
+    606,
+    90,
+    60
+   ]
+  },
+  {
+   "id": "ground_mercantile",
+   "rect": [
+    150,
+    632,
+    315,
+    34
+   ]
+  },
+  {
+   "id": "ground_company",
+   "rect": [
+    465,
+    620,
+    415,
+    46
+   ]
+  },
+  {
+   "id": "ground_clarion",
+   "rect": [
+    880,
+    608,
+    220,
+    58
+   ]
+  },
+  {
+   "id": "ground_notices",
+   "rect": [
+    1100,
+    636,
+    150,
+    30
+   ]
+  },
+  {
+   "id": "ground_row_1",
+   "rect": [
+    1250,
+    604,
+    300,
+    62
+   ]
+  },
+  {
+   "id": "ground_row_2",
+   "rect": [
+    1550,
+    582,
+    230,
+    84
+   ]
+  },
+  {
+   "id": "ground_gap",
+   "rect": [
+    1780,
+    590,
+    125,
+    76
+   ]
+  },
+  {
+   "id": "ground_trough_front",
+   "rect": [
+    1905,
+    646,
+    226,
+    20
+   ]
+  },
+  {
+   "id": "ground_nugget_west",
+   "rect": [
+    2131,
+    606,
+    74,
+    60
+   ]
+  },
+  {
+   "id": "ground_nugget",
+   "rect": [
+    2205,
+    612,
+    275,
+    54
+   ]
+  },
+  {
+   "id": "ground_nugget_east",
+   "rect": [
+    2480,
+    612,
+    80,
+    54
+   ]
+  },
+  {
+   "id": "ground_hotel",
+   "rect": [
+    2560,
+    655,
+    240,
+    11
+   ]
+  },
+  {
+   "id": "ground_office",
+   "rect": [
+    2800,
+    642,
+    175,
+    24
+   ]
+  },
+  {
+   "id": "ground_barrel",
+   "rect": [
+    3175,
+    652,
+    85,
+    14
+   ]
+  },
+  {
+   "id": "ground_east_end",
+   "rect": [
+    3260,
+    600,
+    430,
+    66
+   ]
+  }
+ ],
+ "walkBoxesExtraNote": "Errata 300 (Tyler, 2026-11-13: \"Thad can walk partway up the side of a building. And he just randomly walks up the edge of the porch instead of going up the stairs. On every building.\"). The street as redrawn has a porch to each building at its own depth, with its own stairs and gaps between, and the old floor ran one boardwalk strip the width of the street across all of it. Now he walks on the ground only: the street from y666 down, and in front of each building a strip up to the foot of what stands there -- the porch's posts, the foot of its stairs, the notice board's legs, the barrels -- each read off the plate. The doors are reached from the street at the foot of their stairs, as every exit's stand already was."
 }

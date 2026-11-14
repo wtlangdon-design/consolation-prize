@@ -2168,7 +2168,12 @@ for (const [spec, rule] of personBullets) {
     return found;
   };
 
-  const lip = (live.walkBoxes ?? []).find((w) => w.id === 'boardwalk');
+  // NO LIP WHERE THE PICTURE HAS NO CONTINUOUS BOARDWALK (errata 300; Tyler, 2026-11-13: "Thad can walk partway up
+  // the side of a building. And he just randomly walks up the edge of the porch instead of going up the stairs."). The
+  // lip is one strip the width of the room, from the street as first drawn. The redrawn street has a porch to each
+  // building, at its own depth, with gaps between, and the strip ran across the gaps and up every porch's edge. A room
+  // that says `boardwalkLip: false` builds none, and its ground meets each porch at the porch's foot.
+  const lip = ann.boardwalkLip === false ? undefined : (live.walkBoxes ?? []).find((w) => w.id === 'boardwalk');
   // OBSTACLES CARVE THE BANDS. A band is a quad by rule, so a thing standing on
   // the floor cannot be a hole in one -- it has to become several quads around
   // the gap. Thad walked straight through the water trough because nothing in

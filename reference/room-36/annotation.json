@@ -11,35 +11,11 @@
  "walkable": [
   [
    60,
-   622
-  ],
-  [
-   900,
-   614
-  ],
-  [
-   1750,
-   610
-  ],
-  [
-   2100,
-   600
-  ],
-  [
-   2600,
-   596
-  ],
-  [
-   3050,
-   606
-  ],
-  [
-   3330,
-   584
+   666
   ],
   [
    3690,
-   612
+   666
   ],
   [
    3690,
@@ -256,7 +232,23 @@
   "clipPlane": {
    "mud_far": 0,
    "mud_mid": 0,
-   "mud_near": 0
+   "mud_near": 0,
+   "ground_west_end": 0,
+   "ground_mercantile": 0,
+   "ground_company": 0,
+   "ground_clarion": 0,
+   "ground_notices": 0,
+   "ground_row_1": 0,
+   "ground_row_2": 0,
+   "ground_gap": 0,
+   "ground_trough_front": 0,
+   "ground_nugget_west": 0,
+   "ground_nugget": 0,
+   "ground_nugget_east": 0,
+   "ground_hotel": 0,
+   "ground_office": 0,
+   "ground_barrel": 0,
+   "ground_east_end": 0
   },
   "planes": []
  },
@@ -331,5 +323,152 @@
    "id": "chimney_2",
    "note": ""
   }
- ]
+ ],
+ "walkBoxesExtra": [
+  {
+   "id": "ground_west_end",
+   "rect": [
+    60,
+    606,
+    90,
+    60
+   ]
+  },
+  {
+   "id": "ground_mercantile",
+   "rect": [
+    150,
+    632,
+    315,
+    34
+   ]
+  },
+  {
+   "id": "ground_company",
+   "rect": [
+    465,
+    620,
+    415,
+    46
+   ]
+  },
+  {
+   "id": "ground_clarion",
+   "rect": [
+    880,
+    608,
+    220,
+    58
+   ]
+  },
+  {
+   "id": "ground_notices",
+   "rect": [
+    1100,
+    636,
+    150,
+    30
+   ]
+  },
+  {
+   "id": "ground_row_1",
+   "rect": [
+    1250,
+    604,
+    300,
+    62
+   ]
+  },
+  {
+   "id": "ground_row_2",
+   "rect": [
+    1550,
+    582,
+    230,
+    84
+   ]
+  },
+  {
+   "id": "ground_gap",
+   "rect": [
+    1780,
+    590,
+    125,
+    76
+   ]
+  },
+  {
+   "id": "ground_trough_front",
+   "rect": [
+    1905,
+    646,
+    226,
+    20
+   ]
+  },
+  {
+   "id": "ground_nugget_west",
+   "rect": [
+    2131,
+    606,
+    74,
+    60
+   ]
+  },
+  {
+   "id": "ground_nugget",
+   "rect": [
+    2205,
+    612,
+    275,
+    54
+   ]
+  },
+  {
+   "id": "ground_nugget_east",
+   "rect": [
+    2480,
+    612,
+    80,
+    54
+   ]
+  },
+  {
+   "id": "ground_hotel",
+   "rect": [
+    2560,
+    655,
+    240,
+    11
+   ]
+  },
+  {
+   "id": "ground_office",
+   "rect": [
+    2800,
+    642,
+    175,
+    24
+   ]
+  },
+  {
+   "id": "ground_barrel",
+   "rect": [
+    3175,
+    652,
+    85,
+    14
+   ]
+  },
+  {
+   "id": "ground_east_end",
+   "rect": [
+    3260,
+    600,
+    430,
+    66
+   ]
+  }
+ ],
+ "walkBoxesExtraNote": "Errata 300 (Tyler, 2026-11-13: \"Thad can walk partway up the side of a building. And he just randomly walks up the edge of the porch instead of going up the stairs. On every building.\"). The street as redrawn has a porch to each building at its own depth, with its own stairs and gaps between, and the old floor ran one boardwalk strip the width of the street across all of it. Now he walks on the ground only: the street from y666 down, and in front of each building a strip up to the foot of what stands there -- the porch's posts, the foot of its stairs, the notice board's legs, the barrels -- each read off the plate. The doors are reached from the street at the foot of their stairs, as every exit's stand already was. The dawn street is the same street, and takes the same ground."
 }
