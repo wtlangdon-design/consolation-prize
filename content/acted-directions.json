@@ -171,27 +171,6 @@
       "seconds": 3
     },
     {
-      "n": 15,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "He gives the map anyway. It has Claim Two circled.",
-      "where": "dialogue/fanshawe FAN_A1 option 2"
-    },
-    {
-      "n": 16,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "He will not. Sump is never asked.",
-      "where": "dialogue/fanshawe FAN_A2 option 2"
-    },
-    {
-      "n": 17,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "The subject has gone wherever subjects go at his table.",
-      "where": "dialogue/fanshawe FAN_A2 option 3"
-    },
-    {
       "n": 22,
       "class": "C",
       "speaker": "fanshawe",
@@ -338,20 +317,6 @@
       "seconds": 1.5
     },
     {
-      "n": 41,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "He thinks about it for some time.",
-      "where": "dialogue/pratt PRA_A1 option 1"
-    },
-    {
-      "n": 42,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "He walks over, unhurried, and reaches into the hole. The bite. He withdraws the hand and studies it.",
-      "where": "dialogue/pratt PRA_A1 option 1"
-    },
-    {
       "n": 45,
       "class": "A",
       "speaker": "pratt",
@@ -364,6 +329,13 @@
         2
       ],
       "seconds": 1.5
+    },
+    {
+      "n": 41,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "He thinks about it for some time.",
+      "where": "dialogue/pratt PRA_E3 option 1"
     },
     {
       "n": 47,
@@ -390,17 +362,19 @@
     },
     {
       "n": 50,
-      "class": "C",
+      "class": "A",
       "speaker": "thad",
       "words": "The raccoon regards him.",
-      "where": "dialogue/raccoon RAC_A1 option 1"
-    },
-    {
-      "n": 51,
-      "class": "C",
-      "speaker": "thad",
-      "words": "The raccoon does not.",
-      "where": "dialogue/raccoon RAC_A1 option 4"
+      "where": "dialogue/raccoon RAC_A1 option 1",
+      "performedBy": [
+        "raccoon"
+      ],
+      "frames": [
+        2,
+        2,
+        2
+      ],
+      "seconds": 1.2
     },
     {
       "n": 52,
@@ -1109,13 +1083,6 @@
       "where": "rooms/washout departure (the ride home)"
     },
     {
-      "n": 104,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "He gives Thad a map of the district. Claim Two is already circled.",
-      "where": "dialogue/fanshawe FAN_A1 option 1"
-    },
-    {
       "n": 105,
       "class": "C",
       "speaker": "fanshawe",
@@ -1498,20 +1465,6 @@
       "where": "combinations (letter on pike_s_marker)"
     },
     {
-      "n": 144,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad unscrews the jar and adds Dr. Purvis. The brine goes the color of a bruise.",
-      "where": "combinations (tonic on eggs)"
-    },
-    {
-      "n": 145,
-      "class": "C",
-      "speaker": "thad",
-      "words": "The egg goes in. There is a pause. The egg comes back out, at speed.",
-      "where": "combinations (eggs on hole, improved)"
-    },
-    {
       "n": 146,
       "class": "C",
       "speaker": "thad",
@@ -1545,13 +1498,6 @@
       "speaker": "thad",
       "words": "Thad puts the cover back over the contract.",
       "where": "rooms/fanshawe_office contract CLOSE"
-    },
-    {
-      "n": 151,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "He does not take the dish away.",
-      "where": "dialogue/fanshawe FAN_A2 option 6"
     },
     {
       "n": 152,
@@ -1694,11 +1640,40 @@
       "where": "dialogue/amb-map-seller root option 6"
     },
     {
+      "n": 175,
+      "class": "A",
+      "speaker": "thad",
+      "words": "Thad ducks.",
+      "where": "combinations (eggs on hole, improved)",
+      "performedBy": [
+        "thad:recoil/back"
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        3,
+        2
+      ],
+      "seconds": 1.2
+    },
+    {
       "n": 174,
-      "class": "B",
+      "class": "A",
       "speaker": "deke_vessel",
       "words": "Thad hands over four dollars and the watch.",
-      "where": "dialogue/deke-vessel root option 6"
+      "where": "dialogue/deke-vessel root option 6",
+      "performedBy": [
+        "deke_vessel"
+      ],
+      "frames": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "seconds": 1.6
     }
   ]
 }

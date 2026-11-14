@@ -71,18 +71,8 @@
           "id": "raccoon4",
           "tag": "COMIC",
           "text": "On reflection, he can name himself.",
-          "afterUse": "remove",
-          "exchange": [
-            {
-              "speaker": "thad",
-              "line": "The raccoon does not.",
-              "direction": true
-            },
-            {
-              "speaker": "thad",
-              "line": "He declines. It is the first thing we have agreed on."
-            }
-          ]
+          "say": "He declines. It is the first thing we have agreed on.",
+          "afterUse": "remove"
         },
         {
           "id": "raccoonx",

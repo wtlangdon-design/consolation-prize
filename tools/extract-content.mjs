@@ -5271,7 +5271,8 @@ function fanshaweTree() {
     };
     const six = scenesBCWords(after('**`FAN_A2` option 6**'), 'thad', { FANSHAWE: SPEAKER });
     const closing = scenesBCWords(after('**`FAN_A2`, leaving the conversation**'), 'thad', { FANSHAWE: SPEAKER }).first;
-    if (six.first.length !== 2 || !six.first[1].direction || six.second.length !== 1 || closing.length !== 1) {
+    // Its second span was a direction, "He does not take the dish away."; errata 308 gives it to the Colonel to say.
+    if (six.first.length !== 2 || six.second.length !== 1 || closing.length !== 1) {
       throw new Error('doc 120 I-1: FAN_A2 option 6 or its closing does not read');
     }
     return { six: { then: [six.first[1]], repeat: six.second[0].line }, closing: closing[0].line };

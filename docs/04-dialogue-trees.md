@@ -274,8 +274,8 @@ FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK 
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Number two. I've named her Prosperity." | `[PROGRESS · remove]` | "Prosperity! You've named it. Nobody names them. I like you enormously." *(He gives Thad a map of the district. Claim Two is already circled.)* | **He now knows.** Gives map *(errata 228: the map arrives on screen, as it does in option 2)* |
-| 2 | "I'd rather not say." | `[PROGRESS · remove]` | "Very wise. Very wise indeed." *(He gives the map anyway. It has Claim Two circled.)* | Same outcome — **there is no way to withhold it, and the player will not notice until Act III** |
+| 1 | "Number two. I've named her Prosperity." | `[PROGRESS · remove]` | "Prosperity! You've named it. Nobody names them. I like you enormously." *(beat)* "Take a map of the district, with my compliments." | **He now knows.** Gives map *(errata 228: the map arrives on screen, as it does in option 2)* |
+| 2 | "I'd rather not say." | `[PROGRESS · remove]` | "Very wise. Very wise indeed." *(beat)* "Take a map of the district all the same." | Same outcome — **there is no way to withhold it, and the player will not notice until Act III** |
 | 3 | "Were you really a colonel?" | `[TOPIC · remove]` | "Chapultepec, '47. Terrible business. Wonderful weather." | `WAR_CONTRADICTIONS` +1 |
 | 4 | "You have a great many chairs." | `[COMIC · retain]` | "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch." *(second)* "Do sit, Mr. Grubb. You're standing again." | — |
 | 5 | "Is there gold under Prosperity?" | `[TOPIC · retain]` | "There is gold under everything in Consolation, Mr. Grubb. It is simply a question of depth, patience and paperwork." *(beat)* "I sell all three." *(second)* "Depth, patience and paperwork. My door is open for all three." | — |
@@ -311,8 +311,8 @@ He does not deny it, does not explain it, and does not become hostile. It is far
 | # | Option | Tag | Response | Rule ledger |
 |---|---|---|---|---|
 | 1 | "I'd be glad of a partner in it." | `[TOPIC · retain]` | "Partners! Then we are partners. We'll do the paper when we're sober. I never do paper in drink. It's the only rule I keep." *(second)* "Partners still! The paper can wait. Paper always can; it's the great virtue of paper." | sells half; deferred |
-| 2 | "You're welcome to the working of it while I learn the trade." | `[TOPIC · retain]` | "A lease! How modern of you. I'll have Sump draw something up." *(He will not. Sump is never asked.)* *(second)* "Sump will draw it up. I've made a note to write him a note." | leases it; deferred |
-| 3 | "Whatever's in it, I'd sooner it went to someone who'd use it." | `[TOPIC · retain]` · after 1 | "Then we agree entirely, and that is the best foundation for anything. More wine?" *(The subject has gone wherever subjects go at his table.)* *(second)* "Agreed again, and twice as entirely. Your glass, Mr. Grubb." | gives it away; deferred |
+| 2 | "You're welcome to the working of it while I learn the trade." | `[TOPIC · retain]` | "A lease! How modern of you. I'll have Sump draw something up." *(second)* "Sump will draw it up. I've made a note to write him a note." | leases it; deferred |
+| 3 | "Whatever's in it, I'd sooner it went to someone who'd use it." | `[TOPIC · retain]` · after 1 | "Then we agree entirely, and that is the best foundation for anything. More wine?" *(second)* "Agreed again, and twice as entirely. Your glass, Mr. Grubb." | gives it away; deferred |
 | 4 | "Put it down as a kindness, and I'll owe you." | `[TOPIC · retain]` · after 2 | "You owe me nothing at all, Mr. Grubb." *(beat)* "Yet." *(second)* "Nothing, Mr. Grubb. I'm keeping very careful count of it." | mortgages it; deferred |
 | 5 | "I'd sign anything that came with a wine like this." | `[TOPIC · retain]` · after 3 | "Then you shall sign nothing tonight. I would never take advantage of a man at his dinner." *(second)* "Nothing tonight. There is always tomorrow night. I dine every night." | signs it away; deferred |
 | 6 | "I mean to work it myself." | `[PROGRESS · remove]` · after 2 | "Of course you do." *(He is delighted. He refills Thad's glass. He has learned the only thing he wanted to know.)* → A10, doc 48 S1 beat 3 | receives: dinner, wine, warmth. gives up: that he will work the claim |
@@ -574,7 +574,7 @@ Pratt on his own claim, beside Prosperity, raking. The node exists for A5's "sen
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "There's a raccoon in my hole. Would you get him out?" | `[PROGRESS · remove]` | "Raccoon." *(He thinks about it for some time.)* "All right." *(He walks over, unhurried, and reaches into the hole. The bite. He withdraws the hand and studies it.)* "He's in there." → `T_PRATT_BITTEN` *(errata 75: offered only while the raccoon is in the hole)* |
+| 1 | "There's a raccoon in my hole. Would you get him out?" | `[PROGRESS · remove]` | "Raccoon." *(beat)* "Put my hand in there once." *(beat)* "He's in there." → `T_PRATT_BITTEN` *(errata 75: offered only while the raccoon is in the hole)* |
 | 2 | "Nine dollars for what?" | `[TOPIC · retain]` | "Your claim." *(second)* "Your claim. Nine dollars and a hen." |
 | 5 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "Yep." *(He rakes for a while.)* "Undertaker's got him." *(second)* "Undertaker's got him. Has had for a while." *(unless `T_PIKE_DEAD`)* |
 | 6 | "You knew Pike was dead." | `[TOPIC · retain]` | "Yep." *(He rakes.)* "Said so." *(second)* "Said the undertaker had him. That's what that means." *(req `T_PIKE_DEAD`)* |
@@ -644,7 +644,7 @@ The bible: "Thad names it (full Christian name, chosen by the player from three 
 | 1 | "Absalom Crispin Thrupp." | `[PROGRESS · remove]` → node closes | *(The raccoon regards him.)* "Absalom. He looks like a man who owns a bank and has never been inside it." → `T_RACCOON_NAMED`, display name ABSALOM |
 | 2 | "Ebenezer Augustine Vole." | `[PROGRESS · remove]` → node closes | "Ebenezer. He has accepted it the way he accepts weather: without comment, and with some resentment." → `T_RACCOON_NAMED`, display name EBENEZER |
 | 3 | "Bartholomew Euphrates Dodd." | `[PROGRESS · remove]` → node closes | "Bartholomew. It is too much name for him, and he will grow into none of it." → `T_RACCOON_NAMED`, display name BARTHOLOMEW |
-| 4 | "On reflection, he can name himself." | `[COMIC · retain]` | *(The raccoon does not.)* "He declines. It is the first thing we have agreed on." |
+| 4 | "On reflection, he can name himself." | `[COMIC · retain]` | "He declines. It is the first thing we have agreed on." |
 
 *FAN_C1 option 5, "I've named a raccoon after you", is a `[COMIC]` line Thad may say whichever name he chose. Only a player who picked Absalom will know it is true.*
 
