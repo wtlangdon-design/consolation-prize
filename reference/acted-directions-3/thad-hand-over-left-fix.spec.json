@@ -1,0 +1,16 @@
+{
+ "assetId": "acted-directions-3-thad",
+ "subject": "thad-hand-over-left",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-03-nugget",
+ "promptFile": "reference/acted-directions-3/thad-hand-over-left-fix.txt",
+ "out": "art/staging/acted-directions-3/thad/sheet-left-fix.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-3/thad/template-left.png",
+  "art/staging/acted-directions-3/thad/last-try-left.png",
+  "art/staging/acted-directions-3/thad/nugget-left.png"
+ ],
+ "derivedFrom": 2
+}
