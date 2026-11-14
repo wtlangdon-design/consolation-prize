@@ -1,0 +1,15 @@
+{
+ "assetId": "acted-directions-3-thad",
+ "subject": "thad-hand-over-right",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-03-nugget",
+ "promptFile": "reference/acted-directions-3/thad-hand-over-right.txt",
+ "out": "art/staging/acted-directions-3/thad/sheet-right.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-3/thad/template-right.png",
+  "art/staging/acted-directions-3/thad/nugget-right.png"
+ ],
+ "derivedFrom": "art/actors/thad-stand-right/stand-00.png"
+}

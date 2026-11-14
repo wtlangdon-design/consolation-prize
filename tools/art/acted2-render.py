@@ -10,7 +10,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 R = lambda p: os.path.join(ROOT, p)
 # key: (record, first new frame, cell drawn height in the room, x, y, Thad's height there, Thad's x) -- beside-thad.py's print
-SPOTS = {
+SPOTS = {} if os.environ.get('ACTED3') else {
     'pratt': ('content/ambient/pratt.json', 7, 387, 1450, 716, 383, 1032),
     'pratt-jump': ('content/ambient/pratt-jump.json', 6, 429, 560, 762, 399, 201),
     'rule-keeper': ('content/ambient/gulch-rule-keeper.json', 7, 370, 672, 731, 398, 352),
@@ -24,10 +24,19 @@ SPOTS = {
     'panner': ('content/ambient/gulch-panner.json', 6, 408, 1790, 690, 376, 1561),
 }
 # Thad's strips, in a room where each is played: (strip, frames, room, x, y, Thad's man there, his figure height on the canvas)
-STRIPS = {
+STRIPS = {} if os.environ.get('ACTED3') else {
     'thad-back': ('art/actors/thad-acted2-back.png', 'mine_line', 620, 655, 377, 627),
     'thad-right': ('art/actors/thad-acted2-right.png', 'ozymandias_tent', 440, 800, None, 626),
 }
+
+
+if os.environ.get('ACTED3'):                       # tools/art/acted3-render.py: the third pass's street people
+    SPOTS.update({
+        'letter-writer': ('content/ambient/letter-writer.json', 6, 235, 1295, 775, 224, 1166),
+        'man-leaving': ('content/ambient/man-leaving-tomorrow.json', 6, 154, 2810, 712, 152, 2688),
+        'bell-ringer': ('content/ambient/bell-ringer.json', 5, 195, 929, 700, 187, 798),
+        'map-seller': ('content/ambient/map-seller.json', 5, 142, 3185, 668, 136, 3087),
+    })
 
 
 def main():
@@ -37,11 +46,11 @@ def main():
     for key, (rec_p, first, dh, x, y, th, tx) in SPOTS.items():
         rec = json.load(open(R(rec_p))); s = rec['sprite']
         sheet = Image.open(R(s['sheet'])).convert('RGBA')
-        cpath = R(f'art/staging/acted-directions-2/{key}/cut.json')
+        cpath = R(f"art/staging/acted-directions-{'3' if os.environ.get('ACTED3') else '2'}/{key}/cut.json")
         if not os.path.exists(cpath):
             continue
         cut = json.load(open(cpath))[key]['newFrames']
-        if key == 'panner':                      # redrawn whole: his new rest frame first, then the snort
+        if key in ('panner', 'bell-ringer', 'map-seller'):    # redrawn whole: the new rest frame first, then the poses
             cut = [s['frames'][0]] + cut
         cell_h = s['frames'][0][3]
         k = dh / cell_h
@@ -93,8 +102,9 @@ def main():
     W = max(r.width for r in rows); out = Image.new('RGB', (W, sum(r.height + 12 for r in rows)), (0, 0, 0)); yy = 0
     for r in rows:
         out.paste(r, (0, yy)); yy += r.height + 12
-    out.save(R('renders/acted-directions-2-beside-thad.png'))
-    print('wrote renders/acted-directions-2-beside-thad.png', out.size)
+    name = 'acted-directions-3-street-beside-thad' if os.environ.get('ACTED3') else 'acted-directions-2-beside-thad'
+    out.save(R(f'renders/{name}.png'))
+    print(f'wrote renders/{name}.png', out.size)
 
 
 main()

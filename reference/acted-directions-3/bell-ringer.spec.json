@@ -1,0 +1,15 @@
+{
+ "assetId": "acted-directions-3-street",
+ "subject": "acted-directions-3-bell-ringer",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-43-lower-street",
+ "promptFile": "reference/acted-directions-3/bell-ringer.txt",
+ "out": "art/staging/acted-directions-3/bell-ringer/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-3/bell-ringer/template.png",
+  "art/staging/acted-directions-3/beside-thad-bell_ringer.png"
+ ],
+ "derivedFrom": "art/actors/room-43-bell-ringer.png"
+}
