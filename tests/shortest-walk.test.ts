@@ -47,7 +47,7 @@ test('the hero walks straight to a person ahead of him, not round an obstacle be
 
 test('in every room, no walk goes far out of its way', () => {
   // Every pair of sample points across every room's boxes. An obstacle between two points makes a fair detour
-  // (round the trough is about twice the distance plus a step), so the bound is generous; the dog's detour was 3.
+  // (round the hitching rail and its horses is about twice the distance plus a step), so the bound is generous; the dog's detour was 3.
   for (const { name, room } of rooms) {
     const boxes = new WalkBoxes(room.walkBoxes as WalkBox[]);
     const points: Point[] = [];

@@ -149,68 +149,6 @@
       }
     },
     {
-      "id": "water_trough",
-      "name": "THE WATER TROUGH",
-      "rect": [
-        1862,
-        543,
-        155,
-        62
-      ],
-      "colour": 150,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "when": {
-              "ACT": {
-                "atLeast": 3,
-                "atMost": 3
-              }
-            },
-            "say": "My reflection, in three inches of water. For a man the whole town has buried, I look remarkably well. A touch worried about the eyes."
-          },
-          {
-            "say": "A trough! Three inches of water and a great deal of ambition. I like it already.",
-            "repeat": [
-              "The water hasn't improved. I keep hoping, for both our sakes.",
-              "Three inches exactly. I measured it with a stick, which makes it the most scientific thing anyone's done in Consolation this year. Put that in the Clarion."
-            ],
-            "then": [
-              "We have a lot in common."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "when": {
-              "ACT": {
-                "atLeast": 3,
-                "atMost": 3
-              }
-            },
-            "say": "Something's still living in it. So am I, whatever the paper says."
-          },
-          {
-            "say": "Something is living in it. I've decided not to pursue this.",
-            "repeat": [
-              "It's still in there. It's moved.",
-              "We have reached an understanding."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "USE": "I drank from it once, in a spirit of adventure. The “once” is doing a great deal of work in that sentence.",
-        "OPEN": "It's a trough. It's as open as a thing can be, and I admire that in a trough."
-      },
-      "walkTo": {
-        "x": 1940,
-        "y": 652,
-        "facing": "back"
-      }
-    },
-    {
       "id": "dog",
       "name": "A DOG",
       "rect": [
@@ -403,6 +341,68 @@
       "walkTo": {
         "x": 668,
         "y": 620,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "water_trough",
+      "name": "THE WATER TROUGH",
+      "rect": [
+        1905,
+        550,
+        226,
+        96
+      ],
+      "colour": 150,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "My reflection, in three inches of water. For a man the whole town has buried, I look remarkably well. A touch worried about the eyes."
+          },
+          {
+            "say": "A trough! Three inches of water and a great deal of ambition. I like it already.",
+            "repeat": [
+              "The water hasn't improved. I keep hoping, for both our sakes.",
+              "Three inches exactly. I measured it with a stick, which makes it the most scientific thing anyone's done in Consolation this year. Put that in the Clarion."
+            ],
+            "then": [
+              "We have a lot in common."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Something's still living in it. So am I, whatever the paper says."
+          },
+          {
+            "say": "Something is living in it. I've decided not to pursue this.",
+            "repeat": [
+              "It's still in there. It's moved.",
+              "We have reached an understanding."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I drank from it once, in a spirit of adventure. The “once” is doing a great deal of work in that sentence.",
+        "OPEN": "It's a trough. It's as open as a thing can be, and I admire that in a trough."
+      },
+      "walkTo": {
+        "x": 2018,
+        "y": 698,
         "facing": "back"
       }
     },
@@ -1056,11 +1056,11 @@
           "y": 532
         },
         {
-          "x": 1862,
+          "x": 1905,
           "y": 532
         },
         {
-          "x": 1862,
+          "x": 1905,
           "y": 582
         },
         {
@@ -1083,7 +1083,7 @@
       "note": "ERRATA 28a: fixed at the far drawn size, and that is where Room 2's scaling snap now lives. The boardwalk lip is the only real horizontal interruption in the walkable band -- measured at a mean luminance step of 64.5 against 16.3 for the next strongest row -- so stepping off it into the mud is where the sprite swaps from the drawn far sheet to a decimated one. Before boxes the height was one curve across the whole floor and the swap landed at y109, in open mud.",
       "points": [
         {
-          "x": 2017,
+          "x": 2131,
           "y": 532
         },
         {
@@ -1095,7 +1095,7 @@
           "y": 582
         },
         {
-          "x": 2017,
+          "x": 2131,
           "y": 582
         }
       ],
@@ -1117,11 +1117,11 @@
           "y": 584
         },
         {
-          "x": 1862,
+          "x": 1905,
           "y": 584
         },
         {
-          "x": 1862,
+          "x": 1905,
           "y": 675
         },
         {
@@ -1150,7 +1150,7 @@
       "id": "mud_far_1",
       "points": [
         {
-          "x": 2017,
+          "x": 2131,
           "y": 584
         },
         {
@@ -1162,7 +1162,7 @@
           "y": 675
         },
         {
-          "x": 2017,
+          "x": 2131,
           "y": 675
         }
       ],
@@ -1187,19 +1187,19 @@
       "id": "mud_far_2",
       "points": [
         {
-          "x": 1862,
-          "y": 605
+          "x": 1905,
+          "y": 646
         },
         {
-          "x": 2017,
-          "y": 605
+          "x": 2131,
+          "y": 646
         },
         {
-          "x": 2017,
+          "x": 2131,
           "y": 675
         },
         {
-          "x": 1862,
+          "x": 1905,
           "y": 675
         }
       ],
