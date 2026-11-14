@@ -50,5 +50,58 @@ def poses_in(key):
 
 ns['poses_in'] = poses_in
 
+# Each figure's sheet as drawn: the correction where one was spent (both named a miss in the first: the bell-ringer's
+# second bottle and lost mallet, the map seller's second pencil and a stray line).
+SHEET = {'bell-ringer': 'sheet-fix.png', 'map-seller': 'sheet-fix.png'}
+_leftmost = ns['leftmost']
+ns['leftmost'] = lambda path, n: _leftmost(path.replace('/sheet.png', '/' + SHEET.get(path.split('/')[-2], 'sheet.png')), n)
+
+# THE MAP SELLER'S ONE PENCIL. Both of his drawings left a pencil behind his ear in the two drawing poses as well as the
+# one in his hand. In those frames (the new row) the pencil-yellow pixels in the head (the top HEAD of the figure) are
+# put out: each takes the median of the non-yellow figure pixels round it.
+HEAD = 0.2
+_figure = ns['figure']
+
+
+def figure(key, write):
+    import io, contextlib
+    import numpy as np
+    from PIL import Image
+    from scipy import ndimage as ndi
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        _figure(key, write)
+    report = json.loads(buf.getvalue())
+    if key == 'map-seller' and write:
+        sheet_path = R(json.load(open(R('content/ambient/map-seller.json')))['sprite']['sheet'])
+        a = np.asarray(Image.open(sheet_path).convert('RGBA')).copy()
+        removed = 0
+        for x, y, w, h in report[key]['newFrames']:
+            c = a[y:y + h, x:x + w]
+            op = c[..., 3] > 128
+            rows = np.nonzero(op.any(1))[0]
+            top = rows[0] + int(HEAD * (rows[-1] - rows[0] + 1))
+            rgb = c[..., :3].astype(int)
+            # the pencil's yellow is green-heavy (G over 0.8 R, about 240,208,16); his skin is not (G about 0.65 R)
+            yellow = op & (rgb[..., 0] > 150) & (rgb[..., 1] > 0.8 * rgb[..., 0]) & (rgb[..., 2] < 110)
+            yellow[top:] = False
+            if not yellow.any():
+                continue
+            yellow = ndi.binary_dilation(yellow, iterations=1) & op & (rgb[..., 1] > 0.72 * rgb[..., 0])
+            for yy, xx in zip(*np.nonzero(yellow)):
+                y0, y1, x0, x1 = max(0, yy - 3), yy + 4, max(0, xx - 3), xx + 4
+                ok = op[y0:y1, x0:x1] & ~yellow[y0:y1, x0:x1]
+                if ok.any():
+                    c[yy, xx, :3] = np.median(rgb[y0:y1, x0:x1][ok], axis=0)
+                else:
+                    c[yy, xx, 3] = 0
+            removed += int(yellow.sum())
+        Image.fromarray(a).save(sheet_path)
+        report[key]['earPencilPixelsRemoved'] = removed
+    print(json.dumps(report))
+
+
+ns['figure'] = figure
+
 if __name__ == '__main__':
     ns['figure'](sys.argv[1], '--write' in sys.argv)
