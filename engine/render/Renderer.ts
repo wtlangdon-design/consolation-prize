@@ -2049,7 +2049,9 @@ export class Renderer {
     // The level is looked up whenever anything could mask at it.
     const stateOccludes = this.state.statefulTargets
       .some((target) => (this.state.presentation(target)?.occludes?.length ?? 0) > 0);
-    if (!planes.length && !stateOccludes) {
+    // THE THINGS HE IS BEHIND (RoomFile.occluders, errata 302): a post whose base is nearer than his feet.
+    const behindThings = (this.state.room.occluders ?? []).filter((thing) => feetY < thing.baseY);
+    if (!planes.length && !stateOccludes && behindThings.length === 0) {
       draw();
       return;
     }
@@ -2069,7 +2071,7 @@ export class Renderer {
       .filter((shown) => shown?.image && shown.occludes?.includes(level))
       .map((shown) => this.sheet(stateImagePath(shown!) as string))
       .filter((image): image is CanvasImageSource => image !== null);
-    if (!mask && stateMasks.length === 0) {
+    if (!mask && stateMasks.length === 0 && behindThings.length === 0) {
       draw();
       return;
     }
@@ -2098,6 +2100,7 @@ export class Renderer {
     const width = this.state.roomWidth;
     if (mask) scratch.drawImage(mask, 0, 0, width, PLAY_HEIGHT);
     for (const extra of stateMasks) scratch.drawImage(extra, 0, 0, width, PLAY_HEIGHT);
+    for (const thing of behindThings) scratch.fillRect(...thing.rect);
     scratch.globalCompositeOperation = 'source-over';
     scratch.setTransform(1, 0, 0, 1, 0, 0);
     // BLITTED AT WORLD X, because the screen context is itself translated by
