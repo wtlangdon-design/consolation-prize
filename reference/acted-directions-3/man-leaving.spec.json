@@ -1,0 +1,15 @@
+{
+ "assetId": "acted-directions-3-street",
+ "subject": "acted-directions-3-man-leaving",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/acted-directions-3/man-leaving.txt",
+ "out": "art/staging/acted-directions-3/man-leaving/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-3/man-leaving/template.png",
+  "art/staging/acted-directions-3/beside-thad-man_leaving_tomorrow.png"
+ ],
+ "derivedFrom": "art/actors/man-leaving-tomorrow.png"
+}

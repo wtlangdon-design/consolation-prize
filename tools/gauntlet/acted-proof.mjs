@@ -42,6 +42,12 @@ const scenarios = {
   'pick-fit': { fixture: 'r33-b', steps: [{ use: 'pickaxe', on: 'every_rock_surface' }], burst: 24 },
   'deke-watch': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { talk: 'deke_vessel' }, { option: 'deke_vessel2' }, { option: 'deke_vessel3' }, { option: 'deke_vessel4' }], burst: 12 },
   'deke': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { talk: 'deke_vessel' }, { option: 'deke_vessel2' }, { option: 'deke_vessel3' }, { option: 'deke_vessel4' }, { option: 'deke_vessel6' }], burst: 20 },
+  // Errata 311, acted-directions-3 wired: the street people's poses.
+  'a3-letter': { fixture: 'r5-a', steps: [{ enter: 'lower_street' }, { wait: 3 }, { talk: 'letter_writer' }, { option: 'letter_writer7' }], burst: 12 },
+  'a3-bottle': { fixture: 'r5-a', steps: [{ enter: 'lower_street' }, { wait: 3 }, { talk: 'bell_ringer' }, { option: 'bell_ringer6' }], burst: 12 },
+  'a3-bell': { fixture: 'r5-a', steps: [{ enter: 'lower_street' }, { wait: 3 }, { talk: 'bell_ringer' }, { option: 'bell_ringer7' }], burst: 6 },
+  'a3-bag': { fixture: 'r5-a', steps: [{ enter: 'main_street' }, { wait: 3 }, { talk: 'man_leaving_tomorrow' }, { option: 'leaving6' }], burst: 10 },
+  'a3-map': { fixture: 'r5-a', steps: [{ enter: 'main_street' }, { wait: 3 }, { talk: 'map_seller' }, { option: 'map_seller6' }], burst: 6 },
   // Errata 308, the no-parentheticals sample: Act I from the swindle to the claim.
   'np-fanshawe-map': { fixture: 'r11-a', steps: [{ enter: 'fanshawe_office' }, { wait: 3 }, { talk: 'fanshawe' }, { option: 'fanshawe1' }], burst: 10 },
   'np-pratt': { fixture: 'r25-a', steps: [{ enter: 'pratts_claim' }, { wait: 3 }, { talk: 'pratt' }, { option: 'pratt1' }], burst: 10 },

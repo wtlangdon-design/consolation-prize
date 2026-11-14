@@ -1,0 +1,16 @@
+{
+ "assetId": "acted-directions-3-street",
+ "subject": "acted-directions-3-bell-ringer",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-43-lower-street",
+ "promptFile": "reference/acted-directions-3/bell-ringer-fix.txt",
+ "out": "art/staging/acted-directions-3/bell-ringer/sheet-fix.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-3/bell-ringer/template.png",
+  "art/staging/acted-directions-3/bell-ringer/last-try.png",
+  "art/staging/acted-directions-3/beside-thad-bell_ringer.png"
+ ],
+ "derivedFrom": 3
+}

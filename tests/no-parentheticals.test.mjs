@@ -48,7 +48,7 @@ const eggs = json('content/combinations.json').pairs.filter((pair) => pair.room 
 
 // The places a direction is printed across the game (one line can be printed in several), after the last room done.
 // It may only go down; a pass lowers it.
-const CAP = 122;
+const CAP = 117;
 
 test('in the rooms done, nothing is printed in parentheses', () => {
   const left = printed.filter((one) => DONE.some((done) => done(one))).map((one) => `${one.path}: (${one.words})`);

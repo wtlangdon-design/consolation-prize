@@ -26,61 +26,7 @@ When done, commit to a branch named `acted-directions-3-art`, with `reference/ac
 
 ## The list, by figure
 
-### `letter_writer` (Lower Street)
-
-- **Sheet:** `art/actors/ambient-letter-writer-master.png`. Six frames:
-  - 0 standing, his writing case under his arm;
-  - 1 breath;
-  - 2 the case held open;
-  - 3 touching his hat;
-  - 4 the case closed at his chest;
-  - 5 the pen down on his board, his hand lifted.
-- **Row 167** (his root list, option 7: Thad's "Thaddeus Grubb. Musician, of some reputation.", answered "'Gentleman of independent means, in music.'"): *He writes it down.*
-  - **Needs:** the case held open as in frame 2, and his pen moving on the page, his head bent to it. Two frames, so the pen visibly travels.
-
-### `bell_ringer` (Lower Street)
-
-- **Sheet:** `art/actors/room-43-bell-ringer.png`. Five frames:
-  - 0 rest, the mallet at his side;
-  - 1 breath;
-  - 2 the mallet raised;
-  - 3 the blow;
-  - 4 talking, a hand out.
-- **He has no bottle today.** Doc 07 has always had him drunk, but nothing shows it. Both rows below are about his bottle, so the bottle is drawn into every frame: in his free hand, or in a vest pocket, wherever it can stay through the strike. Only then can these poses hold it.
-  - Until it is drawn, both directions print a bottle the player cannot see. That is the one row on this list where the printed text is ahead of the picture.
-- **Row 168** (his root list, option 6: "I've tuned a cathedral organ. A bell is nothing.", answered "Could you tune this?"): *He holds up his bottle, hopefully.*
-  - **Needs:** the bottle raised toward Thad at chest height, his face hopeful. An acted direction prints nothing (doc 95 rule 1), so the face has to carry "hopefully"; "Could you tune this?" carries the rest.
-- **Row 169** (his root list, option 7: "Doesn't it bother you?", answered "I'm the only man in town who can't hear it."): *He looks up at the bell, then down at the bottle.*
-  - **Needs:** two frames, his head tipped up at the bell and then down at the bottle in his hand. The order of the two looks is the joke, so the frames play in that order.
-
-### `man_leaving_tomorrow` (Main Street)
-
-- **Sheet:** `art/actors/man-leaving-tomorrow.png`. Six frames:
-  - 0 rest, hands in pockets, the bag at his feet;
-  - 1 breath;
-  - 2 reaching for the bag;
-  - 3 lifting it in one hand;
-  - 4 setting it down, a hand on the handle;
-  - 5 talking.
-- **Row 172** (his root list, option 6: "Could I carry your bag to the coach?", answered "It goes when I go."): *He grips it with both hands.*
-  - **Needs:** the bag held up against his chest in both arms, protective, as a man holds something he will not be parted from. Frame 3 is one-handed and does not stand in.
-
-### `thad` (every hand-over in the game)
-
-- **Clips:** `content/actors/thad.json`. His `give-offer` clip is from the older profile drawing (doc 36 Q107) and jumps from his stand, so it does not stand in.
-- **Needs (errata 307, 308):** Monkey Island's one reusable reach, for every time Thad hands something over: Vessel's four dollars and the watch first. A clip `hand-over`, facing right and facing left. Frame 0 his stand frame in that facing, byte for byte; then his near arm out at chest height, his hand closed on something small; then the hand back at his side, empty. Three frames a facing. No row waits on it: until it is drawn, the other person's hand carries the moment (doc 95 row 174).
-
-### `map_seller` (Main Street)
-
-- **Sheet:** `art/actors/ambient-map-seller-master.png`. Five frames:
-  - 0 the map held up;
-  - 1 breath;
-  - 2 the map held out, offered;
-  - 3 the map lowered;
-  - 4 pointing at the map.
-- **He has no pencil today.** The pencil goes behind his ear in every frame, so that it can come down to the map in these poses without appearing from nowhere.
-- **Row 173** (his root list, option 6: "Do you have one with pianos on? I'm a tuner.", answered "I do now, sir!" and "There! A piano, right on top of the strike. You'll be the first man to look there."): *He draws a small piano on a map.*
-  - **Needs:** two frames, the map held flat at his chest and the pencil drawing on it, his head bent to it. The piano is too small to read at game size and is not drawn.
+*Empty.* Everything on it was drawn by acted-directions-3 (`reference/acted-directions-3/handback.md`) and wired by errata 311: doc 95 rows 167, 168, 169, 172, 173 and 174 are class A. A row made B from here on goes here, under its figure.
 
 ## Done
 

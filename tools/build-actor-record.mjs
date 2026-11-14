@@ -130,6 +130,9 @@ const CLIPS = [
   // 3 the paw swiping out. Played only over the hole's lines, a frame a line (ResponseRule.holds).
   // tools/art/thad-coat-bundle-split.py.
   { id: 'coat-bundle', dir: 'coat-bundle', prefix: 'coat-bundle' },
+  // THE HAND-OVER (errata 307, 311): Monkey Island's one reusable reach, right and left. 0 and 2 his stand, 1 the near
+  // arm out at chest height. Played by acted directions (doc 95), a hand-over at a time. tools/art/thad-hand-over-split.py.
+  { id: 'hand-over', dir: 'hand-over', prefix: 'hand-over' },
   // THE COLLECTION PLATE IN HIS HANDS (doc 115 II-1; errata 246): the plate at his waist, his hat under his arm,
   // facing front. 0 holding it, 1 a breath, 2 the pull. Played by the room while he holds it (Room.actorPoses) and
   // by the scene's acted directions (doc 95). tools/art/thad-plate-split.py.
@@ -168,12 +171,12 @@ const PARTIAL_STATES = {
   // nothing below is ever asked for while he sits. `sit` itself plays before the state is set.
   // Neither `sit` nor `rise` is played looking up.
   thad: {
-    lookup: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'stand', 'sit', 'rise'],
-    seated: ['walk', 'recoil', 'sit', 'rise', 'use-near', 'give-offer', 'shrug', 'pickup-low', 'alight-coach',
+    lookup: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'stand', 'sit', 'rise', 'hand-over'],
+    seated: ['walk', 'recoil', 'sit', 'rise', 'use-near', 'give-offer', 'hand-over', 'shrug', 'pickup-low', 'alight-coach',
       'aboard-coach', 'carry', 'haul', 'crawl'],
     // At Fanshawe's table he only converses: the state is set when he reaches the chair and cleared as the
     // conversation ends, before anything can move him (the accost's `seat`, errata 197).
-    dining: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'reach', 'sit', 'rise', 'use-near', 'give-offer', 'shrug',
+    dining: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'reach', 'sit', 'rise', 'use-near', 'give-offer', 'hand-over', 'shrug',
       'pickup-low', 'alight-coach', 'aboard-coach', 'carry', 'farwalk', 'pick-fit', 'deed', 'coat-bundle', 'plate', 'haul', 'rod', 'chalk', 'blanket', 'crawl'],
   },
   // THE DOOR IS CLOSED BY THE STAGING, NOT BY A MISSING VARIANT. Beat 6b

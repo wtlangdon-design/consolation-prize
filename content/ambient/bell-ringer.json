@@ -66,6 +66,24 @@
     2,
     118,
     276
+   ],
+   [
+    2,
+    280,
+    118,
+    276
+   ],
+   [
+    122,
+    280,
+    118,
+    276
+   ],
+   [
+    242,
+    280,
+    118,
+    276
    ]
   ],
   "rate": 0.45,
@@ -93,8 +111,8 @@
   "breakEvery": 12,
   "talkFrame": 4,
   "provenance": "art/staging/bell-ringer/bell-ringer/bell-ringer.json",
-  "frameNote": "0 rest, the mallet down at his side · 1 breath · 2 the mallet raised · 3 the blow · 4 talking, a hand out.",
-  "figureHeight": 265,
+  "frameNote": "0 rest, the mallet down at his side · 1 breath · 2 the mallet raised · 3 the blow · 4 talking, a hand out. Errata 311 (acted-directions-3): the sheet redrawn whole with his bottle in every frame (in his pocket in 0-4); 5 the bottle held up (doc 95 row 168), 6 looking up at the bell, 7 down at the bottle (row 169). Acted only. Drawn 0.7% smaller, so figureHeight 265 -> 263.",
+  "figureHeight": 263,
   "stature": 1,
   "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Crown to sole under his bowler, read from his eyes and chin: 265. Was 254.6, which took the whole bowler off his height (20 rows; his skull's crown is 8 rows under the hat's top): 1.04 of Thad.",
   "levelMan": 254.6,

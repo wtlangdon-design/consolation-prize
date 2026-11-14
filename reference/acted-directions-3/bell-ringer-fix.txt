@@ -1,0 +1,17 @@
+Image 1 is a TEMPLATE on magenta from my pixel-art adventure game, set in an 1850s gold-rush town. The FIRST figure is the hero, Thad: he is THE STANDARD -- his flat, soft shading and low texture -- shown at his true size beside this character. The other 7 figures are the bell-ringer, a scruffy man in a black bowler hat, rolled shirt sleeves and a brown waistcoat, holding a small wooden mallet (he strikes a bell with it; the bell is not drawn). He is a drunk, exactly as drawn in the game. Image 2 is the LAST TRY, which nearly worked (below). Image 3 is him beside Thad on Lower Street, at game size.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE (THAD) EXACTLY AS IT IS. Repaint all SEVEN others as the SAME bell-ringer, and in EVERY one of them he now has a small brown whisky BOTTLE: in figures 2 to 5 it sticks out of his waistcoat's front pocket (the mallet stays in his hand as now); in figures 6 to 8 it is in his free hand. Keep each figure's pose:
+2. standing at rest, the mallet at his side, the bottle in his waistcoat pocket;
+3. the mallet raised to strike, the bottle in his pocket;
+4. the blow, the mallet swung down, the bottle in his pocket;
+5. talking, one hand held out, the mallet in the other, the bottle in his pocket;
+6. NEW: the mallet at his side, the bottle taken out and HELD UP toward the right of the picture at chest height in his other hand, his face hopeful, eyebrows raised;
+7. NEW: the bottle held low at his side, his head tipped right back, LOOKING UP at a bell above him;
+8. NEW: the bottle held in front of him at his waist, his head bowed, LOOKING DOWN at the bottle.
+The bottle is the same small brown bottle in every figure. Nothing else is added.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as THAD -- NOT sharper, NOT more detailed. Every figure the same height and build as the one it repaints, its feet on the same line. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No shadows, no ground, no text, no numbers, no border.
+
+WHAT MISSED IN IMAGE 2, TO FIX -- keep everything else in Image 2 exactly as it is (figures 2, 3, 4, 5 and 7 are right):
+- figure 6 shows TWO bottles, one held up and one still in his waistcoat pocket. There is only ONE bottle: when he holds it up, his waistcoat pocket is EMPTY. The mallet stays in his other hand.
+- figure 8 has LOST THE MALLET: he holds the bottle in both hands. The mallet is in every figure: in figure 8 the mallet hangs in one hand at his side, and the bottle is held in his OTHER hand in front of him at his waist, his head bowed, looking down at the bottle. His waistcoat pocket is empty.

@@ -1,0 +1,12 @@
+{
+  "source": "art/actors/thad-hand-over-right.png",
+  "clip": "hand-over",
+  "facing": "right",
+  "figure": [
+    143,
+    626
+  ],
+  "padding": 260,
+  "frames": 3,
+  "note": "Errata 307, 311: Monkey Island's one reusable reach, for every hand-over in the game. 0 his stand, 1 the near arm out at chest height, the hand closed on something small, 2 his stand again. Only the arm of frame 1 is taken from the drawing, so nothing else moves. acted-directions-3, cut by tools/art/acted3-thad-cut.py, split here."
+}

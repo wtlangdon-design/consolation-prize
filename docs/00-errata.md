@@ -7932,3 +7932,23 @@ Tyler: "Some of it's confusing. Some of it doesn't seem to match where the game 
 Lesson:
 - `tests/thad-knows-when.test.mjs`: in the first act, Thad names Mott and Claim One only once somebody has told him. Proved by removing Hob's gates (it fails).
 - `tests/no-parentheticals.test.mjs` now covers Act I's trees, and its cap falls to 122.
+
+## 311 · Acted directions, the third pass, wired (Tyler, 2026-11-14)
+
+Tyler had the image session draw:
+- Thad's hand-over ("Draw only the brief's `thad` section"; cap 3);
+- the street people's poses ("Raise the budget to draw the other poses"; cap 6).
+
+The handback is `reference/acted-directions-3/handback.md`. Wired here, and every row the list held is now class A:
+- **Thad's hand-over**, right and left: Monkey Island's one reusable reach, for every hand-over in the game.
+  - Split by `tools/art/thad-hand-over-split.py`. Frames 0 and 2 are his stand frame, file for file. The left frame 1 is snapped to the one level (`tools/art/one-level.py`).
+  - Declared in his record (`tools/build-actor-record.mjs`; not a state of `lookup`, `seated` or `dining`).
+  - **Doc 95 row 174:** he reaches across the barrel with the four dollars and the watch, and Vessel takes them with his hand out.
+- **The letter-writer** writes it down (row 167).
+- **The bell-ringer** holds up his bottle and keeps it up while he asks (row 168), then looks up at the bell and down at the bottle (row 169). His sheet was redrawn with the bottle in every frame, and his figureHeight is 265 -> 263.
+- **The man leaving tomorrow** hugs his bag through "It goes when I go." (row 172).
+- **The map seller** draws on a map (row 173). His sheet was redrawn with a pencil behind his ear.
+
+Played in the real build: `tools/gauntlet/acted-proof.mjs`, scenarios `deke` and `a3-*`.
+
+Lesson: none of its own -- `tests/acted-directions.test.ts`, `tests/movements-to-draw.test.mjs` and `tests/one-level.test.mjs` already held every rule this wiring had to meet, and each caught a miss on the way (a re-encoded stand frame, an unsnapped mirrored arm, a clip missing from the `lookup` state).

@@ -71,7 +71,7 @@ All 98 printed directions in the game on 2026-11-14 (doc 95: 92 class C, 6 class
 | 155 | The hen, the oats | The hen eats out of Thad's hand, briskly, like a clerk stamping forms. | THAD |
 | 3, 5, 7, 8 | The pickaxe, three times | The head flies off; comes off again; the rock gives; a piece heavier than a wall should be | THAD. Rows 7 and 8 carry Act IV's warm air and the weight: kept, in his words (rule 1) |
 | 76 | The boarding-house women | She laughs for some time. | THEM |
-| 167, 168, 169, 172, 173 | The letter-writer, the bell-ringer, the man leaving tomorrow, the map seller | B rows waiting on poses | POSE; until drawn, CUT, with the line around it carrying it (169's order of looks, and 173's cross, go into what they say) |
+| 167, 168, 169, 172, 173 | The letter-writer, the bell-ringer, the man leaving tomorrow, the map seller | B rows waiting on poses | ACT: drawn and wired by errata 311 |
 
 ## Act II
 

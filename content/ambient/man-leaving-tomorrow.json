@@ -67,6 +67,12 @@
     2,
     74,
     152
+   ],
+   [
+    2,
+    156,
+    74,
+    152
    ]
   ],
   "figureHeight": 150,
@@ -97,7 +103,7 @@
   ],
   "breakEvery": 12,
   "talkFrame": 5,
-  "frameNote": "0 rest, hands in pockets, the bag at his feet · 1 breath (derived) · 2 reaches for the bag · 3 lifts it a few inches, as if about to go · 4 sets it down, a hand still on the handle, looking down the road · 5 TALK. The one break is the whole of him: he reaches, lifts, and sets it down again (errata 110).",
+  "frameNote": "0 rest, hands in pockets, the bag at his feet · 1 breath (derived) · 2 reaches for the bag · 3 lifts it a few inches, as if about to go · 4 sets it down, a hand still on the handle, looking down the road · 5 TALK. The one break is the whole of him: he reaches, lifts, and sets it down again (errata 110). Errata 311 (acted-directions-3): 6 the bag hugged to his chest in both arms (doc 95 row 172). Acted only.",
   "provenance": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 115)",
   "breakEveryNote": "Errata 296 (Tyler, 2026-11-12, on the map seller: \"doesn't appear to have any movements\"): one held pose every 17 s read as standing still. Now every 12 s."
  },
