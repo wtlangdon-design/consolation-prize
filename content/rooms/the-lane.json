@@ -17,9 +17,9 @@
       "surface": "mud",
       "rect": [
         40,
-        720,
+        630,
         1840,
-        44
+        74
       ]
     },
     {
@@ -28,9 +28,9 @@
       "surface": "mud",
       "rect": [
         40,
-        764,
+        704,
         1840,
-        44
+        74
       ]
     },
     {
@@ -39,9 +39,86 @@
       "surface": "mud",
       "rect": [
         40,
-        808,
+        778,
         1840,
-        44
+        74
+      ]
+    },
+    {
+      "id": "ground_passage_west",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        40,
+        600,
+        110,
+        30
+      ]
+    },
+    {
+      "id": "ground_undertaker",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        150,
+        612,
+        550,
+        18
+      ]
+    },
+    {
+      "id": "stairs_photographer",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        700,
+        604,
+        100,
+        26
+      ]
+    },
+    {
+      "id": "ground_tent",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        800,
+        612,
+        415,
+        18
+      ]
+    },
+    {
+      "id": "ground_barber",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1215,
+        612,
+        425,
+        18
+      ]
+    },
+    {
+      "id": "stairs_storefront",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1640,
+        600,
+        100,
+        30
+      ]
+    },
+    {
+      "id": "ground_passage_east",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1740,
+        606,
+        140,
+        24
       ]
     }
   ],
@@ -84,7 +161,7 @@
       },
       "walkTo": {
         "x": 1185,
-        "y": 811,
+        "y": 700,
         "facing": "back"
       }
     },
@@ -123,7 +200,7 @@
       },
       "walkTo": {
         "x": 1134,
-        "y": 811,
+        "y": 735,
         "facing": "back"
       }
     },
@@ -163,7 +240,7 @@
       },
       "walkTo": {
         "x": 443,
-        "y": 811,
+        "y": 796,
         "facing": "back"
       }
     },
@@ -202,7 +279,7 @@
       },
       "walkTo": {
         "x": 628,
-        "y": 811,
+        "y": 700,
         "facing": "back"
       }
     },
@@ -244,7 +321,7 @@
       },
       "walkTo": {
         "x": 1570,
-        "y": 811,
+        "y": 796,
         "facing": "back"
       }
     },
@@ -286,7 +363,7 @@
       },
       "walkTo": {
         "x": 1060,
-        "y": 811,
+        "y": 796,
         "facing": "back"
       }
     },
@@ -367,10 +444,10 @@
       "id": "to_undertaker",
       "name": "THE UNDERTAKER'S DOOR",
       "rect": [
-        245,
-        355,
-        100,
-        345
+        250,
+        365,
+        95,
+        240
       ],
       "colour": 0,
       "to": "undertaker",
@@ -398,8 +475,8 @@
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the undertaker's opens off the Lane.",
       "walkTo": {
-        "x": 295,
-        "y": 728,
+        "x": 297,
+        "y": 616,
         "facing": "back"
       }
     },
@@ -407,10 +484,10 @@
       "id": "to_ozymandias_tent",
       "name": "THE TENT FLAP",
       "rect": [
-        945,
+        950,
         380,
-        160,
-        320
+        135,
+        232
       ],
       "colour": 0,
       "to": "ozymandias_tent",
@@ -438,8 +515,8 @@
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: Ozymandia's tent, in the lot.",
       "walkTo": {
-        "x": 1025,
-        "y": 728,
+        "x": 1015,
+        "y": 616,
         "facing": "back"
       }
     },
@@ -487,10 +564,10 @@
       "id": "to_barbers",
       "name": "THE BARBER'S DOOR",
       "rect": [
-        1230,
-        345,
+        1220,
+        355,
         90,
-        355
+        250
       ],
       "colour": 0,
       "to": "barbers",
@@ -500,8 +577,8 @@
       "note": "Errata 183: the barber's (Room 42) opens off the Lane, through the door beside the pole. No new lines (reference/ancillary-interiors/brief.md): the pole keeps doc 97's.",
       "stub": true,
       "walkTo": {
-        "x": 1272,
-        "y": 728,
+        "x": 1265,
+        "y": 616,
         "facing": "back"
       }
     },
@@ -509,10 +586,10 @@
       "id": "to_photographers_studio",
       "name": "THE PHOTOGRAPHER'S DOOR",
       "rect": [
-        700,
-        340,
-        112,
-        300
+        708,
+        345,
+        85,
+        265
       ],
       "colour": 0,
       "to": "photographers_studio",
@@ -522,8 +599,8 @@
       "note": "Errata 183: the photographer's studio (Room 38) opens off the Lane, through the door beside his window (drawn by room-38 operation 4). No new lines (reference/ancillary-interiors/brief.md): the window keeps doc 97's.",
       "stub": true,
       "walkTo": {
-        "x": 756,
-        "y": 728,
+        "x": 750,
+        "y": 610,
         "facing": "back"
       }
     },
@@ -531,10 +608,10 @@
       "id": "to_empty_storefront",
       "name": "THE STOREFRONT DOOR",
       "rect": [
-        1640,
-        345,
-        105,
-        290
+        1642,
+        365,
+        95,
+        245
       ],
       "colour": 0,
       "to": "empty_storefront",
@@ -544,8 +621,8 @@
       "note": "Errata 183 (Tyler, 2026-11-08: \"Door beside the window\"): the empty storefront (Room 40) opens off the Lane through a door drawn beside its boarded window (room-40 operation 3). The window stays boarded, so doc 97's lines about it stay true. No new lines: the storefront keeps doc 97's.",
       "stub": true,
       "walkTo": {
-        "x": 1692,
-        "y": 728,
+        "x": 1690,
+        "y": 606,
         "facing": "back"
       }
     }
@@ -572,20 +649,20 @@
     {
       "from": "undertaker",
       "at": [
-        295,
-        745
+        297,
+        620
       ],
       "facing": "front",
-      "note": "Out of the undertaker's door."
+      "note": "Out of the undertaker's door, where the plate puts it (errata 303)."
     },
     {
       "from": "ozymandias_tent",
       "at": [
-        1025,
-        745
+        1015,
+        620
       ],
       "facing": "front",
-      "note": "Out of the tent flap."
+      "note": "Out of the ozymandias tent's door, where the plate puts it (errata 303)."
     },
     {
       "from": "lower_street",
@@ -599,29 +676,29 @@
     {
       "from": "barbers",
       "at": [
-        1272,
-        745
+        1265,
+        620
       ],
       "facing": "front",
-      "note": "Out of the barber's door, beside the pole."
+      "note": "Out of the barbers's door, where the plate puts it (errata 303)."
     },
     {
       "from": "photographers_studio",
       "at": [
-        756,
-        745
+        750,
+        612
       ],
       "facing": "front",
-      "note": "Out of the photographer's door, beside his window."
+      "note": "Out of the photographers studio's door, where the plate puts it (errata 303)."
     },
     {
       "from": "empty_storefront",
       "at": [
-        1692,
-        745
+        1690,
+        608
       ],
       "facing": "front",
-      "note": "Out of the storefront's door, beside its boarded window."
+      "note": "Out of the empty storefront's door, where the plate puts it (errata 303)."
     }
   ],
   "size": [
@@ -642,11 +719,11 @@
   "walkableOutline": [
     [
       40,
-      720
+      630
     ],
     [
       1880,
-      720
+      630
     ],
     [
       1880,
@@ -667,32 +744,39 @@
       "points": [
         {
           "x": 40,
-          "y": 720
+          "y": 630
         },
         {
           "x": 1880,
-          "y": 720
+          "y": 630
         },
         {
           "x": 1880,
-          "y": 764
+          "y": 704
         },
         {
           "x": 40,
-          "y": 764
+          "y": 704
         }
       ],
       "surface": "mud",
       "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
-        "farY": 705,
-        "farHeight": 258,
+        "farY": 600,
+        "farHeight": 186,
         "nearY": 858,
         "nearHeight": 362
       },
       "neighbours": [
-        "mud_mid"
+        "mud_mid",
+        "ground_passage_west",
+        "ground_undertaker",
+        "stairs_photographer",
+        "ground_tent",
+        "ground_barber",
+        "stairs_storefront",
+        "ground_passage_east"
       ]
     },
     {
@@ -700,27 +784,27 @@
       "points": [
         {
           "x": 40,
-          "y": 764
+          "y": 704
         },
         {
           "x": 1880,
-          "y": 764
+          "y": 704
         },
         {
           "x": 1880,
-          "y": 808
+          "y": 778
         },
         {
           "x": 40,
-          "y": 808
+          "y": 778
         }
       ],
       "surface": "mud",
       "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
-        "farY": 705,
-        "farHeight": 258,
+        "farY": 600,
+        "farHeight": 186,
         "nearY": 858,
         "nearHeight": 362
       },
@@ -734,11 +818,11 @@
       "points": [
         {
           "x": 40,
-          "y": 808
+          "y": 778
         },
         {
           "x": 1880,
-          "y": 808
+          "y": 778
         },
         {
           "x": 1880,
@@ -753,13 +837,250 @@
       "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
-        "farY": 705,
-        "farHeight": 258,
+        "farY": 600,
+        "farHeight": 186,
         "nearY": 858,
         "nearHeight": 362
       },
       "neighbours": [
         "mud_mid"
+      ]
+    },
+    {
+      "id": "ground_passage_west",
+      "points": [
+        {
+          "x": 40,
+          "y": 600
+        },
+        {
+          "x": 150,
+          "y": 600
+        },
+        {
+          "x": 150,
+          "y": 630
+        },
+        {
+          "x": 40,
+          "y": 630
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 186,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_undertaker"
+      ]
+    },
+    {
+      "id": "ground_undertaker",
+      "points": [
+        {
+          "x": 150,
+          "y": 612
+        },
+        {
+          "x": 700,
+          "y": 612
+        },
+        {
+          "x": 700,
+          "y": 630
+        },
+        {
+          "x": 150,
+          "y": 630
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 186,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_passage_west",
+        "stairs_photographer"
+      ]
+    },
+    {
+      "id": "stairs_photographer",
+      "points": [
+        {
+          "x": 700,
+          "y": 604
+        },
+        {
+          "x": 800,
+          "y": 604
+        },
+        {
+          "x": 800,
+          "y": 630
+        },
+        {
+          "x": 700,
+          "y": 630
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 206
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_undertaker",
+        "ground_tent"
+      ]
+    },
+    {
+      "id": "ground_tent",
+      "points": [
+        {
+          "x": 800,
+          "y": 612
+        },
+        {
+          "x": 1215,
+          "y": 612
+        },
+        {
+          "x": 1215,
+          "y": 630
+        },
+        {
+          "x": 800,
+          "y": 630
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 186,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_far",
+        "stairs_photographer",
+        "ground_barber"
+      ]
+    },
+    {
+      "id": "ground_barber",
+      "points": [
+        {
+          "x": 1215,
+          "y": 612
+        },
+        {
+          "x": 1640,
+          "y": 612
+        },
+        {
+          "x": 1640,
+          "y": 630
+        },
+        {
+          "x": 1215,
+          "y": 630
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 186,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_tent",
+        "stairs_storefront"
+      ]
+    },
+    {
+      "id": "stairs_storefront",
+      "points": [
+        {
+          "x": 1640,
+          "y": 600
+        },
+        {
+          "x": 1740,
+          "y": 600
+        },
+        {
+          "x": 1740,
+          "y": 630
+        },
+        {
+          "x": 1640,
+          "y": 630
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 206
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_barber",
+        "ground_passage_east"
+      ]
+    },
+    {
+      "id": "ground_passage_east",
+      "points": [
+        {
+          "x": 1740,
+          "y": 606
+        },
+        {
+          "x": 1880,
+          "y": 606
+        },
+        {
+          "x": 1880,
+          "y": 630
+        },
+        {
+          "x": 1740,
+          "y": 630
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 186,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_far",
+        "stairs_storefront"
       ]
     }
   ],
@@ -791,9 +1112,16 @@
   ],
   "occlusionPlanes": [],
   "occlusionBands": [
+    "ground_barber",
+    "ground_passage_east",
+    "ground_passage_west",
+    "ground_tent",
+    "ground_undertaker",
     "mud_far",
     "mud_mid",
-    "mud_near"
+    "mud_near",
+    "stairs_photographer",
+    "stairs_storefront"
   ],
   "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-44/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
   "onEnter": {
