@@ -69,7 +69,7 @@ Icons for all seven are asked for in the brief; until they are drawn the panel s
 ### N-1 · The drawer: the lines
 
 **THE STOCK PORTRAIT DRAWER** · *open, on the funeral day*
-- CLOSE, *open* — *(Thad slides the drawer home with one finger. It shuts like a bank.)* "Thirty-nine Obadiah Motts, back in the dark. He will not count them. Nobody counts a thing he keeps forty of." → `T_DRAWER_OPEN` cleared
+- CLOSE, *open* — "Home, with one finger. It shuts like a bank." "Thirty-nine Obadiah Motts, back in the dark. He will not count them. Nobody counts a thing he keeps forty of." → `T_DRAWER_OPEN` cleared
 - CLOSE, *shut* — "It is shut. It was built shut. That is what the joinery was for."
 
 **THE DOOR, THE DRAWER OPEN** — "Not with that drawer hanging out like a tongue. He knows this room to the inch, and that is nine of them."
@@ -85,7 +85,7 @@ Icons for all seven are asked for in the brief; until they are drawn the panel s
 **LISTEN** 1 "Nothing. It expects to be hit, like most of us here." · 2 "A thin note against the tuning fork. Iron, and sharp with it." · 3 "Nothing. One nail does not rattle. It takes company for that."
 
 **PIKE'S MARKER** · USE THE LETTER, *with a nail, the memorial booked*
-- USE THE LETTER, *with a nail* — *(Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A.)* "Delivered. Sealed, as my father sent it, by the hand of his son. It is only late." *"I shall not be wanting an introduction now. The town has met me."* → THE LETTER leaves inventory. A NAIL leaves inventory.
+- USE THE LETTER, *with a nail* — "A nail through the corner, tapped into Mr. Pike's board with the fork. Each tap is an A." "Delivered. Sealed, as my father sent it, by the hand of his son. It is only late." *"I shall not be wanting an introduction now. The town has met me."* → THE LETTER leaves inventory. A NAIL leaves inventory.
 
 **PIKE'S MARKER** · USE A NAIL, *without the letter's leave*
 - USE A NAIL — "Into a dead man's board, for nothing? I should want something to hang on it first."

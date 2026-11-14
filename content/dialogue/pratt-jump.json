@@ -58,16 +58,15 @@
           "id": "pratt1",
           "tag": "PROGRESS",
           "afterUse": "remove",
-          "text": "That's my stake you're pulling up.",
+          "text": "Somebody's knocked my stake crooked.",
           "exchange": [
             {
               "speaker": "pratt",
               "line": "Was in the way."
             },
             {
-              "speaker": "pratt",
-              "line": "Of what?",
-              "direction": true
+              "speaker": "thad",
+              "line": "Of what?"
             },
             {
               "speaker": "pratt",
@@ -86,17 +85,7 @@
           "tag": "TOPIC",
           "afterUse": "remove",
           "text": "I'll fetch the law.",
-          "exchange": [
-            {
-              "speaker": "pratt",
-              "line": "Sump closes at four."
-            },
-            {
-              "speaker": "pratt",
-              "line": "This is true, and it is the entire legal system.",
-              "direction": true
-            }
-          ]
+          "say": "Sump closes at four."
         },
         {
           "id": "pratt3",

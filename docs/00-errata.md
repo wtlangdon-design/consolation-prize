@@ -7970,3 +7970,18 @@ It breaks CLAUDE.md's whole-number upscale for these two rooms, by this ruling; 
 Played in the real build: talking to the man leaving tomorrow and the map seller, with speech over their heads.
 
 Lesson: `tests/close-enough.test.mjs`: nearest the screen, a man is drawn at least as large as on the stage road in every room he walks. Proved by removing Main Street's zoom (it fails). The camera tests (`tests/interface.test.ts`, `tests/camera-load.test.ts`) now click where things are drawn through the zoom.
+
+## 313 · The dialogue pass, Act II (Tyler, 2026-11-14)
+
+Tyler: "Try the camera zoom then do the act 2 dialogue pass." Under errata 310's standard and permission (doc 132), with doc 130's parentheticals done in each room.
+
+**Doc 132's Act II table** is the record. In short:
+- **Lines that failed the standard.** The Colonel's Act II greeting answered a question nobody had asked ("Sump! A dear friend."); the rule-keeper's answer did not answer; Pratt said a claim with his name on it was not his; Thad asked about slots nobody could see, and about a stake being pulled up that stood in the picture; two jokes needed a second read (Vessel's "Losing a man", Frame's "the one they're in").
+- **Every printed direction in Act II is gone.** Corrections are said by the man who would notice (Buena Vista); actions by the one doing them, in a few words; pauses are "…". A pause written "long pause" or "a very long pause" is now "…" in every extractor that reads one (`tools/extract-content.mjs` gulchSpoken, `tools/compile-room.mjs` scenes), and a way home can begin on a line Thad says ("Home, Grievance.") as well as on a direction.
+- **Sounds follow their lines.** Her hum (R16-HUM), the press (R09-PULL) and the nail (R14-NAIL) play on the lines that now say them (`content/audio/sounds.json`).
+- **Doc 95** loses the fifty class C rows that are now said: A 65, B 0, C 25.
+
+Lesson:
+- `tests/no-parentheticals.test.mjs` now covers Act II's trees and rooms, and its cap falls from 117 to 58. Proved by putting a direction back into the rule-keeper's tree (it fails).
+- Doc 55 section 8: an opening is heard on every visit and before any choice, so it never answers a question nobody has asked.
+

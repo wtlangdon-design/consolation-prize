@@ -392,12 +392,23 @@
           "exchange": [
             {
               "speaker": "pratt",
-              "line": "Keep the claim next to yours tidy."
+              "line": "Rake."
+            },
+            {
+              "speaker": "thad",
+              "line": "Rake what?"
             },
             {
               "speaker": "pratt",
-              "line": "It is not his claim either. Nobody has ever had the heart to tell him, and by now it is his the way anything is anybody's here: by upkeep.",
-              "direction": true
+              "line": "Mine."
+            },
+            {
+              "speaker": "pratt",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Then yours. Can't stand it."
             }
           ]
         },

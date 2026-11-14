@@ -173,12 +173,12 @@ To be written:
 
 **THE SÉANCE** · *heard from under the table; Thad sees only feet*
 > **OZYMANDIA:** "We call upon the spirit of Obadiah Mott."
-> *(A silence is held.)*
+> **OZYMANDIA:** *(long pause)*
 > **OZYMANDIA:** "Obadiah Mott. The town is waiting."
-> *(A silence is held.)*
+> **OZYMANDIA:** *(long pause)*
 > **OZYMANDIA:** "Obadiah Mott — two dollars a head —"
-> *(A silence is held.)*
-> **OZYMANDIA:** *(She consults the rod.)* "The spirits say he is… busy."
+> **OZYMANDIA:** *(long pause)*
+> **OZYMANDIA:** "The rod… the rod says… the spirits say he is… busy."
 > **FRAME:** "BUSY? Twelve years dead and BUSY?"
 
 **`SEA_E1`** · *Thad, as the voice of the dead, from under the table*
@@ -187,11 +187,11 @@ To be written:
 |---|---|---|---|---|
 | 1 | "Woooo." | `[COMIC · retain]` | **FRAME:** "Is that him?" — **OZYMANDIA:** "That is the wind, darling. The wind is free." *(second)* **OZYMANDIA:** "Still the wind. It is a very persistent wind." | |
 | 2 | "I tune pianos." | `[COMIC · retain]` | **FRAME:** "Mott tuned PIANOS?" *(He writes.)* — **OZYMANDIA:** "The dead take up hobbies, darling." *(second)* **FRAME:** "He said that already. Still good." | |
-| 3 | "The gold is under the church." | `[COMIC · remove]` | *(Two chairs go over. Two pairs of boots leave at a run.)* — **OZYMANDIA:** "The spirits are not responsible for directions." | |
-| 4 | "I am Obadiah Mott, and I am dead." | `[PROGRESS · remove]` | **FRAME:** "QUOTABLE!" *(He writes.)* "'I AM DEAD,' says Mott. Front page. Within the hour." — **OZYMANDIA:** *(She looks down at the cloth for a long moment.)* "…Two dollars, whoever you are." | sets `T_MOTT_SPOKE` |
+| 3 | "The gold is under the church." | `[COMIC · remove]` | **FRAME:** "TWO SITTERS LEAVE AT SPEED!" — **OZYMANDIA:** "The spirits are not responsible for directions." | |
+| 4 | "I am Obadiah Mott, and I am dead." | `[PROGRESS · remove]` | **FRAME:** "QUOTABLE!" *(He writes.)* "'I AM DEAD,' says Mott. Front page. Within the hour." — **OZYMANDIA:** *(long pause)* "…Two dollars, whoever you are." | sets `T_MOTT_SPOKE` |
 
 **LEAVING THE TABLE** · *after `T_MOTT_SPOKE`*
-> *(The lamp comes up. Thad stays where he is until the last pair of boots has gone.)* "I have now been dead once. It is mostly waiting under furniture."
+> "I shall stay under here until the last pair of boots has gone." "I have now been dead once. It is mostly waiting under furniture."
 
 #### B · At the Registrar's
 

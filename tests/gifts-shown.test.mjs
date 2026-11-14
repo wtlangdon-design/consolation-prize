@@ -15,6 +15,8 @@ const NAMED_IN_SPEECH = {
   // Errata 308 (no parentheticals): the Colonel hands the map over in words, as Monkey Island would, not in a printed direction.
   'FAN_A1/fanshawe1': 'the reply names it: "Take a map of the district, with my compliments."',
   'FAN_A1/fanshawe2': 'the reply names it: "Take a map of the district all the same."',
+  // Errata 313 (Act II, no parentheticals): she runs it in a pause, not a printed direction, and hands it over in words.
+  'WIN_B2/winnie1': 'the reply names it: "Your assay.", and Thad names it again: "Then there\'s no Document B."',
 };
 
 export function bareGifts(trees) {

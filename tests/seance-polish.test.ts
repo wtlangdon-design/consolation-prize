@@ -205,8 +205,10 @@ test('errata 239, 3: every line of the scene heard from under the table is said 
   // Doc 111's block, as written: every quoted line and every direction of THE SÉANCE, in order.
   const block = doc111.slice(doc111.indexOf('\n**THE SÉANCE** ·'));
   const scene = block.slice(0, block.indexOf('\n**`')).split('\n').filter((row) => row.startsWith('> '));
-  const expected = scene.flatMap((row) => [...row.matchAll(/\*\(([^)]+)\)\*|"([^"]+)"/g)].map((m) => m[1] ?? m[2]!));
-  assert.ok(expected.length >= 9, 'doc 111 writes the scene');
+  // A pause is said as "…" (doc 58 rule 2; doc 130: nothing printed).
+  const expected = scene.flatMap((row) => [...row.matchAll(/\*\(([^)]+)\)\*|"([^"]+)"/g)]
+    .map((m) => (m[1] !== undefined && /^(beat|pause|long pause)$/i.test(m[1]) ? '…' : m[1] ?? m[2]!)));
+  assert.ok(expected.length >= 8, 'doc 111 writes the scene');
   assert.deepEqual(opening.map((one) => one.line), expected, 'the opening is the scene, whole and in order');
   assert.ok(own.every((line) => typeof line === 'string' && doc111.includes(line)), 'after his own two lines going under');
   assert.equal(read.length, own.length + expected.length);

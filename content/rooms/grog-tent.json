@@ -121,11 +121,7 @@
             "then": [
               "It's my father's watch.",
               "That's my father's watch.",
-              {
-                "speaker": "thad",
-                "line": "He turns, slowly, to the man behind the plank. The man behind the plank is beaming.",
-                "direction": true
-              },
+              "…",
               {
                 "speaker": "gulch_deacon",
                 "line": "Grubb! You came all this way. Was the claim not to your liking?"

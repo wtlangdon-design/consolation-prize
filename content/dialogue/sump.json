@@ -258,8 +258,11 @@
             },
             {
               "speaker": "sump",
-              "line": "He turns the glass over. The back of the sheet is blank.",
-              "direction": true
+              "line": "And on the back?"
+            },
+            {
+              "speaker": "sump",
+              "line": "Blank."
             },
             {
               "speaker": "sump",

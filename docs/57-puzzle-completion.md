@@ -105,7 +105,7 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 
 > **MADAME OZYMANDIA** · USE THE FILING FEE, *after OZY_A1 option 1* — "That was the filing fee. It is now a divining fee." **OZYMANDIA:** *(She takes it without looking at it.)* "The earth thanks you. I shall pass it on." *(beat)* "Now. Show me the ground." — "It is two miles away and up a hill." — "Then show me a picture of it." → the fee is spent; `T_OZY_PAID`.
 > **MADAME OZYMANDIA** · USE THE FILING FEE, *before OZY_A1 option 1* — **OZYMANDIA:** "Put that away, darling. The rod has not yet told me what you owe." *(errata 189)*
-> **MADAME OZYMANDIA** · USE THE COMPANY MAP, *after `T_OZY_PAID`* — *(She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move. She takes a Form 12-C from a stack of them and writes in purple ink.)* **OZYMANDIA:** "The earth has spoken. The earth was brief." — "You keep Form 12-C?" — "The earth prefers them." *(She hands back the map.)* → THE SURVEY, **A7**.
+> **MADAME OZYMANDIA** · USE THE COMPANY MAP, *after `T_OZY_PAID`* — *(She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move. She takes a Form 12-C from a stack of them and writes in purple ink.)* **OZYMANDIA:** "The earth has spoken. The earth was brief." — "Is that a Form 12-C?" — "The earth prefers them." *(She hands back the map.)* → THE SURVEY, **A7**.
 > **MADAME OZYMANDIA** · USE THE COMPANY MAP, *not yet paid* — **OZYMANDIA:** "The earth will read your map — two dollars — the earth reads *everything* — in advance —"
 
 **The survey, as written on the form** (Sump reads it aloud at A9):
@@ -279,7 +279,7 @@ Duel Two needs fourteen; Duel One, Winnie and Pratt guarantee fifteen. Tier 4 an
 > **THAD:** "Reverend. Mr. Sheng's linens."
 > **SOWERBY:** "Today? Today of all days?"
 > **THAD:** "It's the only day you have it."
-> **SOWERBY:** *(He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.)* "Nine funerals of linen. He starches with feeling." → THE LINEN MONEY
+> **SOWERBY:** *(long pause)* "I shall count it with my eyes shut. It is more respectful." "Nine funerals of linen. He starches with feeling." → THE LINEN MONEY
 
 SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad the line he needs for D5: the Company carries Claim Two at eleven thousand dollars → `T_PRATT_TRAIL` → **D4**.
 
@@ -296,7 +296,7 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 > **SUMP:** "You are his neighbor."
 > **PRATT:** "Yep."
 > **SUMP:** "How long have you known him?"
-> **PRATT:** *(a very long pause)* "…Ninety days."
+> **PRATT:** *(long pause)* "…Ninety days."
 > **SUMP:** *(He notarizes it. He stamps it. He does not look up.)* "Document D."
 > **THAD:** "It has been eleven days."
 > **SUMP:** "The stamp did not ask."
@@ -308,7 +308,7 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 
 > **SUMP:** *(He brings Claim One's filing to the window, under its glass.)* "Claim One. Obadiah Mott, eighteen forty-six. 'The richest strike in the history of this territory, lying at the place herein described.'"
 > **THAD:** "Where is it described?"
-> **SUMP:** "Herein." *(He turns the glass over. The back of the sheet is blank.)* "The office accepted it. It was a busy year."
+> **SUMP:** "Herein." — **THAD:** "And on the back?" — **SUMP:** "Blank." "The office accepted it. It was a busy year."
 > → `T_CLAIM1_BLANK`, **E0**.
 
 ## E0b · Fanshawe's offer — the Act II turn

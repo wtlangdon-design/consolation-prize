@@ -64,8 +64,7 @@
         ],
         "USE": [
           {
-            "say": "Thad drinks. The glass is full again before it reaches the cloth.",
-            "direction": true,
+            "say": "It was full again before I had set it down.",
             "then": [
               "One glass, by my count. By the glass's count, none."
             ],
@@ -397,9 +396,7 @@
         ],
         "OPEN": [
           {
-            "say": "Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract.",
-            "by": "fanshawe",
-            "direction": true,
+            "say": "Under the cover, on a warmed plate, with a sprig of parsley: a contract.",
             "then": [
               {
                 "speaker": "fanshawe",
@@ -414,9 +411,7 @@
         ],
         "USE": [
           {
-            "say": "Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract.",
-            "by": "fanshawe",
-            "direction": true,
+            "say": "Under the cover, on a warmed plate, with a sprig of parsley: a contract.",
             "then": [
               {
                 "speaker": "fanshawe",
@@ -497,18 +492,15 @@
             "when": {
               "T_DINED": false
             },
-            "say": "Thad puts the cover back over the contract.",
-            "direction": true,
+            "say": "I mean to work it myself.",
             "then": [
-              "I mean to work it myself.",
               {
                 "speaker": "fanshawe",
                 "line": "Of course you do."
               },
               {
                 "speaker": "fanshawe",
-                "line": "Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.",
-                "direction": true
+                "line": "Steady! Not a drop on the cloth. Take my handkerchief."
               },
               {
                 "speaker": "fanshawe",
@@ -533,8 +525,7 @@
         ],
         "PUSH": [
           {
-            "say": "Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two.",
-            "direction": true,
+            "say": "I pushed it an inch away. He passed me the salt, and now it is two inches nearer.",
             "then": [
               "It is nearer than when I began. I shall stop helping."
             ],
@@ -543,8 +534,7 @@
         ],
         "PULL": [
           {
-            "say": "Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two.",
-            "direction": true,
+            "say": "I pushed it an inch away. He passed me the salt, and now it is two inches nearer.",
             "then": [
               "It is nearer than when I began. I shall stop helping."
             ],
@@ -737,8 +727,7 @@
             "when": {
               "T_DRAWER_OPEN": true
             },
-            "say": "Thad slides the drawer home with one finger. It shuts like a bank.",
-            "direction": true,
+            "say": "Home, with one finger. It shuts like a bank.",
             "then": [
               "Thirty-nine Obadiah Motts, back in the dark. He will not count them. Nobody counts a thing he keeps forty of."
             ],

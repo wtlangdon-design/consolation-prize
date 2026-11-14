@@ -294,16 +294,15 @@
             },
             {
               "speaker": "sump",
-              "line": "He goes into the back. He is gone some time.",
-              "direction": true
+              "line": "…"
             },
             {
               "speaker": "sump",
-              "line": "The third. For the applicant."
+              "line": "The third. For the applicant. It was at the back."
             },
             {
               "speaker": "thad",
-              "line": "There aren't any in the slots."
+              "line": "I didn't know there was a third."
             },
             {
               "speaker": "sump",
@@ -600,10 +599,21 @@
           "untilPuzzles": [
             "A7"
           ],
-          "say": "She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move.",
-          "direction": true,
+          "say": "Claim Two. Somebody has circled it already. How thoughtful.",
           "by": "ozymandia",
           "then": [
+            {
+              "speaker": "ozymandia",
+              "line": "…"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Mmmmmmmmmmm."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "…"
+            },
             {
               "speaker": "ozymandia",
               "line": "The earth is shy today, darling. Take the rod. It only wants walking round the property."
@@ -1807,7 +1817,7 @@
       "target": "submission_log",
       "otherwise": "pool",
       "puzzle": "C4",
-      "say": "Thad lifts the log, lays the ledger where it lay, and moves it an inch.",
+      "say": "The log up, the ledger down where it lay, and an inch to the left.",
       "note": "Doc 113 (THE LINES; errata 242), THE SWAP: the ledger laid where the log lay, and the log taken (THE SUBMISSION LOG, T_QUEUE_PADDED). Doc 54's empty-office line for the log is said after the direction, as doc 113 says.",
       "rules": [
         {
@@ -1818,8 +1828,7 @@
             "T_LEDGER_PLAIN": true,
             "T_LEDGER_CRACKED": true
           },
-          "say": "Thad lifts the log, lays the ledger where it lay, and moves it an inch.",
-          "direction": true,
+          "say": "The log up, the ledger down where it lay, and an inch to the left.",
           "then": [
             "Nine years of priority submissions, filed one day a month, every month, in one hand. Winnie is going to want to see this, and she is not going to enjoy it.",
             "From the door it is the same desk. He reads the room. I am counting on him not to read the books."
@@ -1871,7 +1880,7 @@
       "room": "fanshawe_office",
       "target": "company_ledger",
       "otherwise": "pool",
-      "say": "Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.",
+      "say": "The year has come away on the Colonel's handkerchief.",
       "note": "Doc 115 (THE LINES, II-3; errata 244), THE GILT: the gilt date rubbed off the ledger's spine with the handkerchief (T_LEDGER_PLAIN).",
       "rules": [
         {
@@ -1881,7 +1890,6 @@
             "T_HANDKERCHIEF_DOSED": true
           },
           "say": "One pass, and the year is gone. So is some of the green.",
-          "direction": true,
           "then": [
             "Dr. Purvis has taken the gold off a book faster than this town takes it off a man. I shall write and tell him."
           ],
@@ -1894,8 +1902,7 @@
           "when": {
             "T_LEDGER_PLAIN": false
           },
-          "say": "Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.",
-          "direction": true,
+          "say": "The year has come away on the Colonel's handkerchief.",
           "then": [
             "It was that kind of gold. Most of it here is."
           ],
@@ -1917,7 +1924,7 @@
       "room": "fanshawe_office",
       "target": "handkerchief",
       "otherwise": "pool",
-      "say": "Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.",
+      "say": "The year has come away on the Colonel's handkerchief.",
       "note": "Doc 115 (THE LINES, II-3; errata 244), THE GILT: the gilt date rubbed off the ledger's spine with the handkerchief (T_LEDGER_PLAIN).",
       "rules": [
         {
@@ -1927,7 +1934,6 @@
             "T_HANDKERCHIEF_DOSED": true
           },
           "say": "One pass, and the year is gone. So is some of the green.",
-          "direction": true,
           "then": [
             "Dr. Purvis has taken the gold off a book faster than this town takes it off a man. I shall write and tell him."
           ],
@@ -1940,8 +1946,7 @@
           "when": {
             "T_LEDGER_PLAIN": false
           },
-          "say": "Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.",
-          "direction": true,
+          "say": "The year has come away on the Colonel's handkerchief.",
           "then": [
             "It was that kind of gold. Most of it here is."
           ],
@@ -1963,7 +1968,7 @@
       "room": "fanshawe_office",
       "target": "handkerchief",
       "otherwise": "pool",
-      "say": "Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.",
+      "say": "A corner of the Colonel's handkerchief, and a drop of Dr. Purvis.",
       "note": "Doc 118 (THE LINES, O-4; errata 245): Dr. Purvis on the Colonel's handkerchief (T_HANDKERCHIEF_DOSED); the bottle is spent.",
       "rules": [
         {
@@ -1971,8 +1976,7 @@
           "when": {
             "T_HANDKERCHIEF_DOSED": false
           },
-          "say": "Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.",
-          "direction": true,
+          "say": "A corner of the Colonel's handkerchief, and a drop of Dr. Purvis.",
           "then": [
             "The linen has gone a color I have no name for. The label says it restores. It does not say to what."
           ],
@@ -1990,7 +1994,7 @@
       "room": "fanshawe_office",
       "target": "tonic",
       "otherwise": "pool",
-      "say": "Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.",
+      "say": "A corner of the Colonel's handkerchief, and a drop of Dr. Purvis.",
       "note": "Doc 118 (THE LINES, O-4; errata 245): Dr. Purvis on the Colonel's handkerchief (T_HANDKERCHIEF_DOSED); the bottle is spent.",
       "rules": [
         {
@@ -1998,8 +2002,7 @@
           "when": {
             "T_HANDKERCHIEF_DOSED": false
           },
-          "say": "Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.",
-          "direction": true,
+          "say": "A corner of the Colonel's handkerchief, and a drop of Dr. Purvis.",
           "then": [
             "The linen has gone a color I have no name for. The label says it restores. It does not say to what."
           ],
@@ -2017,7 +2020,7 @@
       "room": "fanshawe_office",
       "target": "chairs",
       "otherwise": "pool",
-      "say": "Thad lays the ledger open on the nearest chair and sits on it, briefly, as a visitor would.",
+      "say": "Open on a chair, and sat on, briefly, as a visitor would.",
       "note": "Doc 115 (THE LINES, II-3; errata 244), THE SPINE: the ledger's spine broken in on a chair (T_LEDGER_CRACKED).",
       "rules": [
         {
@@ -2025,8 +2028,7 @@
           "when": {
             "T_LEDGER_CRACKED": false
           },
-          "say": "Thad lays the ledger open on the nearest chair and sits on it, briefly, as a visitor would.",
-          "direction": true,
+          "say": "Open on a chair, and sat on, briefly, as a visitor would.",
           "then": [
             "Eleven chairs, and at last one of them has done something for me. The spine has gone in one place, as his has."
           ],
@@ -2190,6 +2192,10 @@
             "It is.",
             {
               "speaker": "pratt_jump",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt_jump",
               "line": "That ain't the same number."
             },
             {
@@ -2257,13 +2263,12 @@
       "item": "funeral_notice",
       "room": "main_street",
       "target": "posted_notices",
-      "say": "Thad presses the notice to the board, over a claim for sale. It holds by its own ink.",
+      "say": "Over a claim for sale. It holds by its own ink.",
       "note": "Doc 118 (THE LINES; errata 245), O-2: the notice put up on Main Street begins the funeral day (T_FUNERAL_DAY), which Frame's printing used to.",
       "rules": [
         {
           "case": "posted",
-          "say": "Thad presses the notice to the board, over a claim for sale. It holds by its own ink.",
-          "direction": true,
+          "say": "Over a claim for sale. It holds by its own ink.",
           "then": [
             "There. The whole town is now invited to mourn a man it has never met, and one man in it is certain to come."
           ],
@@ -2378,7 +2383,7 @@
       "item": "letter",
       "room": "boot_hill",
       "target": "pike_s_marker",
-      "say": "Thad holds the letter out to the board, as one does to a butler.",
+      "say": "I am holding a letter out to a plank, as one would to a butler.",
       "note": "Doc 120 (THE LINES; errata 248), I-2: the letter of introduction held out to Pike's board. Nothing is written but that it was done; the letter stays (C3 wants it).",
       "rules": [
         {
@@ -2388,8 +2393,7 @@
             "T_NAIL_TAKEN": true,
             "T_LETTER_DELIVERED": false
           },
-          "say": "Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A.",
-          "direction": true,
+          "say": "A nail through the corner, tapped into Mr. Pike's board with the fork. Each tap is an A.",
           "then": [
             "Delivered. Sealed, as my father sent it, by the hand of his son. It is only late.",
             "I shall not be wanting an introduction now. The town has met me."
@@ -2407,8 +2411,7 @@
           "when": {
             "T_LETTER_OFFERED": false
           },
-          "say": "Thad holds the letter out to the board, as one does to a butler.",
-          "direction": true,
+          "say": "I am holding a letter out to a plank, as one would to a butler.",
           "then": [
             "'To Mr. Ezra Pike, by the hand of my son.' I am the hand. I regret to say he is the late.",
             "I cannot leave it with him. The wind would have it at the Improvement Company by morning, and I may want an introduction yet."
@@ -2596,8 +2599,7 @@
             "T_NAIL_TAKEN": true,
             "T_LETTER_DELIVERED": false
           },
-          "say": "Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A.",
-          "direction": true,
+          "say": "A nail through the corner, tapped into Mr. Pike's board with the fork. Each tap is an A.",
           "then": [
             "Delivered. Sealed, as my father sent it, by the hand of his son. It is only late.",
             "I shall not be wanting an introduction now. The town has met me."

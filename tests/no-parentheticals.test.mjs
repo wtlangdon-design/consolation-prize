@@ -38,6 +38,15 @@ const DONE = [
     'amb-one-strike-man', 'amb-photographer', 'amb-pie-woman', 'amb-boundary-men', 'hotel-clerk', 'undertaker', 'stage-driver']
     .some((name) => one.path.startsWith(`content/dialogue/${name}.json`)),
   (one) => /content\/dialogue\/(hob|frame)\.json/.test(one.path) && /"(HOB|FRA)_A1"/.test(JSON.stringify(nodeAt(one.path))),
+  // Act II's dialogue pass (errata 313): the trip to Fiddler's Gulch, the three papers, and the Act II trees, whole.
+  (one) => ['gulch-deacon', 'gulch-lookout', 'gulch-man-upstream', 'gulch-panner', 'gulch-rule-keeper', 'winnie', 'sheng',
+    'pratt-jump', 'livery-man', 'ozymandia', 'seance', 'frame']
+    .some((name) => one.path.startsWith(`content/dialogue/${name}.json`)),
+  (one) => ['washout', 'grog-tent', 'gulch-river', 'gulch-tents', 'upstream', 'claims-registrar', 'clarion', 'fanshawe-office',
+    'ozymandias-tent', 'main-street', 'assay-office', 'assay-records', 'nugget-back']
+    .some((name) => one.path.startsWith(`content/rooms/${name}.json`)),
+  (one) => /content\/dialogue\/fanshawe\.json/.test(one.path) && /"FAN_(A0|B2)"/.test(JSON.stringify(nodeAt(one.path))),
+  (one) => /content\/dialogue\/sump\.json/.test(one.path) && /"SUM_[AB]\d"/.test(JSON.stringify(nodeAt(one.path))),
 ];
 function nodeAt(path) {
   const [file, ...rest] = path.split(/\.(?=nodes)/);
@@ -48,7 +57,7 @@ const eggs = json('content/combinations.json').pairs.filter((pair) => pair.room 
 
 // The places a direction is printed across the game (one line can be printed in several), after the last room done.
 // It may only go down; a pass lowers it.
-const CAP = 117;
+const CAP = 58;
 
 test('in the rooms done, nothing is printed in parentheses', () => {
   const left = printed.filter((one) => DONE.some((done) => done(one))).map((one) => `${one.path}: (${one.words})`);

@@ -54,6 +54,11 @@ const scenarios = {
   'np-raccoon': { fixture: 'r23-a', steps: [{ enter: 'prosperity' }, { wait: 3 }, { talk: 'raccoon' }, { option: 'raccoon1' }], burst: 8 },
   'np-egg': { fixture: 'r23-a', steps: [{ enter: 'prosperity' }, { wait: 3 }, { flags: { T_EGGS_IMPROVED: true } }, { use: 'eggs', on: 'hole' }], burst: 16 },
   // Errata 307: the toast takes the glass off the barrel, and puts it back.
+  // Errata 313, Act II's dialogue pass: the Colonel's greeting and the Registrar answer, the rule-keeper's
+  // answer that answers, and Winnie's assay run in a pause and handed over in words.
+  'a2-fanshawe': { fixture: 'r11-d', steps: [{ enter: 'fanshawe_office' }, { wait: 3 }, { flags: { T_CLAIM1_BLANK: false } }, { talk: 'fanshawe' }, { option: 'fanshawe1' }], burst: 10 },
+  'a2-rule-keeper': { fixture: 'r52-a', steps: [{ enter: 'grog_tent' }, { wait: 3 }, { talk: 'gulch_rule_keeper' }, { option: 'gulch_rule_keeper1' }, { option: 'gulch_rule_keeper6' }], burst: 8 },
+  'a2-winnie': { fixture: 'r5-c-post', steps: [{ enter: 'assay_office' }, { wait: 3 }, { talk: 'winnie' }, { option: 'winnie1' }], burst: 16 },
   'deke-toast': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { flags: { T_PIKE_DEAD: false } }, { talk: 'deke_vessel' }, { option: 'deke_vessel9' }], burst: 6 },
 };
 

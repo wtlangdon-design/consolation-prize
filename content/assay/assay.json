@@ -1071,21 +1071,11 @@
         },
         {
           "speaker": "gulch_rule_keeper",
-          "line": "He thinks.",
-          "direction": true
-        },
-        {
-          "speaker": "gulch_rule_keeper",
           "line": "There was a third one."
         },
         {
           "speaker": "gulch_rule_keeper",
-          "line": "He gives up.",
-          "direction": true
-        },
-        {
-          "speaker": "gulch_rule_keeper",
-          "line": "Begin."
+          "line": "I give up. Begin."
         }
       ],
       "openingRuling": "doc 109, DUEL ONE, ON THE BAR: \"the rule-keeper recites the rules in place of Sowerby's handbill\".",

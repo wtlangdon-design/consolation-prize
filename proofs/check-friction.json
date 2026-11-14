@@ -961,6 +961,54 @@
    "date": "2026-11-14",
    "kind": "loosened",
    "why": "Errata 312 (Tyler: \"Try the camera zoom\"): Main Street's view is 1920/1.5 room pixels across and scrolls down as well, so the follow test measures against the view's width and the click test goes through toScreen and toWorldPoint, both coordinates. It did not misfire: the camera changed under it, and it still asks whether a thing is clickable exactly where it is drawn."
+  },
+  {
+   "check": "tests/no-parentheticals.test.mjs",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 313: tightened, not loosened. Its rooms-done list grows to Act II's trees and rooms and its cap falls from 117 to 58; the friction reader sees the list edited."
+  },
+  {
+   "check": "tests/movements-to-draw.test.mjs",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 313: doc 95 loses fifty class C rows that are now said, not printed (doc 130), so its parse check reads 90 rows; the floor that proves the table was read falls from 100 to 50. It did not misfire: the table shrank by ruling."
+  },
+  {
+   "check": "tests/gulch-consolation.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 313: Sump going into the back is a pause he says ('…'), not a printed direction (doc 130). The test asserts the pause and that nothing is printed, instead of asserting a direction. It did not misfire: the ruling changed the content."
+  },
+  {
+   "check": "tests/seance-polish.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 313 (doc 130): the seance's held silences are written as long pauses, said '…' as doc 58 rule 2 has it, and one direction became a line. The test reads a pause as '…' and the scene's floor falls from 9 lines to 8. It still asserts the whole scene is said, in order, before the list."
+  },
+  {
+   "check": "tests/gifts-shown.test.mjs",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 313: Winnie runs the assay in a pause, not a printed direction, and hands Document B over in words ('Your assay.'; Thad: 'Then there's no Document B.'). One NAMED_IN_SPEECH entry, with its reason. It did not misfire: the ruling changed how the gift is shown."
+  },
+  {
+   "check": "tests/sounds.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 313: the hum and the press are said now, not printed (doc 130), so the test finds the hum on her 'Mmmm' and the press on 'One sheet, wet.' instead of on the old directions. It still asserts each sound plays on the line that describes it and on no verb."
+  },
+  {
+   "check": "tests/no-parentheticals.test.mjs",
+   "date": "2026-11-14",
+   "kind": "reviewed",
+   "why": "Reviewed: none of its three edits loosened it. Each pass of doc 130 widens the rooms-done list and lowers the cap (129, 122, 117, 58), which the friction reader counts as edits. It has not misfired; it is a ratchet, and a ratchet is edited every time it turns. Keep it as it is; when Acts III and IV are done its cap is 0 and the list becomes the whole game."
+  },
+  {
+   "check": "tests/sounds.test.ts",
+   "date": "2026-11-14",
+   "kind": "reviewed",
+   "why": "Reviewed: three edits, each because a ruling moved the line a cue plays on (errata 157 the halt, errata 257 the nail's line found in pairs, errata 313 the hum and the press said instead of printed). It did not misfire: each time it caught a cue left on a line that no longer existed, which is its job. Its wording checks (a hum on a hum, the press on the sheet) are what make it hold the cue to the right line, so they stay. Keep it."
   }
  ]
 }

@@ -121,7 +121,7 @@ The queue ledger, chained to the sill. *(Errata 75: getting in the book is not d
 |---|---|---|---|---|
 | 1 | "I need a certified assay." | `[PROGRESS · remove]` | "You need to be in a queue. It's eight months long, and it got longer while you were asking." | sets `T_ASSAY_QUEUE` |
 | 2 | "Eight months? Who's ahead of me?" | `[TOPIC · retain]` · after 1 | "The Improvement Company. Perpetually. Priority submissions." *(second)* "The Company. It hasn't moved since you asked. It never moves; that's how it stays ahead." | opens C2 path |
-| 3 | "Has anyone ever brought in Mott gold?" | `[PROGRESS · remove]` | *(She stops writing. It is the first time she has stopped writing.)* "Ask me that again when you've got something to trade." | flags her interest; required for C5 |
+| 3 | "Has anyone ever brought in Mott gold?" | `[PROGRESS · remove]` | *(beat)* — *"You've stopped writing."* — "Ask me that again when you've got something to trade." | flags her interest; required for C5 |
 | 4 | "You have very good handwriting." | `[COMIC · retain]` | "I know." *(beat)* "Nine years, and you're the first to mention it." *(second)* "Still legible." | — |
 | 5 | "Would you like to hear about my raccoon?" | `[COMIC · counted-repeat]` | "No." | req `T_RACCOON_NAMED` |
 | 6 | "Who keeps the Company's log of submissions?" | `[PROGRESS · remove]` · after 2 | "The Company. In the Colonel's office, in a drawer he sits in front of all day. I asked to see it once. He sent me a very kind note." | req `T_ASSAY_QUEUE`; sets `T_OFFICE_TOPIC` — C2 *(errata 75)* |
@@ -138,7 +138,7 @@ The queue ledger, chained to the sill. *(Errata 75: getting in the book is not d
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Will you run my assay?" | `[PROGRESS · remove]` | "I'll run your assay. I'd run your assay if it were a bucket of rain." *(She runs it at the window. It does not take long.)* | grants assay → C6, at once: WIN_B4's opening is said after the reply, Document B with it; once he has left the office, TALK TO opens WIN_B4 on its options *(errata 232)* |
+| 1 | "Will you run my assay?" | `[PROGRESS · remove]` | "I'll run your assay. I'd run your assay if it were a bucket of rain." *(beat)* "Done. Mud doesn't take long." | grants assay → C6, at once: WIN_B4's opening is said after the reply, Document B with it; once he has left the office, TALK TO opens WIN_B4 on its options *(errata 232)* |
 | 2 | "Now can I ask about Mott gold?" | `[PROGRESS · remove]` | "No Mott gold has ever crossed this window. Not one flake. Not in nine years. Not one." | sets `T_NO_MOTT_GOLD` |
 | 3 | "Has nobody ever noticed?" | `[PROGRESS · remove]` | "I noticed. I wrote it down. I've been writing it down since eighteen and forty-nine, in a book that is not this book." *(She produces it from under the floor.)* | sets `T_SECOND_LEDGER`; opens `WIN_B3` *(errata 181)* |
 | 4 | "Are you all right?" | `[COMIC · retain]` | "I am professionally offended, Mr. Grubb. It is the worst kind." *(second)* "Still offended. I'll tell you when it stops. It won't." | — |
@@ -287,7 +287,7 @@ Distributed across all Fanshawe nodes, all optional, all `[TOPIC]`. Only a playe
 *Errata 184: where each is asked. Only 1 and 2 had a question until then, so the payoff could never be reached. 1 is `FAN_A1` option 3 and 2 is `FAN_B2` option 3, as written; 3 is `FAN_B1` option 4; 4 is `FAN_C1` option 6; 5 is said in `FAN_B1` option 5 and counted when Sheng is asked about it (`SHE_A1` option 4), which waits until Thad has heard it. Fanshawe's own age, which makes 3 a contradiction, is in 3's answer.*
 
 1. "Chapultepec, '47."
-2. "Buena Vista, of course — spring of '48." *(Buena Vista was February 1847.)*
+2. "Buena Vista, of course — spring of '48." *(Thad: "I'd have said February of '47." Errata 313: the correction is his, said aloud, not printed.)*
 3. "I took the rank at twenty-three." *(His stated age puts him at nineteen.)*
 4. "Under Commodore Pelham, God rest him." *(Frame's archive: Pelham was Navy. There were no commodores at Chapultepec.)*
 5. "The Eleventh Ohio Mounted." *(Sheng, dryly, on being asked: "There is no Eleventh Ohio Mounted. There is a Ninth. My brother was in it.")*
@@ -295,7 +295,7 @@ Distributed across all Fanshawe nodes, all optional, all `[TOPIC]`. Only a playe
 **Payoff — available in Act III with all five:**
 
 > **THAD:** "You were never a colonel."
-> **FANSHAWE:** *(He stops. For the only time in the game, he is completely still.)* "No. I wasn't."
+> **FANSHAWE:** *(long pause)* "No. I wasn't."
 > **THAD:** "…"
 > **FANSHAWE:** "Was there something else, Mr. Grubb?"
 
@@ -326,11 +326,11 @@ He does not deny it, does not explain it, and does not become hostile. It is far
 
 Per the Fanshawe Rule: Thad receives the Registrar introduction; gives up that he is pursuing contiguity.
 
-> **FANSHAWE:** "Sump! A dear friend. I shall write you a note. Sump respects notes the way other men respect weather."
+> **FANSHAWE:** "Mr. Grubb! A man of property. Sit, sit. What can the Company do for you?"
 
 | # | Option | Tag | Response | Rule ledger |
 |---|---|---|---|---|
-| 1 | "I need to see the Registrar about my boundary." | `[PROGRESS · remove]` | "Your *boundary*! A man who knows where he ends. Rare. I shall send a note ahead." *(The note is warm, correct, and mentions the boundary. By Thursday the Company has filed three priority submissions on the parcels beside Claim One.)* | receives: the note. gives up: contiguity |
+| 1 | "I need to see the Registrar about my boundary." | `[PROGRESS · remove]` | "Your *boundary*! A man who knows where he ends. Rare." *(beat)* "Sump is a dear friend. I shall send a note ahead; Sump respects notes the way other men respect weather." *(The note is warm, correct, and mentions the boundary. By Thursday the Company has filed three priority submissions on the parcels beside Claim One.)* | receives: the note. gives up: contiguity |
 | 2 | "What do you want for it?" | `[TOPIC · retain]` | "Want? Mr. Grubb, a favor that costs something is a *transaction*. I deal only in favours." *(second)* "Nothing at all. I've written it down, so that neither of us forgets." | — |
 | 3 | "Your clock is slow, Colonel. I've an ear for these things." | `[COMIC · retain]` | "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it." *(second)* "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb." | — |
 | 4 | "How does a man come to be a colonel?" | `[TOPIC · remove]` | "Young, Mr. Grubb. I took the rank at twenty-three. I'm thirty this spring, and I intend to stay there." | `WAR_CONTRADICTIONS` +1 |
@@ -347,7 +347,7 @@ Thad receives a copy of Claim One's index card; gives up confirmation he has see
 |---|---|---|---|---|
 | 1 | "I'd like to see Claim One's index card." | `[PROGRESS · remove]` | "Of course. You'll find it agrees with the sealed filing in every particular." *(beat)* | receives: the card. gives up: what he's seen |
 | 2 | "Why does the Company keep copies of claim records?" | `[TOPIC · retain]` | "Because the courthouse could burn down, Mr. Grubb. Buildings do." *(second)* "Fire, Mr. Grubb. Flood. Sudden interest. One prepares." | — |
-| 3 | "Buena Vista must have been something." | `[TOPIC · remove]` | "Buena Vista! Spring of '48. I shall never forget it." *(Buena Vista was February 1847.)* → `WAR_CONTRADICTIONS` +1 | — |
+| 3 | "Buena Vista must have been something." | `[TOPIC · remove]` | "Buena Vista! Spring of '48. I shall never forget it." — *"I'd have said February of '47."* — "Then I remember it twice, Mr. Grubb." → `WAR_CONTRADICTIONS` +1 | — |
 | 4 | "The chairs are new." | `[COMIC · retain]` | "They are! One must reinvest." *(second)* "Newer still. I had them reupholstered while you were looking." | — |
 
 ## ACT III — `FAN_D1`: the payoff of the war *(all five contradictions)*
@@ -365,10 +365,10 @@ The scripted exchange above ("You were never a colonel."). One node, no other op
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "May I read the contract?" | `[PROGRESS · remove] ✓` | "Of course! Read every word. I *want* you to read every word." *(Clause 9: the holder shall not excavate, sink shaft, tunnel, or otherwise disturb the subsurface.)* → sets `T_EXCAVATION_CLAUSE` |
-| 2 | "Yes." | `[PROGRESS · retain]` | "Splendid!" *(He hands Thad the pen. The pen has no ink.)* "Ink! The one thing this office never has. Forgive me — I'll send for some." *(He does not send for any.)* *(Not an ending. **Fanshawe will never actually let Thad sell — because a sale would transfer a claim someone might dig.** The player cannot fail here and will not understand why until Act III.)* *(second)* "Splendid! And the ink is on its way, I'm told. By whom, I couldn't say." |
+| 2 | "Yes." | `[PROGRESS · retain]` | "Splendid! Your pen." — *"There's no ink in it."* — "Ink! The one thing this office never has. Forgive me — I'll send for some." *(Not an ending. **Fanshawe will never actually let Thad sell — because a sale would transfer a claim someone might dig.** The player cannot fail here and will not understand why until Act III.)* *(second)* "Splendid! And the ink is on its way, I'm told. By whom, I couldn't say." |
 | 3 | "No." | `[PROGRESS · counted-repeat]` | "Twelve thousand." *(second)* "Thirteen. I'm enjoying this." *(third)* "Fourteen, and you drive a very hard bargain for a man who isn't bargaining." |
 | 4 | "Why does a worthless claim cost eleven thousand dollars?" | `[TOPIC · retain]` | "Because you'd like it to be worth more, and I'd like you to be happy." *(second)* "Because happiness is expensive, Mr. Grubb, and I never haggle over yours." |
-| 5 | "I've named a raccoon after you." | `[COMIC · retain]` | "Have you! What a splendid animal it must be." *(It is not.)* *(second)* "Still! You're very loyal, Mr. Grubb. I shall have to name something after you." |
+| 5 | "I've named a raccoon after you." | `[COMIC · retain]` | "Have you! What a splendid animal it must be." — *"He isn't, particularly."* *(second)* "Still! You're very loyal, Mr. Grubb. I shall have to name something after you." |
 | 6 | "Who did you serve under in the war?" | `[TOPIC · remove]` | "Under Commodore Pelham, God rest him. The best horseman the Navy ever had." → `WAR_CONTRADICTIONS` +1 |
 
 **The turn:** on reading Clause 9, Thad's aside — *"He doesn't want the claim. He wants it quiet."*
@@ -594,8 +594,8 @@ Pratt discovered on Prosperity with a stake and a mallet, mid-jump, unhurried ab
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "That's my stake you're pulling up." | `[PROGRESS · remove]` | "Was in the way." *(Of what?)* "The new stake." → D2 opens |
-| 2 | "I'll fetch the law." | `[TOPIC · retain]` | "Sump closes at four." *(This is true, and it is the entire legal system.)* *(second)* "Still closes at four. Every day. Never seen it fail." |
+| 1 | "Somebody's knocked my stake crooked." | `[PROGRESS · remove]` | "Was in the way." — *"Of what?"* — "The new stake." → D2 opens |
+| 2 | "I'll fetch the law." | `[TOPIC · retain]` | "Sump closes at four." *(second)* "Still closes at four. Every day. Never seen it fail." |
 | 3 | "We got off on the wrong foot." | `[COMIC · retain]` | *(He looks at his feet, checking.)* "Nope." *(second)* *(He checks again.)* "Still nope." |
 
 ## `PRA_D6` — after the signing *(W1 growth)*
@@ -605,7 +605,7 @@ The quitclaim signed, the arithmetic done, the offers continuing regardless.
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "Who was the second man who paid you?" | `[PROGRESS · remove]` | "Never saw him. Money came under the laundry door." *(beat)* "Sheng's door. Thursdays." → corroborates D3; the trail runs through the Thursday ledger |
-| 2 | "What will you do now?" | `[TOPIC · retain]` | "Keep the claim next to yours tidy." *(It is not his claim either. Nobody has ever had the heart to tell him, and by now it is his the way anything is anybody's here: by upkeep.)* *(second)* "Keep it tidy. Somebody ought to." |
+| 2 | "What will you do now?" | `[TOPIC · retain]` | "Rake." — *"Rake what?"* — "Mine." *(beat)* "Then yours. Can't stand it." *(second)* "Rake. Somebody ought to." |
 | 3 | "Twenty dollars and the hen." | `[COMIC · retain]` | *(long pause)* "…You're learning the market." *(second)* *(He considers it.)* "Hen's not for sale." |
 | 4 | "Will you help me practice for the Assay?" | `[ASSAY · remove]` | → **the Sparring** (doc 03): "Try me." *Played (errata 243): the player picks each boast.* He answers every boast Thad has, without effort, and is astonished each time. *(pairs 10–15; errata 75)* |
 | 5 | "Will you swear to the ninety days now?" | `[PROGRESS · remove]` | "Yep." *(He puts his hat on.)* "Sump closes at four." *(→ D6, in Room 7; errata 75)* |
@@ -621,7 +621,7 @@ The solution is not persuasion. It is **arithmetic, done out loud, slowly, and t
 > **THAD:** "…"
 > **PRATT:** "Two dollars a week is a hundred and four dollars a year."
 > **THAD:** "It is."
-> **PRATT:** *(after a very long pause)* "That ain't the same number."
+> **PRATT:** *(long pause)* "That ain't the same number."
 
 He signs. Then:
 
@@ -891,7 +891,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 | 3 | "Is the mule all right?" | `[COMIC · retain]` | "She's fine. She's just got a view." *(second)* "Still the same view. She's loyal to it." |
 | 4 | "What's that tune?" | `[TOPIC · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* "A tune a fella whistled in here once. Twelve years I've been getting it wrong." → req `T_HUM_HEARD` *(errata 68 F: B3 needs it; errata 75: the Assay pair is option 7; errata 278, doc 125: asked once he has been heard humming, which LISTEN TO THE LIVERY MAN does)* |
 | 5 | "Could I borrow a blanket?" | `[PROGRESS · remove]` | "Hers?" *(He looks at Grievance. Grievance looks at the blanket.)* "She's not using it. Bring it back before she notices." → THE LIVERY BLANKET *(errata 68 A; option added in Batch C, doc 54)* |
-| 6 | "Your board says she went out once. Twelve years ago, four days, and nobody wrote down where." | `[PROGRESS · remove]` | "Once. Twelve years back. Fella came in at night, whistled at her, and she walked out after him like she'd been waiting." *(beat)* "Never saw him again. Never saw her move again, either." *(He tips his chair back and goes on humming, under his breath.)* → `T_GRIEVANCE_MOTT` — **B2** *(errata 75)*; req `T_BOARD_GRIEVANCE` *(errata 278, doc 125: asked from what the board of names says; was "Has she ever moved for anybody?")* |
+| 6 | "Your board says she went out once. Twelve years ago, four days, and nobody wrote down where." | `[PROGRESS · remove]` | "Once. Twelve years back. Fella came in at night, whistled at her, and she walked out after him like she'd been waiting." *(beat)* "Never saw him again. Never saw her move again, either." *(beat)* "Hm, hm-hm. Hmm, hm-hmm…" → `T_GRIEVANCE_MOTT` — **B2** *(errata 75)*; req `T_BOARD_GRIEVANCE` *(errata 278, doc 125: asked from what the board of names says; was "Has she ever moved for anybody?")* |
 | 7 | "Have you ever been in the Liar's Assay?" | `[ASSAY · remove]` | "Once. Fella told me, 'I once bought a saloon with a single nugget.' I said, 'I have been in it. You overpaid.'" *(beat)* "He's never forgiven me. Still owns the saloon." → pair 20 *(errata 75)* |
 
 *Errata 172, doc 99's rewrite: a second answer for option 2, and the town's Pike thread (doc 98) in the livery man's way, which is through the mule.*

@@ -3295,19 +3295,13 @@
       ],
       "PUSH": [
         {
-          "say": "Thad puts his shoulder to the wreath. It goes through the door all at once, and the Colonel with it.",
-          "by": "wreath_fanshawe",
-          "direction": true,
+          "say": "Shoulder to it, and—",
           "then": [
             {
               "speaker": "wreath_fanshawe",
               "line": "Obliged, Mr. Grubb! You are the only man in Consolation who has ever helped me out of my own office."
             },
-            {
-              "speaker": "thad",
-              "line": "He goes up the street with the wreath on his arm, like a man taking a wheel to be mended.",
-              "direction": true
-            },
+            "Off he goes, with it on his arm like a wheel to be mended.",
             "I have helped a man leave so that I can rob him, and he thanked me. I expect he will again."
           ],
           "set": {

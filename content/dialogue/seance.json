@@ -18,8 +18,7 @@
         },
         {
           "speaker": "ozymandia",
-          "line": "A silence is held.",
-          "direction": true
+          "line": "…"
         },
         {
           "speaker": "ozymandia",
@@ -27,8 +26,7 @@
         },
         {
           "speaker": "ozymandia",
-          "line": "A silence is held.",
-          "direction": true
+          "line": "…"
         },
         {
           "speaker": "ozymandia",
@@ -36,17 +34,11 @@
         },
         {
           "speaker": "ozymandia",
-          "line": "A silence is held.",
-          "direction": true
+          "line": "…"
         },
         {
           "speaker": "ozymandia",
-          "line": "She consults the rod.",
-          "direction": true
-        },
-        {
-          "speaker": "ozymandia",
-          "line": "The spirits say he is… busy."
+          "line": "The rod… the rod says… the spirits say he is… busy."
         },
         {
           "speaker": "seance_frame",
@@ -111,9 +103,8 @@
           "text": "The gold is under the church.",
           "exchange": [
             {
-              "speaker": "ozymandia",
-              "line": "Two chairs go over. Two pairs of boots leave at a run.",
-              "direction": true
+              "speaker": "seance_frame",
+              "line": "TWO SITTERS LEAVE AT SPEED!"
             },
             {
               "speaker": "ozymandia",
@@ -142,8 +133,7 @@
             },
             {
               "speaker": "ozymandia",
-              "line": "She looks down at the cloth for a long moment.",
-              "direction": true
+              "line": "…"
             },
             {
               "speaker": "ozymandia",
@@ -151,8 +141,7 @@
             },
             {
               "speaker": "thad",
-              "line": "The lamp comes up. Thad stays where he is until the last pair of boots has gone.",
-              "direction": true
+              "line": "I shall stay under here until the last pair of boots has gone."
             },
             {
               "speaker": "thad",

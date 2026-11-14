@@ -2060,6 +2060,8 @@ function gulchSpoken(text, speaker) {
     if (m[1]) out.push({ speaker: 'thad', line: m[1] });
     else if (m[2]) out.push({ speaker, line: m[2] });
     // *(beat)* is a pause in the delivery, not a thing shown: dropped, as the town's barks drop it.
+    // A longer pause is the speaker saying "…" (doc 58 rule 2), never printed (doc 130).
+    else if (/^(pause|long pause)$/i.test(m[3].trim())) out.push({ speaker, line: '…' });
     else if (!/^beat$/i.test(m[3].trim())) out.push({ speaker, line: m[3].trim(), direction: true });
   }
   return out;
@@ -2268,7 +2270,7 @@ function gulchPeople() {
     // THE OPENING IS CARRIED WHOLE AND SPOKEN, as Frame's and Sump's are: the engine voices `opening` and nothing
     // else, so a line kept only in `prompt` was never heard (errata 218: four of the five openings, one line each,
     // and the last line of any longer one). The prompt is its last line, the caption; an opening that ends on a
-    // direction (RUL_G1: *(Nobody asked.)*) has no line held over the options.
+    // direction has no line held over the options.
     const node = (id, side) => (side.lines.at(-1)?.direction
       ? { id, noPrompt: true, exceptionReason: 'Doc 109 ends the opening on a direction, which is performed, not held over the options.',
         opening: side.lines, options }
@@ -6469,8 +6471,7 @@ function townTrees() {
         + (opening ? 'The opening is doc 07\'s stage line. ' : 'Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). ')
         + 'The exit is doc 04 part one\'s pool, rotated in play (errata 110, 167).',
       start: 'root',
-      // The stage line is performed as the conversation opens, as a direction over the character (as RUL_G1's
-      // *(Nobody asked.)* is), not kept as a `prompt` the renderer draws nowhere (errata 218).
+      // The stage line is performed as the conversation opens, as a direction over the character, not kept as a `prompt` the renderer draws nowhere (errata 218).
       nodes: { root: opening
         ? { id: 'root', noPrompt: true, exceptionReason: 'Doc 07\'s opening is a stage line, performed as a direction, not held over the options.',
           opening: [{ speaker: spec.speaker, line: plain(opening), direction: true }], options }
@@ -7074,11 +7075,12 @@ function papersPairs(objects) {
   const logLine = c4 && quoted(c4)[0];
   if (!logLine) throw new Error('doc 54 C3/C4: no empty-office line for THE SUBMISSION LOG');
   const swap = papersRule(papersBullet('- USE A COMPANY LEDGER — '));
-  if (!swap.direction || swap.then?.length !== 1) throw new Error('doc 113 THE SWAP: not a direction and one closing line');
+  // Errata 313 (no parentheticals): the swap is Thad's own line now, not a printed direction.
+  if (swap.then?.length !== 1) throw new Error('doc 113 THE SWAP: not an opening and one closing line');
   out.push({ item: 'company_ledger', room: 'fanshawe_office', target: 'submission_log', otherwise: 'pool', puzzle: 'C4', say: swap.say,
     note: `${NOTE}, THE SWAP: the ledger laid where the log lay, and the log taken (THE SUBMISSION LOG, T_QUEUE_PADDED). Doc 54's `
       + 'empty-office line for the log is said after the direction, as doc 113 says.',
-    rules: [{ case: 'empty office', when: { ...office, T_LEDGER_PLAIN: true, T_LEDGER_CRACKED: true }, say: swap.say, direction: true,
+    rules: [{ case: 'empty office', when: { ...office, T_LEDGER_PLAIN: true, T_LEDGER_CRACKED: true }, say: swap.say, ...(swap.direction ? { direction: true } : {}),
       then: [logLine, ...swap.then], takes: ['company_ledger'], items: ['padded_log'], set: { T_QUEUE_PADDED: true } },
     // DOC 115, II-3 (errata 244): until the ledger is made ready it is refused, and the refusal says what is wrong.
     { case: 'refused: the gilt and the spine', when: { ...office, T_LEDGER_PLAIN: false, T_LEDGER_CRACKED: false }, ...refused('- *with the gilt on it and the spine whole* — ') },
@@ -7225,11 +7227,13 @@ function boundaryWalked(doc57Lines) {
   const DOC = 'docs/120-act-one-by-hand.md';
   const [lead, ...rest] = objectsBlock('**MADAME OZYMANDIA** · USE THE COMPANY MAP, *once she is paid*', { OZYMANDIA: 'ozymandia' }, DOC);
   const a7 = read('docs/57-puzzle-completion.md');
-  if (!a7.includes(lead.line)) throw new Error('doc 120 I-3: the unrolling is not doc 57 A7\'s own direction, word for word');
+  // ERRATA 313 (no parentheticals, doc 130): the unrolling was doc 57 A7's direction, printed; it is now Ozymandia's
+  // own lines, and the circle on Claim Two is said by her. The lead is her first line, spoken.
+  void a7;
   const home = papersBullet('- USE, *home* — ', DOC);
   for (const one of doc57Lines) if (!home.includes(`"${one.line}"`)) throw new Error(`doc 120 I-3: home does not end in doc 57 A7's "${one.line}"`);
   return { case: 'the map unrolled', when: { T_OZY_PAID: true, T_SURVEYING: false }, untilPuzzles: ['A7'],
-    say: lead.line, direction: true, by: 'ozymandia', then: rest.map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one)),
+    say: lead.line, ...(lead.direction ? { direction: true } : {}), by: 'ozymandia', then: rest.map((one) => (one.speaker === 'thad' && !one.direction ? one.line : one)),
     set: { T_SURVEYING: true, SURVEY_LEG: 0 } };
 }
 /**
@@ -7476,7 +7480,7 @@ function objectsPairs(prattTurn) {
   const posted = objectsBlock('**THE POSTED NOTICES** · USE THE FUNERAL NOTICE');
   out.push({ item: 'funeral_notice', room: 'main_street', target: 'posted_notices', say: posted[0].line,
     note: `${NOTE}, O-2: the notice put up on Main Street begins the funeral day (T_FUNERAL_DAY), which Frame's printing used to.`,
-    rules: [{ case: 'posted', say: posted[0].line, direction: true, then: posted.slice(1).map((one) => one.line),
+    rules: [{ case: 'posted', say: posted[0].line, ...(posted[0].direction ? { direction: true } : {}), then: posted.slice(1).map((one) => one.line),
       takes: ['funeral_notice'], set: { T_FUNERAL_DAY: true, T_NOTICE_IN_HAND: false, T_FUNERAL_HILL_SAID: false }, goto: 'main_street' }] });
   // The notice shown to the Reverend, before it is up (THE WRONG TRIES).
   const shown = objectsRule('- **REVEREND SOWERBY** · USE THE FUNERAL NOTICE — ', { SOWERBY: 'sowerby' });
@@ -7486,7 +7490,7 @@ function objectsPairs(prattTurn) {
   const laid = objectsBlock('**THE COFFIN** · USE THE COLONEL\'S WREATH', { 'THE UNDERTAKER': 'funeral_undertaker' });
   out.push({ item: 'wreath', room: 'funeral', target: 'coffin', say: laid[0].line,
     note: 'Doc 118 (THE LINES; errata 246), O-6: the Colonel\'s wreath laid on Thad\'s own coffin. Nothing reads T_WREATH_LAID.',
-    rules: [{ case: 'laid', say: laid[0].line, direction: true, then: laid.slice(1).map((one) => (one.speaker === 'thad' ? one.line : one)),
+    rules: [{ case: 'laid', say: laid[0].line, ...(laid[0].direction ? { direction: true } : {}), then: laid.slice(1).map((one) => (one.speaker === 'thad' ? one.line : one)),
       takes: ['wreath'], set: { T_WREATH_LAID: true } }] });
   // II-1 (doc 115): the fork rung against the plate as it goes by.
   const rung = papersRule(papersBullet('- USE THE TUNING FORK — ', 'docs/115-the-three-papers.md'), {});

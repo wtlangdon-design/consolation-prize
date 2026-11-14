@@ -238,8 +238,11 @@
               "They are not bereaved. They never met him.",
               {
                 "speaker": "sowerby_gate",
-                "line": "He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.",
-                "direction": true
+                "line": "…"
+              },
+              {
+                "speaker": "sowerby_gate",
+                "line": "I shall count it with my eyes shut. It is more respectful."
               },
               {
                 "speaker": "sowerby_gate",
@@ -928,8 +931,7 @@
               "T_LINEN_ASKED": true,
               "T_HYMNAL_TAKEN": true
             },
-            "say": "Thad takes off his hat and stands at the end of the line. The plate comes down it, hand to hand, and stops with him.",
-            "direction": true,
+            "say": "Hat off, at the end of the line. The plate has come down it, hand to hand, and stopped with me.",
             "then": [
               "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not.",
               {
@@ -938,8 +940,7 @@
               },
               {
                 "speaker": "sowerby_gate",
-                "line": "He takes hold of the rim.",
-                "direction": true
+                "line": "I have the rim."
               }
             ],
             "set": {

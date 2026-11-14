@@ -403,9 +403,7 @@
               },
               "T_PRATT_TURNED": false
             },
-            "say": "Thad straightens his stake.",
-            "by": "pratt_jump",
-            "direction": true,
+            "say": "There. Straight.",
             "then": [
               {
                 "speaker": "pratt_jump",

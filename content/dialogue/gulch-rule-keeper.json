@@ -9,17 +9,11 @@
   "nodes": {
     "RUL_G1": {
       "id": "RUL_G1",
-      "noPrompt": true,
-      "exceptionReason": "Doc 109 ends the opening on a direction, which is performed, not held over the options.",
+      "prompt": "You'll be wanting the rules.",
       "opening": [
         {
           "speaker": "gulch_rule_keeper",
           "line": "You'll be wanting the rules."
-        },
-        {
-          "speaker": "gulch_rule_keeper",
-          "line": "Nobody asked.",
-          "direction": true
         }
       ],
       "options": [
@@ -96,17 +90,12 @@
         {
           "id": "gulch_rule_keeper6",
           "tag": "COMIC",
-          "text": "Is there a rule against arithmetic?",
+          "text": "Is there a rule against cheating?",
           "afterUse": "remove",
           "exchange": [
             {
               "speaker": "gulch_rule_keeper",
-              "line": "There was a rule about something."
-            },
-            {
-              "speaker": "gulch_rule_keeper",
-              "line": "He thinks.",
-              "direction": true
+              "line": "There's a rule against something."
             },
             {
               "speaker": "gulch_rule_keeper",

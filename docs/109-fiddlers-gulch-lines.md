@@ -118,7 +118,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 
 ### THE FIND
 *G4. LOOK AT THE WATCH, the first time.*
-> **THAD:** "That's my father's watch." *(He turns, slowly, to the man behind the plank. The man behind the plank is beaming.)*
+> **THAD:** "That's my father's watch." *(long pause)*
 > *Doc 03's Duel One opening plays here, extracted from doc 03: "Grubb! You came all this way. Was the claim not to your liking?" and its two lines after.*
 > **THAD:** "You shaved."
 > **VESSEL:** "For the heat, son. You'd never have known me." *(beat)* "You didn't."
@@ -244,7 +244,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 **Barks** — 1 "Gold on the plank." · 2 "Rule four: the judge is me." · 3 "There's a rule about that. I'll think of it."
 
 **`RUL_G1`**
-> **RULE-KEEPER:** "You'll be wanting the rules." *(Nobody asked.)*
+> **RULE-KEEPER:** "You'll be wanting the rules."
 
 | # | Option | Tag | Response |
 |---|---|---|---|
@@ -253,7 +253,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 | 3 | "What happened to the fiddle?" | `[TOPIC · retain]` | "We struck." *(beat)* "A man doesn't play the fiddle when there's gold to sit up with." *(second)* "Hasn't been right since. Neither have I, much." *(before G5)* |
 | 4 | "Who's the Deacon?" | `[TOPIC · retain]` | "Keeps the grog. Keeps the time. Came up the river with nothing but a mustache, and he's sold that." *(second)* "The Deacon. Lovely man. Sells you a drink like he's doing you a favor, and he is." |
 | 5 | "Do you know Deke Vessel?" | `[TOPIC · retain]` | "Never heard of him. There's no rule about him, so he's probably fine." *(second)* "No rule, no Vessel. That's how rules work." *(before G4)* |
-| 6 | "Is there a rule against arithmetic?" | `[COMIC · retain]` | "There was a rule about something." *(He thinks.)* "Knives? It'll come to me." *(second)* "It came to me in the night and went again. Lovely rule, it was." |
+| 6 | "Is there a rule against cheating?" | `[COMIC · retain]` | "There's a rule against something." *(beat)* "Knives? It'll come to me." *(second)* "It came to me in the night and went again. Lovely rule, it was." |
 | 7 | "Play me something." | `[COMIC · retain]` | *(He plays. It is very bad, and he is very happy.)* *(second)* "That one's called 'The Strike'. It's the same as the other one." *(after G5)* |
 
 ### THE PANNER
@@ -325,7 +325,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 > **VESSEL:** "Not here, son. Beat me on that bar and you'd have nothing. That bar can't witness a signature."
 > **VESSEL:** *(beat)* "Beat me in the Nugget's back room, with judges and a pencil, and I'll sign whatever you like."
 > **THAD:** "You'd come back to Consolation?"
-> **VESSEL:** "Losing a man in front of strangers is business. Beating him in front of his own town is art. I'll take the coach." → **G9**; `T_VESSEL_FOUND`. Vessel leaves the Gulch, with the watch, and is in Room 4. The rule-keeper keeps the plank.
+> **VESSEL:** "Beating a man in front of strangers is business. Beating him in front of his own town is art. I'll take the coach." → **G9**; `T_VESSEL_FOUND`. Vessel leaves the Gulch, with the watch, and is in Room 4. The rule-keeper keeps the plank.
 
 ---
 
@@ -334,7 +334,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 *The panner and the man upstream won't speak to each other. They speak through Thad, and they speak in boasts. Carrying one boast up and the answer down teaches two pairs. Optional: Duel Two can be won without them (doc 107). Both options need G3.*
 
 **`PAN_G1`, option 6** — "Any message for upstream?" · `[PROGRESS · remove]`
-> **PANNER:** *(He lowers his voice. Nobody is near.)* "Tell him I took a nugget out of the river so big it needs its own tent." → `T_GULCH_MESSAGE_UP`
+> **PANNER:** "Closer." *(beat)* "Tell him I took a nugget out of the river so big it needs its own tent." → `T_GULCH_MESSAGE_UP`
 > *(second, if asked again before it is carried)* "Tell him exactly that. Don't improve it."
 
 **`UPS_G1`, option 6** — "He says he took a nugget out of the river so big it needs its own tent." · `[PROGRESS · remove]` · *req `T_GULCH_MESSAGE_UP`*
@@ -383,7 +383,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 > **RULE-KEEPER:** "Two. A man's account may be doubted by a better one, or a louder."
 > **RULE-KEEPER:** "Three. Truth is admissible. Nobody's tried."
 > **RULE-KEEPER:** "Four. The judge is me, and I've decided."
-> **RULE-KEEPER:** "Five. No firearms, no knives, no—" *(He thinks.)* "There was a third one." *(He gives up.)* "Begin."
+> **RULE-KEEPER:** "Five. No firearms, no knives, no—" *(beat)* "There was a third one." *(beat)* "I give up. Begin."
 
 *After each exchange he moves a pebble from one pile to the other. After the loss dialogue:*
 > **RULE-KEEPER:** "Five to nothing. Rule four."
@@ -392,7 +392,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 
 ## GOING HOME
 
-**GRIEVANCE** · USE, *after G9* — *(Thad climbs on. Grievance considers it, then turns for home.)* Then **the ride**, over black: "Two days back on Grievance. Vessel took the coach, and was in the Nugget's back room before me, with a drink and the good chair." → Thad is placed in the Nugget, as B3 places him today.
+**GRIEVANCE** · USE, *after G9* — "Home, Grievance." Then **the ride**, over black: "Two days back on Grievance. Vessel took the coach, and was in the Nugget's back room before me, with a drink and the good chair." → Thad is placed in the Nugget, as B3 places him today.
 
 **VESSEL, in Room 4, after the trip** — his first TALK TO opens with: "Grubb! You came all this way. Again." *(In place of doc 03's opening, which is now said in the Gulch.)*
 
@@ -403,8 +403,8 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 *Each is written here and moves to its home document when the trip is built, as doc 107's table says.*
 
 ### A9 · THE THIRD COPY *(Room 7, after the read-back and THE INVITATION)*
-> **SUMP:** "And your copy." *(He goes into the back. He is gone some time.)* "The third. For the applicant."
-> **THAD:** "There aren't any in the slots."
+> **SUMP:** "And your copy." *(long pause)* "The third. For the applicant. It was at the back."
+> **THAD:** "I didn't know there was a third."
 > **SUMP:** "No applicant has ever asked for one." → THE THIRD COPY
 
 **THE THIRD COPY** *(item)*
@@ -425,8 +425,8 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 **LISTEN** 1 "Quiet, held still." · 2 "A faint ring when I knock it on something. An A, nearly." · 3 "Quiet. It's saving itself, she'd say."
 
 ### B1 · THE CLARION *(Room 9, after FRA_B1's destination line, whichever story)*
-> **FRAME:** "Take a copy. Page one." *(He presses it on Thad, still damp.)* "Nobody ever buys the one they're in." → THE CLARION
+> **FRAME:** "Take a copy. Page one." *(He presses it on Thad, still damp.)* "Nobody ever buys the issue they're in." → THE CLARION
 
 **THE CLARION** *(item)*
-**LOOK** 1 "This week's Clarion, smelling of ink, with my story on page one and my name spelled a new way." · 2 "Page one. Mr. Frame says nobody ever buys the one they're in. I can see why." · 3 "Under my story, a notice for a lost dog. I'm in very good company."
+**LOOK** 1 "This week's Clarion, smelling of ink, with my story on page one and my name spelled a new way." · 2 "Page one. Mr. Frame says nobody ever buys the issue they're in. I can see why." · 3 "Under my story, a notice for a lost dog. I'm in very good company."
 **LISTEN** 1 "Paper, rustling." · 2 "A crackle, where the ink's still drying in the folds." · 3 "Quiet. It's said all it's going to say about me, in print."

@@ -37,7 +37,7 @@ That is the ruling these lines are written under: new lines for these three scen
 - OPEN — "Income, outgoings, and a balance so reasonable it could run for office."
 
 **THE SWAP** · USE A COMPANY LEDGER *on THE SUBMISSION LOG*
-- USE A COMPANY LEDGER — *(Thad lifts the log, lays the ledger where it lay, and moves it an inch.)* "From the door it is the same desk. He reads the room. I am counting on him not to read the books." → THE SUBMISSION LOG; A COMPANY LEDGER leaves inventory.
+- USE A COMPANY LEDGER — "The log up, the ledger down where it lay, and an inch to the left." "From the door it is the same desk. He reads the room. I am counting on him not to read the books." → THE SUBMISSION LOG; A COMPANY LEDGER leaves inventory.
 
 Doc 54's line for the log ("Nine years of priority submissions…") is said after the direction and before the new one, unchanged.
 
@@ -57,7 +57,7 @@ Doc 54's line for the log ("Nine years of priority submissions…") is said afte
 *Prosperity in Act II, Pratt on the claim with his mallet and his own stake, from his arrival until he goes home.*
 
 **THE CLAIM MARKER** · *while Pratt is on the claim*
-- PUSH — *(Thad straightens his stake.)* **PRATT:** "Leans." *(Pratt drives his own, one stroke.)* **PRATT:** "Mine don't."
+- PUSH — "There. Straight." **PRATT:** "Leans." *(Pratt drives his own, one stroke.)* **PRATT:** "Mine don't."
 - PULL — "If I pull it up myself he has only to stand here. He is very good at standing here."
 - PICK UP — "Carry it off and I have jumped my own claim. He would thank me, briefly."
 - USE — "I stood beside my stake, firmly. He stood beside his. Mine has the number. His has him." — **PRATT:** "Yep."

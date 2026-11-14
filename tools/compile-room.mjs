@@ -1191,6 +1191,7 @@ function sceneBlock(spec, hotspot) {
     if (!speaker) fail(`scenes: "${who[1]}" speaks in ${spec.ref} and the annotation's speakers do not name them`);
     for (const m of who[2].matchAll(/"([^"]+)"|\*\(([^)]+)\)\*/g)) {
       if (m[1]) lines.push({ speaker, line: m[1] });
+      else if (/^(pause|long pause)$/i.test(m[2].trim())) lines.push({ speaker, line: '…' });
       else if (!/^beat$/i.test(m[2].trim())) lines.push({ speaker, line: m[2].trim(), direction: true });
     }
   }
@@ -1243,11 +1244,14 @@ for (const spec of ann.departures ?? []) {
   const body = sectionBody(spec.ref, 'departures');
   const line = body.split('\n').find((one) => one.startsWith(spec.startsWith));
   if (!line) fail(`departures: ${spec.ref} has no line starting ${spec.startsWith}`);
-  const direction = /\*\(([^)]+)\)\*/.exec(line.slice(spec.startsWith.length))?.[1];
+  // Before the ride: a line Thad says ("Home, Grievance."), or a direction. A spoken line, since doc 130: nothing printed.
+  const before = line.slice(spec.startsWith.length).split(/Then \*\*the ride\*\*/)[0];
+  const spoken = /"([^"]+)"/.exec(before)?.[1];
+  const direction = spoken ? undefined : /\*\(([^)]+)\)\*/.exec(before)?.[1];
   const ride = /over black: "([^"]+)"/.exec(line)?.[1];
-  if (!direction || !ride) fail(`departures: ${spec.ref}'s line ${spec.startsWith} has no direction or no ride over black`);
+  if (!(spoken || direction) || !ride) fail(`departures: ${spec.ref}'s line ${spec.startsWith} has no line or direction, or no ride over black`);
   (hotspot.responses[spec.verb] ??= []).unshift({
-    ...(spec.when ? { when: spec.when } : {}), say: direction, direction: true,
+    ...(spec.when ? { when: spec.when } : {}), say: spoken ?? direction, ...(spoken ? {} : { direction: true }),
     then: [{ speaker: 'thad', line: ride, overBlack: true }],
     ...(spec.set ? { set: spec.set } : {}), ...(spec.completes ? { completes: spec.completes } : {}),
     goto: spec.goto, sceneLine: `${spec.ref} · ${spec.startsWith}`,
