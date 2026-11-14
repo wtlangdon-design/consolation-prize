@@ -13,9 +13,9 @@
  "greetsWithBark": true,
  "greetsWithBarkNote": "As the card sharp: TALK TO opens with his bark for the current reputation. Doc 07 writes no root line for him.",
  "walkTo": {
-  "x": 2930,
+  "x": 2690,
   "y": 725,
-  "facing": "left"
+  "facing": "right"
  },
  "barks": {
   "R_NOBODY": "Leaving tomorrow.",
@@ -104,5 +104,7 @@
  "when": {
   "T_DUEL_CROWD": false
  },
- "whenNote": "NOT ON THE DUEL'S VISIT (errata 115): the one visit Fanshawe calls the duel, 'half the town' stands at the saloon end (doc 57 F4; duel-town-left/right, duel-fanshawe), across the mud where he waits with his bag, and he is in it. Back by his bag the next visit."
+ "whenNote": "NOT ON THE DUEL'S VISIT (errata 115): the one visit Fanshawe calls the duel, 'half the town' stands at the saloon end (doc 57 F4; duel-town-left/right, duel-fanshawe), across the mud where he waits with his bag, and he is in it. Back by his bag the next visit.",
+ "faces": "left",
+ "facesNote": "Errata 304 (Tyler, 2026-11-14: \"When you talk to the man leaving tomorrow, Thad goes to the right side of him while the man faces left\"). He is drawn turned to his right, our left (tests/faces.test.mjs measures it), and a conversation with him now stands there, in front of his face: 2690, was 2930 at his back."
 }

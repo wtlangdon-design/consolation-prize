@@ -1746,7 +1746,7 @@ export class GameScene extends Phaser.Scene {
     // talks. He stops at a conversational distance, as for a conversation, and nothing opens.
     if (npc && chosen === null && this.state.verbs.bareClickWalks) {
       const gap = Math.round(this.state.heightForZone(npc.zone) * 0.66);
-      const stand = npc.walkTo ?? { x: npc.x + (this.actor.x < npc.x ? -gap : gap), y: npc.y };
+      const stand = npc.walkTo ?? { x: npc.x + this.talkSide(npc) * gap, y: npc.y };
       // Walked as a conversation's approach is (below): to the stand, in the room's coordinates.
       this.actor.walkTo(stand.x, stand.y);
       this.markDirty();
@@ -1761,7 +1761,7 @@ export class GameScene extends Phaser.Scene {
       // selling maps. Two thirds of the character's own drawn height is about
       // a metre at any depth, and scales with the room's curve for free.
       const gap = Math.round(this.state.heightForZone(npc.zone) * 0.66);
-      const from = npc.x + (this.actor.x < npc.x ? -gap : gap);
+      const from = npc.x + this.talkSide(npc) * gap;
       // UNLESS THE PERSON SAYS WHERE. Room 5's Winnie is behind a counter:
       // her baseline is not floor, the walk snapped to the counter's base
       // line, and Thad loomed over her ledger. Her file declares where a
@@ -1920,6 +1920,16 @@ export class GameScene extends Phaser.Scene {
     // Not on whoever is standing there: the lamp is in Hob's hand (errata 129).
     const stand = this.clearOfStanding(floor);
     return { x: stand.x, y: stand.y, facing: this.actor.facingToward(nearX, nearY) };
+  }
+
+  /**
+   * Which side of a person a conversation stands on: in front of the face for a figure drawn turned (AmbientFile.faces,
+   * errata 304; Tyler: "Thad goes to the right side of him while the man faces left"), else the side he came from.
+   */
+  private talkSide(npc: AmbientFile): -1 | 1 {
+    if (npc.faces === 'left') return -1;
+    if (npc.faces === 'right') return 1;
+    return this.actor.x < npc.x ? -1 : 1;
   }
 
   /** A walk's end, moved off any mover standing on it (engine/core/Standing.ts; errata 129). */
