@@ -919,6 +919,12 @@
    "date": "2026-11-13",
    "kind": "loosened",
    "why": "Errata 301: by Tyler's ruling (\"I would like him to actually walk up steps onto porches\"), the porch decks and their stairs, which errata 300 held off the floor, are floor; those points move from the test's off list to its on list. What stays off is what is never floor: each porch's front face, the walls, the deck behind the trough, the barrel, the notice board. It gains a test that a deck is reached by its stairs and nothing else."
+  },
+  {
+   "check": "tests/cutaways.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 307: by Tyler's ruling (he chose to cut the Clarion cut-away after the swindle: \"so abrupt and odd ... we're SOOO early in the story\"), doc 96's three cut-aways are two. The test's count of three and its positional lookups follow the ruling; it gains a test that no cut-away plays on the swindle alone. It did not misfire: the content changed under it."
   }
  ]
 }
