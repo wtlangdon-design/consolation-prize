@@ -12,20 +12,36 @@
       "options": [
         {
           "id": "map_seller1",
-          "text": "Is that a map to Mott's strike?",
+          "text": "Who's Mott?",
           "tag": "TOPIC",
           "exchange": [
             {
               "speaker": "map_seller",
-              "line": "It's FORTY-ONE maps to Mott's strike, sir!"
-            },
-            {
-              "speaker": "thad",
-              "line": "They can't all be right."
+              "line": "Who's— sir!"
             },
             {
               "speaker": "map_seller",
-              "line": "They're all right about the strike, sir! They only disagree about where."
+              "line": "…"
+            },
+            {
+              "speaker": "map_seller",
+              "line": "Obadiah Mott! Twelve years ago he filed the biggest strike this territory has ever seen, and then he walked off without telling a soul where it was."
+            },
+            {
+              "speaker": "thad",
+              "line": "And nobody's found it?"
+            },
+            {
+              "speaker": "map_seller",
+              "line": "Not yet, sir! Two thousand of us came looking, and we built a town while we waited."
+            },
+            {
+              "speaker": "thad",
+              "line": "And those are maps to it?"
+            },
+            {
+              "speaker": "map_seller",
+              "line": "FORTY-ONE maps to it, sir! Every one of them right about the strike. They only disagree about where."
             }
           ],
           "afterUse": "remove"

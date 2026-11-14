@@ -7897,3 +7897,21 @@ Lesson: `tests/no-parentheticals.test.mjs`:
 - across the game the printed count only goes down (129 places after the sample; a pass lowers it).
 
 Proved by restoring the old Pratt and Fanshawe trees (both tests fail).
+
+## 309 · What Consolation is, told early, and the first errand (Tyler, 2026-11-14)
+
+Tyler, told that the first hands-on puzzle (the hotel piano, A2) was in the game but nothing pointed at it: "Point at the hotel early maybe feels like the right call?" And: "Should we do that with our main street characters? I feel like we're missing an overarching understanding of what's happening. What is consolation. Why are people there. What motivates them." Asked what should come first, he answered "You decide."
+
+**Doc 131** is the record, built on Monkey Island's opening: exposition as jokes from people with their own angle, ending in errands.
+- **Thad's first sight of Main Street ends in his two errands, and the means for one:** "Two errands, then. Mr. Pike, and a bed." / "The hotel wants a dollar more than I have. I have a very good ear, which must be worth a dollar to somebody." It names the errand, never the solution (invariant 4).
+- **The street explains the town in three voices** (doc 07). Each can be met first, so each says its piece on its own:
+  - the map seller: who Mott was, the strike and the town that grew while it waited (his first question is now "Who's Mott?", which a newcomer would ask, in place of "Is that a map to Mott's strike?", which he could not);
+  - the pie woman: the Company sells the searchers everything they stand on;
+  - the man leaving tomorrow: why people came, and why they stay.
+- **Nothing beneath the surface.** Fanshawe is not named; the fraud, his interest in the search and Mott's whereabouts stay where doc 01's reveal schedule puts them.
+
+The rewritten options keep their ids and places. The pie woman's "I'm told I have a very refined palate." is replaced, as weak, by her money question.
+
+Lesson: `tests/first-hour.test.mjs`:
+- the hotel and the money for it are named before the first puzzle;
+- the map seller explains Mott before any of his options assumes him.

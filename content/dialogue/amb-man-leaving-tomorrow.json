@@ -71,6 +71,14 @@
             {
               "speaker": "man_leaving_tomorrow",
               "line": "Nobody arrives here, son. They just haven't left yet."
+            },
+            {
+              "speaker": "thad",
+              "line": "What brought you here, in the first place?"
+            },
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Gold. Same as everybody. Took me a fortnight to see none of it was mine."
             }
           ],
           "afterUse": "remove"

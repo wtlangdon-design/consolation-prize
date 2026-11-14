@@ -57,9 +57,26 @@
         },
         {
           "id": "pie_woman3",
-          "text": "I'm told I have a very refined palate.",
+          "text": "Is there money to be made in Consolation?",
           "tag": "TOPIC",
-          "say": "You're told wrong. It's a nickel either way.",
+          "exchange": [
+            {
+              "speaker": "pie_woman",
+              "line": "Plenty. The Company makes it."
+            },
+            {
+              "speaker": "thad",
+              "line": "Which company?"
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "The Company. Two thousand men digging for a strike nobody's found, and the Company sells them every shovel, map and lot they stand on."
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "I sell them pie."
+            }
+          ],
           "afterUse": "remove"
         },
         {
