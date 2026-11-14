@@ -19,7 +19,7 @@ const rows = [...doc95.matchAll(/^\| (\d+) \| ([ABC]) \| ([^|]*) \|/gm)]
   .map(m => ({ n: Number(m[1]), cls: m[2], who: m[3].trim() }));
 
 test('doc 95 has a table to read', () => {
-  assert.ok(rows.length > 100, `read ${rows.length} rows`);
+  assert.ok(rows.length > 50, `read ${rows.length} rows`); // a parse check: the table shrinks as directions are spoken (doc 130)
 });
 
 test('every class B row is on the running list, under its figure', () => {

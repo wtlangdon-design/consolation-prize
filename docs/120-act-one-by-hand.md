@@ -70,7 +70,7 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 > "A coach, four dollars, and my father's best handwriting. I had better at least knock."
 
 **PIKE'S MARKER** · USE THE LETTER
-- USE THE LETTER, *the first time* — *(Thad holds the letter out to the board, as one does to a butler.)* "'To Mr. Ezra Pike, by the hand of my son.' I am the hand. I regret to say he is the late." *"I cannot leave it with him. The wind would have it at the Improvement Company by morning, and I may want an introduction yet."*
+- USE THE LETTER, *the first time* — "I am holding a letter out to a plank, as one would to a butler." "'To Mr. Ezra Pike, by the hand of my son.' I am the hand. I regret to say he is the late." *"I cannot leave it with him. The wind would have it at the Improvement Company by morning, and I may want an introduction yet."*
 - USE THE LETTER, *again* — "He has been introduced to me once. I will not press the acquaintance."
 
 ### I-1 · The dinner: the lines
@@ -82,7 +82,7 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 **LISTEN** 1 "A small note, when the bottle touches the rim. He plays it very well." · 2 "Wine, arriving. It does not glug. He would not allow it to glug." · 3 "Nothing. It is full, and full things are quiet."
 
 **THE GLASS, TRIED**
-- USE — *(Thad drinks. The glass is full again before it reaches the cloth.)* "One glass, by my count. By the glass's count, none." *(second)* "Two. I am keeping the tally on my fingers, under the table, where he cannot refill them." "I have stopped counting. The glass never started."
+- USE — "It was full again before I had set it down." "One glass, by my count. By the glass's count, none." *(second)* "Two. I am keeping the tally on my fingers, under the table, where he cannot refill them." "I have stopped counting. The glass never started."
 - PICK UP — "I have it. So has he, in every way that signifies."
 - PUSH — "I moved it away. He moved it back, with the air of a man returning my hat."
 
@@ -100,7 +100,7 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 **LISTEN** 1 "Nothing. A cover keeps the sound in with the heat." · 2 "A very small tick, as the silver cools. It is in no hurry and neither is he." · 3 "Nothing. It is the only quiet thing on the table, and I do not find that restful."
 
 **THE DISH, TRIED**
-- OPEN — *(Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract.)* **FANSHAWE:** "Ah! You've found the fish. Take your time with it, Mr. Grubb. I never hurry a man at his fish." → `T_CONTRACT_SERVED`
+- OPEN — "Under the cover, on a warmed plate, with a sprig of parsley: a contract." **FANSHAWE:** "Ah! You've found the fish. Take your time with it, Mr. Grubb. I never hurry a man at his fish." → `T_CONTRACT_SERVED`
 - PICK UP — "It is the size of a saddle and it is his. I should need a horse and a reason."
 - PUSH — "It does not slide. It has been set down by a man who meant it to stay."
 - CLOSE — "It's closed. That's the difficulty with it."
@@ -111,14 +111,14 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 
 **THE CONTRACT, TRIED**
 - USE — "He has not asked me to sign. He has only made it extremely convenient."
-- PUSH — *(Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two.)* "It is nearer than when I began. I shall stop helping."
+- PUSH — "I pushed it an inch away. He passed me the salt, and now it is two inches nearer." "It is nearer than when I began. I shall stop helping."
 - OPEN — "It is one page. There is nothing to open. It took him one page."
-- CLOSE — *(Thad puts the cover back over the contract.)* "I mean to work it myself." **FANSHAWE:** "Of course you do." → doc 57 A10, beat 3; `T_DINED`
+- CLOSE — "I mean to work it myself." **FANSHAWE:** "Of course you do." → doc 57 A10, beat 3; `T_DINED`
 
 *(PICK UP on the contract is doc 121's: the parsley.)*
 
 **BEAT 3** *(doc 57 A10, word for word; said after the CLOSE)*
-> **FANSHAWE:** *(Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.)* "Keep it. I have dozens."
+> **FANSHAWE:** "Steady! Not a drop on the cloth. Take my handkerchief." "Keep it. I have dozens."
 
 **`FAN_A2` option 6**, *"I mean to work it myself."* — **FANSHAWE:** "Of course you do." **FANSHAWE:** "Don't let your fish go cold." *(second)* **FANSHAWE:** "Of course. Of course. Do try the fish."
 
@@ -131,7 +131,7 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 *Madame Ozymandia's tent, the map unrolled and filling the view, the rod in Thad's hand.*
 
 **MADAME OZYMANDIA** · USE THE COMPANY MAP, *once she is paid* — doc 57 A7's direction as far as "The rod does not move.", then:
-> *(She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move.)*
+> **OZYMANDIA:** "Claim Two. Somebody has circled it already. How thoughtful." *(beat)* "Mmmmmmmmmmm." *(long pause)*
 > **OZYMANDIA:** "The earth is shy today, darling. Take the rod. It only wants walking round the property."
 > **THAD:** "I am to do the divining."
 > **OZYMANDIA:** "You are to hold the stick. I shall do the divining. Commence."
@@ -144,8 +144,8 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 **LISTEN** 1 "Paper, under the tip of the rod. A dry little scratch." · 2 "Madame Ozymandia, humming on one note. It is nearly an A, and nearly is the trouble." · 3 "Nothing from the stake. It has made its point."
 
 **THE STAKE, WITH THE ROD**
-- USE, *commencing* — *(Thad sets the tip of the rod on the stake.)* **OZYMANDIA:** "Commencing at the stake. Thereabouts. The earth is not a pedant, darling. Now: which way does it go?"
-- USE, *home* — **OZYMANDIA:** "Thence home." *(She takes a Form 12-C from a stack of them and writes in purple ink.)* "The earth has spoken. The earth was brief." *"You keep Form 12-C?"* **OZYMANDIA:** "The earth prefers them." → THE SURVEY, **A7**
+- USE, *commencing* — "The tip of the rod, on the stake." **OZYMANDIA:** "Commencing at the stake. Thereabouts. The earth is not a pedant, darling. Now: which way does it go?"
+- USE, *home* — **OZYMANDIA:** "Thence home." "The earth has spoken. The earth was brief." *"Is that a Form 12-C?"* **OZYMANDIA:** "The earth prefers them." → THE SURVEY, **A7**
 - USE, *too soon* — **OZYMANDIA:** "Not home yet, darling. Nobody goes home from the doorstep."
 
 **THE SLOPE**
@@ -153,8 +153,8 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 **LISTEN** 1 "The rod's tip, crossing the hatching. It ticks on every stroke, like a stick along a fence." · 2 "Her bracelets, when she leans in. The earth's voice has a quantity of brass in it." · 3 "Nothing. Drawn hills are quiet. I have no evidence about the real one."
 
 **THE SLOPE, WITH THE ROD**
-- USE, *uphill* — *(Thad draws the rod up the paper.)* **OZYMANDIA:** "Thence uphill! With feeling, darling. More feeling than that." *"I am pushing a stick up a map."* **OZYMANDIA:** "And it shows."
-- USE, *the line the rod preferred* — *(She hums. Thad moves the rod along the paper. She stops.)* **OZYMANDIA:** "There. Some forty feet." *"Forty feet of what?"* **OZYMANDIA:** "Of preference, darling. Thence home."
+- USE, *uphill* — **OZYMANDIA:** "Thence uphill! With feeling, darling. More feeling than that." *"I am pushing a stick up a map."* **OZYMANDIA:** "And it shows."
+- USE, *the line the rod preferred* — **OZYMANDIA:** "Mmmmmmmm." "There. Some forty feet." *"Forty feet of what?"* **OZYMANDIA:** "Of preference, darling. Thence home."
 - USE, *out of turn* — **OZYMANDIA:** "Not the hill just now, darling. The earth keeps to an order. It is nearly the only thing here that does."
 
 **THE LARGER ROCK**

@@ -185,8 +185,7 @@
             "when": {
               "T_VESSEL_FOUND": true
             },
-            "say": "Thad climbs on. Grievance considers it, then turns for home.",
-            "direction": true,
+            "say": "Home, Grievance.",
             "then": [
               {
                 "speaker": "thad",

@@ -88,8 +88,7 @@
           "exchange": [
             {
               "speaker": "gulch_panner",
-              "line": "He lowers his voice. Nobody is near.",
-              "direction": true
+              "line": "Closer."
             },
             {
               "speaker": "gulch_panner",

@@ -326,11 +326,11 @@
     },
     "FAN_B1": {
       "id": "FAN_B1",
-      "prompt": "Sump! A dear friend. I shall write you a note. Sump respects notes the way other men respect weather.",
+      "prompt": "Mr. Grubb! A man of property. Sit, sit. What can the Company do for you?",
       "opening": [
         {
           "speaker": "fanshawe",
-          "line": "Sump! A dear friend. I shall write you a note. Sump respects notes the way other men respect weather."
+          "line": "Mr. Grubb! A man of property. Sit, sit. What can the Company do for you?"
         }
       ],
       "options": [
@@ -339,7 +339,16 @@
           "tag": "PROGRESS",
           "text": "I need to see the Registrar about my boundary.",
           "afterUse": "remove",
-          "say": "Your boundary! A man who knows where he ends. Rare. I shall send a note ahead.",
+          "exchange": [
+            {
+              "speaker": "fanshawe",
+              "line": "Your boundary! A man who knows where he ends. Rare."
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "Sump is a dear friend. I shall send a note ahead; Sump respects notes the way other men respect weather."
+            }
+          ],
           "goto": "FAN_B2"
         },
         {
@@ -466,20 +475,23 @@
           "tag": "TOPIC",
           "text": "Buena Vista must have been something.",
           "afterUse": "remove",
-          "add": {
-            "WAR_CONTRADICTIONS": 1
-          },
           "exchange": [
             {
               "speaker": "fanshawe",
               "line": "Buena Vista! Spring of '48. I shall never forget it."
             },
             {
+              "speaker": "thad",
+              "line": "I'd have said February of '47."
+            },
+            {
               "speaker": "fanshawe",
-              "line": "Buena Vista was February 1847.",
-              "direction": true
+              "line": "Then I remember it twice, Mr. Grubb."
             }
-          ]
+          ],
+          "add": {
+            "WAR_CONTRADICTIONS": 1
+          }
         },
         {
           "id": "fanshawe4",
@@ -553,21 +565,15 @@
           "exchange": [
             {
               "speaker": "fanshawe",
-              "line": "Splendid!"
+              "line": "Splendid! Your pen."
             },
             {
-              "speaker": "fanshawe",
-              "line": "He hands Thad the pen. The pen has no ink.",
-              "direction": true
+              "speaker": "thad",
+              "line": "There's no ink in it."
             },
             {
               "speaker": "fanshawe",
               "line": "Ink! The one thing this office never has. Forgive me — I'll send for some."
-            },
-            {
-              "speaker": "fanshawe",
-              "line": "He does not send for any.",
-              "direction": true
             }
           ],
           "repeats": [
@@ -606,21 +612,20 @@
           "tag": "COMIC",
           "text": "I've named a raccoon after you.",
           "afterUse": "retain",
-          "repeats": [
-            {
-              "selection": 2,
-              "say": "Still! You're very loyal, Mr. Grubb. I shall have to name something after you."
-            }
-          ],
           "exchange": [
             {
               "speaker": "fanshawe",
               "line": "Have you! What a splendid animal it must be."
             },
             {
-              "speaker": "fanshawe",
-              "line": "It is not.",
-              "direction": true
+              "speaker": "thad",
+              "line": "He isn't, particularly."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still! You're very loyal, Mr. Grubb. I shall have to name something after you."
             }
           ]
         },

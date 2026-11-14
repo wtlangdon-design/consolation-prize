@@ -78,7 +78,7 @@ Nothing here changes a flag the rest of the game reads, a puzzle's answer outsid
 - PULL — "From this side, pulling brings me the wreath, and the Colonel directly after it. I should prefer them to go the other way."
 - PICK UP — "It took a florist and two boys to carry it here. There is one of me."
 - USE — "I put a hand on it, to look helpful. It is the kind of help he gives."
-- PUSH — *(Thad puts his shoulder to the wreath. It goes through the door all at once, and the Colonel with it.)* **FANSHAWE:** "Obliged, Mr. Grubb! You are the only man in Consolation who has ever helped me out of my own office." *(He goes up the street with the wreath on his arm, like a man taking a wheel to be mended.)* *"I have helped a man leave so that I can rob him, and he thanked me. I expect he will again."* → `T_COLONEL_OUT`
+- PUSH — "Shoulder to it, and—" **FANSHAWE:** "Obliged, Mr. Grubb! You are the only man in Consolation who has ever helped me out of my own office." *"Off he goes, with it on his arm like a wheel to be mended."* *"I have helped a man leave so that I can rob him, and he thanked me. I expect he will again."* → `T_COLONEL_OUT`
 
 ### II-3 · The double, earned
 
@@ -90,11 +90,11 @@ Nothing here changes a flag the rest of the game reads, a puzzle's answer outsid
 - *with the spine broken and the gilt on it* — "It lies open like the other. And it wears its year on its back, in gold, which the other has the modesty not to."
 
 **THE GILT** · USE THE HANDKERCHIEF *on A COMPANY LEDGER*
-- USE THE HANDKERCHIEF — *(Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.)* "It was that kind of gold. Most of it here is." → `T_LEDGER_PLAIN`
+- USE THE HANDKERCHIEF — "The year has come away on the Colonel's handkerchief." "It was that kind of gold. Most of it here is." → `T_LEDGER_PLAIN`
 - USE THE HANDKERCHIEF, *again* — "There is no more year to take off. The handkerchief has it now, and I notice it is the first thing of his I have ever marked."
 
 **THE SPINE** · USE A COMPANY LEDGER *on THE CHAIRS*
-- USE A COMPANY LEDGER — *(Thad lays the ledger open on the nearest chair and sits on it, briefly, as a visitor would.)* "Eleven chairs, and at last one of them has done something for me. The spine has gone in one place, as his has." → `T_LEDGER_CRACKED`
+- USE A COMPANY LEDGER — "Open on a chair, and sat on, briefly, as a visitor would." "Eleven chairs, and at last one of them has done something for me. The spine has gone in one place, as his has." → `T_LEDGER_CRACKED`
 - USE A COMPANY LEDGER, *again* — "Once is consulted. Twice is studied, and nobody has ever studied these."
 
 **THE WRONG TRIES**
@@ -128,13 +128,13 @@ The asking is doc 57 D4's three lines, word for word, then his.
 
 **THE LINE**
 - USE, *before the Reverend is asked* — "If I stand in that line I shall be handed a plate, and expected to improve it."
-- USE, *after* — *(Thad takes off his hat and stands at the end of the line. The plate comes down it, hand to hand, and stops with him.)* "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not." **SOWERBY:** "Mr. Grubb. The plate." *(He takes hold of the rim.)* → `T_HOLDS_PLATE`
+- USE, *after* — "Hat off, at the end of the line. The plate has come down it, hand to hand, and stopped with me." "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not." **SOWERBY:** "Mr. Grubb. The plate." "I have the rim." → `T_HOLDS_PLATE`
 
 **THE PLATE, HELD**
 - PUSH — "If I push, he has it. I have never won anything by pushing, except once today, and that was a wreath."
 - USE — "It is not mine to use. That is rather the position I am pressing."
 - PICK UP — "I have it. That is the whole difficulty, and he has the other half of it."
-- PULL — **SOWERBY:** *(He does not let go. Neither does Thad.)* "Mr. Grubb." *"Reverend. The whole town is watching two men hold a plate."* *"Nine funerals of linen."* **SOWERBY:** "Not in front of the bereaved." *"They are not bereaved. They never met him."* **SOWERBY:** *(He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.)* "Nine funerals of linen. He starches with feeling." → THE LINEN MONEY, `T_LINEN_COLLECTED`
+- PULL — **SOWERBY:** *(He does not let go. Neither does Thad.)* "Mr. Grubb." *"Reverend. The whole town is watching two men hold a plate."* *"Nine funerals of linen."* **SOWERBY:** "Not in front of the bereaved." *"They are not bereaved. They never met him."* **SOWERBY:** *(long pause)* "I shall count it with my eyes shut. It is more respectful." "Nine funerals of linen. He starches with feeling." → THE LINEN MONEY, `T_LINEN_COLLECTED`
 
 PULL ends in doc 57 D4's own direction and line, word for word.
 

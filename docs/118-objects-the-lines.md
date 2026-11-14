@@ -50,7 +50,7 @@ Doc 04's first line of the turn, then his. The option stays until he is turned. 
 > *(Pratt holds out his hand. Thad gives him the chalk. Pratt writes underneath, slowly: 104.)*
 > **PRATT:** "Two dollars a week is a hundred and four dollars a year."
 > **THAD:** "It is."
-> **PRATT:** *(after a very long pause)* "That ain't the same number."
+> **PRATT:** *(long pause)* "That ain't the same number."
 
 Doc 04's PRA_D5 from "For the mud.", word for word, with its two directions added; then "He signs" and the rest of PRA_D5 as written. → `T_PRATT_TURNED`, **D5**. Pratt hands the chalk back; it stays with Thad.
 
@@ -70,7 +70,7 @@ Doc 04's PRA_D5 from "For the mud.", word for word, with its two directions adde
 → `T_NOTICE_SET`. The notice is in the press, and his to pull (errata 249).
 
 **THE PRESS** · *the Clarion*
-- PULL, *the notice set* — *(Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet.)* "I am in print, by my own arm. I have kept the sleeve." → THE FUNERAL NOTICE
+- PULL, *the notice set* — "Sleeve clear. Both hands. Haul." *(beat)* "One sheet, wet." "I am in print, by my own arm. I have kept the sleeve." → THE FUNERAL NOTICE
 - PULL, *the notice in his hand* — "One notice is an invitation. Two is a campaign, and Mr. Pike was never that sort of man."
 - PULL, *nothing set* — "The bar is as long as my arm and it is Mr. Frame's. I have nothing I want said that badly."
 
@@ -79,7 +79,7 @@ Doc 04's PRA_D5 from "For the mud.", word for word, with its two directions adde
 **LISTEN** 1 "Wet paper. It sticks to itself like a secret." · 2 "Nothing. It will be louder on a wall." · 3 "A drip, onto my boot. Mr. Pike is leaving his mark at last."
 
 **THE POSTED NOTICES** · USE THE FUNERAL NOTICE
-> *(Thad presses the notice to the board, over a claim for sale. It holds by its own ink.)*
+> "Over a claim for sale. It holds by its own ink."
 > "There. The whole town is now invited to mourn a man it has never met, and one man in it is certain to come."
 
 → the funeral day begins; THE FUNERAL NOTICE leaves inventory.
@@ -90,10 +90,10 @@ Doc 04's PRA_D5 from "For the mud.", word for word, with its two directions adde
 ### O-4 · The tonic
 
 **DR. PURVIS'S TONIC** · USE *on THE HANDKERCHIEF*
-- USE DR. PURVIS'S TONIC — *(Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.)* "The linen has gone a color I have no name for. The label says it restores. It does not say to what." → the handkerchief, dosed; the bottle is spent.
+- USE DR. PURVIS'S TONIC — "A corner of the Colonel's handkerchief, and a drop of Dr. Purvis." "The linen has gone a color I have no name for. The label says it restores. It does not say to what." → the handkerchief, dosed; the bottle is spent.
 
 **THE GILT, WITH THE TONIC** · USE THE HANDKERCHIEF *on A COMPANY LEDGER, the handkerchief dosed*
-- USE THE HANDKERCHIEF, *dosed* — *(One pass, and the year is gone. So is some of the green.)* "Dr. Purvis has taken the gold off a book faster than this town takes it off a man. I shall write and tell him." → `T_LEDGER_PLAIN`
+- USE THE HANDKERCHIEF, *dosed* — "One pass, and the year is gone. So is some of the green." "Dr. Purvis has taken the gold off a book faster than this town takes it off a man. I shall write and tell him." → `T_LEDGER_PLAIN`
 
 Dry, doc 115's line stands.
 

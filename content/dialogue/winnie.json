@@ -266,8 +266,11 @@
           "exchange": [
             {
               "speaker": "winnie",
-              "line": "She stops writing. It is the first time she has stopped writing.",
-              "direction": true
+              "line": "…"
+            },
+            {
+              "speaker": "winnie",
+              "line": "You've stopped writing."
             },
             {
               "speaker": "winnie",
@@ -379,16 +382,6 @@
           "tag": "PROGRESS",
           "text": "Will you run my assay?",
           "afterUse": "remove",
-          "puzzle": {
-            "C6": "complete"
-          },
-          "set": {
-            "T_ASSAY_ASKED": true,
-            "T_ASSAY_RETURNED": true
-          },
-          "gives": [
-            "document_b"
-          ],
           "exchange": [
             {
               "speaker": "winnie",
@@ -396,8 +389,11 @@
             },
             {
               "speaker": "winnie",
-              "line": "She runs it at the window. It does not take long.",
-              "direction": true
+              "line": "…"
+            },
+            {
+              "speaker": "winnie",
+              "line": "Done. Mud doesn't take long."
             },
             {
               "speaker": "winnie",
@@ -419,6 +415,16 @@
               "speaker": "winnie",
               "line": "The form requires an assay. It doesn't require a good one."
             }
+          ],
+          "puzzle": {
+            "C6": "complete"
+          },
+          "set": {
+            "T_ASSAY_ASKED": true,
+            "T_ASSAY_RETURNED": true
+          },
+          "gives": [
+            "document_b"
           ]
         },
         {

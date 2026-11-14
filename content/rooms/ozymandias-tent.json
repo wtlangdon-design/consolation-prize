@@ -227,9 +227,7 @@
             "when": {
               "SURVEY_LEG": 0
             },
-            "say": "Thad sets the tip of the rod on the stake.",
-            "by": "ozymandia",
-            "direction": true,
+            "say": "The tip of the rod, on the stake.",
             "then": [
               {
                 "speaker": "ozymandia",
@@ -251,14 +249,9 @@
             "then": [
               {
                 "speaker": "ozymandia",
-                "line": "She takes a Form 12-C from a stack of them and writes in purple ink.",
-                "direction": true
-              },
-              {
-                "speaker": "ozymandia",
                 "line": "The earth has spoken. The earth was brief."
               },
-              "You keep Form 12-C?",
+              "Is that a Form 12-C?",
               {
                 "speaker": "ozymandia",
                 "line": "The earth prefers them."
@@ -1483,14 +1476,9 @@
             "when": {
               "SURVEY_LEG": 1
             },
-            "say": "Thad draws the rod up the paper.",
+            "say": "Thence uphill! With feeling, darling. More feeling than that.",
             "by": "ozymandia",
-            "direction": true,
             "then": [
-              {
-                "speaker": "ozymandia",
-                "line": "Thence uphill! With feeling, darling. More feeling than that."
-              },
               "I am pushing a stick up a map.",
               {
                 "speaker": "ozymandia",
@@ -1506,9 +1494,8 @@
             "when": {
               "SURVEY_LEG": 3
             },
-            "say": "She hums. Thad moves the rod along the paper. She stops.",
+            "say": "Mmmmmmmm.",
             "by": "ozymandia",
-            "direction": true,
             "then": [
               {
                 "speaker": "ozymandia",

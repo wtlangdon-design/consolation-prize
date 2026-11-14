@@ -171,34 +171,6 @@
       "seconds": 3
     },
     {
-      "n": 22,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "Buena Vista was February 1847.",
-      "where": "dialogue/fanshawe FAN_B2 option 3"
-    },
-    {
-      "n": 23,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "He hands Thad the pen. The pen has no ink.",
-      "where": "dialogue/fanshawe FAN_C1 option 2"
-    },
-    {
-      "n": 24,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "He does not send for any.",
-      "where": "dialogue/fanshawe FAN_C1 option 2"
-    },
-    {
-      "n": 26,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "It is not.",
-      "where": "dialogue/fanshawe FAN_C1 option 5"
-    },
-    {
       "n": 29,
       "class": "A",
       "speaker": "frame",
@@ -261,20 +233,6 @@
       "holds": 4
     },
     {
-      "n": 38,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "Of what?",
-      "where": "dialogue/pratt-jump PRA_D2 option 1"
-    },
-    {
-      "n": 39,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "This is true, and it is the entire legal system.",
-      "where": "dialogue/pratt-jump PRA_D2 option 2"
-    },
-    {
       "n": 40,
       "class": "A",
       "speaker": "pratt",
@@ -308,13 +266,6 @@
       "speaker": "pratt",
       "words": "He thinks about it for some time.",
       "where": "dialogue/pratt PRA_E3 option 1"
-    },
-    {
-      "n": 47,
-      "class": "C",
-      "speaker": "pratt",
-      "words": "It is not his claim either. Nobody has ever had the heart to tell him, and by now it is his the way anything is anybody's here: by upkeep.",
-      "where": "dialogue/pratt PRA_D6 option 2"
     },
     {
       "n": 49,
@@ -403,13 +354,6 @@
       "holds": 7
     },
     {
-      "n": 59,
-      "class": "C",
-      "speaker": "sump",
-      "words": "He turns the glass over. The back of the sheet is blank.",
-      "where": "dialogue/sump SUM_B1 option 4"
-    },
-    {
       "n": 60,
       "class": "A",
       "speaker": "winnie",
@@ -454,13 +398,6 @@
       "seconds": 1.6
     },
     {
-      "n": 63,
-      "class": "C",
-      "speaker": "winnie",
-      "words": "She stops writing. It is the first time she has stopped writing.",
-      "where": "dialogue/winnie WIN_B1 option 3"
-    },
-    {
       "n": 64,
       "class": "A",
       "speaker": "winnie",
@@ -477,20 +414,6 @@
       ],
       "seconds": 1.6,
       "holds": 2
-    },
-    {
-      "n": 65,
-      "class": "C",
-      "speaker": "sowerby_gate",
-      "words": "He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.",
-      "where": "rooms/boot_hill mr_pike_s_collection PULL"
-    },
-    {
-      "n": 66,
-      "class": "C",
-      "speaker": "pratt_registrar",
-      "words": "a very long pause",
-      "where": "rooms/claims-registrar arrival scene"
     },
     {
       "n": 67,
@@ -804,13 +727,6 @@
       "holds": 7
     },
     {
-      "n": 83,
-      "class": "C",
-      "speaker": "gulch_rule_keeper",
-      "words": "Nobody asked.",
-      "where": "dialogue/gulch-rule-keeper RUL_G1 opening"
-    },
-    {
       "n": 84,
       "class": "A",
       "speaker": "gulch_rule_keeper",
@@ -823,13 +739,6 @@
         7
       ],
       "seconds": 1.5
-    },
-    {
-      "n": 85,
-      "class": "C",
-      "speaker": "gulch_rule_keeper",
-      "words": "He thinks.",
-      "where": "dialogue/gulch-rule-keeper RUL_G1 option 6; assay/assay duel_one_bar (the bar's fifth rule)"
     },
     {
       "n": 86,
@@ -945,13 +854,6 @@
       }
     },
     {
-      "n": 92,
-      "class": "C",
-      "speaker": "thad",
-      "words": "He turns, slowly, to the man behind the plank. The man behind the plank is beaming.",
-      "where": "rooms/grog-tent (the watch, LOOK, THE FIND, G4)"
-    },
-    {
       "n": 93,
       "class": "A",
       "speaker": "gulch_panner",
@@ -965,20 +867,6 @@
       ],
       "seconds": 1.2,
       "holds": 4
-    },
-    {
-      "n": 94,
-      "class": "C",
-      "speaker": "gulch_rule_keeper",
-      "words": "He gives up.",
-      "where": "assay/assay duel_one_bar"
-    },
-    {
-      "n": 95,
-      "class": "C",
-      "speaker": "gulch_panner",
-      "words": "He lowers his voice. Nobody is near.",
-      "where": "dialogue/gulch-panner PAN_G1 option 6"
     },
     {
       "n": 96,
@@ -1011,13 +899,6 @@
       "holds": 6
     },
     {
-      "n": 99,
-      "class": "C",
-      "speaker": "sump",
-      "words": "He goes into the back. He is gone some time.",
-      "where": "combinations (filing_fee on sump, after both)"
-    },
-    {
       "n": 100,
       "class": "A",
       "speaker": "ozymandia",
@@ -1032,27 +913,6 @@
       ],
       "seconds": 2,
       "holds": 6
-    },
-    {
-      "n": 101,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad climbs on. Grievance considers it, then turns for home.",
-      "where": "rooms/washout departure (the ride home)"
-    },
-    {
-      "n": 105,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.",
-      "where": "rooms/fanshawe_office contract CLOSE"
-    },
-    {
-      "n": 106,
-      "class": "C",
-      "speaker": "winnie",
-      "words": "She runs it at the window. It does not take long.",
-      "where": "dialogue/winnie WIN_B2 option 1"
     },
     {
       "n": 107,
@@ -1083,20 +943,6 @@
       "seconds": 2
     },
     {
-      "n": 110,
-      "class": "C",
-      "speaker": "ozymandia",
-      "words": "A silence is held.",
-      "where": "rooms/ozymandias_tent seance_table USE (THE SÉANCE)"
-    },
-    {
-      "n": 111,
-      "class": "C",
-      "speaker": "ozymandia",
-      "words": "She consults the rod.",
-      "where": "rooms/ozymandias_tent seance_table USE (THE SÉANCE)"
-    },
-    {
       "n": 112,
       "class": "A",
       "speaker": "thad",
@@ -1124,27 +970,6 @@
         2
       ],
       "seconds": 1.5
-    },
-    {
-      "n": 114,
-      "class": "C",
-      "speaker": "ozymandia",
-      "words": "Two chairs go over. Two pairs of boots leave at a run.",
-      "where": "dialogue/seance SEA_E1 option 3"
-    },
-    {
-      "n": 115,
-      "class": "C",
-      "speaker": "ozymandia",
-      "words": "She looks down at the cloth for a long moment.",
-      "where": "dialogue/seance SEA_E1 option 4"
-    },
-    {
-      "n": 116,
-      "class": "C",
-      "speaker": "thad",
-      "words": "The lamp comes up. Thad stays where he is until the last pair of boots has gone.",
-      "where": "dialogue/seance SEA_E1 option 4 (LEAVING THE TABLE)"
     },
     {
       "n": 117,
@@ -1225,20 +1050,6 @@
       "seconds": 2
     },
     {
-      "n": 124,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad lifts the log, lays the ledger where it lay, and moves it an inch.",
-      "where": "combinations (company_ledger on submission_log, THE SWAP)"
-    },
-    {
-      "n": 125,
-      "class": "C",
-      "speaker": "pratt_jump",
-      "words": "Thad straightens his stake.",
-      "where": "rooms/prosperity claim_marker PUSH (Pratt on the claim)"
-    },
-    {
       "n": 126,
       "class": "A",
       "speaker": "pratt_jump",
@@ -1269,20 +1080,6 @@
         0
       ],
       "seconds": 1.2
-    },
-    {
-      "n": 128,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad rubs the spine with the Colonel's handkerchief. The year comes away on the linen.",
-      "where": "combinations (handkerchief on company_ledger, THE GILT)"
-    },
-    {
-      "n": 129,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad lays the ledger open on the nearest chair and sits on it, briefly, as a visitor would.",
-      "where": "combinations (company_ledger on chairs, THE SPINE)"
     },
     {
       "n": 130,
@@ -1330,27 +1127,6 @@
       "seconds": 3
     },
     {
-      "n": 133,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad presses the notice to the board, over a claim for sale. It holds by its own ink.",
-      "where": "combinations (funeral_notice on posted_notices)"
-    },
-    {
-      "n": 134,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad wets a corner of the Colonel's handkerchief with Dr. Purvis.",
-      "where": "combinations (tonic on handkerchief)"
-    },
-    {
-      "n": 135,
-      "class": "C",
-      "speaker": "thad",
-      "words": "One pass, and the year is gone. So is some of the green.",
-      "where": "combinations (handkerchief on company_ledger, dosed)"
-    },
-    {
       "n": 136,
       "class": "A",
       "speaker": "thad",
@@ -1364,34 +1140,6 @@
         2
       ],
       "seconds": 3
-    },
-    {
-      "n": 137,
-      "class": "C",
-      "speaker": "wreath_fanshawe",
-      "words": "Thad puts his shoulder to the wreath. It goes through the door all at once, and the Colonel with it.",
-      "where": "rooms/main_street wreath_fanshawe PUSH"
-    },
-    {
-      "n": 138,
-      "class": "C",
-      "speaker": "thad",
-      "words": "He goes up the street with the wreath on his arm, like a man taking a wheel to be mended.",
-      "where": "rooms/main_street wreath_fanshawe PUSH"
-    },
-    {
-      "n": 139,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad takes off his hat and stands at the end of the line. The plate comes down it, hand to hand, and stops with him.",
-      "where": "rooms/boot_hill town_coming_down USE (with a hymnal)"
-    },
-    {
-      "n": 140,
-      "class": "C",
-      "speaker": "sowerby_gate",
-      "words": "He takes hold of the rim.",
-      "where": "rooms/boot_hill town_coming_down USE (with a hymnal)"
     },
     {
       "n": 141,
@@ -1416,67 +1164,11 @@
       "where": "combinations (wreath on coffin)"
     },
     {
-      "n": 143,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad holds the letter out to the board, as one does to a butler.",
-      "where": "combinations (letter on pike_s_marker)"
-    },
-    {
       "n": 146,
       "class": "C",
       "speaker": "thad",
       "words": "Thad folds the obituary and tucks it under the ribbon, where a card goes.",
       "where": "combinations (obituary on wreath)"
-    },
-    {
-      "n": 147,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad drinks. The glass is full again before it reaches the cloth.",
-      "where": "rooms/fanshawe_office my_glass USE"
-    },
-    {
-      "n": 148,
-      "class": "C",
-      "speaker": "fanshawe",
-      "words": "Thad lifts the cover. On a warmed plate, with a sprig of parsley, is a contract.",
-      "where": "rooms/fanshawe_office covered_dish OPEN"
-    },
-    {
-      "n": 149,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad pushes the plate an inch away. The Colonel, passing the salt, brings it back two.",
-      "where": "rooms/fanshawe_office contract PUSH"
-    },
-    {
-      "n": 150,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad puts the cover back over the contract.",
-      "where": "rooms/fanshawe_office contract CLOSE"
-    },
-    {
-      "n": 152,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad rolls his sleeve well clear, takes the bar in both hands and hauls. The press comes down, knocks, and gives up one sheet, wet.",
-      "where": "rooms/clarion press PULL"
-    },
-    {
-      "n": 153,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad slides the drawer home with one finger. It shuts like a bank.",
-      "where": "rooms/fanshawe_office stock_portrait_drawer CLOSE"
-    },
-    {
-      "n": 154,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad sets the nail through the corner of the envelope and taps it into Mr. Pike's board with the tuning fork. Each tap is an A.",
-      "where": "combinations (letter on pike_s_marker, with a nail)"
     },
     {
       "n": 155,
@@ -1512,48 +1204,6 @@
       "speaker": "thad",
       "words": "Thad puts the sprig in the coat's lapel.",
       "where": "combinations (parsley on raccoon_in_coat)"
-    },
-    {
-      "n": 161,
-      "class": "C",
-      "speaker": "ozymandia",
-      "words": "She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move.",
-      "where": "combinations (company_map on ozymandia, once she is paid)"
-    },
-    {
-      "n": 162,
-      "class": "C",
-      "speaker": "ozymandia",
-      "words": "Thad sets the tip of the rod on the stake.",
-      "where": "rooms/ozymandias_tent stake USE"
-    },
-    {
-      "n": 163,
-      "class": "C",
-      "speaker": "ozymandia",
-      "words": "Thad draws the rod up the paper.",
-      "where": "rooms/ozymandias_tent slope USE"
-    },
-    {
-      "n": 164,
-      "class": "C",
-      "speaker": "ozymandia",
-      "words": "She hums. Thad moves the rod along the paper. She stops.",
-      "where": "rooms/ozymandias_tent slope USE"
-    },
-    {
-      "n": 165,
-      "class": "C",
-      "speaker": "ozymandia",
-      "words": "She takes a Form 12-C from a stack of them and writes in purple ink.",
-      "where": "rooms/ozymandias_tent stake USE"
-    },
-    {
-      "n": 166,
-      "class": "C",
-      "speaker": "livery_man",
-      "words": "He tips his chair back and goes on humming, under his breath.",
-      "where": "dialogue/livery-man LIV_A1 option 6"
     },
     {
       "n": 167,

@@ -118,8 +118,10 @@ test('A9: the fee paid after the deed and the survey, the clerk goes into the ba
   else player.use(pair.item!, pair.target!);
   assert.ok(state.puzzleComplete('A9'));
   assert.ok(state.carried.includes(copy), `${copy} is carried`);
-  const said = (rule.then ?? []).filter((one) => typeof one === 'object' && one.direction).map((one) => (one as { line: string }).line);
-  assert.ok(said.length > 0, 'he goes into the back, and the direction is doc 109\'s');
+  // He is gone some time: since doc 130 that is a pause he says ("…"), and nothing is printed.
+  const then = rule.then ?? [];
+  assert.ok(then.some((one) => typeof one === 'object' && one.line === '…'), 'he goes into the back: a pause, said');
+  assert.deepEqual(then.filter((one) => typeof one === 'object' && one.direction), [], 'and nothing printed (doc 130)');
 });
 
 test('B1: either story buys the newspaper as well as Fiddler\'s Gulch', async () => {

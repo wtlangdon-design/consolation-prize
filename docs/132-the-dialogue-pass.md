@@ -56,3 +56,30 @@ Kept, whatever the standard says: every flag, puzzle, gate and option id; the lo
 | The Nugget's portrait, LOOK 3 | "It's the same photograph the Clarion prints as Obadiah Mott." | "It's a face that gets around. I have a feeling I'll meet that collar again in this town." | 2: the Nugget comes before the Clarion |
 
 With errata 305 to 309 (the man leaving tomorrow, Pike in the present tense, Deke's lines, the no-parentheticals sample, and the town explained on Main Street), this is Act I.
+
+## Act II
+
+Read in play order: the Registrar and the three papers, Fiddler's Gulch and back, the funeral day, the séance's lead-in and the stake. Most of Act II passed; these did not.
+
+| Where | Was | Now | Why |
+|---|---|---|---|
+| Fanshawe, FAN_B1 | Opened on every visit with "Sump! A dear friend. I shall write you a note.", before Thad had said a word | Opens "Mr. Grubb! A man of property. Sit, sit. What can the Company do for you?"; Sump and the note move into the answer to the Registrar question | 1, 5 |
+| Fanshawe, FAN_B2 | "Spring of '48." *(Buena Vista was February 1847.)* | Thad: "I'd have said February of '47." — "Then I remember it twice, Mr. Grubb." | doc 130: the correction is said, by the man who would notice |
+| Fanshawe, FAN_A2 | *(It is not.)* after "What a splendid animal it must be." | Thad: "He isn't, particularly." | doc 130 |
+| The rule-keeper | "Is there a rule against arithmetic?" — "There was a rule about something. Knives?" | "Is there a rule against cheating?" — "There's a rule against something. Knives?" | 1: the answer now answers |
+| The rule-keeper | Opened "You'll be wanting the rules." *(Nobody asked.)* | The line alone | doc 130 |
+| Vessel, leaving the Gulch | "Losing a man in front of strangers is business." | "Beating a man in front of strangers is business." | 4 |
+| Sump, the third copy | Thad: "There aren't any in the slots." | Thad: "I didn't know there was a third." | 3: no slots on screen |
+| Frame, the Clarion | "Nobody ever buys the one they're in." | "Nobody ever buys the issue they're in." | 4 |
+| Pratt, PRA_D2 | "That's my stake you're pulling up." | "Somebody's knocked my stake crooked." | 3: his stake stands, leaning, in the picture (doc 113 B) |
+| Pratt, PRA_D6 | "Keep the claim next to yours tidy." — "Is it yours?" — "Nope." | "Rake." — "Rake what?" — "Mine." … "Then yours. Can't stand it." | 2: the sign on it says N. PRATT |
+| Winnie, WIN_B1 | *(She stops writing. It is the first time she has stopped writing.)* | Thad: "You've stopped writing." | doc 130 |
+| Winnie, WIN_B2 | *(She runs it at the window. It does not take long.)* | "Done. Mud doesn't take long." | doc 130 |
+| Sump, the read-back | *(He turns the glass over. The back of the sheet is blank.)* | "And on the back?" — "Blank." | doc 130 |
+| Sowerby, the plate | *(He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.)* | "…" "I shall count it with my eyes shut. It is more respectful." | doc 130 |
+| The Gulch | Thad turning to the beaming barman; the rule-keeper thinking and giving up; the panner's lowered voice; the ride home | "…"; "I give up. Begin."; "Closer."; "Home, Grievance." | doc 130 |
+| The funeral day | The wreath, the line, the plate, the ledger's gilt and spine, the swap, the stake | Said by Thad in a few words each ("Shoulder to it, and—"; "Hat off, at the end of the line."; "There. Straight.") | doc 130 |
+| The dinner, the survey, the press, the notice, the letter on the board | Printed actions | Said ("Steady! Not a drop on the cloth. Take my handkerchief."; her hum is "Mmmmmmmm."; "Sleeve clear. Both hands. Haul."); the hum, the press and the nail keep their sounds, on the line that says them | doc 130 |
+| A long or very long pause, anywhere | Printed: "long pause", "a very long pause" | The speaker says "…" (doc 58 rule 2), in every extractor | doc 130 |
+
+What is still printed is Act III's and Act IV's: 58 places, by `tests/no-parentheticals.test.mjs`.
