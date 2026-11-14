@@ -12,11 +12,11 @@
  "walkable": [
   [
    40,
-   712
+   640
   ],
   [
    1880,
-   712
+   640
   ],
   [
    1880,
@@ -27,17 +27,17 @@
    852
   ]
  ],
- "walkableNote": "THE STREET'S MUD, from the road back to Main Street at the left to the road out at the right; the fronts meet it at y 690.",
+ "walkableNote": "Errata 303 (Tyler, 2026-11-13: \"I would like him to actually walk up steps onto porches\"; \"Make those fixes\"). The plate's fronts meet the street at y620-632, not the graybox's 690 the floor was laid on, so he stood eighty pixels out in the road and never reached a door. The street now runs from y640 to the front, and in front of each building a strip up to its foot, read off the plate at 2x; the registrar's porch is reached up its two steps and the church by its four.",
  "scaling": {
   "far": {
-   "y": 705,
-   "height": 258
+   "y": 600,
+   "height": 137
   },
   "near": {
    "y": 858,
-   "height": 362
+   "height": 266
   },
-  "note": "Room 20's exterior depth: the same street's backs, at the same camera (errata 161)."
+  "note": "Errata 303. Room 20's exterior depth (258 at y705) was the graybox's, and the plates came back with the buildings drawn smaller: the church's door is 180 px tall at the head of its steps and the registrar's 160, so a man of that depth walking up to them would be taller than either. Read off the plate instead: the horizon at y326, where the road meets the town, and a man at the foot of the church steps (y630) at 0.85 of its door, 152. 0.5 x (y - 326), from y600 (137), the back of the alley's mouth, to the front (266). The lane's doors are 235 px and keep the old depth."
  },
  "entrance": [
   120,
@@ -65,47 +65,47 @@
   {
    "from": "claims_registrar",
    "at": [
-    300,
-    740
+    298,
+    582
    ],
    "facing": "front",
-   "note": "Out of the Registrar's door."
+   "note": "Out of the claims registrar's door, where the plate puts it (errata 303)."
   },
   {
    "from": "back_alley",
    "at": [
-    575,
-    735
+    590,
+    612
    ],
    "facing": "front",
-   "note": "Out of the alley mouth."
+   "note": "Out of the back alley's door, where the plate puts it (errata 303)."
   },
   {
    "from": "church",
    "at": [
-    870,
-    740
+    862,
+    550
    ],
    "facing": "front",
-   "note": "Down the church steps."
+   "note": "Out of the church's door, where the plate puts it (errata 303)."
   },
   {
    "from": "the_lane",
    "at": [
-    1165,
-    735
+    1130,
+    620
    ],
    "facing": "front",
-   "note": "Out of the passage from the Lane."
+   "note": "Out of the the lane's door, where the plate puts it (errata 303)."
   },
   {
    "from": "livery",
    "at": [
-    1448,
-    745
+    1450,
+    630
    ],
    "facing": "front",
-   "note": "Out of the livery's doors."
+   "note": "Out of the livery's door, where the plate puts it (errata 303)."
   },
   {
    "from": "claims_road",
@@ -220,34 +220,34 @@
    390
   ],
   "to_claims_registrar": [
-   248,
-   395,
-   104,
-   295
+   255,
+   405,
+   90,
+   170
   ],
   "to_back_alley": [
    530,
    330,
-   90,
-   360
+   125,
+   290
   ],
   "to_church": [
-   812,
+   800,
    360,
-   116,
-   300
+   125,
+   182
   ],
   "to_the_lane": [
-   1120,
-   360,
-   90,
-   330
+   1110,
+   350,
+   95,
+   268
   ],
   "to_livery": [
-   1380,
-   370,
-   135,
-   320
+   1390,
+   380,
+   120,
+   242
   ],
   "to_claims_road": [
    1760,
@@ -263,28 +263,28 @@
    "facing": "left"
   },
   "to_claims_registrar": {
-   "x": 300,
-   "y": 720,
+   "x": 298,
+   "y": 580,
    "facing": "back"
   },
   "to_back_alley": {
-   "x": 575,
-   "y": 718,
+   "x": 590,
+   "y": 608,
    "facing": "back"
   },
   "to_church": {
-   "x": 870,
-   "y": 718,
+   "x": 862,
+   "y": 548,
    "facing": "back"
   },
   "to_the_lane": {
-   "x": 1165,
-   "y": 718,
+   "x": 1130,
+   "y": 616,
    "facing": "back"
   },
   "to_livery": {
-   "x": 1448,
-   "y": 722,
+   "x": 1450,
+   "y": 626,
    "facing": "back"
   },
   "to_claims_road": {
@@ -293,7 +293,18 @@
    "facing": "right"
   }
  },
- "obstacles": [],
+ "obstacles": [
+  {
+   "id": "livery_trough",
+   "rect": [
+    1528,
+    556,
+    192,
+    74
+   ],
+   "note": "Errata 303: the livery's trough, read off the plate; the floor now reaches it."
+  }
+ ],
  "lamps": [
   {
    "id": "registrar_window",
@@ -335,7 +346,19 @@
   "clipPlane": {
    "mud_far": 0,
    "mud_mid": 0,
-   "mud_near": 0
+   "mud_near": 0,
+   "ground_road_west": 0,
+   "ground_registrar": 0,
+   "deck_registrar": 0,
+   "stairs_registrar": 0,
+   "ground_alley": 0,
+   "ground_church": 0,
+   "stairs_church": 0,
+   "ground_bell": 0,
+   "ground_lane_passage": 0,
+   "ground_livery": 0,
+   "ground_trough": 0,
+   "ground_road_east": 0
   }
  },
  "motion": [
@@ -479,6 +502,164 @@
    "amount": 0.5,
    "flame": true,
    "halo": 40
+  }
+ ],
+ "walkBoxesExtra": [
+  {
+   "id": "ground_road_west",
+   "rect": [
+    40,
+    615,
+    160,
+    25
+   ]
+  },
+  {
+   "id": "ground_registrar",
+   "rect": [
+    200,
+    630,
+    320,
+    10
+   ]
+  },
+  {
+   "id": "deck_registrar",
+   "rect": [
+    215,
+    574,
+    290,
+    12
+   ],
+   "fixedAt": 630
+  },
+  {
+   "id": "stairs_registrar",
+   "rect": [
+    240,
+    586,
+    105,
+    44
+   ],
+   "fixedAt": 630
+  },
+  {
+   "id": "ground_alley",
+   "rect": [
+    520,
+    602,
+    140,
+    38
+   ]
+  },
+  {
+   "id": "ground_church",
+   "rect": [
+    660,
+    632,
+    300,
+    8
+   ]
+  },
+  {
+   "id": "stairs_church",
+   "rect": [
+    770,
+    542,
+    170,
+    90
+   ],
+   "fixedAt": 632
+  },
+  {
+   "id": "ground_bell",
+   "rect": [
+    960,
+    630,
+    90,
+    10
+   ]
+  },
+  {
+   "id": "ground_lane_passage",
+   "rect": [
+    1050,
+    610,
+    160,
+    30
+   ]
+  },
+  {
+   "id": "ground_livery",
+   "rect": [
+    1210,
+    620,
+    320,
+    20
+   ]
+  },
+  {
+   "id": "ground_trough",
+   "rect": [
+    1530,
+    630,
+    190,
+    10
+   ]
+  },
+  {
+   "id": "ground_road_east",
+   "rect": [
+    1720,
+    622,
+    160,
+    18
+   ]
+  }
+ ],
+ "walkBoxesExtraNote": "Errata 303: each building's ground to its foot, the registrar's porch and its two steps, and the church's four steps as one stair, read off the plate.",
+ "occluders": [
+  {
+   "id": "post_registrar_left",
+   "rect": [
+    217,
+    400,
+    12,
+    188
+   ],
+   "baseY": 588,
+   "note": "Errata 303: the registrar's porch posts, at its front edge; a man on the porch is behind them (RoomFile.occluders, errata 302)."
+  },
+  {
+   "id": "post_registrar_middle",
+   "rect": [
+    361,
+    400,
+    12,
+    188
+   ],
+   "baseY": 588
+  },
+  {
+   "id": "post_registrar_right",
+   "rect": [
+    487,
+    400,
+    12,
+    188
+   ],
+   "baseY": 588
+  },
+  {
+   "id": "bell_post",
+   "rect": [
+    958,
+    415,
+    22,
+    215
+   ],
+   "baseY": 630,
+   "note": "The bell's post."
   }
  ]
 }

@@ -12,11 +12,11 @@
  "walkable": [
   [
    40,
-   720
+   630
   ],
   [
    1880,
-   720
+   630
   ],
   [
    1880,
@@ -27,17 +27,17 @@
    852
   ]
  ],
- "walkableNote": "THE LANE'S MUD, from the way back to Main Street at the left to the passage at the right; the fronts meet it at y 700.",
+ "walkableNote": "Errata 303. The plate's fronts meet the lane at y605-612, not the graybox's 705 the floor was laid on. The lane now runs from y630 to the front, and in front of each building a strip up to its foot or its doorstep, read off the plate at 2x; the photographer's and the storefront's doors are reached up their steps.",
  "scaling": {
   "far": {
-   "y": 705,
-   "height": 258
+   "y": 600,
+   "height": 186
   },
   "near": {
    "y": 858,
    "height": 362
   },
-  "note": "Room 20's exterior depth: the same street's backs, at the same camera (errata 161)."
+  "note": "Room 20's exterior depth (errata 161), 0.68 x (y - 326), carried up to the building line (errata 303): the far row was y705, where the old floor began, and the curve held a man at 258 above it, so at the doors he came out as tall as they are. At y600, 186; at the undertaker's door (y616), 197 against a door of 235."
  },
  "entrance": [
   110,
@@ -65,20 +65,20 @@
   {
    "from": "undertaker",
    "at": [
-    295,
-    745
+    297,
+    620
    ],
    "facing": "front",
-   "note": "Out of the undertaker's door."
+   "note": "Out of the undertaker's door, where the plate puts it (errata 303)."
   },
   {
    "from": "ozymandias_tent",
    "at": [
-    1025,
-    745
+    1015,
+    620
    ],
    "facing": "front",
-   "note": "Out of the tent flap."
+   "note": "Out of the ozymandias tent's door, where the plate puts it (errata 303)."
   },
   {
    "from": "lower_street",
@@ -92,29 +92,29 @@
   {
    "from": "barbers",
    "at": [
-    1272,
-    745
+    1265,
+    620
    ],
    "facing": "front",
-   "note": "Out of the barber's door, beside the pole."
+   "note": "Out of the barbers's door, where the plate puts it (errata 303)."
   },
   {
    "from": "photographers_studio",
    "at": [
-    756,
-    745
+    750,
+    612
    ],
    "facing": "front",
-   "note": "Out of the photographer's door, beside his window."
+   "note": "Out of the photographers studio's door, where the plate puts it (errata 303)."
   },
   {
    "from": "empty_storefront",
    "at": [
-    1692,
-    745
+    1690,
+    608
    ],
    "facing": "front",
-   "note": "Out of the storefront's door, beside its boarded window."
+   "note": "Out of the empty storefront's door, where the plate puts it (errata 303)."
   }
  ],
  "hotspots": {
@@ -222,16 +222,16 @@
    400
   ],
   "to_undertaker": [
-   245,
-   355,
-   100,
-   345
+   250,
+   365,
+   95,
+   240
   ],
   "to_ozymandias_tent": [
-   945,
+   950,
    380,
-   160,
-   320
+   135,
+   232
   ],
   "to_lower_street": [
    1780,
@@ -240,22 +240,22 @@
    380
   ],
   "to_barbers": [
-   1230,
-   345,
+   1220,
+   355,
    90,
-   355
+   250
   ],
   "to_photographers_studio": [
-   700,
-   340,
-   112,
-   300
+   708,
+   345,
+   85,
+   265
   ],
   "to_empty_storefront": [
-   1640,
-   345,
-   105,
-   290
+   1642,
+   365,
+   95,
+   245
   ]
  },
  "exitWalkTo": {
@@ -265,13 +265,13 @@
    "facing": "left"
   },
   "to_undertaker": {
-   "x": 295,
-   "y": 728,
+   "x": 297,
+   "y": 616,
    "facing": "back"
   },
   "to_ozymandias_tent": {
-   "x": 1025,
-   "y": 728,
+   "x": 1015,
+   "y": 616,
    "facing": "back"
   },
   "to_lower_street": {
@@ -280,18 +280,18 @@
    "facing": "right"
   },
   "to_barbers": {
-   "x": 1272,
-   "y": 728,
+   "x": 1265,
+   "y": 616,
    "facing": "back"
   },
   "to_photographers_studio": {
-   "x": 756,
-   "y": 728,
+   "x": 750,
+   "y": 610,
    "facing": "back"
   },
   "to_empty_storefront": {
-   "x": 1692,
-   "y": 728,
+   "x": 1690,
+   "y": 606,
    "facing": "back"
   }
  },
@@ -338,7 +338,14 @@
   "clipPlane": {
    "mud_far": 0,
    "mud_mid": 0,
-   "mud_near": 0
+   "mud_near": 0,
+   "ground_passage_west": 0,
+   "ground_undertaker": 0,
+   "stairs_photographer": 0,
+   "ground_tent": 0,
+   "ground_barber": 0,
+   "stairs_storefront": 0,
+   "ground_passage_east": 0
   }
  },
  "hotspotWhen": {
@@ -465,5 +472,73 @@
    "flame": true,
    "halo": 110
   }
- ]
+ ],
+ "walkBoxesExtra": [
+  {
+   "id": "ground_passage_west",
+   "rect": [
+    40,
+    600,
+    110,
+    30
+   ]
+  },
+  {
+   "id": "ground_undertaker",
+   "rect": [
+    150,
+    612,
+    550,
+    18
+   ]
+  },
+  {
+   "id": "stairs_photographer",
+   "rect": [
+    700,
+    604,
+    100,
+    26
+   ],
+   "fixedAt": 630
+  },
+  {
+   "id": "ground_tent",
+   "rect": [
+    800,
+    612,
+    415,
+    18
+   ]
+  },
+  {
+   "id": "ground_barber",
+   "rect": [
+    1215,
+    612,
+    425,
+    18
+   ]
+  },
+  {
+   "id": "stairs_storefront",
+   "rect": [
+    1640,
+    600,
+    100,
+    30
+   ],
+   "fixedAt": 630
+  },
+  {
+   "id": "ground_passage_east",
+   "rect": [
+    1740,
+    606,
+    140,
+    24
+   ]
+  }
+ ],
+ "walkBoxesExtraNote": "Errata 303: each building's ground to its foot, and the two doorsteps, read off the plate."
 }

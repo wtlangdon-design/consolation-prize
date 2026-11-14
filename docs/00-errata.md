@@ -7760,3 +7760,35 @@ Lesson: `tests/main-street-ground.test.mjs`, in both streets. It fails with the 
 - Each post stands on a porch.
 - Nobody anywhere but on a porch is ever behind one.
 - Someone at the back of the Nugget's porch is behind its posts.
+
+## 303 · Lower Street and the lane: up to the doors and up the steps (Tyler, 2026-11-13)
+
+Tyler, told that the other outdoor rooms let nobody up a wall but kept Thad out in the road on Lower Street and the lane: "Make those fixes".
+
+**What was wrong.** Both floors were the graybox's (errata 161), laid where its fronts met the street at y690 to 705. The plates put the fronts at y605 to 632. So Thad stood eighty pixels out in the road, and every door, step and porch was out of reach.
+
+**Lower Street.**
+- The ground now reaches each building's foot, read off the plate at 2x.
+- The registrar's porch is reached up its two steps, and the church up its four. A man on the porch is behind its three posts (`occluders`, errata 302), and anyone behind the bell's post is behind it.
+- The livery's trough is an obstacle.
+- **His size here is now the plate's.** The buildings came back drawn smaller than the depth they were planned at: the church's door is 180 px at the head of its steps and the registrar's 160. On the old depth (258 at y705) a man walking up to them would have been taller than either. Read off the plate instead: the horizon where the road meets the town (y326), and a man at the foot of the church steps at 0.85 of its door. That is 0.5 × (y − 326), about a quarter smaller everywhere on the street, the bell-ringer and the letter-writer with him.
+
+**The lane.**
+- The ground now reaches each front, and the photographer's and the storefront's doors are up their doorsteps.
+- Its doors are 230 to 260 px and its depth is right. But the curve held a man at full size above its old far row (y705), so at the doors he came out as tall as they are. The same curve now runs up to the building line.
+
+**Doors, stands and arrivals.** Every door's rect is re-laid on the door the plate draws. Each stand and arrival is at the door itself: on the porch, at the head of the church steps, on the doorstep or in the doorway.
+
+Seen in the real build:
+- he climbs the church's four steps to its doors, and the doors stand taller than him;
+- he climbs the registrar's two steps onto its porch;
+- he stands on the photographer's step and at the undertaker's door.
+
+Lesson: `tests/street-steps.test.mjs`. Its first two tests fail on the old floors, and its first and third on a curve stopped short of the floor.
+- The floor reaches every door.
+- A porch is reached by its steps and nothing else.
+- He is never taller than the door he walks through.
+- The walls are never floor.
+- The size curve runs as far back as the floor does.
+
+And a row in doc 55 section 8.

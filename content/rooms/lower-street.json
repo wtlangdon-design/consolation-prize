@@ -17,9 +17,9 @@
       "surface": "mud",
       "rect": [
         40,
-        712,
+        640,
         1840,
-        47
+        71
       ]
     },
     {
@@ -28,9 +28,9 @@
       "surface": "mud",
       "rect": [
         40,
-        759,
+        711,
         1840,
-        46
+        70
       ]
     },
     {
@@ -39,9 +39,141 @@
       "surface": "mud",
       "rect": [
         40,
-        805,
+        781,
         1840,
-        47
+        71
+      ]
+    },
+    {
+      "id": "ground_road_west",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        40,
+        615,
+        160,
+        25
+      ]
+    },
+    {
+      "id": "ground_registrar",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        200,
+        630,
+        320,
+        10
+      ]
+    },
+    {
+      "id": "deck_registrar",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        215,
+        574,
+        290,
+        12
+      ]
+    },
+    {
+      "id": "stairs_registrar",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        240,
+        586,
+        105,
+        44
+      ]
+    },
+    {
+      "id": "ground_alley",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        520,
+        602,
+        140,
+        38
+      ]
+    },
+    {
+      "id": "ground_church",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        660,
+        632,
+        300,
+        8
+      ]
+    },
+    {
+      "id": "stairs_church",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        770,
+        542,
+        170,
+        90
+      ]
+    },
+    {
+      "id": "ground_bell",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        960,
+        630,
+        90,
+        10
+      ]
+    },
+    {
+      "id": "ground_lane_passage",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1050,
+        610,
+        160,
+        30
+      ]
+    },
+    {
+      "id": "ground_livery",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1210,
+        620,
+        320,
+        20
+      ]
+    },
+    {
+      "id": "ground_trough",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1530,
+        630,
+        190,
+        10
+      ]
+    },
+    {
+      "id": "ground_road_east",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1720,
+        622,
+        160,
+        18
       ]
     }
   ],
@@ -84,7 +216,7 @@
       },
       "walkTo": {
         "x": 443,
-        "y": 801,
+        "y": 693,
         "facing": "back"
       }
     },
@@ -123,7 +255,7 @@
       },
       "walkTo": {
         "x": 1618,
-        "y": 801,
+        "y": 707,
         "facing": "back"
       }
     },
@@ -166,7 +298,7 @@
       },
       "walkTo": {
         "x": 998,
-        "y": 801,
+        "y": 761,
         "facing": "back"
       }
     },
@@ -205,7 +337,7 @@
       },
       "walkTo": {
         "x": 1480,
-        "y": 801,
+        "y": 761,
         "facing": "back"
       }
     },
@@ -247,7 +379,7 @@
       },
       "walkTo": {
         "x": 870,
-        "y": 801,
+        "y": 761,
         "facing": "back"
       }
     },
@@ -331,10 +463,10 @@
       "id": "to_claims_registrar",
       "name": "THE REGISTRAR'S DOOR",
       "rect": [
-        248,
-        395,
-        104,
-        295
+        255,
+        405,
+        90,
+        170
       ],
       "colour": 0,
       "to": "claims_registrar",
@@ -362,8 +494,8 @@
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the Claims Registrar opens off Lower Street.",
       "walkTo": {
-        "x": 300,
-        "y": 720,
+        "x": 298,
+        "y": 580,
         "facing": "back"
       }
     },
@@ -373,8 +505,8 @@
       "rect": [
         530,
         330,
-        90,
-        360
+        125,
+        290
       ],
       "colour": 0,
       "to": "back_alley",
@@ -402,8 +534,8 @@
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: Room 20, the back alley, opens off Lower Street.",
       "walkTo": {
-        "x": 575,
-        "y": 718,
+        "x": 590,
+        "y": 608,
         "facing": "back"
       }
     },
@@ -411,10 +543,10 @@
       "id": "to_church",
       "name": "THE CHURCH DOORS",
       "rect": [
-        812,
+        800,
         360,
-        116,
-        300
+        125,
+        182
       ],
       "colour": 0,
       "to": "church",
@@ -442,8 +574,8 @@
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the church and meeting hall.",
       "walkTo": {
-        "x": 870,
-        "y": 718,
+        "x": 862,
+        "y": 548,
         "facing": "back"
       }
     },
@@ -451,10 +583,10 @@
       "id": "to_the_lane",
       "name": "THE PASSAGE TO THE LANE",
       "rect": [
-        1120,
-        360,
-        90,
-        330
+        1110,
+        350,
+        95,
+        268
       ],
       "colour": 0,
       "to": "the_lane",
@@ -482,8 +614,8 @@
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the Lane connects through to Lower Street at its far end.",
       "walkTo": {
-        "x": 1165,
-        "y": 718,
+        "x": 1130,
+        "y": 616,
         "facing": "back"
       }
     },
@@ -491,10 +623,10 @@
       "id": "to_livery",
       "name": "THE LIVERY DOORS",
       "rect": [
-        1380,
-        370,
-        135,
-        320
+        1390,
+        380,
+        120,
+        242
       ],
       "colour": 0,
       "to": "livery",
@@ -522,8 +654,8 @@
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the livery stable.",
       "walkTo": {
-        "x": 1448,
-        "y": 722,
+        "x": 1450,
+        "y": 626,
         "facing": "back"
       }
     },
@@ -590,47 +722,47 @@
     {
       "from": "claims_registrar",
       "at": [
-        300,
-        740
+        298,
+        582
       ],
       "facing": "front",
-      "note": "Out of the Registrar's door."
+      "note": "Out of the claims registrar's door, where the plate puts it (errata 303)."
     },
     {
       "from": "back_alley",
       "at": [
-        575,
-        735
+        590,
+        612
       ],
       "facing": "front",
-      "note": "Out of the alley mouth."
+      "note": "Out of the back alley's door, where the plate puts it (errata 303)."
     },
     {
       "from": "church",
       "at": [
-        870,
-        740
+        862,
+        550
       ],
       "facing": "front",
-      "note": "Down the church steps."
+      "note": "Out of the church's door, where the plate puts it (errata 303)."
     },
     {
       "from": "the_lane",
       "at": [
-        1165,
-        735
+        1130,
+        620
       ],
       "facing": "front",
-      "note": "Out of the passage from the Lane."
+      "note": "Out of the the lane's door, where the plate puts it (errata 303)."
     },
     {
       "from": "livery",
       "at": [
-        1448,
-        745
+        1450,
+        630
       ],
       "facing": "front",
-      "note": "Out of the livery's doors."
+      "note": "Out of the livery's door, where the plate puts it (errata 303)."
     },
     {
       "from": "claims_road",
@@ -661,11 +793,11 @@
   "walkableOutline": [
     [
       40,
-      712
+      640
     ],
     [
       1880,
-      712
+      640
     ],
     [
       1880,
@@ -705,32 +837,41 @@
       "points": [
         {
           "x": 40,
-          "y": 712
+          "y": 640
         },
         {
           "x": 1880,
-          "y": 712
+          "y": 640
         },
         {
           "x": 1880,
-          "y": 759
+          "y": 711
         },
         {
           "x": 40,
-          "y": 759
+          "y": 711
         }
       ],
       "surface": "mud",
       "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
-        "farY": 705,
-        "farHeight": 258,
+        "farY": 600,
+        "farHeight": 137,
         "nearY": 858,
-        "nearHeight": 362
+        "nearHeight": 266
       },
       "neighbours": [
-        "mud_mid"
+        "mud_mid",
+        "ground_road_west",
+        "ground_registrar",
+        "ground_alley",
+        "ground_church",
+        "ground_bell",
+        "ground_lane_passage",
+        "ground_livery",
+        "ground_trough",
+        "ground_road_east"
       ]
     },
     {
@@ -738,29 +879,29 @@
       "points": [
         {
           "x": 40,
-          "y": 759
+          "y": 711
         },
         {
           "x": 1880,
-          "y": 759
+          "y": 711
         },
         {
           "x": 1880,
-          "y": 805
+          "y": 781
         },
         {
           "x": 40,
-          "y": 805
+          "y": 781
         }
       ],
       "surface": "mud",
       "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
-        "farY": 705,
-        "farHeight": 258,
+        "farY": 600,
+        "farHeight": 137,
         "nearY": 858,
-        "nearHeight": 362
+        "nearHeight": 266
       },
       "neighbours": [
         "mud_far",
@@ -772,11 +913,11 @@
       "points": [
         {
           "x": 40,
-          "y": 805
+          "y": 781
         },
         {
           "x": 1880,
-          "y": 805
+          "y": 781
         },
         {
           "x": 1880,
@@ -791,13 +932,419 @@
       "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
-        "farY": 705,
-        "farHeight": 258,
+        "farY": 600,
+        "farHeight": 137,
         "nearY": 858,
-        "nearHeight": 362
+        "nearHeight": 266
       },
       "neighbours": [
         "mud_mid"
+      ]
+    },
+    {
+      "id": "ground_road_west",
+      "points": [
+        {
+          "x": 40,
+          "y": 615
+        },
+        {
+          "x": 200,
+          "y": 615
+        },
+        {
+          "x": 200,
+          "y": 640
+        },
+        {
+          "x": 40,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_registrar"
+      ]
+    },
+    {
+      "id": "ground_registrar",
+      "points": [
+        {
+          "x": 200,
+          "y": 630
+        },
+        {
+          "x": 520,
+          "y": 630
+        },
+        {
+          "x": 520,
+          "y": 640
+        },
+        {
+          "x": 200,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_road_west",
+        "stairs_registrar",
+        "ground_alley"
+      ]
+    },
+    {
+      "id": "deck_registrar",
+      "points": [
+        {
+          "x": 215,
+          "y": 574
+        },
+        {
+          "x": 505,
+          "y": 574
+        },
+        {
+          "x": 505,
+          "y": 586
+        },
+        {
+          "x": 215,
+          "y": 586
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 152
+      },
+      "neighbours": [
+        "stairs_registrar"
+      ]
+    },
+    {
+      "id": "stairs_registrar",
+      "points": [
+        {
+          "x": 240,
+          "y": 586
+        },
+        {
+          "x": 345,
+          "y": 586
+        },
+        {
+          "x": 345,
+          "y": 630
+        },
+        {
+          "x": 240,
+          "y": 630
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 152
+      },
+      "neighbours": [
+        "ground_registrar",
+        "deck_registrar"
+      ]
+    },
+    {
+      "id": "ground_alley",
+      "points": [
+        {
+          "x": 520,
+          "y": 602
+        },
+        {
+          "x": 660,
+          "y": 602
+        },
+        {
+          "x": 660,
+          "y": 640
+        },
+        {
+          "x": 520,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_registrar",
+        "ground_church"
+      ]
+    },
+    {
+      "id": "ground_church",
+      "points": [
+        {
+          "x": 660,
+          "y": 632
+        },
+        {
+          "x": 960,
+          "y": 632
+        },
+        {
+          "x": 960,
+          "y": 640
+        },
+        {
+          "x": 660,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_alley",
+        "stairs_church",
+        "ground_bell"
+      ]
+    },
+    {
+      "id": "stairs_church",
+      "points": [
+        {
+          "x": 770,
+          "y": 542
+        },
+        {
+          "x": 940,
+          "y": 542
+        },
+        {
+          "x": 940,
+          "y": 632
+        },
+        {
+          "x": 770,
+          "y": 632
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 153
+      },
+      "neighbours": [
+        "ground_church"
+      ]
+    },
+    {
+      "id": "ground_bell",
+      "points": [
+        {
+          "x": 960,
+          "y": 630
+        },
+        {
+          "x": 1050,
+          "y": 630
+        },
+        {
+          "x": 1050,
+          "y": 640
+        },
+        {
+          "x": 960,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_church",
+        "ground_lane_passage"
+      ]
+    },
+    {
+      "id": "ground_lane_passage",
+      "points": [
+        {
+          "x": 1050,
+          "y": 610
+        },
+        {
+          "x": 1210,
+          "y": 610
+        },
+        {
+          "x": 1210,
+          "y": 640
+        },
+        {
+          "x": 1050,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_bell",
+        "ground_livery"
+      ]
+    },
+    {
+      "id": "ground_livery",
+      "points": [
+        {
+          "x": 1210,
+          "y": 620
+        },
+        {
+          "x": 1530,
+          "y": 620
+        },
+        {
+          "x": 1530,
+          "y": 640
+        },
+        {
+          "x": 1210,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_lane_passage",
+        "ground_trough"
+      ]
+    },
+    {
+      "id": "ground_trough",
+      "points": [
+        {
+          "x": 1530,
+          "y": 630
+        },
+        {
+          "x": 1720,
+          "y": 630
+        },
+        {
+          "x": 1720,
+          "y": 640
+        },
+        {
+          "x": 1530,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_livery",
+        "ground_road_east"
+      ]
+    },
+    {
+      "id": "ground_road_east",
+      "points": [
+        {
+          "x": 1720,
+          "y": 622
+        },
+        {
+          "x": 1880,
+          "y": 622
+        },
+        {
+          "x": 1880,
+          "y": 640
+        },
+        {
+          "x": 1720,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_trough"
       ]
     }
   ],
@@ -829,9 +1376,21 @@
   ],
   "occlusionPlanes": [],
   "occlusionBands": [
+    "deck_registrar",
+    "ground_alley",
+    "ground_bell",
+    "ground_church",
+    "ground_lane_passage",
+    "ground_livery",
+    "ground_registrar",
+    "ground_road_east",
+    "ground_road_west",
+    "ground_trough",
     "mud_far",
     "mud_mid",
-    "mud_near"
+    "mud_near",
+    "stairs_church",
+    "stairs_registrar"
   ],
   "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-43/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
   "motion": [
@@ -975,6 +1534,50 @@
       "amount": 0.5,
       "flame": true,
       "halo": 40
+    }
+  ],
+  "occluders": [
+    {
+      "id": "post_registrar_left",
+      "rect": [
+        217,
+        400,
+        12,
+        188
+      ],
+      "baseY": 588,
+      "note": "Errata 303: the registrar's porch posts, at its front edge; a man on the porch is behind them (RoomFile.occluders, errata 302)."
+    },
+    {
+      "id": "post_registrar_middle",
+      "rect": [
+        361,
+        400,
+        12,
+        188
+      ],
+      "baseY": 588
+    },
+    {
+      "id": "post_registrar_right",
+      "rect": [
+        487,
+        400,
+        12,
+        188
+      ],
+      "baseY": 588
+    },
+    {
+      "id": "bell_post",
+      "rect": [
+        958,
+        415,
+        22,
+        215
+      ],
+      "baseY": 630,
+      "note": "The bell's post."
     }
   ]
 }
