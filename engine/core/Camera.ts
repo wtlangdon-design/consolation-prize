@@ -45,12 +45,12 @@ export function roomWidth(size?: [number, number]): number {
  * arriving at x=3200 with the camera still at 0 and correcting on frame two is
  * a visible jolt on every entry.
  */
-export function cameraFollow(actorX: number, width: number, from = 0): number {
-  const span = Math.max(0, width - NATIVE_WIDTH);
+export function cameraFollow(actorX: number, width: number, from = 0, view = NATIVE_WIDTH): number {
+  const span = Math.max(0, width - view);
   if (span === 0) return 0;
   const held = Math.max(0, Math.min(span, from));
-  const left = held + NATIVE_WIDTH * ((1 - DEAD_ZONE) / 2);
-  const right = held + NATIVE_WIDTH * ((1 + DEAD_ZONE) / 2);
+  const left = held + view * ((1 - DEAD_ZONE) / 2);
+  const right = held + view * ((1 + DEAD_ZONE) / 2);
   // INSIDE THE ZONE, NOTHING MOVES. Outside it, the camera takes up exactly
   // the slack -- it does not centre him, because centring after a dead zone
   // makes the view lurch the moment he crosses the line.
@@ -66,8 +66,21 @@ export function cameraFollow(actorX: number, width: number, from = 0): number {
  * Centres him and then clamps, which is the only sensible answer with no
  * history: the dead zone needs somewhere to be measured from.
  */
-export function cameraAt(actorX: number, width: number): number {
-  const span = Math.max(0, width - NATIVE_WIDTH);
+export function cameraAt(actorX: number, width: number, view = NATIVE_WIDTH): number {
+  const span = Math.max(0, width - view);
   if (span === 0) return 0;
-  return Math.round(Math.max(0, Math.min(span, actorX - NATIVE_WIDTH / 2)));
+  return Math.round(Math.max(0, Math.min(span, actorX - view / 2)));
+}
+
+/**
+ * WHERE THE VIEW SITS UP AND DOWN, in a zoomed room (RoomFile.zoom; errata 312). His feet a little above the bottom
+ * of the view -- at FEET_AT of its height -- so the ground he stands on and the doors behind him are in frame; or, while
+ * the player points at the top of the picture, the top of the room, so a sign on a false front can be seen and
+ * clicked. Clamped to the room. A room that fits has one answer, zero.
+ */
+const FEET_AT = 0.82;
+export function cameraYFor(feetY: number, height: number, view: number, lookingUp = false): number {
+  const span = Math.max(0, height - view);
+  if (span === 0) return 0;
+  return Math.round(Math.max(0, Math.min(span, lookingUp ? 0 : feetY - view * FEET_AT)));
 }

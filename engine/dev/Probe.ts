@@ -163,6 +163,9 @@ export interface FrameReport {
    * gauntlet's beat 9 click, one level up.
    */
   camera: number;
+  /** A zoomed room's view (RoomFile.zoom; errata 312): how far down it has scrolled, and its zoom. */
+  cameraY?: number;
+  zoom?: number;
   /**
    * Lines queued behind the one on screen.
    *

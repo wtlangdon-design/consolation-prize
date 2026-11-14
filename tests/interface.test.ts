@@ -1240,20 +1240,22 @@ test('the view follows a walker across a wide room, and holds inside the dead zo
   // window, so it declares a size and the view has somewhere to go.
   state.enterRoom('main_street');
   assert.ok(state.roomWidth > NATIVE_WIDTH, 'main street is wider than the window');
-  const span = state.roomWidth - NATIVE_WIDTH;
+  // THE VIEW IS THE ZOOMED ONE (RoomFile.zoom; errata 312): Main Street shows 1920/1.5 room pixels across.
+  const view = state.viewWidth;
+  const span = state.roomWidth - view;
 
   // Pinned at the left edge, he crosses the middle third without moving the
   // view. The dead zone is the whole reason the plate does not shimmer under a
   // walk cycle, so "it did not move" is the assertion, not a tolerance.
   state.moveCamera(0, who);
-  const inside = NATIVE_WIDTH / 2;
+  const inside = view / 2;
   state.followCamera(who, inside);
   assert.equal(state.cameraX, 0, 'the middle third moves nothing');
 
   // Past the right of the zone it takes up exactly the slack -- it does not
   // centre him, because centring after a dead zone lurches the moment he
   // crosses the line.
-  const right = (NATIVE_WIDTH * 2) / 3;
+  const right = (view * 2) / 3;
   state.followCamera(who, right + 100);
   assert.equal(state.cameraX, 100, 'and outside it, exactly the overshoot');
 
@@ -1278,7 +1280,8 @@ test('a hotspot is clickable exactly where it is drawn', async () => {
   //
   // So this asks the question the player asks: he can see a thing at a place
   // on the glass -- does clicking there get him that thing?
-  const drawn = (worldX: number) => worldX - state.cameraX;
+  // Through the zoom and the view's height as well (errata 312): drawn at toScreen, clicked through toWorldPoint.
+  const drawn = (worldX: number, worldY: number) => state.toScreen(worldX, worldY);
   const targets = state.targets.filter((target) => target.rect[2] > 0);
   assert.ok(targets.length > 5, 'main street has hotspots to click');
 
@@ -1287,12 +1290,13 @@ test('a hotspot is clickable exactly where it is drawn', async () => {
     for (const target of targets) {
       const [x, y, w, h] = target.rect;
       const centre: [number, number] = [x + Math.floor(w / 2), y + Math.floor(h / 2)];
-      const screenX = drawn(centre[0]);
+      const screen = drawn(centre[0], centre[1]);
       // Only the ones actually on screen: a hotspot scrolled off the side is
       // not clickable and should not be, which is the point of a camera.
-      if (screenX < 0 || screenX >= NATIVE_WIDTH) continue;
+      if (screen.x < 0 || screen.x >= NATIVE_WIDTH || screen.y < 0 || screen.y >= 864) continue;
+      const back = state.toWorldPoint(screen.x, screen.y);
       assert.equal(
-        state.targetAt(state.toWorld(screenX), centre[1])?.id,
+        state.targetAt(Math.floor(back.x), Math.floor(back.y))?.id,
         state.targetAt(...centre)?.id,
         `${target.id} at camera ${state.cameraX}: clicking where it is drawn must find `
         + 'whatever a click in world space finds',

@@ -5,6 +5,8 @@
   3700,
   864
  ],
+ "zoom": 1.5,
+ "zoomNote": "Errata 312 (Tyler, 2026-11-14, of Main Street: \"It seems so zoomed out right now, which make it kind of feel impersonal\"; then \"Try the camera zoom\"): a man here is 105-206 px tall against the Nugget's 198-459, so the street is shown at 1.5x, nearest-neighbour, the view following him along and up and down.",
  "walkable": [
   [
    60,

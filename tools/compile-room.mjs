@@ -2505,6 +2505,8 @@ for (const [spec, rule] of personBullets) {
   if (ann.figureLightWhen) built.figureLightWhen = ann.figureLightWhen;
   if (ann.actorHiddenWhen) built.actorHiddenWhen = ann.actorHiddenWhen;
   if (ann.props) built.props = ann.props;
+  // THE CAMERA'S ZOOM (RoomFile.zoom; errata 312).
+  if (ann.zoom) built.zoom = ann.zoom;
   // Whole-plate animation, where a room declares it.
   if (ann.backgroundFrames) {
     built.backgroundFrames = ann.backgroundFrames;

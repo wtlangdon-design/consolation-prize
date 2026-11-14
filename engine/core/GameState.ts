@@ -2,7 +2,8 @@ import type { ActOpening, Condition, FlagValue, FlagWrites,
   ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion, PlaytestFixture, PuzzleStatus, CombinationPair,
   SpokenLine,
 } from './types.ts';
-import { cameraAt, cameraFollow, roomWidth } from './Camera.ts';
+import { cameraAt, cameraFollow, cameraYFor, roomWidth } from './Camera.ts';
+import { NATIVE_WIDTH, PLAY_HEIGHT as PLAY_HEIGHT_WORLD } from '../render/Screen.ts';
 import { heightIn, WalkBoxes, type Route } from './WalkBoxes.ts';
 import { FlagStore } from './FlagStore.ts';
 import { DialogueRunner } from './DialogueRunner.ts';
@@ -590,6 +591,10 @@ export class GameState {
   private standing = new Map<string, [number, number]>();
   /** How far the view has scrolled in the current room. Always 0 if it fits. */
   private camera = 0;
+  /** How far the view has scrolled DOWN, in a zoomed room (RoomFile.zoom). Always 0 in any other. */
+  private cameraYNow = 0;
+  /** Where the view is easing to, up and down (errata 312). */
+  private cameraYWanted = 0;
   /**
    * Who the view is tracking, or null for nobody.
    *
@@ -614,9 +619,53 @@ export class GameState {
    * the PLAYER stands is saved and restored; what the VIEW tracks may be the
    * coach, and a coach's position is not a resumed standing position.
    */
-  followCamera(actor: string, x: number): void {
+  followCamera(actor: string, x: number, y?: number, lookingUp = false): void {
     if (this.isMap || this.cutawayFrom || this.cameraFollows !== actor) return;
-    this.camera = cameraFollow(x, this.roomWidth, this.camera);
+    this.camera = cameraFollow(x, this.roomWidth, this.camera, this.viewWidth);
+    // UP AND DOWN, EASED (errata 312): a zoomed street follows him up a porch's steps and back, a few pixels a frame
+    // rather than at once, so a step up does not jolt the whole street; and it looks up while the player points high.
+    if (y !== undefined) this.cameraYWanted = cameraYFor(y, PLAY_HEIGHT_WORLD, this.viewHeight, lookingUp);
+    const gap = this.cameraYWanted - this.cameraYNow;
+    this.cameraYNow = Math.abs(gap) <= 2 ? this.cameraYWanted : Math.round(this.cameraYNow + gap * 0.12);
+  }
+
+  /** On entering or loading: the view up and down where he will stand, at once, not eased (errata 312). */
+  private cameraYSnapTo(feetY: number): void {
+    this.cameraYWanted = cameraYFor(feetY, PLAY_HEIGHT_WORLD, this.viewHeight);
+    this.cameraYNow = this.cameraYWanted;
+  }
+
+  /** The room's zoom (RoomFile.zoom): 1 unless the room says otherwise. */
+  get zoom(): number {
+    return this.isMap ? 1 : this.room.zoom ?? 1;
+  }
+
+  /** How much of the room the view shows across, in room pixels. */
+  get viewWidth(): number {
+    return NATIVE_WIDTH / this.zoom;
+  }
+
+  /** And up and down. */
+  get viewHeight(): number {
+    return PLAY_HEIGHT_WORLD / this.zoom;
+  }
+
+  /** How far the view has scrolled down. Always 0 in a room that is not zoomed. */
+  get cameraY(): number {
+    return this.zoom === 1 ? 0 : this.cameraYNow;
+  }
+
+  /**
+   * A point in the room, as a point on the screen: the inverse of toWorld (errata 312). What is drawn after the
+   * world pass -- speech over a head, a bark -- is placed with it.
+   */
+  toScreen(worldX: number, worldY: number): { x: number; y: number } {
+    return { x: (worldX - this.camera) * this.zoom, y: (worldY - this.cameraY) * this.zoom };
+  }
+
+  /** A point on the screen, as a point in the room, both coordinates (errata 312; toWorld is x alone). */
+  toWorldPoint(screenX: number, screenY: number): { x: number; y: number } {
+    return { x: screenX / this.zoom + this.camera, y: screenY / this.zoom + this.cameraY };
   }
 
   /** Whether a cut-away is showing (errata 158). */
@@ -690,7 +739,7 @@ export class GameState {
    * R5i, two mechanisms agreeing until one of them changes.
    */
   toWorld(screenX: number): number {
-    return screenX + this.camera;
+    return screenX / this.zoom + this.camera;
   }
 
   /**
@@ -708,7 +757,7 @@ export class GameState {
   moveCamera(to: number | undefined, follow: string | undefined): void {
     if (to !== undefined) {
       this.cameraFollows = null;
-      this.camera = cameraAt(to, this.roomWidth);
+      this.camera = cameraAt(to, this.roomWidth, this.viewWidth);
     }
     if (follow !== undefined) this.cameraFollows = follow;
   }
@@ -843,7 +892,8 @@ export class GameState {
     const entrance = this.entranceInto(roomId, this.cameFrom)?.at;
     const width = roomWidth(this.content.rooms.get(roomId)?.size);
     const entryX = resumed?.[0] ?? entrance?.[0] ?? width / 2;
-    this.camera = cameraAt(entryX, width);
+    this.camera = cameraAt(entryX, width, NATIVE_WIDTH / (this.content.rooms.get(this.currentRoomId)?.zoom ?? 1));
+    this.cameraYSnapTo(resumed?.[1] ?? entrance?.[1] ?? PLAY_HEIGHT_WORLD);
     // WHAT THE ROOM SAYS IS DECIDED AGAINST THE FLAGS AS HE WALKED IN, so it is
     // taken before the writes below land (arrivalOf).
     this.enteredWith = { room: roomId, flags: this.flags.snapshot() };
@@ -1665,7 +1715,8 @@ export class GameState {
     this.cameraFollows = this.content.actor.id;
     const width = roomWidth(this.content.rooms.get(save.room)?.size);
     const entryX = save.position?.[0] ?? this.entranceInto(save.room, null)?.at?.[0] ?? width / 2;
-    this.camera = cameraAt(entryX, width);
+    this.camera = cameraAt(entryX, width, NATIVE_WIDTH / (this.content.rooms.get(this.currentRoomId)?.zoom ?? 1));
+    this.cameraYSnapTo(save.position?.[1] ?? this.entranceInto(save.room, null)?.at?.[1] ?? PLAY_HEIGHT_WORLD);
     return true;
   }
 

@@ -792,6 +792,8 @@ export class Renderer {
   /** Errata ruling 26's geometry, resolved from content. */
   private readonly panel: PanelLayout;
   private scratchContext: CanvasRenderingContext2D | null = null;
+  /** The zoomed room's view canvas (errata 312). */
+  private viewCanvasContext: CanvasRenderingContext2D | null = null;
 
   constructor(
     screen: Screen,
@@ -1076,8 +1078,17 @@ export class Renderer {
     // `roomWidth - NATIVE_WIDTH`, which is zero there, so Room 1 draws through
     // exactly the same path it always did.
     const camera = this.state.cameraX;
+    // A ZOOMED ROOM (RoomFile.zoom; errata 312) draws its world pass at 1:1 into a view the size of what it shows,
+    // then lays that view over the play area, nearest-neighbour. Everything below draws exactly as it always did.
+    const zoom = this.state.zoom;
+    const view = zoom !== 1 ? this.viewContext() : null;
+    const windowContext = view ? this.screen.borrow(view) : null;
+    if (view) {
+      view.setTransform(1, 0, 0, 1, 0, 0);
+      view.clearRect(0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    }
     this.screen.context.save();
-    this.screen.context.translate(-camera, 0);
+    this.screen.context.translate(-camera, -this.state.cameraY);
     this.drawRoom();
     // THE ROOM'S OWN SMALL MOTION (errata 273): smoke, water, a sign, the stars. On the plate itself, before anything
     // laid over it -- a strip of the plate moved must not wipe out a state image drawn on top of it.
@@ -1106,6 +1117,10 @@ export class Renderer {
     this.drawPeople();
     this.drawForeground();
     this.screen.context.restore();
+    if (view && windowContext) {
+      this.screen.borrow(windowContext);
+      windowContext.drawImage(view.canvas, 0, 0, NATIVE_WIDTH / zoom, PLAY_HEIGHT / zoom, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    }
     if (frame.pan && frame.pan.offset > 0) this.drawPan(frame.pan);
     this.inSky = Boolean(frame.pan && frame.pan.offset >= PLAY_HEIGHT * 0.5);
     // ERRATA 159-160: a close-up or an opening shot covers the room it is set in; the lines go over it.
@@ -2094,7 +2109,7 @@ export class Renderer {
     const camera = this.state.cameraX;
     scratch.setTransform(1, 0, 0, 1, 0, 0);
     scratch.clearRect(0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
-    scratch.translate(-camera, 0);
+    scratch.translate(-camera, -this.state.cameraY);
     const screenContext = this.screen.borrow(scratch);
     try {
       draw();
@@ -2111,7 +2126,7 @@ export class Renderer {
     // BLITTED AT WORLD X, because the screen context is itself translated by
     // -camera: the scratch holds screen-space pixels, so it has to be placed
     // where the translate will put it back at zero.
-    screenContext.drawImage(scratch.canvas, camera, 0);
+    screenContext.drawImage(scratch.canvas, camera, this.state.cameraY);
   }
 
   /**
@@ -2155,7 +2170,7 @@ export class Renderer {
     const camera = this.state.cameraX;
     scratch.setTransform(1, 0, 0, 1, 0, 0);
     scratch.clearRect(0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
-    scratch.translate(-camera, 0);
+    scratch.translate(-camera, -this.state.cameraY);
     const screenContext = this.screen.borrow(scratch);
     try {
       // THE ROOM'S GRADE, FIRST. Brightness, contrast and saturation ride on
@@ -2182,7 +2197,21 @@ export class Renderer {
     }
     if (tint) applyTint(scratch, tint, bounds[0], bounds[1], bounds[2], bounds[3]);
     scratch.setTransform(1, 0, 0, 1, 0, 0);
-    screenContext.drawImage(scratch.canvas, camera, 0);
+    screenContext.drawImage(scratch.canvas, camera, this.state.cameraY);
+  }
+
+  /** The zoomed room's view (errata 312): one reusable offscreen canvas, made on first use. */
+  private viewContext(): CanvasRenderingContext2D | null {
+    if (this.viewCanvasContext) return this.viewCanvasContext;
+    if (typeof document === 'undefined') return null;
+    const canvas = document.createElement('canvas');
+    canvas.width = NATIVE_WIDTH;
+    canvas.height = PLAY_HEIGHT;
+    const context = canvas.getContext('2d');
+    if (!context) return null;
+    context.imageSmoothingEnabled = false;
+    this.viewCanvasContext = context;
+    return context;
   }
 
   /** One reusable offscreen canvas for masking. Made on first use. */
@@ -2746,12 +2775,14 @@ export class Renderer {
     // constant: the offset has to follow the scale for the same reason the
     // anchor follows the position, or a man drawn small up the road wears his
     // words as a hat while one at the front holds them at his knees.
-    const top = speechTop(at.headY, at.height, height);
+    // THE ZOOM AND THE VIEW'S HEIGHT (errata 312): his head, where it is drawn on the screen.
+    const head = this.state.toScreen(at.x, at.headY);
+    const top = speechTop(head.y, at.height * this.state.zoom, height);
     // THE CAMERA, WHICH WAS MISSING. `at.x` is a WORLD coordinate and this is
     // clamped against NATIVE_WIDTH in SCREEN space, because drawSay runs after
     // the camera translate is restored. On a 3700-wide street that put every
     // line at the right-hand clamp regardless of who was speaking.
-    const screenX = at.x - this.state.cameraX;
+    const screenX = head.x;
     return {
       x: clampSpeechX(screenX, half, right),
       // Two native pixels from the top, x GLYPH_SCALE, and never into the
@@ -2897,9 +2928,10 @@ export class Renderer {
     // whole street's remarks read as Thad's.
     const ink = (speaker ? this.state.content.speechColours?.speakers[speaker]?.colour : undefined)
       ?? this.screen.roleColour('inkBright');
-    const screenX = at.x - this.state.cameraX;
+    const placed = this.state.toScreen(at.x, at.y);
+    const screenX = placed.x;
     lines.forEach((line, index) => {
-      const y = at.y - (lines.length - index) * SPEECH_LINE_HEIGHT;
+      const y = placed.y - (lines.length - index) * SPEECH_LINE_HEIGHT;
       const width = this.font.measure(line);
       const x = Math.max(GLYPH_SCALE * 2,
         Math.min(NATIVE_WIDTH - width - GLYPH_SCALE * 2, screenX - Math.round(width / 2)));

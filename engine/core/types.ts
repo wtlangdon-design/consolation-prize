@@ -1604,6 +1604,13 @@ export interface RoomFile {
    * still a loud one.
    */
   size?: [number, number];
+  /**
+   * THE CAMERA'S ZOOM, for a room drawn at a smaller scale than the rest (errata 312; Tyler, 2026-11-14, of Main
+   * Street: "It seems so zoomed out right now, which make it kind of feel impersonal"). The view shows
+   * 1920/zoom x 864/zoom of the plate, drawn up to the play area nearest-neighbour, and follows him up and down as
+   * well as along. Absent is 1: every room that fits draws exactly as it did.
+   */
+  zoom?: number;
   schema: number;
   id: string;
   name: string;

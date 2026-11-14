@@ -96,6 +96,9 @@ interface QueuedLine {
 /** How near a second click must land to be the same click again (errata 260): a hotspot's worth of hand tremor. */
 const HURRY_WITHIN = 48;
 
+/** The top of the play area that raises a zoomed room's view to its rooftops while pointed at (errata 312). */
+const LOOK_UP_BAND = 0.12;
+
 export class GameScene extends Phaser.Scene {
   private state!: GameState;
   private screen!: Screen;
@@ -399,6 +402,8 @@ export class GameScene extends Phaser.Scene {
   private exitWalk: { id: string; room: string; at: { x: number; y: number } } | null = null;
   private mapWalk: { walk: MapWalk; startedAt: number; location: import('../core/types.ts').MapLocation } | null = null;
   private barkAt: { x: number; y: number } | null = null;
+  /** The pointer's y on the screen, for a zoomed room's look up (errata 312). Starts below the picture. */
+  private pointerY = PLAY_HEIGHT;
   /** Errata 169: who said the bark, so it is drawn in his colour. */
   private barkBy: string | null = null;
   private barkTimer?: Phaser.Time.TimerEvent;
@@ -826,7 +831,7 @@ export class GameScene extends Phaser.Scene {
     // arrives on every call and is thrown away.
     const followed = this.state.cameraFollowing;
     const tracked = followed ? this.actors.get(followed) : undefined;
-    if (tracked) this.state.followCamera(tracked.id, tracked.x);
+    if (tracked) this.state.followCamera(tracked.id, tracked.x, tracked.y, this.pointerY < PLAY_HEIGHT * LOOK_UP_BAND);
     // Every body whose walk or chore has finished is handed back HERE, once a
     // tick and in one place. A claim that outlives its motion is what makes
     // the next one trip assertion 6.
@@ -1270,6 +1275,9 @@ export class GameScene extends Phaser.Scene {
   }
 
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
+    // WHERE THE POINTER IS, UP AND DOWN, for a zoomed room's look up (errata 312): pointing at the top of the
+    // picture raises the view to the rooftops, so a sign on a false front can be seen and clicked.
+    this.pointerY = this.nativePoint(pointer).y;
     // Nothing to name while the ninety seconds run or a room fades (errata 133).
     if (this.tuneStart !== null || this.roomFade !== null || this.entry !== null || this.cut !== null
       || this.arrivalHold.holding) return;
@@ -1335,7 +1343,7 @@ export class GameScene extends Phaser.Scene {
     // the window -- the panel, the inventory, the map -- and is hit-tested
     // where it is drawn, which is where it always was. The street is drawn
     // shifted by the camera, so it is asked in its own coordinates.
-    const wx = this.state.toWorld(x);
+    const { x: wx, y: wy } = this.state.toWorldPoint(x, y);
     // Ambient characters stand in front of the scenery, so they take the
     // pointer first -- exactly as they take the click. Reading one name and
     // clicking another is worse than either alone.
@@ -1343,12 +1351,12 @@ export class GameScene extends Phaser.Scene {
     // names the hotspot, not the person standing over it, unless the verb
     // is TALK TO -- otherwise the sentence line promised "Pick up WINNIE
     // LEDGER" for a click that picked up her pen.
-    const npc = y < PLAY_HEIGHT ? this.personAt(wx, y, this.state.verbs.selectedVerb) : undefined;
+    const npc = y < PLAY_HEIGHT ? this.personAt(wx, wy, this.state.verbs.selectedVerb) : undefined;
     const found = npc
       ? { id: npc.id, name: this.state.nameOf(npc),
           defaultVerb: this.state.content.verbs.npcVerb }
       : y < PLAY_HEIGHT
-        ? (this.targetUnder(wx, y) ?? null)
+        ? (this.targetUnder(wx, wy) ?? null)
         : null;
     const changed = (found?.id ?? null) !== (this.hovered?.id ?? null);
     if (changed) {
@@ -1533,7 +1541,7 @@ export class GameScene extends Phaser.Scene {
     if (verdict === 'consume') return;
     // A SECOND CLICK ON THE WAY OUT GOES AT ONCE (errata 256; engine/core/Standing.ts secondExitClick).
     if (this.exitWalk && this.sequence.isRunning && this.exitWalk.room === this.state.roomId) {
-      const under = this.targetUnder(this.state.toWorld(x), y);
+      const under = this.targetUnder(this.state.toWorldPoint(x, y).x, this.state.toWorldPoint(x, y).y);
       const asked = this.state.verbs.verbFor(under, secondary);
       const transit = under !== undefined && (under as Partial<Exit>).to !== undefined && this.state.verbs.isTransit(asked);
       if (under && secondExitClick({
@@ -1553,7 +1561,7 @@ export class GameScene extends Phaser.Scene {
     // THE SAME CLICK AGAIN HURRIES HIM (errata 260; engine/core/Standing.ts sameClickAgain): the walk and what it was
     // for are left exactly as they are, and he gets there sooner. Checked before anything is cancelled.
     {
-      const at = { x: this.state.toWorld(x), y };
+      const at = this.state.toWorldPoint(x, y);
       const ask = `${this.state.verbs.selectedVerb ?? ''}|${this.state.heldItem ?? ''}|${secondary ? 2 : 1}`;
       const hurry = this.state.content.ui.timing?.hurry ?? 1;
       if (hurry > 1 && sameClickAgain({ walking: this.actor.isWalking, last: this.walkClick, at, ask, within: HURRY_WITHIN }) === 'hurry') {
@@ -1579,21 +1587,21 @@ export class GameScene extends Phaser.Scene {
     // WORLD SPACE FROM HERE DOWN, for the reason given in `onPointerMove`:
     // the street is drawn shifted by the camera and is asked in its own
     // coordinates, so a hotspot is clicked exactly where it is drawn.
-    const wx = this.state.toWorld(x);
+    const { x: wx, y: wy } = this.state.toWorldPoint(x, y);
 
     // HE IS HIDDEN, AND STAYS WHERE HE IS (RoomFile.actorHiddenWhen; errata 239): under the table's cloth nobody
     // walks him about. A verb on a subject is answered from where he is; everything that would move him is not.
     if (this.state.playerStays) {
-      const under = this.targetUnder(wx, y);
+      const under = this.targetUnder(wx, wy);
       const asked = this.state.verbs.verbFor(under, secondary);
       const verdict = hiddenClick({
         target: under !== undefined,
         walk: asked === this.state.verbs.walkVerbId,
         transit: under !== undefined && (under as Partial<Exit>).to !== undefined && this.state.verbs.isTransit(asked),
-        person: this.personAt(wx, y, this.state.verbs.selectedVerb) !== undefined,
+        person: this.personAt(wx, wy, this.state.verbs.selectedVerb) !== undefined,
       });
       if (verdict === 'answer' && under) {
-        this.lastClick = { x: wx, y };
+        this.lastClick = { x: wx, y: wy };
         this.applyInteraction(under, asked);
       }
       return;
@@ -1620,7 +1628,7 @@ export class GameScene extends Phaser.Scene {
     // never played. When the click lands on a hotspot's own rect, the
     // hotspot wins for every verb but TALK TO -- talking is the one thing a
     // person is for and an object is not.
-    const npc = y < PLAY_HEIGHT ? this.personAt(wx, y, this.state.verbs.selectedVerb) : undefined;
+    const npc = y < PLAY_HEIGHT ? this.personAt(wx, wy, this.state.verbs.selectedVerb) : undefined;
 
     // A PERSON IS NOT A LEVER. Every verb pointed at an ambient character used
     // to open their tree, so Tyler clicked PUSH on the letter-writer and got a
@@ -1641,7 +1649,7 @@ export class GameScene extends Phaser.Scene {
     // character for every verb but TALK TO -- except this one, where a live
     // pair says the item is for her.
     const held = this.state.heldItem;
-    const person = held && chosen !== null && this.state.verbs.carries(chosen) ? this.ambient.npcAt(wx, y) : undefined;
+    const person = held && chosen !== null && this.state.verbs.carries(chosen) ? this.ambient.npcAt(wx, wy) : undefined;
     if (person?.tree && held && chosen !== null) {
       const pair = this.state.evidencePairFor(held, person.id, chosen);
       if (pair && pair.opens === person.tree) {
@@ -1677,7 +1685,7 @@ export class GameScene extends Phaser.Scene {
     // THE PERSON THE SENTENCE LINE NAMED, or one the item has a written pair
     // with (AmbientLayer.itemTakerAt, errata 151): the fiddler in front of
     // the Nugget's piano does not take the fork meant for the piano.
-    const taker = person && held && chosen !== null ? this.ambient.itemTakerAt(wx, y, chosen, held) : undefined;
+    const taker = person && held && chosen !== null ? this.ambient.itemTakerAt(wx, wy, chosen, held) : undefined;
     if (taker && held && chosen !== null) {
       const person = taker;
       const [hx, hy, hw, hh] = this.ambient.hitBox(person);
@@ -1787,8 +1795,8 @@ export class GameScene extends Phaser.Scene {
     //   right button on an object  -> its defaultVerb, whatever is selected
     //
     // Double-click is gone entirely, along with the click tracker it needed.
-    const target = this.targetUnder(wx, y);
-    this.lastClick = { x: wx, y };
+    const target = this.targetUnder(wx, wy);
+    this.lastClick = { x: wx, y: wy };
     const verb = this.state.verbs.verbFor(target, secondary);
 
     // A doorway asked for with a transit verb is walked through -- checked
@@ -1806,9 +1814,9 @@ export class GameScene extends Phaser.Scene {
     if (!target || verb === this.state.verbs.walkVerbId) {
       // NEVER ONTO SOMEBODY (errata 129): the floor under a click may be where
       // a figure stands -- Room 1's gap in the fence is Hob's spot.
-      const floor = this.state.nearestFloor(Math.round(wx), Math.round(y)) ?? { x: wx, y };
+      const floor = this.state.nearestFloor(Math.round(wx), Math.round(wy)) ?? { x: wx, y: wy };
       const clear = this.clearOfStanding(floor);
-      if (this.world.walkPlayer(wx, y, clear)) this.markDirty();
+      if (this.world.walkPlayer(wx, wy, clear)) this.markDirty();
       return;
     }
 
@@ -3518,6 +3526,9 @@ export class GameScene extends Phaser.Scene {
       puzzlesComplete: this.state.puzzlesComplete(),
       puzzles: this.state.puzzleProgress(),
       camera: Math.round(this.state.cameraX),
+      // A ZOOMED ROOM'S VIEW (errata 312): how far down it has scrolled, and by how much it is drawn up.
+      cameraY: Math.round(this.state.cameraY),
+      zoom: this.state.zoom,
       pending: this.pendingSay.length,
       waiting: this.sayLines.length > 0 && this.sayWaiting,
       title: this.titleMenu !== null,
