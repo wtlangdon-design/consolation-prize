@@ -913,6 +913,12 @@
    "date": "2026-11-13",
    "kind": "loosened",
    "why": "Errata 301: a walk onto a porch goes up its stairs, by Tyler's ruling, however near the porch's front it starts; the room-wide detour bound skips a route through stairs. The map-seller test and the bound for every other walk are unchanged."
+  },
+  {
+   "check": "tests/main-street-ground.test.mjs",
+   "date": "2026-11-13",
+   "kind": "loosened",
+   "why": "Errata 301: by Tyler's ruling (\"I would like him to actually walk up steps onto porches\"), the porch decks and their stairs, which errata 300 held off the floor, are floor; those points move from the test's off list to its on list. What stays off is what is never floor: each porch's front face, the walls, the deck behind the trough, the barrel, the notice board. It gains a test that a deck is reached by its stairs and nothing else."
   }
  ]
 }
