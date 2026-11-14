@@ -917,6 +917,8 @@ export class Renderer {
    * player could not see what they had hit.
    */
   private performing = false;
+  /** Each figure's frame as last drawn, for a prop it holds (RoomProp.heldBy). */
+  private readonly drawnFrames = new Map<string, number>();
   private choiceView: ChoiceView = {};
   /** The tree being greeted into, if any -- see `FrameArgs.greeting`. */
   private greeting: string | null = null;
@@ -1747,7 +1749,10 @@ export class Renderer {
 
   /** A piece of furniture, 1:1, its bottom row on its base line. See RoomFile.props. */
   private drawRoomProp(prop: RoomProp): void {
-    const image = this.sheet(prop.sheet);
+    // HELD BY A FIGURE (RoomProp.heldBy; errata 307): his frame as last drawn, a sixtieth of a second ago, because the
+    // prop stands behind him and is drawn first.
+    const held = prop.heldBy ? prop.heldBy.sheets[String(this.drawnFrames.get(prop.heldBy.figure))] : undefined;
+    const image = this.sheet(held ?? prop.sheet);
     if (!image) {
       watch.record('graybox:not-loaded', prop.id, `${prop.sheet} has not arrived; drew nothing`);
       return;
@@ -2288,6 +2293,7 @@ export class Renderer {
     if (tint || grade) this.drawTinted(tint, [left, top, drawW, drawH], draw, grade);
     else draw();
     this.screen.context.globalAlpha = was;
+    this.drawnFrames.set(npc.id, index);
     return index;
   }
 

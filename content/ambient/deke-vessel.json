@@ -141,6 +141,12 @@
     862,
     237,
     428
+   ],
+   [
+    719,
+    2,
+    237,
+    428
    ]
   ],
   "rate": 0.35,
@@ -171,7 +177,7 @@
   ],
   "note": "Frames: 0 rest, 1 breath (the sway), 2 talking -- held while spoken to, and a break because doc 27's LISTEN is 'He has been talking since before I came in' -- 3 pushes his hat back, 4 looks out at the room. Breaks every 11 s: Tyler, no person in a room is ever static.",
   "redrawn": "Errata 112: drawn at the cast sheet's level by cast-unify 39 (reference/deke-b-01.txt) from his cast-sheet self, in his old poses; cut with its own pixels and a clean edge.",
-  "frameNote": "Errata 264 (reference/acted-directions-2): 6 the glass held at his chest · 7 the glass raised. Acted only (doc 95 row 70)."
+  "frameNote": "Errata 264 (reference/acted-directions-2): 6 the glass held at his chest · 7 the glass raised. Acted only (doc 95 row 70). Errata 307: 8 is frame 3's drawing (the hat pushed back), played after he finishes his drink, so the barrel beside him can show the glass put back empty (RoomProp.heldBy)."
  },
  "placements": {
   "nugget_back": {

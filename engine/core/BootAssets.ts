@@ -129,7 +129,11 @@ function roomImages(room: RoomFile): BootAsset[] {
   // Errata 163: the map's Thad, keyed by its path like a character's sheet.
   if (room.mapToken) out.push({ key: room.mapToken.sheet, path: room.mapToken.sheet });
   // Furniture drawn in depth order, keyed by path like a character's sheet.
-  for (const prop of room.props ?? []) out.push({ key: prop.sheet, path: prop.sheet });
+  for (const prop of room.props ?? []) {
+    out.push({ key: prop.sheet, path: prop.sheet });
+    // And what it looks like while a figure holds part of it (RoomProp.heldBy; errata 307).
+    for (const sheet of Object.values(prop.heldBy?.sheets ?? {})) out.push({ key: sheet, path: sheet });
+  }
   if (room.idles?.sheet) out.push({ key: `idle:${room.id}`, path: room.idles.sheet });
   // Occlusion masks are keyed by their content path, like character sheets,
   // because the renderer asks for one by the string the plane used to name it.

@@ -595,6 +595,10 @@
     {
      "doc": "07-ambient-layer",
      "quote": "Honestly, all of the dialogue with the guy leaving tomorrow strikes me as odd"
+    },
+    {
+     "doc": "96-cutaways",
+     "quote": "After Thad buys the claim from Deke -- the cutaway to the printing guy is so abrupt and odd. How would news reach him that quickly? And also we're SOOO early in the story that a quick jump/cut like that is jarring."
     }
    ]
   },
@@ -971,6 +975,16 @@
     {
      "doc": "98-main-street-pass",
      "quote": "That bag's been packed a while."
+    }
+   ]
+  },
+  {
+   "id": "clarion-cutaway-withdrawn",
+   "why": "WITHDRAWN IN PLAY (errata 307, Tyler 2026-11-14, choosing to cut it): doc 96's first cut-away, Frame setting the swindle's edition, played straight after the swindle and was abrupt that early in the story. The headline board on Main Street carries the same joke (doc 57). Doc 96 keeps its lines as the record.",
+   "lines": [
+    {
+     "doc": "96-cutaways",
+     "quote": "Grubbs. Now it looks like a family."
     }
    ]
   }
