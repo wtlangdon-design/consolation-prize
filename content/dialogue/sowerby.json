@@ -39,7 +39,7 @@
           "tag": "PROGRESS",
           "afterUse": "remove",
           "text": "Reverend, I couldn't help noticing your bell.",
-          "say": "A half-step flat since the day it was hung, and I have struck it every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it.",
+          "say": "A half-step flat since the day it was hung, and it has been rung every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it.",
           "echo": "Reverend, I couldn't help noticing your bell. Tell me about it."
         },
         {
@@ -54,7 +54,10 @@
           "tag": "TOPIC",
           "afterUse": "remove",
           "text": "Do you believe in Mott's gold?",
-          "say": "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement."
+          "say": "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement.",
+          "when": {
+            "T_MOTT_TOLD": true
+          }
         },
         {
           "id": "sowerby9",

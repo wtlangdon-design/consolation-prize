@@ -33,6 +33,11 @@ const DONE = [
   (one) => one.path.startsWith('content/dialogue/raccoon.json'),
   (one) => /content\/dialogue\/fanshawe\.json/.test(one.path) && /"FAN_A[12]"/.test(JSON.stringify(nodeAt(one.path))),
   (one) => /content\/dialogue\/pratt\.json/.test(one.path) && /"PRA_A1"/.test(JSON.stringify(nodeAt(one.path))),
+  // Act I's dialogue pass (errata 310): the town's people met on the first day, whole.
+  (one) => ['amb-barber', 'amb-boarding-women', 'amb-card-sharp', 'amb-dogs-owner', 'amb-fiddler', 'amb-message-boy',
+    'amb-one-strike-man', 'amb-photographer', 'amb-pie-woman', 'amb-boundary-men', 'hotel-clerk', 'undertaker', 'stage-driver']
+    .some((name) => one.path.startsWith(`content/dialogue/${name}.json`)),
+  (one) => /content\/dialogue\/(hob|frame)\.json/.test(one.path) && /"(HOB|FRA)_A1"/.test(JSON.stringify(nodeAt(one.path))),
 ];
 function nodeAt(path) {
   const [file, ...rest] = path.split(/\.(?=nodes)/);
@@ -43,7 +48,7 @@ const eggs = json('content/combinations.json').pairs.filter((pair) => pair.room 
 
 // The places a direction is printed across the game (one line can be printed in several), after the last room done.
 // It may only go down; a pass lowers it.
-const CAP = 129;
+const CAP = 122;
 
 test('in the rooms done, nothing is printed in parentheses', () => {
   const left = printed.filter((one) => DONE.some((done) => done(one))).map((one) => `${one.path}: (${one.words})`);

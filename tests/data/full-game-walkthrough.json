@@ -75,6 +75,22 @@
    }
   },
   {
+   "id": "A1.mott",
+   "puzzle": "A1",
+   "do": "talk",
+   "npc": "map_seller",
+   "choose": [
+    "map_seller1"
+   ],
+   "leave": true,
+   "note": "Errata 309, 310: who Mott was, before Hob can be asked about him.",
+   "expect": {
+    "flags": {
+     "T_MOTT_TOLD": true
+    }
+   }
+  },
+  {
    "id": "A1.hob.1",
    "puzzle": "A1",
    "do": "go",

@@ -44,6 +44,9 @@
               "line": "FORTY-ONE maps to it, sir! Every one of them right about the strike. They only disagree about where."
             }
           ],
+          "set": {
+            "T_MOTT_TOLD": true
+          },
           "afterUse": "remove"
         },
         {
@@ -114,19 +117,19 @@
             },
             {
               "speaker": "map_seller",
-              "line": "Little hat. Arm out. Top of the hill, beside Pike."
+              "line": "Little hat. Arm out. Top of the hill, pointing at the strike."
             }
           ],
           "afterUse": "remove"
         },
         {
           "id": "map_seller4",
-          "text": "Is Ezra Pike on any of your maps?",
+          "text": "Do you know Ezra Pike?",
           "tag": "TOPIC",
           "exchange": [
             {
               "speaker": "map_seller",
-              "line": "Pike? Pike's on every one, sir! Little cross, top of the hill."
+              "line": "Pike? Pike's on every one of my maps, sir! Little cross, top of the hill."
             },
             {
               "speaker": "thad",
@@ -163,12 +166,12 @@
             },
             {
               "speaker": "map_seller",
-              "line": "He draws a small piano on a map, beside a cross.",
+              "line": "He draws a small piano on a map.",
               "direction": true
             },
             {
               "speaker": "map_seller",
-              "line": "There's your piano. Twelve feet down."
+              "line": "There! A piano, right on top of the strike. You'll be the first man to look there."
             }
           ],
           "afterUse": "remove",
@@ -188,7 +191,7 @@
           "after": [
             "map_seller7"
           ],
-          "say": "Dig my own map, sir? That'd be like a man eating his own dinner!",
+          "say": "Dig, sir? And find out which one's right? I'd have to throw the other forty away!",
           "afterUse": "remove"
         },
         {

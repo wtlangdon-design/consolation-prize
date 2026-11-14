@@ -24,6 +24,9 @@
           "after": [
             "photographer1"
           ],
+          "when": {
+            "T_MOTT_TOLD": true
+          },
           "say": "It's a portrait, sir. It's a man in Ohio in a good collar.",
           "afterUse": "remove"
         },

@@ -252,7 +252,7 @@ Every Fanshawe node must satisfy: *the player receives something they asked for,
 
 FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK TO opens this instead. Thad receives a welcome; he gives up that he has come to town with money.
 
-> **FANSHAWE:** "Mr. Grubb! Off the coach this morning and in my office by noon. You'll want a claim. Everyone wants a claim."
+> **FANSHAWE:** "Mr. Grubb! Off the coach tonight, and in my office before you've found a bed. You'll want a claim. Everyone wants a claim."
 > **THAD:** "I have come about a letter."
 > **FANSHAWE:** "A letter! Then you'll want a claim to write home about."
 
@@ -388,14 +388,16 @@ Six options. **Five produce no response at all** — Hob keeps walking, and Thad
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "Good evening." | `[TOPIC · retain]` | *(nothing)* — Thad: "He is walking. I will consider that an evening." |
-| 2 | "Do you know anything about Claim One?" | `[TOPIC · retain]` | *(nothing)* |
-| 3 | "Did you know Obadiah Mott?" | `[TOPIC · retain]` | *(He stops. Then:)* "No." *(He does not walk on for four seconds.)* |
+| 1 | "Good evening." | `[TOPIC · retain]` | *(beat)* — Thad: "He is walking. I will consider that an evening." |
+| 2 | "Do you know anything about Claim One?" | `[TOPIC · retain]` · req `T_BORDERS_MOTT` | *(beat)* |
+| 3 | "Did you know Obadiah Mott?" | `[TOPIC · retain]` · req `T_MOTT_TOLD` | *(beat)* "No." *(long pause)* |
 | 4 | "How long have you been in Consolation?" | `[TOPIC · retain]` | "Longer than it has." |
-| 5 | "Do you ever sleep?" | `[COMIC · retain]` | *(nothing)* |
-| 6 | "I know where Mott's strike is." | `[ASSAY · retain]` | "So does everybody. That's the town. Try again." → **pair 21** |
+| 5 | "Do you ever sleep?" | `[COMIC · retain]` | *(beat)* |
+| 6 | "I know where Mott's strike is." | `[ASSAY · retain]` · req `T_MOTT_TOLD` | "So does everybody. That's the town. Try again." → **pair 21** |
 
-**Option 3 is the whole game.** A player who tries it in Act I gets a four-second pause from an NPC and nothing else, and will not think about it again for fifteen hours.
+*Errata 310: options 3 and 6 are offered once the map seller has told Thad who Mott was, and option 2 once Sump has told him whose claim his borders. On the first night, before either, he could not have asked them.*
+
+**Option 3 is the whole game.** A player who tries it in Act I gets a long pause from an NPC and nothing else, and will not think about it again for fifteen hours.
 
 **Running:** every fourth night, unprompted, Hob says one of:
 > "Wouldn't stand there." *(RULED, errata 60/R4: it is about the mud — a practical warning wearing gnomic clothes, paid off when the mud takes Thad's boot. It obligates nothing later.)* · "It'll rain." *(it does not)* · "That's not yours." *(about nothing identifiable)* · "You're the piano man." · "It's a bad claim." *(pause)* "They're all bad claims."
@@ -471,13 +473,13 @@ He digs Thad out and speaks in complete sentences for the first time, and the ef
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
 | 1 | "Where did Deke Vessel go?" | `[PROGRESS · remove]` | "I print the stage schedules! I know where everyone goes. Give me a story and I'll give you a coach." | opens B1 trade; req `T_SWINDLED` |
-| 2 | "What do you know about Mott?" | `[TOPIC · retain]` | "Everything! I wrote most of it." *(beat)* "Some of it was told to me." *(beat)* "I'd have to check which." *(second)* "More than a minute ago! It keeps coming back to me. Some of it for the first time." | sets `T_MOTT_FACE_UNKNOWN` groundwork |
+| 2 | "What do you know about Mott?" | `[TOPIC · retain]` | "Everything! I wrote most of it." *(beat)* "Some of it was told to me." *(beat)* "I'd have to check which." *(second)* "More than a minute ago! It keeps coming back to me. Some of it for the first time." | sets `T_MOTT_FACE_UNKNOWN` groundwork · req `T_MOTT_TOLD` *(errata 310: asked once he has heard of Mott)* |
 | 3 | "Do you have a photograph of him?" | `[TOPIC · retain]` · after 2 | "I have *the* photograph of him." *(It is a stock portrait. Sheng has the same one in his window, advertising collars.)* *(second)* "THE photograph. I'd lend it to you, but then you'd have it." | |
-| 8 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "PIKE!" *(He reaches for his pencil, then puts it down.)* "Old news, Mr. Grubbs. Very old. The undertaker has the current edition." *(second)* "The undertaker, Mr. Grubbe. He's got Pike on file." | unless `T_PIKE_DEAD` |
+| 8 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "PIKE!" "Old news, Mr. Grubbs. Very old. The undertaker has the current edition." *(second)* "The undertaker, Mr. Grubbe. He's got Pike on file." | unless `T_PIKE_DEAD` |
 | 9 | "You knew Pike was dead." | `[TOPIC · retain]` | "I PRINTED it! Page six, under the livestock prices." *(beat)* "Nobody reads page six." *(second)* "Page six. Between a cow and a correction." | req `T_PIKE_DEAD` |
 | 4 | "You've spelled my name wrong." | `[COMIC · counted-repeat]` | "Have I! Which way?" | `MISSPELLINGS_SEEN` +1 |
 | 5 | "Does Fanshawe ever leave his office?" | `[PROGRESS · remove]` | "For funerals! Every one. Front pew, black gloves, a wreath the size of a cartwheel. I print the notices, and he's the only man in town who reads them." | req `T_OFFICE_TOPIC`; sets `T_FANSHAWE_FUNERALS` — C3 *(errata 75)* |
-| 6 | "I need a funeral notice printed." | `[PROGRESS · retain]` | "A FUNERAL!" *(He has the type set before Thad has finished the name.)* "'MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS.' I've added refreshments. It doubles the turnout." *(second)* "It's SET! Every word in capitals, and REFRESHMENTS in bigger ones. People read the big ones." | req `T_MEMORIAL_BOOKED`; begins the funeral day — C3 *(errata 75)* |
+| 6 | "I need a funeral notice printed." | `[PROGRESS · retain]` | "A FUNERAL!" — *"For Mr. Ez—"* — "PIKE! Set already." "'MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS.' I've added refreshments. It doubles the turnout." *(second)* "It's SET! Every word in capitals, and REFRESHMENTS in bigger ones. People read the big ones." | req `T_MEMORIAL_BOOKED`; begins the funeral day — C3 *(errata 75)* |
 | 7 | "Have you ever been in the Liar's Assay?" | `[ASSAY · remove]` | "Once! Fellow told me he'd found a nugget shaped exactly like the President, and I said—" *(beat)* "'So did four men this month. It is a popular shape.' I printed it. Front page. He moved to Sacramento." | pair 16 *(errata 75)* |
 
 *Errata 172, doc 99's rewrite: second answers for his questions (`*(second)*`), and the town's Pike thread (doc 98), options 8 and 9. He misspells the name twice in two lines, and differently. Option 1 is now offered only after the swindle (`req T_SWINDLED`): before it, Vessel is still sitting in the Nugget, and the question is one Thad cannot have on his first night (doc 59 §11).*
@@ -692,7 +694,7 @@ The bible: "Thad names it (full Christian name, chosen by the player from three 
 | 7 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "Mr. Pike's shirts are still here. Four of them, pressed." *(beat)* "He has not called for them in six years. The undertaker will tell you why." *(second)* "Four shirts. Pressed. The undertaker has the explanation, and I have the shirts." *(unless `T_PIKE_DEAD`)* |
 | 8 | "You knew Pike was dead." | `[TOPIC · retain]` | "A man who leaves four good shirts for six years is dead or married, Mr. Grubb. I checked the register." *(second)* "Not married. I checked." *(req `T_PIKE_DEAD`)* |
 | 4 | "Was the Colonel in the Eleventh Ohio Mounted?" | `[TOPIC · remove]` | "There is no Eleventh Ohio Mounted. There is a Ninth. My brother was in it." *(req `T_ELEVENTH_OHIO`; errata 184)* → `WAR_CONTRADICTIONS` +1 |
-| 5 | "I have four dollars." | `[COMIC · counted-repeat]` | "You have two dollars and forty cents. I have watched you spend the rest. You are not a careful man, Mr. Grubb, but you are an entertaining one." *(second)* "You do not. I would have heard." *(third)* "Mr. Grubb, I keep your accounts better than you do, and I do not keep your accounts." |
+| 5 | "I'm good with money." | `[COMIC · counted-repeat]` | "You are not, Mr. Grubb. I have watched you. You are not a careful man, but you are an entertaining one." *(second)* "You do not. I would have heard." *(third)* "Mr. Grubb, I keep your accounts better than you do, and I do not keep your accounts." |
 | 6 | "Have you ever been in the Liar's Assay?" | `[ASSAY · remove]` | "Once. A Company man told me, 'The Improvement Company came to me on their knees.' I said, 'The Company comes to everyone on their knees. It is how they get under the door.'" *(beat)* "He paid his account the next morning. In full." *(pair 18; errata 75)* |
 
 
@@ -734,9 +736,9 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "Reverend, I couldn't help noticing your bell. Tell me about it." | `[PROGRESS · remove]` | "A half-step flat since the day it was hung, and I have struck it every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it." *(Load-bearing for the funeral theme and the man does not know it.)* |
+| 1 | "Reverend, I couldn't help noticing your bell. Tell me about it." | `[PROGRESS · remove]` | "A half-step flat since the day it was hung, and it has been rung every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it." *(Load-bearing for the funeral theme and the man does not know it.)* |
 | 2 | "What do your services cost?" | `[TOPIC · retain]` | "Feeling is free. *Articulated* feeling is priced by the adjective. The board is by the door." *(second)* "The feeling, free. The adjectives, on the board. 'Beloved' is the dear one." |
-| 3 | "Do you believe in Mott's gold?" | `[TOPIC · retain]` | "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement." *(second)* "I believe it most on Sundays. So does the collection plate." |
+| 3 | "Do you believe in Mott's gold?" | `[TOPIC · retain]` | "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement." *(second)* "I believe it most on Sundays. So does the collection plate." *(req `T_MOTT_TOLD`; errata 310)* |
 | 9 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "PIKE!" *(beat)* "A man of— a man of real—" *(beat)* "I never met him. The undertaker knew him best. Professionally." *(second)* "The undertaker. He knew Mr. Pike in a way I never had the privilege to." *(unless `T_PIKE_DEAD`)* |
 | 10 | "You knew Pike was dead." | `[TOPIC · retain]` | "I grieve for Mr. Pike every Sunday, Mr. Grubb, out of habit." *(beat)* "Nobody has ever paid me to." *(second)* "Every Sunday. Unpaid. It is the purest grief I have." *(req `T_PIKE_DEAD`)* |
 | 4 | "You have a fine speaking voice." | `[COMIC · counted-repeat]` | "I KNOW." *(second, softer)* "I know." *(third, to himself, genuinely moved)* "…thank you." |
@@ -882,12 +884,12 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "I need a mule for the diggings road, and I'm told she's the best." | `[PROGRESS · remove]` | "You don't hire Grievance. You *apply*. She'll look at you. Then we'll know." *(She looks. A long moment. She looks away.)* "…Well. Now we know." *(Errata 75: she will not move — B2's refusal. "D-travel" is withdrawn; travel is the map.)* |
+| 1 | "I'll need a mule for the diggings road." | `[PROGRESS · remove]` | "You don't hire Grievance. You *apply*. She'll look at you. Then we'll know." *(She looks. A long moment. She looks away.)* "…Well. Now we know." *(Errata 75: she will not move — B2's refusal. "D-travel" is withdrawn; travel is the map.)* |
 | 2 | "Why 'Grievance'?" | `[TOPIC · retain]` | "Had a partner once. She took his side." *(second)* "She took his side. She'd take it again, given the chance." |
 | 8 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "Grievance knew him. She'd tell you to ask the undertaker." *(beat)* "She's not a talker." *(second)* "The undertaker. Grievance has nothing to add." → unless `T_PIKE_DEAD` |
 | 9 | "You knew Pike was dead." | `[TOPIC · retain]` | "She knew. She looked at me funny for a week." *(second)* "A whole week. Funny." → req `T_PIKE_DEAD` |
 | 3 | "Is the mule all right?" | `[COMIC · retain]` | "She's fine. She's just got a view." *(second)* "Still the same view. She's loyal to it." |
-| 4 | "What's that tune?" | `[TOPIC · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* "That's what the fella whistled. Twelve years I've been getting it wrong." → req `T_HUM_HEARD` *(errata 68 F: B3 needs it; errata 75: the Assay pair is option 7; errata 278, doc 125: asked once he has been heard humming, which LISTEN TO THE LIVERY MAN does)* |
+| 4 | "What's that tune?" | `[TOPIC · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* "A tune a fella whistled in here once. Twelve years I've been getting it wrong." → req `T_HUM_HEARD` *(errata 68 F: B3 needs it; errata 75: the Assay pair is option 7; errata 278, doc 125: asked once he has been heard humming, which LISTEN TO THE LIVERY MAN does)* |
 | 5 | "Could I borrow a blanket?" | `[PROGRESS · remove]` | "Hers?" *(He looks at Grievance. Grievance looks at the blanket.)* "She's not using it. Bring it back before she notices." → THE LIVERY BLANKET *(errata 68 A; option added in Batch C, doc 54)* |
 | 6 | "Your board says she went out once. Twelve years ago, four days, and nobody wrote down where." | `[PROGRESS · remove]` | "Once. Twelve years back. Fella came in at night, whistled at her, and she walked out after him like she'd been waiting." *(beat)* "Never saw him again. Never saw her move again, either." *(He tips his chair back and goes on humming, under his breath.)* → `T_GRIEVANCE_MOTT` — **B2** *(errata 75)*; req `T_BOARD_GRIEVANCE` *(errata 278, doc 125: asked from what the board of names says; was "Has she ever moved for anybody?")* |
 | 7 | "Have you ever been in the Liar's Assay?" | `[ASSAY · remove]` | "Once. Fella told me, 'I once bought a saloon with a single nugget.' I said, 'I have been in it. You overpaid.'" *(beat)* "He's never forgiven me. Still owns the saloon." → pair 20 *(errata 75)* |

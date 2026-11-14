@@ -105,10 +105,10 @@ is the whole of his character.
 > "You knew Pike was dead." → "Everybody knew. I just thought it'd read better from a professional."
 > `[COMIC]` "Thaddeus Grubb. Musician, of some reputation." → *(He writes it down.)* "'Gentleman of independent means, in music.'"
 >   → "That's how it'll read. You won't recognize yourself, and neither will anybody else."
-> `[COMIC]` "I write my own." → "I know. I've read them over your shoulder."
->   *Thad:* "You've what?"
->   → "You're not bad. You're honest, which is a phase."
->   *Asked again:* "So you keep saying. They'd sell better with a lie or two in. Everybody else's do."
+> `[COMIC]` "I write my own." → "Everybody does, the first week."
+>   *Thad:* "And the second?"
+>   → "The second week the truth runs out, and they come to me."
+>   *Asked again:* "First week. Enjoy it. Honest is a phase."
 
 
 **Barks**
@@ -166,7 +166,7 @@ is the whole of his character.
 
 **Micro-tree**
 *Rewritten by errata 286: Thad's ear against a man who is proud he cannot hear.*
-> "That bell is flat. I could hear it from the hotel." → "Everybody can hear it from the hotel. That's what a bell's for."
+> "That bell is flat. I could hear it from Main Street." → "Everybody can hear it from Main Street. That's what a bell's for."
 > ↳ "I could show you where to strike it." → "You could." *(He does not move.)*
 > "How long have you rung it?" → "Since the day it came." *(beat)* "It came on a Tuesday. I've been celebrating since."
 > "Do you know Ezra Pike?" → "Rang for him."
@@ -202,13 +202,13 @@ is the whole of his character.
 > ↳ "Tell me something." → "Penny."
 >   *Thad:* "Everything costs a penny?"
 >   → "Knowing does. Not knowing's free. Most of the town's on that plan."
-> ↳ *(pay)* "Here's your penny. Make it worth it." → "…The Colonel gets a letter from Boston every month and burns it in the stove." *(This is true, is never followed up, and is not needed for anything.)*
+> ↳ *(pay)* "Here's your penny. Make it worth it." → "…Colonel Fanshawe gets a letter from Boston every month and burns it in the stove." *(This is true, is never followed up, and is not needed for anything.)*
 > "How much for where Mott's gold is?" → "That's not a penny. That's a dollar."
 >   *Thad:* "What do I get for a dollar?"
 >   → "Same as for a penny. I say it slower."
 > "Where would I find Ezra Pike?" → "That one's free." *(beat)* "Undertaker. Right there. No rush. Mr. Pike's not going anywhere."
 > "You knew Pike was dead." → "Everybody knew. You never asked the right question. That one's a penny."
-> `[COMIC]` "I'm Thaddeus Grubb. You'll have heard of me." → "I know. The whole town knew by supper."
+> `[COMIC]` "I'm Thaddeus Grubb. You'll have heard of me." → "I know. The whole town knew before your boots were out of the mud."
 >   *Thad:* "How?"
 >   → "I told them. Penny each."
 > `[COMIC]` "Shouldn't you be in school?" → "There's no teacher. There's a school." *(He runs off. This is the only explanation of the schoolhouse the game ever offers.)*
@@ -249,7 +249,7 @@ is the whole of his character.
 >   *Thad:* "And then?"
 >   → "And then the undertaker. Down the lane. Pike's still into me for three pies."
 > "You knew Pike was dead." → "I knew he'd stopped buying pie. Out here that's the same thing."
-> `[COMIC]` "Grubb. Pianos. You may have heard." → "I haven't." *(beat)* "Four cents to you, then."
+> `[COMIC]` "Grubb. Pianos. You may have heard." → "I haven't." *(beat)* "Still a nickel."
 > `[COMIC]` "I'll take a pie." → "Course you will."
 > `[EXIT]` "I'll come back when I'm hungrier." → "Course you will."
 
@@ -488,7 +488,7 @@ is the whole of his character.
 **Micro-tree**
 *Rewritten by errata 288: A says one word, and B explains it, with "dear". The gold rush is weather.*
 > "How's business?" → **A:** "Steady." **B:** "It's men. Men are steady."
-> "Have you ever prospected?" → **A:** *(She laughs for some time.)* **B:** "We've prospected the prospectors, dear."
+> "Have you ever prospected?" → **A:** "Prospected! Ha!" **B:** "We've prospected the prospectors, dear."
 > "Have you a room?" → **A:** "Six." **B:** "Dollars, dear. The week."
 >   *Thad:* "That's more than I have."
 >   → **A:** "Then no." **B:** "Then not *yet*, dear. They all come to us in the end. The hotel spells their names wrong."
@@ -531,14 +531,14 @@ is the whole of his character.
 >   → "Same map, sir. I look you in the eye while I sell it."
 > ↳ `[COMIC]` "Your maps are a swindle, sir, and I'll tell the whole town so!" *Thad says:* "Your maps are a sw— a wonder, sir! A wonder, and I'll tell the whole town so!" → "Tell them, sir! I'll draw you on the next one, telling them."
 >   *Thad:* "Me?"
->   → "Little hat. Arm out. Top of the hill, beside Pike."
-> "Is Ezra Pike on any of your maps?" → "Pike? Pike's on every one, sir! Little cross, top of the hill."
+>   → "Little hat. Arm out. Top of the hill, pointing at the strike."
+> "Do you know Ezra Pike?" → "Pike? Pike's on every one of my maps, sir! Little cross, top of the hill."
 >   *Thad:* "That's his claim?"
 >   → "That's his… the undertaker explains it better, sir. Down the lane."
 > "You knew Pike was dead." → "He's on the map, sir! I mark everybody. That hill's my most popular corner."
-> `[COMIC]` "Do you have one with pianos on? I'm a tuner." → "I do now, sir!" *(He draws a small piano on a map, beside a cross.)* "There's your piano. Twelve feet down."
+> `[COMIC]` "Do you have one with pianos on? I'm a tuner." → "I do now, sir!" *(He draws a small piano on a map.)* "There! A piano, right on top of the strike. You'll be the first man to look there."
 > `[COMIC]` "Do they work?" → "They've not been *disproved*, sir!"
-> ↳ "Have you ever dug where one says?" → "Dig my own map, sir? That'd be like a man eating his own dinner!" *(This makes no sense and he is very firm about it.)*
+> ↳ "Have you ever dug where one says?" → "Dig, sir? And find out which one's right? I'd have to throw the other forty away!"
 
 
 **Barks**
@@ -563,14 +563,14 @@ is the whole of his character.
 *Revised 2026-10-31 (Tyler): second-ask replies, one new option and a parting line; the original three answers are unchanged. He opens each conversation with his bark for the current state. Rewritten by errata 288: candour in the fewest words, and the one honest man at the table.*
 
 > "You're dealing off the bottom." → "I am."
-> ↳ "Doesn't anyone object?" → "They know what I am. They don't know what the Colonel is. Which of us is the problem?"
+> ↳ "Doesn't anyone object?" → "They know what I am. In this town, that makes me the honest one."
 > "Do you know Ezra Pike?" → "Pike owed me eleven dollars. I've forgiven it."
 >   *Thad:* "That's generous."
 >   → "The undertaker hasn't. Ask him about Pike."
 > "You knew Pike was dead." → "I'm a card player. I knew the night he stopped losing."
 > `[COMIC]` "Deal me in." → "No. I like you."
 > `[COMIC]` "I've been told I have a very good poker face." → "You've had four faces since you came in, and every one of them wanted my money."
-> `[COMIC]` "Are you any good?" → "I'm the best honest card player in the territory. Small field. I'm not in it."
+> `[COMIC]` "Are you any good?" → "Best in the territory, and the only one who'll tell you how."
 >   *Asked again:* "Good enough not to play you. You'd lose, and I'd feel it."
 > `[EXIT]` "I should go." → "Count your fingers on the way out."
 

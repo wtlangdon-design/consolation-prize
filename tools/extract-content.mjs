@@ -2876,7 +2876,7 @@ function minorTrees() {
   //: hotspot that opens the tree can be checked against it.
   const WHO = {
     'THE UNDERTAKER': { tree: 'UNDERTAKER', speaker: 'undertaker', room: 'undertaker' },
-    'THE HOTEL CLERK': { tree: 'HOTEL_CLERK', speaker: 'hotel_clerk', room: 'hotel_lobby' },
+    'THE HOTEL CLERK': { tree: 'HOTEL_CLERK', speaker: 'hotel_clerk', room: 'hotel_lobby', metFlag: 'T_CLERK_MET' },
     'DEKE VESSEL': { tree: 'DEKE_VESSEL', speaker: 'deke_vessel', room: 'nugget' },
   };
   //: Doc 27 leaves one writer unnamed. See the routing note above.
@@ -2912,7 +2912,11 @@ function minorTrees() {
 
     const rootCell = body.match(/^\*\*Root:\*\* (.+)$/m);
     if (!rootCell) throw new Error(`doc 27: ${title} has no root line`);
-    const rootSpeech = speech(rootCell[1], who.speaker);
+    // A ROOT FOR THE FIRST VISIT, AND ONE FOR EVERY VISIT AFTER (errata 310): `*(every visit after the first)* "..."`.
+    // The clerk asked nobody's name and read it from a register Thad had never signed; now he asks, once.
+    const [firstRoot, laterRoot] = rootCell[1].split(/\*\(every visit after the first\)\*/);
+    const returnSpeech = laterRoot ? speech(laterRoot, who.speaker) : [];
+    const rootSpeech = speech(firstRoot, who.speaker);
     if (rootSpeech.length !== 1) {
       throw new Error(`doc 27: ${title}'s root is ${rootSpeech.length} lines, not 1`);
     }
@@ -3033,6 +3037,8 @@ function minorTrees() {
           // node's opening, the greeting is performed before the options, the
           // same route every act-root greeting already takes.
           opening: [rootSpeech[0]],
+          ...(returnSpeech.length ? { openingOnce: who.metFlag ?? (() => { throw new Error(`doc 27: ${title} has a return root and no metFlag`); })(),
+            returnOpening: returnSpeech } : {}),
           options,
         },
         ...(actTwo ? { VES_B1: vesselBackFromTheGulch(actTwo.node) } : {}),
@@ -4470,6 +4476,10 @@ function hobTree() {
       const follows = afterIds(tagCell, SPEAKER);
       if (follows) option.after = follows;
       if (tagged[2]) option.afterUse = tagged[2];
+      // ASKED ONLY ONCE HE COULD KNOW TO ASK (errata 310): `req `T_X`` in the tag cell. Mott, and Claim One, were asked
+      // after on the first night by a man nobody had told of either.
+      const req = /\breq `(T_[A-Z_0-9]+)`/.exec(tagCell);
+      if (req) option.when = { [req[1]]: true };
       // HOB_E6's table has a fifth column, State: the response cell ends at
       // its pipe, and what the state gives is read from it.
       const [responseOnly, stateCell = ''] = responseCell.split(/[ \t]*\|[ \t]*/);
@@ -4496,6 +4506,9 @@ function hobTree() {
         if (directions.length) unplayed.push(`${where} staging: ${directions.join(' ')}`);
       } else if (hobLines.length > 1) {
         option.exchange = hobLines.map((line) => ({ speaker: SPEAKER, line }));
+      } else if (directions.length && directions.every((one) => /^(beat|pause|long pause)$/i.test(one.trim()))) {
+        // A SILENCE IS "…", AS EVERY PAUSE IS (errata 310; doc 130, no parentheticals). It was "(nothing)", printed.
+        option.say = '…';
       } else if (directions.length) {
         option.beat = directions.join(' ');
       } else {

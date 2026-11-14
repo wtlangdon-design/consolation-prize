@@ -3343,7 +3343,7 @@
       "item": "room_key",
       "room": "thads_room",
       "target": "wardrobe",
-      "say": "Thad locks the wardrobe. The key fits, as it fits everything.",
+      "say": "It fits. It fits everything in this hotel; I have stopped being surprised.",
       "note": "Doc 121 (THE LINES; errata 250), N-4: his room key locks the wardrobe that drifts open in the night. Nothing reads T_WARDROBE_LOCKED but the second line.",
       "rules": [
         {
@@ -3351,8 +3351,7 @@
           "when": {
             "T_WARDROBE_LOCKED": false
           },
-          "say": "Thad locks the wardrobe. The key fits, as it fits everything.",
-          "direction": true,
+          "say": "It fits. It fits everything in this hotel; I have stopped being surprised.",
           "then": [
             "Locked. It may check on somebody else tonight."
           ],

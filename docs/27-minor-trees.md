@@ -37,11 +37,11 @@
 
 **Voice:** proprietorial about a building he does not own. The register is his and its spellings are authoritative. He is not rude; he is administering.
 
-**Root:** *(reading from the register)* "Mr. Grubbe."
+**Root:** "Name?" *(every visit after the first)* "Mr. Grubbe."
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "It's Grubb, actually. Two B's, no E. You'll want it right; I'm going places." | `[TOPIC]` | "It's as given." *(again)* "As given, Mr. Grubbe. The register doesn't take corrections. It takes guests." |
+| 1 | "Thaddeus Grubb. Two B's and no E, if you're writing it down." | `[TOPIC]` | "Grubbe." — *"That has an E in it."* — "As given." *(again)* "As given, Mr. Grubbe. The register doesn't take corrections. It takes guests." |
 | 7 | "Is this your hotel?" | `[TOPIC]` | "The register is mine. The building is a formality." *(again)* "The register, Mr. Grubbe. Everything else is furniture." |
 | 2 | "I'd like your finest room, please." | `[PROGRESS]` | "Five dollars." *(again)* "Still five. The price doesn't have feelings either." |
 | 3 | "I have four. Could four be persuaded?" | `[PROGRESS]` · after 2 | "Then you have four dollars and no room. Those are compatible." *(again)* "Four dollars, no room. Still compatible." |

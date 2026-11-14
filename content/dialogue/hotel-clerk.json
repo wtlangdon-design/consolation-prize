@@ -27,8 +27,15 @@
   "nodes": {
     "root": {
       "id": "root",
-      "prompt": "Mr. Grubbe.",
+      "prompt": "Name?",
       "opening": [
+        {
+          "speaker": "hotel_clerk",
+          "line": "Name?"
+        }
+      ],
+      "openingOnce": "T_CLERK_MET",
+      "returnOpening": [
         {
           "speaker": "hotel_clerk",
           "line": "Mr. Grubbe."
@@ -37,11 +44,23 @@
       "options": [
         {
           "id": "hotel_clerk1",
-          "text": "It's Grubb, actually.",
+          "text": "Thaddeus Grubb. Two B's and no E, if you're writing it down.",
           "tag": "TOPIC",
-          "say": "It's as given.",
-          "afterUse": "remove",
-          "echo": "It's Grubb, actually. Two B's, no E. You'll want it right; I'm going places."
+          "exchange": [
+            {
+              "speaker": "hotel_clerk",
+              "line": "Grubbe."
+            },
+            {
+              "speaker": "thad",
+              "line": "That has an E in it."
+            },
+            {
+              "speaker": "hotel_clerk",
+              "line": "As given."
+            }
+          ],
+          "afterUse": "remove"
         },
         {
           "id": "hotel_clerk7",

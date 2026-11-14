@@ -190,7 +190,7 @@ The plank, and arithmetic, follow "What rules?"
 
 ### amb_letter_writer
 
-- `letter_writer8` stays — "So you keep saying."
+- `letter_writer8` stays — "First week. Enjoy it. Honest is a phase." *(errata 310 rewrote the line; it was "So you keep saying.")*
 
 ### amb_man_leaving_tomorrow
 

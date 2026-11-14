@@ -17,7 +17,7 @@
           "id": "livery_man1",
           "tag": "PROGRESS",
           "afterUse": "remove",
-          "text": "I need a mule for the diggings road, and I'm told she's the best.",
+          "text": "I'll need a mule for the diggings road.",
           "exchange": [
             {
               "speaker": "livery_man",
@@ -80,7 +80,7 @@
           "tag": "TOPIC",
           "afterUse": "remove",
           "text": "What's that tune?",
-          "say": "That's what the fella whistled. Twelve years I've been getting it wrong.",
+          "say": "A tune a fella whistled in here once. Twelve years I've been getting it wrong.",
           "when": {
             "T_HUM_HEARD": true
           }
