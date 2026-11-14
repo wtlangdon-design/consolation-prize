@@ -391,50 +391,8 @@ test('the floor resolves everywhere, and a nearer point is never a smaller man',
   }
 });
 
-test('Room 2 has no lip and no fixed box, and no step anywhere (errata 300)', async () => {
-  const content = await loadContent(fsReader);
-  const state = new GameState(content, new MemoryStorage());
-  state.enterRoom('main_street');
-
-  // WHAT THIS USED TO ASSERT AND WHY IT CANNOT. Errata 28a placed ONE source
-  // swap in the room, at the boardwalk lip: the fixed box drew at ruling 24's
-  // far sheet and the mud below it at the near one, so there was a measurable
-  // step. Errata 54 left one drawn size, Q9 removed the threshold that chose
-  // between them, and Q6's per-room curve does not exist -- so there is
-  // nothing to swap and no step to find. Asserting a step here would be a
-  // test that cannot pass.
-  //
-  // What is still binding is 28a's GEOMETRY, and that is asserted instead:
-  // exactly one box is fixed and it is the lip. It stays true when Q6 puts a
-  // real step back, and this test grows the step assertion back with it.
-  const room = content.rooms.get('main_street')!;
-  // THE LIP IS ONE THING AND MAY BE SEVERAL BOXES. Counting boxes was a
-  // stand-in for "the lip is the only fixed thing", and it stopped being the
-  // same claim the moment an obstacle carved the lip in two: the water trough
-  // straddles the boardwalk band, so the lip is now the piece west of it and
-  // the piece east of it. What 28a binds is that the FIXED SCALE belongs to
-  // the lip and to nothing else, which is what is asserted.
-  //
-  // AND THEN THE LIP WENT (errata 300; Tyler, 2026-11-13: "Thad can walk partway up the side of a building. And he
-  // just randomly walks up the edge of the porch instead of going up the stairs."). The lip was a boardwalk the width
-  // of the street, from the street as first drawn; the redrawn street has a porch to each building and the strip ran
-  // up all of them. He walks on the ground now, which is all on the curve, so no box is fixed at all.
-  const fixed = room.walkBoxes!.filter((box) => box.scaleMode.kind === 'fixed');
-  assert.deepEqual(fixed.map((box) => box.id), [], 'nothing on the street is fixed: there is no lip');
-  assert.ok(!room.walkBoxes!.some((box) => /^boardwalk/.test(box.id)), 'and no boardwalk strip');
-
-  const jumps: { y: number; from: number; to: number }[] = [];
-  let previous: number | null = null;
-  for (let y = 468; y < 864; y += 1) {
-    const height = state.actorHeightAt(960, y);
-    if (height === null) continue;
-    if (previous !== null && Math.abs(height - previous) > 1) {
-      jumps.push({ y, from: previous, to: height });
-    }
-    previous = height;
-  }
-  assert.deepEqual(jumps, [], 'a flat placeholder table has no step anywhere');
-});
+// Room 2's lip test lived here. The lip is gone (errata 300) and the porches that replaced it are held by
+// tests/main-street-ground.test.mjs, with the no-step rule (errata 301), so it was merged there.
 
 test('a point off the floor has no actor height at all', async () => {
   const content = await loadContent(fsReader);

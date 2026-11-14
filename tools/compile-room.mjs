@@ -2307,7 +2307,17 @@ for (const [spec, rule] of personBullets) {
       points: [{ x, y }, { x: x + w, y }, { x: x + w, y: y + h }, { x, y: y + h }],
       surface: extra.surface ?? 'mud',
       clipPlane: authoredPlane(extra.id),
-      scaleMode: scale,
+      // A RAISED FLOOR (errata 301: Main Street's porches and their stairs). A man on a porch stands at the depth of
+      // the ground at its foot, raised; the curve read at the deck's own rows would shrink him for climbing three
+      // steps. `fixedAt` is the row of that foot, and the box is drawn at the curve's height there.
+      scaleMode: extra.fixedAt === undefined ? scale : (() => {
+        if (ann.scaling.samples) fail(`walkBoxesExtra ${extra.id}: fixedAt on a bent curve is not built`);
+        const { far, near } = ann.scaling;
+        // Floored, and never above the far row: a porch is never drawn larger than the ground in front of it, nor smaller
+        // than the room's far size.
+        const y = Math.max(extra.fixedAt, far.y);
+        return { kind: 'fixed', height: Math.floor(far.height + ((y - far.y) * (near.height - far.height)) / (near.y - far.y)) };
+      })(),
       neighbours: [],
     });
   }

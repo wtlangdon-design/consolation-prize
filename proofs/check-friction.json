@@ -901,6 +901,18 @@
    "date": "2026-11-13",
    "kind": "reviewed",
    "why": "KEEP, and no tune is owed. The three in this fortnight are three design rulings landing on a broad test, not the test misfiring: GIVE as a tenth verb (errata 282), a bare click that walks (errata 283), and now Main Street's lip removed because it let Thad walk up buildings (errata 300). Each changed what the game is, and each time the test was taught the new truth and still fails on its defect. It is a file of many unrelated interface tests, so it will keep collecting entries as the interface changes; splitting the Room 2 floor tests out of it would cut the noise, and tests/main-street-ground.test.mjs now carries Main Street's floor, so the lip test here is the one to retire at the next twice-monthly review."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-13",
+   "kind": "loosened",
+   "why": "Errata 301: MERGED, as the review of the same day proposed. Its Room 2 lip test moves to tests/main-street-ground.test.mjs, which now holds Main Street's floor whole (porches, stairs, heights, no lip). Nothing it asserted is dropped: no boardwalk strip, and a raised floor drawn at the height of the ground at its foot, so no step anywhere."
+  },
+  {
+   "check": "tests/shortest-walk.test.ts",
+   "date": "2026-11-13",
+   "kind": "loosened",
+   "why": "Errata 301: a walk onto a porch goes up its stairs, by Tyler's ruling, however near the porch's front it starts; the room-wide detour bound skips a route through stairs. The map-seller test and the bound for every other walk are unchanged."
   }
  ]
 }

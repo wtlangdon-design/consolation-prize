@@ -312,6 +312,182 @@
         430,
         66
       ]
+    },
+    {
+      "id": "deck_mercantile",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        152,
+        566,
+        303,
+        16
+      ]
+    },
+    {
+      "id": "stairs_mercantile",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        212,
+        582,
+        90,
+        50
+      ]
+    },
+    {
+      "id": "deck_company",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        470,
+        556,
+        400,
+        20
+      ]
+    },
+    {
+      "id": "stairs_company",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        695,
+        576,
+        75,
+        44
+      ]
+    },
+    {
+      "id": "deck_clarion",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        885,
+        551,
+        235,
+        15
+      ]
+    },
+    {
+      "id": "stairs_clarion",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        968,
+        566,
+        85,
+        42
+      ]
+    },
+    {
+      "id": "deck_row_1",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1250,
+        545,
+        290,
+        15
+      ]
+    },
+    {
+      "id": "stairs_row_1",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1388,
+        560,
+        82,
+        44
+      ]
+    },
+    {
+      "id": "deck_row_2",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1545,
+        535,
+        235,
+        15
+      ]
+    },
+    {
+      "id": "stairs_row_2",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1640,
+        550,
+        62,
+        32
+      ]
+    },
+    {
+      "id": "deck_nugget",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        2130,
+        550,
+        410,
+        32
+      ]
+    },
+    {
+      "id": "stairs_nugget",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        2210,
+        582,
+        80,
+        30
+      ]
+    },
+    {
+      "id": "deck_hotel",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        2600,
+        588,
+        360,
+        24
+      ]
+    },
+    {
+      "id": "stairs_hotel",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        2605,
+        612,
+        90,
+        43
+      ]
+    },
+    {
+      "id": "deck_assay",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        3000,
+        605,
+        200,
+        32
+      ]
+    },
+    {
+      "id": "stairs_assay",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        3035,
+        637,
+        90,
+        29
+      ]
     }
   ],
   "walkableOutline": [
@@ -860,7 +1036,8 @@
         "ground_hotel",
         "ground_office",
         "ground_barrel",
-        "ground_east_end"
+        "ground_east_end",
+        "stairs_assay"
       ]
     },
     {
@@ -1178,7 +1355,8 @@
       "neighbours": [
         "mud_far_0",
         "ground_west_end",
-        "ground_company"
+        "ground_company",
+        "stairs_mercantile"
       ]
     },
     {
@@ -1213,7 +1391,8 @@
       "neighbours": [
         "mud_far_0",
         "ground_mercantile",
-        "ground_clarion"
+        "ground_clarion",
+        "stairs_company"
       ]
     },
     {
@@ -1248,7 +1427,8 @@
       "neighbours": [
         "mud_far_0",
         "ground_company",
-        "ground_notices"
+        "ground_notices",
+        "stairs_clarion"
       ]
     },
     {
@@ -1319,7 +1499,8 @@
         "mud_far_0",
         "mud_far_2",
         "ground_notices",
-        "ground_row_2"
+        "ground_row_2",
+        "stairs_row_1"
       ]
     },
     {
@@ -1355,7 +1536,8 @@
         "mud_far_1",
         "mud_far_2",
         "ground_row_1",
-        "ground_gap"
+        "ground_gap",
+        "stairs_row_2"
       ]
     },
     {
@@ -1495,7 +1677,8 @@
       "neighbours": [
         "mud_far_1",
         "ground_nugget_west",
-        "ground_nugget_east"
+        "ground_nugget_east",
+        "stairs_nugget"
       ]
     },
     {
@@ -1567,7 +1750,8 @@
         "mud_far_3",
         "mud_far_4",
         "ground_nugget_east",
-        "ground_office"
+        "ground_office",
+        "stairs_hotel"
       ]
     },
     {
@@ -1671,6 +1855,494 @@
         "mud_far_3",
         "ground_barrel"
       ]
+    },
+    {
+      "id": "deck_mercantile",
+      "points": [
+        {
+          "x": 152,
+          "y": 566
+        },
+        {
+          "x": 455,
+          "y": 566
+        },
+        {
+          "x": 455,
+          "y": 582
+        },
+        {
+          "x": 152,
+          "y": 582
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 122
+      },
+      "neighbours": [
+        "stairs_mercantile"
+      ]
+    },
+    {
+      "id": "stairs_mercantile",
+      "points": [
+        {
+          "x": 212,
+          "y": 582
+        },
+        {
+          "x": 302,
+          "y": 582
+        },
+        {
+          "x": 302,
+          "y": 632
+        },
+        {
+          "x": 212,
+          "y": 632
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 122
+      },
+      "neighbours": [
+        "ground_mercantile",
+        "deck_mercantile"
+      ]
+    },
+    {
+      "id": "deck_company",
+      "points": [
+        {
+          "x": 470,
+          "y": 556
+        },
+        {
+          "x": 870,
+          "y": 556
+        },
+        {
+          "x": 870,
+          "y": 576
+        },
+        {
+          "x": 470,
+          "y": 576
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 118
+      },
+      "neighbours": [
+        "stairs_company"
+      ]
+    },
+    {
+      "id": "stairs_company",
+      "points": [
+        {
+          "x": 695,
+          "y": 576
+        },
+        {
+          "x": 770,
+          "y": 576
+        },
+        {
+          "x": 770,
+          "y": 620
+        },
+        {
+          "x": 695,
+          "y": 620
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 118
+      },
+      "neighbours": [
+        "ground_company",
+        "deck_company"
+      ]
+    },
+    {
+      "id": "deck_clarion",
+      "points": [
+        {
+          "x": 885,
+          "y": 551
+        },
+        {
+          "x": 1120,
+          "y": 551
+        },
+        {
+          "x": 1120,
+          "y": 566
+        },
+        {
+          "x": 885,
+          "y": 566
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 113
+      },
+      "neighbours": [
+        "stairs_clarion"
+      ]
+    },
+    {
+      "id": "stairs_clarion",
+      "points": [
+        {
+          "x": 968,
+          "y": 566
+        },
+        {
+          "x": 1053,
+          "y": 566
+        },
+        {
+          "x": 1053,
+          "y": 608
+        },
+        {
+          "x": 968,
+          "y": 608
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 113
+      },
+      "neighbours": [
+        "ground_clarion",
+        "deck_clarion"
+      ]
+    },
+    {
+      "id": "deck_row_1",
+      "points": [
+        {
+          "x": 1250,
+          "y": 545
+        },
+        {
+          "x": 1540,
+          "y": 545
+        },
+        {
+          "x": 1540,
+          "y": 560
+        },
+        {
+          "x": 1250,
+          "y": 560
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 112
+      },
+      "neighbours": [
+        "stairs_row_1"
+      ]
+    },
+    {
+      "id": "stairs_row_1",
+      "points": [
+        {
+          "x": 1388,
+          "y": 560
+        },
+        {
+          "x": 1470,
+          "y": 560
+        },
+        {
+          "x": 1470,
+          "y": 604
+        },
+        {
+          "x": 1388,
+          "y": 604
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 112
+      },
+      "neighbours": [
+        "ground_row_1",
+        "deck_row_1"
+      ]
+    },
+    {
+      "id": "deck_row_2",
+      "points": [
+        {
+          "x": 1545,
+          "y": 535
+        },
+        {
+          "x": 1780,
+          "y": 535
+        },
+        {
+          "x": 1780,
+          "y": 550
+        },
+        {
+          "x": 1545,
+          "y": 550
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 105
+      },
+      "neighbours": [
+        "stairs_row_2"
+      ]
+    },
+    {
+      "id": "stairs_row_2",
+      "points": [
+        {
+          "x": 1640,
+          "y": 550
+        },
+        {
+          "x": 1702,
+          "y": 550
+        },
+        {
+          "x": 1702,
+          "y": 582
+        },
+        {
+          "x": 1640,
+          "y": 582
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 105
+      },
+      "neighbours": [
+        "ground_row_2",
+        "deck_row_2"
+      ]
+    },
+    {
+      "id": "deck_nugget",
+      "points": [
+        {
+          "x": 2130,
+          "y": 550
+        },
+        {
+          "x": 2540,
+          "y": 550
+        },
+        {
+          "x": 2540,
+          "y": 582
+        },
+        {
+          "x": 2130,
+          "y": 582
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 115
+      },
+      "neighbours": [
+        "stairs_nugget"
+      ]
+    },
+    {
+      "id": "stairs_nugget",
+      "points": [
+        {
+          "x": 2210,
+          "y": 582
+        },
+        {
+          "x": 2290,
+          "y": 582
+        },
+        {
+          "x": 2290,
+          "y": 612
+        },
+        {
+          "x": 2210,
+          "y": 612
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 115
+      },
+      "neighbours": [
+        "ground_nugget",
+        "deck_nugget"
+      ]
+    },
+    {
+      "id": "deck_hotel",
+      "points": [
+        {
+          "x": 2600,
+          "y": 588
+        },
+        {
+          "x": 2960,
+          "y": 588
+        },
+        {
+          "x": 2960,
+          "y": 612
+        },
+        {
+          "x": 2600,
+          "y": 612
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 131
+      },
+      "neighbours": [
+        "stairs_hotel"
+      ]
+    },
+    {
+      "id": "stairs_hotel",
+      "points": [
+        {
+          "x": 2605,
+          "y": 612
+        },
+        {
+          "x": 2695,
+          "y": 612
+        },
+        {
+          "x": 2695,
+          "y": 655
+        },
+        {
+          "x": 2605,
+          "y": 655
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 131
+      },
+      "neighbours": [
+        "ground_hotel",
+        "deck_hotel"
+      ]
+    },
+    {
+      "id": "deck_assay",
+      "points": [
+        {
+          "x": 3000,
+          "y": 605
+        },
+        {
+          "x": 3200,
+          "y": 605
+        },
+        {
+          "x": 3200,
+          "y": 637
+        },
+        {
+          "x": 3000,
+          "y": 637
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 135
+      },
+      "neighbours": [
+        "stairs_assay"
+      ]
+    },
+    {
+      "id": "stairs_assay",
+      "points": [
+        {
+          "x": 3035,
+          "y": 637
+        },
+        {
+          "x": 3125,
+          "y": 637
+        },
+        {
+          "x": 3125,
+          "y": 666
+        },
+        {
+          "x": 3035,
+          "y": 666
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 135
+      },
+      "neighbours": [
+        "mud_far_3",
+        "deck_assay"
+      ]
     }
   ],
   "lamps": [],
@@ -1691,6 +2363,14 @@
   ],
   "occlusionPlanes": [],
   "occlusionBands": [
+    "deck_assay",
+    "deck_clarion",
+    "deck_company",
+    "deck_hotel",
+    "deck_mercantile",
+    "deck_nugget",
+    "deck_row_1",
+    "deck_row_2",
     "ground_barrel",
     "ground_clarion",
     "ground_company",
@@ -1709,7 +2389,15 @@
     "ground_west_end",
     "mud_far",
     "mud_mid",
-    "mud_near"
+    "mud_near",
+    "stairs_assay",
+    "stairs_clarion",
+    "stairs_company",
+    "stairs_hotel",
+    "stairs_mercantile",
+    "stairs_nugget",
+    "stairs_row_1",
+    "stairs_row_2"
   ],
   "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-36/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
   "figureLight": {

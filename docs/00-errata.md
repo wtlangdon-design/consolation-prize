@@ -7712,3 +7712,30 @@ Lesson: `tests/main-street-ground.test.mjs`, held against points read off the pl
 - Every door's stand is on the ground.
 
 `tests/interface.test.ts`'s lip test now asserts there is no lip. And a row in doc 55 section 8.
+
+## 301 · Up the steps onto the porches (Tyler, 2026-11-13)
+
+Tyler, told that errata 300 had kept Thad on the ground and that the doors were reached from the foot of their stairs: "I would like him to actually walk up steps onto porches."
+
+**Main Street's eight porches with stairs are floor now:**
+- the mercantile's, the Company's, the *Clarion*'s, the two on the row, the Nugget's, the hotel's (with the office beside it) and the assay office's;
+- each is a deck read off the plate, from the wall's foot to the deck's front edge, joined to the street only by its stairs, from the deck's edge to the stairs' foot;
+- nothing else touches a deck, so the only way up is the steps;
+- the deck behind the trough has no stairs a man can reach, and stays off the floor.
+
+**His size on a porch.** A man on a porch is as far away as the ground at its foot, only raised. So deck and stairs are drawn at the curve's height at the stairs' foot (`fixedAt` on an authored box, a new field the compiler reads). Climbing three steps changes his size not at all.
+
+**The doors.** Each door's stand is on its porch, in front of the door, and so is each arrival out of it. The Company's arrival is beside its doorway, because in Act III Fanshawe stands in it with the wreath.
+
+The dawn street takes the same porches.
+
+Seen in the real build: clicked on the hotel's porch, he crosses the street, climbs its stairs and stands on the deck by the window.
+
+**Not done:** the porches' front posts do not yet hide him when he stands behind them. Main Street's occlusion masks describe the street before its redraw (errata 276's note) and have to be redrawn first.
+
+Lesson: `tests/main-street-ground.test.mjs`, in both streets:
+- every porch is reached by its stairs and only by its stairs;
+- he stands on every deck and stair, and never on a porch's front face, a wall, the deck behind the trough or the barrel;
+- every porch is drawn at the ground's height at its foot.
+
+`tests/interface.test.ts`'s Room 2 lip test is merged into it, as its review proposed. `tests/shortest-walk.test.ts` no longer counts a walk up a porch's stairs as a detour.

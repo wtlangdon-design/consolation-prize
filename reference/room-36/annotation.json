@@ -248,7 +248,23 @@
    "ground_hotel": 0,
    "ground_office": 0,
    "ground_barrel": 0,
-   "ground_east_end": 0
+   "ground_east_end": 0,
+   "deck_mercantile": 0,
+   "stairs_mercantile": 0,
+   "deck_company": 0,
+   "stairs_company": 0,
+   "deck_clarion": 0,
+   "stairs_clarion": 0,
+   "deck_row_1": 0,
+   "stairs_row_1": 0,
+   "deck_row_2": 0,
+   "stairs_row_2": 0,
+   "deck_nugget": 0,
+   "stairs_nugget": 0,
+   "deck_hotel": 0,
+   "stairs_hotel": 0,
+   "deck_assay": 0,
+   "stairs_assay": 0
   },
   "planes": []
  },
@@ -468,7 +484,168 @@
     430,
     66
    ]
+  },
+  {
+   "id": "deck_mercantile",
+   "rect": [
+    152,
+    566,
+    303,
+    16
+   ],
+   "fixedAt": 632
+  },
+  {
+   "id": "stairs_mercantile",
+   "rect": [
+    212,
+    582,
+    90,
+    50
+   ],
+   "fixedAt": 632
+  },
+  {
+   "id": "deck_company",
+   "rect": [
+    470,
+    556,
+    400,
+    20
+   ],
+   "fixedAt": 620
+  },
+  {
+   "id": "stairs_company",
+   "rect": [
+    695,
+    576,
+    75,
+    44
+   ],
+   "fixedAt": 620
+  },
+  {
+   "id": "deck_clarion",
+   "rect": [
+    885,
+    551,
+    235,
+    15
+   ],
+   "fixedAt": 608
+  },
+  {
+   "id": "stairs_clarion",
+   "rect": [
+    968,
+    566,
+    85,
+    42
+   ],
+   "fixedAt": 608
+  },
+  {
+   "id": "deck_row_1",
+   "rect": [
+    1250,
+    545,
+    290,
+    15
+   ],
+   "fixedAt": 604
+  },
+  {
+   "id": "stairs_row_1",
+   "rect": [
+    1388,
+    560,
+    82,
+    44
+   ],
+   "fixedAt": 604
+  },
+  {
+   "id": "deck_row_2",
+   "rect": [
+    1545,
+    535,
+    235,
+    15
+   ],
+   "fixedAt": 582
+  },
+  {
+   "id": "stairs_row_2",
+   "rect": [
+    1640,
+    550,
+    62,
+    32
+   ],
+   "fixedAt": 582
+  },
+  {
+   "id": "deck_nugget",
+   "rect": [
+    2130,
+    550,
+    410,
+    32
+   ],
+   "fixedAt": 612
+  },
+  {
+   "id": "stairs_nugget",
+   "rect": [
+    2210,
+    582,
+    80,
+    30
+   ],
+   "fixedAt": 612
+  },
+  {
+   "id": "deck_hotel",
+   "rect": [
+    2600,
+    588,
+    360,
+    24
+   ],
+   "fixedAt": 655
+  },
+  {
+   "id": "stairs_hotel",
+   "rect": [
+    2605,
+    612,
+    90,
+    43
+   ],
+   "fixedAt": 655
+  },
+  {
+   "id": "deck_assay",
+   "rect": [
+    3000,
+    605,
+    200,
+    32
+   ],
+   "fixedAt": 666
+  },
+  {
+   "id": "stairs_assay",
+   "rect": [
+    3035,
+    637,
+    90,
+    29
+   ],
+   "fixedAt": 666
   }
  ],
- "walkBoxesExtraNote": "Errata 300 (Tyler, 2026-11-13: \"Thad can walk partway up the side of a building. And he just randomly walks up the edge of the porch instead of going up the stairs. On every building.\"). The street as redrawn has a porch to each building at its own depth, with its own stairs and gaps between, and the old floor ran one boardwalk strip the width of the street across all of it. Now he walks on the ground only: the street from y666 down, and in front of each building a strip up to the foot of what stands there -- the porch's posts, the foot of its stairs, the notice board's legs, the barrels -- each read off the plate. The doors are reached from the street at the foot of their stairs, as every exit's stand already was. The dawn street is the same street, and takes the same ground."
+ "walkBoxesExtraNote": "Errata 300 (Tyler, 2026-11-13: \"Thad can walk partway up the side of a building. And he just randomly walks up the edge of the porch instead of going up the stairs. On every building.\"). The street as redrawn has a porch to each building at its own depth, with its own stairs and gaps between, and the old floor ran one boardwalk strip the width of the street across all of it. Now he walks on the ground only: the street from y666 down, and in front of each building a strip up to the foot of what stands there -- the porch's posts, the foot of its stairs, the notice board's legs, the barrels -- each read off the plate. The doors are reached from the street at the foot of their stairs, as every exit's stand already was. The dawn street is the same street, and takes the same ground.",
+ "porchesNote": "Errata 301 (Tyler, 2026-11-13: \"I would like him to actually walk up steps onto porches.\"). Each porch is a deck, read off the plate from the wall's foot to the deck's front edge, joined to the street only by its stairs, from the deck's edge to the stairs' foot. Nothing else touches a deck, so the only way up is the steps. Deck and stairs are drawn at the height of the ground at the stairs' foot (fixedAt), since a man on a porch is that far away, raised. Each door's stand is on its porch, in front of it."
 }

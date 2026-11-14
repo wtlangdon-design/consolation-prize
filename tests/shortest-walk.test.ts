@@ -67,6 +67,8 @@ test('in every room, no walk goes far out of its way', () => {
         if (straight < 50) continue;
         const route = boxes.route(from.x, from.y, to.x, to.y);
         if (!route) continue;
+        // ONTO A PORCH IS UP ITS STAIRS (errata 301), however near the porch's front he starts: a fair detour.
+        if (route.boxes.some((id) => id.startsWith('stairs_'))) continue;
         const ratio = walked(from, route.waypoints) / (straight + 150);
         assert.ok(ratio <= 2.2, `${name}: ${Math.round(from.x)},${Math.round(from.y)} to ${Math.round(to.x)},${Math.round(to.y)} `
           + `walks ${ratio.toFixed(2)} times the way, by ${route.boxes.join(' > ')}`);
