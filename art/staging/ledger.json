@@ -51356,6 +51356,129 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-14T19:52:02.793Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "acted-directions-3-street",
+   "subject": "acted-directions-3-letter-writer",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/ambient-letter-writer-master.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/acted-directions-3/letter-writer.txt",
+   "promptHash": "27d6f62aaab44494e853f672b096f0898480fbc4f90fb6e9fd37a04bbdded8a7",
+   "references": [
+    {
+     "path": "art/staging/acted-directions-3/letter-writer/template.png",
+     "hash": "584af6695c4f1af99d97edfde91e6f4332bf3102ad92b5e91d6243e658659312",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/acted-directions-3/beside-thad-letter_writer.png",
+     "hash": "855ab9ce742ca5c6c0394041462e6e7429847a5f2469255f78b7cf065317f33c",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "9441afb68d1757f99d68b08060e86ab478f6d17e815a3e343a3aa2b2cf7f5132",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-43-lower-street",
+    "purpose": "room-art",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-02-main-street)",
+      "path": "art/backgrounds/room-02-main-street.png",
+      "hash": "9441afb68d1757f99d68b08060e86ab478f6d17e815a3e343a3aa2b2cf7f5132",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "584af6695c4f1af99d97edfde91e6f4332bf3102ad92b5e91d6243e658659312",
+   "sourcePath": "art/staging/acted-directions-3/letter-writer/template.png",
+   "out": "art/staging/acted-directions-3/letter-writer/sheet.png",
+   "outputHash": "00ae602cae0ae6e13bec272f66652cee672e31f7d17bef7a84ec7945949ba20b",
+   "bytes": 1350503,
+   "usage": {
+    "input_tokens": 9594,
+    "input_tokens_details": {
+     "image_tokens": 9240,
+     "text_tokens": 354
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 10966
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-14T20:12:49.244Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-14T20:12:49.272Z"
   }
  ],
  "promotions": [

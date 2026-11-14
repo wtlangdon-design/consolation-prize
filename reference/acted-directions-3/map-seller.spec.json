@@ -1,0 +1,15 @@
+{
+ "assetId": "acted-directions-3-street",
+ "subject": "acted-directions-3-map-seller",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/acted-directions-3/map-seller.txt",
+ "out": "art/staging/acted-directions-3/map-seller/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acted-directions-3/map-seller/template.png",
+  "art/staging/acted-directions-3/beside-thad-map_seller.png"
+ ],
+ "derivedFrom": "art/actors/ambient-map-seller-master.png"
+}
