@@ -7792,3 +7792,17 @@ Lesson: `tests/street-steps.test.mjs`. Its first two tests fail on the old floor
 - The size curve runs as far back as the floor does.
 
 And a row in doc 55 section 8.
+
+## 304 · A conversation stands in front of the face (Tyler, 2026-11-14)
+
+Tyler, with a screenshot: "When you talk to the man leaving tomorrow, Thad goes to the right side of him while the man faces left."
+
+He is drawn turned to our left, and `tests/faces.test.mjs` measures that from his rest frame. But his authored stand was at his back (2930, his right). It is now at 2690, in front of his face, with Thad facing him.
+
+**The rule, kept from here on.** A figure that says where it looks (`faces`, errata 160's field) is talked to from that side. Where no stand is authored, the engine works the side out the same way (`GameScene.talkSide`). A figure facing the front, or saying nothing, is talked to from the side Thad came from, as before.
+
+**Checked:**
+- Every person Thad talks to was drawn out and looked at. The rest face the front, or already stand on the right side.
+- One exception is a ruling: the boundary men argue facing each other and are talked to from their right, because the hitching horses stand in the near mud on their left (errata 187).
+
+Lesson: `tests/talk-faces.test.mjs`, proved by restoring his old stand (it fails).

@@ -618,6 +618,12 @@ export interface AmbientFile {
    * `walkTo`; he turns to face her on arrival either way.
    */
   walkTo?: { x: number; y: number; facing?: Facing };
+  /**
+   * Where the figure must look, held to its rest frame by tests/faces.test.mjs. Also, since errata 304, the side a
+   * conversation with no authored stand stands on: in front of the face. "front", or absent, and he stands on the
+   * side he came from.
+   */
+  faces?: 'left' | 'right' | 'front';
   walkToNote?: string;
   /**
    * Where this character stands in a room other than `room`, by room id. A
