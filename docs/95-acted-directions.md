@@ -32,7 +32,7 @@
 
 ## The directions
 
-Counts: **A 60 · B 5 · C 75** — 140 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 65 · B 0 · C 75** — 140 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -169,13 +169,13 @@ Counts: **A 60 · B 5 · C 75** — 140 directions, every one flagged `"directio
 | 164 | C | ozymandia | She hums. Thad moves the rod along the paper. She stops. | rooms/ozymandias_tent slope USE |  |  |  |  |  | Errata 251, doc 120 I-3: as the stake. Her hum is not a sound yet (doc 45 has no cue for it); told. |
 | 165 | C | ozymandia | She takes a Form 12-C from a stack of them and writes in purple ink. | rooms/ozymandias_tent stake USE |  |  |  |  |  | Errata 251, doc 120 I-3: doc 57 A7's own direction. Under the map; told. |
 | 166 | C | livery_man | He tips his chair back and goes on humming, under his breath. | dialogue/livery-man LIV_A1 option 6 |  |  |  |  |  | Errata 278, doc 125: his hum is not a sound (doc 45 writes none for him but LIV-HUM inside the tune); told, so that LISTEN TO THE LIVERY MAN, which hears it, follows from what the player has read. |
-| 167 | B | letter_writer | He writes it down. | dialogue/amb-letter-writer root option 7 |  |  |  |  |  | Errata 286: physical; printed until a writing pose is drawn. |
-| 168 | B | bell_ringer | He holds up his bottle, hopefully. | dialogue/amb-bell-ringer root option 6 |  |  |  |  |  | Errata 286: physical; printed until the bottle raised is drawn. He has no bottle on his sheet yet, so it is drawn into every frame first (reference/acted-directions-3). Acted, it prints nothing: his face carries "hopefully". |
-| 169 | B | bell_ringer | He looks up at the bell, then down at the bottle. | dialogue/amb-bell-ringer root option 7 |  |  |  |  |  | Errata 286: physical; printed until drawn, with the bottle (row 168). The order of the two looks is the joke, and the frames play in it. |
-| 172 | B | man_leaving_tomorrow | He grips it with both hands. | dialogue/amb-man-leaving-tomorrow root option 6 |  |  |  |  |  | Errata 286: physical; printed until the bag gripped is drawn. |
-| 173 | B | map_seller | He draws a small piano on a map. | dialogue/amb-map-seller root option 6 |  |  |  |  |  | Errata 286: physical; printed until a drawing pose is drawn. The cross is the joke (Pike's, row 103's hill). |
+| 167 | A | letter_writer | He writes it down. | dialogue/amb-letter-writer root option 7 | letter_writer | 6 7 6 7 | 1.6 |  |  | Errata 286, drawn by errata 311 (acted-directions-3): the case open, the pen travelling on the page. |
+| 168 | A | bell_ringer | He holds up his bottle, hopefully. | dialogue/amb-bell-ringer root option 6 | bell_ringer | 5 5 5 | 1.2 | 5 |  | Errata 286, drawn by errata 311: the bottle raised toward Thad, held while he asks "Could you tune this?" |
+| 169 | A | bell_ringer | He looks up at the bell, then down at the bottle. | dialogue/amb-bell-ringer root option 7 | bell_ringer | 6 6 7 7 | 2.0 |  |  | Errata 286, drawn by errata 311: up at the bell, then down at the bottle, in that order, which is the joke. |
+| 172 | A | man_leaving_tomorrow | He grips it with both hands. | dialogue/amb-man-leaving-tomorrow root option 6 | man_leaving_tomorrow | 6 6 6 | 1.0 | 6 |  | Errata 286, drawn by errata 311: the bag hugged to his chest, held through "It goes when I go." |
+| 173 | A | map_seller | He draws a small piano on a map. | dialogue/amb-map-seller root option 6 | map_seller | 5 6 5 6 | 1.6 |  |  | Errata 286, drawn by errata 311: the map flat at his chest and the pencil moving on it. |
 | 175 | A | thad | Thad ducks. | combinations (eggs on hole, improved) | thad:recoil/back | 0 1 2 3 3 2 | 1.2 |  |  | Errata 308 (no parentheticals): row 145 was printed, "The egg goes in. There is a pause. The egg comes back out, at speed." Now Thad says the egg in and the egg out, and between them he ducks, in his recoil drawn from behind as he stands at the hole. |
-| 174 | A | deke_vessel | Thad hands over four dollars and the watch. | dialogue/deke-vessel root option 6 | deke_vessel | 2 2 2 2 | 1.6 |  |  | Errata 307, then 308 (no parentheticals): Vessel holds his hand out, palm up (frame 2), and the money and the watch are gone from Thad's pockets when the conversation ends, as Monkey Island did it. Thad's own reach is on the running list (reference/acted-directions-3), for every hand-over in the game. Was printed. |
+| 174 | A | deke_vessel | Thad hands over four dollars and the watch. | dialogue/deke-vessel root option 6 | thad:hand-over/right, deke_vessel | 0 1 1 1 2 ; 2 2 2 2 0 | 1.6 |  |  | Errata 307, 308, drawn by errata 311: Thad reaches across the barrel with the money and the watch (his hand-over clip, the game's one reusable reach), and Vessel takes them with his hand out, palm up (frame 2). |
 
 ## When a B pose is drawn
 

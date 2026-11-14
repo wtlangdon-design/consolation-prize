@@ -60,6 +60,18 @@
     164,
     55,
     160
+   ],
+   [
+    2,
+    326,
+    55,
+    160
+   ],
+   [
+    59,
+    326,
+    55,
+    160
    ]
   ],
   "rate": 0.35,
@@ -90,7 +102,7 @@
   "figureHeight": 153,
   "stature": 1,
   "figureHeightNote": "Crown to sole of the rest frame (tools/art/figure-height.py --hat: the bowler is not part of his height); the engine draws him at the room's man there.",
-  "frameNote": "0 standing, his writing case under his arm · 1 breath (derived) · 2 the case held open, offering to write · 3 touching his hat · 4 the case closed at his chest. Errata 264 (reference/acted-directions-2): 5 the pen down on his board, his hand lifted from it. Acted only (doc 95 row 69).",
+  "frameNote": "0 standing, his writing case under his arm · 1 breath (derived) · 2 the case held open, offering to write · 3 touching his hat · 4 the case closed at his chest. Errata 264 (reference/acted-directions-2): 5 the pen down on his board, his hand lifted from it. Acted only (doc 95 row 69). Errata 311 (acted-directions-3): 6 and 7 writing, the pen travelling on the page (doc 95 row 167). Acted only.",
   "rateNote": "Errata 273 (Tyler, 2026-11-10: \"The man seems to be breathing rapidly (shoulders rising and falling too quickly)\"): 0.35, was 0.9. A breath at rest is a slow thing; tests/movement.test.mjs holds a standing person's breath to 0.5 a second at most.",
   "breakEveryNote": "Errata 296 (Tyler, 2026-11-12, on the map seller: \"doesn't appear to have any movements\"): one held pose every 29 s read as standing still. Now every 12 s."
  },

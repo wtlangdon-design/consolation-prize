@@ -1557,38 +1557,88 @@
     },
     {
       "n": 167,
-      "class": "B",
+      "class": "A",
       "speaker": "letter_writer",
       "words": "He writes it down.",
-      "where": "dialogue/amb-letter-writer root option 7"
+      "where": "dialogue/amb-letter-writer root option 7",
+      "performedBy": [
+        "letter_writer"
+      ],
+      "frames": [
+        6,
+        7,
+        6,
+        7
+      ],
+      "seconds": 1.6
     },
     {
       "n": 168,
-      "class": "B",
+      "class": "A",
       "speaker": "bell_ringer",
       "words": "He holds up his bottle, hopefully.",
-      "where": "dialogue/amb-bell-ringer root option 6"
+      "where": "dialogue/amb-bell-ringer root option 6",
+      "performedBy": [
+        "bell_ringer"
+      ],
+      "frames": [
+        5,
+        5,
+        5
+      ],
+      "seconds": 1.2,
+      "holds": 5
     },
     {
       "n": 169,
-      "class": "B",
+      "class": "A",
       "speaker": "bell_ringer",
       "words": "He looks up at the bell, then down at the bottle.",
-      "where": "dialogue/amb-bell-ringer root option 7"
+      "where": "dialogue/amb-bell-ringer root option 7",
+      "performedBy": [
+        "bell_ringer"
+      ],
+      "frames": [
+        6,
+        6,
+        7,
+        7
+      ],
+      "seconds": 2
     },
     {
       "n": 172,
-      "class": "B",
+      "class": "A",
       "speaker": "man_leaving_tomorrow",
       "words": "He grips it with both hands.",
-      "where": "dialogue/amb-man-leaving-tomorrow root option 6"
+      "where": "dialogue/amb-man-leaving-tomorrow root option 6",
+      "performedBy": [
+        "man_leaving_tomorrow"
+      ],
+      "frames": [
+        6,
+        6,
+        6
+      ],
+      "seconds": 1,
+      "holds": 6
     },
     {
       "n": 173,
-      "class": "B",
+      "class": "A",
       "speaker": "map_seller",
       "words": "He draws a small piano on a map.",
-      "where": "dialogue/amb-map-seller root option 6"
+      "where": "dialogue/amb-map-seller root option 6",
+      "performedBy": [
+        "map_seller"
+      ],
+      "frames": [
+        5,
+        6,
+        5,
+        6
+      ],
+      "seconds": 1.6
     },
     {
       "n": 175,
@@ -1616,13 +1666,31 @@
       "words": "Thad hands over four dollars and the watch.",
       "where": "dialogue/deke-vessel root option 6",
       "performedBy": [
+        "thad:hand-over/right",
         "deke_vessel"
       ],
       "frames": [
-        2,
-        2,
-        2,
+        0,
+        1,
+        1,
+        1,
         2
+      ],
+      "framesBy": [
+        [
+          0,
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          0
+        ]
       ],
       "seconds": 1.6
     }
