@@ -48,7 +48,7 @@
             "message_boy1",
             "message_boy2"
           ],
-          "say": "…The Colonel gets a letter from Boston every month and burns it in the stove.",
+          "say": "…Colonel Fanshawe gets a letter from Boston every month and burns it in the stove.",
           "afterUse": "remove",
           "echo": "Here's your penny. Make it worth it."
         },
@@ -70,6 +70,9 @@
               "line": "Same as for a penny. I say it slower."
             }
           ],
+          "when": {
+            "T_MOTT_TOLD": true
+          },
           "afterUse": "remove"
         },
         {
@@ -112,7 +115,7 @@
           "exchange": [
             {
               "speaker": "message_boy",
-              "line": "I know. The whole town knew by supper."
+              "line": "I know. The whole town knew before your boots were out of the mud."
             },
             {
               "speaker": "thad",

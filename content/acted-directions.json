@@ -199,13 +199,6 @@
       "where": "dialogue/fanshawe FAN_C1 option 5"
     },
     {
-      "n": 27,
-      "class": "C",
-      "speaker": "frame",
-      "words": "He has the type set before Thad has finished the name.",
-      "where": "dialogue/frame FRA_A1 option 6"
-    },
-    {
       "n": 29,
       "class": "A",
       "speaker": "frame",
@@ -222,27 +215,6 @@
         0
       ],
       "seconds": 3
-    },
-    {
-      "n": 30,
-      "class": "C",
-      "speaker": "hob",
-      "words": "nothing",
-      "where": "dialogue/hob HOB_A1 option 1"
-    },
-    {
-      "n": 31,
-      "class": "C",
-      "speaker": "hob",
-      "words": "He stops. Then:",
-      "where": "dialogue/hob HOB_A1 option 3"
-    },
-    {
-      "n": 32,
-      "class": "C",
-      "speaker": "hob",
-      "words": "He does not walk on for four seconds.",
-      "where": "dialogue/hob HOB_A1 option 3"
     },
     {
       "n": 33,
@@ -588,13 +560,6 @@
       "seconds": 2.3
     },
     {
-      "n": 71,
-      "class": "C",
-      "speaker": "frame",
-      "words": "He reaches for his pencil, then puts it down.",
-      "where": "dialogue/frame FRA_A1 option 8"
-    },
-    {
       "n": 72,
       "class": "A",
       "speaker": "pratt",
@@ -674,13 +639,6 @@
       "speaker": "fanshawe",
       "words": "He stops. For the only time in the game, he is completely still.",
       "where": "dialogue/fanshawe FAN_B1 option 6"
-    },
-    {
-      "n": 76,
-      "class": "C",
-      "speaker": "boarding_a",
-      "words": "She laughs for some time.",
-      "where": "dialogue/amb-boarding-women root option 2"
     },
     {
       "n": 77,
@@ -1535,13 +1493,6 @@
       "where": "combinations (capital_b on coffin)"
     },
     {
-      "n": 157,
-      "class": "C",
-      "speaker": "thad",
-      "words": "Thad locks the wardrobe. The key fits, as it fits everything.",
-      "where": "combinations (room_key on wardrobe)"
-    },
-    {
       "n": 158,
       "class": "C",
       "speaker": "thad",
@@ -1636,7 +1587,7 @@
       "n": 173,
       "class": "B",
       "speaker": "map_seller",
-      "words": "He draws a small piano on a map, beside a cross.",
+      "words": "He draws a small piano on a map.",
       "where": "dialogue/amb-map-seller root option 6"
     },
     {

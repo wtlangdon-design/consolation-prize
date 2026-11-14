@@ -79,9 +79,8 @@ When done, commit to a branch named `acted-directions-3-art`, with `reference/ac
   - 3 the map lowered;
   - 4 pointing at the map.
 - **He has no pencil today.** The pencil goes behind his ear in every frame, so that it can come down to the map in these poses without appearing from nowhere.
-- **Row 173** (his root list, option 6: "Do you have one with pianos on? I'm a tuner.", answered "I do now, sir!" and "There's your piano. Twelve feet down."): *He draws a small piano on a map, beside a cross.*
-  - **Needs:** two frames, the map held flat at his chest and the pencil drawing on it, his head bent to it. The piano and the cross are too small to read at game size and are not drawn.
-  - **For the wiring session:** acted, the direction prints nothing (doc 95 rule 1), so "beside a cross" is no longer read, and "Twelve feet down." carries the burial alone. If that reads thin in the replay, the row goes to C instead, and the drawn frames serve as an idle break.
+- **Row 173** (his root list, option 6: "Do you have one with pianos on? I'm a tuner.", answered "I do now, sir!" and "There! A piano, right on top of the strike. You'll be the first man to look there."): *He draws a small piano on a map.*
+  - **Needs:** two frames, the map held flat at his chest and the pencil drawing on it, his head bent to it. The piano is too small to read at game size and is not drawn.
 
 ## Done
 

@@ -14,9 +14,9 @@
           "id": "bell_ringer1",
           "text": "That bell is flat.",
           "tag": "TOPIC",
-          "say": "Everybody can hear it from the hotel. That's what a bell's for.",
+          "say": "Everybody can hear it from Main Street. That's what a bell's for.",
           "afterUse": "remove",
-          "echo": "That bell is flat. I could hear it from the hotel."
+          "echo": "That bell is flat. I could hear it from Main Street."
         },
         {
           "id": "bell_ringer2",

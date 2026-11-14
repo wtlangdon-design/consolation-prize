@@ -153,7 +153,7 @@ Icons for all seven are asked for in the brief; until they are drawn the panel s
 **LISTEN** 1 "It swings against its tag. A small, landed sound." · 2 "Nothing. Brass keeps its counsel." · 3 "A chime against the tuning fork. Flat, naturally."
 
 **THE WARDROBE** · USE MY ROOM KEY
-- USE MY ROOM KEY, *the first time* — *(Thad locks the wardrobe. The key fits, as it fits everything.)* "Locked. It may check on somebody else tonight." → `T_WARDROBE_LOCKED`
+- USE MY ROOM KEY, *the first time* — "It fits. It fits everything in this hotel; I have stopped being surprised." "Locked. It may check on somebody else tonight." → `T_WARDROBE_LOCKED`
 - USE MY ROOM KEY, *again* — "It is locked. I heard it try the door a moment ago, from the inside, and give up."
 
 **THE RACCOON, DRESSED** · *with THE RACCOON, IN MY COAT in hand*

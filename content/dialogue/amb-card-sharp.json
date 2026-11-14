@@ -27,7 +27,7 @@
           "after": [
             "card_sharp1"
           ],
-          "say": "They know what I am. They don't know what the Colonel is. Which of us is the problem?",
+          "say": "They know what I am. In this town, that makes me the honest one.",
           "afterUse": "remove"
         },
         {
@@ -82,7 +82,7 @@
           "text": "Are you any good?",
           "tag": "COMIC",
           "repeat": "Good enough not to play you. You'd lose, and I'd feel it.",
-          "say": "I'm the best honest card player in the territory. Small field. I'm not in it.",
+          "say": "Best in the territory, and the only one who'll tell you how.",
           "afterUse": "retain"
         },
         {

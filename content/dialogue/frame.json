@@ -79,6 +79,9 @@
           ],
           "set": {
             "T_MOTT_FACE_UNKNOWN": true
+          },
+          "when": {
+            "T_MOTT_TOLD": true
           }
         },
         {
@@ -106,11 +109,6 @@
             {
               "speaker": "frame",
               "line": "PIKE!"
-            },
-            {
-              "speaker": "frame",
-              "line": "He reaches for his pencil, then puts it down.",
-              "direction": true
             },
             {
               "speaker": "frame",
@@ -192,9 +190,12 @@
               "line": "A FUNERAL!"
             },
             {
+              "speaker": "thad",
+              "line": "For Mr. Ez—"
+            },
+            {
               "speaker": "frame",
-              "line": "He has the type set before Thad has finished the name.",
-              "direction": true
+              "line": "PIKE! Set already."
             },
             {
               "speaker": "frame",

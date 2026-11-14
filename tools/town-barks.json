@@ -190,6 +190,11 @@
     "when": {
      "T_PIKE_DEAD": true
     }
+   },
+   "How much for where Mott's gold is?": {
+    "when": {
+     "T_MOTT_TOLD": true
+    }
    }
   },
   "6 · THE PIE WOMAN": {
@@ -222,11 +227,6 @@
    }
   },
   "16 · THE MAP SELLER": {
-   "Is Ezra Pike on any of your maps?": {
-    "when": {
-     "T_PIKE_DEAD": false
-    }
-   },
    "You knew Pike was dead.": {
     "when": {
      "T_PIKE_DEAD": true
@@ -235,6 +235,16 @@
    "Where do you get them?": {
     "set": {
      "T_MAPS_ASKED": true
+    }
+   },
+   "Who's Mott?": {
+    "set": {
+     "T_MOTT_TOLD": true
+    }
+   },
+   "Do you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
     }
    }
   },
@@ -294,6 +304,13 @@
    "You knew Pike was dead.": {
     "when": {
      "T_PIKE_DEAD": true
+    }
+   }
+  },
+  "10 · THE PHOTOGRAPHER": {
+   "That's Obadiah Mott.": {
+    "when": {
+     "T_MOTT_TOLD": true
     }
    }
   }

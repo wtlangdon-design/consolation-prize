@@ -7915,3 +7915,20 @@ The rewritten options keep their ids and places. The pie woman's "I'm told I hav
 Lesson: `tests/first-hour.test.mjs`:
 - the hotel and the money for it are named before the first puzzle;
 - the map seller explains Mott before any of his options assumes him.
+
+## 310 · The dialogue pass, Act I (Tyler, 2026-11-14)
+
+Tyler: "Some of it's confusing. Some of it doesn't seem to match where the game is chronologically. Some of it's just weird/odd. Some of it seems to come out of nowhere. I don't want to have to go through the whole game correcting dialogue in every single conversation." Then: "Fix all lines that should be fixed, even weak ones. I only want to play the result. You decide on what comes first."
+
+**Doc 132** is the standard and the record. Every line is read in play order: it follows from the one before it, it is true for what Thad knows then, it never points at what the player cannot see, a joke lands on the first read, nothing comes out of nowhere, and it is good. The no-parentheticals rules (doc 130) are applied in each room as it is done. Tyler's "I only want to play the result" is his ruling on doc 130's sample and the permission for the rest: no more room-by-room samples; each act ships, and he plays it.
+
+**Act I**, doc 132's table:
+- The clerk asks Thad's name the first time (a once-only root, `T_CLERK_MET`, with doc 27's new `*(every visit after the first)*`).
+- Fanshawe's greeting is at night.
+- Mott and Claim One are asked after only once Thad has been told of them (`T_MOTT_TOLD`, set by the map seller's "Who's Mott?"; `T_BORDERS_MOTT`).
+- Twenty-odd lines across the town's people, rewritten.
+- Act I's parentheticals in conversations: Hob's silences, Frame's two, the boarding-house women, the wardrobe.
+
+Lesson:
+- `tests/thad-knows-when.test.mjs`: in the first act, Thad names Mott and Claim One only once somebody has told him. Proved by removing Hob's gates (it fails).
+- `tests/no-parentheticals.test.mjs` now covers Act I's trees, and its cap falls to 122.

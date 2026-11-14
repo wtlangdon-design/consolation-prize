@@ -33,11 +33,14 @@ const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(R
 const normal = (text: string) => text.replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\*/g, '').replace(/\s+/g, ' ').trim();
 const quotedIn = (text: string) => [...normal(text).matchAll(/"([^"]+)"/g)].map((m) => m[1]!.trim()).filter(Boolean);
 
-type Written = { doc: string; at: number; tree: string; node: string; lines: string[] };
+type Written = { doc: string; at: number; tree: string; node: string; lines: string[]; returning?: boolean };
 
 /** What the engine says when a conversation opens on `node` -- asked of the runner itself, on a copy of the tree. */
-function voiced(state: GameState, treeId: string, node: string): string {
+function voiced(state: GameState, treeId: string, node: string, returning = false): string {
   const tree = state.content.dialogue.get(treeId)!;
+  // A ROOT FOR EVERY VISIT AFTER THE FIRST (doc 27, errata 310): voiced once the node's openingOnce flag is set.
+  const once = tree.nodes[node]?.openingOnce;
+  if (once) state.flags.set(once, returning);
   const copy: DialogueFile = { ...tree, start: node, entries: [] };
   const runner = new DialogueRunner(new Map([[treeId, copy]]), state.flags);
   return normal(runner.openingOf(treeId).map((one) => one.line).join(' '));
@@ -82,7 +85,9 @@ function writtenOpenings(trees: Map<string, DialogueFile>): Written[] {
       const tree = [...trees.values()].find((one) => (one as { speaker?: string }).speaker === slug(heading)
         && sourceOf(one).includes(doc));
       assert.ok(tree, `${doc}:${index + 1}: a **Root:** under "# ${heading}", and no tree from ${doc} speaks as ${slug(heading)}`);
-      found.push({ doc, at: index + 1, tree: tree.id, node: tree.start, lines: quotedIn(root[1]!) });
+      const [first, later] = root[1]!.split(/\*\(every visit after the first\)\*/);
+      found.push({ doc, at: index + 1, tree: tree.id, node: tree.start, lines: quotedIn(first!) });
+      if (later) found.push({ doc, at: index + 1, tree: tree.id, node: tree.start, lines: quotedIn(later), returning: true });
     });
   }
   // 3. A stage line doc 07 writes as ***Opening:*** in the section the tree names.
@@ -118,7 +123,7 @@ test('every opening the documents write is voiced by the engine when its node op
     // A node the documents write with sides (doc 109: *(before G3)* / *(after G3)*) is extracted a node a side.
     const sides = Object.keys(tree.nodes).filter((id) => id === one.node || id.startsWith(`${one.node}_`))
       .filter((id) => id === one.node || (tree.entries ?? []).some((entry) => entry.node === id));
-    const said = sides.map((id) => voiced(state, one.tree, id));
+    const said = sides.map((id) => voiced(state, one.tree, id, one.returning));
     for (const line of one.lines) {
       if (!said.some((spoken) => spoken.includes(line))) silent.push(`${one.doc}:${one.at} ${one.tree}/${one.node}: "${line}"`);
     }

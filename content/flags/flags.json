@@ -190,6 +190,15 @@
    "note": "He has said he draws the maps himself. Gates the follow-up that asks what from."
   },
   {
+   "id": "T_MOTT_TOLD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:amb_map_seller:root:map_seller1"
+   ],
+   "note": "Errata 309, 310: the map seller has told Thad who Obadiah Mott was (\"Who's Mott?\"). Hob's two questions about Mott wait on it: on the first night nobody had told Thad of him."
+  },
+  {
    "id": "T_SHARP_ACCUSED",
    "type": "boolean",
    "initial": false,
@@ -704,6 +713,15 @@
     "dialogue:FRAME:FRA_A1 openingOnce"
    ],
    "note": "Errata 225: FRA_A1's 'You're new!' exchange is the first visit's; every visit after opens on doc 04's return line."
+  },
+  {
+   "id": "T_CLERK_MET",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:HOTEL_CLERK:root openingOnce"
+   ],
+   "note": "Errata 310: the clerk asks Thad's name the first time (\"Name?\") and reads it from his register, spelled his way, every time after (\"Mr. Grubbe.\"). He had read it from a register Thad had never signed."
   },
   {
    "id": "T_NINETY_DAYS",

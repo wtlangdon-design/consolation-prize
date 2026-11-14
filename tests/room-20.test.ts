@@ -128,6 +128,8 @@ test('errata 101 A: from the first night through Act II, Hob is on his rounds he
   const content = await loadContent(fsReader);
   const alley = (await inState('r20-a')).roomId;
   const state = new GameState(content, new MemoryStorage());
+  // Errata 310: Hob is asked about Mott once the map seller has said who Mott was.
+  state.flags.set('T_MOTT_TOLD', true);
   state.enterRoom(alley);
   const layer = new AmbientLayer(state);
   // THE ALLEY'S OWN CONVERSATION, not a passer-by's: since errata 115 the dog's
@@ -144,11 +146,13 @@ test('errata 101 A: from the first night through Act II, Hob is on his rounds he
   state.dialogue.start(npc.tree);
   assert.equal(state.dialogue.positionSnapshot().node, tree.start, 'his conversation opens on the start node, HOB_A1');
 
-  // Option 3 performs doc 04's pause: he stops, says one word, and does not walk on.
+  // Option 3 is doc 04's pause: he stops, says one word, and stands. Since errata 310 (no parentheticals) the stop
+  // and the standing are the same "…" every pause is, and nothing is printed.
   const three = state.dialogue.select(`${tree.speaker}3`);
   const spoken = [{ line: three.say, direction: three.direction }, ...three.rest];
-  assert.ok(spoken.filter((one) => one.direction).length >= 2, 'the stop and the four seconds are performed');
-  assert.ok(spoken.some((one) => !one.direction && one.line), 'and the one word is said');
+  assert.equal(spoken.filter((one) => one.line === '…').length, 2, 'the stop and the standing are pauses');
+  assert.ok(!spoken.some((one) => one.direction), 'nothing is printed');
+  assert.ok(spoken.some((one) => one.line === 'No.'), 'and the one word is said');
   // Option 6 teaches pair 21 quietly: doc 04's tag, a flag, and nothing else.
   const six = tree.nodes[tree.start]!.options.find((one) => one.id === `${tree.speaker}6`)!;
   assert.equal(six.tag, 'ASSAY');

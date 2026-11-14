@@ -37,8 +37,7 @@
           "exchange": [
             {
               "speaker": "hob",
-              "line": "nothing",
-              "direction": true
+              "line": "…"
             },
             {
               "speaker": "thad",
@@ -51,18 +50,23 @@
           "tag": "TOPIC",
           "text": "Do you know anything about Claim One?",
           "afterUse": "remove",
-          "beat": "nothing"
+          "when": {
+            "T_BORDERS_MOTT": true
+          },
+          "say": "…"
         },
         {
           "id": "hob3",
           "tag": "TOPIC",
           "text": "Did you know Obadiah Mott?",
           "afterUse": "remove",
+          "when": {
+            "T_MOTT_TOLD": true
+          },
           "exchange": [
             {
               "speaker": "hob",
-              "line": "He stops. Then:",
-              "direction": true
+              "line": "…"
             },
             {
               "speaker": "hob",
@@ -70,8 +74,7 @@
             },
             {
               "speaker": "hob",
-              "line": "He does not walk on for four seconds.",
-              "direction": true
+              "line": "…"
             }
           ]
         },
@@ -87,13 +90,16 @@
           "tag": "COMIC",
           "text": "Do you ever sleep?",
           "afterUse": "remove",
-          "beat": "nothing"
+          "say": "…"
         },
         {
           "id": "hob6",
           "tag": "ASSAY",
           "text": "I know where Mott's strike is.",
           "afterUse": "retain",
+          "when": {
+            "T_MOTT_TOLD": true
+          },
           "say": "So does everybody. That's the town. Try again.",
           "set": {
             "ASSAY_PAIR_21": true

@@ -118,8 +118,8 @@
           "id": "sheng5",
           "tag": "COMIC",
           "afterUse": "counted-repeat",
-          "text": "I have four dollars.",
-          "say": "You have two dollars and forty cents. I have watched you spend the rest. You are not a careful man, Mr. Grubb, but you are an entertaining one.",
+          "text": "I'm good with money.",
+          "say": "You are not, Mr. Grubb. I have watched you. You are not a careful man, but you are an entertaining one.",
           "repeats": [
             {
               "selection": 2,
