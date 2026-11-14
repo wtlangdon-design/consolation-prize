@@ -44,7 +44,7 @@ There is another project, `wtlangdon-design/anchorage`. It is a completely diffe
 
 - **Phaser 3 + TypeScript + Vite.** Not ThreeJS. Not a 3D engine.
 - **Window 1920×1080, play area 1920×864, verb panel 216px.** Errata 54 — supersedes the former 320×200 / 320×144 / 56px spec entirely.
-- `pixelArt: true`, `roundPixels: true`, `antialias: false`. Integer upscale, nearest-neighbour. **Never smooth or anti-alias anything.**
+- `pixelArt: true`, `roundPixels: true`, `antialias: false`. Integer upscale, nearest-neighbour. **Never smooth or anti-alias anything.** **One exception, by ruling (errata 312):** Main Street and its dawn are shown through a 1.5x camera zoom, nearest-neighbour (Tyler, 2026-11-14: "Try the camera zoom", told it was not a whole number). Nothing is smoothed.
 - **Full RGB. There is no locked palette.** `art/palette/consolation-256.json` is reference only. Character sprites **~233px** at mid-depth, scaled per room by depth. Errata 54.
 - Must run at 60fps in Chrome on a Chromebook.
 

@@ -7952,3 +7952,21 @@ The handback is `reference/acted-directions-3/handback.md`. Wired here, and ever
 Played in the real build: `tools/gauntlet/acted-proof.mjs`, scenarios `deke` and `a3-*`.
 
 Lesson: none of its own -- `tests/acted-directions.test.ts`, `tests/movements-to-draw.test.mjs` and `tests/one-level.test.mjs` already held every rule this wiring had to meet, and each caught a miss on the way (a re-encoded stand frame, an unsnapped mirrored arm, a clip missing from the `lookup` state).
+
+## 312 · Main Street, closer: a camera zoom (Tyler, 2026-11-14)
+
+Tyler: "Do you think we should be a little more zoomed in on main street? It seems so zoomed out right now, which make it kind of feel impersonal." Shown the street now and a 1.5x mock-up from a real capture, and told the zoom is not a whole number, he answered: "Try the camera zoom."
+
+**Why.** Main Street was drawn at half the scale of the other rooms. Nearest the screen, a man was 206 px tall there, against 263 on the stage road and 459 in the Nugget.
+
+**What.** `RoomFile.zoom`, from an annotation's `zoom` (tools/compile-room.mjs). Main Street and Main Street at dawn are 1.5.
+- **Drawing.** The world pass draws at 1:1 into a view the size of what it shows (1280 x 576 of the plate), then lays it over the play area, nearest-neighbour. Every world drawing is unchanged, the scratch layers included; they take the view's offset down as well as along.
+- **Following.** The view follows him along the street as before, through its own width (`cameraFollow`, `cameraAt` take the view). It also follows him up and down (`cameraYFor`): his feet at 0.82 of the view's height, eased a few pixels a frame, so a porch's steps do not jolt the street.
+- **Looking up.** While the pointer is in the top 12% of the picture, the view rises to the rooftops (`LOOK_UP_BAND`), so the steeple and the Company's sign can still be seen and clicked.
+- **Clicking and speech.** Clicks and hovers go through `GameState.toWorldPoint`; speech and barks are placed through `toScreen`. The probe reports `cameraY` and `zoom`, and the gauntlet's clicks and figure boxes go through them.
+
+It breaks CLAUDE.md's whole-number upscale for these two rooms, by this ruling; CLAUDE.md now says so. Nothing is smoothed.
+
+Played in the real build: talking to the man leaving tomorrow and the map seller, with speech over their heads.
+
+Lesson: `tests/close-enough.test.mjs`: nearest the screen, a man is drawn at least as large as on the stage road in every room he walks. Proved by removing Main Street's zoom (it fails). The camera tests (`tests/interface.test.ts`, `tests/camera-load.test.ts`) now click where things are drawn through the zoom.

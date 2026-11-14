@@ -339,12 +339,16 @@ async function bringIntoView(page, wx) {
 
 /** A world point's place on the page, through the camera. */
 async function pagePoint(page, wx, wy) {
-  const cameraX = (await probe(page))?.camera ?? 0;
+  const seen = await probe(page);
+  const cameraX = seen?.camera ?? 0;
+  // A ZOOMED ROOM (RoomFile.zoom; errata 312): the view is drawn up by its zoom and scrolls down as well as along.
+  const cameraY = seen?.cameraY ?? 0;
+  const zoom = seen?.zoom ?? 1;
   const box = await page.evaluate(() => document.querySelector('canvas')?.getBoundingClientRect().toJSON());
   const scale = Math.min(box.width / NATIVE.width, box.height / NATIVE.height);
   return {
-    x: box.left + (box.width - NATIVE.width * scale) / 2 + (wx - cameraX) * scale,
-    y: box.top + (box.height - NATIVE.height * scale) / 2 + wy * scale,
+    x: box.left + (box.width - NATIVE.width * scale) / 2 + (wx - cameraX) * zoom * scale,
+    y: box.top + (box.height - NATIVE.height * scale) / 2 + (wy - cameraY) * zoom * scale,
   };
 }
 

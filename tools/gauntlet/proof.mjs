@@ -534,6 +534,8 @@ async function main() {
         beat: frame.beat,
         control: frame.control,
         camera: frame.camera,
+        cameraY: frame.cameraY ?? 0,
+        zoom: frame.zoom ?? 1,
         flags: frame.flags,
         counters: frame.counters,
         inventory: frame.inventory,
@@ -662,7 +664,7 @@ async function main() {
         // beside him, the camera follows, and the same populated-minus-
         // suppressed pair is taken there. The cast is suppressed here (panel
         // A), and is left so.
-        const offCamera = (cam) => npc.x + fw / 2 - cam <= 0 || npc.x - fw / 2 - cam >= populatedB.width;
+        const offCamera = (cam) => npc.x + fw / 2 - cam <= 0 || (npc.x - fw / 2 - cam) * (panelB.zoom ?? 1) >= populatedB.width;
         if (offCamera(camera)) {
           await page.evaluate(() => window.__gauntlet?.controls.cast(true));
           let stood = null;
@@ -684,7 +686,11 @@ async function main() {
             camera = panelB.camera ?? 0;
           }
         }
-        const box = { x: Math.round(npc.x - fw / 2 - camera), y: npc.y - fh, width: fw, height: fh + 2 };
+        // Through a zoomed room's view (RoomFile.zoom; errata 312).
+        const zoom = panelB.zoom ?? 1;
+        const cameraY = panelB.cameraY ?? 0;
+        const box = { x: Math.round((npc.x - fw / 2 - camera) * zoom), y: Math.round((npc.y - fh - cameraY) * zoom),
+          width: Math.round(fw * zoom), height: Math.round((fh + 2) * zoom) };
         // Her props stand where she stands; each is measured in its own box
         // and cut out of hers, so her lowest row is HER lowest row.
         const propBoxes = (npc.sprite.props ?? []).map((prop) => {

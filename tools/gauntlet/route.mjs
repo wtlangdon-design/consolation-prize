@@ -126,8 +126,20 @@ export async function toScreen(page, x, y) {
  * camera is, walks the actor into range if it must, and only then clicks.
  */
 export async function clickWorld(page, wx, wy) {
-  const cameraX = await page.evaluate(() => window.__gauntlet?.probe()?.camera ?? 0);
-  const point = await toScreen(page, wx - cameraX, wy);
+  const view = () => page.evaluate(() => {
+    const probe = window.__gauntlet?.probe();
+    return { x: probe?.camera ?? 0, y: probe?.cameraY ?? 0, zoom: probe?.zoom ?? 1 };
+  });
+  let camera = await view();
+  // A ZOOMED ROOM (RoomFile.zoom; errata 312) shows its rooftops while the pointer is at the top of the picture: a
+  // point above the view is reached by pointing up there first, as a player does.
+  if ((wy - camera.y) * camera.zoom < 0) {
+    const top = await toScreen(page, 960, 20);
+    if (top) await page.mouse.move(top.x, top.y);
+    await page.waitForTimeout(1500);
+    camera = await view();
+  }
+  const point = await toScreen(page, (wx - camera.x) * camera.zoom, (wy - camera.y) * camera.zoom);
   if (!point) throw new Error('route: no canvas to click on');
   await page.mouse.click(point.x, point.y);
 }
