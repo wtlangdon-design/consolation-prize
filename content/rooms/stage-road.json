@@ -2130,7 +2130,175 @@
         "beyondHeight": 98,
         "beyondNote": "PROVISIONAL, AND THE ONE NUMBER IN THIS FILE NOBODY HAS RULED ON. THE CURVE NOW COVERS GROUND THE WALKABLE BAND DOES NOT -- that is unusual and it is deliberate: a staged mover may leave the box (errata 38's own case, and doc 17's exit through the fence gap does exactly that), and without a third sample heightIn CLAMPS, so a man walking away up the road holds 222 exactly and never shrinks. Sliding into the distance at full size is worse than extrapolating badly. THREE WAYS OF MEASURING IT DISAGREE BY A FACTOR OF FOUR. Extending the band's own line gives 133 at y400 and barely shrinks him at all. Anchoring on the room's declared horizon of 348 -- where a man's height must reach zero, which is what a horizon means rather than a modelling choice -- gives 98 at y500 from the far sample and 83 from the near one. Measuring the town's lit windows at about four feet gives 17 at y400, but that assumption carries all the weight and the town is on the far side of a rising hill rather than on the band's plane. RULED: 98, the far anchor, and the reasoning is the tiebreak rather than the model. THE BAND'S OWN CURVE IS NOT A TRUE PERSPECTIVE -- project the far anchor through the horizon and it gives 309 at y830 where the near anchor says 263, so the two do not lie on one line and neither extrapolation is 'correct'. The tiebreak is proximity: the far anchor at y694 is adjacent to the ground being extrapolated into, and the near anchor at y830 is 136px further away through a curve already known not to be linear. Extrapolate from the nearer sample. The town also sits on the far side of a rising hill rather than on the band's plane, which makes the perspective approximate whichever anchor is used -- another reason to take the least-extrapolated reading rather than the most-derived. Overrulable by looking, and should be if a render says otherwise.",
         "note": "RESCALED WITH ITS SHAPE UNCHANGED. The anchors were 190 and 225 under the 205 figure; the measured height is 240, so the same curve between the same two rows now runs 222 to 263. farY and nearY are the band's own sample rows and did not move -- only the heights did, which is what 'shape unchanged' means. The box governs, not the zone table: boxAt takes precedence, so a curve left at the old numbers would have quietly overridden scaling.json and drawn him short in the one room that has boxes."
+      },
+      "enabledWhen": {
+        "T_CASE_TAKEN": true
       }
+    },
+    {
+      "clipPlane": 0,
+      "surface": "mud",
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 694,
+        "farHeight": 222,
+        "nearY": 830,
+        "nearHeight": 263,
+        "beyondY": 500,
+        "beyondHeight": 98,
+        "beyondNote": "PROVISIONAL, AND THE ONE NUMBER IN THIS FILE NOBODY HAS RULED ON. THE CURVE NOW COVERS GROUND THE WALKABLE BAND DOES NOT -- that is unusual and it is deliberate: a staged mover may leave the box (errata 38's own case, and doc 17's exit through the fence gap does exactly that), and without a third sample heightIn CLAMPS, so a man walking away up the road holds 222 exactly and never shrinks. Sliding into the distance at full size is worse than extrapolating badly. THREE WAYS OF MEASURING IT DISAGREE BY A FACTOR OF FOUR. Extending the band's own line gives 133 at y400 and barely shrinks him at all. Anchoring on the room's declared horizon of 348 -- where a man's height must reach zero, which is what a horizon means rather than a modelling choice -- gives 98 at y500 from the far sample and 83 from the near one. Measuring the town's lit windows at about four feet gives 17 at y400, but that assumption carries all the weight and the town is on the far side of a rising hill rather than on the band's plane. RULED: 98, the far anchor, and the reasoning is the tiebreak rather than the model. THE BAND'S OWN CURVE IS NOT A TRUE PERSPECTIVE -- project the far anchor through the horizon and it gives 309 at y830 where the near anchor says 263, so the two do not lie on one line and neither extrapolation is 'correct'. The tiebreak is proximity: the far anchor at y694 is adjacent to the ground being extrapolated into, and the near anchor at y830 is 136px further away through a curve already known not to be linear. Extrapolate from the nearer sample. The town also sits on the far side of a rising hill rather than on the band's plane, which makes the perspective approximate whichever anchor is used -- another reason to take the least-extrapolated reading rather than the most-derived. Overrulable by looking, and should be if a render says otherwise.",
+        "note": "RESCALED WITH ITS SHAPE UNCHANGED. The anchors were 190 and 225 under the 205 figure; the measured height is 240, so the same curve between the same two rows now runs 222 to 263. farY and nearY are the band's own sample rows and did not move -- only the heights did, which is what 'shape unchanged' means. The box governs, not the zone table: boxAt takes precedence, so a curve left at the old numbers would have quietly overridden scaling.json and drawn him short in the one room that has boxes."
+      },
+      "id": "road_behind_case",
+      "enabledWhen": {
+        "T_CASE_TAKEN": false
+      },
+      "points": [
+        {
+          "x": 256,
+          "y": 700
+        },
+        {
+          "x": 1629,
+          "y": 700
+        },
+        {
+          "x": 1629,
+          "y": 823
+        },
+        {
+          "x": 256,
+          "y": 823
+        }
+      ],
+      "neighbours": [
+        "road_left_of_case",
+        "road_right_of_case"
+      ],
+      "note": "WHILE HIS CASE IS IN THE MUD, ITS FOOTPRINT IS NOT FLOOR (errata 316; Tyler, 2026-11-14: \"Thad is able to walk through the bag in Room 1. He should have to walk around it.\"). The case is a sprite sorted at its feet (y838), so he may pass behind it, where it covers his legs, and in front of it; what he may not do is stand level with it. The carve is its drawn width (1010-1099) and his boots past it -- 27 px right of his centre and 18 left at this depth, the barrel's 43 and 29 scaled to a man 265 tall -- from y823 to y853. Once he picks it up (T_CASE_TAKEN), road_open is the whole band again."
+    },
+    {
+      "clipPlane": 0,
+      "surface": "mud",
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 694,
+        "farHeight": 222,
+        "nearY": 830,
+        "nearHeight": 263,
+        "beyondY": 500,
+        "beyondHeight": 98,
+        "beyondNote": "PROVISIONAL, AND THE ONE NUMBER IN THIS FILE NOBODY HAS RULED ON. THE CURVE NOW COVERS GROUND THE WALKABLE BAND DOES NOT -- that is unusual and it is deliberate: a staged mover may leave the box (errata 38's own case, and doc 17's exit through the fence gap does exactly that), and without a third sample heightIn CLAMPS, so a man walking away up the road holds 222 exactly and never shrinks. Sliding into the distance at full size is worse than extrapolating badly. THREE WAYS OF MEASURING IT DISAGREE BY A FACTOR OF FOUR. Extending the band's own line gives 133 at y400 and barely shrinks him at all. Anchoring on the room's declared horizon of 348 -- where a man's height must reach zero, which is what a horizon means rather than a modelling choice -- gives 98 at y500 from the far sample and 83 from the near one. Measuring the town's lit windows at about four feet gives 17 at y400, but that assumption carries all the weight and the town is on the far side of a rising hill rather than on the band's plane. RULED: 98, the far anchor, and the reasoning is the tiebreak rather than the model. THE BAND'S OWN CURVE IS NOT A TRUE PERSPECTIVE -- project the far anchor through the horizon and it gives 309 at y830 where the near anchor says 263, so the two do not lie on one line and neither extrapolation is 'correct'. The tiebreak is proximity: the far anchor at y694 is adjacent to the ground being extrapolated into, and the near anchor at y830 is 136px further away through a curve already known not to be linear. Extrapolate from the nearer sample. The town also sits on the far side of a rising hill rather than on the band's plane, which makes the perspective approximate whichever anchor is used -- another reason to take the least-extrapolated reading rather than the most-derived. Overrulable by looking, and should be if a render says otherwise.",
+        "note": "RESCALED WITH ITS SHAPE UNCHANGED. The anchors were 190 and 225 under the 205 figure; the measured height is 240, so the same curve between the same two rows now runs 222 to 263. farY and nearY are the band's own sample rows and did not move -- only the heights did, which is what 'shape unchanged' means. The box governs, not the zone table: boxAt takes precedence, so a curve left at the old numbers would have quietly overridden scaling.json and drawn him short in the one room that has boxes."
+      },
+      "id": "road_left_of_case",
+      "enabledWhen": {
+        "T_CASE_TAKEN": false
+      },
+      "points": [
+        {
+          "x": 256,
+          "y": 823
+        },
+        {
+          "x": 983,
+          "y": 823
+        },
+        {
+          "x": 983,
+          "y": 863
+        },
+        {
+          "x": 256,
+          "y": 863
+        }
+      ],
+      "neighbours": [
+        "road_behind_case",
+        "road_before_case"
+      ]
+    },
+    {
+      "clipPlane": 0,
+      "surface": "mud",
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 694,
+        "farHeight": 222,
+        "nearY": 830,
+        "nearHeight": 263,
+        "beyondY": 500,
+        "beyondHeight": 98,
+        "beyondNote": "PROVISIONAL, AND THE ONE NUMBER IN THIS FILE NOBODY HAS RULED ON. THE CURVE NOW COVERS GROUND THE WALKABLE BAND DOES NOT -- that is unusual and it is deliberate: a staged mover may leave the box (errata 38's own case, and doc 17's exit through the fence gap does exactly that), and without a third sample heightIn CLAMPS, so a man walking away up the road holds 222 exactly and never shrinks. Sliding into the distance at full size is worse than extrapolating badly. THREE WAYS OF MEASURING IT DISAGREE BY A FACTOR OF FOUR. Extending the band's own line gives 133 at y400 and barely shrinks him at all. Anchoring on the room's declared horizon of 348 -- where a man's height must reach zero, which is what a horizon means rather than a modelling choice -- gives 98 at y500 from the far sample and 83 from the near one. Measuring the town's lit windows at about four feet gives 17 at y400, but that assumption carries all the weight and the town is on the far side of a rising hill rather than on the band's plane. RULED: 98, the far anchor, and the reasoning is the tiebreak rather than the model. THE BAND'S OWN CURVE IS NOT A TRUE PERSPECTIVE -- project the far anchor through the horizon and it gives 309 at y830 where the near anchor says 263, so the two do not lie on one line and neither extrapolation is 'correct'. The tiebreak is proximity: the far anchor at y694 is adjacent to the ground being extrapolated into, and the near anchor at y830 is 136px further away through a curve already known not to be linear. Extrapolate from the nearer sample. The town also sits on the far side of a rising hill rather than on the band's plane, which makes the perspective approximate whichever anchor is used -- another reason to take the least-extrapolated reading rather than the most-derived. Overrulable by looking, and should be if a render says otherwise.",
+        "note": "RESCALED WITH ITS SHAPE UNCHANGED. The anchors were 190 and 225 under the 205 figure; the measured height is 240, so the same curve between the same two rows now runs 222 to 263. farY and nearY are the band's own sample rows and did not move -- only the heights did, which is what 'shape unchanged' means. The box governs, not the zone table: boxAt takes precedence, so a curve left at the old numbers would have quietly overridden scaling.json and drawn him short in the one room that has boxes."
+      },
+      "id": "road_right_of_case",
+      "enabledWhen": {
+        "T_CASE_TAKEN": false
+      },
+      "points": [
+        {
+          "x": 1117,
+          "y": 823
+        },
+        {
+          "x": 1629,
+          "y": 823
+        },
+        {
+          "x": 1629,
+          "y": 863
+        },
+        {
+          "x": 1117,
+          "y": 863
+        }
+      ],
+      "neighbours": [
+        "road_behind_case",
+        "road_before_case"
+      ]
+    },
+    {
+      "clipPlane": 0,
+      "surface": "mud",
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 694,
+        "farHeight": 222,
+        "nearY": 830,
+        "nearHeight": 263,
+        "beyondY": 500,
+        "beyondHeight": 98,
+        "beyondNote": "PROVISIONAL, AND THE ONE NUMBER IN THIS FILE NOBODY HAS RULED ON. THE CURVE NOW COVERS GROUND THE WALKABLE BAND DOES NOT -- that is unusual and it is deliberate: a staged mover may leave the box (errata 38's own case, and doc 17's exit through the fence gap does exactly that), and without a third sample heightIn CLAMPS, so a man walking away up the road holds 222 exactly and never shrinks. Sliding into the distance at full size is worse than extrapolating badly. THREE WAYS OF MEASURING IT DISAGREE BY A FACTOR OF FOUR. Extending the band's own line gives 133 at y400 and barely shrinks him at all. Anchoring on the room's declared horizon of 348 -- where a man's height must reach zero, which is what a horizon means rather than a modelling choice -- gives 98 at y500 from the far sample and 83 from the near one. Measuring the town's lit windows at about four feet gives 17 at y400, but that assumption carries all the weight and the town is on the far side of a rising hill rather than on the band's plane. RULED: 98, the far anchor, and the reasoning is the tiebreak rather than the model. THE BAND'S OWN CURVE IS NOT A TRUE PERSPECTIVE -- project the far anchor through the horizon and it gives 309 at y830 where the near anchor says 263, so the two do not lie on one line and neither extrapolation is 'correct'. The tiebreak is proximity: the far anchor at y694 is adjacent to the ground being extrapolated into, and the near anchor at y830 is 136px further away through a curve already known not to be linear. Extrapolate from the nearer sample. The town also sits on the far side of a rising hill rather than on the band's plane, which makes the perspective approximate whichever anchor is used -- another reason to take the least-extrapolated reading rather than the most-derived. Overrulable by looking, and should be if a render says otherwise.",
+        "note": "RESCALED WITH ITS SHAPE UNCHANGED. The anchors were 190 and 225 under the 205 figure; the measured height is 240, so the same curve between the same two rows now runs 222 to 263. farY and nearY are the band's own sample rows and did not move -- only the heights did, which is what 'shape unchanged' means. The box governs, not the zone table: boxAt takes precedence, so a curve left at the old numbers would have quietly overridden scaling.json and drawn him short in the one room that has boxes."
+      },
+      "id": "road_before_case",
+      "enabledWhen": {
+        "T_CASE_TAKEN": false
+      },
+      "points": [
+        {
+          "x": 983,
+          "y": 853
+        },
+        {
+          "x": 1117,
+          "y": 853
+        },
+        {
+          "x": 1117,
+          "y": 863
+        },
+        {
+          "x": 983,
+          "y": 863
+        }
+      ],
+      "neighbours": [
+        "road_left_of_case",
+        "road_right_of_case"
+      ]
     }
   ],
   "backEdgeNote": "THE BACK EDGE IS y700 AND WAS y660, RULED after a play-through reported him walking through the furniture. 660 came from where the mud becomes the SURFACE -- what the ground is, not what stands on it -- and the bench, its rail and the crate beneath it have their bases between roughly y630 and y660. So he could stand level with them or sixteen pixels in front, and at 222px tall he was drawn straight over them: standing in front of something and being drawn over it are the same picture when there is no depth between you. y700 clears every base by 40 to 70 pixels and costs 40 rows of a 204-row band, which against a 240px character is nothing -- the depth curve still gives him 224 there. WALK BOXES THAT EXCLUDE THE STANDING FURNITURE ARE MORE CORRECT and can come later without undoing this: this moves one edge and takes no shape away that anything else depends on.",

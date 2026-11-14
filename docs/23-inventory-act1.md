@@ -31,9 +31,11 @@
 
 **Before** — **LOOK** 1 "A letter of introduction to Mr Ezra Pike of Consolation, in my father's hand, sealed." · 2 "My father wrote it in one sitting and would not let me read it." · 3 "Sealed. I have carried it three thousand miles without opening it, which I had thought was patience."
 **LISTEN** 1 "Nothing. Paper." · 2 "Nothing." · 3 "Nothing."
+**OPEN** "It's sealed, and it's for Mr. Pike to open. An introduction is meant to arrive sealed; opened, it's only a letter." *(errata 316)*
 
 **After `T_PIKE_DEAD`** — **LOOK** 1 "A letter of introduction to a man who has been dead six years. I have not opened it." · 2 "Still sealed. It seems rude, somehow, and I am not certain to whom." · 3 "My father did not know. That is the part I keep arriving at."
 **LISTEN** 1 "Nothing. Paper." · 2 "Nothing." · 3 "Nothing. Whatever it says, it is saying it to nobody."
+**OPEN** "It was sealed for Mr. Pike, and it will reach him sealed. Somehow." *(errata 316)*
 
 ## FOUR DOLLARS
 *Depleting. Gone after A3.*

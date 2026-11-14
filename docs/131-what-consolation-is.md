@@ -21,8 +21,8 @@ The lookout gives Guybrush a destination. The ordinary pirates in the Scumm Bar 
 **The want becomes errands, on Main Street, in Thad's own words.** His first sight of the town ends with what he means to do about it:
 
 > "So this is Consolation."
-> "Half of it is two stories tall in front and one story deep."
-> "The other half is real, and is doing better."
+> "Half the street is false fronts: two stories of painted board, with a shed behind."
+> "The other half is real. That's the half with the money."
 > "Two errands, then. Mr. Pike, and a bed."
 > "The hotel wants a dollar more than I have. I have a very good ear, which must be worth a dollar to somebody."
 

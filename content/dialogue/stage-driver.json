@@ -54,7 +54,7 @@
             "T_DRIVER_ASKED": 1
           },
           "afterUse": "remove",
-          "echo": "You don't think much of my chances. I can see it in your hat."
+          "echo": "You don't think much of my chances. You haven't said a word to me in four days."
         },
         {
           "id": "drv4",
