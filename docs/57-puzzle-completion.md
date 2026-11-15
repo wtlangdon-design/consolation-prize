@@ -137,7 +137,11 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 
 > **SUMP:** *(He reads the boundary aloud, every word, in exactly the voice he would use for a better one.)* "Claim Two. 'Prosperity,' in pencil. Commencing at the stake, thereabouts; thence uphill, with feeling, to the larger of the two rocks; thence along the line the rod preferred, some forty feet, until the humming stopped; thence home." *(He blots it.)* "Bounded west by Claim Three. North by the creek. South by the road." *(beat)* "East by Claim One."
 > **THAD:** "Claim One."
-> **SUMP:** "O. Mott. Filed eighteen forty-six." *(He looks up, for the first time.)* "Your neighbor, Mr. Grubb." *(He looks down again.)* "Next."
+> **SUMP:** "O. Mott. Filed eighteen forty-six." *(He looks up, for the first time.)* "Your neighbor, Mr. Grubb."
+> **THAD:** "Mott's claim. The one nobody can find."
+> **SUMP:** "The office has always known what it adjoins, Mr. Grubb. Nobody has ever filed next to it."
+> **THAD:** "Nobody asked?"
+> **SUMP:** "There is no form for asking." *(He looks down again.)* "Next."
 > → `T_BORDERS_MOTT`, **A9 — the Act I turn.**
 > **SUMP:** "There is a note for you. It arrived before you did." → THE INVITATION.
 

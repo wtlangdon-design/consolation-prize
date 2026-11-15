@@ -214,6 +214,20 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 **THE PIANO** · *the Nugget, tuned this visit*
 - LISTEN — "C-sharp, where it belongs. Nobody's noticed that either."
 
+## THE ACT ONE REVIEW: CLAIM ONE, KEPT BACK
+
+*Errata 340 (Tyler, 2026-11-15, approved). The act turns on Sump reading out that Prosperity lies beside Claim One, and the review found three places that told the player first: the Colonel's map wall, the survey map, and the Registrar's ledger. Before the deed is filed the map wall says this; the survey map's Claim One and the ledger's second and third looks wait for the filing.*
+
+**THE MAP WALL** · *the Colonel's office, before the deed is filed*
+- LOOK — "Every claim in the district, pinned. Green pins for the Company, a great many. There's one red pin, and it isn't in the map. It's stuck in the frame."
+
+## THE ACT ONE REVIEW: THE RACCOON
+
+*Errata 340 (Tyler, 2026-11-15, approved). The review found the raccoon was never given a reason to matter: nothing said the hole was worth having. Said the first time Thad looks at the hole with the raccoon in it; the hole's own lines follow as they were.*
+
+**THE HOLE** · *Prosperity, the first look, with the raccoon in it*
+- LOOK — "A hole, on my claim, and something in it. If there's gold under this mud, that's the way down. And it's occupied."
+
 ## THE ACT ONE REVIEW: ARRIVING AT PROSPERITY
 
 *Errata 339 (Tyler, 2026-11-15, approved). The review found the feeling in Act I sat in optional clicks: on the required path Thad said nothing on first seeing the mud he gave his father's watch for. Said once, the first time he walks onto the claim.*

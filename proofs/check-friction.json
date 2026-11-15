@@ -1195,6 +1195,12 @@
    "date": "2026-11-15",
    "kind": "loosened",
    "why": "Errata 339: not a misfire. The handbill gained a first line saying what the Liar's Assay is, so its second look is seven lines where the test counted six."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 340: not a misfire. The repeat-variants test held that a rule's last line answers for ever; a line said once (the hole's first look with the raccoon in it) ends its own state, and the test now passes on to the chain that follows it."
   }
  ]
 }

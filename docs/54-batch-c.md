@@ -144,7 +144,7 @@
 **The smoke** · USE DR. PURVIS'S TONIC on THE HOLE — "Dr. Purvis's Restorative Bile Tonic, applied where it might do some good." *(It fumes. Thad retreats, coughing, as far as the claim marker.)* "He is unbothered. I, on the other hand, cannot now go within ten feet of my own hole. We are both locked out, which is a kind of fairness." *(The tonic is spent.)*
 > While the fumes last, any verb on THE HOLE or THE RACCOON — "Not until the air clears. Possibly not until the season does."
 
-**The blanket** · USE THE LIVERY BLANKET on THE HOLE — "The blanket, over the mouth of the hole." *(The cloth settles. A long pause. The raccoon emerges, gives Thad one look of complete contempt, and leaves at a walk.)* "The hole has gone cold, and he has gone with it. I appear to have evicted him by weather." *(Thad takes the blanket back.)* → A5, `T_WARM_HOLE`
+**The blanket** · USE THE LIVERY BLANKET on THE HOLE — "The blanket, over the mouth of the hole." *(The cloth settles. A long pause. The raccoon emerges, gives Thad one look of complete contempt, and leaves at a walk.)* "He's gone, and he took his time about it. The hole is mine. It's the first thing in this territory I've won." *(Thad takes the blanket back.)* → A5, `T_WARM_HOLE`
 > USE THE LIVERY BLANKET on THE HOLE, after — "It has done its work. I will not insult the hole twice."
 
 *THE PICKLED EGGS, DR. PURVIS'S TONIC and THE LIVERY BLANKET, the inventory items A5 uses, moved to doc 23 so items live in one place (errata 75).*

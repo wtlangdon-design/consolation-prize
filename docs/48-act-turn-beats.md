@@ -21,7 +21,7 @@ cutscene frame around a live tree — control is `dialogue` throughout the middl
 
 | # | Beat | Control |
 |---|---|---|
-| 1 | Thad seated; the table laid absurdly well; Fanshawe pours. "You'll take wine. It takes itself, mostly." | none |
+| 1 | Thad seated; the table laid absurdly well; Fanshawe pours. "You'll take wine. And you'll forgive an old man his curiosity: Claim One for a neighbor! That is a heavy thing for one man to carry, Mr. Grubb. I'd gladly take a corner of the weight." | none |
 | 2 | **The tree (FAN_A2).** Six options; five sell Prosperity in language Thad doesn't recognise as a sale. The player is the mark, live | dialogue |
 | 3 | Whichever option — the pen with no ink, the charm, the handkerchief pocketed absently. `T_DINED` set here, AFTER the exchange settles *(errata 68 C: `T_SWINDLED` is Deke's, A3)* | dialogue |
 | 4 | Thad on the porch, holding the deed wrong side up. "A very fine dinner." Beat. "I believe I own something." | none |

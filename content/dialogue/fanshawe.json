@@ -223,11 +223,11 @@
     },
     "FAN_A2": {
       "id": "FAN_A2",
-      "prompt": "You'll take wine. It takes itself, mostly.",
+      "prompt": "You'll take wine. And you'll forgive an old man his curiosity: Claim One for a neighbor! That is a heavy thing for one man to carry, Mr. Grubb. I'd gladly take a corner of the weight.",
       "opening": [
         {
           "speaker": "fanshawe",
-          "line": "You'll take wine. It takes itself, mostly."
+          "line": "You'll take wine. And you'll forgive an old man his curiosity: Claim One for a neighbor! That is a heavy thing for one man to carry, Mr. Grubb. I'd gladly take a corner of the weight."
         }
       ],
       "options": [
@@ -291,7 +291,7 @@
         {
           "id": "fanshawe6",
           "tag": "TOPIC",
-          "text": "I mean to work it myself.",
+          "text": "It's a great deal to take in.",
           "afterUse": "remove",
           "after": [
             "fanshawe2"
@@ -299,11 +299,11 @@
           "exchange": [
             {
               "speaker": "fanshawe",
-              "line": "Of course you do."
+              "line": "Take it in slowly, Mr. Grubb."
             },
             {
               "speaker": "fanshawe",
-              "line": "Don't let your fish go cold."
+              "line": "The fish will keep."
             }
           ]
         },

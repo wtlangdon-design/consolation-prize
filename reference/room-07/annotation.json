@@ -389,5 +389,13 @@
    "seed": 702,
    "amount": 0.38
   }
- ]
+ ],
+ "chainWaits": {
+  "ledger": {
+   "LOOK_AT": {
+    "T_BORDERS_MOTT": false
+   }
+  }
+ },
+ "chainWaitsNote": "Errata 340: the ledger's second and third looks are about Claim One, and wait for the filing (the Act I turn)."
 }
