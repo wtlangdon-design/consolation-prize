@@ -2907,6 +2907,7 @@ function minorTrees() {
     'THE HOTEL CLERK': { tree: 'HOTEL_CLERK', speaker: 'hotel_clerk', room: 'hotel_lobby', metFlag: 'T_CLERK_MET' },
     'DEKE VESSEL': { tree: 'DEKE_VESSEL', speaker: 'deke_vessel', room: 'nugget' },
     'THE BARMAN': { tree: 'BARMAN', speaker: 'nugget_barman', room: 'nugget' },
+    'THE STOREKEEPER': { tree: 'STOREKEEPER', speaker: 'storekeeper', room: 'mercantile' },
   };
   //: WHAT A ROW HANDS OVER, routing as A8_CASES is (errata 331). The barman's row 3 is the payment for a tuning: the
   //: document says THE FILING FEE and A8 in its arrow; that it pays on every selection, clears what he owes and counts
