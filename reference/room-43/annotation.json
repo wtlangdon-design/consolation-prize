@@ -304,6 +304,17 @@
    ],
    "note": "Errata 303: the livery's trough, read off the plate; the floor now reaches it.",
    "reach": true
+  },
+  {
+   "id": "letter_writer",
+   "rect": [
+    1269,
+    761,
+    52,
+    14
+   ],
+   "note": "The letter-writer's boots (he stands at 1295, 775). Errata 337: the Act I playtest clicked the street beside him and Thad walked to his exact spot and stood inside him. Carved out with reach, as the Nugget's fiddler is; he is walked round.",
+   "reach": true
   }
  ],
  "lamps": [

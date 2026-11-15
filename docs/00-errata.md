@@ -8278,3 +8278,18 @@ Lesson:
 - `tests/no-clocks.test.mjs`: an hour "in the morning" or "at night" is a clock.
 - Doc 55 §8: a correct idea is never answered by a stock refusal.
 
+## 337 · The Act I playtest: standing clear, whatever the verb (2026-11-15)
+
+The review team's playtester played Act I in a browser from a new game. Nothing was broken; what it found was staging of the kind Tyler has ruled on already ("The game player needs to be able to see the thing that Thad is looking at"; "that should NEVVEERRR happen in this game, ever"), so these are fixed under those rulings.
+
+- **Every verb.** Errata 330 stood Thad beside what he LOOKs at or LISTENs to. PUSH, PULL, USE, OPEN, CLOSE, PICK UP and TALK TO a thing still walked him in front of it: the back alley's cat and rain barrel, the hotel's bell and spittoon. The rule now answers every verb on a thing.
+- **Nobody behind him.** Looking at the things on Fanshawe's desk stood him squarely in front of the Colonel, and three looks in the undertaker's put him over the undertaker. A stand that would hide a person in the room is passed over for one that does not.
+- **Never on a bystander.** A click on Lower Street beside the letter-writer walked Thad to his exact spot and stood him inside him: a walk's end was moved off movers, and bystanders are not movers. The room's standing people count now, everywhere.
+- **Round, not through.** The letter-writer's and the message boy's boots are carved out of the floor, as the fiddler's are; the way to the undertaker's door no longer runs over the boy.
+- **The Mercantile's pickle jar** is picked up from the floor beside the counter, not from a stand drawn on the counter's front.
+
+Seen in the build before and after. Still open from the playtest: Main Street's horses, notices and trough (wide things, which the rule leaves alone), and the barman's stand.
+
+Lesson:
+- `tests/stands-clear.test.mjs`: the rule is not limited to the examining verbs, passes over a stand that hides a person, and a walk's end is moved off the room's people.
+

@@ -295,7 +295,19 @@
    "facing": "back"
   }
  },
- "obstacles": [],
+ "obstacles": [
+  {
+   "id": "message_boy",
+   "rect": [
+    826,
+    752,
+    44,
+    13
+   ],
+   "note": "The message boy's boots (he stands at 848, 765). Errata 337: the way to the undertaker's door ran over him, and Thad was drawn walking through him on the required path to A1. Carved out with reach; he is walked round.",
+   "reach": true
+  }
+ ],
  "lamps": [
   {
    "id": "photographer_window",

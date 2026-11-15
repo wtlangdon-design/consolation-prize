@@ -18,6 +18,8 @@ export const BODY_WIDTH = 0.34;
 export const HIDES = 0.2;
 /** A thing wider than this many of his bodies cannot be hidden by him; he stands where he would have. */
 export const TOO_WIDE = 2.5;
+/** More of a person in the room than this hidden behind him, and the stand is passed over (errata 337). */
+export const COVERS_A_PERSON = 0.25;
 
 export type Rect = readonly [number, number, number, number];
 export interface Spot { x: number; y: number }
