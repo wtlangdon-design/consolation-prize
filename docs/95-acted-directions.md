@@ -32,7 +32,7 @@
 
 ## The directions
 
-Counts: **A 65 · B 0 · C 0** — 65 directions, every one acted; nothing is printed (doc 130, errata 314), every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 66 · B 0 · C 0** — 66 directions, every one acted; nothing is printed (doc 130, errata 314), every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -99,6 +99,7 @@ Counts: **A 65 · B 0 · C 0** — 65 directions, every one acted; nothing is pr
 | 169 | A | bell_ringer | He looks up at the bell, then down at the bottle. | dialogue/amb-bell-ringer root option 7 | bell_ringer | 6 6 7 7 | 2.0 |  |  | Errata 286, drawn by errata 311: up at the bell, then down at the bottle, in that order, which is the joke. |
 | 172 | A | man_leaving_tomorrow | He grips it with both hands. | dialogue/amb-man-leaving-tomorrow root option 6 | man_leaving_tomorrow | 6 6 6 | 1.0 | 6 |  | Errata 286, drawn by errata 311: the bag hugged to his chest, held through "It goes when I go." |
 | 173 | A | map_seller | He draws a small piano on a map. | dialogue/amb-map-seller root option 6 | map_seller | 5 6 5 6 | 1.6 |  |  | Errata 286, drawn by errata 311: the map flat at his chest and the pencil moving on it. |
+| 176 | A | pie_woman | She holds out a pie. | dialogue/amb-pie-woman root option t | pie_woman | 2 2 2 | 1.0 | 2 |  | Errata 329 (Tyler, 2026-11-15: the insult "doesn't land well. He's just arrived in town, he doesn't actually try a pie, and he's ready to insult them? If she lets him sample it first, maybe?"). Her own frame 2, the pie held out, drawn by errata 111's cast pass, held through "Corner's free. Go on." No new drawing. |
 | 175 | A | thad | Thad ducks. | combinations (eggs on hole, improved) | thad:recoil/back | 0 1 2 3 3 2 | 1.2 |  |  | Errata 308 (no parentheticals): row 145 was printed, "The egg goes in. There is a pause. The egg comes back out, at speed." Now Thad says the egg in and the egg out, and between them he ducks, in his recoil drawn from behind as he stands at the hole. |
 | 174 | A | deke_vessel | Thad hands over four dollars and the watch. | dialogue/deke-vessel root option 6 | thad:hand-over/right, deke_vessel | 0 1 1 1 2 ; 2 2 2 2 0 | 1.6 |  |  | Errata 307, 308, drawn by errata 311: Thad reaches across the barrel with the money and the watch (his hand-over clip, the game's one reusable reach), and Vessel takes them with his hand out, palm up (frame 2). |
 

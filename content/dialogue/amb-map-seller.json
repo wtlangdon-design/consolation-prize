@@ -108,7 +108,7 @@
           "exchange": [
             {
               "speaker": "map_seller",
-              "line": "Tell them, sir! Every man in town owns one, and not one has asked for his money back."
+              "line": "Tell them, sir! I'll put you on the next map, telling them."
             },
             {
               "speaker": "thad",
@@ -116,7 +116,7 @@
             },
             {
               "speaker": "map_seller",
-              "line": "Little hat. Arm out. Top of the hill, pointing at the strike."
+              "line": "On the map, sir! Little hat, arm out, top of the hill, pointing the way to the strike."
             }
           ],
           "afterUse": "remove"

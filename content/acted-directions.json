@@ -1116,6 +1116,23 @@
       "seconds": 1.6
     },
     {
+      "n": 176,
+      "class": "A",
+      "speaker": "pie_woman",
+      "words": "She holds out a pie.",
+      "where": "dialogue/amb-pie-woman root option t",
+      "performedBy": [
+        "pie_woman"
+      ],
+      "frames": [
+        2,
+        2,
+        2
+      ],
+      "seconds": 1,
+      "holds": 2
+    },
+    {
       "n": 175,
       "class": "A",
       "speaker": "thad",
