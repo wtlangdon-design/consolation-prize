@@ -1,0 +1,10 @@
+Image 1 is a canvas on magenta from my pixel-art adventure game, set in an 1850s gold-rush town. The figure on the left is the hero, Thad, standing: he is THE STANDARD for the whole cast -- his flat, soft shading, his low texture, his proportions -- and he shows the size of a standing man. Image 2 is Thad in the saloon beside the bar and its drinkers: the new man stands BEHIND that bar counter, in front of the shelves of bottles, and this is how flat, soft and low in texture the game's drawing is. Image 3 is one of the drinkers at that bar, drawn to the same standard: match him.
+
+On the magenta to the right of Thad, draw FOUR full-length standing figures of ONE new man, in a row, each separated by clear magenta, the same height as Thad, their feet on the same line as his: the saloon's barman. A heavy-set, unhurried man of about fifty, a neat moustache, shirt sleeves rolled up and held by garters on his upper arms, a dark waistcoat, a long white apron tied at the waist, dark trousers, a clean white towel over one shoulder. He faces us, three-quarters toward the left. His hands work in front of him at the height of his belt (that is where the bar counter will be).
+1. polishing a small glass with the towel, the towel's end in one hand, the glass in the other;
+2. the same, the glass turned and the towel moved;
+3. leaning a little forward, setting the glass down at the height of his belt, the glass under his hand; the towel back over his shoulder;
+4. holding the glass against his chest, his head turned to look along the bar to his left, the towel over his shoulder.
+The towel is on him in every figure. The same small glass in every figure.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as THAD -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, nothing touching. No bar, no counter, no floor, no shadows, no text, no numbers, no border.

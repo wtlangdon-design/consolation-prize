@@ -52280,6 +52280,146 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-15T00:18:50.416Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "nugget-barman",
+   "subject": "nugget-barman",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/nugget-barman/op-1.txt",
+   "promptHash": "57d4e33116045da7294ecb6fb5186f963dd825850e27182c3ea5de7a6431b75b",
+   "references": [
+    {
+     "path": "art/staging/nugget-barman/template.png",
+     "hash": "e007fc6f2099b3c4ffcfa9a709d4fbac49501067c953d84feff92919bfdccf3b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/nugget-barman/thad-at-the-bar.png",
+     "hash": "fb7d6df0f1b441aef5779a49803fc20312718618683644436b5898dab022d415",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/nugget-barman/nugget-bar-man@2x.png",
+     "hash": "c6a5cb311f00f39e8500b3f2476d84dab75e696e7bc16c77c76e4e202fcdd350",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "e007fc6f2099b3c4ffcfa9a709d4fbac49501067c953d84feff92919bfdccf3b",
+   "sourcePath": "art/staging/nugget-barman/template.png",
+   "out": "art/staging/nugget-barman/sheet.png",
+   "outputHash": "4774a17aa6e4abdfee0e6a99aefbdab4e79a4fe74973d8ef58ae6b536c02c3e7",
+   "bytes": 1432930,
+   "usage": {
+    "input_tokens": 12157,
+    "input_tokens_details": {
+     "image_tokens": 11679,
+     "text_tokens": 478
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 12500
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-15T04:28:44.265Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-15T04:28:44.279Z"
   }
  ],
  "promotions": [
