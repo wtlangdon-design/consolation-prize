@@ -13,7 +13,7 @@
 > **LISTEN:** "Talk. A great deal of it, all at the same volume, none of it listened to. It's cheerful."
 
 **THE MEN COMING BACK**
-> **LOOK:** "The same men, walking in, at the end of the day. Same tools. Same road."
+> **LOOK:** "The same men, walking in, as the light goes. Same tools. Same road."
 > **LISTEN:** "Nothing. Two dozen men on a road and not one of them is saying anything."
 
 **THE MILEPOST**

@@ -504,6 +504,18 @@
    "speakers": {
     "PRATT": "pratt_jump"
    }
+  },
+  {
+   "hotspot": "mud",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: LINES THAT WAIT FOR THEIR MOMENT",
+   "head": "**THE MUD**",
+   "bullet": "- USE",
+   "when": {
+    "T_BORDERS_MOTT": false
+   }
   }
  ],
  "docBulletsNote": "Errata 237, doc 111 C, THE RACCOON in the hole once Pratt wants him (T_RACCOON_WANTED): a hand in the hole is refused, and so is the coat over the hole before the hen; with him halfway out (the hen at the hole, T_RACCOON_OUT, a pair in content/combinations.json) a hand is refused again, and USE drops the coat over him: THE RACCOON, IN MY COAT (T_RACCOON_IN_COAT). Read from doc 111 by tools/compile-room.mjs (docBullet). The fork and the hen are item pairs (tools/extract-content.mjs). Errata 238: the coat's USE holds Thad's coat-bundle clip over its two lines (ResponseRule.holds; art/actors/thad-coat-bundle-front, reference/act3-estate-sale/handback.md operation 2): frame 2, the bundle lurching left, over the direction, and frame 3, the paw swiping out, over his line. The direction stays printed (doc 95 row 119, class C: the words carry the joke). Errata 242 (doc 113, B · The stake): while Pratt is on the claim (Act II on, until PRA_D2 sends him home, T_PRATT_STAKE) the marker's PUSH, PULL, PICK UP and USE and Pratt's own PUSH, PULL and PICK UP are the scene's; nothing is set and nothing is solved.",

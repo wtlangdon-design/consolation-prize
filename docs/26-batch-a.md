@@ -29,7 +29,7 @@
 
 **THE REGISTER** — LOOK 2 "Forty-one names. I've read all of them, and I don't know one. By the end of the month they'll all know mine." · 3 "Mine is the last, and it's spelled in a way I haven't previously encountered." | LISTEN 2 "Nothing." · 3 "Nothing. It is a list of people who are elsewhere."
 
-**THE KEY RACK** — LOOK 2 "Four out of forty. The four are not near each other." · 3 "Number nineteen is mine! I've looked at it more than a man should look at a key." | LISTEN 2 "Nothing." · 3 "Brass on wood, faintly, when the door goes."
+**THE KEY RACK** — LOOK 2 "Four out of forty. The four are not near each other." · 3 "Number nineteen has the best hook on the rack. I've looked at it more than a man should look at a key." | LISTEN 2 "Nothing." · 3 "Brass on wood, faintly, when the door goes."
 
 **THE ENGRAVING** — LOOK 2 "The Bay of Naples, in a mining camp, four hundred miles from a paved road." · 3 "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely." | LISTEN 2 "Nothing." · 3 "Nothing. It is a long way from home and so am I, and only one of us is framed."
 

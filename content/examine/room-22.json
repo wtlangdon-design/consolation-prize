@@ -36,10 +36,10 @@
       "LISTEN_TO": [
         "It knocks in the wind. A slow, patient count.",
         "Nothing.",
-        "The knock, slower than yesterday. The wind is tired, or the post is."
+        "The knock, slower now. The wind is tired, or the post is."
       ],
       "overrides": {
-        "PUSH": "It leans toward town today. Yesterday, the diggings. The post is the district's mood, on a stick."
+        "PUSH": "It leans toward town. Push it and it leans toward the diggings. The post is the district's mood, on a stick."
       }
     },
     {
@@ -97,7 +97,7 @@
     {
       "name": "THE MEN GOING OUT",
       "LOOK_AT": [
-        "Men walking out with tools over their shoulders, at six in the morning. They are talking. Several of them are talking at once.",
+        "Men walking out with tools over their shoulders, early and brisk. They are talking. Several of them are talking at once.",
         "Every one of them is carrying something he bought at the Mercantile. The Mercantile is the only claim in the district that pays.",
         "They walk fast. Optimism has a pace, and it is brisk. I keep up easily."
       ],
@@ -110,7 +110,7 @@
     {
       "name": "THE MEN COMING BACK",
       "LOOK_AT": [
-        "The same men, walking in, at seven at night. Same tools. Same road.",
+        "The same men, walking in, as the light goes. Same tools. Same road.",
         "Nobody is carrying anything he did not take out.",
         "They walk slower than they walked out, and all at the same pace, without anyone having agreed to it."
       ],

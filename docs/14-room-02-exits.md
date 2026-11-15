@@ -71,7 +71,7 @@
 3. "Somewhere down there is forty feet of mud for any man fool enough to buy it."
 
 **LISTEN**
-1. "Boots. A great many of them, going out. The most cheerful sound in Consolation, and it happens at six in the morning."
+1. "Boots. A great many of them, going out. The most cheerful sound in Consolation, and it happens first thing in the morning."
 2. "Nothing at the moment. They're all out there."
 3. "Nothing coming back yet. They come back quiet."
 

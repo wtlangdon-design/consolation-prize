@@ -1,4 +1,5 @@
 import type {
+  Condition,
   CombinationsFile, Interactable, ResponseRule, SpokenLine, VerbFallbacksFile, VerbsFile,
 } from './types.ts';
 import type { FlagStore } from './FlagStore.ts';
@@ -216,7 +217,11 @@ export class VerbSystem {
     // (GameState.evidencePairFor), and once it is not, "the pair yields to the
     // ordinary pools" (its own note, doc 36 Q113). Found here it answered with
     // nothing at all, because it has no line of its own (errata 140).
-    const pair = table?.pairs.find(
+    const holds = (one: { when?: Condition; holds?: string[]; afterPuzzles?: string[]; untilPuzzles?: string[] }) => this.flags.test(one.when)
+      && (one.holds ?? []).every((item) => carried.includes(item))
+      && (one.afterPuzzles ?? []).every((puzzle) => this.reached(puzzle))
+      && !(one.untilPuzzles ?? []).some((puzzle) => this.reached(puzzle));
+    const ownPair = table?.pairs.find(
       (candidate) => candidate.item === itemId
         && candidate.room === roomId
         && candidate.target === target.id
@@ -224,15 +229,23 @@ export class VerbSystem {
         // ERRATA 282: a pair answers the carry verbs it names -- USE when it names none, GIVE for a hand-over.
         && (candidate.verbs ?? ['USE']).includes(verbId),
     );
+    // THE SAME ANSWER AT ANOTHER PLACE (CombinationsFile.alsoAt, errata 336): with nothing of its own to say here --
+    // no pair, or a pair of cases none of which holds -- the item is answered as at the place this one stands for.
+    const answers = (one: typeof ownPair) => Boolean(one && (!one.rules?.length || one.rules.some(holds)));
+    const elsewhere = answers(ownPair) ? undefined : (table?.alsoAt ?? [])
+      .filter((also) => also.room === roomId && also.at === target.id
+        && (!also.items || also.items.includes(itemId)) && (!also.verbs || also.verbs.includes(verbId)))
+      .map((also) => table?.pairs.find((candidate) => candidate.item === itemId && candidate.room === roomId
+        && candidate.target === also.as && !candidate.opens))
+      .find(answers);
+    const pair = elsewhere ?? ownPair;
     // THE FIRST CASE WHOSE CIRCUMSTANCES HOLD (CombinationPair.rules).
     // Bounded by a puzzle as a room's own rules are (ResponseRule.untilPuzzles): the map is unrolled for the survey
     // until the survey is done, whichever build of the game the save did it in.
-    const rule = pair?.rules?.find((one) => this.flags.test(one.when)
-      && (one.holds ?? []).every((item) => carried.includes(item))
-      && (one.afterPuzzles ?? []).every((puzzle) => this.reached(puzzle))
-      && !(one.untilPuzzles ?? []).some((puzzle) => this.reached(puzzle)));
+    const rule = pair?.rules?.find(holds);
     if (pair && rule) {
-      const prefix = `with/${roomId}/${target.id}/${itemId}`;
+      // Its effects are the pair's own, wherever the item was put down, so a save and the puzzle graph see one site.
+      const prefix = `with/${roomId}/${pair.target}/${itemId}`;
       return {
         say: rule.say,
         ...(rule.by ? { by: rule.by } : {}),

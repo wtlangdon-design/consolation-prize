@@ -35,7 +35,7 @@
         }
       ],
       "overrides": {
-        "USE": "It is nine in the morning.",
+        "USE": "Not now. A man doesn't make his fortune lying down.",
         "PUSH": "I moved it off the valley. I woke in the valley. The bed and the floor have seniority."
       }
     },
@@ -157,7 +157,7 @@
         "Nothing. It burns at the volume management prefers."
       ],
       "overrides": {
-        "TALK_TO": "I bade it goodnight. Management's wick allowance ended the conversation on its side."
+        "TALK_TO": "I bade it goodnight. It didn't flicker. Management has trained it well."
       }
     },
     {
@@ -292,7 +292,7 @@
         }
       ],
       "overrides": {
-        "PICK_UP": "I'm wearing the other one, which is this one."
+        "PICK_UP": "It's my only good coat. It stays on the hook until there's an occasion."
       }
     }
   ]

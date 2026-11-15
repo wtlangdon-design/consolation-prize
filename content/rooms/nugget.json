@@ -241,7 +241,7 @@
               "It's a face that gets around. I have a feeling I'll meet that collar again in this town."
             ],
             "then": [
-              "I asked who he is and got three answers. I asked three people and got three answers."
+              "I asked three people who he is, and got three answers."
             ]
           }
         ],
@@ -351,6 +351,13 @@
           }
         ],
         "LISTEN_TO": [
+          {
+            "when": {
+              "T_NUGGET_PIANO_TUNED": true
+            },
+            "say": "C-sharp, where it belongs. Nobody's noticed that either.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: LINES THAT WAIT FOR THEIR MOMENT · **THE PIANO** - LISTEN"
+          },
           {
             "when": {
               "ACT": {
