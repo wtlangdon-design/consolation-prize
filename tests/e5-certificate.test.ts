@@ -36,8 +36,8 @@ const inPrintShop = async (flags: Record<string, boolean>) => {
 test('the death certificate on Frame opens the obituary between the recorded death and the obituary, and not otherwise', async () => {
   const live = await inPrintShop({ T_DECEASED: true, T_OBITUARY: false });
   const pair = live.evidencePairFor('death_certificate', 'frame', 'GIVE');
-  // Errata 282: handed over, as Monkey Island's were. USE THE CERTIFICATE ON FRAME is the certificate's pool.
-  assert.equal(live.evidencePairFor('death_certificate', 'frame', 'USE'), null, 'USE does not hand it over');
+  // Errata 282: handed over, as Monkey Island's were. Errata 338 (Tyler: "Forgiving"): USE finds the hand-over too.
+  assert.equal(live.evidencePairFor('death_certificate', 'frame', 'USE'), pair, 'USE hands it over as GIVE does');
   assert.ok(pair, 'with the death recorded, the certificate on Frame does nothing');
   assert.equal(pair.opens, 'FRAME');
   assert.equal(pair.opensNode, 'FRA_E1');

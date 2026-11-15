@@ -7,7 +7,7 @@ import { NATIVE_WIDTH, PLAY_HEIGHT as PLAY_HEIGHT_WORLD } from '../render/Screen
 import { heightIn, WalkBoxes, type Route } from './WalkBoxes.ts';
 import { FlagStore } from './FlagStore.ts';
 import { DialogueRunner } from './DialogueRunner.ts';
-import { VerbSystem, type ResolvedAction } from './VerbSystem.ts';
+import { CARRY_VERBS, VerbSystem, type ResolvedAction } from './VerbSystem.ts';
 import { SAVE_VERSION, SaveManager, type SaveFile, type StorageLike } from './SaveManager.ts';
 import { migrateSave } from './SaveMigration.ts';
 import { MenuSystem } from './MenuSystem.ts';
@@ -1592,7 +1592,8 @@ export class GameState {
     const pair = (this.content.combinations?.pairs ?? []).find((one) => one.item === itemId
       && one.room === this.currentRoomId && one.target === npcId && one.opens && (one.completes || one.opensNode)
       // Errata 282: the verb the pair answers (GIVE, for the log handed to Winnie).
-      && (one.verbs ?? ['USE']).includes(verb));
+      // Errata 338: either carry verb finds it.
+      && ((one.verbs ?? ['USE']).includes(verb) || CARRY_VERBS.includes(verb)));
     if (!pair) return null;
     if ((pair.requiresPuzzles ?? []).some((id) => this.puzzles.get(id) !== 'complete')) return null;
     if (Object.entries(pair.requiresFlags ?? {}).some(([flag, value]) => (this.flags.get(flag) === true) !== value)) return null;

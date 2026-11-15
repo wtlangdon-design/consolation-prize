@@ -3455,10 +3455,6 @@
       "as": "sump",
       "items": [
         "filing_fee"
-      ],
-      "verbs": [
-        "USE",
-        "GIVE"
       ]
     },
     {
@@ -3468,9 +3464,6 @@
       "items": [
         "deed",
         "survey"
-      ],
-      "verbs": [
-        "GIVE"
       ]
     }
   ],

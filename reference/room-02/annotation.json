@@ -645,9 +645,19 @@
    "facing": "back"
   },
   "horses": {
-   "x": 1470,
+   "x": 1246,
    "y": 786,
-   "facing": "back"
+   "facing": "right"
+  },
+  "posted_notices": {
+   "x": 1118,
+   "y": 712,
+   "facing": "right"
+  },
+  "water_trough": {
+   "x": 1873,
+   "y": 712,
+   "facing": "right"
   }
  },
  "hotspotWalkToNote": "Errata 201. The point under the false fronts' centre, 1580,620, is behind the horses once they move right to clear the notice board (Tyler, 2026-11-08: \"move them a bit to the right so they're not overlapping the bulletin board at all\"): they would hide 55% of him there. The fronts run the whole street; he looks at them from 1700,620, 120 px on, past the paint's tail and clear of the trough. Errata 320: THE HORSES, from in front of the rail, facing them.",
@@ -1796,5 +1806,6 @@
  ],
  "defaultVerbs": {
   "horses": "LOOK_AT"
- }
+ },
+ "hotspotWalkToNote337": "Errata 337: the notices, the trough and the horses are stood beside, at their left ends, facing them. The Act I playtest found him centred in front of the palomino while describing her, his head on the notice board, and across the middle of the trough; the stand-beside rule leaves wide things alone and passed the board at 13% hidden, so these three are placed by hand."
 }

@@ -495,9 +495,9 @@
         "OPEN": "They're facing out already, bless them. Showing everything to everybody is a notice's whole career."
       },
       "walkTo": {
-        "x": 1193,
+        "x": 1118,
         "y": 712,
-        "facing": "back"
+        "facing": "right"
       }
     },
     {
@@ -750,9 +750,9 @@
         "OPEN": "It's a trough. It's as open as a thing can be, and I admire that in a trough."
       },
       "walkTo": {
-        "x": 2018,
+        "x": 1873,
         "y": 712,
-        "facing": "back"
+        "facing": "right"
       }
     },
     {
@@ -791,9 +791,9 @@
         "USE": "I'd ride one, if one were mine, and if I could ride."
       },
       "walkTo": {
-        "x": 1470,
+        "x": 1246,
         "y": 786,
-        "facing": "back"
+        "facing": "right"
       }
     },
     {

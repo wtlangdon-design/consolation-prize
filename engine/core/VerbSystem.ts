@@ -70,6 +70,9 @@ export interface ResolvedAction {
  * than a shared refusal line, per the technical spec. The pool rotates so a
  * repeated combination does not repeat the same line.
  */
+/** The two verbs that carry an item to something. Either finds the answer written for the other (errata 338). */
+export const CARRY_VERBS = ['USE', 'GIVE'];
+
 export class VerbSystem {
   private readonly verbLabels = new Map<string, string>();
   private fallbackCursor = new Map<string, number>();
@@ -221,14 +224,15 @@ export class VerbSystem {
       && (one.holds ?? []).every((item) => carried.includes(item))
       && (one.afterPuzzles ?? []).every((puzzle) => this.reached(puzzle))
       && !(one.untilPuzzles ?? []).some((puzzle) => this.reached(puzzle));
-    const ownPair = table?.pairs.find(
-      (candidate) => candidate.item === itemId
-        && candidate.room === roomId
-        && candidate.target === target.id
-        && !candidate.opens
-        // ERRATA 282: a pair answers the carry verbs it names -- USE when it names none, GIVE for a hand-over.
-        && (candidate.verbs ?? ['USE']).includes(verbId),
-    );
+    // ERRATA 282: a pair names the carry verb it is written for -- USE when it names none, GIVE for a hand-over.
+    // ERRATA 338 (Tyler, 2026-11-15: "Forgiving"): and it answers the other carry verb too. USE THE FEE ON SUMP was the
+    // fee's own wrong answer ("It has one job, and this isn't it."), said at the moment of its one job; the Act I
+    // review found that the likeliest place for a player to stall. The pair written for the verb chosen is taken
+    // first; failing one, the pair written for the other.
+    const here = (table?.pairs ?? []).filter((candidate) => candidate.item === itemId
+      && candidate.room === roomId && candidate.target === target.id && !candidate.opens);
+    const ownPair = here.find((candidate) => (candidate.verbs ?? ['USE']).includes(verbId))
+      ?? (CARRY_VERBS.includes(verbId) ? here[0] : undefined);
     // THE SAME ANSWER AT ANOTHER PLACE (CombinationsFile.alsoAt, errata 336): with nothing of its own to say here --
     // no pair, or a pair of cases none of which holds -- the item is answered as at the place this one stands for.
     const answers = (one: typeof ownPair) => Boolean(one && (!one.rules?.length || one.rules.some(holds)));
