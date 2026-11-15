@@ -249,7 +249,7 @@ is the whole of his character.
 >   *Thad:* "And then?"
 >   → "And then the undertaker. Down the lane. Pike's still into me for three pies."
 > "You knew Pike was dead." → "I knew he'd stopped buying pie. Out here that's the same thing."
-> `[COMIC]` "Grubb. Pianos. You may have heard." → "I haven't." *(beat)* "Still a nickel."
+> `[COMIC]` "Thaddeus Grubb. Pianos are my profession. You may have heard the name." → "I haven't." *(beat)* "Still a nickel."
 > `[COMIC]` "I'll take a pie." → "Course you will."
 > `[EXIT]` "I'll come back when I'm hungrier." → "Course you will."
 

@@ -3,6 +3,7 @@
  "id": "sump",
  "name": "REGISTRAR SUMP",
  "posture": "behind-counter",
+ "faces": "front",
  "room": "claims_registrar",
  "x": 1290,
  "y": 440,

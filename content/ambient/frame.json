@@ -3,6 +3,7 @@
  "id": "frame",
  "name": "IGNATIUS FRAME",
  "posture": "standing",
+ "faces": "front",
  "room": "clarion",
  "when": {
   "T_NOTICE_SET": false,

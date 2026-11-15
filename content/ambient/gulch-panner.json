@@ -3,6 +3,7 @@
  "id": "gulch_panner",
  "name": "THE PANNER",
  "posture": "standing",
+ "faces": "front",
  "note": "Doc 109, THE PANNER: 'Knee-deep in the river, in a good coat. Sure the man upstream has found something bigger. He is the voice that mutters the counters in Duel One.' He stands in the channel right of the bar, beside it (room-53 operation 3), drawn whole: his feet are on the river bed and the water hides him from the knees down (clipPlane 2). His tree and barks are doc 109's, extracted; doc 49's ROOM 53 answers a wrong verb on him (errata 202). Barks in turn, the same in every reputation state: the Gulch has not heard of Thad (doc 107).",
  "room": "gulch_river",
  "x": 1790,

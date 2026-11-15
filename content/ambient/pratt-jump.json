@@ -3,6 +3,7 @@
  "id": "pratt_jump",
  "name": "NICKEL PRATT",
  "posture": "standing",
+ "faces": "front",
  "room": "prosperity",
  "when": {
   "ACT": {

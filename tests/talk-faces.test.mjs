@@ -32,3 +32,18 @@ test('a figure drawn turned is talked to from in front of its face', () => {
     }
   }
 });
+
+// EVERY TALKER SAYS WHICH WAY IT FACES (errata 321). Tyler, 2026-11-14, with a screenshot: "Thad stands to the right
+// of the pie lady when he talks to her but she's looking left." The rule above held only for a figure that declared
+// `faces`; she never had, so nothing looked, and the engine stood Thad on whichever side he came from. The dog's owner
+// in the back alley, drawn in profile, was talked to from his back the same way. Now a talker with no declaration
+// fails here, so somebody has to look at the figure in its room and say.
+test('every figure that can be talked to says which way it faces', () => {
+  const silent = people.filter((person) => person.tree && person.sprite?.frames?.length && !['left', 'right', 'front'].includes(person.faces));
+  assert.deepEqual(silent.map((person) => person.id), []);
+});
+
+test('the check finds a talker drawn turned and talked to from its back', () => {
+  const pie = { id: 'pie', tree: 't', x: 2470, faces: 'left', walkTo: { x: 2580 } };
+  assert.notEqual(pie.walkTo.x < pie.x ? 'left' : 'right', pie.faces);
+});

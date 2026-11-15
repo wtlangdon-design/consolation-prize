@@ -3,6 +3,7 @@
  "id": "dogs_owner",
  "name": "THE DOG'S OWNER",
  "posture": "standing",
+ "faces": "left",
  "note": "Doc 07 #18. 'Back alley. Looking for the lost dog from the notice board. The dog is on Main Street.' In the alley until Thad tells him there is a dog on Main Street (T_BILL_FOUND); from then on he is on Main Street with Bill, the street dog, and has no bark at all (doc 07 R_TRUTH: 'If resolved: he is on Main Street with Bill, and has no bark at all.' Read as his resolved state, not only that reputation's: a man standing beside his dog does not ask whether you have seen one). Who is present is decided as Thad arrives, so he stays in the alley for the visit he leaves in (errata 110).",
  "room": "back_alley",
  "x": 560,
@@ -16,9 +17,9 @@
   "T_BILL_FOUND": false
  },
  "walkTo": {
-  "x": 720,
+  "x": 400,
   "y": 795,
-  "facing": "left"
+  "facing": "right"
  },
  "placements": {
   "main_street": {
@@ -159,5 +160,5 @@
   "provenance": "art/staging/townspeople-110/dogs-owner/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 115)",
   "figureHeightNote": "Crown to sole (errata 112 L), the brim read by eye from the rest frame's row widths: tools/art/figure-height.py --hat took his coat collar for the brim (errata 115)."
  },
- "facesNote": "No `faces`: at rest he looks off up the alley for his dog (doc 07: 'Looking for the lost dog'), away from Thad's stand, and turns to Thad in his TALK pose, which is what the conversation shows (errata 115)."
+ "facesNote": "Errata 321: drawn in profile, turned to our left, and talked to from 720, at his back. The stand is now at 400, in front of his face."
 }

@@ -3,6 +3,7 @@
  "id": "sheng",
  "name": "AH-LAM SHENG",
  "posture": "standing",
+ "faces": "front",
  "room": "laundry",
  "note": "AH-LAM SHENG (doc 04: 'Laundry; and, in practice, the bank'), at his ironing board ('He is ironing', doc 54). No document describes his looks; he is drawn as room-28's composition master drew him, then on magenta against Thad with his board, shirt and iron (room-28 operation 3), cut by tools/art/room28-sheng.py. His tree opens SHE_A1, and SHE_D1 while its business is open (errata 99 D).",
  "x": 1177,

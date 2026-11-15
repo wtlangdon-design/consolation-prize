@@ -11,6 +11,7 @@
   }
  ],
  "posture": "standing",
+ "faces": "front",
  "clipPlane": 1,
  "note": "Doc 109, THE DEACON, before he is found, and DEKE VESSEL, found: Vessel behind the plank, clean-shaven with a pale stripe where his mustache was (doc 109, Two decisions). His figure is Vessel's own accepted frames (art/actors/deke-vessel.png), every pixel his, with the mustache taken off and the pale stripe laid where it was (tools/art/room52-deacon-from-deke.py; Tyler, 2026-11-09: \"exactly the same minus the mustache\"). gulch-vessel operation 1's new drawing was another man beside him, and is not used. Named THE DEACON until THE FIND (G4), then DEKE VESSEL; his tree opens DEA_G1 and then VES_G1. He leaves the Gulch at G9 (T_VESSEL_FOUND), with the watch. Doc 49's ROOM 52 answers a wrong verb on him (errata 202). The plank and its barrels stand in front of him (clipPlane 1); his legs show under the plank between them.",
  "room": "grog_tent",

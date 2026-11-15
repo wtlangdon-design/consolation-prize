@@ -3,6 +3,7 @@
  "id": "barber",
  "name": "THE BARBER-DENTIST-SURGEON",
  "posture": "standing",
+ "faces": "front",
  "note": "Doc 07 #9: 'His shop. One man, three trades, one set of instruments. Period-accurate.' Errata 183: he stands in his shop off the Lane (Room 42), left of his chair under the lamp, where the composition master stood him. His tree and his barks are doc 07's, extracted; doc 105's Overrides answer the room's wrong verbs. Present in every act.",
  "room": "barbers",
  "x": 690,

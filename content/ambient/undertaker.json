@@ -3,6 +3,7 @@
  "id": "undertaker",
  "name": "THE UNDERTAKER",
  "posture": "behind-counter",
+ "faces": "front",
  "room": "undertaker",
  "x": 1542,
  "y": 509,

@@ -3,6 +3,7 @@
  "id": "gulch_rule_keeper",
  "name": "THE RULE-KEEPER",
  "posture": "seated",
+ "faces": "front",
  "seat": {
   "y": 626,
   "note": "The top of the keg he sits on, read off the plate (room-52 operation 4). His lap must be drawn on it (tests/lessons.test.ts); Tyler, 2026-11-09: \"sitting halfway down the barrel\"."

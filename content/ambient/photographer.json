@@ -3,6 +3,7 @@
  "id": "photographer",
  "name": "THE PHOTOGRAPHER",
  "posture": "standing",
+ "faces": "front",
  "note": "Doc 07 #10: 'His studio. Sells stock portraits by the gross. Has the Mott photograph in his window.' Errata 183: he stands beside his camera in his studio off the Lane (Room 38), where the composition master stood him. His tree and his barks are doc 07's, extracted; doc 105's Overrides answer the room's wrong verbs. Present in every act.",
  "room": "photographers_studio",
  "x": 1383,

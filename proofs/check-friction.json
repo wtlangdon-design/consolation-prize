@@ -1111,6 +1111,12 @@
    "date": "2026-11-14",
    "kind": "loosened",
    "why": "Errata 320 (Tyler: \"I want them clickable\"): under the horses the pointer used to find the mud; it now finds their own hotspot. The figure still lets the pointer through. Changed by ruling."
+  },
+  {
+   "check": "tests/faces.test.mjs",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 321: every talker now declares faces by eye (tests/talk-faces.test.mjs). A talker's `front` is no longer measured, since the skin measure misreads seated, reading and counter-cropped figures by up to 11. Left and right declarations, and every non-talker's front, are measured as before."
   }
  ]
 }

@@ -3,6 +3,7 @@
  "id": "fanshawe",
  "name": "COLONEL FANSHAWE",
  "posture": "behind-counter",
+ "faces": "front",
  "room": "fanshawe_office",
  "x": 1031,
  "y": 495,

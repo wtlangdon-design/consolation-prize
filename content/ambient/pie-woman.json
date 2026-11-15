@@ -3,6 +3,7 @@
  "id": "pie_woman",
  "name": "THE PIE WOMAN",
  "posture": "standing",
+ "faces": "left",
  "note": "Doc 07 #6. Pies of unstated provenance. Best R_DEAD bark in the game.",
  "room": "main_street",
  "x": 2470,
@@ -165,5 +166,11 @@
   "T_DUEL_CROWD": false,
   "T_FUNERAL_DAY": false
  },
- "whenNote": "Away while Duel Three's crowd is in the street (errata 167). Her place between the Nugget's posts is behind the crowd's left-hand group, which would stand over her; she is simply not out while the town watches the duel. T_DUEL_CROWD is set on entering the street (onEnter), so she is never there one moment and gone the next. Errata 189: up the hill on the funeral day (doc 57 C3: 'The street is half empty. Everyone in town who owns a black coat is up the hill.'). Four of Main Street's eight townspeople go -- the boundary men, the letter-writer and the pie woman; the map seller, the man leaving tomorrow, the message boy and the dog's owner stay, each for the reason their one joke gives."
+ "whenNote": "Away while Duel Three's crowd is in the street (errata 167). Her place between the Nugget's posts is behind the crowd's left-hand group, which would stand over her; she is simply not out while the town watches the duel. T_DUEL_CROWD is set on entering the street (onEnter), so she is never there one moment and gone the next. Errata 189: up the hill on the funeral day (doc 57 C3: 'The street is half empty. Everyone in town who owns a black coat is up the hill.'). Four of Main Street's eight townspeople go -- the boundary men, the letter-writer and the pie woman; the map seller, the man leaving tomorrow, the message boy and the dog's owner stay, each for the reason their one joke gives.",
+ "walkTo": {
+  "x": 2360,
+  "y": 652,
+  "facing": "right"
+ },
+ "facesNote": "Errata 321 (Tyler, 2026-11-14, with a screenshot: \"Thad stands to the right of the pie lady when he talks to her but she's looking left\"). She is drawn turned to our left; a conversation with her stands there, in front of her face, at 2360. She had no stand and no `faces`, so the engine put Thad on whichever side he came from."
 }
