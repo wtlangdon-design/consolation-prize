@@ -34,9 +34,15 @@ const inState = async (fixtureId: string) => {
   return state;
 };
 
-test('the creek goes on the map once the road to the claims has been walked', async () => {
+test('the creek goes on the map once the road to the claims has been walked and the story reaches it', async () => {
   const fresh = await inState('r22-a');
   const road = fresh.content.rooms.get(ROOM)!.exits!.find((exit) => exit.to)!.to!;
+  // ERRATA 324 (doc 133, THE TOWN, ONE NIGHT AT A TIME): and once the story reaches it. Before that, the road is not enough.
+  fresh.flags.set('ACT', 1);
+  fresh.flags.set('T_SEEN_CLAIMS_ROAD', true);
+  fresh.enterRoom('town_map');
+  assert.ok(!fresh.mapLocations.some((one) => one.location.room === ROOM), 'not before the story reaches it, road or no road');
+  fresh.flags.set('ACT', 2);
   fresh.flags.set('T_SEEN_CLAIMS_ROAD', false);
   fresh.enterRoom('town_map');
   assert.ok(!fresh.mapLocations.some((one) => one.location.room === ROOM), 'not before');

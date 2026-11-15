@@ -165,3 +165,10 @@ He can be clicked; a click talks to him. His LOOK and LISTEN are doc 05's and do
 *Tyler: "Do we need a bartender in the Nugget?" Told that nobody stands behind the bar while three lines speak of a barman (he pays for the tuning, he watches Thad consider the bar, he keeps the lamps trimmed), he chose: add a barman. Errata 323.*
 
 He stands behind the bar, polishing, and says nothing of his own. One image operation (`reference/nugget-barman/brief.md`).
+## THE TOWN, ONE NIGHT AT A TIME
+
+*Tyler: "As I'm starting to play more, I'm wondering if maybe the town is too open to start with too much to potentially do? Which may leave the player feeling a bit aimless? I liked in MI that sometimes you couldn't also figure out where to go or what to do until you could, but I want there to also be some narrative structure where it feels like a story is progressing vs feeling haphazard." Shown that about twenty-five places were open on Thad's first evening and about half had no part in Act I, he chose: open places as the story reaches them. Errata 324.*
+
+Night one is the town: Main Street, Lower Street, the Lane, and their doors, and the road to the claims, which he can see from the street (errata 30c: the map never opens with fewer than two places). Everyone in town has something to say about Ezra Pike, which is Act I's first errand. The rest opens when the story gets there:
+- **Mott's site**, once Sump has told him Prosperity borders it (A9).
+- **The creek, Claim Row, Sheng's laundry, the high ridge, the boarding house, the bakehouse and the schoolhouse**, from Act II. Until then they are not on the map.

@@ -42,6 +42,6 @@ test('a click talks to him, and he answers in his own voice', () => {
   state.enterRoom(clerk.room);
   const result = state.interact(state.targets.find((one) => one.id === 'clerk')!, 'TALK_TO');
   assert.ok(result.say);
-  const rule = (spot.responses.TALK_TO ?? [])[0]!;
+  const rule = (spot.responses?.TALK_TO ?? [])[0]!;
   assert.ok((rule.then ?? []).some((line) => typeof line === 'object' && line.speaker === clerk.id), 'he speaks');
 });
