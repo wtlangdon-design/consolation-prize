@@ -71,7 +71,7 @@
       ],
       "LOOK_AT": [
         "Tins from the East. The labels show harvests of implausible color. One is marked simply MEAT, with confidence.",
-        "Peaches, from Baltimore, at a dollar the tin. A dollar the tin. Men here look at them the way other men look at gold.",
+        "Peaches, from Baltimore, at a dollar the tin. Men here look at those as if they were gold.",
         "Every tin is dented in the same place at the same height. They came over the same mountain in the same crate."
       ],
       "LISTEN_TO": [
@@ -215,7 +215,7 @@
         "A thread catching on my sleeve and letting go."
       ],
       "overrides": {
-        "PULL": "Forty yards would come off that bolt at a tug, and the proprietor knows the sound a tug makes from the back room."
+        "PULL": "Forty yards would come off that bolt at a tug, and the proprietor knows the sound a tug makes."
       }
     },
     {

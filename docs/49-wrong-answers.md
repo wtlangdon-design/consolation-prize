@@ -173,7 +173,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE SCALES** · USE — "I weighed my four dollars. The scales say three-eighty. I've decided not to argue with furniture."
 **THE CATALOGUE** · PICK_UP — "The store copy stays. The store copy always stays. It is the town's one shared scripture and this is its altar."
 **THE STOVE** · TALK_TO — "I addressed it as the true mayor of Consolation. It warmed to the subject."
-**THE CALICO** · PULL — "Forty yards would come off that bolt at a tug, and the proprietor knows the sound a tug makes from the back room."
+**THE CALICO** · PULL — "Forty yards would come off that bolt at a tug, and the proprietor knows the sound a tug makes."
 
 *New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
 **THE BOOTS** · PICK_UP — "Tied in pairs, so nobody walks off in one. Somebody here was robbed exactly that way, once."

@@ -1,0 +1,13 @@
+Image 1 is a sheet from my pixel-art adventure game: on the left Thad (the ruler, keep him exactly as he is), then four frames of the general store's storekeeper. Redraw ONLY the four storekeeper frames, keeping everything that is right about them: the same lean man, the same face shape, hair, build and height, the same clothes, the same four poses in the same places, the soles on the same row, the same magenta background.
+
+Image 2 shows him in the store behind the counter, side by side with Thad. Image 3 is the saloon's barman, the drawing style to match.
+
+Change, in all four frames:
+- He is CLEAN-SHAVEN: no moustache, no beard. Keep his pleasant smile.
+- A little darker and softer, lit by the store's warm, dim lamplight, no brighter than Thad beside him: his face a warm, shadowed tan (not pink or bright), his shirt a dim warm cream (not light), lower contrast, two or three tones per material, broad soft shading, no crisp highlights.
+- A PENCIL TUCKED BEHIND EACH EAR, as now, both visible.
+- Frames 1 and 2: his hands rest EMPTY on the counter top -- remove the small grey stick between his hands. Nothing in his hands.
+- Frame 3 (writing): he writes with the pencil he took from behind his RIGHT ear (the ear on the viewer's left), so in this frame only that ear has no pencil and the pencil is in his right hand; the pencil behind his left ear stays. There are never more than two pencils.
+- Frame 4 (leaning on both hands, smiling): unchanged but clean-shaven and in the same softer light.
+
+The same square pixel size. Flat pure magenta (#FF00FF) background, nothing touching. No counter, no floor, no shadows, no text, no numbers, no border.

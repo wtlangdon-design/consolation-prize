@@ -67,7 +67,13 @@ test('Act III: the credit ledger is ruled off, by its act line', async () => {
   assert.equal(state.interact(ledger, 'LOOK_AT').say, act.say);
 });
 
-test('nobody is drawn in the store: the proprietor is in the back room', async () => {
+test('the storekeeper stands behind his counter, and talks (errata 335)', async () => {
+  // Was: "nobody is drawn in the store: the proprietor is in the back room". A dozen lines speak of him, Thad buys on
+  // his account, and Tyler, asked whether a keeper who is never seen made sense for the whole game, had him drawn.
   const state = await inState('r12-a');
-  assert.equal([...state.content.ambient.values()].filter((one) => one.room === state.roomId).length, 0);
+  const here = [...state.content.ambient.values()].filter((one) => one.room === state.roomId);
+  assert.equal(here.length, 1, 'one person in the store');
+  const keeper = here[0]!;
+  assert.ok(keeper.tree && state.content.dialogue.get(keeper.tree), 'and he has a conversation');
+  assert.ok(keeper.walkTo && keeper.walkTo.x < keeper.x - 100, 'talked to from his left, clear of him');
 });

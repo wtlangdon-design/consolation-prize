@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "storekeeper",
+ "name": "THE STOREKEEPER",
+ "posture": "band",
+ "faces": "left",
+ "note": "Errata 335 (Tyler, 2026-11-15). A dozen of the Mercantile's lines speak of its proprietor and nobody stood behind the counter; offered an honour-system store or a keeper drawn into the room, Tyler chose the keeper. Drawn by reference/mercantile-keeper/brief.md in three operations (reference/mercantile-keeper/handback.md). His conversation is doc 27's THE STOREKEEPER, approved by Tyler. Nothing about him is marked (invariant 9).",
+ "room": "mercantile",
+ "x": 1688,
+ "y": 510,
+ "zone": 1,
+ "approachRadius": 40,
+ "tree": "STOREKEEPER",
+ "walkTo": {
+  "x": 1480,
+  "y": 740,
+  "facing": "right"
+ },
+ "walkToNote": "Thad talks to him from the counter's front, to his left, side-on, so the keeper is whole (the brief; the hand-back's render, renders/room-12-storekeeper-with-thad.png).",
+ "anchorNote": "A BAND, like the Nugget's barman: the sheet stops where his hands meet the counter top, and (x, y) is the counter top's back edge under him (cell (70, 197)). 390 px crown to hidden feet. The brief put him at x 1660; Tyler, in the image session: \"Can we put the storekeeper directly behind that clip board? Like, centered behind it? Right now it feels like he's weirdly placed with his elbow a little bit on the book next to him.\" At x 1688 he is centred behind the order form, spanning x 1623-1753, clear of THE CREDIT LEDGER (to 1620) and THE PICKLE JAR (from 1755) in every frame. He is turned three-quarters to our left, square to the counter's angle, on Tyler's note: \"The storekeeper isn't facing forward at the same diagonal as the counter\".",
+ "poseNote": "0 rest, hands on the counter · 1 rest B, head tilted, tapping · 2 writing on the order form · 3 leaning forward, smiling. Both ear pencils show in every frame; he holds a third while tapping and writing (the hand-back flags it for Tyler).",
+ "barks": {},
+ "barksNote": "NONE. He speaks when spoken to.",
+ "sprite": {
+  "sheet": "art/actors/room-12-storekeeper.png",
+  "frames": [
+   [
+    2,
+    2,
+    140,
+    198
+   ],
+   [
+    144,
+    2,
+    140,
+    198
+   ],
+   [
+    286,
+    2,
+    140,
+    198
+   ],
+   [
+    428,
+    2,
+    140,
+    198
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.3,
+  "breaks": [
+   [
+    1,
+    0,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "frameNote": "He rests between 0 and 1; breaks write on the form (2) or lean forward (3), so a deliberate action comes at least every 15 s (tests/movement.test.mjs). Cut at the room's scale, drawn 1:1.",
+  "provenance": "reference/mercantile-keeper/handback.md",
+  "depthY": 679,
+  "depthYNote": "The depth his 1:1 scale belongs to: about one counter-depth behind the counter's foot, where the room's curve carried back makes a man 390 px, the height the cut snapped him at (tools/art/mercantile-keeper-cut.py). Read by the checks only (tests/one-level.test.mjs); the engine draws the sheet 1:1."
+ }
+}

@@ -87,7 +87,7 @@
 > **LISTEN:** "Nothing."
 
 **THE BOOTS** · **THE TINNED GOODS** · **THE BOLTS OF CLOTH** · **THE NAILS** · **THE LAMP OIL** · **THE STOVE**
-> *(Tinned goods — **LOOK:** "Peaches, from Baltimore, at a dollar the tin. A dollar the tin. Men here look at them the way other men look at gold.")*
+> *(Tinned goods — **LOOK:** "Peaches, from Baltimore, at a dollar the tin. Men here look at those as if they were gold.")*
 > *(Cloth — **LISTEN:** "Nothing. It's the softest thing within two hundred miles, and nobody in here has touched it.")*
 
 ---
