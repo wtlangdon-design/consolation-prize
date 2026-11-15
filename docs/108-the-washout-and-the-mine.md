@@ -17,7 +17,7 @@
 
 *Replaces doc 57's B3 ride line when the trip is built. Doc 57's line stands until then.*
 
-> **THE RIDE**, over black — "Two days on Grievance. The road held for a day and a half, which Mr. Frame would call a miracle."
+> **THE RIDE**, over black — "Days on Grievance. The road held for most of them, which Mr. Frame would call a miracle."
 
 ---
 
@@ -35,14 +35,14 @@
 **LISTEN** 1 "A loose board knocking in the wind." · 2 "The sign creaking a quarter-turn and back. It isn't sure either." · 3 "Wind, and a crow further up, laughing at something."
 
 ### THE ROAD BACK
-**LOOK** 1 "The road back to Consolation. Two days of it, and most of it held." · 2 "Somewhere down there is my claim, with a raccoon in it, keeping my place." · 3 "I'm not going back without Vessel. I've told the road, and it took it well."
+**LOOK** 1 "The road back to Consolation. Days of it, and most of it held." · 2 "Somewhere down there is my claim, with a raccoon in it, keeping my place." · 3 "I'm not going back without Vessel. I've told the road, and it took it well."
 **LISTEN** 1 "Wind coming up it from the valley." · 2 "Far off, a wagon. Going the other way, sensibly." · 3 "Empty road. It's waiting for somebody with better luck."
 
 ### GRIEVANCE
 **LOOK** 1 "Grievance, standing where the road stopped. To be fair, she stopped first." · 2 "She's found the one patch of grass on the slide and is treating it as the point of the trip." · 3 "She looked at the mine, then at me, then at the grass. One of us is going in."
 **LISTEN** 1 "Grass, torn up without hurry." · 2 "A long breath through the nose, aimed at the slide." · 3 "Chewing. She'll be here. She's made that very clear."
 **TALK TO** 1 "I told her I'd be back. She went on eating, which I'm choosing to take as trust." · 2 "I told her about Vessel. She doesn't care about Vessel. Nobody here does but me."
-**USE** *(to ride home, before Vessel has agreed to the rematch)* — "Not without Vessel. I've come two days for him, and a mule's opinion is all I'd be taking home."
+**USE** *(to ride home, before Vessel has agreed to the rematch)* — "Not without Vessel. I've come all this way for him, and a mule's opinion is all I'd be taking home."
 
 ### THE OLD MINE *(the way in)*
 **LOOK** 1 "An old mine in the ridge, propped with timbers. It goes into the hill the road can't get round." · 2 "Somebody dug this looking for gold, and found the other side of the hill instead." · 3 "Rails come out of it and stop at the edge of the slide. The cart went with the road."

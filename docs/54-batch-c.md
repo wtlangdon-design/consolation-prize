@@ -560,7 +560,7 @@
 
 **THE CAMP CHAIR** — LOOK 2 "The canvas is patched in two places, both neatly, both square." · 3 "A second chair stands folded against the lean-to. It has never been unfolded." | LISTEN 2 "Nothing. It does not creak. He would not permit it." · 3 "Canvas ticking in the wind, like a flag that has been told to be quiet."
 
-**THE COFFEE POT** — LOOK 2 "Blackened outside and spotless in. Pratt has his own idea of which side shows." · 3 "There is one cup. He has never been asked to share and has never had to refuse." | LISTEN 2 "A faint ping as the tin warms. Ten o'clock is nearer." · 3 "Not yet. At ten it will boil, and the diggings will set their watches by the smell."
+**THE COFFEE POT** — LOOK 2 "Blackened outside and spotless in. Pratt has his own idea of which side shows." · 3 "There is one cup. He has never been asked to share and has never had to refuse." | LISTEN 2 "A faint ping as the tin warms. Coffee is nearer." · 3 "Not yet. When it boils, the diggings will set their watches by the smell."
 
 **THE SIGN: NO COLOR YET** — LOOK 3 "The board is planed and the letters are ruled. He has taken more care over NO than most men take over YES." | LISTEN 2 "The board ticks against its post in the wind. Not yet, not yet." · 3 "Nothing. The sign is waiting, along with the rest of him."
 
@@ -687,7 +687,7 @@
 
 *(THE ROCK FACE's LISTEN repeats say no more than doc 10's line 1 — "…Different. Not by much." — already says, and point nowhere.)*
 
-**THE LAMP** — LOOK 2 "Three hours of oil now. I'm doing the arithmetic more often than I'd like." · 3 "It throws my shadow up the wall, three times my size and twice as confident." | LISTEN 2 "A soft hiss as the wick drinks." · 3 "Burning, still. The most reassuring word in the language."
+**THE LAMP** — LOOK 2 "Less oil now. I'm doing the arithmetic more often than I'd like." · 3 "It throws my shadow up the wall, three times my size and twice as confident." | LISTEN 2 "A soft hiss as the wick drinks." · 3 "Burning, still. The most reassuring word in the language."
 
 **THE TUNING FORK** — LOOK 2 "The tines are worn bright at the ends, where I have struck it on ten thousand boot heels." · 3 "It's the only thing I own that's exactly what it claims to be." | LISTEN 2 "I struck it. A, held, ringing down to nothing." · 3 "A. The same A it gave in my father's shop. Some things don't move."
 

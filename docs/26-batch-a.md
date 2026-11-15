@@ -133,7 +133,7 @@
 
 **THE COFFINS** — LOOK 2 "Stacked by size, and there are a great many in the smallest." · 3 "Six months of work, standing ready. He is not expecting a quiet year." | LISTEN 2 "Nothing." · 3 "Nothing. Naturally nothing."
 
-**THE JAR OF TEETH** — LOOK 2 "Still there. I've decided to think of it as inventory." · 3 "There are more than there were on Tuesday. I'm not going to develop this thought." *(Rewritten — the old variant 3 was the back half of doc 09's variant 1.)* | LISTEN 2 "Nothing." · 3 "Nothing. I've satisfied myself, and I'd like that to be the end of it." *(Corrected — "I have stopped." belongs to the Nugget's spittoon and must not be shared.)*
+**THE JAR OF TEETH** — LOOK 2 "Still there. I've decided to think of it as inventory." · 3 "There are more than there were last time I looked. I'm not going to develop this thought." *(Rewritten — the old variant 3 was the back half of doc 09's variant 1.)* | LISTEN 2 "Nothing." · 3 "Nothing. I've satisfied myself, and I'd like that to be the end of it." *(Corrected — "I have stopped." belongs to the Nugget's spittoon and must not be shared.)*
 
 **THE GOOD SUIT** — LOOK 2 "Three sizes, on one hanger, and all three have been let out at the waist." · 3 "Half the men on Boot Hill were viewed in this and buried in their own clothes." | LISTEN 2 "Nothing." · 3 "Nothing."
 

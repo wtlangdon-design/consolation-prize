@@ -892,7 +892,7 @@
       "room": "prosperity",
       "target": "hole",
       "puzzle": "F1",
-      "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement.",
+      "say": "Days of it. Forty feet. The head came off once, forwards, which I took as encouragement.",
       "note": "Doc 57 F1: the pickaxe on the hole, after the draught is understood: three days, forty feet. \"Room 34 opens below the hole\": the line is read and he is in Room 34, and the hole is the way down from then on (T_DUG_DOWN, errata 99 H).",
       "rules": [
         {
@@ -903,7 +903,7 @@
           "holds": [
             "hotel_lamp"
           ],
-          "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement.",
+          "say": "Days of it. Forty feet. The head came off once, forwards, which I took as encouragement.",
           "then": [
             "I have borrowed the lamp from my room. That is the second thing in this territory I have promised to give back.",
             "The draught got warmer the whole way down."
@@ -1080,7 +1080,7 @@
             },
             {
               "speaker": "thad",
-              "line": "Two days on Grievance. The road held for a day and a half, which Mr. Frame would call a miracle.",
+              "line": "Days on Grievance. The road held for most of them, which Mr. Frame would call a miracle.",
               "overBlack": true
             }
           ],

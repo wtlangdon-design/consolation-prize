@@ -27,7 +27,7 @@
 
 ## THE WINDOW
 **LOOK** 1 "A window onto Main Street. The cleanest thing in the building, because it's the only thing in here anybody looks at." · 2 "From in here the street looks almost respectable. That's what windows are for." · 3 "Somebody's scratched a name into the pane. Not one I know. I checked it for mine anyway, out of habit."
-**LISTEN** 1 "The street, muffled. Two men arguing about a boundary." · 2 "The boundary again. Neither of them has given an inch." · 3 "The stage is in. Four days from Sacramento, and eleven new men who think they're early."
+**LISTEN** 1 "The street, muffled. Two men arguing about a boundary." · 2 "The boundary again. Neither of them has given an inch." · 3 "The stage is in, all the way from Sacramento, and eleven new men who think they're early."
 
 ## THE PATRONS
 **LOOK** 1 "A table of men at cards, drinking like they've earned it. From the mud on their boots, I'd say they have." · 2 "Still the same game. Nobody seems to be winning, which in a card game is a kind of miracle." · 3 "Every so often one of them looks over at me, decides I'm not news, and looks back at his cards. I'd like to be news."

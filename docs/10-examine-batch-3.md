@@ -70,7 +70,7 @@
 
 **THE MAN PANNING**
 > **LOOK:** "A man, crouched, doing the same motion he was doing when I passed this morning."
-> **LISTEN:** "Water, and breathing, and nothing else at all. He has not spoken in nine hours."
+> **LISTEN:** "Water, and breathing, and nothing else at all. He has not spoken in hours."
 
 **THE BANK** · **THE DISCARDED PAN** · **THE FAR SIDE**
 > *(The discarded pan — **LOOK:** "A gold pan, in the willows, thrown. Not dropped. Thrown." **LISTEN:** "Nothing.")*
@@ -145,7 +145,7 @@
 > **LISTEN:** "Warmer. It has been warmer every foot."
 
 **THE LAMP**
-> **LOOK:** "One lamp, and about four hours of oil in it."
+> **LOOK:** "One lamp, and not a great deal of oil in it."
 > **LISTEN:** "Burning."
 
 **THE TUNING FORK**

@@ -144,8 +144,8 @@ test('F1: in Act IV the hole is understood, and the pickaxe answers after', asyn
   assert.equal(state.flags.get('T_DRAUGHT'), true);
   // Errata 245 (doc 118 O-7): not in the dark. The lamp from his room first.
   const dark = useOn(state, 'pickaxe', 'hole');
-  assert.ok(dark.say && !dark.say.startsWith('Three days') && state.flags.get('T_DUG_DOWN') !== true, 'without the lamp the dark sends him back');
+  assert.ok(dark.say && !dark.say.startsWith('Days of it') && state.flags.get('T_DUG_DOWN') !== true, 'without the lamp the dark sends him back');
   (state as unknown as { inventory: string[] }).inventory.push('hotel_lamp');
   const dig = useOn(state, 'pickaxe', 'hole').say;
-  assert.ok(dig && doc57.includes(`"${dig}"`) && dig.startsWith('Three days'));
+  assert.ok(dig && doc57.includes(`"${dig}"`) && dig.startsWith('Days of it'));
 });

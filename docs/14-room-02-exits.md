@@ -39,7 +39,7 @@
 3. "He's talking to himself in there. Both sides of an interview. He's winning."
 
 **Overrides**
-> TALK TO — "If I say anything within forty feet of that door, it'll be in print by four o'clock. Spelled wrong."
+> TALK TO — "If I say anything within forty feet of that door, it'll be in print by evening. Spelled wrong."
 > CLOSE — "He'd only open it again, and then write about it."
 
 ---

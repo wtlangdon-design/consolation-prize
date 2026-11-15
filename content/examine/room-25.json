@@ -102,7 +102,7 @@
         "Canvas ticking in the wind, like a flag that has been told to be quiet."
       ],
       "overrides": {
-        "USE": "I sat in it. The trench looked back, square-cornered, patient. For one minute I understood him completely, and it was restful."
+        "USE": "I sat in it. The trench looked back, square-cornered, patient. For a moment I understood him completely, and it was restful."
       }
     },
     {
@@ -113,9 +113,9 @@
         "There is one cup. He has never been asked to share and has never had to refuse."
       ],
       "LISTEN_TO": [
-        "Tin, ticking in the sun. Ten o'clock is coming.",
-        "A faint ping as the tin warms. Ten o'clock is nearer.",
-        "Not yet. At ten it will boil, and the diggings will set their watches by the smell."
+        "Tin, ticking in the sun. Coffee is coming.",
+        "A faint ping as the tin warms. Coffee is nearer.",
+        "Not yet. When it boils, the diggings will set their watches by the smell."
       ]
     },
     {

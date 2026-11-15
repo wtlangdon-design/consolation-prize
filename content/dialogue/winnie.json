@@ -516,7 +516,7 @@
           "tag": "COMIC",
           "text": "Am I in the book?",
           "afterUse": "remove",
-          "say": "You've been in the book since Tuesday."
+          "say": "You've been in the book since the day you came to the window."
         },
         {
           "id": "winniex",

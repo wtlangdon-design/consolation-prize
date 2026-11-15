@@ -63,7 +63,7 @@ Confirmed since: Monkey Island's lookout exchange is genuinely automatic, not pl
 |---|---|---|
 | "I'm expected by a Mr. Ezra Pike. Where would I find him?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." *(again)* "The undertaker. He'll be the one measuring you." |
 | "And where does a gentleman sleep in Consolation?" | `[PROGRESS]` | "Hotel's five dollars." — *"I have four. Four is very nearly five."* — **"You've all got four."** *(again)* "Five. You've got four. Arithmetic's free." |
-| "You don't think much of my chances. You haven't said a word to me in four days." | `[COMIC]` | "I don't think about them at all." *(again)* "Still not thinking about them." |
+| "You don't think much of my chances. You haven't said a word to me since Sacramento." | `[COMIC]` | "I don't think about them at all." *(again)* "Still not thinking about them." |
 | "Thank you for the ride! I'll mention you when I'm famous." | `[EXIT]` | **"Wasn't for you. Coach comes anyway. You were freight."** *(He climbs aboard. The coach goes. Beat 7.)* |
 
 **"Wasn't for you"** is the best line in the opening and it should be the last thing anyone says on that road. The coach was not a service Thad bought. He was freight.
@@ -144,7 +144,7 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 **LISTEN** 2 "A small wet sound when I shift my weight. That's the mud, winning." · 3 "Nothing. I'm going to stop asking it things. Neither of us is enjoying this."
 
 ## THE COACH
-**LOOK** 2 *(after departure)* "Gone. It made very good time on the way out. Better than on the way in." · 3 "The next coach out is in four days. I've asked twice. The answer didn't improve."
+**LOOK** 2 *(after departure)* "Gone. It made very good time on the way out. Better than on the way in." · 3 "The next coach out is days away. I've asked twice. The answer didn't improve."
 **LISTEN** 2 "The near axle, squealing away east. It'll fail on somebody else's stretch now. I wish them well. Mostly." · 3 "Nothing. It is a long way off now."
 
 ## HIS CASE — **two states, and the game's first PICK UP**
@@ -177,7 +177,7 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 
 # PART THREE — OVERRIDES
 
-> **THE SIGN** · PULL — "It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalizing the place."
+> **THE SIGN** · PULL — "It's nailed to a post, in the ground, at the edge of a town. I've only just got here and I'm already vandalizing the place."
 > **THE SIGN** · TALK TO — "Good evening! Thaddeus Grubb, lately of Providence. You may make it two thousand and one, and climbing." *(Nothing happens. It is a sign.)*
 > **THE MUD** · PICK UP — "I've got plenty on my boots. I'm already carrying a fair amount of this town."
 > **THE COACH** · USE — "It's going. It's going with real enthusiasm."

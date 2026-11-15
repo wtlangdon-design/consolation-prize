@@ -326,7 +326,7 @@ Doc 17 v1 had the coach depart on a timer at beat 5. Doc 17 v2 has it stand ther
 > LISTEN 1 "The team, shifting. The near axle's dry — it's been dry a long time." · 2 "Still dry. That axle is going to be heard from." · 3 "Somebody up top is rearranging the load and swearing at it. Mostly at my case."
 
 **THE COACH — state B, departed** *(hotspot becomes THE ROAD WEST OUT)*
-> LOOK 1 "Gone. It made very good time on the way out. Better than on the way in." · 2 "The next coach out is in four days. I've asked twice. The answer didn't improve." · 3 "The ruts are still filling in. That's my whole connection to the rest of the world, filling in. Good. Onward."
+> LOOK 1 "Gone. It made very good time on the way out. Better than on the way in." · 2 "The next coach out is days away. I've asked twice. The answer didn't improve." · 3 "The ruts are still filling in. That's my whole connection to the rest of the world, filling in. Good. Onward."
 > LISTEN 1 "The near axle, squealing away east. It'll fail on somebody else's stretch now. I wish them well. Mostly." · 2 "Faint now." · 3 "Nothing. It's a long way off, and getting longer."
 
 **THE TEAM — state A only** *(new hotspot; see the wheel-pair art)*
@@ -8203,4 +8203,15 @@ Lesson:
 - `tests/talk-turn.test.mjs`: the greeting and the menu turn him through the same method; it fails with the old larger-axis line restored.
 - `tests/puzzle-graph.test.mjs`: the barman paying only once is a dead end (A7, A9, G1).
 - Doc 55 §8: a puzzle says what it is for before it is solved, and a person pays; no clock in the dialogue unless the story needs it.
+
+## 332 · No clocks in the dialogue (Tyler, 2026-11-15)
+
+Tyler: "Thad talks about '4 minutes' of the song being out of tune. I think we need to stop naming days/amounts of times/etc in the dialogue because a player stops to think 'Have I actually been playing for only 4 mins'. Unless the day/time/etc is incredibly important for the story, we need all of that to be way more vague."
+
+- **Made vague: every line that counts time the player could check against his own.** Minutes, hours and days of Thad's own time, travel times, and weekdays as days that have passed. "I've been here two minutes" is "I've only just got here". "You haven't said a word to me in four days" is "since Sacramento". "The next coach out is days away." Sump's "Twenty minutes" before the archive is "Be brief", and it no longer suggests a timer the game does not have (doc 02 rule 3). "It has been eleven days" is "It has been nowhere near ninety days". The trip to Fiddler's Gulch is "a long ride out" and "all this way". The lamp's hours of oil, the coffee pot's ten o'clock, and "on Tuesday" twice are gone too. The lines changed are in docs 04, 05, 10, 14, 16, 17, 25, 26, 27, 49, 54, 57, 103, 108, 109 and 121, and in errata 19a's coach line.
+- **Kept, because the story needs the number.** The watch's eleven minutes (a plot object). The coffin's four minutes (the player lives them, and Hob counts them). The ninety-day rule and the thirty-day statute (the puzzles turn on them). The lost dog's six weeks. Backstory in years (Pike six years dead, Mott twelve). The clocks that disagree by nineteen minutes, and the queue's eight months (jokes about clocks and queues, not about his time). Each is listed with its reason in `tests/no-clocks.test.mjs`.
+- **Left as they are: times of day.** "This morning", "tonight", "tomorrow" say what the light is, not how long he has played, and "Leaving tomorrow" is a man's whole character. Tyler can rule otherwise.
+
+Lesson:
+- `tests/no-clocks.test.mjs`: no spoken line names a count of minutes, hours, days or weeks, an hour of the clock, or a passed weekday, unless it is listed with the reason the story needs it. It fails on "Four minutes. C-sharp has come home".
 

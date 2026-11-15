@@ -57,7 +57,7 @@ Icons for all seven are asked for in the brief; until they are drawn the panel s
 
 ### N-5 · Packed
 
-- From Act IV, THE EXECUTOR'S FORM, THE PHOTOGRAPH and THE THIRD COPY are not in his pockets. Doc 57's opening line for the act already says where they are: "Packed. It took four minutes; there was less to pack than there was to leave."
+- From Act IV, THE EXECUTOR'S FORM, THE PHOTOGRAPH and THE THIRD COPY are not in his pockets. Doc 57's opening line for the act already says where they are: "Packed. It didn't take long; there was less to pack than there was to leave."
 - No new line.
 
 ---

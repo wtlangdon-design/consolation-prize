@@ -1813,7 +1813,7 @@
           {
             "say": "Gone. It made very good time on the way out. Better than on the way in.",
             "repeat": [
-              "The next coach out is in four days. I've asked twice. The answer didn't improve.",
+              "The next coach out is days away. I've asked twice. The answer didn't improve.",
               "The ruts are still filling in. That's my whole connection to the rest of the world, filling in. Good. Onward."
             ]
           }
@@ -1861,7 +1861,7 @@
         ]
       },
       "overrides": {
-        "PULL": "It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalizing the place.",
+        "PULL": "It's nailed to a post, in the ground, at the edge of a town. I've only just got here and I'm already vandalizing the place.",
         "TALK_TO": "Good evening! Thaddeus Grubb, lately of Providence. You may make it two thousand and one, and climbing.",
         "PUSH": "It leans. It rights itself. The sign has survived worse than me."
       },

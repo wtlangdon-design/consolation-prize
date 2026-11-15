@@ -158,7 +158,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 10 — IMPROVEMENT COMPANY LOBBY
 
-**THE CHAIRS** · USE — "I sat. Twenty minutes evaporated. These chairs are how the Company buys time — literally, in bulk, from visitors."
+**THE CHAIRS** · USE — "I sat, and time evaporated. These chairs are how the Company buys time — literally, in bulk, from visitors."
 **THE CLOCK** · USE — "Setting it right would be an act of vandalism against a working system."
 **THE PROSPECTUS RACK** · PICK_UP — "‘Free,’ says the clerk. Nothing in this building is free. I took one. We'll see what it cost."
 **THE PORTRAIT** · PUSH — "Straightened it. It was straight. It is now very slightly crooked and I feel I have accomplished something."
@@ -277,7 +277,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE BORDER STONES** · PUSH — "I nudged one a hand-width. When I passed at dusk it was back, and the whitewash was fresh. We have not discussed it. We will never discuss it."
 **THE TOOL RACK** · PICK_UP — "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I'm not ready for the standard."
 **THE SIGN: NO COLOR YET** · TALK_TO — "'Any day now,' I told it. The YET gleamed. Somebody repaints that word the way other men pray."
-**THE CAMP CHAIR** · USE — "I sat in it. The trench looked back, square-cornered, patient. For one minute I understood him completely, and it was restful."
+**THE CAMP CHAIR** · USE — "I sat in it. The trench looked back, square-cornered, patient. For a moment I understood him completely, and it was restful."
 
 ## ROOM 26 — THE CREEK & SLUICE
 

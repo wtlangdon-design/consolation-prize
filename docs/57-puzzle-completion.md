@@ -167,7 +167,7 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 
 ## B1 · Find where Vessel went
 
-*Room 9.* FRA_A1 option 1 → FRA_B1; either story pays, and Frame gives the destination (doc 04): Fiddler's Gulch, two days out → `T_VESSEL_LOCATION`. *(Doc 27's Vessel said "Sacramento's four days", which was true and was not where he was going.)*
+*Room 9.* FRA_A1 option 1 → FRA_B1; either story pays, and Frame gives the destination (doc 04): Fiddler's Gulch, two days out → `T_VESSEL_LOCATION`. *(Doc 27's Vessel said Sacramento, which was true and was not where he was going.)*
 
 ## B2 · Get two days out of town
 
@@ -302,7 +302,7 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 > **SUMP:** "How long have you known him?"
 > **PRATT:** *(long pause)* "…Ninety days."
 > **SUMP:** *(He notarizes it. He stamps it. He does not look up.)* "Document D."
-> **THAD:** "It has been eleven days."
+> **THAD:** "It has been nowhere near ninety days."
 > **SUMP:** "The stamp did not ask."
 > → THE ATTESTATION, **D6**.
 
@@ -401,7 +401,7 @@ Asking anyone else to be executor is answered by the interest rule:
 
 *Rooms 7 and 8.*
 
-> **THE ARCHIVE DOOR** · OPEN, *with `T_EXECUTOR_NAMED`* — **SUMP:** "The executor of the late Mr. Grubb." — "His agent." — **SUMP:** *(He looks at Thad for some time.)* "You resemble him." — "So I'm told." — **SUMP:** *(He unlocks it.)* "Twenty minutes. The archive closes at four, and so do I." → Room 8.
+> **THE ARCHIVE DOOR** · OPEN, *with `T_EXECUTOR_NAMED`* — **SUMP:** "The executor of the late Mr. Grubb." — "His agent." — **SUMP:** *(He looks at Thad for some time.)* "You resemble him." — "So I'm told." — **SUMP:** *(He unlocks it.)* "Be brief. The archive closes at four, and so do I." → Room 8.
 
 **Two ways to see it**, both quiet:
 
@@ -416,7 +416,7 @@ Asking anyone else to be executor is answered by the interest rule:
 
 **Act IV opens in Room 19, morning**, the case packed on the bed:
 
-> "Packed. It took four minutes; there was less to pack than there was to leave. The coach is at noon. I am going to look at my mud once more first, because nobody else will."
+> "Packed. It didn't take long; there was less to pack than there was to leave. The coach is at noon. I am going to look at my mud once more first, because nobody else will."
 
 ---
 
@@ -427,7 +427,7 @@ Asking anyone else to be executor is answered by the interest rule:
 *Rooms 23/24.*
 
 > **THE HOLE** · LOOK, *Act IV* — "The hole is warm. It has been warm since the day I bought it: warm air, out of solid rock, all autumn." *(beat)* "Air does not come out of rock. It comes through it." → `T_DRAUGHT`, **F1**.
-> **THE HOLE** · USE THE PICKAXE, *after F1* — "Three days. Forty feet. The head came off once, forwards, which I took as encouragement." "I have borrowed the lamp from my room. That is the second thing in this territory I have promised to give back." "The draught got warmer the whole way down." → Room 34 opens below the hole.
+> **THE HOLE** · USE THE PICKAXE, *after F1* — "Days of it. Forty feet. The head came off once, forwards, which I took as encouragement." "I have borrowed the lamp from my room. That is the second thing in this territory I have promised to give back." "The draught got warmer the whole way down." → Room 34 opens below the hole.
 > **THE HOLE** · USE THE PICKAXE, *before F1* — "Dig where? I have been digging at this town for weeks and it has not moved."
 
 **Room 34 to Room 33** is THE GAP, where the tunnel broke into a hollow:
