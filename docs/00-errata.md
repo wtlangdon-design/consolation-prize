@@ -8247,3 +8247,16 @@ Lesson:
 - `tests/no-early-spoiler.test.mjs`: nobody outside the photographer's studio and the Company's vault calls the Mott likeness a man in Ohio unless gated on C4; it fails on the Nugget portrait's old LISTEN.
 - Doc 55 §8: Thad knows only what he has been told or can see.
 
+## 335 · The Mercantile's storekeeper (Tyler, 2026-11-15: "B"; "approve")
+
+The sweep (errata 334) found a dozen of the Mercantile's lines speaking of a proprietor nobody had drawn. Asked whether keeping him in the back room for the whole game made sense, the honest answer was no: Thad buys on his account, is served and is weighed for a nail. Offered a keeper drawn into the room or an honour-system store, Tyler chose the keeper.
+
+- **Drawn** by `reference/mercantile-keeper/brief.md`, in three operations (`reference/mercantile-keeper/handback.md`): a band behind the counter, like the Nugget's barman, 390 px crown to hidden feet. Tyler, in the image session, moved him: "Can we put the storekeeper directly behind that clip board? Like, centered behind it? Right now it feels like he's weirdly placed with his elbow a little bit on the book next to him." He stands at (1688, 510), centred behind the order form, turned to the counter's angle on Tyler's note ("The storekeeper isn't facing forward at the same diagonal as the counter").
+- **He talks** (doc 27, THE STOREKEEPER, approved by Tyler): what he sells, the account every man has, the dynamite by the stove, the scales that lean his way, and Pike's account, ruled off. LOOK and LISTEN of his own.
+- **Thad talks to him** from the counter's front at his left, side-on (1480, 740). He takes the room's light with Thad (`figureLight`), and has his own speech colour.
+- **The cut is the hand-back's.** `tools/art/one-level.py --only room-12-storekeeper` re-snapped him to a coarser block (3.64 against the cut's 3.39) and blurred his face in the room, so its result was not kept. Seen in the build: `renders/room-12-talking-to-the-storekeeper.png`.
+- **One line changed:** the calico's tug is heard by the proprietor, no longer "from the back room" (doc 49). The nail's "He weighed it." stands, now that there is someone to weigh it.
+- **For Tyler's eye** (the hand-back): he holds a third pencil while tapping and writing; his contrast is above the barman's; his hair reads full.
+
+Lesson: none -- a new character Tyler asked for; `tests/room-12.test.ts`, which held that nobody is drawn in the store, now holds that he is and that he talks.
+

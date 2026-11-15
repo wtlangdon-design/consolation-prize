@@ -407,7 +407,8 @@
  "docBulletsNote": "Errata 250, doc 121 N-2: THE NAILS give one nail, once (T_NAIL_TAKEN).",
  "figureLight": {
   "figures": [
-   "thad"
+   "thad",
+   "storekeeper"
   ],
   "light": [
    1.0,
