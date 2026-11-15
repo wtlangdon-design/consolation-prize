@@ -291,7 +291,8 @@
   "content/ambient/memorial-fanshawe.json",
   "content/ambient/memorial-town.json",
   "content/ambient/procession-mourners.json",
-  "content/ambient/procession-hearse.json"
+  "content/ambient/procession-hearse.json",
+  "content/ambient/nugget-pianist.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

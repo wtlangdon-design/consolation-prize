@@ -46,7 +46,7 @@
 **LISTEN** 2 "Paper, lifting a little in the draft from the door. Still unread." · 3 "Silence. It has outlasted everyone who nailed it up."
 
 ## THE PIANO
-**LOOK** 2 "Nobody's touched it since I came in. I check. I check more than is healthy." · 3 "Bottle rings on the lid. Several. They are using a piano as a table, and I am being very calm about it."
+**LOOK** 2 "He hasn't stopped playing since I came in. I count the wrong notes. I count more than is healthy." · 3 "Bottle rings on the lid. Several. His glass is making another, and I am being very calm about it."
 **LISTEN** 2 "C-sharp. Still flat. It's like a stone in my shoe, if my shoe were across the room." · 3 "I could put it right in four minutes. I've started thinking about it at mealtimes."
 
 ## THE CHANDELIER
