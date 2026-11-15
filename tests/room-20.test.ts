@@ -130,6 +130,8 @@ test('errata 101 A: from the first night through Act II, Hob is on his rounds he
   const state = new GameState(content, new MemoryStorage());
   // Errata 310: Hob is asked about Mott once the map seller has said who Mott was.
   state.flags.set('T_MOTT_TOLD', true);
+  // Errata 339: and his Assay answer waits until Thad has heard of the Assay.
+  state.flags.set('T_ASSAY_KNOWN', true);
   state.enterRoom(alley);
   const layer = new AmbientLayer(state);
   // THE ALLEY'S OWN CONVERSATION, not a passer-by's: since errata 115 the dog's

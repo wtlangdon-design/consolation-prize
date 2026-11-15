@@ -90,6 +90,21 @@ function assayAtOnce(tree) {
   return tree;
 }
 
+// THE LIAR'S ASSAY IS ASKED ABOUT ONCE HE HAS HEARD OF IT (errata 339). "Have you ever been in the Liar's Assay?" sat in
+// five menus from the first night; the Act I review found nothing had told him what it was, and in Act I "assay"
+// means Winnie's office. The questions wait for the Nugget's handbill (T_ASSAY_KNOWN, written by reading it) or for
+// Vessel's challenge (T_DUEL_ONE_CALLED), whichever he meets first.
+function assayOnceKnown(tree) {
+  for (const node of Object.values(tree.nodes ?? {})) {
+    for (const option of node.options ?? []) {
+      if (option.tag !== 'ASSAY' || option.whenAny || !/\bAssay\b|Mott's strike/.test(option.text ?? '')) continue;
+      if (option.when && !('T_MOTT_TOLD' in option.when)) continue;
+      option.whenAny = [{ T_ASSAY_KNOWN: true }, { T_DUEL_ONE_CALLED: true }, { T_DUEL_ONE_LOST: true }];
+    }
+  }
+  return tree;
+}
+
 // WHAT OPENS (errata 318; doc 133): an item a player would naturally open answers OPEN in its own words, not with the
 // verb's fallback, which is written for scenery ("It doesn't open."). Read once, merged into whichever item file is
 // written, by whichever extractor writes it.
@@ -105,7 +120,7 @@ function openLines() {
   return itemOpens;
 }
 function write(relative, data, indent = 2) {
-  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = menuFirstSentence(asMonkeyIslandRan(assayAtOnce(greetOnce(quietExits(performDirections(data))))));
+  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = assayOnceKnown(menuFirstSentence(asMonkeyIslandRan(assayAtOnce(greetOnce(quietExits(performDirections(data)))))));
   if (relative.startsWith('content/items/') && data?.id && data.responses && openLines().has(data.id)) {
     data = { ...data, responses: { ...data.responses, OPEN: [{ say: openLines().get(data.id) }] } };
   }
@@ -6013,7 +6028,7 @@ function prattTree() {
   // THE ESTATE SALE (doc 111, C; errata 237): PRA_E3, at his claim after E3.1, until the sale.
   const E3 = estateSalePrattNode(SPEAKER, POOL);
   const counts = { PRA_A1: A1.options.length, PRA_B1: B1.options.length, PRA_D6: D6.options.length, PRA_D2: D2.options.length };
-  if (counts.PRA_A1 !== 7 || counts.PRA_B1 !== 8 || counts.PRA_D6 !== 6 || counts.PRA_D2 !== 4) throw new Error(`doc 04 PRATT: option counts ${JSON.stringify(counts)}`);
+  if (counts.PRA_A1 !== 8 || counts.PRA_B1 !== 8 || counts.PRA_D6 !== 6 || counts.PRA_D2 !== 4) throw new Error(`doc 04 PRATT: option counts ${JSON.stringify(counts)}`);
   const note = 'EXTRACTED from docs/04-dialogue-trees.md (NICKEL PRATT) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. '
     + 'Plain quotes in a reply are his, italic quotes Thad\'s. `closing` is doc 04\'s offer run, "It never stops" (errata 97).';
   return [
@@ -6502,6 +6517,12 @@ function townTrees() {
       const option = { id, text: plain(asked), tag: comic ? 'COMIC' : 'TOPIC', ...(says ? { echo: plain(says) } : {}),
         ...(followUp && lastTop ? { after: [lastTop] } : {}), exchange: spoken(text.slice(arrow + 1), speakers, spec.speaker) };
       Object.assign(option, routes[option.text] ?? {});
+      // ANY QUESTION PUT TO HIM COUNTS (errata 339): the street's doors wait until Thad has spoken to each of its three
+      // voices, and a player who asked the pie woman or the man with the bag other questions was refused all the
+      // same. Each of their questions writes the flag the doors read. The map seller's stays his first question,
+      // "Who's Mott?": T_MOTT_TOLD means Thad has been told of Mott, and other people's questions lean on it.
+      // Not a [COMIC] option, which changes nothing (design invariant 1).
+      if (spec.everyQuestionSets && !comic) option.set = { ...spec.everyQuestionSets, ...(option.set ?? {}) };
       if (!followUp) lastTop = id;
       options.push(option);
     }

@@ -140,14 +140,10 @@
    "do": "talk",
    "npc": "hob",
    "choose": [
-    "hob3",
-    "hob6"
+    "hob3"
    ],
    "leave": true,
    "expect": {
-    "flags": {
-     "ASSAY_PAIR_21": true
-    },
     "dialogue": null
    }
   },
@@ -349,6 +345,46 @@
     "flags": {
      "T_PIANO_OWED": false
     }
+   }
+  },
+  {
+   "id": "A8.assay.1",
+   "puzzle": "A8",
+   "do": "verb",
+   "verb": "LOOK_AT",
+   "on": "handbill",
+   "note": "Errata 339: the Assay's questions wait until Thad has read its rules, or been called to it.",
+   "expect": {
+    "flags": {
+     "T_ASSAY_KNOWN": true
+    }
+   }
+  },
+  {
+   "id": "A8.assay.2",
+   "puzzle": "A8",
+   "do": "go",
+   "room": "back_alley",
+   "expect": {
+    "present": [
+     "hob"
+    ]
+   }
+  },
+  {
+   "id": "A8.assay.3",
+   "puzzle": "A8",
+   "do": "talk",
+   "npc": "hob",
+   "choose": [
+    "hob6"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "ASSAY_PAIR_21": true
+    },
+    "dialogue": null
    }
   },
   {

@@ -574,5 +574,23 @@
  "onEnterSet": {
   "T_SEEN_PROSPERITY": true
  },
- "onEnterSetNote": "Errata 318: arriving here is how Thad comes to know there is a raccoon in his hole, so the questions that lean on it (the blanket at the livery, Pratt asked to get him out) wait for T_SEEN_PROSPERITY."
+ "onEnterSetNote": "Errata 318: arriving here is how Thad comes to know there is a raccoon in his hole, so the questions that lean on it (the blanket at the livery, Pratt asked to get him out) wait for T_SEEN_PROSPERITY.",
+ "onEnterScenes": [
+  {
+   "fromRef": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: ARRIVING AT PROSPERITY",
+   "bold": "ARRIVING",
+   "when": {
+    "T_PROSPERITY_GREETED": false,
+    "ACT": {
+     "atMost": 1
+    }
+   },
+   "after": {
+    "set": {
+     "T_PROSPERITY_GREETED": true
+    }
+   },
+   "note": "Errata 339: his first sight of the claim, said once, in Act I."
+  }
+ ]
 }

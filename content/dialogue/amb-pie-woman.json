@@ -15,6 +15,7 @@
           "text": "What's in the pie?",
           "tag": "TOPIC",
           "set": {
+            "T_TOLD_MONEY": true,
             "T_PIE_ASKED": true
           },
           "repeat": "Still pie. It's been pie all day.",
@@ -42,6 +43,9 @@
               "line": "Same pie. I tell you what's in it."
             }
           ],
+          "set": {
+            "T_TOLD_MONEY": true
+          },
           "afterUse": "remove"
         },
         {
@@ -67,6 +71,9 @@
               "line": "Well?"
             }
           ],
+          "set": {
+            "T_TOLD_MONEY": true
+          },
           "afterUse": "remove"
         },
         {
@@ -125,6 +132,9 @@
               "line": "Me. A nickel."
             }
           ],
+          "set": {
+            "T_TOLD_MONEY": true
+          },
           "afterUse": "remove"
         },
         {
@@ -156,6 +166,9 @@
           "when": {
             "T_PIKE_DEAD": false
           },
+          "set": {
+            "T_TOLD_MONEY": true
+          },
           "afterUse": "remove"
         },
         {
@@ -164,6 +177,9 @@
           "tag": "TOPIC",
           "when": {
             "T_PIKE_DEAD": true
+          },
+          "set": {
+            "T_TOLD_MONEY": true
           },
           "say": "I knew he'd stopped buying pie. Out here that's the same thing.",
           "afterUse": "remove"

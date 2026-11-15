@@ -1483,6 +1483,24 @@
    "note": "Errata 318: Thad has been to his claim and seen the raccoon in the hole. Gates the livery blanket and asking Pratt to get the raccoon out: before it, he knows of no raccoon."
   },
   {
+   "id": "T_PROSPERITY_GREETED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:prosperity:onEnter"
+   ],
+   "note": "Errata 339: Thad has said his first-sight lines at the claim (doc 133, THE ACT ONE REVIEW: ARRIVING AT PROSPERITY). Said once."
+  },
+  {
+   "id": "T_ASSAY_KNOWN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:nugget:handbill:LOOK_AT"
+   ],
+   "note": "Errata 339: Thad has read the Nugget's handbill, RULES OF THE ASSAY, and so has heard of the Liar's Assay. The five 'Have you ever been in the Liar's Assay?' questions wait for it, or for Vessel's challenge (T_DUEL_ONE_CALLED)."
+  },
+  {
    "id": "T_WARM_HOLE",
    "type": "boolean",
    "initial": false,

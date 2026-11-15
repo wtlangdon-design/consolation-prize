@@ -63,7 +63,16 @@
           "after": [
             "undertaker1"
           ],
-          "say": "Boot Hill. Third row, second from the end. He's got a marker.",
+          "exchange": [
+            {
+              "speaker": "undertaker",
+              "line": "Boot Hill. Third row, second from the end. He's got a marker."
+            },
+            {
+              "speaker": "thad",
+              "line": "Six years. My father wrote that letter last spring. He'd have wanted to know."
+            }
+          ],
           "set": {
             "T_PIKE_DEAD": true
           },

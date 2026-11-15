@@ -8301,3 +8301,17 @@ Lesson:
 Lesson:
 - `tests/give.test.ts`: USE on a hand-over answers exactly as GIVE does, and GIVE to a thing as USE does. It held the opposite, by errata 282.
 
+
+## 339 · The Act I review: said on the road every player walks (Tyler, 2026-11-15: "Approve all.")
+
+The second batch from the review team's reports: where Act I's story was told only to a player who clicked the optional thing. Every line here was drafted in one voice and approved by Tyler before it was built. The Act I turn (Claim One kept back until the filing), the dinner and the raccoon are approved too and follow in errata 340.
+
+- **Somebody says a claim must be filed.** Nothing told Thad that a deed is not a claim until the Registrar writes it down, or why he does not simply dig. Pratt, on the claim, now does (doc 04, PRA_A1 option 7, asked after "It isn't for sale" has been answered, and gone once the deed is filed).
+- **Three lines of feeling on the required path.** Thad answers the undertaker's "Six years." (doc 27); he says whose watch it is as he hands it to Vessel (doc 27); and he speaks the first time he walks onto Prosperity (doc 133, ARRIVING; `T_PROSPERITY_GREETED`).
+- **The Liar's Assay is named before it is asked about.** Five townspeople offered "Have you ever been in the Liar's Assay?" and Hob answered a boast, before anything had said what the Assay is. The Nugget's handbill now says so in its first line (doc 05), and those questions wait until Thad has read it (`T_ASSAY_KNOWN`), or Vessel has called Duel One, or it is lost (`assayOnceKnown()` in `tools/extract-content.mjs`). Nothing is lost by it: the handbill can always be read, and the duel opens them for good. The continuous playthrough reads the handbill after the piano and asks Hob then.
+- **Main Street's doors say who is left.** The doors wait until Thad has heard three people, and counted one question from each: a player who had asked the pie woman four other things was refused by a line that named nobody. Any question to the pie woman or the man with the bag counts (`everyQuestionSets`, `tools/town-barks.json`); the map seller's is still "Who's Mott?", because the rest of the town's talk leans on his answer. The one refusal is three, each naming the person not yet heard (doc 133).
+
+Two phrases go on the narration allowlist with these lines, "father's watch" and "forty feet of mud": the names of a thing and of the claim (`proofs/check-friction.json`).
+
+Lesson:
+- `tests/act-one-story.test.mjs`: no question names the Assay before the handbill or the duel; nothing clears the flag that keeps them open; every question to the pie woman and the man with the bag counts and no [COMIC] line does; each door refusal waits on one person.

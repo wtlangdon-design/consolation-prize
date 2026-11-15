@@ -112,6 +112,37 @@
           "say": "Your claim."
         },
         {
+          "id": "pratt7",
+          "tag": "TOPIC",
+          "afterUse": "remove",
+          "text": "It isn't for sale.",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Filed?"
+            },
+            {
+              "speaker": "thad",
+              "line": "Filed?"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Ain't yours till Sump writes it down. Till then it's anybody's who gets there first."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Nine dollars."
+            }
+          ],
+          "after": [
+            "pratt2"
+          ],
+          "when": {
+            "T_BORDERS_MOTT": false
+          },
+          "echo": "It isn't for sale. It's mine. I have the deed."
+        },
+        {
           "id": "pratt5",
           "tag": "TOPIC",
           "afterUse": "remove",

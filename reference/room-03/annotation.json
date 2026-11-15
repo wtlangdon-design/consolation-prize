@@ -639,5 +639,12 @@
     "T_NUGGET_PIANO_TUNED": true
    }
   }
- ]
+ ],
+ "verbSets": {
+  "handbill": {
+   "LOOK_AT": {
+    "T_ASSAY_KNOWN": true
+   }
+  }
+ }
 }

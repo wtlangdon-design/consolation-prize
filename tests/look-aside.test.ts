@@ -82,5 +82,5 @@ test('the handbill is read rule by rule, and read again on every look', () => {
     assert.equal(read.say, 'RULES OF THE ASSAY.');
     assert.ok((read.then ?? []).filter((line) => /^(One|Two|Three|Four|Five):/.test(String(line))).length === 5, 'all five rules, each its own screen');
   }
-  assert.ok((reads[1]!.then ?? []).length === 6, 'and from the second look, one of his comments after them');
+  assert.ok((reads[1]!.then ?? []).length === 7, 'and from the second look, one of his comments after them');
 });

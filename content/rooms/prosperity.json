@@ -1114,7 +1114,33 @@
     ],
     "set": {
       "T_SEEN_PROSPERITY": true
-    }
+    },
+    "scenes": [
+      {
+        "when": {
+          "T_PROSPERITY_GREETED": false,
+          "ACT": {
+            "atMost": 1
+          }
+        },
+        "lines": [
+          {
+            "speaker": "thad",
+            "line": "Forty feet of mud, a stake, and a hole. I gave my father's watch for this."
+          },
+          {
+            "speaker": "thad",
+            "line": "It's mine, though. Every wet inch."
+          }
+        ],
+        "after": {
+          "set": {
+            "T_PROSPERITY_GREETED": true
+          }
+        },
+        "note": "Errata 339: his first sight of the claim, said once, in Act I."
+      }
+    ]
   },
   "peopleResponses": {
     "prosperity_ozymandia": {

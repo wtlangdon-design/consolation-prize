@@ -158,7 +158,18 @@
           ],
           "set": {
             "ASSAY_PAIR_20": true
-          }
+          },
+          "whenAny": [
+            {
+              "T_ASSAY_KNOWN": true
+            },
+            {
+              "T_DUEL_ONE_CALLED": true
+            },
+            {
+              "T_DUEL_ONE_LOST": true
+            }
+          ]
         },
         {
           "id": "livery_manx",

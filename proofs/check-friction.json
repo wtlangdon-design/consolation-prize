@@ -1183,6 +1183,12 @@
    "date": "2026-11-15",
    "kind": "loosened",
    "why": "Errata 338: the certificate on Frame is found by USE as well as GIVE, by the same ruling."
+  },
+  {
+   "check": "content/checks/narration-allowlist.json",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 339: two allowlist entries, \"father's watch\" and \"forty feet of mud\": the names of a thing and of the claim, brought to four and five subjects by lines Tyler approved."
   }
  ]
 }

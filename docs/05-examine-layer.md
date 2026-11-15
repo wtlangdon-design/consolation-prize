@@ -125,7 +125,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE HANDBILL** — ***critical, Act I, and nobody will read it***
 > **LOOK:** *(full text)*
-> "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic."
+> "RULES OF THE ASSAY. Being the Liar's Assay, held in the back room: two men, the taller tale wins. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic."
 > **LISTEN:** "Paper. It's been on this wall so long it's stopped being read."
 
 **THE PIANO**

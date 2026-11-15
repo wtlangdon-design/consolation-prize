@@ -50,6 +50,7 @@
    "prefix": "message_boy"
   },
   "7 · THE MAN LEAVING TOMORROW": {
+   "everyQuestionSets": {"T_TOLD_WHY": true},
    "tree": "amb_man_leaving_tomorrow",
    "file": "amb-man-leaving-tomorrow",
    "speaker": "man_leaving_tomorrow",
@@ -84,6 +85,7 @@
    "prefix": "letter_writer"
   },
   "6 · THE PIE WOMAN": {
+   "everyQuestionSets": {"T_TOLD_MONEY": true},
    "tree": "amb_pie_woman",
    "file": "amb-pie-woman",
    "speaker": "pie_woman",

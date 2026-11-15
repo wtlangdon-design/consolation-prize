@@ -162,13 +162,17 @@
               "Rule four: you may appeal the judges' decision to the same judges. Somebody thought that through, and nailed it up anyway."
             ],
             "then": [
+              "Being the Liar's Assay, held in the back room: two men, the taller tale wins.",
               "One: a man may not be interrupted in his account.",
               "Two: a man's account may be doubted only by a better one.",
               "Three: truth is admissible but has never been raised.",
               "Four: the judges' decision is final and may be appealed to the same judges.",
               "Five: no firearms, no knives, no arithmetic."
             ],
-            "readsAgain": true
+            "readsAgain": true,
+            "set": {
+              "T_ASSAY_KNOWN": true
+            }
           }
         ]
       },

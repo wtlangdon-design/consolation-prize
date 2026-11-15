@@ -36,6 +36,9 @@
               "line": "It comes. It's always today's."
             }
           ],
+          "set": {
+            "T_TOLD_WHY": true
+          },
           "afterUse": "remove"
         },
         {
@@ -45,6 +48,9 @@
           "after": [
             "leaving1"
           ],
+          "set": {
+            "T_TOLD_WHY": true
+          },
           "say": "I'm packed for tomorrow.",
           "afterUse": "remove"
         },
@@ -103,6 +109,9 @@
               "line": "Takes it to the assay office. Miss Ledger tests it and tells him it's mud. She's never once been wrong. That's the worst of her."
             }
           ],
+          "set": {
+            "T_TOLD_WHY": true
+          },
           "afterUse": "remove"
         },
         {
@@ -126,6 +135,9 @@
           "when": {
             "T_PIKE_DEAD": false
           },
+          "set": {
+            "T_TOLD_WHY": true
+          },
           "afterUse": "remove"
         },
         {
@@ -134,6 +146,9 @@
           "tag": "TOPIC",
           "when": {
             "T_PIKE_DEAD": true
+          },
+          "set": {
+            "T_TOLD_WHY": true
           },
           "say": "I said he left. He left. I'm going the other way, mind. Tomorrow.",
           "afterUse": "remove"

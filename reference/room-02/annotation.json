@@ -780,7 +780,7 @@
   "to_company": [
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAP SELLER UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -790,7 +790,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE PIE WOMAN UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -800,7 +800,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAN WITH THE BAG UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -821,7 +821,7 @@
   "to_nugget": [
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAP SELLER UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -831,7 +831,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE PIE WOMAN UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -841,7 +841,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAN WITH THE BAG UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -853,7 +853,7 @@
   "to_clarion": [
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAP SELLER UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -863,7 +863,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE PIE WOMAN UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -873,7 +873,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAN WITH THE BAG UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -885,7 +885,7 @@
   "to_assay_office": [
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAP SELLER UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -895,7 +895,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE PIE WOMAN UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -905,7 +905,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAN WITH THE BAG UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -917,7 +917,7 @@
   "to_hotel": [
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAP SELLER UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -927,7 +927,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE PIE WOMAN UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -937,7 +937,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAN WITH THE BAG UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -949,7 +949,7 @@
   "to_mercantile": [
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAP SELLER UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -959,7 +959,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE PIE WOMAN UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,
@@ -969,7 +969,7 @@
    },
    {
     "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
-    "bold": "THE DOORS",
+    "bold": "THE DOORS, THE MAN WITH THE BAG UNHEARD",
     "when": {
      "T_THAD_LEAVING": true,
      "T_SWINDLED": false,

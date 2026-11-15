@@ -11,7 +11,13 @@
 
 Doc 131's three voices on Main Street (the map seller, the pie woman, the man leaving tomorrow) each say what the town is from their own angle. Until Thad has asked each of them the question that is theirs ("Who's Mott?", "Is there money to be made in Consolation?", "I've only just arrived."), the street's doors refuse him with this line. The ways on to other streets (Lower Street, the lane) are not doors and stay open. It holds only until the swindle (`T_SWINDLED`): a man who has already been swindled in the Nugget has been through a door.
 
-**THE DOORS** *(WALK TO, OPEN or USE, until he has heard all three)* — "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me."
+*Errata 339: the Act I review found a player who had talked to all three, with other questions, refused by one line that never said who was left. Any question put to the pie woman or the man with the bag now counts (the map seller's is still "Who's Mott?", since the town's other questions lean on his answer), and the refusal names whoever is left.*
+
+**THE DOORS, THE MAP SELLER UNHEARD** *(WALK TO, OPEN or USE)* — "Not yet. I'd like to know what this town is digging for first, and the man selling maps is the one to ask."
+
+**THE DOORS, THE PIE WOMAN UNHEARD** *(WALK TO, OPEN or USE)* — "Not yet. I haven't had a word with the pie woman, and she looks like she knows where the money goes."
+
+**THE DOORS, THE MAN WITH THE BAG UNHEARD** *(WALK TO, OPEN or USE)* — "Not yet. I haven't had a word with the man with the bag. He's been here longer than I have."
 
 ## THE RECORDS ROOM
 
@@ -207,4 +213,12 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 
 **THE PIANO** · *the Nugget, tuned this visit*
 - LISTEN — "C-sharp, where it belongs. Nobody's noticed that either."
+
+## THE ACT ONE REVIEW: ARRIVING AT PROSPERITY
+
+*Errata 339 (Tyler, 2026-11-15, approved). The review found the feeling in Act I sat in optional clicks: on the required path Thad said nothing on first seeing the mud he gave his father's watch for. Said once, the first time he walks onto the claim.*
+
+**ARRIVING** · *the first time on Prosperity*
+> "Forty feet of mud, a stake, and a hole. I gave my father's watch for this."
+> "It's mine, though. Every wet inch."
 
