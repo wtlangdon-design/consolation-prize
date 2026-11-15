@@ -45,15 +45,15 @@ Monkey Island answered a hand-over it had not planned for with a short refusal. 
 
 **GIVE, to a person:**
 
-- "Declined. Politely, which in this town is the expensive way."
-- "Not wanted. The face said so before the mouth could."
-- "I held it out. It was looked at, and so, at some length, was I."
+- "I held it out with my warmest smile. Both were declined, politely."
+- "A gift, freely given! It was looked at, then I was, and we were both found wanting."
+- "I'd have loved to see it go to a good home. Not this one, apparently."
 
 **GIVE, to a thing that is not a person:**
 
-- "It has no hands. I checked."
-- "It is not in a position to accept."
-- "Generosity, wasted. Most people would waste it too, but they at least say so."
+- "I'd have given it gladly. It has no hands, which I checked only after offering."
+- "It isn't in a position to accept, though I like to think it was touched."
+- "Generosity, wasted on it. I'd do it again. I'm like that."
 
 **GIVE, with nothing in hand, to a person:**
 

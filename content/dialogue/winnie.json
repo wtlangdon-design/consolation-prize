@@ -71,7 +71,7 @@
           "tag": "TOPIC",
           "text": "Forgive me. What is it you actually do here?",
           "afterUse": "remove",
-          "say": "I decide what things are. It's the only office in the territory that does."
+          "say": "Assays. A man brings me a sack of his claim and calls it gold. I test it, and I write down what it really is. Usually, dirt."
         },
         {
           "id": "winnie6",

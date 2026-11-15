@@ -86,7 +86,10 @@
    "tree": "amb_pie_woman",
    "file": "amb-pie-woman",
    "speaker": "pie_woman",
-   "prefix": "pie_woman"
+   "prefix": "pie_woman",
+   "keepIds": {
+    "Might I try a little before I buy?": "pie_womant"
+   }
   },
   "16 · THE MAP SELLER": {
    "tree": "amb_map_seller",

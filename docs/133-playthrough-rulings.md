@@ -188,3 +188,9 @@ Night one is the town: Main Street, Lower Street, the Lane, and their doors, and
 - TALK TO — "I said hello. He answered on the piano, at length, in a key I can't place."
 - PICK UP — "He and that stool are held together by music. I wouldn't come between them."
 - PUSH — "Push a man mid-song? He'd only go on playing from the floor."
+
+## THE PIE WOMAN'S TASTE
+
+*Tyler: "The insult Thad gives, and then corrects, with the pie lady still doesn't land well. He's just arrived in town, he doesn't actually try a pie, and he's ready to insult them? If she lets him sample it first, maybe? But then I think we'd have to create more animations." Errata 329.*
+
+No new drawing: she already has a frame holding a pie out. Thad asks to try a little first. She holds out a pie ("Corner's free. Go on.") and asks "Well?", and only then can he give his verdict, and catch himself. Her two identical answers are now two: "Course you will." for "I'll take a pie.", and "Pie'll be here. So will you." for the goodbye.
