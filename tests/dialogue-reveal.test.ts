@@ -17,7 +17,7 @@
  *  - no list is empty, no option shows twice, and there is always a way on
  *    (an exit, an option that ends, or one that moves to another node);
  *  - EXIT rows are last, and an ungated EXIT is always there;
- *  - a used `retain`/`rephrase` row greys, a `counted-repeat` row never does,
+ *  - a used `retain`/`rephrase`/`counted-repeat` row greys, except a `counted-repeat` that is the way on (PROGRESS, ASSAY: errata 130 E, 317),
  *    and the answer to the k-th selection is the authored repeat for k,
  *    clamped at the last one;
  *  - every option is offered somewhere, and every node is reached.
@@ -237,7 +237,7 @@ function walkNode(content: Loaded, tree: DialogueFile, nodeId: string, domain: M
       }
       const shown = option.afterUse === 'replace' && taken > 0 && option.replaceWith ? option.replaceWith : option;
       const selections = shown === option ? taken : counts(state.progress, shown.id);
-      expected.push({ id: shown.id, exhausted: selections > 0 && shown.afterUse !== 'counted-repeat' });
+      expected.push({ id: shown.id, exhausted: selections > 0 && !(shown.afterUse === 'counted-repeat' && (shown.tag === 'PROGRESS' || shown.tag === 'ASSAY')) });
     }
     const got = list.map((p) => ({ id: p.option.id, exhausted: p.exhausted }));
     if (JSON.stringify(got) !== JSON.stringify(expected)) {

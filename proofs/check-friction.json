@@ -1051,6 +1051,36 @@
    "date": "2026-11-14",
    "kind": "reviewed",
    "why": "Reviewed: three edits in two weeks, each because a pass of doc 130 changed doc 95's table under it (rows acted, rows said). It did not misfire; it is the test that keeps doc 95 and the content in step, and each time it named exactly the rows that had changed. Invariant 7's assertion was rewritten for a game with nothing printed, to the invariant itself (HOB_C1's options shaped alike). With every printed row gone the table should now be stable. Keep it."
+  },
+  {
+   "check": "tests/mi1-click.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 317 (Tyler, 2026-11-14: \"Left click does it\"): errata 283's MI1 walk is withdrawn by the same person who ruled it, so the test is rewritten to the new ruling. A bare click on every Main Street thing does its own verb, left or right; it fails under errata 283's bareClick. It did not misfire: the ruling changed."
+  },
+  {
+   "check": "tests/aftermath.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 317 (Tyler: 'What number am I?' was \"remaining the brighter color for unspoken lines\"): a counted-repeat now greys once said, so the assertion is that it is bright before it is said and grey after. WIN_A1's assay row waits for the claim, so the setup gives him T_SWINDLED. It did not misfire: the rulings changed."
+  },
+  {
+   "check": "tests/dialogue-reveal.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 317: the oracle's dimming rule follows the runner's new one (a counted-repeat greys unless it is the way on, PROGRESS or ASSAY). It still fails when the runner greys the rematch."
+  },
+  {
+   "check": "tests/dialogue-presentation.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 317: Winnie's assay row, the one that opens her second node, waits until he owns a claim, so the test gives him T_SWINDLED before it looks for the row. It did not misfire: the content changed."
+  },
+  {
+   "check": "tests/aftermath.test.ts",
+   "date": "2026-11-14",
+   "kind": "reviewed",
+   "why": "TUNED. Three edits in two weeks, each because the tree it borrows (Winnie's) gained a gate or a ruling changed how a used row looks. The test is about what happens after a row is chosen, so its setup now reads the gates on the opening node's PROGRESS rows from the data and opens them; gating a row on what Thad must have no longer breaks it. The dimming assertion follows errata 317's rule and stays."
   }
  ]
 }

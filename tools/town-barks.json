@@ -212,6 +212,11 @@
     "set": {
      "T_PIE_ASKED": true
     }
+   },
+   "Is there money to be made in Consolation?": {
+    "set": {
+     "T_TOLD_MONEY": true
+    }
    }
   },
   "7 · THE MAN LEAVING TOMORROW": {
@@ -223,6 +228,11 @@
    "You knew Pike was dead.": {
     "when": {
      "T_PIKE_DEAD": true
+    }
+   },
+   "I've only just arrived.": {
+    "set": {
+     "T_TOLD_WHY": true
     }
    }
   },

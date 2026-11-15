@@ -605,6 +605,17 @@
           }
         ]
       },
+      "transitScene": [
+        {
+          "when": {
+            "T_SECOND_LEDGER": false
+          },
+          "say": "That door is for staff, Mr. Grubb. I am the staff.",
+          "by": "winnie",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE RECORDS ROOM · THE RECORDS ROOM DOOR"
+        }
+      ],
       "walkTo": {
         "x": 1600,
         "y": 704,

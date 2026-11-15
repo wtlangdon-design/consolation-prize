@@ -23,9 +23,16 @@ const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(R
 const setup = async (flags: Record<string, boolean | number> = {}) => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
-  for (const [id, value] of Object.entries(flags)) state.flags.set(id, value);
   const tree = [...content.dialogue.values()].find((t) => t.aftermathAuthored);
   assert.ok(tree, 'a tree declares its aftermath authored');
+  // TUNED (errata 317's review): the gates on the opening node's PROGRESS rows are read from the data and opened, so
+  // gating a row on what Thad must already have (errata 317: the assay waits for the claim) never breaks this test,
+  // which is about what happens after a row is chosen, not when it is offered.
+  const gates: Record<string, boolean> = {};
+  for (const option of tree.nodes[tree.start]!.options.filter((one) => one.tag === 'PROGRESS')) {
+    for (const [id, want] of Object.entries(option.when ?? {})) if (typeof want === 'boolean') gates[id] = want;
+  }
+  for (const [id, value] of Object.entries({ ...gates, ...flags })) state.flags.set(id, value);
   return { content, state, tree };
 };
 const ids = (state: GameState) => state.dialogue.presentOptions().map((p) => p.option.id);
@@ -50,6 +57,7 @@ test('remove: the option is gone after its first selection, and stays gone acros
   // A fresh state loads the same save through its own storage.
   const storage = new MemoryStorage();
   const saver = new GameState(state.content, storage);
+  for (const [id, value] of Object.entries(state.flags.snapshot())) saver.flags.set(id, value as never);
   saver.dialogue.start(tree.id); saver.dialogue.select(removable.id); saver.dialogue.end(); saver.save();
   const loaded = new GameState(state.content, storage);
   assert.ok(loaded.load());
@@ -77,7 +85,7 @@ test('retain: the option stays, greys, and answers with its authored repeat or i
   assert.equal(second.say, expected, 'the authored repeat if there is one, else the exchange again');
 });
 
-test('counted-repeat: selections advance through the authored answers and clamp at the last; the row never greys', async () => {
+test('counted-repeat: selections advance through the authored answers and clamp at the last; once said, the row greys', async () => {
   const { state, tree } = await setup({ T_TUNES_PIANOS: true });
   const counted = tree.nodes[tree.start]!.options.find((o) => o.afterUse === 'counted-repeat' && o.repeats?.length);
   assert.ok(counted, 'the opening node has a counted-repeat row with authored repeats');
@@ -86,7 +94,9 @@ test('counted-repeat: selections advance through the authored answers and clamp 
   for (let n = 1; n <= (counted.repeats!.at(-1)!.selection + 2); n += 1) {
     const shown: PresentedOption | undefined = state.dialogue.presentOptions().find((p) => p.option.id === counted.id);
     assert.ok(shown, `offered at selection ${n}`);
-    assert.equal(shown.exhausted, false, 'a counted-repeat stays at full weight');
+    // Errata 317 (Tyler: it was "remaining the brighter colour for unspoken lines"): said once, it greys like any other
+    // asked row, and still answers again. Only a counted-repeat that is the way on stays bright (errata 130 E).
+    assert.equal(shown.exhausted, n > 1, n > 1 ? 'said, so greyed' : 'not yet said, so bright');
     assert.equal(shown.selections, n - 1);
     answers.push(state.dialogue.select(counted.id).say);
   }

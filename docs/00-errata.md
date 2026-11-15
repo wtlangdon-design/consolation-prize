@@ -8016,3 +8016,20 @@ Lesson:
 - `tests/feet-clear.test.ts`: from no point of the floor do his boots stand in the case, the spittoon or the barrel, at that point's own height. Proved on the old floors: the case and the spittoon fail, and the barrel, carved right, passes.
 - Doc 55 section 8, two rows: a thing on the floor is carved at its width plus his reach; and an item a player would naturally try a verb on gets its own line for it, not a fallback written for scenery.
 
+## 317 · From the playthrough: the street before the doors, her back door, the assay before the claim, greyed lines, the click, the pianist (Tyler, 2026-11-14)
+
+Doc 133 has each ruling in Tyler's words and the lines it needed.
+
+- **The street before the doors.** Main Street's six doors refuse him, with one line of his, until he has asked the street's three their own questions. Those are the map seller's "Who's Mott?" (`T_MOTT_TOLD`), the pie woman's money question (`T_TOLD_MONEY`) and the man leaving tomorrow's "I've only just arrived." (`T_TOLD_WHY`). The two new flags are written from `tools/town-barks.json`. The gate holds only until the swindle. Lower Street and the lane stay open.
+- **Her back door.** The records room refuses him in Winnie's voice until she has shown him the second ledger (`T_SECOND_LEDGER`). Before then the room would show him the nineteen names before she had told him of them.
+- **The assay before the claim.** WIN_A1's "I'd like to have some soil assayed" waits for `T_SWINDLED`.
+- **A line said is a line greyed.** A counted-repeat row greys once said, as every asked row does, unless it is the way on (PROGRESS, ASSAY: errata 130 E). This changes errata 57's "stays at full weight".
+- **The click.** With no verb chosen, a click on a thing performs its defaultVerb, and the sentence line says so while it is hovered (errata 28b's table, restored). Errata 283's MI1 walk is withdrawn: `content/ui/verbs.json` no longer declares `bareClick`.
+- **The pianist.** He is ruled, and his brief is written (`reference/nugget-pianist/brief.md`). He is drawn in the image session, and wired, with Thad's piano lines rewritten, when the hand-back comes.
+
+Lesson:
+- `tests/street-first.test.ts`: every Main Street door refuses while any of the three is unasked, and opens once all three are asked. The ways on are never refused. Each flag is written by a question. The records door refuses until the ledger. Proved by construction: without the gates it finds no doors and fails.
+- `tests/mi1-click.test.ts`, rewritten to the ruling: a bare click on every Main Street thing does its own verb, left or right. It fails under errata 283's `bareClick`.
+- `tests/aftermath.test.ts`: a counted-repeat row is bright before it is said and greyed after. `tests/dialogue-reveal.test.ts`'s oracle follows the same rule.
+- Doc 55 section 8: one row.
+
