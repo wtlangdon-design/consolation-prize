@@ -1,0 +1,16 @@
+{
+ "assetId": "mercantile-keeper",
+ "subject": "mercantile-keeper",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-12-mercantile",
+ "promptFile": "reference/mercantile-keeper/op-3.txt",
+ "out": "art/staging/mercantile-keeper/op-3/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/mercantile-keeper/op-2/sheet.png",
+  "art/staging/mercantile-keeper/op-3/the-counter-angle.png",
+  "art/staging/mercantile-keeper/op-3/barman@2x.png"
+ ],
+ "derivedFrom": 2
+}

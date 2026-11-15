@@ -1,7 +1,9 @@
 """The Mercantile's storekeeper, cut (reference/mercantile-keeper/brief.md; errata 335). No image operation.
 
 mercantile-keeper drew, on magenta, four full-length frames of the storekeeper (operation 1 with Thad, the ruler, at
-the left): rest (hands on the counter), rest B (tapping), writing, the lean. NOTHING IS REGRADED (the brief: never fix
+the left): rest (hands on the counter), rest B (tapping), writing, the lean. Operation 2 corrected him (clean-shaven,
+empty hands); operation 3 turned him three-quarters toward the viewer's left, square to the counter, which runs at an
+angle (Tyler, 2026-11-15: "The storekeeper isn't facing forward at the same diagonal as the counter"). Operation 3 ships. NOTHING IS REGRADED (the brief: never fix
 the numbers in the cut): the tool scales, keys, places and snaps to the one level; every colour is the operation's.
 
   - one scale for all four: his rest frame, crown to sole, is 390 px (the brief: a standing man about one
@@ -36,8 +38,9 @@ srcm = open(ms['__file__']).read(); exec(srcm[:srcm.index('def head(')], ms)
 
 # Per operation: the sheet and how many figures stand left of his four (operation 1 kept Thad, the ruler).
 OPS = {1: {'sheet': 'art/staging/mercantile-keeper/op-1/sheet.png', 'before': 1},
-       2: {'sheet': 'art/staging/mercantile-keeper/op-2/sheet.png', 'before': None}}   # None: found by count
-OP = int(sys.argv[sys.argv.index('--op') + 1]) if '--op' in sys.argv else 2
+       2: {'sheet': 'art/staging/mercantile-keeper/op-2/sheet.png', 'before': None},   # None: found by count
+       3: {'sheet': 'art/staging/mercantile-keeper/op-3/sheet.png', 'before': None}}   # turned to the counter (ships)
+OP = int(sys.argv[sys.argv.index('--op') + 1]) if '--op' in sys.argv else 3
 SHEET = OPS[OP]['sheet']
 OUT = 'art/actors/room-12-storekeeper.png'
 MAN = 390.0                 # the brief: about 390 px crown to hidden feet
@@ -58,13 +61,18 @@ def columns(op):
 
 
 def hands_foot(a, op, x0, x1):
-    """The lowest row of his hands (skin: red well over blue) in the lower-middle of the figure."""
+    """The foot of his hands (skin: red well over blue) resting at the middle of the figure: from the row where the
+    most skin is, down to the last row of that contiguous run. The apron has a few skin-coloured flecks below it, so
+    the run, not the lowest skin pixel, decides."""
     rows = np.nonzero(op[:, x0:x1].any(1))[0]; top, bot = rows[0], rows[-1]
     sub = a[:, x0:x1]
     skin = ((sub[..., 0] - sub[..., 2]) > 110) & (sub[..., 0] > 150) & op[:, x0:x1]
     lo, hi = top + int(.35 * (bot - top)), top + int(.6 * (bot - top))
-    ys = np.nonzero(skin[lo:hi].sum(1) >= 3)[0]
-    return lo + ys[-1]
+    count = skin[lo:hi].sum(1)
+    y = int(np.argmax(count))
+    while y + 1 < len(count) and count[y + 1] >= 4:
+        y += 1
+    return lo + y
 
 
 def main(write):

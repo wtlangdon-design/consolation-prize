@@ -1,0 +1,13 @@
+Image 1 is a sheet from my pixel-art adventure game: four frames of the general store's storekeeper on magenta. Redraw the four frames as THE SAME MAN -- the same clean-shaven face, hair, lean build, height, clothes (cream shirt, sleeve garters, dark waistcoat, brown apron, dark trousers), colours, light and soft drawing -- but TURNED.
+
+Image 2 shows him behind the store's counter: the counter runs at an angle (red lines; its right end is nearer us), and he faces straight out, so he does not stand square to it. Turn him about 30 degrees toward the viewer's LEFT (the blue arrow), so he faces the lower left, square to the counter, his shoulders and hips parallel to the counter's edge (the shoulder on the viewer's right a little lower and nearer). He is turned like the barman in image 3, three-quarters toward the viewer's left. The customer stands to the viewer's left, in front of the counter, and he looks at him.
+
+With the turn, his left ear (on the viewer's right) faces us: the pencil behind it is plainly visible. The pencil behind his right ear (the far ear, on the viewer's left) still shows its end past the side of his head.
+
+The four frames, each turned the same way, feet on one row, the same height as now:
+1. both hands resting EMPTY and close together at the height of his belt (that is the counter top), looking at the customer, pleasant;
+2. the same, his head tilted, his right hand tapping with its fingers at belt height;
+3. head down, writing at belt height with the pencil he took from behind his RIGHT ear: in this frame only, that far ear has no pencil and the pencil is in his right hand; the pencil behind his left ear stays. Never more than two pencils;
+4. leaning forward over both hands at belt height, his shoulders lower and nearer, smiling at the customer.
+
+Clean-shaven in every frame. Nothing else in his hands. The same square pixel size, the same soft, flat shading and low texture. Flat pure magenta (#FF00FF) background, nothing touching. No counter, no floor, no shadows, no text, no numbers, no border.
