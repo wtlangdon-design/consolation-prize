@@ -1171,6 +1171,18 @@
    "date": "2026-11-15",
    "kind": "loosened",
    "why": "Errata 335: Tyler had the Mercantile's storekeeper drawn. The test held that nobody is drawn in the store (count 0); it now holds that exactly one person is, that he has a conversation and that Thad stands clear of him. A ruling changed, not a threshold."
+  },
+  {
+   "check": "tests/give.test.ts",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 338 (Tyler: \"Forgiving\"): the test held errata 282's rule that USE on a person for a hand-over is the item's wrong answer. Tyler reversed that part of the ruling; the test now holds that either carry verb finds the pair. A ruling changed, not a threshold."
+  },
+  {
+   "check": "tests/e5-certificate.test.ts",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 338: the certificate on Frame is found by USE as well as GIVE, by the same ruling."
   }
  ]
 }

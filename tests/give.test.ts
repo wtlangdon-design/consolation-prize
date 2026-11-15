@@ -44,14 +44,21 @@ test('every hand-over doc 127 names answers GIVE, and USE only where it says Eit
   }
 });
 
-test('USE on a person for a hand-over is the item\'s wrong answer; GIVE is the pair', () => {
+test('USE on a person for a hand-over is forgiven: it answers as GIVE does (errata 338)', () => {
+  // Was: "USE on a person for a hand-over is the item's wrong answer; GIVE is the pair" (errata 282). The Act I review
+  // found USE THE FEE ON SUMP answered "It has one job, and this isn't it." at the moment of its one job, and Tyler,
+  // asked whether to merge the two verbs, kept both and made them forgiving.
   const state = new GameState(content, new MemoryStorage());
-  // The first GIVE-only hand-over that completes a puzzle, read from the data.
-  const pair = content.combinations.pairs.find((one) => one.verbs?.join() === 'GIVE' && (one.completes || one.rules?.some((rule) => rule.completes)))!;
-  assert.ok(pair, 'a hand-over that completes something');
+  const pair = content.combinations.pairs.find((one) => one.verbs?.join() === 'GIVE' && !one.opens)!;
+  assert.ok(pair, 'a hand-over written for GIVE');
+  const given = state.verbs.resolveWith('GIVE', pair.item, stub(pair.target), pair.room, [], true);
   const used = state.verbs.resolveWith('USE', pair.item, stub(pair.target), pair.room, [], true);
-  assert.ok(!used.effects.some((effect) => effect.kind === 'puzzleProgress'), 'USE completes nothing');
-  assert.ok(used.say && !JSON.stringify(pair).includes(JSON.stringify(used.say)), 'and says nothing the pair says');
+  assert.ok(given.say, 'GIVE is answered');
+  assert.deepEqual(used, given, 'the same answer either way');
+  // And the other way: an item written for USE on a thing answers GIVE.
+  const tool = content.combinations.pairs.find((one) => !one.verbs && !one.opens && !one.rules?.length && one.say && !content.ambient.has(one.target))!;
+  assert.equal(state.verbs.resolveWith('GIVE', tool.item, stub(tool.target), tool.room, [], false).say,
+    state.verbs.resolveWith('USE', tool.item, stub(tool.target), tool.room, [], false).say, 'GIVE to a thing is USE on it');
 });
 
 test('GIVE with nothing written: his lines for a person, and for a thing', () => {

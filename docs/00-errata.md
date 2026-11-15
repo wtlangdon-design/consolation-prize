@@ -8293,3 +8293,11 @@ Seen in the build before and after. Still open from the playtest: Main Street's 
 Lesson:
 - `tests/stands-clear.test.mjs`: the rule is not limited to the examining verbs, passes over a stand that hides a person, and a walk's end is moved off the room's people.
 
+## 338 · USE and GIVE forgive each other; Main Street's three stands (Tyler, 2026-11-15: "Forgiving")
+
+- **Either carry verb finds the answer.** Errata 282 made a hand-over GIVE and only GIVE, with USE THE FEE ON SUMP as the fee's wrong answer. The Act I review found that answer ("It has one job, and this isn't it.") said at the moment of the fee's one job, and the likeliest place in the act for a player to stall. Asked whether to merge the two verbs, Tyler kept both buttons (the panel is Monkey Island 2's, errata 282) and chose "Forgiving": USE on a person who should be given the thing is the hand-over, and GIVE to a thing the item is used on is the use. The pair written for the verb chosen is taken first. This withdraws errata 282's "and only GIVE"; everything else in it stands.
+- **Main Street's notices, trough and horses** are stood beside, at their left ends, facing them (`reference/room-02/annotation.json`). The playtest found Thad centred in front of the palomino while describing her; the stand-beside rule leaves wide things alone, so these are placed by hand.
+
+Lesson:
+- `tests/give.test.ts`: USE on a hand-over answers exactly as GIVE does, and GIVE to a thing as USE does. It held the opposite, by errata 282.
+
