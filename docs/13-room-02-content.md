@@ -118,7 +118,7 @@ First selection, then second, then third. Third repeats indefinitely thereafter.
 **LISTEN** — 2 "Third from the end. Still loose." · 3 "It has a note. B flat, roughly. I've decided not to tell anyone."
 
 ## POSTED NOTICES
-**LOOK** — 2 "The lost-dog notice has been up six weeks, poor soul. And there's a dog lying right here on this street, looking entirely unlost." · 3 "Four claims for sale today! There were three yesterday. Somebody's going to get a bargain, and I'd like it to be me."
+**LOOK** — 2 "The lost-dog notice has been up six weeks, poor soul. And there's a dog lying right here on this street, looking entirely unlost." · 3 "Four claims for sale! Somebody's going to get a bargain, and I'd like it to be me."
 **LISTEN** — 2 "Paper. Still a great deal of it." · 3 "One corner has come loose and is knocking. It'll do that until somebody dies."
 
 ## THE CHURCH STEEPLE
@@ -141,7 +141,7 @@ First selection, then second, then third. Third repeats indefinitely thereafter.
 **LISTEN** — 2 "A long, low snort from the black, aimed at nobody, or possibly at me." · 3 "A hoof shifting in the mud, and the creak of the rail as somebody leans on it."
 
 ## THE HILLS
-**LOOK** — 2 "Still gold country, and still, so far as anyone can say, no gold. Early days." · 3 "The same hills as yesterday. I check every time, in case they've changed their minds about me."
+**LOOK** — 2 "Still gold country, and still, so far as anyone can say, no gold. Early days." · 3 "The same hills as before. I check every time, in case they've changed their minds about me."
 **LISTEN** — 2 "Still large. Still quiet." · 3 "Nothing. I'd be alarmed if there were."
 
 ---

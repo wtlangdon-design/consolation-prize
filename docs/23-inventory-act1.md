@@ -82,7 +82,7 @@
 ## THE FILING FEE
 *Earned A8. Spent A9.*
 
-**LOOK** 1 "Two dollars, earned by tuning a saloon piano that nobody plays." · 2 "Two dollars, going to a man behind a grille to write a number in a book." · 3 "The most useful money I have earned in my life, and it is for paperwork."
+**LOOK** 1 "Two dollars, earned by tuning a saloon piano." · 2 "Two dollars. Somebody in this town will want them. Somebody always does." · 3 "The most useful money I have earned in my life, and it is for paperwork."
 **LISTEN** 1 "Coin." · 2 "Coin." · 3 "Nothing. It is two dollars and it will not be two dollars for long."
 
 ---

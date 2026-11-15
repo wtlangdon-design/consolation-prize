@@ -145,8 +145,8 @@ Icons for all seven are asked for in the brief; until they are drawn the panel s
 **LISTEN** 1 "Nothing. A button says what it has to say by being missing from somewhere." · 2 "A click against the tuning fork. Bone." · 3 "Nothing. It is waiting for a coat."
 
 **THE KEY RACK** · *the hotel lobby, once he has a room*
-- PICK UP, *the first time* — "Number three. Mine, by arrangement with a piano. The clerk watched it leave the rack as if it might not come back, which shows how little he knows of my alternatives." → MY ROOM KEY
-- PICK UP, *again* — "The other two belong to men I have never seen. I shall leave them their mystery."
+- PICK UP, *the first time* — "Number nineteen. Mine, by arrangement with a piano. The clerk watched it leave the rack as if it might not come back, which shows how little he knows of my alternatives." → MY ROOM KEY
+- PICK UP, *again* — "The other three belong to men I have never seen. I shall leave them their mystery."
 
 **MY ROOM KEY** *(item)*
 **LOOK** 1 "The key to number three, on a brass tag the size of a saucer, so that no guest may forget whose it is." · 2 "It would open any door in the hotel. I tried it in the wrong one, by accident, and it was delighted." · 3 "A key, to a room, with my things in it. I had not expected to find that affecting."

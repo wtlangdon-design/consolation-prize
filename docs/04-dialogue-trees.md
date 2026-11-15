@@ -106,7 +106,7 @@ The queue ledger, chained to the sill. *(Errata 75: getting in the book is not d
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Splendid! Where do I sign?" | `[PROGRESS · remove]` | "You don't sign. You print. Signatures are for people the next clerk has to believe." | enters the queue |
+| 1 | "Splendid! Where do I sign?" | `[PROGRESS · remove]` | "You don't sign. You print. I have to be able to read it." | enters the queue |
 | 2 | "How long is the wait, honestly?" | `[TOPIC · rephrase]` | "Eight months." *(rephrases after C5 to "How long is the wait now?" → "Three weeks. It appears the queue has been on a diet.")* *(second)* "Eight months. Asking twice doesn't shorten it. I've watched men try." | — |
 | 3 | "What number am I?" | `[COMIC · counted-repeat]` | "Nine hundred and six." *(second)* "Nine hundred and six." *(third)* "Mr. Grubb, the number does not refresh with enthusiasm." | — |
 | 4 | `[EXIT · retain]` | | "Mind the window." *(It is ajar.)* | |
@@ -252,7 +252,7 @@ Every Fanshawe node must satisfy: *the player receives something they asked for,
 
 FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK TO opens this instead. Thad receives a welcome; he gives up that he has come to town with money.
 
-> **FANSHAWE:** "Mr. Grubb! Off the coach tonight, and in my office before you've found a bed. You'll want a claim. Everyone wants a claim."
+> **FANSHAWE:** "Mr. Grubb! Off the coach tonight, and in my office before you've unpacked. You'll want a claim. Everyone wants a claim."
 > **THAD:** "I have come about a letter."
 > **FANSHAWE:** "A letter! Then you'll want a claim to write home about."
 
@@ -388,7 +388,7 @@ Six options. **Five produce no response at all** — Hob keeps walking, and Thad
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "Good evening." | `[TOPIC · retain]` | *(beat)* — Thad: "He is walking. I will consider that an evening." |
+| 1 | "Good evening." | `[TOPIC · retain]` | *(beat)* — Thad: "He kept walking. I'll take that as 'good evening.'" |
 | 2 | "Do you know anything about Claim One?" | `[TOPIC · retain]` · req `T_BORDERS_MOTT` | *(beat)* |
 | 3 | "Did you know Obadiah Mott?" | `[TOPIC · retain]` · req `T_MOTT_TOLD` | *(beat)* "No." *(long pause)* |
 | 4 | "How long have you been in Consolation?" | `[TOPIC · retain]` | "Longer than it has." |
@@ -580,7 +580,7 @@ Pratt on his own claim, beside Prosperity, raking. The node exists for A5's "sen
 | 2 | "Nine dollars for what?" | `[TOPIC · retain]` | "Your claim." *(second)* "Your claim. Nine dollars and a hen." |
 | 5 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "Yep." *(He rakes for a while.)* "Undertaker's got him." *(second)* "Undertaker's got him. Has had for a while." *(unless `T_PIKE_DEAD`)* |
 | 6 | "You knew Pike was dead." | `[TOPIC · retain]` | "Yep." *(He rakes.)* "Said so." *(second)* "Said the undertaker had him. That's what that means." *(req `T_PIKE_DEAD`)* |
-| 3 | "Lovely morning." | `[COMIC · retain]` | *(He looks up at the sky, checking.)* "Yep." *(second)* "Still is." |
+| 3 | "Lovely weather." | `[COMIC · retain]` | *(He looks up at the sky, checking.)* "Yep." *(second)* "Still is." |
 | 4 | "How's the bite?" | `[COMIC · retain]` | "Healing wrong." *(req `T_PRATT_BITTEN`; errata 75 — the node keeps three options once option 1 is spent)* |
 
 *Errata 172, doc 99's rewrite: a second answer to option 2, which is his offer gone up (doc 04: "he repeats his offer at a new number"), and the town's Pike thread (doc 98). Pratt is the only person in town who says it straight, and he doesn't know he has.*
@@ -781,7 +781,7 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 |---|---|---|---|---|
 | 1 | "Good day! I need to file this deed. It's my first." | `[PROGRESS · remove]` | "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'" *(He taps the word.)* "Thereabouts is not a unit, Mr. Grubb. I have checked." "With a boundary and two dollars, the office will file it." | *(errata 228: the fee, said before the money is called the filing fee)* sets `T_SURVEY_NEEDED` — **A6** *(errata 75: the refusal; the filing itself is doc 57 A9)* req `T_SWINDLED` *(errata 172: he has no deed before the swindle)* |
 | 1′ | "Where would I find a surveyor?" | `[PROGRESS · remove]` | "The territory licenses surveyors. Consolation has none. The statute accepts a boundary 'attested in good form by any person holding a trade license from this office.'" *(beat)* "I have issued one license this year. It was to a diviner." | req `T_SURVEY_NEEDED`; points to Ozymandia — A7 *(errata 75)* |
-| 1″ | "I have a survey." | `[PROGRESS · remove]` | "Then the deed, the survey and the fee. In that order. The order is in the statute, so that nobody can say he paid for the paper." | req THE SURVEY; doc 57 A9 *(errata 75)* |
+| 1″ | "I have a survey." | `[PROGRESS · remove]` | "Then the deed, the survey and the fee. In that order. Money last, so nobody can say the filing was bought." | req THE SURVEY; doc 57 A9 *(errata 75)* |
 | 2 | "The deed's drawn wrong side up." | `[TOPIC · retain]` | "Statute does not specify an orientation. You would be surprised how much statute does not specify. I would not. I have read it." *(second)* "It still does not specify. I have read it again since you asked." | req `T_SWINDLED` |
 | 5 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "Pike, Ezra. Claim filed in forty-nine. Lapsed in fifty-two, on account of the claimant." *(beat)* "The undertaker holds the rest of the file." *(second)* "Lapsed. The undertaker has the remainder of the file." | unless `T_PIKE_DEAD` |
 | 6 | "You knew Pike was dead." | `[TOPIC · retain]` | "Lapsed, Mr. Grubb. In this office we say lapsed." *(second)* "Lapsed. It is a perfectly good word. It has a form." | req `T_PIKE_DEAD` |
@@ -884,7 +884,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "I'll need a mule for the diggings road." | `[PROGRESS · remove]` | "You don't hire Grievance. You *apply*. She'll look at you. Then we'll know." *(She looks. A long moment. She looks away.)* "…Well. Now we know." *(Errata 75: she will not move — B2's refusal. "D-travel" is withdrawn; travel is the map.)* |
+| 1 | "I'll need a mule for the diggings road." | `[PROGRESS · remove]` | "You don't hire Grievance. You *apply*. She'll look at you. Then we'll know." — *"She has looked at me. She has gone back to her hay."* — "…Well. Now we know." *(Errata 75: she will not move — B2's refusal. "D-travel" is withdrawn; travel is the map.)* |
 | 2 | "Why 'Grievance'?" | `[TOPIC · retain]` | "Had a partner once. She took his side." *(second)* "She took his side. She'd take it again, given the chance." |
 | 8 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "Grievance knew him. She'd tell you to ask the undertaker." *(beat)* "She's not a talker." *(second)* "The undertaker. Grievance has nothing to add." → unless `T_PIKE_DEAD` |
 | 9 | "You knew Pike was dead." | `[TOPIC · retain]` | "She knew. She looked at me funny for a week." *(second)* "A whole week. Funny." → req `T_PIKE_DEAD` |

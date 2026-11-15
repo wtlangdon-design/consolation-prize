@@ -171,7 +171,7 @@
           "tag": "PROGRESS",
           "text": "Splendid! Where do I sign?",
           "afterUse": "remove",
-          "say": "You don't sign. You print. Signatures are for people the next clerk has to believe."
+          "say": "You don't sign. You print. I have to be able to read it."
         },
         {
           "id": "winnie2",

@@ -733,10 +733,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The way back down to the road, past my claim post. Forty feet is not far, and I have walked it a great many times.",
+            "say": "The way back down to the road, past my claim post. Forty feet is not far, and I mean to walk it a great many times.",
             "repeat": [
-              "The path down is worn mostly by me, and a little by a raccoon.",
-              "Down there are the town, the queue, and everybody who knows exactly what this claim is worth. They're wrong. I can feel it."
+              "The path down is worn a little by a raccoon, and soon by me.",
+              "Down there are the town and everybody who knows exactly what this claim is worth. They're wrong. I can feel it."
             ]
           }
         ],
