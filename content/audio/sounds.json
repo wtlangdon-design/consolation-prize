@@ -719,6 +719,14 @@
   },
   {
    "between": [
+    "mercantile",
+    "main_street"
+   ],
+   "cue": "R03-DOOR",
+   "why": "Errata 322: the mercantile's doors are batwings too. Their swing is heard once, as he comes through them, and is no longer looped in the room's bed."
+  },
+  {
+   "between": [
     "assay_office",
     "main_street"
    ],
@@ -951,7 +959,7 @@
   "mercantile": {
    "src": "audio/sfx/beds/mercantile.wav",
    "gain": 0.307,
-   "why": "doc 45, Every room's bed (errata 203), row 12 (mercantile): the doors still swinging -- the approved batwing hinge -- and the street beyond them. Built by errata 215 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
+   "why": "doc 45, Every room's bed (errata 203), row 12 (mercantile): the street beyond the doors; the doors' swing is heard once, coming through them (errata 322). Built by errata 215 at the builder's measured gain; Tyler's audition is pending and his gain will replace it."
   },
   "boot_hill": {
    "src": "audio/sfx/beds/boot-hill.wav",

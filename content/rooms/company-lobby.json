@@ -48,6 +48,66 @@
       }
     },
     {
+      "id": "clerk",
+      "name": "THE CLERK",
+      "rect": [
+        1372,
+        252,
+        128,
+        138
+      ],
+      "defaultVerb": "TALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The clerk: young, pomaded, parted exactly down the middle, as though he had been filed. He has not looked up since I came in.",
+            "repeat": [
+              "Sleeve garters, and a collar so stiff he turns his whole body to read the next line. He has not had to turn it toward me.",
+              "He keeps his ledger the way other men keep a vow. I hope whatever it promised him, he gets."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The scratch of his nib.",
+            "repeat": [
+              "His blotter: pressed, lifted, pressed. He blots like a man who has never once smudged.",
+              "Nothing from him at all. A man can be silent politely, and he is doing it at me."
+            ],
+            "then": [
+              "He writes the way the clock ticks: steadily, and with no interest in me."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "say": "Excuse me. Who would I speak to, about anything?",
+            "then": [
+              {
+                "speaker": "lobby_clerk",
+                "line": "The Colonel."
+              },
+              "And who would I speak to about speaking to the Colonel?",
+              {
+                "speaker": "lobby_clerk",
+                "line": "The Colonel."
+              }
+            ],
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE COMPANY'S CLERK · first"
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "He is fixed to that stool by a sense of duty. I would need a crowbar, and a better reason.",
+        "USE": "I leaned on his desk, in a familiar way. He waited until I stopped."
+      },
+      "walkTo": {
+        "x": 1436,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
       "id": "testimonials",
       "name": "THE TESTIMONIALS",
       "rect": [

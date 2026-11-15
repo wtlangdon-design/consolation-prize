@@ -716,16 +716,16 @@ def bed_fanshawe_office():
 
 
 def bed_mercantile():
-    """Row 12. The doors still swinging -- the approved iron hinge, slower and
-    smaller each time -- and the street beyond them."""
+    """Row 12. The street beyond the doors. The doors still swinging are the
+    batwings' own swing as he comes through them, once (R03-DOOR, a transit in
+    content/audio/sounds.json), not part of the loop: errata 322 (Tyler,
+    2026-11-14: "a weird background sfx in the mercantile that doesn't seem to
+    match anything seen in the store"). Looped, the hinge creaked three times
+    every twelve seconds beside doors the room draws standing still."""
     bed = Loop(12.0, 4112)
     bed.add(town_murmur(bed, 650), 0.3)
     walker(bed, 6.0, 8, BOARDWALK, 1100, 0.35)
     cart(bed, 1.0, 5.0, 500, 0.12)
-    at = bed.rnd.uniform(0.2, 0.6)
-    for k, g in enumerate((0.35, 0.22, 0.14)):
-        bed.at(lowpass(HINGE[k], 2400), at, g)
-        at += len(HINGE[k]) / RATE * 1.2
     return bed.x
 
 

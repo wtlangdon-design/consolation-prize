@@ -133,6 +133,12 @@
    270,
    200
   ],
+  "clerk": [
+   1372,
+   252,
+   128,
+   138
+  ],
   "portrait_of_fanshawe": [
    1395,
    15,
@@ -226,7 +232,8 @@
   "portrait_of_fanshawe": "LOOK_AT",
   "reception_desk": "LOOK_AT",
   "clock": "LOOK_AT",
-  "carpet": "LOOK_AT"
+  "carpet": "LOOK_AT",
+  "clerk": "TALK_TO"
  },
  "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
  "occlusion": {
@@ -318,5 +325,18 @@
    "halo": 67,
    "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
   }
- ]
+ ],
+ "sceneLines": [
+  {
+   "hotspot": "clerk",
+   "verb": "TALK_TO",
+   "ref": "docs/133-playthrough-rulings.md::## THE COMPANY'S CLERK",
+   "subject": "THE CLERK",
+   "verbText": "TALK TO",
+   "speakers": {
+    "CLERK": "lobby_clerk"
+   }
+  }
+ ],
+ "sceneLinesNote": "Errata 323 (doc 133, THE COMPANY'S CLERK): TALK TO the clerk is his one exchange; he sends Thad to the Colonel."
 }

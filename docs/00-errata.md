@@ -8091,3 +8091,16 @@ Lesson:
 - `tests/way-out-on-the-floor.test.mjs`: every way out that comes down to the ground overlaps the floor. It fails on the Road to the Claims as it was. The ledge's drawn zigzag path is excused by name.
 - `tests/no-money-offered.test.ts`: before and after the swindle, the clerk's option 3 offers what Thad has, the clerk answers it, and the piano follows. It fails with the rephrase removed.
 - Doc 55 §8: a line that names a day is read at the earliest state its gate allows.
+
+## 323 · The mercantile's doors and doorway; the Company's clerk; the Nugget's barman (Tyler, 2026-11-14)
+
+- **The sound.** Tyler: "There's a weird background sfx in the mercantile that doesn't seem to match anything seen in the store." Doc 45's row 12 is "the doors still swinging; the street beyond them". The bed built it as a 12-second loop with the batwings' hinge in it, three swings every pass, beside doors the plate draws still. The bed is now the street beyond the doors. The swing is the batwings' own (R03-DOOR, the Nugget's), heard once as he comes through them: a transit in content/audio/sounds.json. Re-rendered `audio/sfx/beds/mercantile.wav` (tools/audio/render-room-beds.py).
+- **The doorway.** Tyler: "the way things look from inside the mercantile looking out, doesn't match what's actually outside." The plate paints a two-storey house with lit windows across the way. Main Street is built on one side only, and what faces the mercantile's door is open mud, hills and sky. Repainting the doorway is one image operation, written as `reference/mercantile-doorway/brief.md`, for Tyler's image session.
+
+- **The Company's clerk.** Tyler: "Is the Clerk not supposed to talk when Thad tries to talk to him?" Pointing at him found Fanshawe's portrait on the wall behind him, so TALK TO got the portrait's refusal ("I'll save my charm for something that can answer"), said at a man. No document had written him a line. Offered three ways, Tyler chose: clickable, says little. Room 10 gains a `clerk` hotspot over his figure, laid before the portrait so the pointer finds him first, and a click talks to him. His LOOK and LISTEN are doc 05's and doc 54's, his refusals doc 49's, and his one exchange is doc 133's (THE COMPANY'S CLERK).
+- **The Nugget's barman.** Tyler: "Do we need a bartender in the Nugget?" Nobody stands behind the bar, though three lines speak of a barman. Offered three ways, he chose: add a barman, with no new dialogue. One image operation, written as `reference/nugget-barman/brief.md`, for Tyler's image session.
+
+Lesson:
+- `tests/clerk-answers.test.ts`: over the clerk's face and chest the pointer finds him, a click talks to him, and he answers in his own voice. It fails with his hotspot removed.
+- Doc 55 §8: a person drawn in a room answers as a person.
+- `tests/beds-are-places.test.mjs`: no bed loops a door up close. A door in a bed goes through `far(`, and the mercantile's doors are a transit. It fails on the hinge line as it was.
