@@ -93,6 +93,10 @@ def main():
     full *= fall[None, :, None]
     out = Image.fromarray(np.clip(full, 0, 255).astype(np.uint8))
     check_features(out)
+    # Errata 341: the parcel beside the circled one keeps its outline and loses its numeral. A "1" beside his "2"
+    # told the player, during the survey, what Sump's reading is written to tell. The patch is the paper beside it in
+    # the same box and the same rows, so the map's dashed line runs through.
+    out.paste(out.crop((838, 374, 870, 430)), (876, 374))
     out.save(OUT)
     tent = Image.open(os.path.join(ROOT, 'art/backgrounds/room-16-tent.png')).convert('RGB')
     show = Image.new('RGB', (W, H * 2 + 16), (0, 0, 0))

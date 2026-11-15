@@ -8331,3 +8331,12 @@ The rest of the review's story batch. Every line was drafted in one voice and ap
 Lesson:
 - `tests/act-one-story.test.mjs`: before the filing the map wall and the ledger do not name Claim One and the survey map does not offer it; the blanket waits for a failed try, each try writes it, and no LISTEN at the hole writes anything; no dinner option says the refusing line, and the dish does.
 - Doc 55 §8: a turn is told once, by the scene written to tell it.
+
+## 341 · Two pictures made to agree with errata 340 (Tyler, 2026-11-15: "Go")
+
+No image operation; a few pixels each.
+
+- **The Colonel's map wall.** The one red pin is on the frame's right rail, where the line says it is, and no longer in the middle of the map (`tools/art/room11-red-pin.py`; `art/backgrounds/room-11-fanshawe-office.png`).
+- **The survey map.** The parcel beside Thad's circled "2" keeps its outline and loses its "1" (`tools/art/act1-company-map-large.py`, which regenerates the plate with it).
+
+Lesson: doc 55 §8, a rewritten line that says what is drawn is checked against the plate in the same change.
