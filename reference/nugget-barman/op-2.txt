@@ -1,0 +1,14 @@
+Image 1 is a canvas on magenta from my pixel-art adventure game, set in an 1850s gold-rush town. The figure on the left is the hero, Thad, standing: he shows the size of a standing man and the game's standard -- flat, soft shading, low texture.
+
+Image 2 is the saloon's bar at game size: Thad standing, and the drinkers at the counter in warm, dim lamplight. The new man stands BEHIND that counter, in front of the back bar. Image 3 is two of those drinkers, enlarged: THEY ARE THE STYLE TO MATCH -- big simple shapes, two or three tones per material, soft broad shading, no fine wrinkles, no crisp highlights, no hard dark lines inside the figure, and lit by the same dim warm lamplight, no brighter than they are. Image 4 is a first attempt at this man, shown in the bar: it is the look to AVOID -- too sharp, too detailed, the shirt and apron near white under a hard bright light, so he looks pasted onto the room.
+
+On the magenta to the right of Thad, draw FOUR full-length standing figures of ONE new man, in a row, each separated by clear magenta, the same height as Thad, their feet on the same line as his: the saloon's barman. A heavy-set, unhurried man of about fifty, a neat moustache, short dark hair, shirt sleeves rolled up and held by garters on his upper arms, a DARK BROWN waistcoat, a long apron tied at the waist, dark trousers. His colours are the drinkers' colours under that lamplight: the shirt a warm, dim cream (like the right-hand drinker's sleeves in image 3, NOT white), the apron a soiled tan (NOT white), the waistcoat dark brown. Lit softly from above and behind by warm, low lamps; overall as dark as the drinkers. He faces us, three-quarters toward the left. His hands work in front of him at the height of his belt (that is where the bar counter will be).
+
+He holds a small cloth in his RIGHT hand in EVERY figure. There is NO towel over his shoulder and no second cloth.
+1. polishing a small glass: the glass in his left hand, the cloth in his right hand rubbing it;
+2. the same, the glass turned and the cloth moved round it;
+3. leaning a little forward, the glass set down at the height of his belt under his left hand, the cloth still in his right hand;
+4. his head turned to look along the bar to his left, the glass and the cloth held together against his chest.
+The same small glass in every figure; the same cloth in his right hand in every figure.
+
+The same size of square pixel, the same soft, flat shading and low texture as the drinkers -- NOT sharper, NOT more detailed, NOT brighter. Flat pure magenta (#FF00FF) background, nothing touching. No bar, no counter, no floor, no shadows, no text, no numbers, no border.
