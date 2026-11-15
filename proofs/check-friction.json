@@ -1159,6 +1159,12 @@
    "date": "2026-11-15",
    "kind": "loosened",
    "why": "Not weakened: errata 331 moved the repeatable payment from the fork's rules to the barman's row, so the dead-end probe now removes the barman's paying-each-time and still finds the dead end. The check-friction heuristic reads the rewritten lines as a loosening."
+  },
+  {
+   "check": "tests/room-23.test.ts",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Not weakened: errata 332 rewrote the F1 dig line from \"Three days. Forty feet.\" to \"Days of it. Forty feet.\", and the test reads the line's opening words. The check-friction heuristic reads the changed line as a loosening."
   }
  ]
 }
