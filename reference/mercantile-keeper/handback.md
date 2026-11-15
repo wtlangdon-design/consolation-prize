@@ -76,7 +76,9 @@ Four frames, cell **140 x 198**, his hands' resting row on each cell's bottom ro
 | 2 | `[286, 2, 140, 198]` | writing: head down, writing on the counter (in the room, on the order form) |
 | 3 | `[428, 2, 140, 198]` | the action: leaning forward over both hands, smiling at the customer |
 
-- **Anchor:** room **(1660, 510)**, as the brief says; in the cell, **(70, 197)**, bottom-centre. Posture `band`.
+- **Anchor:** room **(1688, 510)**; in the cell, **(70, 197)**, bottom-centre. Posture `band`.
+  - The brief named x 1660. Tyler then asked: "Can we put the storekeeper directly behind that clip board? Like, centered behind it? Right now it feels like he's weirdly placed with his elbow a little bit on the book next to him."
+  - x 1688 puts him centred behind the order form, whose far edge runs from about x 1647 to 1717.
 - **Movement:** frames 1, 2 and 3 change 18%, 38% and 54% of the figure by more than 40 levels, so frame 3 clears the test's 10% easily.
 
 ## Height against the curve
@@ -88,12 +90,15 @@ Four frames, cell **140 x 198**, his hands' resting row on each cell's bottom ro
 
 ## What he covers -- for the wiring
 
-- **THE PICKLE JAR** (from x 1755): not overlapped in any frame. His right edge is at x 1718-1725.
-- **THE CREDIT LEDGER** (to x 1620): **overlapped at the brief's anchor.** His left edge is at x 1595-1604.
-  - He is 131 px wide across his four frames, turned, and the gap between the ledger and the jar is 135 px.
-  - **An anchor of x 1685 clears both.** He would span 1620-1750, 5 px short of the jar.
-  - The brief names 1660, so the sheet and the render use 1660; the choice is the wiring's.
-- **THE CATALOGUE -- ORDER FORM** (1600-1720, y 495-555): his hands rest on its top edge, and in frame 2 he writes on it.
+At x 1688 he spans x 1623-1753 across his four frames and overlaps **nothing that can be clicked**:
+- **THE CREDIT LEDGER** (to x 1620) is clear, and his elbow is off the book;
+- **THE PICKLE JAR** (from x 1755) is clear.
+
+That was tried at x 1660, 1682 and 1690:
+- at 1660 and 1682 his elbow is on the book;
+- at 1690 his lean touches the jar's box.
+
+**THE CATALOGUE -- ORDER FORM** (1600-1720, y 495-555) is in front of him: his hands rest at its far edge, and in frame 2 he writes on it.
 
 ## Measured beside Thad and the barman (the gate flags; it does not decide)
 

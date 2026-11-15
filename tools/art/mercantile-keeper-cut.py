@@ -44,7 +44,9 @@ OP = int(sys.argv[sys.argv.index('--op') + 1]) if '--op' in sys.argv else 3
 SHEET = OPS[OP]['sheet']
 OUT = 'art/actors/room-12-storekeeper.png'
 MAN = 390.0                 # the brief: about 390 px crown to hidden feet
-ANCHOR = (1660, 510)        # the counter top's back edge under him
+ANCHOR = (1688, 510)        # the counter top's back edge under him. The brief named x 1660; Tyler, 2026-11-15: "Can we
+                            # put the storekeeper directly behind that clip board? Like, centered behind it?" -- 1688 is
+                            # centred behind the order form and clears THE CREDIT LEDGER (to 1620) and THE PICKLE JAR (1755)
 THAD_AT = (1480, 740)       # where Thad talks to him from, facing right
 LEDGER, JAR = (1420, 420, 200, 110), (1755, 370, 120, 195)     # content/rooms/mercantile.json hotspots
 TONIC_SHELF = 265
