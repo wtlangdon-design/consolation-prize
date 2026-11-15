@@ -23,10 +23,16 @@ const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(R
 const setup = async (flags: Record<string, boolean | number> = {}) => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
-  // Errata 317: the tree's first PROGRESS row (an assay) waits until he owns something to assay.
-  for (const [id, value] of Object.entries({ T_SWINDLED: true, ...flags })) state.flags.set(id, value);
   const tree = [...content.dialogue.values()].find((t) => t.aftermathAuthored);
   assert.ok(tree, 'a tree declares its aftermath authored');
+  // TUNED (errata 317's review): the gates on the opening node's PROGRESS rows are read from the data and opened, so
+  // gating a row on what Thad must already have (errata 317: the assay waits for the claim) never breaks this test,
+  // which is about what happens after a row is chosen, not when it is offered.
+  const gates: Record<string, boolean> = {};
+  for (const option of tree.nodes[tree.start]!.options.filter((one) => one.tag === 'PROGRESS')) {
+    for (const [id, want] of Object.entries(option.when ?? {})) if (typeof want === 'boolean') gates[id] = want;
+  }
+  for (const [id, value] of Object.entries({ ...gates, ...flags })) state.flags.set(id, value);
   return { content, state, tree };
 };
 const ids = (state: GameState) => state.dialogue.presentOptions().map((p) => p.option.id);
@@ -51,7 +57,7 @@ test('remove: the option is gone after its first selection, and stays gone acros
   // A fresh state loads the same save through its own storage.
   const storage = new MemoryStorage();
   const saver = new GameState(state.content, storage);
-  saver.flags.set('T_SWINDLED', true);
+  for (const [id, value] of Object.entries(state.flags.snapshot())) saver.flags.set(id, value as never);
   saver.dialogue.start(tree.id); saver.dialogue.select(removable.id); saver.dialogue.end(); saver.save();
   const loaded = new GameState(state.content, storage);
   assert.ok(loaded.load());

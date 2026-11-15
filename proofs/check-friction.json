@@ -1075,6 +1075,12 @@
    "date": "2026-11-14",
    "kind": "loosened",
    "why": "Errata 317: Winnie's assay row, the one that opens her second node, waits until he owns a claim, so the test gives him T_SWINDLED before it looks for the row. It did not misfire: the content changed."
+  },
+  {
+   "check": "tests/aftermath.test.ts",
+   "date": "2026-11-14",
+   "kind": "reviewed",
+   "why": "TUNED. Three edits in two weeks, each because the tree it borrows (Winnie's) gained a gate or a ruling changed how a used row looks. The test is about what happens after a row is chosen, so its setup now reads the gates on the opening node's PROGRESS rows from the data and opens them; gating a row on what Thad must have no longer breaks it. The dimming assertion follows errata 317's rule and stays."
   }
  ]
 }
