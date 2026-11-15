@@ -1304,6 +1304,11 @@ export interface CombinationsFile {
   itemPools: Record<string, string[]>;
   itemPoolNote?: string;
   /**
+   * An item's pool until a flag is true (errata 342): the lines said in its place before something is known. Once the
+   * flag holds, `itemPools` answers.
+   */
+  itemPoolsUntil?: Record<string, { until: string; lines: string[] }>;
+  /**
    * An item's lines for a place: after a pair, before the item's own pool, rotated in turn across every room the
    * place has (doc 108: the brass rod and the fork, "anywhere in" the mine).
    */

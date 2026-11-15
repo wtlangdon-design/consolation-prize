@@ -773,6 +773,19 @@
    "when": {
     "T_DOG_SCRATCHED": true
    }
+  },
+  {
+   "hotspot": "to_claims_road",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: TRUE WHEN SAID",
+   "head": "**THE ROAD TO THE CLAIMS**",
+   "bullet": "- LOOK",
+   "when": {
+    "T_SWINDLED": true
+   },
+   "endsChain": true
   }
  ],
  "docBulletsNote": "Errata 246, doc 115 II-5: THE COLONEL, IN HIS DOORWAY is the figure wreath_fanshawe, on the funeral day until he is pushed through (T_COLONEL_OUT). His tries are read from doc 115's THE TRIES; PUSH is the one that does it, the game's second solving PUSH (doc 114 X-1). Errata 258, doc 123 F-1: the dog is scratched behind the ear, once (T_DOG_SCRATCHED).",

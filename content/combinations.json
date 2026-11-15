@@ -173,7 +173,7 @@
       "room": "claims_registrar",
       "target": "counter",
       "puzzle": "A9",
-      "say": "Filed. Mr Sump has written a number in a book, and the number is mine.",
+      "say": "Lodged. Mr. Sump has written a number in a book. It isn't mine until the survey and the two dollars say so.",
       "rules": [
         {
           "case": "at the filing",
@@ -216,7 +216,7 @@
           "holds": [
             "survey"
           ],
-          "say": "Filed. Mr Sump has written a number in a book, and the number is mine.",
+          "say": "Lodged. Mr. Sump has written a number in a book. It isn't mine until the survey and the two dollars say so.",
           "set": {
             "T_DEED_LODGED": true
           }
@@ -3482,5 +3482,13 @@
       ]
     }
   ],
-  "alsoAtNote": "Errata 336: the same answer at the thing beside the thing. The blanket, the eggs and the tonic on the raccoon in the hole's mouth are answered as on the hole; the fee laid on Sump's counter is the fee handed to Sump; the deed and the survey handed to Sump are laid on his counter. Hand-authored, kept across extraction."
+  "alsoAtNote": "Errata 336: the same answer at the thing beside the thing. The blanket, the eggs and the tonic on the raccoon in the hole's mouth are answered as on the hole; the fee laid on Sump's counter is the fee handed to Sump; the deed and the survey handed to Sump are laid on his counter. Hand-authored, kept across extraction.",
+  "itemPoolsUntil": {
+    "letter": {
+      "until": "T_PIKE_DEAD",
+      "lines": [
+        "It's sealed, and it's addressed to Mr. Pike. I'm not opening it for this."
+      ]
+    }
+  }
 }

@@ -1982,6 +1982,17 @@ function combinations() {
     if (!itemIds.has(id)) throw new Error(`doc 24: no item "${id}" for the pool headed "${name}"`);
     itemPools[id] = lines;
   }
+  // AN ITEM'S POOL BEFORE SOMETHING IS KNOWN (errata 342): doc 133 writes the line and the flag that ends it.
+  const itemPoolsUntil = {};
+  {
+    const d133 = read('docs/133-playthrough-rulings.md');
+    for (const m of d133.matchAll(/^\*\*([A-Z' ]+)\*\* · [^\n]*\n> \*\(until `([A-Z0-9_]+)`\)\* "(.+)"$/gm)) {
+      const id = slug(m[1].replace(/^THE /, ''));
+      if (!itemIds.has(id)) throw new Error(`doc 133: no item "${id}" for the line written until ${m[2]}`);
+      itemPoolsUntil[id] = { until: m[2], lines: [m[3]] };
+    }
+    if (!itemPoolsUntil.letter) throw new Error('doc 133: the letter\'s line before T_PIKE_DEAD was not found');
+  }
 
   const mine = gulchMine();
   const giving = gulchGiving();
@@ -2000,7 +2011,7 @@ function combinations() {
   const give = givePlan();
   applyGive(rebuilt, giving.targetPools, give);
   return write('content/combinations.json', {
-    ...existing, pairs: rebuilt, itemPools, areaPools: mine.areaPools, targetPools: giving.targetPools, globalPool: global,
+    ...existing, pairs: rebuilt, itemPools, itemPoolsUntil, areaPools: mine.areaPools, targetPools: giving.targetPools, globalPool: global,
     givePools: { people: give.people, things: give.things },
     givePoolsNote: 'Errata 282, doc 127: GIVE with no pair -- to a person, or to a thing. Said in turn.',
   });
@@ -2548,8 +2559,11 @@ function room02ExitsInto(path) {
       }
       exit.responses = exit.responses ?? {};
       const rules = exit.responses[verb] ?? [{}];
-      rules[0].say = lines[0];
-      rules[0].repeat = lines.slice(1);
+      // The exit's own chain is its unconditioned rule; a state's variant of it (compile-room's `endsChain`, errata 342)
+      // stands ahead of it and is compile-room's to write.
+      const own = rules.find((rule) => !rule.when) ?? rules[0];
+      own.say = lines[0];
+      own.repeat = lines.slice(1);
       exit.responses[verb] = rules;
     }
 

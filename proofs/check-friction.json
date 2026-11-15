@@ -1201,6 +1201,18 @@
    "date": "2026-11-15",
    "kind": "loosened",
    "why": "Errata 340: not a misfire. The repeat-variants test held that a rule's last line answers for ever; a line said once (the hole's first look with the raccoon in it) ends its own state, and the test now passes on to the chain that follows it."
+  },
+  {
+   "check": "content/checks/narration-allowlist.json",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 342: \"back door\" back on the list, at four subjects with an approved line. A thing's name."
+  },
+  {
+   "check": "content/ui/duplicate-allowlist.json",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 342: two entries. A chain said in two states shares its first two lines (Main Street's road to the claims); the check reads the second state's as repeats."
   }
  ]
 }

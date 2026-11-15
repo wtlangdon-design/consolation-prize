@@ -239,7 +239,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A portrait of a man in a good collar, hung crooked.",
+            "say": "A portrait of a man in a good collar, hung where the whole room has to look at him.",
             "repeat": [
               "A governor, a founder, and 'that's Bill's uncle.' Bill was not available to confirm.",
               "It's a face that gets around. I have a feeling I'll meet that collar again in this town."
@@ -253,7 +253,7 @@
           {
             "say": "Silent. He's keeping quiet about who he is.",
             "repeat": [
-              "Not a word. Not even a crooked one.",
+              "Not a word. He has the collar for it.",
               "Nothing. Whoever he is, nobody here is asking him."
             ]
           }
@@ -290,7 +290,7 @@
           {
             "say": "A cast-iron stove, lit, in July. Nobody's said anything. I'm not going to be the first.",
             "repeat": [
-              "Still lit. The man beside it hasn't taken his coat off since I arrived in the territory. I'm beginning to think he can't.",
+              "Still lit. The man beside it has his coat buttoned to the chin. I don't think the stove is there for him. I think he's there for the stove.",
               "The warmest thing in Consolation, wasted on a room full of men who've already warmed themselves the other way."
             ]
           }
@@ -449,7 +449,7 @@
             "say": "A chandelier. Underneath it, a dirt floor. The two have never been introduced.",
             "repeat": [
               "Brass, crystal, and a dirt floor. Somebody made a decision about priorities. I'd like to shake his hand, and then check my pockets.",
-              "They light it after I've gone, apparently. It's always cooling when I come in."
+              "Unlit, and still warm. Somebody had it burning for a better crowd than this one."
             ]
           }
         ],

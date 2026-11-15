@@ -14,15 +14,15 @@
 **LISTEN** 1 "Boards, overhead. Somebody pacing a room about the size of mine." · 2 "Four steps, turn. Four steps, turn. Definitely the size of mine." · 3 "He's stopped. Somehow that's worse."
 
 ## THE FADED PORTRAIT
-**LOOK** 1 "A portrait of a man in a good collar, hung crooked. I asked three people who he is, and got three answers." · 2 "A governor, a founder, and 'that's Bill's uncle.' Bill was not available to confirm." · 3 "It's a face that gets around. I have a feeling I'll meet that collar again in this town."
-**LISTEN** 1 "Silent. He's keeping quiet about who he is." · 2 "Not a word. Not even a crooked one." · 3 "Nothing. Whoever he is, nobody here is asking him."
+**LOOK** 1 "A portrait of a man in a good collar, hung where the whole room has to look at him. I asked three people who he is, and got three answers." · 2 "A governor, a founder, and 'that's Bill's uncle.' Bill was not available to confirm." · 3 "It's a face that gets around. I have a feeling I'll meet that collar again in this town."
+**LISTEN** 1 "Silent. He's keeping quiet about who he is." · 2 "Not a word. He has the collar for it." · 3 "Nothing. Whoever he is, nobody here is asking him."
 
 ## THE SPITTOON
 **LOOK** 1 "A spittoon, placed optimistically far from anyone sitting down." · 2 "The floor around it tells the story of a town that has tried, and tried, and missed." · 3 "Brass. Somebody polished this once. I'd like to know what they'd done to deserve it."
 **LISTEN** 1 "Regrettably, yes." · 2 "Yes. Again. There's a man at the bar with tremendous range and no aim." · 3 "I've stopped listening to the spittoon. Best decision I've made in the territory."
 
 ## THE STOVE
-**LOOK** 1 "A cast-iron stove, lit, in July. Nobody's said anything. I'm not going to be the first." · 2 "Still lit. The man beside it hasn't taken his coat off since I arrived in the territory. I'm beginning to think he can't." · 3 "The warmest thing in Consolation, wasted on a room full of men who've already warmed themselves the other way."
+**LOOK** 1 "A cast-iron stove, lit, in July. Nobody's said anything. I'm not going to be the first." · 2 "Still lit. The man beside it has his coat buttoned to the chin. I don't think the stove is there for him. I think he's there for the stove." · 3 "The warmest thing in Consolation, wasted on a room full of men who've already warmed themselves the other way."
 **LISTEN** 1 "It ticks. The one thing in this room doing honest work." · 2 "Tick. Tick. Still working. Still the only one." · 3 "Nothing. It's gone out, and nobody has noticed."
 
 ## THE WINDOW
@@ -50,7 +50,7 @@
 **LISTEN** 2 "C-sharp. Still flat. It's like a stone in my shoe, if my shoe were across the room." · 3 "I could put it right in a few minutes. I've started thinking about it at mealtimes."
 
 ## THE CHANDELIER
-**LOOK** 2 "Brass, crystal, and a dirt floor. Somebody made a decision about priorities. I'd like to shake his hand, and then check my pockets." · 3 "They light it after I've gone, apparently. It's always cooling when I come in."
+**LOOK** 2 "Brass, crystal, and a dirt floor. Somebody made a decision about priorities. I'd like to shake his hand, and then check my pockets." · 3 "Unlit, and still warm. Somebody had it burning for a better crowd than this one."
 **LISTEN** 2 "Ticking, cooling, hanging over mud." · 3 "Nothing. All that money, and it has nothing to say for itself."
 
 ## THE BAR

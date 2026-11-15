@@ -339,7 +339,7 @@
           {
             "say": "My good coat.",
             "repeat": [
-              "My good coat. The only thing I own that suggests I was once somebody's son with prospects. I still am. The coat agrees.",
+              "It hangs straighter on the nail than it does on me.",
               "It has mud to the knee, and I've stopped attending to it.",
               "Providence made this coat for a man walking to an office."
             ],
@@ -439,7 +439,7 @@
           {
             "say": "Two men, next door, discussing where Mott's strike is. They are very sure.",
             "repeat": [
-              "Two men next door, discussing where Mott's strike is. They are very sure, and sure in completely different directions.",
+              "They've each drawn it on something. I can hear the pencils.",
               "Still sure. Still different.",
               "One of them has gone to sleep mid-sentence. The other has not noticed."
             ],
@@ -482,7 +482,7 @@
           {
             "say": "The alley.",
             "repeat": [
-              "The alley. A cat, some barrels, and the back of the Improvement Company.",
+              "The cat has the barrels. The barrels have the alley. Nobody has contested either.",
               "One story, from here. From the street it's three. I've checked from both."
             ],
             "then": [

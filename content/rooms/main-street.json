@@ -1264,7 +1264,7 @@
         ]
       },
       "overrides": {
-        "TALK_TO": "If I say anything within forty feet of that door, it'll be in print by evening. Spelled wrong.",
+        "TALK_TO": "If I say anything within forty feet of that door, it'll be in print by evening. I'd like to choose the words first.",
         "CLOSE": "He'd only open it again, and then write about it."
       },
       "defaultVerb": "OPEN",
@@ -1320,6 +1320,16 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "T_SWINDLED": true
+            },
+            "say": "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose.",
+            "repeat": [
+              "Two miles. It looks further in the morning and considerably further at night, but every fortune in the territory is at the far end of it.",
+              "Somewhere down there is forty feet of mud, and I'm the man fool enough to have bought it."
+            ]
+          },
+          {
             "say": "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose.",
             "repeat": [
               "Two miles. It looks further in the morning and considerably further at night, but every fortune in the territory is at the far end of it.",
@@ -1368,7 +1378,7 @@
           {
             "say": "The assay office. A door, a step, and one window. The only front on this street that isn't selling itself.",
             "repeat": [
-              "No sign. Everybody knows where it is and nobody needs telling twice.",
+              "One small sign, and all it says is what the place is. Everybody knows where it is and nobody needs telling twice.",
               "The step is worn pale in the middle and nowhere else. They come, they stand, they go."
             ]
           }

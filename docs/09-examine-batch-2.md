@@ -219,7 +219,7 @@
 > **LISTEN:** "Nothing. It is the quietest building in Consolation from every side."
 
 **THE ASH PILE**
-> **LOOK:** "Ash from the Colonel's stove, swept out weekly. Some of it is paper that did not entirely burn. One corner reads BOSTON."
+> **LOOK:** "Ash, swept out of the Company's back door. A good deal of it, for one stove. Some of it is paper that did not entirely burn. One corner reads BOSTON."
 > **LISTEN:** "Nothing."
 
 **THE BARRELS**

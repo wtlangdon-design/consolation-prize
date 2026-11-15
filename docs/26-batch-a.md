@@ -31,9 +31,9 @@
 
 **THE KEY RACK** — LOOK 2 "Four out of forty. The four are not near each other." · 3 "Number nineteen has the best hook on the rack. I've looked at it more than a man should look at a key." | LISTEN 2 "Nothing." · 3 "Brass on wood, faintly, when the door goes."
 
-**THE ENGRAVING** — LOOK 2 "The Bay of Naples, in a mining camp, four hundred miles from a paved road." · 3 "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely." | LISTEN 2 "Nothing." · 3 "Nothing. It is a long way from home and so am I, and only one of us is framed."
+**THE ENGRAVING** — LOOK 2 "There's a volcano in it, smoking politely. It's the calmest thing in the building." · 3 "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely." | LISTEN 2 "Nothing." · 3 "Nothing. It is a long way from home and so am I, and only one of us is framed."
 
-**THE CLOCK** — LOOK 2 "Nineteen minutes off the Registrar's, and neither has ever been challenged." · 3 "It is slow. In this town that is nearly an act of kindness." | LISTEN 2 "Ticking. Slow." · 3 "Ticking. I'm still not going to say anything."
+**THE CLOCK** — LOOK 2 "The hands are brass and the case is pine. Somebody spent the money where it showed." · 3 "It is slow. In this town that is nearly an act of kindness." | LISTEN 2 "Ticking. Slow." · 3 "Ticking. I'm still not going to say anything."
 
 ## Overrides
 
@@ -68,12 +68,12 @@
 **LISTEN** 1 "Nothing. Water, when I move it." · 2 "Nothing." · 3 "Nothing."
 
 ### THE COAT ON THE DOOR
-**LOOK Acts I–II** 1 "My good coat. The only thing I own that suggests I was once somebody's son with prospects. I still am. The coat agrees." · 2 "It has mud to the knee, and I've stopped attending to it." · 3 "Providence made this coat for a man walking to an office."
+**LOOK Acts I–II** 1 "It hangs straighter on the nail than it does on me." · 2 "It has mud to the knee, and I've stopped attending to it." · 3 "Providence made this coat for a man walking to an office."
 **LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing."
 
 ### THE WALL
 **LOOK** 1 "Boards, papered once, and the paper has given up in two corners." · 2 "Somebody before me wrote a number on the wall beside the bed and crossed it out." · 3 "The number was two hundred. I have not worked out what it was counting and I have stopped trying."
-**LISTEN** 1 "Two men next door, discussing where Mott's strike is. They are very sure, and sure in completely different directions." · 2 "Still sure. Still different." · 3 "One of them has gone to sleep mid-sentence. The other has not noticed."
+**LISTEN** 1 "They've each drawn it on something. I can hear the pencils." · 2 "Still sure. Still different." · 3 "One of them has gone to sleep mid-sentence. The other has not noticed."
 
 ## Repeat variants for doc 08's five
 
@@ -91,7 +91,7 @@
 
 **THE TUNING FORK CASE** — LOOK 2 "Velvet-lined, and worth more than the fork it was made for." · 3 "It is the most cared-for object I own and it is a box." | LISTEN 2 "Nothing, closed." · 3 "Nothing."
 
-**THE WINDOW** — LOOK 2 "The alley. A cat, some barrels, and the back of the Improvement Company." · 3 "One story, from here. From the street it's three. I've checked from both." | LISTEN 2 "The cat is on the barrels again. She gets up there and then reconsiders." · 3 "Nothing. Whoever was unloading has stopped, and the quiet is worse." *(Both rewritten — the old 2 and 3 were doc 08's variant 1 cut in half.)*
+**THE WINDOW** — LOOK 2 "The cat has the barrels. The barrels have the alley. Nobody has contested either." · 3 "One story, from here. From the street it's three. I've checked from both." | LISTEN 2 "The cat is on the barrels again. She gets up there and then reconsiders." · 3 "Nothing. Whoever was unloading has stopped, and the quiet is worse." *(Both rewritten — the old 2 and 3 were doc 08's variant 1 cut in half.)*
 
 ## Overrides
 
@@ -137,7 +137,7 @@
 
 **THE GOOD SUIT** — LOOK 2 "Three sizes, on one hanger, and all three have been let out at the waist." · 3 "Half the men on Boot Hill were viewed in this and buried in their own clothes." | LISTEN 2 "Nothing." · 3 "Nothing."
 
-**THE LEDGER** — LOOK 2 "Eleven pages in twelve years, in a town of two thousand." · 3 "Which means most of them left. I've been telling myself that all morning." | LISTEN 2 "Nothing." · 3 "Nothing."
+**THE LEDGER** — LOOK 2 "One hand, start to finish. The same pen, and the same price for the box." · 3 "Which means most of them left. I've been telling myself that all morning." | LISTEN 2 "Nothing." · 3 "Nothing."
 
 **THE TABLE** — LOOK 2 "Scrubbed to the grain, and scrubbed again since." · 3 "It is the cleanest surface in the territory and I would rather look at the ceiling." | LISTEN 2 "Nothing." · 3 "Nothing."
 

@@ -61,6 +61,16 @@
    "line": "Nothing coming.",
    "where": "high_ridge/road_east/LISTEN_TO",
    "reason": "Doc 54, Room 29: \"'Nothing coming.' Decided: five uses, deliberately. The ridge is the same road seen from above; doc 17's rule is that the line does not vary.\" Doc 17 note 3: 'Do not vary them.'"
+  },
+  {
+   "line": "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose.",
+   "where": "main_street/to_claims_road/LOOK_AT",
+   "reason": "Errata 342: the road's chain is said in two states, before and after Thad owns his claim, and only its last line differs. The first two are the same line in each, not a repeat."
+  },
+  {
+   "line": "Two miles. It looks further in the morning and considerably further at night, but every fortune in the territory is at the far end of it.",
+   "where": "main_street/to_claims_road/LOOK_AT",
+   "reason": "Errata 342: the road's chain is said in two states, before and after Thad owns his claim, and only its last line differs. The first two are the same line in each, not a repeat."
   }
  ]
 }

@@ -1561,6 +1561,7 @@ function docBullet(spec) {
 // instead of a hotspot, and the rule goes ahead of that figure's own lines (peopleResponses), which are gathered
 // further down; so these are kept and laid in once they exist.
 const personBullets = [];
+const chainEnds = [];
 for (const spec of [...(ann.docBullets ?? [])].reverse()) {
   if (spec.person) {
     if (!(ann.ambient ?? built.ambient ?? []).includes(spec.person)) fail(`docBullets: no figure "${spec.person}" in this room`);
@@ -1568,8 +1569,9 @@ for (const spec of [...(ann.docBullets ?? [])].reverse()) {
     continue;
   }
   const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
-  if (!hotspot) fail(`docBullets: no hotspot "${spec.hotspot}" in this room`);
+  if (!hotspot && !spec.endsChain) fail(`docBullets: no hotspot "${spec.hotspot}" in this room`);
   const rule = docBullet(spec);
+  if (spec.endsChain) { chainEnds.push([spec, rule]); continue; }
   for (const verb of spec.verbs) (hotspot.responses[verb] ??= []).unshift({ ...rule });
 }
 
@@ -1935,6 +1937,18 @@ built.exits = [...openExits, ...(live.exits ?? []).filter((e) => !subjectExits.s
     ...(ann.exitWalkTo?.[e.id] ? { walkTo: ann.exitWalkTo[e.id] } : {}),
   };
 })];
+// THE CHAIN'S LAST LINE, IN A STATE (errata 342; a docBullet with `endsChain`): the subject's own chain is said as
+// written, and in the state named its last line is the bullet's. Main Street's road to the claims: "any man fool
+// enough to buy it" is Thad, once he has bought it. Done here, once the exits and their written lines exist.
+for (const [spec, rule] of chainEnds) {
+  const subject = [...built.hotspots, ...built.exits].find((one) => one.id === spec.hotspot);
+  if (!subject) fail(`docBullets endsChain: no hotspot or exit "${spec.hotspot}" in this room`);
+  for (const verb of spec.verbs) {
+    const own = (subject.responses?.[verb] ?? []).filter((one) => !one.when && one.say && one.repeat?.length);
+    if (own.length !== 1 || !spec.when) fail(`docBullets endsChain: ${spec.hotspot} ${verb} needs one unconditioned chain and a state`);
+    subject.responses[verb] = [{ when: spec.when, say: own[0].say, repeat: [...own[0].repeat.slice(0, -1), rule.say] }, ...subject.responses[verb].filter((one) => JSON.stringify(one.when) !== JSON.stringify(spec.when))];
+  }
+}
 // A WAY NOT YET OPEN (errata 91 E). An exit subject with `closed` is, while
 // `closed.when` holds, a hotspot in the exit's place: the subject's own LOOK and
 // LISTEN, and walking, USE and OPEN answered by the line the document writes

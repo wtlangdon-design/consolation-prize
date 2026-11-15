@@ -178,7 +178,7 @@
       "name": "THE CLOCK",
       "LOOK_AT": [
         "A lobby clock. It disagrees with the Registrar's clock by nineteen minutes and neither has ever been challenged.",
-        "Nineteen minutes off the Registrar's, and neither has ever been challenged.",
+        "The hands are brass and the case is pine. Somebody spent the money where it showed.",
         "It is slow. In this town that is nearly an act of kindness."
       ],
       "LISTEN_TO": [
@@ -203,7 +203,7 @@
       "name": "THE ENGRAVING",
       "LOOK_AT": [
         "An engraving of the Bay of Naples, in a hotel lobby, in a mining camp, four hundred miles from a paved road. Somebody carried this here on purpose.",
-        "The Bay of Naples, in a mining camp, four hundred miles from a paved road.",
+        "There's a volcano in it, smoking politely. It's the calmest thing in the building.",
         "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely."
       ],
       "LISTEN_TO": [
