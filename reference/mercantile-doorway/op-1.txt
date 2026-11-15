@@ -1,0 +1,12 @@
+Image 1 is the left part of a pixel-art room plate from a 2D point-and-click adventure game: the inside of a frontier general store at night, lit warm by its own lamps and stove. At the left is the store's open doorway with a pair of wooden batwing (saloon) doors. Through the doorway, above the batwings, between them and under them, you can see the outside. Only that outside view may change; the mask covers exactly it.
+
+Repaint ONLY the view through the doorway. Everything else must stay exactly as it is: the doorframe and its posts, both batwing doors, the store floor and threshold, the wall, the boots, the tools, the barrel, the shelves.
+
+What is outside the doorway: the open main street of a small 1850s gold-rush town at night, seen from the store's door at the town's west end. The street is built on one side only, and this door faces the open side, so NOTHING is built across the street: no house, no building, no lit windows, no figure, no animal, no sign.
+- At the bottom (under the batwings and between them): the store's own porch boards just outside the door, then the first yard of wide churned mud, lit a little by the warm glow of the store's porch lantern (the lantern itself is out of view). The warm light falls off quickly.
+- Above the batwings: the wide dark muddy street running away, with a few puddles catching the night sky, then open dark ground, then the dark line of wooded hills, then the night sky, deep blue, with a few small stars. The horizon (the foot of the hills) sits a little above the top of the batwings.
+- Image 2 is the same town's street at night (Main Street's west end): match its colours exactly -- its deep blue sky and small stars, its dark blue-green wooded hills with soft ridgelines, its brown churned mud with blue-grey puddles, and its warm lantern light on the near boards. Take only the sky, hills, mud and puddles from it, never its buildings.
+
+The light: the same night as image 2. Nothing outside is brighter than the inside of the store; the outside reads as dim and cool beside the warm interior.
+
+Style: keep the plate's own pixel-art look exactly -- the same pixel size as the store around it, the same soft, flat, low-texture shading, few tones, no fine detail, no sharp crisp texture, no painterly smoothing. It must look like the same artist painted it at the same time as the rest of the plate.

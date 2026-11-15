@@ -8119,6 +8119,14 @@ Lesson:
 - `tests/act-one-places.test.ts`: on night one the map shows the town and the road, and nothing past it. Each far place appears when its flag is written, and every opening flag is written in play. It fails on the map as it was.
 - `tests/room-26`, `-27`, `-29` and `-30.test.ts`: each place goes on the map once the road has been walked and the story reaches it, and not on the road alone.
 
+## 325 · The mercantile's doorway, wired; the barman, not (Tyler's image session, 2026-11-14)
+
+- **The mercantile's doorway** (`reference/mercantile-doorway/handback.md`). The plate is repainted inside the doorway only (x 62–251, y 0–717, with 0 pixels changed outside the mask). Through the batwings: the porch boards and the first yard of mud in the lantern's light, the dark street, the hills and the stars. Nothing is built across the street. The plate's hash is recorded in `reference/room-12/annotation.json`. For Tyler's eye: a few blue pixels of the old view remain on the doorframe's right inner edge.
+- **The barman is not in the game.** His one operation (`reference/nugget-barman/handback.md`) came back too sharp (texture 11.41 and contrast 62.5, against Thad's 6.60 and 32.3), and two of his four frames dropped the cloth in his hand (errata 111). No operation was left. A correction without one was tried: his luminance drawn in toward Thad's spread in the cut, one level, graded into the Nugget's light. The numbers came out at Thad's. Tyler, shown him behind the bar: "This looks awful." He was taken out before merging. The sheet, the staging and the cut (`tools/art/nugget-barman-cut.py`, with the softening in it) stay as the record. Nothing loads them, and the bar is as it was.
+
+Lesson:
+- Doc 55 §8: squeezing a figure's luminance to Thad's numbers is not a correction. It flattens him to grey, and the numbers then say he passes. A figure that misses the style gate is redrawn against Thad, or it is not shipped.
+
 ## 326 · The barman, drawn again and wired (Tyler, 2026-11-14)
 
 Tyler: "Can we get a good, new bartender?" The second brief (`reference/nugget-barman/brief.md`) took the drinkers he stands among as the style reference. Tyler raised the image budget to 4,450,000 and the asset's cap to 3. One new drawing and one correction (`reference/nugget-barman/handback-2.md`): a warm cream shirt, a soiled tan apron, a dark brown waistcoat, and the cloth in every frame. Nothing is regraded in the cut, so every colour is the drawing's own. Shipped: texture 8.27, contrast 40.0 and mean light 85.6, against Thad's 6.60, 32.3 and 59.9 and the drinkers' 3.3-3.8, 24.5-40.1 and 46.5-60.8. He is still above the brief's aim, and the hand-back says so. In the bar he reads as one of the room's men.
