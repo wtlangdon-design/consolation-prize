@@ -306,6 +306,10 @@ export class VerbSystem {
     if (area?.lines.length) {
       return { say: this.rotate(`area:${area.id}`, area.lines), dialogue: null, goto: null, effects: [] };
     }
+    const early = table?.itemPoolsUntil?.[itemId];
+    if (early?.lines.length && this.flags.test({ [early.until]: false })) {
+      return { say: this.rotate(`item-until:${itemId}`, early.lines), dialogue: null, goto: null, effects: [] };
+    }
     const own = table?.itemPools[itemId];
     if (own?.length) {
       return { say: this.rotate(`item:${itemId}`, own), dialogue: null, goto: null, effects: [] };

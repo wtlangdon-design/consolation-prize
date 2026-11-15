@@ -39,7 +39,7 @@
 3. "He's talking to himself in there. Both sides of an interview. He's winning."
 
 **Overrides**
-> TALK TO — "If I say anything within forty feet of that door, it'll be in print by evening. Spelled wrong."
+> TALK TO — "If I say anything within forty feet of that door, it'll be in print by evening. I'd like to choose the words first."
 > CLOSE — "He'd only open it again, and then write about it."
 
 ---
@@ -89,7 +89,7 @@
 
 **LOOK**
 1. "The assay office. A door, a step, and one window. The only front on this street that isn't selling itself."
-2. "No sign. Everybody knows where it is and nobody needs telling twice."
+2. "One small sign, and all it says is what the place is. Everybody knows where it is and nobody needs telling twice."
 3. "The step is worn pale in the middle and nowhere else. They come, they stand, they go."
 
 **LISTEN**

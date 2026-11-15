@@ -24,7 +24,7 @@ Resolution runs most specific first.
 | **A2** | THE TUNING FORK on **the hotel parlour piano** | "There. It is the most honest work done in this building in some time." *(→ room for the night)* |
 | **A5** | HORSE BLANKET on **the hole** | "I have stopped the draft with a horse blanket. The hole has gone cold. We shall see what the raccoon makes of that." |
 | **A8** | THE TUNING FORK on **the Nugget's piano** | "C-sharp has come home, and nobody in this room has looked up." *(→ filing fee)* |
-| **A9** | THE DEED on **the Registrar's counter** | "Filed. Mr Sump has written a number in a book, and the number is mine." |
+| **A9** | THE DEED on **the Registrar's counter** | "Lodged. Mr. Sump has written a number in a book. It isn't mine until the survey and the two dollars say so." |
 | **A9** | THE FILING FEE on **Registrar Sump** | "Two dollars, for a number in a book. He has taken it without looking at me, which I am told is the correct procedure." |
 | **C5** | THE SUBMISSION LOG on **Winnie** | *(→ opens `WIN_B2`; no line of its own -- the tree's authored opening is the showing; the log is kept. Errata 66 rulings A-C, Act II.)* |
 | **E5** | THE DEATH CERTIFICATE on **Frame** | *(→ opens `FRA_E1`; no line of its own -- the tree's authored opening is the showing; the certificate is kept for the county. Errata 274: the obituary is asked for with the death in hand, not by talking. TALK TO opens the same node.)* |

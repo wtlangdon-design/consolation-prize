@@ -214,6 +214,16 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 **THE PIANO** · *the Nugget, tuned this visit*
 - LISTEN — "C-sharp, where it belongs. Nobody's noticed that either."
 
+## THE ACT ONE REVIEW: TRUE WHEN SAID
+
+*Errata 342 (Tyler, 2026-11-15, approved). Two lines that are true in one state and not the other. Each is said in the state named; the line it stands beside is said in the other.*
+
+**THE ROAD TO THE CLAIMS** · *Main Street, once the deed is his*
+- LOOK — "Somewhere down there is forty feet of mud, and I'm the man fool enough to have bought it."
+
+**THE LETTER** · *used on anything, before he knows Mr. Pike is dead (doc 24's pool line is said after)*
+> *(until `T_PIKE_DEAD`)* "It's sealed, and it's addressed to Mr. Pike. I'm not opening it for this."
+
 ## THE ACT ONE REVIEW: CLAIM ONE, KEPT BACK
 
 *Errata 340 (Tyler, 2026-11-15, approved). The act turns on Sump reading out that Prosperity lies beside Claim One, and the review found three places that told the player first: the Colonel's map wall, the survey map, and the Registrar's ledger. Before the deed is filed the map wall says this; the survey map's Claim One and the ledger's second and third looks wait for the filing.*

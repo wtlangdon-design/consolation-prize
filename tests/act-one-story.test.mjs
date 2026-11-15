@@ -107,3 +107,33 @@ test('the dinner: the line that refuses the Colonel is said at the dish, and onl
   const closing = hotspot('fanshawe-office', 'contract').responses.CLOSE.find((rule) => /work it myself/.test(rule.say ?? ''));
   assert.ok(closing, 'putting the cover back says it');
 });
+
+/**
+ * ERRATA 342: true when said. Proved against the defect: before it, the letter's only pool line called Mr. Pike a
+ * dead man on the first night, and the road's last look called the claim unsold after Thad had bought it.
+ */
+test('the letter is addressed to a dead man only once Thad knows he is one', async () => {
+  const { loadContent } = await import('../engine/core/ContentLoader.ts');
+  const { GameState } = await import('../engine/core/GameState.ts');
+  const { MemoryStorage } = await import('../engine/core/SaveManager.ts');
+  const content = await loadContent(async (path) => json(path));
+  const thing = { id: 'trough', name: 'trough', rect: [0, 0, 1, 1], colour: 0, responses: {} };
+  const said = (dead) => {
+    const state = new GameState(content, new MemoryStorage());
+    state.flags.set('T_PIKE_DEAD', dead);
+    return state.verbs.resolveWith('USE', 'letter', thing, 'main_street', [], false).say;
+  };
+  assert.doesNotMatch(said(false), /dead/, 'before the undertaker tells him');
+  assert.match(said(false), /Mr\. Pike/);
+  assert.match(said(true), /dead man/, 'and after');
+});
+
+test('a chain said in two states differs only where the state does: the road to the claims', () => {
+  const road = room('main-street').exits.find((one) => one.id === 'to_claims_road').responses.LOOK_AT;
+  const owned = road.find((rule) => rule.when?.T_SWINDLED === true);
+  const before = road.find((rule) => !rule.when);
+  assert.ok(owned && before);
+  assert.deepEqual([owned.say, ...owned.repeat.slice(0, -1)], [before.say, ...before.repeat.slice(0, -1)]);
+  assert.match(owned.repeat.at(-1), /I'm the man fool enough/);
+  assert.match(before.repeat.at(-1), /any man fool enough/);
+});

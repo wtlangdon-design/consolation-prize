@@ -129,7 +129,7 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 
 *Room 7. SUM_A1 option 1″ tells the order: the deed, the survey, the fee.* Each is a USE; the last one triggers the read-back.
 
-> **THE COUNTER** · USE THE DEED, *with THE SURVEY* — doc 24's line ("Filed. Mr Sump has written a number in a book, and the number is mine.")
+> **THE COUNTER** · USE THE DEED, *with THE SURVEY* — doc 24's line ("Lodged. Mr. Sump has written a number in a book. It isn't mine until the survey and the two dollars say so.")
 > **THE COUNTER** · USE THE SURVEY, *after the deed* — "The survey, on the correct form. He has read it without expression. In this office, that is the highest mark." *(The survey is lodged; it leaves inventory.)*
 > **THE COUNTER** · USE THE SURVEY, *before the deed* — **SUMP:** "The deed first. The order is in the statute."
 > **REGISTRAR SUMP** · USE THE FILING FEE, *before the deed and the survey* — **SUMP:** "The money last, Mr. Grubb, so that nobody can say he paid for the paper."

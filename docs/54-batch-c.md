@@ -105,7 +105,7 @@
 
 *(Part Two-B's Act IV LOOK for the marker names it THE CLAIM MARKER (MINE). It is this stake; its variant replaces LOOK only, as Part Two-B's doctrine says single-verb variants do.)*
 
-**THE CLAIM MARKER** — LOOK 2 "The number is painted on with confidence and very little paint." · 3 "It leans. I straightened it, and it went back to leaning, which I respect as a position." | LISTEN 2 "The stake creaks in the wind like a man trying to remember something." · 3 "Wind again. It comes through here on its way to somewhere better."
+**THE CLAIM MARKER** — LOOK 2 "The number is cut into the wood, deep, by somebody who expected an argument." · 3 "It leans. I straightened it, and it went back to leaning, which I respect as a position." | LISTEN 2 "The stake creaks in the wind like a man trying to remember something." · 3 "Wind again. It comes through here on its way to somewhere better."
 
 **THE MUD** — LOOK 2 "Having stood in it, I can report on the unidentified thirty percent. It is cold, and it is personal." · 3 "This is the mud I own. I keep expecting to feel differently about it than about other mud. I do, a little. It's mine." | LISTEN 2 "It sucks at my boot as I lift it. Possessive, for something I bought." · 3 "A slow settling. It has nowhere else to be, and neither, it turns out, do I."
 

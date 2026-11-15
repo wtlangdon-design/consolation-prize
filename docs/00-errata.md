@@ -8340,3 +8340,18 @@ No image operation; a few pixels each.
 - **The survey map.** The parcel beside Thad's circled "2" keeps its outline and loses its "1" (`tools/art/act1-company-map-large.py`, which regenerates the plate with it).
 
 Lesson: doc 55 §8, a rewritten line that says what is drawn is checked against the plate in the same change.
+
+## 342 · The Act I review: seventeen lines, true when said and said once (Tyler, 2026-11-15: "Approve all")
+
+The last of the review's small lines. One voice, each approved before it was built.
+
+- **Second clicks that restated the first** have a line of their own: Thad's coat, the wall and the window in his room; the lobby's engraving and clock (doc 26); the undertaker's ledger (doc 26).
+- **Not true on the first night:** the Clarion's door no longer says "Spelled wrong." before he has met the paper (doc 14); the ash pile is not "swept out weekly" (doc 09); the Nugget's chandelier is not "always cooling when I come in" and the man by the stove has not kept his coat on "since I arrived in the territory" (doc 16).
+- **The deed on the counter is lodged, not filed** (doc 24, doc 57): the filing is the fee, two steps on.
+- **Words made to agree with the picture:** the Nugget's portrait hangs straight (doc 16); the assay office has a sign (doc 14); the claim marker's number is cut, not painted (doc 54).
+- **Two lines in two states** (doc 133, TRUE WHEN SAID). The road to the claims' last look is "any man fool enough to buy it" until Thad buys, and himself after (`endsChain`, new in `tools/compile-room.mjs`). The letter, used on the wrong thing, is addressed to Mr. Pike until Thad knows he is dead (`itemPoolsUntil`, new in `engine/core/VerbSystem.ts`).
+
+Left for Tyler: the undertaker's ledger's last look ("Which means most of them left. I've been telling myself that all morning.") now follows a line it does not answer, and says "all morning" on the first night; a draft is owed. Boot Hill's markers: the art director's note is lost, and nothing was changed.
+
+Lesson:
+- `tests/act-one-story.test.mjs`: the letter's line by what Thad knows; a chain in two states differs only in the line the state changes.
