@@ -72,3 +72,12 @@ test("the one switch is the pie woman's; the other two are said plainly, under t
     .filter((option) => ['leavings', 'map_sellers'].includes(option.id));
   assert.equal(plain.length, 2, 'the man leaving tomorrow and the map seller keep their ids (errata 320, keepIds)');
 });
+
+test('the pie woman\'s switch is a verdict, offered only once she has let him taste (errata 329)', () => {
+  // Tyler, 2026-11-15: "He's just arrived in town, he doesn't actually try a pie, and he's ready to insult them?"
+  const [{ option }] = switches();
+  assert.deepEqual(option.after, ['pie_womant'], 'after "Might I try a little before I buy?"');
+  const taste = trees.flatMap((tree) => Object.values(tree.nodes ?? {}).flatMap((node) => node.options ?? []))
+    .find((one) => one.id === 'pie_womant');
+  assert.ok(taste?.exchange?.some((line) => line.direction && /holds out a pie/.test(line.line)), 'she holds out a pie');
+});

@@ -45,12 +45,37 @@
           "afterUse": "remove"
         },
         {
+          "id": "pie_womant",
+          "text": "Might I try a little before I buy?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "pie_woman",
+              "line": "She holds out a pie.",
+              "direction": true
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "Corner's free. Go on."
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "…"
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "Well?"
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
           "id": "pie_womans",
           "text": "Madam, that pie is a crime against the territory.",
           "tag": "COMIC",
           "echo": "Madam, that pie is a cr— a credit to the territory! A credit. I'd say so in front of anybody.",
           "after": [
-            "pie_woman1"
+            "pie_womant"
           ],
           "say": "Insults are a penny extra. You very nearly bought one.",
           "afterUse": "remove"
@@ -156,7 +181,7 @@
           "tag": "EXIT",
           "text": "I'll come back when I'm hungrier.",
           "ends": true,
-          "say": "Course you will."
+          "say": "Pie'll be here. So will you."
         }
       ]
     }

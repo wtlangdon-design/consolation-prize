@@ -240,6 +240,7 @@ is the whole of his character.
 > ↳ "What kind of pie?" → "The nickel kind."
 >   *Thad:* "And the dime kind?"
 >   → "Same pie. I tell you what's in it."
+> "Might I try a little before I buy?" → *(She holds out a pie.)* "Corner's free. Go on." *(beat)* "Well?"
 > ↳ `[COMIC]` "Madam, that pie is a crime against the territory." *Thad says:* "Madam, that pie is a cr— a credit to the territory! A credit. I'd say so in front of anybody." → "Insults are a penny extra. You very nearly bought one."
 > "Is there money to be made in Consolation?" → "Plenty. The Company makes it."
 >   *Thad:* "Which company?"
@@ -251,7 +252,7 @@ is the whole of his character.
 > "You knew Pike was dead." → "I knew he'd stopped buying pie. Out here that's the same thing."
 > `[COMIC]` "Thaddeus Grubb. Pianos are my profession. You may have heard the name." → "I haven't." *(beat)* "Still a nickel."
 > `[COMIC]` "I'll take a pie." → "Course you will."
-> `[EXIT]` "I'll come back when I'm hungrier." → "Course you will."
+> `[EXIT]` "I'll come back when I'm hungrier." → "Pie'll be here. So will you."
 
 
 **Barks**
@@ -529,9 +530,9 @@ is the whole of his character.
 > ↳ "How much for one that's actually right?" → "That's the deluxe, sir. Four dollars."
 >   *Thad:* "What's different about it?"
 >   → "Same map, sir. I look you in the eye while I sell it."
-> ↳ `[COMIC]` "Your maps are a swindle, sir, and I'll tell the whole town so!" → "Tell them, sir! Every man in town owns one, and not one has asked for his money back."
+> ↳ `[COMIC]` "Your maps are a swindle, sir, and I'll tell the whole town so!" → "Tell them, sir! I'll put you on the next map, telling them."
 >   *Thad:* "Me?"
->   → "Little hat. Arm out. Top of the hill, pointing at the strike."
+>   → "On the map, sir! Little hat, arm out, top of the hill, pointing the way to the strike."
 > "Do you know Ezra Pike?" → "Pike? Pike's on every one of my maps, sir! Little cross, top of the hill."
 >   *Thad:* "That's his claim?"
 >   → "That's his… the undertaker explains it better, sir. Down the lane."
