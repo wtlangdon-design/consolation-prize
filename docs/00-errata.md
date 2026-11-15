@@ -8215,3 +8215,14 @@ Tyler: "Thad talks about '4 minutes' of the song being out of tune. I think we n
 Lesson:
 - `tests/no-clocks.test.mjs`: no spoken line names a count of minutes, hours, days or weeks, an hour of the clock, or a passed weekday, unless it is listed with the reason the story needs it. It fails on "Four minutes. C-sharp has come home".
 
+## 333 · More from the street: the pie woman and the man leaving tomorrow (Tyler, 2026-11-15: "Approve")
+
+Tyler, of Main Street: "the map seller gives a good amount of exposition, but I don't feel like the pie seller or man leaving tomorrow give much at all. There has to be some more exposition we can give them two of them to help build the story/setting/etc, no?" One question each, drafted and approved:
+
+- **The pie woman, "Who runs this town?"** — "Depends who you ask. The Company owns it, Mr. Sump writes it down, and the Clarion spells it wrong." — *"And who do I ask?"* — "Me. A nickel." (doc 07 §6)
+- **The man leaving tomorrow, "How does a man stake a claim here?"** — "Buys one off a man who's leaving. Digs. Then he's the man who's leaving." — *"And if he finds something?"* — "Takes it to the assay office. Miss Ledger tests it and tells him it's mud. She's never once been wrong. That's the worst of her." (doc 07 §7)
+
+Each keeps its own id (`pie_womanr`, `leavingc`, `tools/town-barks.json` `keepIds`), so no other option is renumbered.
+
+Lesson: none -- new lines Tyler approved; nothing was broken.
+

@@ -235,6 +235,7 @@ is the whole of his character.
 
 **Micro-tree**
 *Rewritten by errata 286: every question is a negotiation, and she is winning it.*
+*Errata 333 (Tyler, 2026-11-15, approved): "Who runs this town?" gives a newcomer the town's three institutions in one answer.*
 > "What's in the pie?" → "Crust. Under the crust, pie."
 >   *Asked again:* "Still pie. It's been pie all day."
 > ↳ "What kind of pie?" → "The nickel kind."
@@ -246,6 +247,9 @@ is the whole of his character.
 >   *Thad:* "Which company?"
 >   → "*The* Company. Two thousand men digging for a strike nobody's found, and the Company sells them every shovel, map and lot they stand on."
 >   → "I sell them pie."
+> "Who runs this town?" → "Depends who you ask. The Company owns it, Mr. Sump writes it down, and the Clarion spells it wrong."
+>   *Thad:* "And who do I ask?"
+>   → "Me. A nickel."
 > "Do you know Ezra Pike?" → "Pike bought a pie off me every Sunday." *(beat)* "For a while."
 >   *Thad:* "And then?"
 >   → "And then the undertaker. Down the lane. Pike's still into me for three pies."
@@ -275,6 +279,7 @@ is the whole of his character.
 
 **Micro-tree**
 *Rewritten by errata 286: everything is about leaving, and a man arriving is faintly offensive. Rewritten again by errata 306 (Tyler, 2026-11-14: "Honestly, all of the dialogue with the guy leaving tomorrow strikes me as odd"): every line Thad says is one a newcomer would say to a man with a bag at the coach stop, and every answer follows from it.*
+*Errata 333 (Tyler, 2026-11-15, approved): "How does a man stake a claim here?" says how claims change hands, and what the assay office is, before Thad meets either.*
 > "Waiting for the coach?" → "Tomorrow's."
 >   *Thad:* "Have you been waiting long?"
 >   → "Four years."
@@ -286,6 +291,9 @@ is the whole of his character.
 >   → "Nobody arrives here, son. They just haven't left yet."
 >   *Thad:* "What brought you here, in the first place?"
 >   → "Gold. Same as everybody. Took me a fortnight to see none of it was mine."
+> "How does a man stake a claim here?" → "Buys one off a man who's leaving. Digs. Then he's the man who's leaving."
+>   *Thad:* "And if he finds something?"
+>   → "Takes it to the assay office. Miss Ledger tests it and tells him it's mud. She's never once been wrong. That's the worst of her."
 > "Do you know Ezra Pike?" → "Pike left."
 >   *Thad:* "Where to?"
 >   → "Ask the undertaker, down the lane. Pike's the only man I know who left on time."

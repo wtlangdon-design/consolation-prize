@@ -108,6 +108,26 @@
           "afterUse": "remove"
         },
         {
+          "id": "pie_womanr",
+          "text": "Who runs this town?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "pie_woman",
+              "line": "Depends who you ask. The Company owns it, Mr. Sump writes it down, and the Clarion spells it wrong."
+            },
+            {
+              "speaker": "thad",
+              "line": "And who do I ask?"
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "Me. A nickel."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
           "id": "pie_woman4",
           "text": "Do you know Ezra Pike?",
           "tag": "TOPIC",

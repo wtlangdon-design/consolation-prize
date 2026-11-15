@@ -55,7 +55,8 @@
    "speaker": "man_leaving_tomorrow",
    "prefix": "leaving",
    "keepIds": {
-    "You're never leaving this town, are you?": "leavings"
+    "You're never leaving this town, are you?": "leavings",
+    "How does a man stake a claim here?": "leavingc"
    }
   },
   "11 · THE FIDDLER": {
@@ -88,7 +89,8 @@
    "speaker": "pie_woman",
    "prefix": "pie_woman",
    "keepIds": {
-    "Might I try a little before I buy?": "pie_womant"
+    "Might I try a little before I buy?": "pie_womant",
+    "Who runs this town?": "pie_womanr"
    }
   },
   "16 · THE MAP SELLER": {
