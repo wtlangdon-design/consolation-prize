@@ -1455,6 +1455,15 @@
    "note": "Doc 04 RAC_A1: which name -- 1 ABSALOM, 2 EBENEZER, 3 BARTHOLOMEW, the rows' display names. Read by the raccoon's hotspot and figure for the name shown (errata 96 E)."
   },
   {
+   "id": "T_SEEN_PROSPERITY",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:prosperity:onEnter"
+   ],
+   "note": "Errata 318: Thad has been to his claim and seen the raccoon in the hole. Gates the livery blanket and asking Pratt to get the raccoon out: before it, he knows of no raccoon."
+  },
+  {
    "id": "T_WARM_HOLE",
    "type": "boolean",
    "initial": false,

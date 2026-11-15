@@ -112,7 +112,8 @@
     "T_DEED_LODGED": true,
     "T_SURVEY_LODGED": true,
     "T_BORDERS_MOTT": true,
-    "ACT": 2
+    "ACT": 2,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -164,7 +165,8 @@
     "T_BORDERS_MOTT": true,
     "T_NINETY_DAYS": true,
     "ACT": 3,
-    "T_ASSAY_QUEUE": true
+    "T_ASSAY_QUEUE": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -218,7 +220,8 @@
     "T_SURVEY_LODGED": true,
     "T_BORDERS_MOTT": true,
     "ACT": 2,
-    "T_PRATT_SWEARS": true
+    "T_PRATT_SWEARS": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -273,7 +276,8 @@
     "T_ASSAY_RUN": true,
     "ASSAY_PAIR_04": true,
     "ASSAY_PAIR_09": true,
-    "T_FANSHAWE_BEATEN": true
+    "T_FANSHAWE_BEATEN": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -475,7 +479,8 @@
     "T_SEEN_BOOT_HILL": true,
     "T_LETTER_OFFERED": true,
     "T_EGGS_IMPROVED": true,
-    "T_WREATH_CARDED": true
+    "T_WREATH_CARDED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

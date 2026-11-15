@@ -26,7 +26,8 @@
     "T_HUM_HEARD": true,
     "T_VESSEL_LOCATION": true,
     "T_BORDERS_MOTT": true,
-    "T_VESSEL_FOUND": false
+    "T_VESSEL_FOUND": false,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -70,7 +71,8 @@
     "T_HUM_HEARD": true,
     "T_VESSEL_LOCATION": true,
     "T_BORDERS_MOTT": true,
-    "T_VESSEL_FOUND": false
+    "T_VESSEL_FOUND": false,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -114,7 +116,8 @@
     "T_HUM_HEARD": true,
     "T_VESSEL_LOCATION": true,
     "T_BORDERS_MOTT": true,
-    "T_VESSEL_FOUND": false
+    "T_VESSEL_FOUND": false,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -158,7 +161,8 @@
     "T_HUM_HEARD": true,
     "T_VESSEL_LOCATION": true,
     "T_BORDERS_MOTT": true,
-    "T_VESSEL_FOUND": false
+    "T_VESSEL_FOUND": false,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -202,7 +206,8 @@
     "T_HUM_HEARD": true,
     "T_VESSEL_LOCATION": true,
     "T_BORDERS_MOTT": true,
-    "T_VESSEL_FOUND": false
+    "T_VESSEL_FOUND": false,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -247,7 +252,8 @@
     "T_VESSEL_LOCATION": true,
     "T_BORDERS_MOTT": true,
     "T_VESSEL_FOUND": false,
-    "T_MINE_CROSSED": true
+    "T_MINE_CROSSED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -292,7 +298,8 @@
     "T_VESSEL_LOCATION": true,
     "T_BORDERS_MOTT": true,
     "T_VESSEL_FOUND": false,
-    "T_MINE_CROSSED": true
+    "T_MINE_CROSSED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -339,7 +346,8 @@
     "T_BORDERS_MOTT": true,
     "T_VESSEL_FOUND": false,
     "T_MINE_CROSSED": true,
-    "T_CAMP_TRUSTS": true
+    "T_CAMP_TRUSTS": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -385,7 +393,8 @@
     "T_BORDERS_MOTT": true,
     "T_VESSEL_FOUND": false,
     "T_MINE_CROSSED": true,
-    "T_CAMP_TRUSTS": true
+    "T_CAMP_TRUSTS": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -434,7 +443,8 @@
     "T_MINE_CROSSED": true,
     "T_CAMP_TRUSTS": true,
     "T_DEACON_FOUND": true,
-    "T_PLANK_SEAT": true
+    "T_PLANK_SEAT": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -484,7 +494,8 @@
     "T_CAMP_TRUSTS": true,
     "T_DEACON_FOUND": true,
     "T_PLANK_SEAT": true,
-    "T_DUEL_ONE_LOST": true
+    "T_DUEL_ONE_LOST": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -537,7 +548,8 @@
     "T_MINE_CROSSED": true,
     "T_CAMP_TRUSTS": true,
     "T_DEACON_FOUND": true,
-    "T_PLANK_SEAT": true
+    "T_PLANK_SEAT": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -588,7 +600,8 @@
     "T_CAMP_TRUSTS": true,
     "T_DEACON_FOUND": true,
     "T_PLANK_SEAT": true,
-    "T_DUEL_ONE_CALLED": true
+    "T_DUEL_ONE_CALLED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -642,7 +655,8 @@
     "T_CAMP_TRUSTS": true,
     "T_DEACON_FOUND": true,
     "T_PLANK_SEAT": true,
-    "T_DUEL_ONE_LOST": true
+    "T_DUEL_ONE_LOST": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -696,7 +710,8 @@
     "T_MINE_CROSSED": true,
     "T_CAMP_TRUSTS": true,
     "T_DEACON_FOUND": true,
-    "T_PLANK_SEAT": true
+    "T_PLANK_SEAT": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -748,7 +763,8 @@
     "T_CAMP_TRUSTS": true,
     "T_DEACON_FOUND": true,
     "T_PLANK_SEAT": true,
-    "T_GULCH_MESSAGE_UP": true
+    "T_GULCH_MESSAGE_UP": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

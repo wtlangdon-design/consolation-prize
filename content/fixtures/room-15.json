@@ -54,7 +54,8 @@
     "ACT": 2,
     "T_GRIEVANCE_MOTT": true,
     "T_HUM_HEARD": true,
-    "T_VESSEL_LOCATION": true
+    "T_VESSEL_LOCATION": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

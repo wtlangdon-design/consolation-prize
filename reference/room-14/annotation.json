@@ -45,7 +45,8 @@
     290,
     240
    ],
-   "note": "Mott's stone and its lilies (x 540-715, foot at y 795) and the grass behind them: he walks round in front, never behind, so nothing needs a clip plane."
+   "note": "Mott's stone and its lilies (x 540-715, foot at y 795) and the grass behind them: he walks round in front, never behind, so nothing needs a clip plane.",
+   "reach": true
   },
   {
    "id": "hearse_and_grievance",
@@ -59,7 +60,8 @@
     "T_PROCESSION_STALLED": true
    },
    "keepsGroundAbove": true,
-   "note": "Errata 233: the hearse's wheels and Grievance's hooves (procession_hearse, feet at y 792, x 740-1690), while the procession is stalled. He walks in front of the hitch or behind it, never through it. The floor is built twice, with and without it (tools/compile-room.mjs, gated obstacles)."
+   "note": "Errata 233: the hearse's wheels and Grievance's hooves (procession_hearse, feet at y 792, x 740-1690), while the procession is stalled. He walks in front of the hitch or behind it, never through it. The floor is built twice, with and without it (tools/compile-room.mjs, gated obstacles).",
+   "reach": true
   }
  ],
  "scaling": {

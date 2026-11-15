@@ -302,7 +302,8 @@
     192,
     74
    ],
-   "note": "Errata 303: the livery's trough, read off the plate; the floor now reaches it."
+   "note": "Errata 303: the livery's trough, read off the plate; the floor now reaches it.",
+   "reach": true
   }
  ],
  "lamps": [

@@ -1081,6 +1081,18 @@
    "date": "2026-11-14",
    "kind": "reviewed",
    "why": "TUNED. Three edits in two weeks, each because the tree it borrows (Winnie's) gained a gate or a ruling changed how a used row looks. The test is about what happens after a row is chosen, so its setup now reads the gates on the opening node's PROGRESS rows from the data and opens them; gating a row on what Thad must have no longer breaks it. The dimming assertion follows errata 317's rule and stays."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 318: the zone check asked for each walkable region to be floor at its exact centre. The Gulch cook fire, carved now at its drawn width plus Thad's reach, covers that centre. The check now looks along the region's own row for the nearest floor. It still fails a region with no floor on its row. It did not misfire: the floor changed under it, by ruling."
+  },
+  {
+   "check": "tests/room-15.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 318: the livery blanket is asked for once Thad has seen his claim (T_SEEN_PROSPERITY), so the test sets the flag before it asks. It did not misfire: the content changed."
   }
  ]
 }

@@ -22,6 +22,11 @@
           "Nothing. It is the only thing Frame has ever printed that I believe."
         ]
       }
+    ],
+    "OPEN": [
+      {
+        "say": "I have read my own obituary. Once was moving. Twice would be vanity."
+      }
     ]
   }
 }

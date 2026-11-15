@@ -24,7 +24,8 @@
     "T_DEED_LODGED": true,
     "T_SURVEY_LODGED": true,
     "T_BORDERS_MOTT": true,
-    "ACT": 2
+    "ACT": 2,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -79,7 +80,8 @@
     "T_NINETY_DAYS": true,
     "T_NEED_TO_DIE": true,
     "T_EXECUTOR_RULE": true,
-    "T_DECEASED": true
+    "T_DECEASED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

@@ -110,7 +110,8 @@
     "T_DINED": true,
     "T_FANSHAWE_FUNERALS": true,
     "T_MEMORIAL_BOOKED": true,
-    "T_FUNERAL_DAY": true
+    "T_FUNERAL_DAY": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -171,7 +172,8 @@
     "T_NINETY_DAYS": true,
     "T_QUEUE_PADDED": true,
     "T_MOTT_FACE_UNKNOWN": true,
-    "T_CLAIM1_BLANK": true
+    "T_CLAIM1_BLANK": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

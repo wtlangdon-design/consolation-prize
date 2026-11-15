@@ -67,7 +67,8 @@
     "T_ASSAY_QUEUE": true,
     "T_NEED_TO_DIE": true,
     "T_EXECUTOR_RULE": true,
-    "T_PIKE_DEAD": true
+    "T_PIKE_DEAD": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

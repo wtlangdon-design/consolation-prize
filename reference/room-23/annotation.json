@@ -558,5 +558,9 @@
    "id": "stars",
    "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
   }
- ]
+ ],
+ "onEnterSet": {
+  "T_SEEN_PROSPERITY": true
+ },
+ "onEnterSetNote": "Errata 318: arriving here is how Thad comes to know there is a raccoon in his hole, so the questions that lean on it (the blanket at the livery, Pratt asked to get him out) wait for T_SEEN_PROSPERITY."
 }

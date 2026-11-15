@@ -271,7 +271,8 @@
    "when": {
     "T_SEANCE_ON": true
    },
-   "note": "Errata 238: the séance's chairs and the table's cloth (content/ambient/seance-group.json, its chairs' feet at y 812, x 518-1399), while the séance is on. He walks in front of the group or round it, never through it. The floor is built twice, with and without it (tools/compile-room.mjs, gated obstacles, errata 233)."
+   "note": "Errata 238: the séance's chairs and the table's cloth (content/ambient/seance-group.json, its chairs' feet at y 812, x 518-1399), while the séance is on. He walks in front of the group or round it, never through it. The floor is built twice, with and without it (tools/compile-room.mjs, gated obstacles, errata 233).",
+   "reach": true
   }
  ],
  "lamps": [

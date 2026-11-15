@@ -22,7 +22,8 @@
     "T_SWINDLED": true,
     "T_EGGS_ON_ACCOUNT": true,
     "T_TONIC_ON_ACCOUNT": true,
-    "T_BLANKET_BORROWED": true
+    "T_BLANKET_BORROWED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -75,7 +76,8 @@
     "T_NO_GOLD_EVER": true,
     "T_WARM_HOLE": true,
     "T_PICKAXE_ON_ACCOUNT": true,
-    "T_FUNERAL_DONE": true
+    "T_FUNERAL_DONE": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -225,7 +227,8 @@
     "T_GROG_SEEN": true,
     "T_GULCH_MESSAGE_UP": true,
     "T_GULCH_MESSAGE_DOWN": true,
-    "T_LOG_WITH_WINNIE": true
+    "T_LOG_WITH_WINNIE": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "letter",

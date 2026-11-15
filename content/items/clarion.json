@@ -22,6 +22,11 @@
           "Quiet. It's said all it's going to say about me, in print."
         ]
       }
+    ],
+    "OPEN": [
+      {
+        "say": "I've read it. Page one is about me, and I have read page one more than once."
+      }
     ]
   }
 }

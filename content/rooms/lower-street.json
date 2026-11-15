@@ -870,8 +870,10 @@
         "ground_bell",
         "ground_lane_passage",
         "ground_livery",
+        "ground_livery_1",
         "ground_trough",
-        "ground_road_east"
+        "ground_road_east",
+        "ground_road_east_1"
       ]
     },
     {
@@ -1251,11 +1253,11 @@
           "y": 620
         },
         {
-          "x": 1530,
+          "x": 1512,
           "y": 620
         },
         {
-          "x": 1530,
+          "x": 1512,
           "y": 640
         },
         {
@@ -1275,6 +1277,41 @@
       "neighbours": [
         "mud_far",
         "ground_lane_passage",
+        "ground_livery_1"
+      ]
+    },
+    {
+      "id": "ground_livery_1",
+      "points": [
+        {
+          "x": 1512,
+          "y": 630
+        },
+        {
+          "x": 1530,
+          "y": 630
+        },
+        {
+          "x": 1530,
+          "y": 640
+        },
+        {
+          "x": 1512,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_livery",
         "ground_trough"
       ]
     },
@@ -1309,23 +1346,57 @@
       },
       "neighbours": [
         "mud_far",
-        "ground_livery",
-        "ground_road_east"
+        "ground_livery_1",
+        "ground_road_east_1"
       ]
     },
     {
       "id": "ground_road_east",
       "points": [
         {
+          "x": 1731,
+          "y": 622
+        },
+        {
+          "x": 1880,
+          "y": 622
+        },
+        {
+          "x": 1880,
+          "y": 640
+        },
+        {
+          "x": 1731,
+          "y": 640
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "ground_road_east_1"
+      ]
+    },
+    {
+      "id": "ground_road_east_1",
+      "points": [
+        {
           "x": 1720,
-          "y": 622
+          "y": 630
         },
         {
-          "x": 1880,
-          "y": 622
+          "x": 1731,
+          "y": 630
         },
         {
-          "x": 1880,
+          "x": 1731,
           "y": 640
         },
         {
@@ -1344,7 +1415,8 @@
       },
       "neighbours": [
         "mud_far",
-        "ground_trough"
+        "ground_trough",
+        "ground_road_east"
       ]
     }
   ],

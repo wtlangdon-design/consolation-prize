@@ -22,6 +22,11 @@
           "Nothing at all."
         ]
       }
+    ],
+    "OPEN": [
+      {
+        "say": "Unrolled: the district, the roads, and Claim Two, circled. It is still circled. I check."
+      }
     ]
   }
 }

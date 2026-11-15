@@ -37,7 +37,8 @@
     "T_DECEASED": true,
     "T_EXECUTOR_NAMED": true,
     "T_RODE_UP": true,
-    "T_RIDE_ARRIVED": true
+    "T_RIDE_ARRIVED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -109,7 +110,8 @@
     "T_GRAVE_LOOKED": true,
     "T_GOOD_TURNOUT": true,
     "T_RODE_UP": true,
-    "T_RIDE_ARRIVED": true
+    "T_RIDE_ARRIVED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -182,7 +184,8 @@
     "T_GOOD_TURNOUT": true,
     "T_LAID_IN": true,
     "T_RODE_UP": true,
-    "T_RIDE_ARRIVED": true
+    "T_RIDE_ARRIVED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

@@ -38,6 +38,7 @@
    "label": "R19-B Act IV: the only version offered",
    "room": "thads_room",
    "flags": {
+    "T_SEEN_PROSPERITY": true,
     "T_OPENING_SAID": true,
     "T_DRIVER_ASKED": 3,
     "T_COACH_DEPARTED": true,

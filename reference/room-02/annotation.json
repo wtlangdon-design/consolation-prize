@@ -386,7 +386,8 @@
     226,
     96
    ],
-   "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough’s own hotspot rect -- one truth, not two. Errata 299 (Tyler, 2026-11-13, a screenshot of Thad standing in it: \"He's walking through the water trough. I thought we made sure that couldn't happen?\"): the rect was the trough of the plate before the redraw, 45 px to the left of the one drawn now, so it fenced off the trough's left two-thirds of nothing and left its right half and its front walkable. Re-laid on the drawn trough, from its rim (550) to the foot of its legs (646) and from its left leg (1905) to its right corner (2131)."
+   "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough’s own hotspot rect -- one truth, not two. Errata 299 (Tyler, 2026-11-13, a screenshot of Thad standing in it: \"He's walking through the water trough. I thought we made sure that couldn't happen?\"): the rect was the trough of the plate before the redraw, 45 px to the left of the one drawn now, so it fenced off the trough's left two-thirds of nothing and left its right half and its front walkable. Re-laid on the drawn trough, from its rim (550) to the foot of its legs (646) and from its left leg (1905) to its right corner (2131).",
+   "reach": true
   },
   {
    "id": "dog",
@@ -397,7 +398,8 @@
     66
    ],
    "keepsGroundAbove": true,
-   "note": "Tyler, 2026-11-07: \"He shouldn't be able to walk on or through the dog.\" The dog lies in the mud at 2628,765 and the bands ran straight through him. The rect is the dog's own hotspot rect, as the trough's is -- one truth, not two -- and the ground behind him stays walkable (keepsGroundAbove): a dog asleep in the street is walked around, front or back."
+   "note": "Tyler, 2026-11-07: \"He shouldn't be able to walk on or through the dog.\" The dog lies in the mud at 2628,765 and the bands ran straight through him. The rect is the dog's own hotspot rect, as the trough's is -- one truth, not two -- and the ground behind him stays walkable (keepsGroundAbove): a dog asleep in the street is walked around, front or back.",
+   "reach": true
   },
   {
    "id": "hitching_post",
@@ -408,7 +410,8 @@
     44
    ],
    "keepsGroundAbove": true,
-   "note": "The hitching rail and its horses (errata 187, moved back by errata 198, moved right and sized by errata 201): a group on the ground he walks around, never through. The rect is the hooves', hay's and posts' footprint, from the drawn group (content/ambient/hitching-horses.json, hooves on 1470,746): errata 198's footprint [1226, 720, 332, 42] in the rest frame's own rows and columns, laid on the group as the engine now draws it (frame left 1278, the hay's foot on 755, 0.549 of a sheet pixel to a room pixel). The ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there."
+   "note": "The hitching rail and its horses (errata 187, moved back by errata 198, moved right and sized by errata 201): a group on the ground he walks around, never through. The rect is the hooves', hay's and posts' footprint, from the drawn group (content/ambient/hitching-horses.json, hooves on 1470,746): errata 198's footprint [1226, 720, 332, 42] in the rest frame's own rows and columns, laid on the group as the engine now draws it (frame left 1278, the hay's foot on 755, 0.549 of a sheet pixel to a room pixel). The ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there.",
+   "reach": true
   }
  ],
  "lamps": [

@@ -22,6 +22,11 @@
           "Nothing. Even the eggs are waiting to see what I do."
         ]
       }
+    ],
+    "OPEN": [
+      {
+        "say": "I opened it once, in the street. The street has not forgiven me."
+      }
     ]
   }
 }

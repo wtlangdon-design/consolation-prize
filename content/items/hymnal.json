@@ -22,6 +22,11 @@
           "The spine, creaking, at the hymn everybody thinks they know."
         ]
       }
+    ],
+    "OPEN": [
+      {
+        "say": "Every hymn in it is pitched for a choir this town does not have. I have looked."
+      }
     ]
   }
 }
