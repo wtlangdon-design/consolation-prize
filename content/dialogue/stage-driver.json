@@ -60,7 +60,7 @@
           "id": "drv4",
           "text": "Thank you for the ride!",
           "tag": "EXIT",
-          "say": "Wasn't for you.",
+          "say": "Wasn't for you. Coach comes anyway. You were freight.",
           "set": {
             "T_COACH_DEPARTED": true
           },

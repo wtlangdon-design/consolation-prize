@@ -64,9 +64,11 @@ Confirmed since: Monkey Island's lookout exchange is genuinely automatic, not pl
 | "I'm expected by a Mr. Ezra Pike. Where would I find him?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." *(again)* "The undertaker. He'll be the one measuring you." |
 | "And where does a gentleman sleep in Consolation?" | `[PROGRESS]` | "Hotel's five dollars." — *"I have four. Four is very nearly five."* — **"You've all got four."** *(again)* "Five. You've got four. Arithmetic's free." |
 | "You don't think much of my chances. You haven't said a word to me in four days." | `[COMIC]` | "I don't think about them at all." *(again)* "Still not thinking about them." |
-| "Thank you for the ride! I'll mention you when I'm famous." | `[EXIT]` | **"Wasn't for you."** *(He climbs aboard. The coach goes. Beat 7.)* |
+| "Thank you for the ride! I'll mention you when I'm famous." | `[EXIT]` | **"Wasn't for you. Coach comes anyway. You were freight."** *(He climbs aboard. The coach goes. Beat 7.)* |
 
 **"Wasn't for you"** is the best line in the opening and it should be the last thing anyone says on that road. The coach was not a service Thad bought. He was freight.
+
+*Errata 328 (Tyler, 2026-11-15, asking for it clearer with the snub kept): on its own, the short line read as odd, not as the snub. The driver now says what it means, in his own clipped way: the coach was coming anyway, and Thad was freight.*
 
 **What it teaches, none of it stated:** that dialogue has choices, that the comic option costs nothing and answers, that one option ends a scene, and that a destination is a thing you are given rather than shown on a map.
 
