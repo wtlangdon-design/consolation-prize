@@ -18,7 +18,7 @@
 > **LISTEN:** "Quieter than Main Street. The piano is a rumor from here."
 
 **SUMP'S WINDOW**
-> **LOOK:** "The Claims Registrar's window, lit! Behind the glare is a man who has never once been surprised. I mean to be the first to surprise him."
+> **LOOK:** "The Claims Registrar's window, lit! Behind the glare, a man at a desk who doesn't look up. I mean to make him."
 > **LISTEN:** "A pen, scratching, then a long pause, then a stamp. The rhythm of a form being found incomplete."
 
 **THE CHURCH**

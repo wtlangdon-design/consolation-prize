@@ -111,17 +111,17 @@
           {
             "say": "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not.",
             "repeat": [
-              "Six years. The ink has gone, and nobody's needed to read it in a long time.",
+              "Years old, by the ink, and nobody's needed to read it in a long time.",
               "THIS WINDOW CLOSES AT FOUR. It closes at four."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It's been saying the same thing for six years, and it needs no help.",
+            "say": "Nothing. It's been saying the same thing for years, and it needs no help.",
             "repeat": [
               "Nothing. It's said its piece.",
-              "Silence. It made its point six years ago."
+              "Silence. It made its point years ago."
             ]
           }
         ]

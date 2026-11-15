@@ -170,7 +170,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 **THE PICKLE JAR** · OPEN — "The brine and I regarded each other. I resealed the arrangement."
 **THE DYNAMITE CRATE** · USE — "The proprietor says it's perfectly safe. The proprietor stores it by the stove. I decline both the product and the reasoning."
-**THE SCALES** · USE — "I weighed my four dollars. The scales say three-eighty. The scales and Sheng should talk."
+**THE SCALES** · USE — "I weighed my four dollars. The scales say three-eighty. I've decided not to argue with furniture."
 **THE CATALOGUE** · PICK_UP — "The store copy stays. The store copy always stays. It is the town's one shared scripture and this is its altar."
 **THE STOVE** · TALK_TO — "I addressed it as the true mayor of Consolation. It warmed to the subject."
 **THE CALICO** · PULL — "Forty yards would come off that bolt at a tug, and the proprietor knows the sound a tug makes from the back room."

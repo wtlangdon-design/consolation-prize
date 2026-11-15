@@ -191,10 +191,13 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The Claims Registrar's window, lit! Behind the glare is a man who has never once been surprised. I mean to be the first to surprise him.",
+            "say": "The Claims Registrar's window, lit! Behind the glare, a man at a desk who doesn't look up.",
             "repeat": [
               "Lamplight through old glass, gone wavy with age. Even the window has been made to wait.",
               "The lamp is always lit. I have never seen anyone trim it. I suspect it is filed."
+            ],
+            "then": [
+              "I mean to make him."
             ]
           }
         ],
@@ -555,7 +558,7 @@
           {
             "say": "Double doors up the steps, and a bell hung on a post beside them, at a height for ringing by hand.",
             "repeat": [
-              "The paint is fresher than anything else on Lower Street. Sowerby takes a collection for it, and for the doors, and for the steps.",
+              "The paint is fresher than anything else on Lower Street. There's a collection box for it, and for the doors, and for the steps.",
               "The bell on its post is half a step flat. I've told nobody. It isn't the kind of thing a church wants to hear."
             ]
           }

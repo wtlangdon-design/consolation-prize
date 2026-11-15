@@ -602,13 +602,10 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "The bell is a half-step flat.",
+            "say": "The bell is a half-step flat. Whoever rings it has stopped caring, by the sound.",
             "repeat": [
               "Half a step. Every time.",
               "I've started hearing it in tune, in my head, before it rings. That's the first sign of something."
-            ],
-            "then": [
-              "A man has rung it by hand for six years, and he doesn't care."
             ]
           }
         ]
@@ -1249,7 +1246,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The Consolation Clarion. One press, one man, and the front page of every issue for twelve years has been about a hole nobody can find.",
+            "say": "The Consolation Clarion. One press, one man, and a front page in the window about a hole nobody can find.",
             "repeat": [
               "The door's open. The door's always open. He's desperate for somebody to say something quotable, and as it happens, I'm extremely quotable. Wait till Providence reads about me.",
               "There's a bill in the window advertising the Clarion, printed by the Clarion, on the Clarion's press."
@@ -1258,7 +1255,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "The press. It knocks on the return stroke. It's knocked for years.",
+            "say": "The press. It knocks on the return stroke. It knocks like it's done it for years.",
             "repeat": [
               "Knocking. Still knocking.",
               "He's talking to himself in there. Both sides of an interview. He's winning."

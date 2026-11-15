@@ -300,7 +300,7 @@
             "say": "A scale model of a town built on a strike that never was. Beautifully made. Like the strike."
           },
           {
-            "say": "A scale model of Consolation as it will be. A bank, an opera house, a second church, a park. It is beautifully made. It has been beautifully made for nine years.",
+            "say": "A scale model of Consolation as it will be. A bank, an opera house, a second church, a park. It is beautifully made. By the dust, it has been beautifully made for years.",
             "repeat": [
               "The opera house has tiny painted posters on it for an opera that hasn't been written. I'd tune its piano for nothing.",
               "The model's Main Street is paved. The real one is three yards away and is not."
@@ -381,7 +381,7 @@
           {
             "say": "A fine clock, eleven minutes slow. In this building, your appointment is always slightly sooner than you think, and you are always slightly late.",
             "repeat": [
-              "The clerk winds it every morning, carefully, so that it stays eleven minutes slow.",
+              "It's been wound with great care, and it's still eleven minutes slow. Somebody here likes it that way.",
               "Brass pendulum, walnut case. It is the best-made lie in the room, and it has competition."
             ]
           }
