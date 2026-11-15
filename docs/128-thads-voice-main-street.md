@@ -25,7 +25,7 @@
 | NOTICES · LOOK (Act IV) | Claims for sale, claims disputed, maps to Mott's strike. I've met Mott. He'd have bought a map. | Claims for sale, claims disputed, maps to Mott's strike. I've met Mott now. He'd have bought a map. He'd have bought two. |
 | NOTICES · LOOK 1 | Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. He's doing better than anyone. | Opportunity, pinned up in rows! Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. Somewhere on this board is my fortune. I'm almost sure of it. |
 | NOTICES · LOOK 2 | The lost dog notice has been up six weeks. The dog is on this street. | The lost-dog notice has been up six weeks, poor soul. And there's a dog lying right here on this street, looking entirely unlost. |
-| NOTICES · LOOK 3 | Four claims for sale today. There were three yesterday. | Four claims for sale today! There were three yesterday. Somebody's going to get a bargain, and I'd like it to be me. |
+| NOTICES · LOOK 3 | Four claims for sale today. There were three yesterday. | Four claims for sale! Somebody's going to get a bargain, and I'd like it to be me. |
 | NOTICES · PICK UP | They belong to the town. I've read them four times, which I consider a form of ownership. | I wouldn't dream of it. They belong to the town. Though I've read them four times now, which makes me practically a shareholder. |
 | NOTICES · OPEN | They're already facing out. That's the whole design. | They're facing out already, bless them. Showing everything to everybody is a notice's whole career. |
 | TROUGH · LOOK (Act III) | My reflection, in three inches of water. For a dead man, I look surprisingly worried. | My reflection, in three inches of water. For a man the whole town has buried, I look remarkably well. A touch worried about the eyes. |
@@ -61,7 +61,7 @@
 | BOARDWALK · PUSH | Third from the end. Up an inch, down an inch. I did that four more times than I needed to. | Third from the end. Up an inch, down an inch! I did that four more times than I needed to, and enjoyed every one. |
 | HILLS · LOOK 1 | Gold country. Everyone here has looked at these hills for years and seen a number. | Gold country! Every man here has looked at these hills for years and seen a number. Give me a week and I'll see a bigger one. |
 | HILLS · LOOK 2 | Still gold country. Still no gold. | Still gold country, and still, so far as anyone can say, no gold. Early days. |
-| HILLS · LOOK 3 | The same hills as yesterday. I check. | The same hills as yesterday. I check every time, in case they've changed their minds about me. |
+| HILLS · LOOK 3 | The same hills as before. I check. | The same hills as before. I check every time, in case they've changed their minds about me. |
 | HILLS · PICK UP | They're hills. | They're hills. I'm ambitious, but I'm not unreasonable. |
 | MUD · LOOK (Act III) | The mud. The one thing on this street that treats me exactly as it did before I died. | Dear old mud. The one thing on this street that treats me exactly as it did before I died. |
 | MUD · LOOK 1 | Mud, the full width of the street and six inches deep. The boardwalk is six inches high. Somebody worked that out. | Mud, the full width of the street and six inches deep! The boardwalk is six inches high. Somebody worked that out, and I'd like to buy him a drink. |
@@ -74,7 +74,7 @@
 | NUGGET DOORS · LOOK 1 | The Bountiful Nugget. Batwing doors, which swing both ways. I suspect that's the whole philosophy of the place. | The Bountiful Nugget! Batwing doors, which swing both ways. I suspect that's the whole philosophy of the place, and I can't wait to find out. |
 | NUGGET DOORS · LOOK 2 | Somebody spent money on those doors and nothing else. I've looked. | Somebody spent good money on those doors and nothing else. I've looked. They're very fine doors. |
 | NUGGET DOORS · TALK TO | I'd have to go in. Going in costs money. | I'd have to go in, and going in costs money. Still, a man of business has to speculate. |
-| COMPANY DOOR · LOOK 2 | Everyone who goes in comes out pleased. I've watched eleven men do it. I'd like to be the twelfth. | Everyone who goes in comes out pleased! I've watched eleven men do it, and I'd very much like to be the twelfth. |
+| COMPANY DOOR · LOOK 2 | Everyone who goes in comes out pleased. I've watched eleven men do it. I'd like to be the twelfth. | Everyone who goes in comes out pleased! I'd very much like to be next. |
 | CLARION DOOR · LOOK 2 | He's desperate for somebody to say something quotable. | He's desperate for somebody to say something quotable, and as it happens, I'm extremely quotable. Wait till Providence reads about me. |
 | CLAIMS ROAD · LOOK 2 | Two miles. It looks further in the morning and considerably further at night. | Two miles. It looks further in the morning and considerably further at night, but every fortune in the territory is at the far end of it. |
 | CLAIMS ROAD · PICK UP | It's a road. It's two miles long. No. | It's a road, and it's two miles long. No. But I like that I considered it. |
@@ -215,7 +215,7 @@
 |---|---|---|
 | CLAIM MARKER · LOOK 1 | "A stake with a number on it. Beyond it, | "A stake with a number on it, and the number is mine! My first property, my first anything. Beyond it, |
 | MUD · LOOK 3 | This is the mud I own. I keep expecting to feel differently about it than about other mud. I don't. | This is the mud I own. I keep expecting to feel differently about it than about other mud. I do, a little. It's mine. |
-| THE WAY DOWN · LOOK 3 | Down there are the town, the queue, and everybody who knows exactly what this claim is worth. | Down there are the town, the queue, and everybody who knows exactly what this claim is worth. They're wrong. I can feel it. |
+| THE WAY DOWN · LOOK 3 | Down there are the town and everybody who knows exactly what this claim is worth. | Down there are the town and everybody who knows exactly what this claim is worth. They're wrong. I can feel it. |
 
 ## The claim row
 

@@ -341,7 +341,7 @@
             "say": "A stake with a number on it, and the number is mine! My first property, my first anything. Beyond it, forty feet of land that is legally, indisputably mine.",
             "repeat": [
               "The number is painted on with confidence and very little paint.",
-              "It leans. I've straightened it twice, and it's gone back to leaning, which I respect as a position."
+              "It leans. I straightened it, and it went back to leaning, which I respect as a position."
             ]
           }
         ],
@@ -711,6 +711,15 @@
               "A slow settling. It has nowhere else to be, and neither, it turns out, do I."
             ]
           }
+        ],
+        "USE": [
+          {
+            "when": {
+              "T_BORDERS_MOTT": false
+            },
+            "say": "I am using it. I'm standing in it. That's most of what it offers.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: LINES THAT WAIT FOR THEIR MOMENT · **THE MUD** - USE"
+          }
         ]
       },
       "overrides": {
@@ -733,10 +742,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The way back down to the road, past my claim post. Forty feet is not far, and I have walked it a great many times.",
+            "say": "The way back down to the road, past my claim post. Forty feet is not far, and I mean to walk it a great many times.",
             "repeat": [
-              "The path down is worn mostly by me, and a little by a raccoon.",
-              "Down there are the town, the queue, and everybody who knows exactly what this claim is worth. They're wrong. I can feel it."
+              "The path down is worn a little by a raccoon, and soon by me.",
+              "Down there are the town and everybody who knows exactly what this claim is worth. They're wrong. I can feel it."
             ]
           }
         ],

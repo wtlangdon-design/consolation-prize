@@ -217,8 +217,8 @@ where the two conflicted, the better line won and is noted in doc 13.
 ## ROOM 18 — HOTEL LOBBY
 
 **THE CLERK'S BELL** · USE — "I rang it. The clerk arrived from a direction the building does not have."
-**THE REGISTER** · USE — "I corrected my name in it. The next morning it was wrong again, differently. The register is alive, or the clerk is loyal to some principle I lack."
-**THE KEY RACK** · PICK_UP — "Three keys, and mine is one, and the other two belong to men I've never seen. The hotel is fuller of mystery than of guests."
+**THE REGISTER** · USE — "I corrected my name in it. I looked away, and it was wrong again, differently. The register is alive, or the clerk is loyal to some principle I lack."
+**THE KEY RACK** · PICK_UP — "Four keys out, and mine is one, and the other three belong to men I've never seen. The hotel is fuller of mystery than of guests."
 **THE STAIRS** · PUSH — "The fourth step and I have an arrangement: I skip it, and it tells no one my hours."
 **THE PAINTING** · PULL — "Behind it: wall. I don't know what I expected. More wall, perhaps, but honest about it."
 
@@ -232,7 +232,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE WASHSTAND DRIP** · USE — "I muffled it with a sock. It transposed. The drip has range."
 **THE WARDROBE** · CLOSE — "The door drifts open again in the night, at the same slow speed each time, like it's checking on me."
 **THE FLOORBOARDS** · PULL — "The gap by the window lifts. Beneath: dust, a button, and one playing card. The eight of diamonds. Some other tenant's whole story, in three items."
-**THE LAMP** · TALK_TO — "I bade it goodnight. Management's wick allowance ended the conversation on its side."
+**THE LAMP** · TALK_TO — "I bade it goodnight. It didn't flicker. Management has trained it well."
 
 ## ROOM 20 — THE BACK ALLEY
 
@@ -270,7 +270,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 **THE BOOT** · PICK_UP — "You do not move the boot. I knew that before anyone told me. Some monuments explain themselves."
 **THE BOOT** · TALK_TO — "I asked it whose it was. The wind went through the eyelets. Take from that what you will; the district does."
-**THE MILE POST** · PUSH — "It leans toward town today. Yesterday, the diggings. The post is the district's mood, on a stick."
+**THE MILE POST** · PUSH — "It leans toward town. Push it and it leans toward the diggings. The post is the district's mood, on a stick."
 
 ## ROOM 25 — PRATT'S CLAIM
 

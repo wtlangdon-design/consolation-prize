@@ -105,7 +105,7 @@
 
 *(Part Two-B's Act IV LOOK for the marker names it THE CLAIM MARKER (MINE). It is this stake; its variant replaces LOOK only, as Part Two-B's doctrine says single-verb variants do.)*
 
-**THE CLAIM MARKER** — LOOK 2 "The number is painted on with confidence and very little paint." · 3 "It leans. I've straightened it twice, and it's gone back to leaning, which I respect as a position." | LISTEN 2 "The stake creaks in the wind like a man trying to remember something." · 3 "Wind again. It comes through here on its way to somewhere better."
+**THE CLAIM MARKER** — LOOK 2 "The number is painted on with confidence and very little paint." · 3 "It leans. I straightened it, and it went back to leaning, which I respect as a position." | LISTEN 2 "The stake creaks in the wind like a man trying to remember something." · 3 "Wind again. It comes through here on its way to somewhere better."
 
 **THE MUD** — LOOK 2 "Having stood in it, I can report on the unidentified thirty percent. It is cold, and it is personal." · 3 "This is the mud I own. I keep expecting to feel differently about it than about other mud. I do, a little. It's mine." | LISTEN 2 "It sucks at my boot as I lift it. Possessive, for something I bought." · 3 "A slow settling. It has nowhere else to be, and neither, it turns out, do I."
 
@@ -271,7 +271,7 @@
 
 **THE ROAD** — LOOK 3 "I've walked it enough times now to have a favorite rut. It's the one that doesn't fill with water." | LISTEN 2 "Boots far up the road, coming or going. From here you cannot tell which, and often neither can they." · 3 "The hum again, low. The road sounds best when nobody is on it."
 
-**THE MILE POST** — LOOK 3 "The paint is fresh on the CLAIMS side and peeling on the TOWN side. The post knows which way the money walks." | LISTEN 3 "The knock, slower than yesterday. The wind is tired, or the post is."
+**THE MILE POST** — LOOK 3 "The paint is fresh on the CLAIMS side and peeling on the TOWN side. The post knows which way the money walks." | LISTEN 3 "The knock, slower now. The wind is tired, or the post is."
 
 **THE BOOT** — LOOK 2 "It is laced. Whoever left it took the time to lace it first." · 3 "Somebody has put a wildflower in it, and somebody else has taken it out. The boot is a matter of local controversy." | LISTEN 2 "Wind across its mouth, a low note, a little flat." · 3 "Nothing. Whatever it saw, it is not telling."
 

@@ -9,11 +9,11 @@
 *Five hotspots. Traversed dozens of times. The two crowd hotspots are the whole room.*
 
 **THE MEN GOING OUT**
-> **LOOK:** "Men walking out with tools over their shoulders, at six in the morning. They are talking. Several of them are talking at once."
+> **LOOK:** "Men walking out with tools over their shoulders, early and brisk. They are talking. Several of them are talking at once."
 > **LISTEN:** "Talk. A great deal of it, all at the same volume, none of it listened to. It's cheerful."
 
 **THE MEN COMING BACK**
-> **LOOK:** "The same men, walking in, at seven at night. Same tools. Same road."
+> **LOOK:** "The same men, walking in, as the light goes. Same tools. Same road."
 > **LISTEN:** "Nothing. Two dozen men on a road and not one of them is saying anything."
 
 **THE MILEPOST**

@@ -48,8 +48,8 @@
 
 **LOOK**
 1. "CONSOLATION IMPROVEMENT COMPANY. The door is a great deal heavier than the building needs."
-2. "Everyone who goes in comes out pleased! I've watched eleven men do it, and I'd very much like to be the twelfth."
-3. "Three stories from here. I've been round the back. It's one."
+2. "Everyone who goes in comes out pleased! I'd very much like to be next."
+3. "Three stories from here. From the side, it's one."
 
 **LISTEN**
 1. "Not a sound. The quietest doorway on the street, and it's never still."
@@ -71,7 +71,7 @@
 3. "Somewhere down there is forty feet of mud for any man fool enough to buy it."
 
 **LISTEN**
-1. "Boots. A great many of them, going out. The most cheerful sound in Consolation, and it happens at six in the morning."
+1. "Boots. A great many of them, going out. The most cheerful sound in Consolation, and it happens first thing in the morning."
 2. "Nothing at the moment. They're all out there."
 3. "Nothing coming back yet. They come back quiet."
 

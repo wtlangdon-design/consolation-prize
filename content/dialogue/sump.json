@@ -100,7 +100,7 @@
           "tag": "PROGRESS",
           "text": "I have a survey.",
           "afterUse": "remove",
-          "say": "Then the deed, the survey and the fee. In that order. The order is in the statute, so that nobody can say he paid for the paper.",
+          "say": "Then the deed, the survey and the fee. In that order. Money last, so nobody can say the filing was bought.",
           "holds": [
             "survey"
           ]

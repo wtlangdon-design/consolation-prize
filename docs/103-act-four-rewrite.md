@@ -43,7 +43,7 @@ Every `[COMIC]` option left on a menu, in every tree, now answers differently th
 | The hotel clerk | "Is there anything cheaper?" | "The road, as given. It keeps no register, which is its only appeal." |
 | The undertaker | "Do you know everybody?" | "Everybody. Eventually." |
 | Fanshawe | the warm office · the chairs · the wine | "A cold man counts his money, Mr. Grubb. I prefer them warm." · "Do sit, Mr. Grubb. You're standing again." · "Still delicious, and still a mystery. In my experience the two go together." |
-| Pratt | "Lovely morning." | "Still is." |
+| Pratt | "Lovely weather." | "Still is." |
 | Sump, at the filing | "The raccoon." | "Still unlicensed, Mr. Grubb. It has never applied." |
 
 The Act II and III rows were written in their own passes (docs 101 and 102).

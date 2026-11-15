@@ -292,6 +292,18 @@
    "when": {
     "T_KEY_TAKEN": true
    }
+  },
+  {
+   "hotspot": "register",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: LINES THAT WAIT FOR THEIR MOMENT",
+   "head": "**THE REGISTER**",
+   "bullet": "- LOOK",
+   "when": {
+    "T_CLERK_MET": false
+   }
   }
  ],
  "docBulletsNote": "Errata 250, doc 121 N-4: his room key off the rack once he has a room (T_KEY_TAKEN); before that the rack's own line.",

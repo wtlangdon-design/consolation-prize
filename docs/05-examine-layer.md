@@ -163,7 +163,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Nothing. It's been saying the same thing for years, and it needs no help."
 
 **THE SCALES**
-> **LOOK:** "A balance, in a glass case, so accurate that men have wept in front of it. Mostly in the other direction."
+> **LOOK:** "A balance, in a glass case, so accurate that men have wept in front of it. Not for joy."
 > **LISTEN:** "Nothing at all. It's the only instrument in Consolation that can't be argued with."
 
 **THE QUEUE BOOK**
@@ -739,7 +739,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Breathing, slow and deliberate. She is not asleep. She is declining to participate."
 
 **GRIEVANCE'S BLANKET**
-> **LOOK:** "Her blanket, striped, older than the stable. It is hers the way the territory is the government's: nominally, and at her pleasure."
+> **LOOK:** "Her blanket, striped, older than the stable. It's hers. I've been told so, and she's confirmed it with a look."
 > **LISTEN:** "Wool and straw. A warm quiet."
 
 **GRIEVANCE'S FEED BIN**
@@ -759,7 +759,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. It is saving its one note."
 
 **THE HAY LOFT**
-> **LOOK:** "Hay above, gold below, if you ask the loft ladder, which is worn brighter than any pew in the church."
+> **LOOK:** "Hay above, and a loft ladder worn brighter than any pew in the church."
 > **LISTEN:** "Straw settling, and something small making a home in it."
 
 **THE STABLE DOORS**

@@ -22,14 +22,14 @@
 **LISTEN** 1 "Nothing. Cold." · 2 "Nothing." · 3 "Nothing at all."
 
 ### THE SPITTOON
-**LOOK** 1 "Brass, and emptied. In a hotel lobby this counts as gentility." · 2 "It has been moved twice since this morning and it is still in the wrong place." · 3 "There is a ring on the carpet where it used to be and a ring where it is."
+**LOOK** 1 "Brass, and emptied. In a hotel lobby this counts as gentility." · 2 "It has been moved since I last looked, and it is still in the wrong place." · 3 "There is a ring on the carpet where it used to be and a ring where it is."
 **LISTEN** 1 "Nothing, mercifully." · 2 "Nothing." · 3 "Nothing. We have both been spared."
 
 ## Repeat variants for docs 09's four
 
 **THE REGISTER** — LOOK 2 "Forty-one names. I've read all of them, and I don't know one. By the end of the month they'll all know mine." · 3 "Mine is the last, and it's spelled in a way I haven't previously encountered." | LISTEN 2 "Nothing." · 3 "Nothing. It is a list of people who are elsewhere."
 
-**THE KEY RACK** — LOOK 2 "Four out of forty. The four are not near each other." · 3 "Number nineteen is mine! I've looked at it more than a man should look at a key." | LISTEN 2 "Nothing." · 3 "Brass on wood, faintly, when the door goes."
+**THE KEY RACK** — LOOK 2 "Four out of forty. The four are not near each other." · 3 "Number nineteen has the best hook on the rack. I've looked at it more than a man should look at a key." | LISTEN 2 "Nothing." · 3 "Brass on wood, faintly, when the door goes."
 
 **THE ENGRAVING** — LOOK 2 "The Bay of Naples, in a mining camp, four hundred miles from a paved road." · 3 "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely." | LISTEN 2 "Nothing." · 3 "Nothing. It is a long way from home and so am I, and only one of us is framed."
 
@@ -41,7 +41,7 @@
 > **THE KEY RACK** · PICK UP — "One of those is mine and the other thirty-nine are a matter for the management."
 > **THE ENGRAVING** · PICK UP — "It is hung too high for a man who has not been invited to touch it."
 > **THE CLOCK** · USE — "I've been asked not to."
-> **THE SETTEE** · USE — "I've sat on it. That's what happened next."
+> **THE SETTEE** · USE — "I sat. It sighed. We both needed it."
 > **THE STOVE** · OPEN — "Cold, and empty, and it has been both for some time."
 
 ## Exits
@@ -95,10 +95,10 @@
 
 ## Overrides
 
-> **THE BED** · USE — "It is nine in the morning."
+> **THE BED** · USE — "Not now. A man doesn't make his fortune lying down."
 > **THE WASHSTAND** · USE — "I have washed. It made less difference than I hoped."
 > **HIS MOTHER'S LETTERS** · PICK UP — "I have them. I have had them since Sacramento."
-> **THE COAT** · PICK UP — "I'm wearing the other one, which is this one."
+> **THE COAT** · PICK UP — "It's my only good coat. It stays on the hook until there's an occasion."
 > **THE WALL** · PUSH — "It gives. I am going to stop pushing it."
 
 ## Exit
