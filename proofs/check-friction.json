@@ -1165,6 +1165,12 @@
    "date": "2026-11-15",
    "kind": "loosened",
    "why": "Not weakened: errata 332 rewrote the F1 dig line from \"Three days. Forty feet.\" to \"Days of it. Forty feet.\", and the test reads the line's opening words. The check-friction heuristic reads the changed line as a loosening."
+  },
+  {
+   "check": "tests/room-12.test.ts",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 335: Tyler had the Mercantile's storekeeper drawn. The test held that nobody is drawn in the store (count 0); it now holds that exactly one person is, that he has a conversation and that Thad stands clear of him. A ruling changed, not a threshold."
   }
  ]
 }
