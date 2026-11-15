@@ -125,7 +125,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Paper. It's been on this wall so long it's stopped being read."
 
 **THE PIANO**
-> **LOOK:** "An upright, hauled four hundred miles by mule at ten times what it's worth. Nobody here can play it. I could make it worth playing. I'd only need asking."
+> **LOOK:** "An upright, hauled four hundred miles by mule at ten times what it's worth. Nobody here can play it, and one man is proving it nightly. I could make it worth playing. I'd only need asking."
 > **LISTEN:** "C-sharp is a semitone flat, and has been for years. Nobody's noticed. I've noticed. I've noticed several times."
 
 **THE CHANDELIER**

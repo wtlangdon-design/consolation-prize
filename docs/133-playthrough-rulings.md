@@ -44,3 +44,10 @@ Errata 283's MI1 walk is withdrawn. With no verb chosen, a click on a thing perf
 *Tyler: "Is the piano self playing? Should we make it so that Thad has to actually sit down and play it? Or establish that it's self playing?"* The Nugget's music has a piano in it and nobody at the piano. A player piano is an 1890s invention. Offered a pianist, the piano taken out of the room's music, or the piano left as score, he chose: **"Add a bad pianist."**
 
 A patron sits at the upright and plays badly, with confidence. The figure needs one image operation (`reference/nugget-pianist/brief.md`), drawn in the session with the image key. When he is wired, Thad's piano lines that say nobody plays it are rewritten to match, and the piano heard in the Nugget is his.
+
+**Wired (the hand-back, `reference/nugget-pianist/handback.md`).** He sits on the stool at the upright, plays (his rest and his two playing frames), and now and then drinks from the glass on the lid. The piano's lines that said nobody touches it now say what is on the screen (doc 05; doc 16):
+- LOOK 1: "… Nobody here can play it, and one man is proving it nightly. I could make it worth playing. I'd only need asking."
+- LOOK 2: "He hasn't stopped playing since I came in. I count the wrong notes. I count more than is healthy."
+- LOOK 3: "Bottle rings on the lid. Several. His glass is making another, and I am being very calm about it."
+
+He stands within the piano's own hotspot, so a click on him is a click on the piano, and he says nothing of his own. The LISTEN lines (C-sharp flat) were always true of a piano somebody plays.

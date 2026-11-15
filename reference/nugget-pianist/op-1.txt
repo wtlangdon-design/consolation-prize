@@ -1,0 +1,10 @@
+Image 1 is a canvas on magenta from my pixel-art adventure game, set in an 1850s gold-rush town. The figure on the left is the hero, Thad, standing: he is THE STANDARD for the whole cast -- his flat, soft shading, his low texture, his proportions -- and he shows the size of a standing man. Image 2 is Thad in the saloon beside the old upright piano and its round stool: that is where the new man sits, and how flat, soft and low in texture the game's drawing is. Image 3 is one of the saloon's bar men from the same game, drawn to the same standard: match him.
+
+On the magenta to the right of Thad, draw FOUR figures of ONE new man, in a row, each separated by clear magenta: an older miner who plays the saloon piano badly and with total confidence. Grey stubble, a battered brown hat pushed back on his head, a dark waistcoat over a faded shirt with the sleeves rolled up, dark trousers, boots. He SITS on a piano stool (draw the round stool under him, the same stool in all four) with his back three-quarters to us, facing up and to the LEFT toward a piano that is NOT drawn, his hands raised in front of him at the height of the keys. Seated, he is about three-quarters as tall as Thad standing. A small glass of whisky stands on the (not drawn) piano lid: draw the glass floating at the height of his shoulder, to his upper left, in figures 1 to 3.
+1. at rest: both hands on the keys, the glass on the lid;
+2. playing: his LEFT hand pressed down, his RIGHT hand lifted high, the glass on the lid;
+3. playing: his RIGHT hand pressed down, his LEFT hand lifted high, the glass on the lid;
+4. drinking: he has lifted the SAME glass from the lid in one hand and tips it to his mouth, head back, the other hand still on the keys; there is no glass on the lid now.
+Only one glass, ever.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as THAD -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, nothing touching. No piano, no floor, no shadows, no text, no numbers, no border.

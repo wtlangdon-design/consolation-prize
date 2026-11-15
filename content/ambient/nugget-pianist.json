@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "nugget_pianist",
+ "name": "THE PIANIST",
+ "posture": "seated",
+ "note": "Errata 317, doc 133 (Tyler, 2026-11-14: \"Add a bad pianist\"). The Nugget's music has a piano in it, and a player piano is an 1890s invention, so a patron plays it: badly, loudly, with confidence. Drawn in one operation (reference/nugget-pianist/handback.md). He sits on the stool at the upright, his feet point at the stool's foot (675, 525). He stands inside the piano's own hotspot, so a click on him is a click on the piano, whose lines are about him now (doc 05, doc 16). He has no tree, no barks and no approach: like the bar men, he is the room's population, and nothing about him is marked (invariant 9).",
+ "room": "nugget",
+ "x": 675,
+ "y": 525,
+ "zone": 1,
+ "approachRadius": 40,
+ "poseNote": "SEATED on the round stool, in profile facing the keys, his back a little to the room; the glass on the lid in frames 0-2 and at his mouth in 3 (errata 111: the same glass, never appearing or vanishing).",
+ "sprite": {
+  "sheet": "art/actors/room-03-pianist.png",
+  "frames": [
+   [
+    2,
+    2,
+    92,
+    160
+   ],
+   [
+    96,
+    2,
+    92,
+    160
+   ],
+   [
+    190,
+    2,
+    92,
+    160
+   ],
+   [
+    284,
+    2,
+    92,
+    160
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.3,
+  "breaks": [
+   [
+    1,
+    2,
+    1,
+    2,
+    1,
+    2,
+    0
+   ],
+   [
+    2,
+    1,
+    2,
+    3,
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    1,
+    2,
+    1,
+    2,
+    2,
+    1,
+    0
+   ]
+  ],
+  "breakEvery": 5,
+  "frameNote": "0 rest, hands on the keys · 1 play A · 2 play B · 3 the drink. At rest he moves between 0 and 1 every two seconds (a chord); every few seconds a break plays a run of notes, and one break in three is the drink. The sheet is cut at the height the room asks for where he sits (156 px seated, 0.716 of the curve's man of 217.7 at y 525), so it is drawn 1:1.",
+  "provenance": "reference/nugget-pianist/op-1.spec.json"
+ },
+ "barks": {},
+ "barksNote": "NONE. The piano is his voice, and the piano's lines are Thad's (doc 05, doc 16)."
+}
