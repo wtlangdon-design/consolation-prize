@@ -1041,7 +1041,7 @@
    "id": "F1",
    "completedBy": [
     {
-     "site": "room:prosperity:hole:LOOK_AT#1",
+     "site": "room:prosperity:hole:LOOK_AT#2",
      "requires": [
       "r:prosperity",
       "ACT=4",
@@ -1051,6 +1051,19 @@
        "any": [
         [
          "not T_FUMES=true"
+        ]
+       ]
+      },
+      {
+       "any": [
+        [
+         "not T_WARM_HOLE=false"
+        ],
+        [
+         "not T_HOLE_LOOKED=false"
+        ],
+        [
+         "not ACT={\"atMost\":2}"
         ]
        ]
       }

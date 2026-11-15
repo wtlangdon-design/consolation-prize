@@ -108,8 +108,9 @@
             "T_BLANKET_ALLOWED": true
           },
           "when": {
-            "T_SEEN_PROSPERITY": true
-          }
+            "T_RACCOON_TRIED": true
+          },
+          "echo": "Could I borrow a blanket? There's a warm draught I'd like to stop."
         },
         {
           "id": "livery_man6",

@@ -119,8 +119,9 @@ test('the blanket on loan: the bin is bare and the blanket is no subject while i
   assert.deepEqual(shownProps(state), []);
   const blanket = state.targets.find((one) => one.id.includes('blanket'));
   assert.ok(blanket, 'the blanket is on the bin');
-  // Errata 318: he asks for it once he has seen the hole he wants it for.
+  // Errata 318: he asks for it once he has seen the hole he wants it for. Errata 340: and tried the raccoon, and failed.
   state.flags.set('T_SEEN_PROSPERITY', true);
+  state.flags.set('T_RACCOON_TRIED', true);
   state.dialogue.start(hostOf(state).tree as string);
   state.dialogue.select(opt(state, '5'));
   // Errata 245 (doc 118 O-5): leave is given; he takes it off her himself.

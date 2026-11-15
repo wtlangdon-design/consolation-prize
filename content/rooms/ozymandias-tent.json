@@ -759,7 +759,8 @@
         164
       ],
       "when": {
-        "T_SURVEYING": true
+        "T_SURVEYING": true,
+        "T_BORDERS_MOTT": true
       },
       "defaultVerb": "USE",
       "responses": {

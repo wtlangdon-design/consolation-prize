@@ -145,6 +145,12 @@
               ]
             },
             "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - USE, *with the raccoon halfway out*"
+          },
+          {
+            "say": "He is not a tool. He is barely a tenant.",
+            "set": {
+              "T_RACCOON_TRIED": true
+            }
           }
         ],
         "PICK_UP": [
@@ -170,6 +176,12 @@
             },
             "say": "With my hands? Mr. Pratt tried that, and now he has respect.",
             "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - PICK UP, *with the raccoon halfway out*"
+          },
+          {
+            "say": "No. He is in residence, and I am not his landlord in any sense he recognizes.",
+            "set": {
+              "T_RACCOON_TRIED": true
+            }
           }
         ],
         "TALK_TO": [
@@ -222,6 +234,12 @@
             },
             "say": "Not until the air clears. Possibly not until the season does.",
             "sceneLine": true
+          },
+          {
+            "say": "I'm not going to push a raccoon further into a hole he already likes. That's encouragement.",
+            "set": {
+              "T_RACCOON_TRIED": true
+            }
           }
         ],
         "CLOSE": [
@@ -242,11 +260,6 @@
             "sceneLine": true
           }
         ]
-      },
-      "overrides": {
-        "PICK_UP": "No. He is in residence, and I am not his landlord in any sense he recognizes.",
-        "PUSH": "I'm not going to push a raccoon further into a hole he already likes. That's encouragement.",
-        "USE": "He is not a tool. He is barely a tenant."
       },
       "names": [
         {
@@ -488,6 +501,20 @@
             },
             "say": "Not until the air clears. Possibly not until the season does.",
             "sceneLine": true
+          },
+          {
+            "when": {
+              "T_WARM_HOLE": false,
+              "T_HOLE_LOOKED": false,
+              "ACT": {
+                "atMost": 2
+              }
+            },
+            "say": "A hole, on my claim, and something in it. If there's gold under this mud, that's the way down. And it's occupied.",
+            "set": {
+              "T_HOLE_LOOKED": true
+            },
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: THE RACCOON · **THE HOLE** - LOOK"
           },
           {
             "when": {

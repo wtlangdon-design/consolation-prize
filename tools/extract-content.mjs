@@ -1769,12 +1769,12 @@ function combinations() {
     rebuilt.push({
       item: 'eggs', room: 'prosperity', target: 'hole', puzzle: 'A5', say: bait[0],
       note: 'Doc 54 A5, the bait: three more raccoons arrive and settle in around the first; the eggs are spent; the three are gone the next time Thad enters (T_RACCOON_MEETING, cleared on leaving).',
-      rules: [inFumes, { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...say(bait), takes: ['eggs'], set: { T_RACCOON_MEETING: true } }],
+      rules: [inFumes, { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...say(bait), takes: ['eggs'], set: { T_RACCOON_MEETING: true, T_RACCOON_TRIED: true } }],
     });
     rebuilt.push({
       item: 'tonic', room: 'prosperity', target: 'hole', puzzle: 'A5', say: smoke[0],
       note: 'Doc 54 A5, the smoke: it fumes; the tonic is spent; the hole and the raccoon refuse every verb until Thad leaves and returns (T_FUMES, cleared on leaving).',
-      rules: [inFumes, { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...staged('**The smoke**', smoke), takes: ['tonic'], set: { T_FUMES: true } }],
+      rules: [inFumes, { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...staged('**The smoke**', smoke), takes: ['tonic'], set: { T_FUMES: true, T_RACCOON_TRIED: true } }],
     });
     const d57 = read('docs/57-puzzle-completion.md');
     const f1 = d57.slice(d57.indexOf('## F1 '), d57.indexOf('\n## ', d57.indexOf('## F1 ') + 5));
@@ -7508,7 +7508,7 @@ function actOnePairs(pairs) {
   const meeting = atHole.rules.findIndex((one) => one.takes?.includes('eggs'));
   if (meeting < 0) throw new Error('doc 120: the eggs at the hole have no rule that spends them');
   atHole.rules.splice(meeting, 0, { case: 'improved, with the raccoon in', when: { ...atHole.rules[meeting].when, T_EGGS_IMPROVED: true },
-    ...rule('- USE THE PICKLED EGGS, *improved* — '), takes: ['eggs'] });
+    ...rule('- USE THE PICKLED EGGS, *improved* — '), takes: ['eggs'], set: { T_RACCOON_TRIED: true } });
   const card = rule('- USE THE OBITUARY — ');
   for (const room of ['boot_hill', 'funeral']) {
     for (const [item, target] of [['obituary', 'wreath'], ['wreath', 'obituary']]) {

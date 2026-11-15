@@ -2488,6 +2488,28 @@
     "room:company_vault:champagne:PICK_UP"
    ],
    "note": "Doc 123 F-5: he has turned the bottle to the lamp (errata 258). Read only by the same thing's second line; nothing else reads it."
+  },
+  {
+   "id": "T_RACCOON_TRIED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:prosperity:raccoon:PICK_UP",
+    "room:prosperity:raccoon:PUSH",
+    "room:prosperity:raccoon:USE",
+    "combination:eggs:hole",
+    "combination:tonic:hole"
+   ],
+   "note": "Errata 340: Thad has tried to shift the raccoon and failed (hands, a push, the eggs, the tonic). Read by LIV_A1 option 5, the blanket, so the answer is not offered before the puzzle is met. Not set by LISTENING to the hole (doc 54, A5)."
+  },
+  {
+   "id": "T_HOLE_LOOKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:prosperity:hole:LOOK_AT"
+   ],
+   "note": "Errata 340: the hole's first look with the raccoon in it has been said (doc 133, THE ACT ONE REVIEW: THE RACCOON); its own chain follows."
   }
  ]
 }

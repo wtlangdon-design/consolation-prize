@@ -438,6 +438,19 @@
    }
   },
   {
+   "id": "A5.0b",
+   "puzzle": "A5",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "raccoon",
+   "note": "Errata 340: he tries the raccoon and fails before the blanket is his to ask for.",
+   "expect": {
+    "flags": {
+     "T_RACCOON_TRIED": true
+    }
+   }
+  },
+  {
    "id": "A5.1",
    "puzzle": "A5",
    "do": "go",

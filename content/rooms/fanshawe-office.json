@@ -834,6 +834,13 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "T_BORDERS_MOTT": false
+            },
+            "say": "Every claim in the district, pinned. Green pins for the Company, a great many. There's one red pin, and it isn't in the map. It's stuck in the frame.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: CLAIM ONE, KEPT BACK · **THE MAP WALL** - LOOK"
+          },
+          {
             "say": "Every claim in the district, pinned. Two of them have red pins. One is Claim One.",
             "repeat": [
               "Green pins for the Company, a great many. The two red pins are alone together near the middle.",

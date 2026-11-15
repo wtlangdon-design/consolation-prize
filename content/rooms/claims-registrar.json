@@ -159,6 +159,13 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "T_BORDERS_MOTT": false
+            },
+            "say": "The claims ledger. Every filing in the district, in one book, in one hand.",
+            "sceneLine": true
+          },
+          {
             "say": "The claims ledger. Every filing in the district, in one book, in one hand.",
             "repeat": [
               "Claim One is on the first page and it is one line long.",

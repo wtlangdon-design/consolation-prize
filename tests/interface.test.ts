@@ -768,6 +768,12 @@ test('repeat variants cycle FORWARD, then hold on the last one', async () => {
           got, expected,
           `${room.id}/${target.id}/${verb} did not return its variants in written order`,
         );
+        // A LINE SAID ONCE (errata 340: the hole's first look with the raccoon in it) writes the flag that ends its
+        // own state, and the subject's ordinary chain answers from then on. It has no last line to hold.
+        if (!state.flags.test(rule.when)) {
+          sequences += 1;
+          continue;
+        }
         // And the last one repeats indefinitely rather than wrapping round.
         // Re-selected, like the others: this line asked with NOTHING selected
         // and so asked the target's own defaultVerb -- which for the case is

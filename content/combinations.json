@@ -78,7 +78,7 @@
               "line": "The cloth settles. A long pause. The raccoon emerges, gives Thad one look of complete contempt, and leaves at a walk.",
               "direction": true
             },
-            "The hole has gone cold, and he has gone with it. I appear to have evicted him by weather."
+            "He's gone, and he took his time about it. The hole is mine. It's the first thing in this territory I've won."
           ],
           "set": {
             "T_WARM_HOLE": true
@@ -280,6 +280,16 @@
             {
               "speaker": "sump",
               "line": "Your neighbor, Mr. Grubb."
+            },
+            "Mott's claim. The one nobody can find.",
+            {
+              "speaker": "sump",
+              "line": "The office has always known what it adjoins, Mr. Grubb. Nobody has ever filed next to it."
+            },
+            "Nobody asked?",
+            {
+              "speaker": "sump",
+              "line": "There is no form for asking."
             },
             {
               "speaker": "sump",
@@ -829,7 +839,10 @@
           ],
           "takes": [
             "eggs"
-          ]
+          ],
+          "set": {
+            "T_RACCOON_TRIED": true
+          }
         },
         {
           "case": "with the raccoon in",
@@ -844,7 +857,8 @@
             "eggs"
           ],
           "set": {
-            "T_RACCOON_MEETING": true
+            "T_RACCOON_MEETING": true,
+            "T_RACCOON_TRIED": true
           }
         }
       ]
@@ -882,7 +896,8 @@
             "tonic"
           ],
           "set": {
-            "T_FUMES": true
+            "T_FUMES": true,
+            "T_RACCOON_TRIED": true
           }
         }
       ]

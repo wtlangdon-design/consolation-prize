@@ -35,7 +35,7 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 - **On the table, for the dinner only:** MY GLASS, THE BOTTLE, THE COVERED DISH.
 - OPEN the dish: the contract is under it (`T_CONTRACT_SERVED`). The dish is THE CONTRACT from then on.
 - **CLOSE the contract: the dinner ends.** Thad's own line ("I mean to work it myself."), the Colonel's ("Of course you do."), and doc 57 A10's beat 3, word for word: the glass, the handkerchief, `T_DINED`.
-- FAN_A2's option 6 no longer ends it. It is said, the Colonel agrees, and the dish is still there.
+- FAN_A2's option 6 no longer ends it, and since errata 340 it no longer says the line that does: it is "It's a great deal to take in.", and the Colonel tells him to take it in slowly.
 - Everything else in FAN_A2 is as written. Five options still sell the claim in words Thad does not hear as a sale, and nothing is sold.
 - **Art (brief below):** the dish uncovered, the contract on the plate. Until it is drawn the uncovering is told.
 
@@ -120,7 +120,7 @@ Nothing here touches a load-bearing line, HOB_C1, the letters home, or the endin
 **BEAT 3** *(doc 57 A10, word for word; said after the CLOSE)*
 > **FANSHAWE:** "Steady! Not a drop on the cloth. Take my handkerchief." "Keep it. I have dozens."
 
-**`FAN_A2` option 6**, *"I mean to work it myself."* — **FANSHAWE:** "Of course you do." **FANSHAWE:** "Don't let your fish go cold." *(second)* **FANSHAWE:** "Of course. Of course. Do try the fish."
+**`FAN_A2` option 6**, *"It's a great deal to take in."* — **FANSHAWE:** "Take it in slowly, Mr. Grubb." **FANSHAWE:** "The fish will keep." *(second)* **FANSHAWE:** "Of course. Of course. Do try the fish."
 
 **`FAN_A2`, leaving the conversation** — **FANSHAWE:** "Eat, eat. I can talk enough for two, and frequently do."
 

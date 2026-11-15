@@ -459,7 +459,8 @@
    "T_SURVEYING": true
   },
   "claim_one": {
-   "T_SURVEYING": true
+   "T_SURVEYING": true,
+   "T_BORDERS_MOTT": true
   },
   "claim_two": {
    "T_SURVEYING": true
@@ -1085,5 +1086,6 @@
    "flame": true,
    "halo": 52
   }
- ]
+ ],
+ "hotspotWhenNote340": "Errata 340: the survey map's Claim One waits for the filing, which is what tells Thad it is his neighbor. The survey is walked before the deed is filed, so in play it is not offered."
 }

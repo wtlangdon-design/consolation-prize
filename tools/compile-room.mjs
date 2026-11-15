@@ -1636,6 +1636,32 @@ for (const [id, verbs] of Object.entries(ann.overrideWhen ?? {})) {
   }
   if (hotspot.overrides && !Object.keys(hotspot.overrides).length) delete hotspot.overrides;
 }
+// A CHAIN WHOSE LATER LINES WAIT (errata 340). `chainWaits.<id>.<VERB>` is the state in which only the chain's first
+// line is said: the Registrar's ledger, whose second and third looks are about Claim One, before the filing that tells
+// Thad what Claim One is to him. No line is written for it; the first is the first, and the rest follow once it lifts.
+for (const [id, verbs] of Object.entries(ann.chainWaits ?? {})) {
+  const hotspot = built.hotspots.find((one) => one.id === id);
+  if (!hotspot) fail(`chainWaits: no hotspot "${id}" in this room`);
+  for (const [verb, when] of Object.entries(verbs)) {
+    const own = (hotspot.responses[verb] ?? []).filter((rule) => !rule.when && rule.say && rule.repeat?.length);
+    if (own.length !== 1) fail(`chainWaits: ${id} ${verb} has ${own.length} unconditioned chains, not one`);
+    hotspot.responses[verb].unshift({ when, say: own[0].say, sceneLine: true });
+  }
+}
+// AN OVERRIDE THAT IS REMEMBERED (errata 340). `overrideSets.<id>.<VERB>` moves the override into the verb's last,
+// unconditioned rule with a `set`: the line is the line it was, and having tried it is recorded. Prosperity's raccoon:
+// a failed try at shifting him is what opens the livery man's blanket question.
+for (const [id, verbs] of Object.entries(ann.overrideSets ?? {})) {
+  const hotspot = built.hotspots.find((one) => one.id === id);
+  if (!hotspot) fail(`overrideSets: no hotspot "${id}" in this room`);
+  for (const [verb, set] of Object.entries(verbs)) {
+    const line = hotspot.overrides?.[verb];
+    if (!line) fail(`overrideSets: ${id} has no ${verb} override to remember`);
+    delete hotspot.overrides[verb];
+    (hotspot.responses[verb] ??= []).push({ say: line, set });
+  }
+  if (hotspot.overrides && !Object.keys(hotspot.overrides).length) delete hotspot.overrides;
+}
 // A SUBJECT'S OTHER NAME IN A LATER STATE, WRITTEN AS A BOLD SUBJECT OF ITS SECTION (doc 109: `**THE NAIL** *(after G9,
 // when the watch has gone with Vessel)*` under THE WATCH). `hotspotNames` gives the condition and the name, and the name
 // must stand in bold in the cited section, so it is read, never invented.

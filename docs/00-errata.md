@@ -8315,3 +8315,19 @@ Two phrases go on the narration allowlist with these lines, "father's watch" and
 
 Lesson:
 - `tests/act-one-story.test.mjs`: no question names the Assay before the handbill or the duel; nothing clears the flag that keeps them open; every question to the pie woman and the man with the bag counts and no [COMIC] line does; each door refusal waits on one person.
+
+## 340 · The Act I review: the turn, the dinner and the raccoon (Tyler, 2026-11-15: "Approve all.")
+
+The rest of the review's story batch. Every line was drafted in one voice and approved before it was built.
+
+- **Claim One is kept back until Sump reads it out.** The act turns on the Registrar reading that Prosperity is bounded east by Claim One, and three places had told the player first. The Colonel's map wall, before the filing, has one red pin stuck in the frame (doc 133, CLAIM ONE, KEPT BACK); after it, its own lines. The survey map's Claim One waits for the filing, so during the survey it is not offered (`reference/room-16`). The Registrar's ledger says only its first line until then (`chainWaits`, new in `tools/compile-room.mjs`). At the counter Thad now answers the reading, and Sump tells him the office has always known and nobody ever filed beside it (doc 57, A9).
+- **The dinner says what it is for.** The Colonel's first words name Claim One and offer to take a corner of the weight (doc 04, FAN_A2; doc 48). "I mean to work it myself." is said once, when the cover goes back on the dish, which is what ends the dinner (errata 248); the menu's sixth line, which said it to no effect, is "It's a great deal to take in." (doc 04, doc 120).
+- **The raccoon is given a reason.** The hole's first look, with him in it, says the hole is the way down if there is gold (doc 133, THE RACCOON; `T_HOLE_LOOKED`). The livery man's blanket question names the warm draught and waits until Thad has tried something on the raccoon and failed: hands, a push, the eggs, the tonic (`T_RACCOON_TRIED`; `overrideSets`, new in `tools/compile-room.mjs`). The blanket's last line is his first win (doc 54).
+
+**Not built as approved, and why.** The blanket question was approved to open after LISTENING to the hole, or one failed try. The hole's LISTEN is one of the three lines nothing may mark (invariant 3), and doc 54 says of A5 that nothing is set by listening to the hole. Only the failed try opens it. Tyler is told, and can rule otherwise.
+
+**Left, and told to Tyler:** the survey plate still draws a square numbered 1 beside his, and the Registrar's and the Assay Office's wall maps still name Claim One (neither says whose neighbor it is).
+
+Lesson:
+- `tests/act-one-story.test.mjs`: before the filing the map wall and the ledger do not name Claim One and the survey map does not offer it; the blanket waits for a failed try, each try writes it, and no LISTEN at the hole writes anything; no dinner option says the refusing line, and the dish does.
+- Doc 55 §8: a turn is told once, by the scene written to tell it.
