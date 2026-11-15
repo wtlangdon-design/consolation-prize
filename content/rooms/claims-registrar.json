@@ -328,7 +328,7 @@
             "say": "Running eleven minutes fast. I know because the church bell disagrees with it, and the church bell is half a step flat.",
             "repeat": [
               "Ticking. Fast.",
-              "Ticking. I've stopped hearing it. It took four days."
+              "Ticking. I've stopped hearing it. It took a while."
             ]
           }
         ]
@@ -394,7 +394,7 @@
               "So I'm told.",
               {
                 "speaker": "sump",
-                "line": "Twenty minutes. The archive closes at four, and so do I."
+                "line": "Be brief. The archive closes at four, and so do I."
               }
             ],
             "goto": "archive",
@@ -953,7 +953,7 @@
           },
           {
             "speaker": "thad",
-            "line": "It has been eleven days."
+            "line": "It has been nowhere near ninety days."
           },
           {
             "speaker": "sump",

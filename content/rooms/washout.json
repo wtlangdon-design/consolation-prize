@@ -178,7 +178,7 @@
             "when": {
               "T_VESSEL_FOUND": false
             },
-            "say": "Not without Vessel. I've come two days for him, and a mule's opinion is all I'd be taking home.",
+            "say": "Not without Vessel. I've come all this way for him, and a mule's opinion is all I'd be taking home.",
             "sceneLine": true
           },
           {
@@ -189,7 +189,7 @@
             "then": [
               {
                 "speaker": "thad",
-                "line": "Two days back on Grievance. Vessel took the coach, and was in the Nugget's back room before me, with a drink and the good chair.",
+                "line": "The long way back on Grievance. Vessel took the coach, and was in the Nugget's back room before me, with a drink and the good chair.",
                 "overBlack": true
               }
             ],
@@ -271,7 +271,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The road back to Consolation. Two days of it, and most of it held.",
+            "say": "The road back to Consolation. Days of it, and most of it held.",
             "repeat": [
               "Somewhere down there is my claim, with a raccoon in it, keeping my place.",
               "I'm not going back without Vessel. I've told the road, and it took it well."

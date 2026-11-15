@@ -950,7 +950,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE COFFEE POT**
 > **LOOK:** "On its own flat stone by a fire ring swept between uses. Pratt's coffee is famously terrible and famously punctual."
-> **LISTEN:** "Tin, ticking in the sun. Ten o'clock is coming."
+> **LISTEN:** "Tin, ticking in the sun. Coffee is coming."
 
 **THE SIGN: NO COLOR YET**
 > **LOOK:** "A small board, neatly lettered: NO COLOR YET. The YET has been repainted more times than the rest. It is the most honest sign in the district and the most stubborn word in it."
@@ -1380,7 +1380,7 @@ bark budget, not here.
 ## ROOM 3 — THE BOUNTIFUL NUGGET
 
 **THE BAR** *(act: 3)*
-> **LOOK:** "They drank to my memory on Tuesday. I was there. I'm told I was spoken of very warmly, briefly, between rounds."
+> **LOOK:** "They drank to my memory the other night. I was there. I'm told I was spoken of very warmly, briefly, between rounds."
 > **LISTEN:** "My name — one of its spellings — in a toast. It's a strange vintage, being remembered at cost price."
 
 **THE PIANO** *(act: 2)*

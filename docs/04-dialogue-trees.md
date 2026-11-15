@@ -157,7 +157,7 @@ Available only with `T_SECOND_LEDGER`. She produces it from under the floor. Thi
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "Am I in the book?" | `[COMIC · retain]` | "You've been in the book since Tuesday." *(second)* "Since Tuesday. The twentieth. Keep coming to the window, Mr. Grubb." |
+| 1 | "Am I in the book?" | `[COMIC · retain]` | "You've been in the book since the day you came to the window." *(second)* "Since that day. I have it written down. Keep coming to the window, Mr. Grubb." |
 
 *Built, errata 181 (Tyler, 2026-11-08: "Yes"): WIN_B2 option 3 opens it, so the scene plays the moment she says the book exists, and her retrieval is that row's direction (doc 95, class B until her pose and the lifted board are drawn). One row and the exit pool; doc 04 rules 1 and 2 are waived for it (errata 66 E). The second answer is new: she counts him, and says one word too many (doc 99).*
 
@@ -500,7 +500,7 @@ Vessel's destination for a story. Frame does not want money; money is not printa
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "A piano tuner bought the worst claim in the district on purpose." | `[PROGRESS · remove]` | "ON PURPOSE! Is it true?" *(beat)* "Don't tell me. It's better not knowing." *(He prints it. The headline misspells Grubb. The story is oddly kind.)* | then: "Vessel was on the first coach to Fiddler's Gulch after you paid him. Two days out, if the road holds, and the road never holds." → `T_VESSEL_LOCATION`; B1 *(errata 75)* |
+| 1 | "A piano tuner bought the worst claim in the district on purpose." | `[PROGRESS · remove]` | "ON PURPOSE! Is it true?" *(beat)* "Don't tell me. It's better not knowing." *(He prints it. The headline misspells Grubb. The story is oddly kind.)* | then: "Vessel was on the first coach to Fiddler's Gulch after you paid him. A long ride out, if the road holds, and the road never holds." → `T_VESSEL_LOCATION`; B1 *(errata 75)* |
 | 2 | "There's a raccoon in my hole with a name." | `[PROGRESS · remove]` | "A NAMED raccoon. Sir, you are a *wellspring*." *(Also accepted. Also printed. Page one.)* | same grant and the same destination line — either story pays |
 | 3 | "What did you print about Vessel leaving?" | `[TOPIC · retain]` | "'BELOVED CITIZEN ANSWERS CALL OF COMMERCE.' He owed me for six advertisements. The headline was cheaper than forgiving the debt." *(second)* "'BELOVED CITIZEN.' Six advertisements unpaid, and still the kindest thing I've printed all year." | — |
 | 4 | "Print a correction: my name." | `[COMIC · counted-repeat]` | "A correction! We run those in the spring." *(second)* "It is not spring." *(third)* "Persistent AND punctual-minded. I may do a profile. How do you spell it?" *(He knows. He has never once used it.)* | — |
@@ -959,7 +959,7 @@ The player will notice, somewhere around Act III, that they have been doing at s
 > "Dear Mother — I write in haste; my affairs have taken a most exclusive turn, and I move now in circles so elevated I am scarcely seen in town at all. I am widely mour— ADMIRED. Widely admired. The air is healthful. — Your Thaddeus."
 
 **ACT III — flattering, with a number in it**
-> "Dear Mother — My estate — my SITUATION — is valued by knowledgeable men at $30,000 or better, and the whole town turned out on Tuesday to honor me. I could not be more warmly regarded if I were dead. — Your Thaddeus."
+> "Dear Mother — My estate — my SITUATION — is valued by knowledgeable men at $30,000 or better, and the whole town turned out to honor me. I could not be more warmly regarded if I were dead. — Your Thaddeus."
 
 **ACT IV — the only version offered. Four lines, entirely true.**
 > "Dear Mother.

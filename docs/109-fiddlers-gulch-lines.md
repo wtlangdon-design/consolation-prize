@@ -31,7 +31,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 **ON FIRST ARRIVAL** — "Daylight. And below it, a whole camp in a ravine, with a river at the bottom. Fiddler's Gulch."
 
 ### THE CAMP BELOW
-**LOOK** 1 "Fiddler's Gulch: tents, cabins, a river, and smoke going straight up. It looks rich from here." · 2 "Every man down there is standing in water or guarding something. Some are doing both." · 3 "I've come two days to stand on a ledge and look at other men's gold. It's like a shop window."
+**LOOK** 1 "Fiddler's Gulch: tents, cabins, a river, and smoke going straight up. It looks rich from here." · 2 "Every man down there is standing in water or guarding something. Some are doing both." · 3 "I've come all this way to stand on a ledge and look at other men's gold. It's like a shop window."
 **LISTEN** 1 "Water, and shovels, and nobody talking." · 2 "A rocker going, slow, like a tired clock." · 3 "Somebody shouting 'MINE!' at somebody else, faintly."
 
 ### THE CAIRN
@@ -59,7 +59,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 
 ### THE COOK FIRE
 **LOOK** 1 "A cook fire with a kettle on it and somebody's dinner in a pan. Nobody's watching it. Everybody's watching me." · 2 "Beans, with something better than beans in them. They eat well here. They can afford to." · 3 "I'm not going to steal a man's dinner. I've thought it through, and I'm not."
-**LISTEN** 1 "Beans, ticking in the pan." · 2 "The kettle working up to something." · 3 "Fat spitting. The best sound in two days."
+**LISTEN** 1 "Beans, ticking in the pan." · 2 "The kettle working up to something." · 3 "Fat spitting. The best sound in days."
 
 ### THE WASHING LINE
 **LOOK** 1 "Shirts on a line between two tents. Every one has a padlock on the pocket." · 2 "Good shirts, too. Store-bought. Washed by somebody else, I'd bet." · 3 "One shirt has a padlock and no buttons. A man has his priorities."
@@ -392,7 +392,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 
 ## GOING HOME
 
-**GRIEVANCE** · USE, *after G9* — "Home, Grievance." Then **the ride**, over black: "Two days back on Grievance. Vessel took the coach, and was in the Nugget's back room before me, with a drink and the good chair." → Thad is placed in the Nugget, as B3 places him today.
+**GRIEVANCE** · USE, *after G9* — "Home, Grievance." Then **the ride**, over black: "The long way back on Grievance. Vessel took the coach, and was in the Nugget's back room before me, with a drink and the good chair." → Thad is placed in the Nugget, as B3 places him today.
 
 **VESSEL, in Room 4, after the trip** — his first TALK TO opens with: "Grubb! You came all this way. Again." *(In place of doc 03's opening, which is now said in the Gulch.)*
 

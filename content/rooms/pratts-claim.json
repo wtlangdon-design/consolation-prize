@@ -36,10 +36,10 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Tin, ticking in the sun. Ten o'clock is coming.",
+            "say": "Tin, ticking in the sun. Coffee is coming.",
             "repeat": [
-              "A faint ping as the tin warms. Ten o'clock is nearer.",
-              "Not yet. At ten it will boil, and the diggings will set their watches by the smell."
+              "A faint ping as the tin warms. Coffee is nearer.",
+              "Not yet. When it boils, the diggings will set their watches by the smell."
             ]
           }
         ],
@@ -136,7 +136,7 @@
         ]
       },
       "overrides": {
-        "USE": "I sat in it. The trench looked back, square-cornered, patient. For one minute I understood him completely, and it was restful."
+        "USE": "I sat in it. The trench looked back, square-cornered, patient. For a moment I understood him completely, and it was restful."
       },
       "walkTo": {
         "x": 717,

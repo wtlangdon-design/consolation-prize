@@ -410,7 +410,7 @@
             "say": "The street, muffled. Two men arguing about a boundary.",
             "repeat": [
               "The boundary again. Neither of them has given an inch.",
-              "The stage is in. Four days from Sacramento, and eleven new men who think they're early."
+              "The stage is in, all the way from Sacramento, and eleven new men who think they're early."
             ]
           }
         ]
@@ -651,7 +651,7 @@
                 "atMost": 3
               }
             },
-            "say": "They drank to my memory on Tuesday. I was there. I'm told I was spoken of very warmly, briefly, between rounds."
+            "say": "They drank to my memory the other night. I was there. I'm told I was spoken of very warmly, briefly, between rounds."
           },
           {
             "say": "Mahogany! Genuine mahogany. Now that's a bar a man could do business at.",

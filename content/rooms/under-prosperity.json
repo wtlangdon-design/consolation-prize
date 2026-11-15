@@ -255,9 +255,9 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "One lamp, and about four hours of oil in it.",
+            "say": "One lamp, and not a great deal of oil in it.",
             "repeat": [
-              "Three hours of oil now. I'm doing the arithmetic more often than I'd like.",
+              "Less oil now. I'm doing the arithmetic more often than I'd like.",
               "It throws my shadow up the wall, three times my size and twice as confident."
             ]
           }

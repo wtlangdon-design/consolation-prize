@@ -68,7 +68,7 @@
 |---|---|---|---|
 | 1 | "How did you know?" | `[TOPIC]` | "Everybody knows. Small place, and you're the newest thing in it." *(again)* "Still the newest thing in it. Enjoy it, son. It wears off by Thursday." |
 | 2 | "You have the look of a man with something to sell, and I'm a man of business." | `[PROGRESS]` | "Nothing. I'm getting out." *(beat)* "Of course, a man getting out leaves things behind." *(again)* "Nothing at all. Getting out's free." |
-| 3 | "Getting out of what?" | `[PROGRESS]` · after 2 | "Claim Two. A producing claim, mind you. It's never once stopped producing. But my sister's poorly, and Sacramento's four days." *(again)* "Claim Two. Producing. Never stopped once. You can ask anybody." |
+| 3 | "Getting out of what?" | `[PROGRESS]` · after 2 | "Claim Two. A producing claim, mind you. It's never once stopped producing. But my sister's poorly, and Sacramento's a long way." *(again)* "Claim Two. Producing. Never stopped once. You can ask anybody." |
 | 4 | "How much? Purely as a matter of business." | `[PROGRESS]` · after 3 | **"What have you got?"** — *"Four dollars."* — "Four dollars." *(He looks at the watch.)* "And that watch." *(again)* "Four dollars and the watch. I'm not a greedy man." |
 | 8 | "Is there gold on it?" | `[COMIC]` · after 3 | "There's a deed on it, son. Your name'll be on it shortly." *(again)* "There's a claim on it, son, and a claim is where every fortune starts." |
 | 5 | "You seem cheerful for a man with a poorly sister." | `[COMIC]` · after 3 | "I've made my peace with it." *(beat)* "She hasn't, but she's a long way off." *(again)* "Still a long way off, son. That's the main thing wrong with her." |

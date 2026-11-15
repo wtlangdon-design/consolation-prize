@@ -82,7 +82,7 @@ Tyler, 2026-11-08, asked whether to build WIN_B3, the scene doc 04 calls "the sc
    - "They stopped coming to the window."
    - "That's all it says."
    - "That's all I know. I write down what I know. It's the entire discipline."
-4. Then it has one row, "Am I in the book?", answered "You've been in the book since Tuesday." Asked again: "Since Tuesday. The twentieth. Keep coming to the window, Mr. Grubb."
+4. Then it has one row, "Am I in the book?", answered "You've been in the book since the day you came to the window." Asked again: "Since that day. I have it written down. Keep coming to the window, Mr. Grubb." *(Errata 332: no named days.)*
 
 **How it is wired:**
 - It is reached from that row, never from an entry, so WIN_B2's other rows (the assay among them) are never stranded.
