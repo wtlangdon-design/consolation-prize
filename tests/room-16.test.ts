@@ -105,6 +105,7 @@ test('A7: the map before the fee is asked for in advance; the fee, then the map,
 
 test('pair 19: her Assay story teaches it', async () => {
   const state = await inState('r16-a');
+  state.flags.set('T_ASSAY_KNOWN', true); // errata 339: the question waits until he has heard of the Assay
   state.dialogue.start(hostOf(state).tree as string);
   state.dialogue.select(opt(state, '5'));
   assert.ok(state.flags.get('ASSAY_PAIR_19'));

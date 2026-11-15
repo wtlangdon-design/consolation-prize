@@ -165,6 +165,7 @@ test('B3: with both, his line, the ride over black, and the room it ends in; the
 
 test('pair 20: the livery man\'s Assay story teaches it', async () => {
   const state = await inState('r15-a');
+  state.flags.set('T_ASSAY_KNOWN', true); // errata 339: the question waits until he has heard of the Assay
   state.dialogue.start(hostOf(state).tree as string);
   state.dialogue.select(opt(state, '7'));
   assert.ok(state.flags.get('ASSAY_PAIR_20'));

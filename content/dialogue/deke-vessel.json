@@ -183,14 +183,15 @@
           "puzzle": {
             "A3": "complete"
           },
-          "set": {
-            "T_SWINDLED": true
-          },
           "exchange": [
             {
               "speaker": "deke_vessel",
               "line": "Thad hands over four dollars and the watch.",
               "direction": true
+            },
+            {
+              "speaker": "thad",
+              "line": "It's my father's watch. It runs fast. He set it that way so I'd never be late."
             },
             {
               "speaker": "deke_vessel",
@@ -201,7 +202,10 @@
               "line": "He finishes his drink, collects his hat, and leaves the Nugget.",
               "direction": true
             }
-          ]
+          ],
+          "set": {
+            "T_SWINDLED": true
+          }
         },
         {
           "id": "deke_vessel7",

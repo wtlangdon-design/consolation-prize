@@ -61,6 +61,8 @@ test('D3: who pays Pratt opens the paper, and the ledger costs a service', async
 
 test('D4, the laundry\'s half: the Reverend\'s money buys the ledger, and the root returns', async () => {
   const state = await inState('r28-b');
+  // Errata 339: by the ledger Duel One is long lost, which is what keeps the Assay question on his root.
+  state.flags.set('T_DUEL_ONE_LOST', true);
   const s = speaker(state);
   state.dialogue.start(hostOf(state).tree!);
   assert.equal(node(state), 'SHE_D1', 'the paper is open while its business is');

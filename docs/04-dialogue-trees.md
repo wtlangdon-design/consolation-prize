@@ -578,6 +578,7 @@ Pratt on his own claim, beside Prosperity, raking. The node exists for A5's "sen
 |---|---|---|---|
 | 1 | "There's a raccoon in my hole. Would you get him out?" | `[PROGRESS · remove]` | "Raccoon." *(beat)* "Put my hand in there once." *(beat)* "He's in there." → `T_PRATT_BITTEN` *(errata 75: offered only while the raccoon is in the hole; errata 318: and once Thad has seen him there)* |
 | 2 | "Nine dollars for what?" | `[TOPIC · retain]` | "Your claim." *(second)* "Your claim. Nine dollars and a hen." |
+| 7 | "It isn't for sale. It's mine. I have the deed." | `[TOPIC · remove]` · after 2 | "Filed?" — *"Filed?"* — "Ain't yours till Sump writes it down. Till then it's anybody's who gets there first." "Nine dollars." *(unless `T_BORDERS_MOTT`; errata 339: the Act I review found nobody tells Thad a claim must be filed, or why he does not simply dig)* |
 | 5 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "Yep." *(He rakes for a while.)* "Undertaker's got him." *(second)* "Undertaker's got him. Has had for a while." *(unless `T_PIKE_DEAD`)* |
 | 6 | "You knew Pike was dead." | `[TOPIC · retain]` | "Yep." *(He rakes.)* "Said so." *(second)* "Said the undertaker had him. That's what that means." *(req `T_PIKE_DEAD`)* |
 | 3 | "Lovely weather." | `[COMIC · retain]` | *(He looks up at the sky, checking.)* "Yep." *(second)* "Still is." |

@@ -103,7 +103,18 @@
           "say": "So does everybody. That's the town. Try again.",
           "set": {
             "ASSAY_PAIR_21": true
-          }
+          },
+          "whenAny": [
+            {
+              "T_ASSAY_KNOWN": true
+            },
+            {
+              "T_DUEL_ONE_CALLED": true
+            },
+            {
+              "T_DUEL_ONE_LOST": true
+            }
+          ]
         },
         {
           "id": "hobx",

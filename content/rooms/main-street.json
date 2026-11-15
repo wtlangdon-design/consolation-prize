@@ -1117,9 +1117,9 @@
             "T_SWINDLED": false,
             "T_MOTT_TOLD": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I'd like to know what this town is digging for first, and the man selling maps is the one to ask.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAP SELLER UNHEARD"
         },
         {
           "when": {
@@ -1127,9 +1127,9 @@
             "T_SWINDLED": false,
             "T_TOLD_MONEY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the pie woman, and she looks like she knows where the money goes.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE PIE WOMAN UNHEARD"
         },
         {
           "when": {
@@ -1137,9 +1137,9 @@
             "T_SWINDLED": false,
             "T_TOLD_WHY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the man with the bag. He's been here longer than I have.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAN WITH THE BAG UNHEARD"
         }
       ],
       "walkTo": {
@@ -1192,9 +1192,9 @@
             "T_SWINDLED": false,
             "T_MOTT_TOLD": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I'd like to know what this town is digging for first, and the man selling maps is the one to ask.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAP SELLER UNHEARD"
         },
         {
           "when": {
@@ -1202,9 +1202,9 @@
             "T_SWINDLED": false,
             "T_TOLD_MONEY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the pie woman, and she looks like she knows where the money goes.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE PIE WOMAN UNHEARD"
         },
         {
           "when": {
@@ -1212,9 +1212,9 @@
             "T_SWINDLED": false,
             "T_TOLD_WHY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the man with the bag. He's been here longer than I have.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAN WITH THE BAG UNHEARD"
         },
         {
           "when": {
@@ -1275,9 +1275,9 @@
             "T_SWINDLED": false,
             "T_MOTT_TOLD": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I'd like to know what this town is digging for first, and the man selling maps is the one to ask.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAP SELLER UNHEARD"
         },
         {
           "when": {
@@ -1285,9 +1285,9 @@
             "T_SWINDLED": false,
             "T_TOLD_MONEY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the pie woman, and she looks like she knows where the money goes.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE PIE WOMAN UNHEARD"
         },
         {
           "when": {
@@ -1295,9 +1295,9 @@
             "T_SWINDLED": false,
             "T_TOLD_WHY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the man with the bag. He's been here longer than I have.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAN WITH THE BAG UNHEARD"
         }
       ],
       "walkTo": {
@@ -1407,9 +1407,9 @@
             "T_SWINDLED": false,
             "T_MOTT_TOLD": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I'd like to know what this town is digging for first, and the man selling maps is the one to ask.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAP SELLER UNHEARD"
         },
         {
           "when": {
@@ -1417,9 +1417,9 @@
             "T_SWINDLED": false,
             "T_TOLD_MONEY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the pie woman, and she looks like she knows where the money goes.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE PIE WOMAN UNHEARD"
         },
         {
           "when": {
@@ -1427,9 +1427,9 @@
             "T_SWINDLED": false,
             "T_TOLD_WHY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the man with the bag. He's been here longer than I have.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAN WITH THE BAG UNHEARD"
         }
       ],
       "walkTo": {
@@ -1480,9 +1480,9 @@
             "T_SWINDLED": false,
             "T_MOTT_TOLD": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I'd like to know what this town is digging for first, and the man selling maps is the one to ask.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAP SELLER UNHEARD"
         },
         {
           "when": {
@@ -1490,9 +1490,9 @@
             "T_SWINDLED": false,
             "T_TOLD_MONEY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the pie woman, and she looks like she knows where the money goes.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE PIE WOMAN UNHEARD"
         },
         {
           "when": {
@@ -1500,9 +1500,9 @@
             "T_SWINDLED": false,
             "T_TOLD_WHY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the man with the bag. He's been here longer than I have.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAN WITH THE BAG UNHEARD"
         }
       ],
       "walkTo": {
@@ -1553,9 +1553,9 @@
             "T_SWINDLED": false,
             "T_MOTT_TOLD": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I'd like to know what this town is digging for first, and the man selling maps is the one to ask.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAP SELLER UNHEARD"
         },
         {
           "when": {
@@ -1563,9 +1563,9 @@
             "T_SWINDLED": false,
             "T_TOLD_MONEY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the pie woman, and she looks like she knows where the money goes.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE PIE WOMAN UNHEARD"
         },
         {
           "when": {
@@ -1573,9 +1573,9 @@
             "T_SWINDLED": false,
             "T_TOLD_WHY": false
           },
-          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "say": "Not yet. I haven't had a word with the man with the bag. He's been here longer than I have.",
           "stays": true,
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS, THE MAN WITH THE BAG UNHEARD"
         }
       ],
       "walkTo": {

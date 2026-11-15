@@ -19,7 +19,7 @@
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "I'm looking for a man named Ezra Pike." | `[PROGRESS]` | *(He puts down what he is holding.)* "Eighteen fifty-two." — *"I'm sorry?"* — "Eighteen fifty-two. He's up the hill." *(again)* "Eighteen fifty-two. He hasn't moved." |
-| 2 | "Up the hill?" | `[PROGRESS]` · after 1 | "Boot Hill. Third row, second from the end. He's got a marker." *(again)* "Third row. Second from the end. Still." → **`T_PIKE_DEAD`**, Boot Hill on the map |
+| 2 | "Up the hill?" | `[PROGRESS]` · after 1 | "Boot Hill. Third row, second from the end. He's got a marker." — *"Six years. My father wrote that letter last spring. He'd have wanted to know."* *(again)* "Third row. Second from the end. Still." → **`T_PIKE_DEAD`**, Boot Hill on the map |
 | 3 | "What did he die of?" | `[TOPIC]` · after 1 | "Nothing interesting." *(again)* "Still nothing interesting. Most of them are." |
 | 4 | "I had a letter for him. From my father." | `[TOPIC]` · after 1 | "You still have a letter for him." *(again)* "Keep it. Paper's dear out here." |
 | 7 | "Everybody in town sent me to you." | `[TOPIC]` · after 2 | "They would." *(beat)* "I'm the one who says it." *(again)* "That's how this town says it. It sends you to me." |
@@ -74,7 +74,7 @@
 | 5 | "You seem cheerful for a man with a poorly sister." | `[COMIC]` · after 3 | "I've made my peace with it." *(beat)* "She hasn't, but she's a long way off." *(again)* "Still a long way off, son. That's the main thing wrong with her." |
 | 9 | "Do you know Ezra Pike?" | `[TOPIC]` · unless `T_PIKE_DEAD` | "Everybody knew Ezra." *(He raises his glass an inch.)* "The undertaker can tell you all about him." *(again)* "Knew him. Past tense's the important bit. Ask the undertaker." |
 | 10 | "You knew Pike was dead." | `[TOPIC]` · when `T_PIKE_DEAD` | "I said 'knew', didn't I? I never say a thing that isn't so." *(again)* "Every word true, son. You'll come to appreciate it." |
-| 6 | "Done! I'll take it." | `[PROGRESS] ✓` · after 4 · ends | *(Thad hands over four dollars and the watch.)* "Pleasure, son. Look after her. She's got character." *(He finishes his drink, collects his hat, and leaves the Nugget.)* → `T_SWINDLED` · **A3** |
+| 6 | "Done! I'll take it." | `[PROGRESS] ✓` · after 4 · ends | *(Thad hands over four dollars and the watch.)* *"It's my father's watch. It runs fast. He set it that way so I'd never be late."* — "Pleasure, son. Look after her. She's got character." *(He finishes his drink, collects his hat, and leaves the Nugget.)* → `T_SWINDLED` · **A3** |
 | 7 | `[EXIT]` "I'll think about it." | | "Course you will." |
 
 *Errata 172, doc 99's rewrite: every question has an asked-again answer (`*(again)*`), and three rows are new. Row 8 is the greedy question doc 99 rule 3 asks every menu to offer, answered, as always, with nothing untrue. Rows 9 and 10 are the town's Pike thread (doc 98), which Vessel cannot lie about either. "Knew" is past tense, and he says so afterwards.*
