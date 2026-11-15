@@ -49,7 +49,7 @@ import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, isRest, waitsForClick } from '../core/SpeechPolicy.ts';
 import { bootsToBeginCard, endingAt, titleItems, titleStampAt, TITLE_STAMPED, type TitleItem } from '../core/Bookends.ts';
 import { roomPose } from '../core/RoomPose.ts';
-import { clearOfFigures, hiddenClick, sameClickAgain, secondExitClick } from '../core/Standing.ts';
+import { clearOfFigures, hiddenClick, sameClickAgain, secondExitClick, touchNames } from '../core/Standing.ts';
 import {
   CYCLING_OPTION,
   MUSIC_OPTION,
@@ -398,6 +398,8 @@ export class GameScene extends Phaser.Scene {
   /** Errata 163: the map's Thad on his way to a place; travel happens when he arrives. */
   /** Where the click that set him walking landed, and what it asked (errata 260): the same click again hurries him. */
   private walkClick: { x: number; y: number; ask: string } | null = null;
+  /** The thing a first tap named (errata 319), so the next tap on it does it. */
+  private touchNamed: string | undefined | null = null;
   /** The way out he is walking to on a first click (errata 256): a second click on it goes at once. */
   private exitWalk: { id: string; room: string; at: { x: number; y: number } } | null = null;
   private mapWalk: { walk: MapWalk; startedAt: number; location: import('../core/types.ts').MapLocation } | null = null;
@@ -1229,6 +1231,17 @@ export class GameScene extends Phaser.Scene {
    * play on the generic men.
    */
   /** The person under a point with a verb selected (AmbientLayer.personAt: the sentence line's and the click's one rule). */
+  /** What a tap at this world point would act on, for naming it first (errata 319): a person, or a thing that is
+   * not a way out and not the ground; undefined where a tap walks. */
+  private touchKey(wx: number, wy: number): string | undefined {
+    const person = this.personAt(wx, wy, null);
+    if (person) return `person:${person.id}`;
+    const under = this.targetUnder(wx, wy);
+    if (!under || (under as Partial<Exit>).to !== undefined) return undefined;
+    if (this.state.verbs.verbFor(under) === this.state.verbs.walkVerbId) return undefined;
+    return `thing:${under.id}`;
+  }
+
   private personAt(wx: number, y: number, verb: string | null): AmbientFile | undefined {
     // Nobody under a paper that fills the frame (RoomFile.actorHiddenWhen.covers).
     if (this.state.roomCovered) return undefined;
@@ -1588,6 +1601,21 @@ export class GameScene extends Phaser.Scene {
     // the street is drawn shifted by the camera and is asked in its own
     // coordinates, so a hotspot is clicked exactly where it is drawn.
     const { x: wx, y: wy } = this.state.toWorldPoint(x, y);
+
+    // A TAP NAMES, A SECOND TAP DOES (errata 319; Tyler, 2026-11-14, testing on his phone: "when I click on an
+    // interactable item, it doesn't say what it is in the bottom menu. It just activates it."). A finger has no hover,
+    // so with no verb chosen the first tap on a thing or a person only names it in the sentence line ("Look at THE
+    // PORTRAIT"); a second tap on the same one does it. The ground and the ways out go at once, as a walk always has.
+    if (pointer.wasTouch && touchNames({
+      chosen: this.state.verbs.selectedVerb !== null || this.state.heldItem !== null,
+      under: this.touchKey(wx, wy), named: this.touchNamed,
+    }) === 'name') {
+      this.touchNamed = this.touchKey(wx, wy);
+      this.onPointerMove(pointer);
+      this.markDirty();
+      return;
+    }
+    this.touchNamed = null;
 
     // HE IS HIDDEN, AND STAYS WHERE HE IS (RoomFile.actorHiddenWhen; errata 239): under the table's cloth nobody
     // walks him about. A verb on a subject is answered from where he is; everything that would move him is not.

@@ -86,3 +86,15 @@ Two did not:
 - **Pratt, "There's a raccoon in my hole. Would you get him out?"** The same gate.
 
 The rest hold. The clerk's "Your piano is out of tune" stands: Thad has the ear, and the parlour piano's own LISTEN says every string answers a passing cart. The fifth item, a read for lines built to sound like sayings when no such saying exists (the driver's hat), found none.
+
+## A TAP NAMES, A SECOND TAP DOES
+
+*Tyler, 2026-11-14, testing on his phone: "Now when I click on an interactable item, it doesn't say what it is in the bottom menu. It just activates it." Errata 319.*
+
+A finger has no hover, so the sentence line never got to say what a tap would do. Now, with no verb chosen and nothing held, the first tap on a thing or a person only names it ("Look at THE PORTRAIT"). The second tap on the same one does it. The ground and the ways out go at once, as a walk always has, and a chosen verb acts at once. With a mouse or a trackpad, nothing changes: pointing names a thing and one click does it. And with nothing under the pointer, the line now reads "Walk to", not "Look at".
+
+## THE CLARION'S PHOTOGRAPH
+
+*Tyler: "Thad talks about Mr. Sheng in the printing press room before visiting Sheng the first time."*
+
+Doc 05's LOOK at the Clarion's photograph of Mott said he had seen it in Mr. Sheng's window, true only after the laundry. It now says only what the Clarion shows: "The only known likeness of Obadiah Mott. It has the look of a photograph that has done other work." The laundry's own collar advertisement makes the connection when he gets there. The line had also been cut in two after "Mr.", as "…in Mr." and "Sheng's window…". The compiler no longer cuts a line after a title.

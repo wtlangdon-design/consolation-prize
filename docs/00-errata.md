@@ -8048,3 +8048,16 @@ Lesson:
 - `tests/what-opens.test.mjs`: every item doc 133 lists answers OPEN with its own line, word for word.
 - `tests/interface.test.ts`: the zone check looks along a region's own row when a carved thing sits at its centre.
 
+## 319 · From the playthrough, on a phone: a tap names, the ground walks, the Clarion's photograph, the notice board (Tyler, 2026-11-14)
+
+- **A tap names, a second tap does** (doc 133). With no verb chosen, a first tap on a thing or a person names it in the sentence line, and the second tap on it acts (`touchNames`, engine/core/Standing.ts; GameScene). The ground and the ways out go at once. A mouse is unchanged.
+- **The ground reads "Walk to".** With no verb chosen and nothing under the pointer, `verbFor` gave the verbs file's default, so the sentence line read "Look at" over empty floor.
+- **The Clarion's photograph.** "I have seen this exact photograph in Mr. Sheng's window" was said before the laundry, and the compiler had cut it after "Mr.". The line is rewritten (doc 05), and `splitUtterance` never cuts after a title.
+- **The notice board.** Thad stood with his boots at the posts' feet, on its face. It is an obstacle on both streets now: its face and posts as drawn, and ten rows of mud in front, carved with his reach.
+- **The horses** are scenery: no document has written them a LOOK or a LISTEN (content/ambient/hitching-horses.json). Not changed.
+
+Lesson:
+- `tests/touch-names.test.ts`: a first tap names and the second acts; the ground and a chosen verb act at once; nothing under the pointer reads as a walk.
+- `tests/no-cut-titles.test.mjs`: no line the game shows ends on a title.
+- `tests/feet-clear.test.ts` picks up the notice board, as it does every obstacle.
+
