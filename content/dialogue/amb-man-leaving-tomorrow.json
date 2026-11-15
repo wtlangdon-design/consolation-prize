@@ -86,6 +86,26 @@
           "afterUse": "remove"
         },
         {
+          "id": "leavingc",
+          "text": "How does a man stake a claim here?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Buys one off a man who's leaving. Digs. Then he's the man who's leaving."
+            },
+            {
+              "speaker": "thad",
+              "line": "And if he finds something?"
+            },
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Takes it to the assay office. Miss Ledger tests it and tells him it's mud. She's never once been wrong. That's the worst of her."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
           "id": "leaving4",
           "text": "Do you know Ezra Pike?",
           "tag": "TOPIC",
