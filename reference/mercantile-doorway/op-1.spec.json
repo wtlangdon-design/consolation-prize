@@ -1,0 +1,16 @@
+{
+ "assetId": "mercantile-doorway",
+ "subject": "room-12-mercantile-doorway",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-12-mercantile",
+ "promptFile": "reference/mercantile-doorway/op-1.txt",
+ "out": "art/staging/mercantile-doorway/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/mercantile-doorway/input.png",
+  "art/staging/mercantile-doorway/main-street-west-end.png"
+ ],
+ "mask": "art/staging/mercantile-doorway/mask.png",
+ "derivedFrom": "art/backgrounds/room-12-mercantile.png"
+}
