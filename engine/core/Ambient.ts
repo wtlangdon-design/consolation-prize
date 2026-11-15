@@ -104,6 +104,9 @@ export function breakAt(clock: number, every: number, phase: number, lengths: re
  * played, 2026-11-09: three times). Whichever comes second inside `within` seconds is not shown; a different line, or
  * the same one later, is.
  */
+/** How far nearer than a thing's base a person's feet must stand to be in front of it, in room pixels (errata 330). */
+const IN_FRONT = 10;
+
 export class SaidLately {
   private readonly last = new Map<string, { line: string; at: number }>();
 
@@ -534,8 +537,20 @@ export class AmbientLayer {
     if (object && verb === 'TALK_TO' && !npc.tree
       && (object.responses?.TALK_TO?.length || object.overrides?.TALK_TO)) return undefined;
     if (!object || verb === 'TALK_TO') return npc;
+    const [, oy, ow, oh] = this.state.presentation(object)?.bounds ?? object.rect;
+    // A person with lines of his own here (the Nugget's pianist, errata 330), drawn in front of the thing, is what
+    // the pointer is on, though he has no conversation.
+    const answers = Boolean(npc.tree || this.state.room.peopleResponses?.[npc.id]);
+    const carriesEarly = (this.state.content.verbs.carryVerbs ?? []).includes(verb ?? '');
+    if (answers && !carriesEarly && npc.y > oy + oh + IN_FRONT) return npc;
     if (!npc.tree) return undefined;
-    const [, , ow, oh] = this.state.presentation(object)?.bounds ?? object.rect;
+    // A PERSON DRAWN IN FRONT OF A THING IS WHAT THE POINTER IS ON (errata 330; Tyler, 2026-11-15: "Most spots you
+    // point at the Fiddler don't register as being able to interact with the Fiddler. Only when you point at his
+    // legs."). The piano's hotspot stands behind his head and his fiddle, and, being a little smaller than his box,
+    // took them. A figure whose feet stand nearer than the thing's own base is in front of it, and wins.
+    // Not for a verb that carries an item (USE, GIVE): that goes where the thing it is for is (A8), as before.
+    const carries = (this.state.content.verbs.carryVerbs ?? []).includes(verb ?? '');
+    if (!carries && npc.y > oy + oh + IN_FRONT) return npc;
     const [, , pw, ph] = this.hitBox(npc);
     return ow * oh > pw * ph ? npc : undefined;
   }
@@ -557,9 +572,13 @@ export class AmbientLayer {
     const under = this.npcAt(wx, y);
     if (!under) return undefined;
     const room = this.state.room.id;
-    const paired = (this.state.content.combinations?.pairs ?? [])
-      .some((pair) => pair.item === item && pair.room === room && pair.target === under.id);
+    const pairs = this.state.content.combinations?.pairs ?? [];
+    const paired = pairs.some((pair) => pair.item === item && pair.room === room && pair.target === under.id);
     if (paired) return under;
+    // AND A THING THE ITEM IS FOR, BEHIND A PERSON WHO STANDS IN FRONT OF IT (errata 330): the tuning fork on the
+    // piano, through the fiddler, is still the fork on the piano (A8), now that a person in front wins the pointer.
+    const object = this.state.targetAt(wx, y);
+    if (object && pairs.some((pair) => pair.item === item && pair.room === room && pair.target === object.id)) return undefined;
     return this.personAt(wx, y, verb)?.id === under.id ? under : undefined;
   }
 

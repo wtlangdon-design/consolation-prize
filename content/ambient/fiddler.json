@@ -3,7 +3,7 @@
  "id": "fiddler",
  "name": "THE FIDDLER",
  "posture": "standing",
- "faces": "front",
+ "faces": "left",
  "note": "Doc 07 #11. 'The Nugget. Tuned to the flat piano, therefore flat. Corrects first in Act IV.' He stands by the piano with his fiddle. HIS BARKS ARE ALL PLAYING (doc 07: 'mostly just playing'): none is a spoken line, so his file has none, and what doc 07 writes for R_BORDERS_MOTT, R_DEAD and R_TRUTH is music: his `barkCues` and Room 33's R33-FIDDLER (errata 116). While he is in the room the Nugget's music carries his fiddle (manifest, `whenPresent`). Doc 22: he idles in time with the bar grid.",
  "room": "nugget",
  "x": 600,
@@ -12,9 +12,9 @@
  "approachRadius": 40,
  "tree": "amb_fiddler",
  "walkTo": {
-  "x": 760,
-  "y": 640,
-  "facing": "left"
+  "x": 480,
+  "y": 610,
+  "facing": "right"
  },
  "barks": {},
  "barksNote": "Doc 07 §11 writes him three barks and all three are playing, not words, so he has no balloon. Two are `barkCues`, played on approach as a bark is: R_BORDERS_MOTT, 'something faster'; R_DEAD, 'the passing tune'. The third, R_TRUTH, happens in F2 wherever Thad is, and is Room 33's (R33-FIDDLER on the tuning arc's clock). Errata 116.",
@@ -92,5 +92,7 @@
  "barkCues": {
   "R_BORDERS_MOTT": "FID-FASTER",
   "R_DEAD": "FID-PASSING"
- }
+ },
+ "walkToNote": "Errata 330 (Tyler, 2026-11-15: \"Thad is on the opposite side of the side that the Fiddler talks to. The Fiddler talks to the left and Thad stands on his right.\"). He is drawn turned to our left (he was marked front, by eye, in errata 321, wrongly), so a conversation stands at his left, facing him. Was 760,640, at his right.",
+ "facesRuledBy": "Tyler, 2026-11-15: \"The Fiddler talks to the left.\" The skin measure reads him 0.4, front: his face is half behind the fiddle under his chin."
 }

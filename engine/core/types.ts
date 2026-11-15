@@ -126,6 +126,13 @@ export interface ResponseRule {
    * fastest way to make a room feel like a menu.
    */
   repeat?: string[];
+  /**
+   * READ AGAIN, EVERY TIME (errata 330; Tyler, 2026-11-15, of the Nugget's handbill: "a player should be able to
+   * click through all the rules again if they want to later"). A thing that is read, not just looked at: every
+   * selection says `say` and all of `then` again, a screen at a time, and a repeat variant, if any, follows as the
+   * last screen from the second look on, so Thad's comments still rotate.
+   */
+  readsAgain?: boolean;
   set?: FlagWrites;
   add?: FlagAdds;
   dialogue?: string;
@@ -183,6 +190,12 @@ export interface Interactable {
    * click on this. Room 1's lamp, carried by Hob, who has no rect of his own.
    */
   heldBy?: string;
+  /**
+   * WHY HE STANDS IN FRONT OF IT TO LOOK (errata 330). By default he examines a thing from beside it, so the player
+   * can see what he describes (engine/core/LookAside.ts). A thing that names a reason here keeps the stand it has:
+   * the Nugget's mirror, where he must stand facing it to see himself in it.
+   */
+  inFrontWhy?: string;
   /**
    * WHAT THAT TARGET NEEDS IN HAND to be there at all, by item id: true, held;
    * false, not held. Doc 57 A4: "Room 22 offers the way to it, only while Thad
@@ -618,6 +631,11 @@ export interface AmbientFile {
    * `walkTo`; he turns to face her on arrival either way.
    */
   walkTo?: { x: number; y: number; facing?: Facing };
+  /**
+   * WHERE HE STANDS IN PARTICULAR STATES (errata 330): the first entry whose condition holds is the stand, over
+   * `walkTo`. The one-strike man is talked to from his left once Deke, who stands there, has gone.
+   */
+  walkToWhen?: { when: Condition; walkTo: { x: number; y: number; facing?: Facing } }[];
   /**
    * Where the figure must look, held to its rest frame by tests/faces.test.mjs. Also, since errata 304, the side a
    * conversation with no authored stand stands on: in front of the face. "front", or absent, and he stands on the

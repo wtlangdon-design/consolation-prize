@@ -378,10 +378,14 @@ export class VerbSystem {
       const seen = this.repeatCursor.get(`${scope}/${target.id}#${index}:${verbId}`) ?? 0;
       const first = seen === 0;
       const written = [matched.say, ...(matched.repeat ?? [])].filter((line) => typeof line === 'string').length;
+      // A thing that is read is read again (`readsAgain`): the same screens every time, and from the second look a
+      // repeat variant as the last screen. The cursor still advances, so the variants still rotate.
+      const said = this.nextLine(`${scope}/${target.id}#${index}`, verbId, matched);
+      const comment = matched.repeat?.length && !first ? matched.repeat[Math.min(seen - 1, matched.repeat.length - 1)] : undefined;
       return {
         ...(written ? { variant: Math.min(seen, written - 1) + 1 } : {}),
-        say: this.nextLine(`${scope}/${target.id}#${index}`, verbId, matched),
-        then: first ? matched.then : undefined,
+        say: matched.readsAgain ? (matched.say ?? said) : said,
+        then: matched.readsAgain ? [...(matched.then ?? []), ...(comment ? [comment] : [])] : first ? matched.then : undefined,
         ...(first && matched.holds ? { holds: { clip: matched.holds.clip, frames: matched.holds.frames } } : {}),
         ...(matched.by ? { by: matched.by } : {}),
         // `direction` describes `say`, the first of the written lines, and not its repeats (doc 110: the

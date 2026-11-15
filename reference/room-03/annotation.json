@@ -187,11 +187,15 @@
   {
    "from": "nugget_back",
    "at": [
-    870,
-    590
+    1050,
+    600
    ],
    "facing": "right",
-   "note": "Back out of the back room, on the floor in front of the bar's near end (floor_1), LEFT of where Deke Vessel stands (at 1035,815 since 2026-11-01 his figure spans x 937-1133, nearer the camera): at 930 Thad arrived half behind him, and at the door's own x wholly. Room 4, errata 76 B; moved 2026-11-01."
+   "note": "Back out of the back room, on the floor in front of the bar's near end (floor_1), LEFT of where Deke Vessel stands (at 1035,815 since 2026-11-01 his figure spans x 937-1133, nearer the camera): at 930 Thad arrived half behind him, and at the door's own x wholly. Room 4, errata 76 B; moved 2026-11-01. Errata 330: moved from 870,590, which stood on the card sharp once a figure painted into the plate counted as a body (tests/staging-clear.test.ts); 1050,600 is under the back-room door, between him and the one-strike man.",
+   "when": {
+    "T_SWINDLED": true
+   },
+   "whenNote": "When this entrance can be used at all: the back room's door refuses him through Act I (errata 318), and Deke, who stands under it, has left at the swindle (A3), before Act II. Read by tests/staging-clear.test.ts; the engine does not need it."
   },
   {
    "from": "default",
@@ -248,6 +252,17 @@
    "keepsGroundAbove": true,
    "note": "The whiskey barrel's footprint at its base, as drawn: 817-962 at 890,812. With `reach` the compiler carves his boots past it each side (his feet reach 29 px left and 43 px right of his centre at this depth, tools/gauntlet/barrel-proof.mjs; errata 318). keepsGroundAbove so the floor behind it stays walkable and he can pass behind it, where it covers his legs.",
    "reach": true
+  },
+  {
+   "id": "fiddler",
+   "rect": [
+    574,
+    586,
+    52,
+    14
+   ],
+   "reach": true,
+   "note": "Errata 330 (Tyler, 2026-11-15: \"Thad is currently able to walk on top of the Fiddler when he walks across the room\"). His boots, as drawn, at 600,600: carved with `reach` so Thad's boots pass round them, as the stool's and the spittoon's are. He never leaves this spot."
   }
  ],
  "provisional": {
@@ -567,5 +582,50 @@
    }
   ]
  },
- "exitTransitScenesNote": "Errata 318, doc 133: the back room is somebody else's in Act I; the door refuses him, once he has arrived by the road, until Act II, when it is the Assay's room and holds the chalk."
+ "exitTransitScenesNote": "Errata 318, doc 133: the back room is somebody else's in Act I; the door refuses him, once he has arrived by the road, until Act II, when it is the Assay's room and holds the chalk.",
+ "readsAsScreens": {
+  "handbill": "Errata 330 (Tyler, 2026-11-15: \"the first screen had way too much to read and I couldn't read it all before it went away. Can we do each rule of the assay on its own screen? And a player should be able to click through all the rules again if they want to later.\")"
+ },
+ "hotspotWalkTo": {
+  "mirror": {
+   "x": 1610,
+   "y": 826,
+   "facing": "back"
+  }
+ },
+ "inFront": {
+  "mirror": "Errata 330 (Tyler, 2026-11-15: \"Thad doesn't stand in a location where he could actually see his reflection when he talks about seeing his reflection.\"). Every LOOK at the mirror is about his reflection, so he stands at the bar in front of it, facing it, his head below its lower edge, so the mirror stays in view."
+ },
+ "peopleExamine": {
+  "nugget_pianist": "docs/133-playthrough-rulings.md::### THE PIANIST"
+ },
+ "docBullets": [
+  {
+   "person": "nugget_pianist",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::### THE PIANIST",
+   "head": "**THE TRIES**",
+   "bullet": "- TALK TO"
+  },
+  {
+   "person": "nugget_pianist",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::### THE PIANIST",
+   "head": "**THE TRIES**",
+   "bullet": "- PICK UP"
+  },
+  {
+   "person": "nugget_pianist",
+   "verbs": [
+    "PUSH"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::### THE PIANIST",
+   "head": "**THE TRIES**",
+   "bullet": "- PUSH"
+  }
+ ]
 }

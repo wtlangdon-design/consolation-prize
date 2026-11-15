@@ -1405,7 +1405,7 @@ bark budget, not here.
 > **LISTEN:** "Talk, all at the same volume. I came up once, between a mule and the price of flour."
 
 **THE PATRONS** *(act: 4)*
-> **LOOK:** "Nine men drinking to Mott's strike, up at seven to dig for it. I could tell them. I'm not sure who that would help."
+> **LOOK:** "Men drinking to Mott's strike, who'll be up at dawn to dig for it. I could tell them. I'm not sure who that would help."
 
 ## ROOM 5 — ASSAY OFFICE, FRONT
 

@@ -50,6 +50,7 @@ import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, isRest, waitsForClick } from '../core/SpeechPolicy.ts';
 import { bootsToBeginCard, endingAt, titleItems, titleStampAt, TITLE_STAMPED, type TitleItem } from '../core/Bookends.ts';
 import { roomPose } from '../core/RoomPose.ts';
+import { besides, inTheWay } from '../core/LookAside.ts';
 import { clearOfFigures, hiddenClick, sameClickAgain, secondExitClick, touchNames } from '../core/Standing.ts';
 import {
   CYCLING_OPTION,
@@ -99,6 +100,9 @@ const HURRY_WITHIN = 48;
 
 /** The top of the play area that raises a zoomed room's view to its rooftops while pointed at (errata 312). */
 const LOOK_UP_BAND = 0.12;
+
+/** How far to one side a person must be for Thad to turn side-on to talk to them, in room pixels (errata 330). */
+const SIDE_ON = 24;
 
 export class GameScene extends Phaser.Scene {
   private state!: GameState;
@@ -888,7 +892,10 @@ export class GameScene extends Phaser.Scene {
       // Nothing a bystander had to say is consumed: he says it next time.
       const going = this.pendingTree;
       const host = going?.npc ? this.ambient.present.find((each) => each.id === going.npc) : undefined;
-      const fired = this.cut !== null ? null
+      // AND A WALK TO LOOK AT SOMETHING (errata 330; Tyler, 2026-11-15: "'You've already been dealt to today.' was
+      // placed on top of Thad's dialogue when he's looking at the bar patrons"): a walk that ends in Thad speaking
+      // hears nobody in passing either. The line is kept for his next walk past.
+      const fired = this.cut !== null || (this.sequence.isRunning && !going) ? null
         : !going ? this.ambient.checkApproach(this.actor.x, this.actor.y)
         : host && !host.greetsWithBark ? this.ambient.checkApproach(this.actor.x, this.actor.y, host.id)
           : null;
@@ -920,9 +927,16 @@ export class GameScene extends Phaser.Scene {
         // `facing` is the authored answer, honoured when he is standing on it.
         const talker = this.pendingTree.npc
           ? this.ambient.present.find((each) => each.id === this.pendingTree?.npc) : undefined;
-        const declared = talker?.walkTo;
+        const declared = talker ? this.standOf(talker) : undefined;
         if (declared?.facing && Math.abs(this.actor.x - declared.x) < 8 && Math.abs(this.actor.y - declared.y) < 8) {
           this.actor.setFacing(declared.facing);
+        } else if (Math.abs(at.x - this.actor.x) >= SIDE_ON) {
+          // SIDE ON TO WHOEVER HE TALKS TO (errata 330; Tyler, 2026-11-15, of the one-strike man: "It's awkward for
+          // him to stand here with his back to the game player while he talks to him"). Turning by the larger axis
+          // gave his back to the room whenever the person sat higher up the screen than he stood to one side. A
+          // conversation turns him left or right, toward them; only someone straight above or below him is faced
+          // that way.
+          this.actor.setFacing(at.x < this.actor.x ? 'left' : 'right');
         } else {
           this.actor.faceToward(at.x, at.y);
         }
@@ -1683,7 +1697,7 @@ export class GameScene extends Phaser.Scene {
       const pair = this.state.evidencePairFor(held, person.id, chosen);
       if (pair && pair.opens === person.tree) {
         const npc = person;
-        const stand = npc.walkTo ?? { x: npc.x, y: npc.y };
+        const stand = this.standOf(npc) ?? { x: npc.x, y: npc.y };
         this.pendingTree = {
           tree: pair.opens, at: { x: npc.x, y: npc.y }, greeted: false,
           evidence: { pair, beatUntil: null, committed: false },
@@ -1783,7 +1797,7 @@ export class GameScene extends Phaser.Scene {
     // talks. He stops at a conversational distance, as for a conversation, and nothing opens.
     if (npc && chosen === null && this.state.verbs.bareClickWalks) {
       const gap = Math.round(this.state.heightForZone(npc.zone) * 0.66);
-      const stand = npc.walkTo ?? { x: npc.x + this.talkSide(npc) * gap, y: npc.y };
+      const stand = this.standOf(npc) ?? { x: npc.x + this.talkSide(npc) * gap, y: npc.y };
       // Walked as a conversation's approach is (below): to the stand, in the room's coordinates.
       this.actor.walkTo(stand.x, stand.y);
       this.markDirty();
@@ -1803,7 +1817,7 @@ export class GameScene extends Phaser.Scene {
       // her baseline is not floor, the walk snapped to the counter's base
       // line, and Thad loomed over her ledger. Her file declares where a
       // conversation with her stands.
-      const stand = npc.walkTo ?? { x: from, y: npc.y };
+      const stand = this.standOf(npc) ?? { x: from, y: npc.y };
       this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id };
       // THE VERB IS SPENT. Errata 28b: a verb used on a thing resets. Every
       // other path resets through GameState.interact; this one never reached
@@ -1870,7 +1884,7 @@ export class GameScene extends Phaser.Scene {
     }
     // A stand that holds only in some states (Interactable.walkToWhen): outside them he answers from where he is.
     const declared = target.walkTo && this.state.flags.test(target.walkToWhen) ? target.walkTo : undefined;
-    const staging = declared ?? (target.walkTo ? null : this.approachPoint(target, verb));
+    const staging = this.besideIt(target, verb, declared ?? (target.walkTo ? null : this.approachPoint(target, verb)));
     if (!staging) {
       this.faceTarget(target);
       this.applyInteraction(target, verb);
@@ -1957,6 +1971,36 @@ export class GameScene extends Phaser.Scene {
     // Not on whoever is standing there: the lamp is in Hob's hand (errata 129).
     const stand = this.clearOfStanding(floor);
     return { x: stand.x, y: stand.y, facing: this.actor.facingToward(nearX, nearY) };
+  }
+
+  /**
+   * BESIDE WHAT HE EXAMINES, NOT IN FRONT OF IT (errata 330; engine/core/LookAside.ts). For LOOK AT and LISTEN TO,
+   * if the stand he was given (or the spot he is on, when he need not walk) would hide the thing from the player, he
+   * stands just clear of its nearer side instead, on floor he can reach, facing it. A person is not moved: a
+   * conversation's side is talkSide's. A thing that says why he must stand in front (`inFrontWhy`) keeps its stand.
+   */
+  private besideIt(target: Interactable, verb: string, staging: { x: number; y: number; facing: Facing } | null):
+      { x: number; y: number; facing: Facing } | null {
+    if (!(this.state.content.verbs.examineVerbs ?? []).includes(verb) || target.inFrontWhy) return staging;
+    if ((target as { kind?: string }).kind === 'npc' || target.heldBy) return staging;
+    const at = staging ?? { x: this.actor.x, y: this.actor.y };
+    const height = this.state.actorHeightAt(at.x, at.y) ?? this.actor.height;
+    if (!inTheWay(at, height, target.rect)) return staging;
+    const [rx, ry, rw, rh] = target.rect;
+    for (const want of besides(at, height, target.rect, { x: this.actor.x, y: this.actor.y })) {
+      const floor = this.state.nearestFloor(want.x, want.y);
+      if (!floor) continue;
+      const stand = this.clearOfStanding(floor);
+      const tall = this.state.actorHeightAt(stand.x, stand.y) ?? height;
+      if (inTheWay(stand, tall, target.rect)) continue;
+      return { x: stand.x, y: stand.y, facing: this.actor.facingToward(rx + rw / 2, ry + rh / 2) };
+    }
+    return staging;
+  }
+
+  /** Where a conversation with this person stands now: the first `walkToWhen` that holds, else `walkTo` (errata 330). */
+  private standOf(npc: AmbientFile): AmbientFile['walkTo'] {
+    return npc.walkToWhen?.find((one) => this.state.flags.test(one.when))?.walkTo ?? npc.walkTo;
   }
 
   /**
@@ -2564,7 +2608,7 @@ export class GameScene extends Phaser.Scene {
       // `approach`: he walks to the caller's stand first; the tree opens on arrival.
       if (seat) {
         this.actor.walkTo(seat.x, seat.y);
-      } else if (accost.approach && npc.walkTo) this.actor.walkTo(npc.walkTo.x, npc.walkTo.y);
+      } else if (accost.approach && this.standOf(npc)) this.actor.walkTo(this.standOf(npc)!.x, this.standOf(npc)!.y);
       this.markDirty();
     });
   }

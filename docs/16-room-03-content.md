@@ -10,7 +10,7 @@
 # PART ONE — NEWLY WRITTEN HOTSPOTS
 
 ## THE STAIRS
-**LOOK** 1 "Stairs, up to rooms I haven't been invited to. There's a man on the landing. There is always a man on the landing." · 2 "He hasn't moved. I'm starting to think he isn't waiting for anything. He came with the stairs." · 3 "Eleven steps. I've counted them from down here, which is as far up as I've got. So far."
+**LOOK** 1 "Stairs, up to rooms I haven't been invited to. I'd go up, but I'd rather be asked." · 2 "I've decided the rooms up there are very fine. I've had to decide it from down here." · 3 "Eleven steps. I've counted them from down here, which is as far up as I've got. So far."
 **LISTEN** 1 "Boards, overhead. Somebody pacing a room about the size of mine." · 2 "Four steps, turn. Four steps, turn. Definitely the size of mine." · 3 "He's stopped. Somehow that's worse."
 
 ## THE FADED PORTRAIT
@@ -30,7 +30,7 @@
 **LISTEN** 1 "The street, muffled. Two men arguing about a boundary." · 2 "The boundary again. Neither of them has given an inch." · 3 "The stage is in. Four days from Sacramento, and eleven new men who think they're early."
 
 ## THE PATRONS
-**LOOK** 1 "Nine men drinking after dark. Every one of them was at his claim by seven this morning, and will be again by seven tomorrow. This is the bit in between." · 2 "The same nine. I can tell them apart now. I don't think that's good news for me." · 3 "They're talking about where the gold is. They've been talking about where the gold is for twelve years. Nobody has gone and got it."
+**LOOK** 1 "A table of men at cards, drinking like they've earned it. From the mud on their boots, I'd say they have." · 2 "Still the same game. Nobody seems to be winning, which in a card game is a kind of miracle." · 3 "Every so often one of them looks over at me, decides I'm not news, and looks back at his cards. I'd like to be news."
 **LISTEN** 1 "Talk. Lots of it, all at the same volume, none of it listened to." · 2 "A man in the corner has told the same story four times. It's grown twice. There's a bear in it now." · 3 "The word 'Mott' comes up about once a minute. I've timed it. It's once a minute."
 
 ## THE HAND OF CARDS *(new)*

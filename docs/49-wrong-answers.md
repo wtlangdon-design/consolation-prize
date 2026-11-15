@@ -58,7 +58,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 *New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
 **THE MIRROR** · USE — "I check my teeth. All present. In this room that is worth a toast, and somebody is already proposing one."
 **THE WINDOW** · OPEN — "Swollen shut. The street stays out there, and the smell of the Nugget stays in here, and both seem to prefer it."
-**THE PATRONS** · PUSH — "Nine men who swing a pick for a living. I am going to push none of them, in any order."
+**THE PATRONS** · PUSH — "Men who swing a pick for a living. I am going to push none of them, in any order."
 
 ## ROOM 5 — ASSAY OFFICE, FRONT
 

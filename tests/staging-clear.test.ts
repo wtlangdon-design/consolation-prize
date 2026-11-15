@@ -149,13 +149,28 @@ for (const roomId of built) {
       .filter((_, index) => !actedOnlyOutside.has(index) || idle.has(index))
       .map((frame) => maskOf(one.sprite.sheet, frame as [number, number, number, number], scale, one.x,
         one.y + drawnBelowFeet(frame[3], Math.max(1, Math.round(frame[3] * scale)), one.sprite.footRow)));
+    // A PERSON PAINTED INTO THE PLATE (posture `identity`) IS STILL A PERSON (errata 330; Tyler, 2026-11-15: "He's
+    // standing directly in front of the card sharp while talking to him, so you can't see who he's talking to. that
+    // should NEVVEERRR happen in this game, ever."). His sheet is transparent, so his drawn pixels were none and the
+    // player could cover him entirely. His box, his frame's size at his place, is his body here.
+    if (one.posture === 'identity') {
+      const [, , fw, fh] = one.sprite.frames[0] as [number, number, number, number];
+      const w = Math.round(fw * scale); const h = Math.round(fh * scale);
+      masks.splice(0, masks.length, { x0: Math.round(one.x - w / 2), y0: Math.round(one.y - h), w, h, on: new Uint8Array(w * h).fill(1) });
+    }
     return { ...one, masks };
   });
   const most = (a: Mask[], b: Mask[]) => Math.max(...a.flatMap((ma) => b.map((mb) => shared(ma, mb) / Math.max(1, Math.min(area(ma), area(mb))))));
 
   test(`${roomId}: wherever the player stands to talk, he stands on nobody`, () => {
     const faults: string[] = [];
-    for (const talker of people.filter((one) => one.npc.tree && one.walkTo)) {
+    // EVERY STAND, IN ITS OWN STATE (errata 330): a stand that holds only in some states (`walkToWhen`) is checked
+    // against the figures present then, so the one-strike man's left, where Deke stands, is clear once Deke has gone.
+    const stands = people.flatMap((one) => [
+      ...(one.walkTo ? [{ ...one, walkTo: one.walkTo }] : []),
+      ...((one.npc.walkToWhen ?? []).map((v) => ({ ...one, walkTo: v.walkTo, when: { ...(one.when ?? {}), ...(v.when ?? {}) } }))),
+    ]);
+    for (const talker of stands.filter((one) => one.npc.tree)) {
       const stand = talker.walkTo!;
       const height = man(stand.x, stand.y);
       const image = sheet(playerStand);
@@ -268,7 +283,7 @@ for (const roomId of built) {
     // WHERE HE WALKS TO ON ARRIVING IS WHERE HE COMES IN, TOO (Tyler, 2026-11-07, Main Street: "When Thad enters
     // this room for the first time from room 1, he lands on the newspaper guy"). The entrance at the street's edge
     // was clear; the room's onEnter then walked him to 3300,706, thirty pixels from the map seller's feet.
-    const arrivals = [...(room.entrances ?? []) as { from: string; at: [number, number]; facing?: string }[]];
+    const arrivals = [...(room.entrances ?? []) as { from: string; at: [number, number]; facing?: string; when?: Record<string, unknown> }[]];
     const walkIn = (room.onEnter as { walkTo?: [number, number] } | undefined)?.walkTo;
     if (walkIn) arrivals.push({ from: 'the walk in on arriving', at: walkIn, facing: 'left' });
     for (const entrance of arrivals) {
@@ -279,6 +294,8 @@ for (const roomId of built) {
       const body = maskOf(playerStand, [0, playerBox.top, image.width, playerBox.bottom - playerBox.top + 1], scale, x, y, entrance.facing === 'left');
       for (const other of people) {
         if (other.posture === 'band' || other.posture === 'animal') continue;
+        // An entrance used only in some states (its `when`, errata 330) meets only who is there then.
+        if (entrance.when && !coexist(entrance.when as never, other.when)) continue;
         const share = most([body], other.masks);
         if (share > TOUCH) faults.push(`coming in from ${entrance.from} at ${x},${y}, the player overlaps ${other.npc.id} by ${(share * 100).toFixed(0)}%`);
       }

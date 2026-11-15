@@ -156,11 +156,19 @@
         ],
         "LOOK_AT": [
           {
-            "say": "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic.",
+            "say": "RULES OF THE ASSAY.",
             "repeat": [
               "Rule five forbids arithmetic. There's a story behind that, and I'd pay good money to hear it, if I could count it out.",
               "Rule four: you may appeal the judges' decision to the same judges. Somebody thought that through, and nailed it up anyway."
-            ]
+            ],
+            "then": [
+              "One: a man may not be interrupted in his account.",
+              "Two: a man's account may be doubted only by a better one.",
+              "Three: truth is admissible but has never been raised.",
+              "Four: the judges' decision is final and may be appealed to the same judges.",
+              "Five: no firearms, no knives, no arithmetic."
+            ],
+            "readsAgain": true
           }
         ]
       },
@@ -372,7 +380,7 @@
       },
       "walkTo": {
         "x": 620,
-        "y": 634,
+        "y": 694,
         "facing": "back"
       }
     },
@@ -473,13 +481,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Stairs, up to rooms I haven't been invited to. There's a man on the landing.",
+            "say": "Stairs, up to rooms I haven't been invited to. I'd go up, but I'd rather be asked.",
             "repeat": [
-              "He hasn't moved. I'm starting to think he isn't waiting for anything. He came with the stairs.",
+              "I've decided the rooms up there are very fine. I've had to decide it from down here.",
               "Eleven steps. I've counted them from down here, which is as far up as I've got. So far."
-            ],
-            "then": [
-              "There is always a man on the landing."
             ]
           }
         ],
@@ -522,13 +527,16 @@
                 "atMost": 4
               }
             },
-            "say": "Nine men drinking to Mott's strike, up at seven to dig for it. I could tell them. I'm not sure who that would help."
+            "say": "Men drinking to Mott's strike, who'll be up at dawn to dig for it. I could tell them. I'm not sure who that would help."
           },
           {
-            "say": "Nine men drinking after dark. Every one of them was at his claim by seven this morning, and will be again by seven tomorrow. This is the bit in between.",
+            "say": "A table of men at cards, drinking like they've earned it.",
             "repeat": [
-              "The same nine. I can tell them apart now. I don't think that's good news for me.",
-              "They're talking about where the gold is. They've been talking about where the gold is for twelve years. Nobody has gone and got it."
+              "Still the same game. Nobody seems to be winning, which in a card game is a kind of miracle.",
+              "Every so often one of them looks over at me, decides I'm not news, and looks back at his cards. I'd like to be news."
+            ],
+            "then": [
+              "From the mud on their boots, I'd say they have."
             ]
           }
         ],
@@ -553,7 +561,7 @@
       },
       "overrides": {
         "TALK_TO": "I've tried. They're very friendly. They want to know what I know. I know nothing, and it disappoints them fresh every time.",
-        "PUSH": "Nine men who swing a pick for a living. I am going to push none of them, in any order."
+        "PUSH": "Men who swing a pick for a living. I am going to push none of them, in any order."
       },
       "walkTo": {
         "x": 873,
@@ -572,6 +580,7 @@
       ],
       "colour": 186,
       "defaultVerb": "LOOK_AT",
+      "inFrontWhy": "Errata 330 (Tyler, 2026-11-15: \"Thad doesn't stand in a location where he could actually see his reflection when he talks about seeing his reflection.\"). Every LOOK at the mirror is about his reflection, so he stands at the bar in front of it, facing it, his head below its lower edge, so the mirror stays in view.",
       "responses": {
         "LOOK_AT": [
           {
@@ -617,8 +626,8 @@
         "USE": "I check my teeth. All present. In this room that is worth a toast, and somebody is already proposing one."
       },
       "walkTo": {
-        "x": 1475,
-        "y": 864,
+        "x": 1610,
+        "y": 826,
         "facing": "back"
       }
     },
@@ -786,11 +795,15 @@
     {
       "from": "nugget_back",
       "at": [
-        870,
-        590
+        1050,
+        600
       ],
       "facing": "right",
-      "note": "Back out of the back room, on the floor in front of the bar's near end (floor_1), LEFT of where Deke Vessel stands (at 1035,815 since 2026-11-01 his figure spans x 937-1133, nearer the camera): at 930 Thad arrived half behind him, and at the door's own x wholly. Room 4, errata 76 B; moved 2026-11-01."
+      "note": "Back out of the back room, on the floor in front of the bar's near end (floor_1), LEFT of where Deke Vessel stands (at 1035,815 since 2026-11-01 his figure spans x 937-1133, nearer the camera): at 930 Thad arrived half behind him, and at the door's own x wholly. Room 4, errata 76 B; moved 2026-11-01. Errata 330: moved from 870,590, which stood on the card sharp once a figure painted into the plate counted as a body (tests/staging-clear.test.ts); 1050,600 is under the back-room door, between him and the one-strike man.",
+      "when": {
+        "T_SWINDLED": true
+      },
+      "whenNote": "When this entrance can be used at all: the back room's door refuses him through Act I (errata 318), and Deke, who stands under it, has left at the swindle (A3), before Act II. Read by tests/staging-clear.test.ts; the engine does not need it."
     },
     {
       "from": "default",
@@ -915,22 +928,22 @@
         ]
       },
       "neighbours": [
-        "floor_1"
+        "floor_1_1"
       ]
     },
     {
-      "id": "floor_1",
+      "id": "floor_1_0",
       "points": [
         {
           "x": 170,
           "y": 550
         },
         {
-          "x": 1122,
+          "x": 544,
           "y": 550
         },
         {
-          "x": 1122,
+          "x": 544,
           "y": 603
         },
         {
@@ -962,7 +975,101 @@
         ]
       },
       "neighbours": [
+        "floor_2"
+      ]
+    },
+    {
+      "id": "floor_1_1",
+      "points": [
+        {
+          "x": 646,
+          "y": 550
+        },
+        {
+          "x": 1122,
+          "y": 550
+        },
+        {
+          "x": 1122,
+          "y": 603
+        },
+        {
+          "x": 646,
+          "y": 603
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 498,
+        "farHeight": 198,
+        "nearY": 858,
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            345
+          ],
+          [
+            797,
+            415
+          ]
+        ]
+      },
+      "neighbours": [
         "floor_0",
+        "floor_2"
+      ]
+    },
+    {
+      "id": "floor_1_2",
+      "points": [
+        {
+          "x": 544,
+          "y": 600
+        },
+        {
+          "x": 646,
+          "y": 600
+        },
+        {
+          "x": 646,
+          "y": 603
+        },
+        {
+          "x": 544,
+          "y": 603
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 498,
+        "farHeight": 198,
+        "nearY": 858,
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            345
+          ],
+          [
+            797,
+            415
+          ]
+        ]
+      },
+      "neighbours": [
         "floor_2"
       ]
     },
@@ -1010,7 +1117,9 @@
         ]
       },
       "neighbours": [
-        "floor_1",
+        "floor_1_0",
+        "floor_1_1",
+        "floor_1_2",
         "floor_3"
       ]
     },
@@ -1824,5 +1933,45 @@
       "flame": true,
       "halo": 61
     }
-  ]
+  ],
+  "peopleResponses": {
+    "nugget_pianist": {
+      "LOOK_AT": [
+        {
+          "say": "The man at the piano plays with tremendous confidence. The piano plays back with none.",
+          "repeat": [
+            "A glass on the lid and a song in his head. Only the glass is going down well.",
+            "He hit a wrong note, looked at it, and hit it again, harder. I admire the conviction. I wince at the rest."
+          ]
+        }
+      ],
+      "LISTEN_TO": [
+        {
+          "say": "Every key, played with feeling. Several of the feelings are wrong.",
+          "repeat": [
+            "He hums along, a shade off his own piano. Between the two of them they cover most of the notes.",
+            "A chord with an extra finger in it. Possibly two."
+          ]
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "Push a man mid-song? He'd only go on playing from the floor.",
+          "sceneLine": "docs/133-playthrough-rulings.md::### THE PIANIST · **THE TRIES** - PUSH"
+        }
+      ],
+      "PICK_UP": [
+        {
+          "say": "He and that stool are held together by music. I wouldn't come between them.",
+          "sceneLine": "docs/133-playthrough-rulings.md::### THE PIANIST · **THE TRIES** - PICK UP"
+        }
+      ],
+      "TALK_TO": [
+        {
+          "say": "I said hello. He answered on the piano, at length, in a key I can't place.",
+          "sceneLine": "docs/133-playthrough-rulings.md::### THE PIANIST · **THE TRIES** - TALK TO"
+        }
+      ]
+    }
+  }
 }
