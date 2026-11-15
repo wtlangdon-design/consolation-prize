@@ -23,6 +23,17 @@ export interface AssayHost {
  * that is the way on (PROGRESS, ASSAY) never greys (errata 57, 130 E, 317). `selections`
  * is how many times it has been taken, committed.
  */
+/**
+ * WHAT THAD SAYS WHEN AN OPTION IS CHOSEN (doc 30 section 6.2; errata 322): its `echo` when present, otherwise the
+ * wording drawn. A rephrased option speaks its rephrase's own echo: the clerk's "I have four. Could four be
+ * persuaded?" was still said after the swindle had taken the four, because the original echo won over the new words.
+ */
+export function echoOf(chosen: { option: DialogueOption; text: string }): string {
+  const rephrase = chosen.option.rephrase;
+  if (rephrase && chosen.text === rephrase.text) return rephrase.echo ?? rephrase.text;
+  return chosen.option.echo ?? chosen.text;
+}
+
 export interface PresentedOption {
   option: DialogueOption;
   text: string;

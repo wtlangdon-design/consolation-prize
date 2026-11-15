@@ -131,3 +131,17 @@ The pie woman and the dog's owner were the two talked to from behind. Both are m
 *Tyler: "'Grubb. Pianos. You may have heard.' -- such a random line. Fix it."*
 
 The pie woman's `[COMIC]` row is Thad introducing himself, as a man of reputation, to a woman who sells nickel pies. Its three fragments read as nothing. Now: "Thaddeus Grubb. Pianos are my profession. You may have heard the name." Her answer is unchanged: "I haven't." *(beat)* "Still a nickel." It is not doc 27's "I'm Thaddeus Grubb. You'll have heard of me.", which another conversation already uses.
+
+## THE WAYS BACK DOWN
+
+*Tyler: "Once you go into the Road to the Claims room, is there a way out? I couldn't figure it out and could only leave via the map." Errata 322.*
+
+Six rooms out past town had their way back in a strip of scrub at the left edge, with nothing drawn to say "path": the Road to the Claims, Claim Row, the creek, Mott's site, the high ridge and Pratt's claim. Walking to the end of the floor and clicking there now leaves, in all six.
+
+## FOUR DOLLARS, SPENT
+
+*Tyler: "If thad buys the deed before getting a room, does that mean he no longer has money for a room?" Errata 322.*
+
+The room was never for sale to Thad: the clerk trades it for the piano. The only thing wrong was the clerk's menu, which still had Thad offering four dollars he had given Deke. After the swindle he offers what he has:
+
+**HOTEL CLERK** · option 3, *after A3* — "I have nothing. Could nothing be persuaded?" → "Then you have nothing and no room. Those are compatible."

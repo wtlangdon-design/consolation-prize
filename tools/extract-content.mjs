@@ -2951,7 +2951,11 @@ function minorTrees() {
     // no check requires an exit and the runner ends on a tag it never saw.
     const ROW = /^\| (\d+) \|\s*(.+?)\s*\|\s*(.*?)\s*\|\s*(.+?)\s*\|$/gm;
     for (const row of body.matchAll(ROW)) {
-      const [, number, optionCell, tagCell, responseCell] = row;
+      const [, number, optionCell, tagCell, wholeResponse] = row;
+      // A REPHRASE (errata 322), written as doc 04 writes one: *(rephrases after A3 to "..." → "...")*. Read before
+      // the cell is split on its arrow, and taken out of it, so it is neither said nor reported as staging.
+      const rephrased = /\*\(rephrases after (\S+) to "(.+?)" → "(.+?)"\)\*/.exec(wholeResponse);
+      const responseCell = rephrased ? wholeResponse.replace(rephrased[0], '').replace(/\s{2,}/g, ' ') : wholeResponse;
 
       // The tag is normally its own column. An EXIT row leaves that column
       // empty and marks the option text instead, which is how the document
@@ -2975,6 +2979,10 @@ function minorTrees() {
       const option = { id: `${who.speaker}${number}`, text, tag, ...(again ? { repeat: again } : {}) };
       const follows = afterIds(tagCell, who.speaker);
       if (follows) option.after = follows;
+      if (rephrased) {
+        option.afterUse = 'rephrase';
+        option.rephrase = { after: rephrased[1], text: rephrased[2], say: rephrased[3] };
+      }
       // A FLAG GATE IN THE TAG CELL (errata 172): `when FLAG` offers the option once the flag is set, `unless FLAG`
       // while it is not -- the Pike question before the undertaker has told him, "You knew Pike was dead." after.
       const gate = /\b(when|unless) `?([A-Z][A-Z_0-9]+)`?/.exec(tagCell ?? '');

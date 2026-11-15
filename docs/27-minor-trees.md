@@ -44,12 +44,12 @@
 | 1 | "Thaddeus Grubb. Two B's and no E, if you're writing it down." | `[TOPIC]` | "Grubbe." — *"That has an E in it."* — "As given." *(again)* "As given, Mr. Grubbe. The register doesn't take corrections. It takes guests." |
 | 7 | "Is this your hotel?" | `[TOPIC]` | "The register is mine. The building is a formality." *(again)* "The register, Mr. Grubbe. Everything else is furniture." |
 | 2 | "I'd like your finest room, please." | `[PROGRESS]` | "Five dollars." *(again)* "Still five. The price doesn't have feelings either." |
-| 3 | "I have four. Could four be persuaded?" | `[PROGRESS]` · after 2 | "Then you have four dollars and no room. Those are compatible." *(again)* "Four dollars, no room. Still compatible." |
+| 3 | "I have four. Could four be persuaded?" | `[PROGRESS]` · after 2 | "Then you have four dollars and no room. Those are compatible." *(again)* "Four dollars, no room. Still compatible." *(rephrases after A3 to "I have nothing. Could nothing be persuaded?" → "Then you have nothing and no room. Those are compatible.")* |
 | 4 | "Your piano is out of tune, you know. A quarter-tone, at least." | `[PROGRESS]` · after 3 | "It is." — *"I could put it right."* — *(pause)* "For a room?" — *"For a room."* — *(He turns the register round.)* "Nineteen." *(again)* "The piano first, Mr. Grubbe. Then nineteen." → opens the A2 combination |
 | 5 | "Is there anything cheaper?" | `[COMIC]` · after 2 | "There is the road." *(again)* "The road, as given. It keeps no register, which is its only appeal." |
 | 6 | `[EXIT]` "I'll think about it." | | "Mr. Grubbe." |
 
-*Errata 172: asked-again answers throughout. Option 7 gives him his point of view (doc 99): the register is his, and the building is only where it's kept.*
+*Errata 322: option 3 is said as it stands once Deke has the four dollars (A3), so a man who bought the deed first does not offer money he no longer has. Errata 172: asked-again answers throughout. Option 7 gives him his point of view (doc 99): the register is his, and the building is only where it's kept.*
 
 **Option 4 does not complete the puzzle.** It grants permission. The fork on the parlour piano is what earns the room, per doc 24's A2 pair.
 

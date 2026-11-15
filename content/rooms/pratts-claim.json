@@ -460,10 +460,10 @@
       "id": "to_prosperity",
       "name": "PROSPERITY",
       "rect": [
-        0,
-        380,
-        90,
-        484
+        195,
+        540,
+        135,
+        324
       ],
       "colour": 0,
       "to": "prosperity",

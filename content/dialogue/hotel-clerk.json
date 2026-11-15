@@ -84,6 +84,13 @@
           "after": [
             "hotel_clerk2"
           ],
+          "afterUse": "rephrase",
+          "rephrase": {
+            "after": "A3",
+            "text": "I have nothing.",
+            "say": "Then you have nothing and no room. Those are compatible.",
+            "echo": "I have nothing. Could nothing be persuaded?"
+          },
           "say": "Then you have four dollars and no room. Those are compatible.",
           "echo": "I have four. Could four be persuaded?"
         },
