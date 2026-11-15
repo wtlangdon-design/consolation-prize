@@ -672,9 +672,28 @@
    "id": "T_NUGGET_PIANO_PAID",
    "type": "number",
    "initial": 0,
-   "note": "Doc 57 A8: how many times the barman has paid for a tuning. 0 is the first time (A8, THE FILING FEE), 1 the second, 2 and after the third; each pays two dollars unless the fee is still in his pocket.",
+   "note": "Doc 57 A8, errata 331: how many times the barman has paid for a tuning, across the bar, when told (doc 27 THE BARMAN row 3). 0 is the first tuning, 1 the second, 2 and after the third; the fork's lines read it.",
    "writtenBy": [
-    "combination:tuning_fork:nugget:piano"
+    "dialogue:BARMAN:root:nugget_barman3"
+   ]
+  },
+  {
+   "id": "T_PIANO_JOB",
+   "type": "boolean",
+   "initial": false,
+   "note": "Errata 331, doc 27 THE BARMAN row 2: the barman has offered two dollars for the piano put right. Before it, the fork will not touch the Nugget's piano (doc 57 A8, 'before the barman's offer').",
+   "writtenBy": [
+    "dialogue:BARMAN:root:nugget_barman2"
+   ]
+  },
+  {
+   "id": "T_PIANO_OWED",
+   "type": "boolean",
+   "initial": false,
+   "note": "Errata 331, doc 57 A8: the piano has been tuned and the barman has not yet paid for it. Offers his row 3 ('Your piano's in tune.'), which pays and clears it.",
+   "writtenBy": [
+    "combination:tuning_fork:nugget:piano",
+    "dialogue:BARMAN:root:nugget_barman3"
    ]
   },
   {

@@ -8189,3 +8189,18 @@ Lesson:
 - `tests/person-in-front.test.ts`: the pointer finds the fiddler and the pianist over head, chest and legs, and the fork still reaches the piano. It fails on the old rule.
 - `tests/staging-clear.test.ts`: a painted person is a body. Conditional stands (`walkToWhen`) and conditional entrances are checked in their own states. It fails on the card sharp's old stand (76% covered).
 - Doc 55 §8: a conversation turns him side-on.
+
+## 331 · The piano puzzle, paid by the barman; and no clocks in the tuning lines (Tyler, 2026-11-15)
+
+- **A8 in three steps.** Tyler: "The piano tuning puzzle -- the fiddler tells him not to tune it, which could be confusing. I think there needs to be a conversation with the bartender where he tells him he's going to hire a piano tuner for $2 or something. So that we can establish he's getting money out of the deal. Then maybe after Thad tunes it he can talk to the bartender again and then the bartender thanks him and gives him the money more deliberately? Right now, that puzzle is tiny and messy and just jumps to a conclusion." The barman has a conversation now (doc 27, THE BARMAN). Asked about the piano, he says it is the one thing in the room he can't keep, and offers two dollars to any man who can put it right; Thad says he can (`T_PIANO_JOB`). Before that, the fork will not touch the piano ("Not without asking whose it is."). The fork tunes it and pays nothing; the barman owes for it (`T_PIANO_OWED`). Told "Your piano's in tune.", he sets two dollars on the bar and thanks him, the first time completing A8 (doc 57 A8). It repeats every visit, as it always did: the piano is flat again, and he pays for each tuning once (`givesEachTime` on the option, offered only while he owes).
+- **The fiddler sends him to the barman.** "Do you want me to fix it?" was answered "God, no." It is now "Not up to me. It's the barman's piano, and the barman's money." (doc 07).
+- **No clocks.** Tyler: "Thad talks about '4 minutes' of the song being out of tune. I think we need to stop naming days/amounts of times/etc in the dialogue because a player stops to think 'Have I actually been playing for only 4 mins'. Unless the day/time/etc is incredibly important for the story, we need all of that to be way more vague." The tuning lines lose their four minutes: A2's line opens "There." and A8's on "C-sharp has come home" (doc 24, doc 57); the piano's LISTEN, the Nugget doors' LISTEN and the parlour piano say "a few minutes" (docs 14, 16, 54). The rest of the game is a separate pass.
+- **Staging the barman.** He is behind the counter with a drinker either side, so no stand clears everyone. Thad stands at the counter in the gap to his left, side-on, and the barman is whole (`renders/room-03-talking-to-the-barman.png`). He has his own speech colour.
+- **Side-on through the whole conversation.** Staging him showed that errata 330's side-on turn held only through the opening line. As the menu came up, Thad turned by the larger axis again and talked to the barman over his shoulder blades. Both turns are now one method (`turnToTalk`).
+
+Lesson:
+- `tests/room-03.test.ts`: the fork pays nothing by itself; the barman's offer comes before the fork works; he pays once per tuning, and again on later visits. It fails on the old fork, which paid.
+- `tests/talk-turn.test.mjs`: the greeting and the menu turn him through the same method; it fails with the old larger-axis line restored.
+- `tests/puzzle-graph.test.mjs`: the barman paying only once is a dead end (A7, A9, G1).
+- Doc 55 §8: a puzzle says what it is for before it is solved, and a person pays; no clock in the dialogue unless the story needs it.
+

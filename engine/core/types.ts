@@ -2227,6 +2227,11 @@ export interface DialogueOption {
    */
   gives?: string[];
   /**
+   * `gives` ON EVERY SELECTION, not only the first (errata 331): the barman pays for each tuning, across the bar,
+   * when told (doc 27 THE BARMAN row 3, doc 57 A8). The option is offered only while he owes, so it cannot be farmed.
+   */
+  givesEachTime?: boolean;
+  /**
    * ITEMS THE OPTION TAKES, on its first selection: what is paid for what it `gives` (doc 109, G1: the rod hired
    * "with two dollars" -- THE FILING FEE the piano pays, A8, which can be earned again).
    */

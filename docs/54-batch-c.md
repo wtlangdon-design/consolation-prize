@@ -21,7 +21,7 @@
 
 ### THE PARLOR PIANO
 **LOOK** 1 "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor." · 2 "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since." · 3 "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else. One day somebody will ask me to. I'm keeping my hands warm."
-**LISTEN** 1 "Nothing, until a cart goes by. Then every string answers, and every one of them is wrong in its own direction." · 2 "Still wrong. The A is the worst. The A is always the worst." · 3 "Four minutes' work, and a room for the night. I've done the arithmetic, which I gather is frowned on here."
+**LISTEN** 1 "Nothing, until a cart goes by. Then every string answers, and every one of them is wrong in its own direction." · 2 "Still wrong. The A is the worst. The A is always the worst." · 3 "A few minutes' work, and a room for the night. I've done the arithmetic, which I gather is frowned on here."
 
 *Errata 75: A2's piano had no hotspot in any pass. It stands in the lobby's corner, which the hotel calls the parlor. Its LISTEN is the line A2 teaches LISTEN TO with.*
 

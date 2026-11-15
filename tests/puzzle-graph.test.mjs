@@ -131,10 +131,16 @@ test('a loss that strands the player is a dead end, and the check fails on it', 
     failures.join('\n'));
 });
 
-test('the filing fee earned once only is a dead end: the piano paying again is what keeps A7, A9 and G1 open', () => {
+test('the filing fee earned once only is a dead end: the barman paying again is what keeps A7, A9 and G1 open', () => {
+  // Errata 331: the barman pays for each tuning (his `givesEachTime`); paying only the first time strands the player.
   const content = fresh();
-  const pair = content.combinations.pairs.find((one) => one.item === 'tuning_fork' && one.target === 'piano');
-  pair.rules = pair.rules.filter((rule) => !(rule.items?.includes('filing_fee')) || rule.completes === 'A8');
+  let payers = 0;
+  for (const { data: tree } of content.dialogue) {
+    for (const node of Object.values(tree.nodes ?? {})) {
+      for (const option of node.options) if (option.gives?.includes('filing_fee') && option.givesEachTime) { delete option.givesEachTime; payers += 1; }
+    }
+  }
+  assert.equal(payers, 1, 'one person pays for the piano');
   const failures = failuresOf(content);
   assert.ok(failures.some((one) => one.includes('DEAD END') && one.includes('i:filing_fee')), failures.join('\n'));
 });

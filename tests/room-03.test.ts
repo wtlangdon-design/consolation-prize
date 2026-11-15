@@ -80,7 +80,10 @@ test('A3: the watch comes back at B6 by the duel\'s grant, swindle or no', async
   assert.ok(state.carried.includes('watch'), 'a granted watch is ordinary inventory');
 });
 
-test('A8: the Room 3 piano pays, is flat again each visit, and never pays twice into one pocket', async () => {
+test('A8: the barman offers, the fork tunes, the barman pays across the bar; flat again each visit, never twice into one pocket', async () => {
+  // Errata 331. Tyler, 2026-11-15: "there needs to be a conversation with the bartender where he tells him he's going
+  // to hire a piano tuner for $2 or something ... Then maybe after Thad tunes it he can talk to the bartender again and
+  // then the bartender thanks him and gives him the money more deliberately?" The fork used to pay by itself.
   const state = await inRoomThree();
   const tune = () => {
     state.holdItem(null);
@@ -98,23 +101,66 @@ test('A8: the Room 3 piano pays, is flat again each visit, and never pays twice 
   };
   const pair = state.content.combinations.pairs.find((one) => one.room === here && one.rules?.length)!;
   const rule = (label: string) => pair.rules!.find((one) => one.case === label)!;
+  // The barman, found by what he pays.
+  const barman = [...state.content.ambient.values()].find((one) => one.room === here && one.tree
+    && state.content.dialogue.get(one.tree)?.nodes.root?.options.some((option) => option.gives?.includes('filing_fee')))!;
+  assert.ok(barman, 'someone in the room pays for the piano');
+  const options = state.content.dialogue.get(barman.tree!)!.nodes.root!.options;
+  const offer = options.find((option) => option.set?.T_PIANO_JOB)!;
+  const pay = options.find((option) => option.gives?.includes('filing_fee'))!;
+  const offered = () => state.dialogue.presentOptions().map((one) => one.option.id);
+  const collect = () => {
+    state.dialogue.start(barman.tree!);
+    assert.ok(offered().includes(pay.id), 'he is told the piano is in tune');
+    const said = state.dialogue.select(pay.id);
+    state.dialogue.end();
+    return said;
+  };
 
-  const first = tune();
-  assert.equal(first.say, rule('first time').say);
+  // Before he has offered, the fork does nothing and nothing is owed.
+  assert.equal(tune().say, rule("before the barman's offer").say);
+  assert.notEqual(state.flags.get('T_NUGGET_PIANO_TUNED'), true, 'not tuned uninvited');
+
+  // He offers; asked about the piano first, as a man would be.
+  state.dialogue.start(barman.tree!);
+  assert.ok(!offered().includes(offer.id), 'nobody offers to tune a piano nobody has mentioned');
+  assert.ok(!offered().includes(pay.id), 'and nothing is owed');
+  state.dialogue.select(offer.after![0]!);
+  state.dialogue.select(offer.id);
+  state.dialogue.end();
+  assert.equal(state.flags.get('T_PIANO_JOB'), true);
+
+  // The fork tunes it and pays nothing.
+  assert.equal(tune().say, rule('first time').say);
+  assert.ok(!state.carried.includes('filing_fee'), 'the fork pays nothing by itself');
+  assert.ok(!state.puzzleComplete('A8'));
+  assert.equal(tune().say, rule('already tuned this visit').say, 'still in tune this visit');
+
+  // Told so, he pays, out loud.
+  collect();
   assert.ok(state.carried.includes('filing_fee'), 'the barman has paid');
   assert.ok(state.puzzleComplete('A8'));
+  state.dialogue.start(barman.tree!);
+  assert.ok(!offered().includes(pay.id), 'paid once for one tuning');
+  state.dialogue.end();
 
-  assert.equal(tune().say, rule('already tuned this visit').say, 'still in tune this visit');
   revisit();
   assert.equal(tune().say, rule('already holding THE FILING FEE').say, 'for nothing, with the fee in his pocket');
 
   spend(); revisit();
   assert.equal(tune().say, rule('second time').say);
-  assert.ok(state.carried.includes('filing_fee'));
+  assert.ok(!state.carried.includes('filing_fee'));
+  revisit();
+  assert.equal(tune().say, rule('still owed for the last').say, 'owed once, not twice');
+  collect();
+  assert.ok(state.carried.includes('filing_fee'), 'paid again: the money repeats');
   spend(); revisit();
   assert.equal(tune().say, rule('third time and after').say);
+  collect();
   spend(); revisit();
   assert.equal(tune().say, rule('third time and after').say, 'and after');
+  collect();
+  assert.ok(state.carried.includes('filing_fee'));
 });
 
 test('the piano answers every verb doc 16 and doc 49 write, and its act lines in their acts', async () => {

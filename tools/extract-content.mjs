@@ -1336,14 +1336,21 @@ function combinations() {
   // is, in the order the cases must be tried: a visit's tuning first (the
   // piano is flat again each time he comes back -- the room's onEnter clears
   // T_NUGGET_PIANO_TUNED), then the fee still in his pocket, then the count.
+  //
+  // ERRATA 331: THE FORK PAYS NOTHING. The barman offers two dollars first (doc 27, THE BARMAN row 1-2, T_PIANO_JOB),
+  // the fork tunes the piano and leaves him owing (T_PIANO_OWED), and he pays across the bar when told (his row 3,
+  // which gives THE FILING FEE and counts T_NUGGET_PIANO_PAID). Tyler, 2026-11-15: "Right now, that puzzle is tiny and
+  // messy and just jumps to a conclusion."
   const tuned = { T_NUGGET_PIANO_TUNED: true };
-  const paid = { T_NUGGET_PIANO_PAID: 1 };
+  const owed = { T_NUGGET_PIANO_TUNED: true, T_PIANO_OWED: true };
   const A8_CASES = [
     ['already tuned this visit', { when: { T_NUGGET_PIANO_TUNED: true } }],
+    ['before the barman\'s offer', { when: { T_PIANO_JOB: false } }],
+    ['still owed for the last', { when: { T_PIANO_OWED: true }, set: tuned }],
     ['already holding THE FILING FEE', { holds: ['filing_fee'], set: tuned }],
-    ['first time', { when: { T_NUGGET_PIANO_PAID: 0 }, items: ['filing_fee'], set: tuned, add: paid, completes: 'A8' }],
-    ['second time', { when: { T_NUGGET_PIANO_PAID: 1 }, items: ['filing_fee'], set: tuned, add: paid }],
-    ['third time and after', { when: { T_NUGGET_PIANO_PAID: { atLeast: 2 } }, items: ['filing_fee'], set: tuned, add: paid }],
+    ['first time', { when: { T_NUGGET_PIANO_PAID: 0 }, set: owed }],
+    ['second time', { when: { T_NUGGET_PIANO_PAID: 1 }, set: owed }],
+    ['third time and after', { when: { T_NUGGET_PIANO_PAID: { atLeast: 2 } }, set: owed }],
   ];
   const a8 = (() => {
     const whole = read('docs/57-puzzle-completion.md');
@@ -1367,7 +1374,7 @@ function combinations() {
   })();
   for (const pair of rebuilt) {
     if (pair.item === 'tuning_fork' && pair.room === 'nugget' && pair.target === 'piano') {
-      if (pair.say !== a8[2].say) throw new Error('doc 57 A8: the first time does not open on doc 24\'s line');
+      if (pair.say !== a8.find((rule) => rule.case === 'first time').say) throw new Error('doc 57 A8: the first time does not open on doc 24\'s line');
       pair.rules = a8;
     }
   }
@@ -2899,6 +2906,13 @@ function minorTrees() {
     'THE UNDERTAKER': { tree: 'UNDERTAKER', speaker: 'undertaker', room: 'undertaker' },
     'THE HOTEL CLERK': { tree: 'HOTEL_CLERK', speaker: 'hotel_clerk', room: 'hotel_lobby', metFlag: 'T_CLERK_MET' },
     'DEKE VESSEL': { tree: 'DEKE_VESSEL', speaker: 'deke_vessel', room: 'nugget' },
+    'THE BARMAN': { tree: 'BARMAN', speaker: 'nugget_barman', room: 'nugget' },
+  };
+  //: WHAT A ROW HANDS OVER, routing as A8_CASES is (errata 331). The barman's row 3 is the payment for a tuning: the
+  //: document says THE FILING FEE and A8 in its arrow; that it pays on every selection, clears what he owes and counts
+  //: the payment is how doc 57 A8 says the money repeats.
+  const PAYS = {
+    'THE BARMAN': { 3: { gives: ['filing_fee'], givesEachTime: true, set: { T_PIANO_OWED: false }, add: { T_NUGGET_PIANO_PAID: 1 } } },
   };
   //: Doc 27 leaves one writer unnamed. See the routing note above.
   const ROUTED = { 'THE HOTEL CLERK': { 4: 'T_TUNES_PIANOS' } };
@@ -3021,6 +3035,14 @@ function minorTrees() {
           + `also routed to ${routed} -- one of the two is now wrong`);
       }
       if (named || routed) option.set = { [named ? named[1] : routed]: true };
+      const pays = PAYS[title]?.[Number(number)];
+      if (pays) {
+        if (!/THE FILING FEE/.test(after.join('→'))) throw new Error(`doc 27: ${title} option ${number} is routed to pay and its arrow does not say so`);
+        option.gives = pays.gives;
+        if (pays.givesEachTime) option.givesEachTime = true;
+        option.set = { ...(option.set ?? {}), ...pays.set };
+        option.add = pays.add;
+      }
       // A1 IS THE NEWS (doc 02: "the Undertaker finally states Pike died six
       // years ago"; doc 57 A1). The option that writes T_PIKE_DEAD completes it
       // (errata 86 D) -- routing, as A8_CASES is.

@@ -75,6 +75,10 @@
       "colour": "#90b8ff",
       "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
     },
+    "nugget_barman": {
+      "colour": "#d99a7a",
+      "note": "Errata 331: the barman speaks now (doc 27, THE BARMAN). A ruddy, lamp-warm tan, the colour of the trimmed lamps behind him, and well clear of Hob's lamplight and of Deke's gold, who shares his room. Adjust freely; check-speech-colours keeps it off the fallback and off everyone else."
+    },
     "fiddler": {
       "colour": "#b8f0a0",
       "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."

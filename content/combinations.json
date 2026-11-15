@@ -8,7 +8,7 @@
       "room": "hotel_lobby",
       "target": "parlor_piano",
       "puzzle": "A2",
-      "say": "Four minutes. It is the most honest work done in this building in some time.",
+      "say": "There. It is the most honest work done in this building in some time.",
       "targetPending": "Doc 02 A2. Room 18 is not built.",
       "rules": [
         {
@@ -23,7 +23,7 @@
           "when": {
             "T_TUNES_PIANOS": true
           },
-          "say": "Four minutes. It is the most honest work done in this building in some time.",
+          "say": "There. It is the most honest work done in this building in some time.",
           "then": [
             {
               "speaker": "hotel_clerk",
@@ -92,7 +92,7 @@
       "room": "nugget",
       "target": "piano",
       "puzzle": "A8",
-      "say": "Four minutes. C-sharp has come home, and nobody in this room has looked up.",
+      "say": "C-sharp has come home, and nobody in this room has looked up.",
       "rules": [
         {
           "case": "already tuned this visit",
@@ -100,6 +100,23 @@
             "T_NUGGET_PIANO_TUNED": true
           },
           "say": "It is still in tune. Nobody has had time to undo it."
+        },
+        {
+          "case": "before the barman's offer",
+          "when": {
+            "T_PIANO_JOB": false
+          },
+          "say": "Not without asking whose it is. A man who tunes a stranger's piano unasked has adopted it."
+        },
+        {
+          "case": "still owed for the last",
+          "when": {
+            "T_PIANO_OWED": true
+          },
+          "set": {
+            "T_NUGGET_PIANO_TUNED": true
+          },
+          "say": "In tune again. He still owes me for the last time, so this one is a gesture of good faith."
         },
         {
           "case": "already holding THE FILING FEE",
@@ -116,19 +133,13 @@
           "when": {
             "T_NUGGET_PIANO_PAID": 0
           },
-          "items": [
-            "filing_fee"
-          ],
           "set": {
-            "T_NUGGET_PIANO_TUNED": true
+            "T_NUGGET_PIANO_TUNED": true,
+            "T_PIANO_OWED": true
           },
-          "add": {
-            "T_NUGGET_PIANO_PAID": 1
-          },
-          "completes": "A8",
-          "say": "Four minutes. C-sharp has come home, and nobody in this room has looked up.",
+          "say": "C-sharp has come home, and nobody in this room has looked up.",
           "then": [
-            "The barman has paid me. Neither of us has mentioned it. It is the most professional transaction of my life."
+            "Except the barman. He has."
           ]
         },
         {
@@ -136,16 +147,11 @@
           "when": {
             "T_NUGGET_PIANO_PAID": 1
           },
-          "items": [
-            "filing_fee"
-          ],
           "set": {
-            "T_NUGGET_PIANO_TUNED": true
+            "T_NUGGET_PIANO_TUNED": true,
+            "T_PIANO_OWED": true
           },
-          "add": {
-            "T_NUGGET_PIANO_PAID": 1
-          },
-          "say": "Flat again. A man at the bar says the right note was making him nervous. Four minutes. Two dollars, on the bar, unmentioned. We have a routine."
+          "say": "Flat again. A man at the bar says the right note was making him nervous. The barman has seen it done. We have a routine."
         },
         {
           "case": "third time and after",
@@ -154,16 +160,11 @@
               "atLeast": 2
             }
           },
-          "items": [
-            "filing_fee"
-          ],
           "set": {
-            "T_NUGGET_PIANO_TUNED": true
+            "T_NUGGET_PIANO_TUNED": true,
+            "T_PIANO_OWED": true
           },
-          "add": {
-            "T_NUGGET_PIANO_PAID": 1
-          },
-          "say": "C-sharp, home again. Two dollars, again. I am, by the narrowest definition, employed."
+          "say": "C-sharp, home again. The barman is already reaching under the bar. I am, by the narrowest definition, employed."
         }
       ]
     },

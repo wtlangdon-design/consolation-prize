@@ -96,11 +96,11 @@
 |---|---|---|---|
 | 1 | "Is that piano ever in tune?" | `[TOPIC]` | "Not since it came over the pass. Everything else in here, I keep. That, I can't." *(beat)* "Two dollars to any man who can put it right." *(again)* "Still two dollars. Still no man." |
 | 2 | "I could put it right." | `[PROGRESS]` · after 1 | *(He looks at the piano, then at Thad.)* "Then there's two dollars on this bar the day it sounds like a piano." *(again)* "The day it sounds like a piano. Not the day before." → `T_PIANO_JOB` |
-| 3 | "Your piano's in tune." | `[PROGRESS]` · when `T_PIANO_OWED` | "So I hear. Nobody's looked up, which is how I know." *(He sets two dollars on the bar.)* "As promised. Obliged to you." — *"Two dollars, earned. It's the most professional transaction of my life."* *(again)* "Two dollars again. You're the steadiest trade I've got." → THE FILING FEE · **A8** |
+| 3 | "Your piano's in tune." | `[PROGRESS]` · when `T_PIANO_OWED` | "So I hear. Nobody's looked up, which is how I know." *(He sets two dollars on the bar.)* "Two dollars, as promised. Obliged to you." — *"Earned. It's the most professional transaction of my life."* *(again)* "Two dollars. Obliged again." → THE FILING FEE · **A8** |
 | 4 | "Is the whiskey any good?" | `[COMIC]` | "It's wet, and it's here." *(again)* "Still wet. Still here." |
 | 5 | `[EXIT]` "Carry on." | | "Always do." |
 
-*Errata 331 (Tyler, 2026-11-15): "there needs to be a conversation with the bartender where he tells him he's going to hire a piano tuner for $2 or something … Then maybe after Thad tunes it he can talk to the bartender again and then the bartender thanks him and gives him the money more deliberately?" Row 1 is the offer and row 2 takes it. Row 3 is the payment, said across the bar, and is offered only while he owes for a tuning (doc 57 A8). It pays every time it is offered, not only the first. The first time completes A8, and the asked-again answer is every later payment.*
+*Errata 331 (Tyler, 2026-11-15): the barman says what the piano is worth before it is tuned, and pays for it, thanking Thad, after. Row 1 is the offer and row 2 takes it. Row 3 is the payment, said across the bar, and is offered only while he owes for a tuning (doc 57 A8). It pays every time it is offered, not only the first. The first time completes A8, and the asked-again answer is every later payment.*
 
 ---
 
@@ -122,7 +122,7 @@
 
 
 ## THE BARMAN
-**LOOK** 1 "The barman. He is polishing a glass that was clean when he started." · 2 "His moustache is trimmed, his lamps are trimmed, and both sleeves are rolled to the same height. Nothing else in this town has been looked after." · 3 "He's watched me since I came in, without once appearing to."
+**LOOK** 1 "The barman. He is polishing a glass that was clean when he started." · 2 "His mustache is trimmed, his lamps are trimmed, and both sleeves are rolled to the same height. Nothing else in this town has been looked after." · 3 "He has watched me the whole time, without once appearing to."
 **LISTEN** 1 "A cloth on a glass. It squeaks, which means it's clean, which it was." · 2 "Still polishing." · 3 "Nothing. He's put the glass down to listen to me listening."
 ---
 
