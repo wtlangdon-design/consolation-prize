@@ -8092,7 +8092,6 @@ Lesson:
 - `tests/no-money-offered.test.ts`: before and after the swindle, the clerk's option 3 offers what Thad has, the clerk answers it, and the piano follows. It fails with the rephrase removed.
 - Doc 55 §8: a line that names a day is read at the earliest state its gate allows.
 
-<<<<<<< HEAD
 ## 323 · The mercantile's doors and doorway; the Company's clerk; the Nugget's barman (Tyler, 2026-11-14)
 
 - **The sound.** Tyler: "There's a weird background sfx in the mercantile that doesn't seem to match anything seen in the store." Doc 45's row 12 is "the doors still swinging; the street beyond them". The bed built it as a 12-second loop with the batwings' hinge in it, three swings every pass, beside doors the plate draws still. The bed is now the street beyond the doors. The swing is the batwings' own (R03-DOOR, the Nugget's), heard once as he comes through them: a transit in content/audio/sounds.json. Re-rendered `audio/sfx/beds/mercantile.wav` (tools/audio/render-room-beds.py).
@@ -8105,7 +8104,7 @@ Lesson:
 - `tests/clerk-answers.test.ts`: over the clerk's face and chest the pointer finds him, a click talks to him, and he answers in his own voice. It fails with his hotspot removed.
 - Doc 55 §8: a person drawn in a room answers as a person.
 - `tests/beds-are-places.test.mjs`: no bed loops a door up close. A door in a bed goes through `far(`, and the mercantile's doors are a transit. It fails on the hinge line as it was.
-=======
+
 ## 324 · The town, one night at a time (Tyler, 2026-11-14)
 
 Tyler: "I'm wondering if maybe the town is too open to start with too much to potentially do? Which may leave the player feeling a bit aimless? I liked in MI that sometimes you couldn't also figure out where to go or what to do until you could, but I want there to also be some narrative structure where it feels like a story is progressing vs feeling haphazard." About twenty-five places were open on Thad's first evening, and about half had no part in Act I. Offered four ways, he chose: open places as the story reaches them (doc 133, THE TOWN, ONE NIGHT AT A TIME).
@@ -8119,4 +8118,3 @@ Every flag that opens a place is written in play, so nothing is shut for good (i
 Lesson:
 - `tests/act-one-places.test.ts`: on night one the map shows the town and the road, and nothing past it. Each far place appears when its flag is written, and every opening flag is written in play. It fails on the map as it was.
 - `tests/room-26`, `-27`, `-29` and `-30.test.ts`: each place goes on the map once the road has been walked and the story reaches it, and not on the road alone.
->>>>>>> origin/main
