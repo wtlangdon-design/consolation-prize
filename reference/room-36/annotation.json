@@ -202,6 +202,17 @@
    "keepsGroundAbove": true,
    "note": "The hitching rail and its horses (errata 187, moved back by errata 198, moved right and sized by errata 201): a group on the ground he walks around, never through. The rect is the hooves', hay's and posts' footprint, from the drawn group (content/ambient/hitching-horses.json, hooves on 1470,746): errata 198's footprint [1226, 720, 332, 42] in the rest frame's own rows and columns, laid on the group as the engine now draws it (frame left 1278, the hay's foot on 755, 0.549 of a sheet pixel to a room pixel). The ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there.",
    "reach": true
+  },
+  {
+   "id": "posted_notices",
+   "rect": [
+    1115,
+    482,
+    133,
+    164
+   ],
+   "reach": true,
+   "note": "The notice board, painted into the plate: its face and its two posts, x 1115-1248, from its top to the posts' feet at y 636, and ten rows of mud in front of them (Tyler, 2026-11-14: \"Thad can also walk slightly on the front of the bulletin board\"; errata 319). He stood with his boots at the posts' feet, which reads as standing on it. With `reach` the compiler carves his boots past it too."
   }
  ],
  "lamps": [],

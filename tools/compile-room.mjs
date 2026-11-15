@@ -367,7 +367,13 @@ function wraps(line) {
  */
 function splitUtterance(line) {
   if (wraps(line) <= 3) return null;
-  const parts = line.split(/(?<=[.!?])\s+/);
+  // Never after a title (errata 319: the Clarion's "…in Mr." / "Sheng's window" was cut there, as two lines).
+  const parts = line.split(/(?<=[.!?])\s+/).reduce((out, part) => {
+    const last = out[out.length - 1];
+    if (last !== undefined && /(?:^|\s)(?:Mr|Mrs|Ms|Dr|Rev|Col|Capt|Messrs|St|Jr|Sr)\.$/.test(last)) out[out.length - 1] = `${last} ${part}`;
+    else out.push(part);
+    return out;
+  }, []);
   if (parts.length < 2) return null;
   let best = null;
   for (let i = 1; i < parts.length; i += 1) {

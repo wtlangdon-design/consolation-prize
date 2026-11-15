@@ -128,3 +128,15 @@ export function sameClickAgain(click: {
 export function hiddenNow(state: { hidden: boolean; acting: boolean }): boolean {
   return state.hidden && !state.acting;
 }
+
+/**
+ * A TAP NAMES, A SECOND TAP DOES (errata 319). Tyler, testing on his phone: a click on a thing "doesn't say what it
+ * is in the bottom menu. It just activates it." A finger has no hover. With no verb chosen and nothing held, the first
+ * tap on a thing or a person only names it; the next tap on the same one acts. Where a tap walks (`under` undefined:
+ * the ground, a way out) it goes at once. A chosen verb or a held item acts at once too: the player has said what.
+ */
+export function touchNames(input: { chosen: boolean; under: string | undefined; named: string | undefined | null }): 'name' | 'act' {
+  if (input.chosen || input.under === undefined) return 'act';
+  return input.under === input.named ? 'act' : 'name';
+}
+

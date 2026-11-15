@@ -322,7 +322,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Paper. Rather a lot of it."
 
 **THE MOTT PHOTOGRAPH**
-> **LOOK:** "The only known likeness of Obadiah Mott. I have seen this exact photograph in Mr. Sheng's window, advertising collars."
+> **LOOK:** "The only known likeness of Obadiah Mott. It has the look of a photograph that has done other work."
 > **LISTEN:** "Nothing. It is a picture of a man in Ohio."
 
 **FRAME'S DESK** · **THE INK** · **THE SPIKE** · **THE WINDOW** · **THE SCHEDULE BOARD** — *(working script)*

@@ -110,13 +110,13 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The only known likeness of Obadiah Mott. I have seen this exact photograph in Mr.",
+            "say": "The only known likeness of Obadiah Mott.",
             "repeat": [
               "He has the look of a man who was asked to think of something noble and is thinking of lunch.",
               "The photographer's stamp has been trimmed off the bottom, neatly. Somebody wanted this to be a picture of someone."
             ],
             "then": [
-              "Sheng's window, advertising collars."
+              "It has the look of a photograph that has done other work."
             ]
           }
         ],

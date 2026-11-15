@@ -135,6 +135,9 @@ export class VerbSystem {
       if (this.selected) return this.selected;
       return isItem ? fallback : this.file.bareClick;
     }
+    // NOTHING UNDER THE POINTER IS THE GROUND (errata 319): with no verb chosen the sentence read "Look at", which
+    // is a click that would only walk.
+    if (!target && !isItem) return this.selected ?? this.file.walkVerb.id;
     if (secondary) return fallback;
     return this.selected ?? fallback;
   }
