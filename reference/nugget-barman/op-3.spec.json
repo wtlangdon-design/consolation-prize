@@ -1,0 +1,16 @@
+{
+ "assetId": "nugget-barman",
+ "subject": "nugget-barman",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-03-nugget",
+ "promptFile": "reference/nugget-barman/op-3.txt",
+ "out": "art/staging/nugget-barman/op-3/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/nugget-barman/op-2/sheet.png",
+  "art/staging/nugget-barman/op-3/side-by-side.png",
+  "art/staging/nugget-barman/op-3/drinkers@2x.png"
+ ],
+ "derivedFrom": 2
+}

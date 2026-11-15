@@ -163,6 +163,8 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE PROSPECTUS RACK** · PICK_UP — "‘Free,’ says the clerk. Nothing in this building is free. I took one. We'll see what it cost."
 **THE PORTRAIT** · PUSH — "Straightened it. It was straight. It is now very slightly crooked and I feel I have accomplished something."
 **THE CARPET** · PULL — "It runs under the desk, under the door, and — for all I know — under the town."
+**THE CLERK** · PICK_UP — "He is fixed to that stool by a sense of duty. I would need a crowbar, and a better reason."
+**THE CLERK** · USE — "I leaned on his desk, in a familiar way. He waited until I stopped."
 
 ## ROOM 12 — THE MERCANTILE
 

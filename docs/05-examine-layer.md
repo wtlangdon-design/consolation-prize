@@ -667,6 +667,10 @@ The only prose line in the entire room, on the correct spot:
 > **LOOK:** "High enough that you address the clerk's collar. Papers pass over it in one direction only."
 > **LISTEN:** "A pen nib, somewhere behind the panelling, writing without pause."
 
+**THE CLERK**
+> **LOOK:** "The clerk: young, pomaded, parted exactly down the middle, as though he had been filed. He has not looked up since I came in."
+> **LISTEN:** "The scratch of his nib. He writes the way the clock ticks: steadily, and with no interest in me."
+
 **THE DOOR TO THE OFFICE**
 > **LOOK:** "Panelled, brass-handled, and it opens for you exactly when the Colonel finds it useful. I have watched men age in front of it."
 > **LISTEN:** "Voices, shaped like laughter, sized like arithmetic."

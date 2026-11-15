@@ -55,6 +55,12 @@ def columns(op):
 
 
 def main(write):
+    # SUPERSEDED (errata 326). This cut is the first attempt's, which Tyler rejected ("This looks awful"); it wrote to
+    # the path the second drawing now ships at. It still measures, and it refuses to write, by name, so running it can
+    # never put the first barman back over the second. The shipping cut is tools/art/nugget-barman-cut-2.py.
+    if write:
+        raise SystemExit('nugget-barman-cut.py: superseded by tools/art/nugget-barman-cut-2.py (errata 326); '
+                         'it would overwrite art/actors/room-03-barman.png with the rejected first attempt')
     room = bt['load']('content/rooms/nugget.json')
     man = bt['curve_man'](room, *FEET)
     a = np.asarray(Image.open(R(SHEET)).convert('RGB')).astype(int)

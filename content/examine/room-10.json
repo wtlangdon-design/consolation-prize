@@ -131,6 +131,23 @@
       ]
     },
     {
+      "name": "THE CLERK",
+      "LOOK_AT": [
+        "The clerk: young, pomaded, parted exactly down the middle, as though he had been filed. He has not looked up since I came in.",
+        "Sleeve garters, and a collar so stiff he turns his whole body to read the next line. He has not had to turn it toward me.",
+        "He keeps his ledger the way other men keep a vow. I hope whatever it promised him, he gets."
+      ],
+      "LISTEN_TO": [
+        "The scratch of his nib. He writes the way the clock ticks: steadily, and with no interest in me.",
+        "His blotter: pressed, lifted, pressed. He blots like a man who has never once smudged.",
+        "Nothing from him at all. A man can be silent politely, and he is doing it at me."
+      ],
+      "overrides": {
+        "PICK_UP": "He is fixed to that stool by a sense of duty. I would need a crowbar, and a better reason.",
+        "USE": "I leaned on his desk, in a familiar way. He waited until I stopped."
+      }
+    },
+    {
       "name": "THE DOOR TO THE OFFICE",
       "aliases": [
         "THE INNER DOOR"
