@@ -1072,6 +1072,38 @@
         "PULL": "They swing outward, inward, and for some time afterwards."
       },
       "defaultVerb": "OPEN",
+      "transitScene": [
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_MOTT_TOLD": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_MONEY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_WHY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        }
+      ],
       "walkTo": {
         "x": 2317,
         "y": 566,
@@ -1116,6 +1148,36 @@
       },
       "defaultVerb": "OPEN",
       "transitScene": [
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_MOTT_TOLD": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_MONEY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_WHY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
         {
           "when": {
             "T_FUNERAL_DAY": true,
@@ -1168,6 +1230,38 @@
         "CLOSE": "He'd only open it again, and then write about it."
       },
       "defaultVerb": "OPEN",
+      "transitScene": [
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_MOTT_TOLD": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_MONEY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_WHY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        }
+      ],
       "walkTo": {
         "x": 1097,
         "y": 558,
@@ -1268,6 +1362,38 @@
         "CLOSE": "It closes itself, slowly, and latches. Somebody sees to that.",
         "TALK_TO": "I've tried talking to it. The building isn't the problem."
       },
+      "transitScene": [
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_MOTT_TOLD": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_MONEY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_WHY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        }
+      ],
       "walkTo": {
         "x": 3113,
         "y": 621,
@@ -1309,6 +1435,38 @@
       "defaultVerb": "OPEN",
       "note": "Doc 20: the hotel is one of the six facades. Stub until doc 14 covers it, as it did not cover the assay office until Room 5 was written.",
       "waysOut": "docs/106-the-ways-out.md, ROOM 2 (errata 189)",
+      "transitScene": [
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_MOTT_TOLD": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_MONEY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_WHY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        }
+      ],
       "walkTo": {
         "x": 2707,
         "y": 600,
@@ -1350,6 +1508,38 @@
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: one of Main Street's six façades, the store with goods in its window west of the Company. It had no door until Room 12 was built (errata 85 E). Doc 14 writes no lines for it, so it carries none (doc 36 Q155).",
       "waysOut": "docs/106-the-ways-out.md, ROOM 2 (errata 189)",
+      "transitScene": [
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_MOTT_TOLD": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_MONEY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        },
+        {
+          "when": {
+            "T_THAD_LEAVING": true,
+            "T_SWINDLED": false,
+            "T_TOLD_WHY": false
+          },
+          "say": "Not yet. Before I go knocking on doors, I'd like to know what kind of town this is, and somebody out here is bound to tell me.",
+          "stays": true,
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS · THE DOORS"
+        }
+      ],
       "walkTo": {
         "x": 300,
         "y": 574,

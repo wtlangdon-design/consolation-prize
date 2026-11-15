@@ -86,7 +86,7 @@ Rotating pool available at every node:
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "How do you do! I'd like to have some soil assayed, please." | `[PROGRESS · remove]` | "So would nine hundred men. Get in the book." | opens `WIN_A2` |
+| 1 | "How do you do! I'd like to have some soil assayed, please." | `[PROGRESS · remove]` | "So would nine hundred men. Get in the book." | req `T_SWINDLED`; opens `WIN_A2` *(errata 317: he has no soil until he has a claim)* |
 | 2 | "Forgive me. What is it you actually do here?" | `[TOPIC · retain]` | "I decide what things are. It's the only office in the territory that does." *(second)* "Decide. Same as a minute ago. I've decided you're in the way." | — |
 | 6 | "Do you know a man named Ezra Pike?" | `[TOPIC · retain]` | "Yes." *(beat)* "The undertaker has his paperwork. I'm not doing the undertaker's job." *(second)* "The undertaker. Down the lane. I don't do directions either." | unless `T_PIKE_DEAD` |
 | 3 | "I tune pianos." | `[COMIC · counted-repeat]` | *(long pause)* "Congratulations." | req `T_TUNES_PIANOS` |

@@ -81,6 +81,9 @@
               "line": "Gold. Same as everybody. Took me a fortnight to see none of it was mine."
             }
           ],
+          "set": {
+            "T_TOLD_WHY": true
+          },
           "afterUse": "remove"
         },
         {

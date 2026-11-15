@@ -19,8 +19,8 @@ export interface AssayHost {
 /**
  * An option as the UI should draw it. `text` is the wording to draw and to
  * echo -- the option's own, or its `rephrase` wording once that milestone is
- * reached. `exhausted` greys a retained option that has been taken; a
- * counted-repeat never greys (errata 57: "stays at full weight"). `selections`
+ * reached. `exhausted` greys an option that has been taken; a counted-repeat
+ * that is the way on (PROGRESS, ASSAY) never greys (errata 57, 130 E, 317). `selections`
  * is how many times it has been taken, committed.
  */
 export interface PresentedOption {
@@ -567,7 +567,9 @@ export class DialogueRunner {
       const taken = this.countOf(treeId, nodeId, authored.id);
       // ERRATA 57: THE OPTION'S OWN AFTERMATH DECIDES. `remove` is gone once
       // taken; `replace` gives way to what it names; `retain` and `rephrase`
-      // stay and grey; `counted-repeat` stays at full weight.
+      // stay and grey; `counted-repeat` greys too (errata 317: "It's remaining the brighter colour for unspoken
+      // lines"), unless it is the way on -- a PROGRESS or ASSAY row, as the rematch is (errata 130 E), where a
+      // greyed row would read "already asked" and hide the only road forward.
       if (this.isSpent(authored, taken)) continue;
       const option = authored.afterUse === 'replace' && taken > 0 && authored.replaceWith
         ? authored.replaceWith : authored;
@@ -575,7 +577,7 @@ export class DialogueRunner {
       out.push({
         option,
         text: this.wordingOf(option),
-        exhausted: selections > 0 && option.afterUse !== 'counted-repeat',
+        exhausted: selections > 0 && !(option.afterUse === 'counted-repeat' && (option.tag === 'PROGRESS' || option.tag === 'ASSAY')),
         selections,
       });
     }

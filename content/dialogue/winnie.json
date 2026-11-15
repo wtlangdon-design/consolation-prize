@@ -61,7 +61,10 @@
           "text": "How do you do! I'd like to have some soil assayed, please.",
           "afterUse": "remove",
           "say": "So would nine hundred men. Get in the book.",
-          "goto": "WIN_A2"
+          "goto": "WIN_A2",
+          "when": {
+            "T_SWINDLED": true
+          }
         },
         {
           "id": "winnie2",

@@ -77,6 +77,9 @@
               "line": "I sell them pie."
             }
           ],
+          "set": {
+            "T_TOLD_MONEY": true
+          },
           "afterUse": "remove"
         },
         {

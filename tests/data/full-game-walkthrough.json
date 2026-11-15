@@ -91,6 +91,38 @@
    }
   },
   {
+   "id": "A1.money",
+   "puzzle": "A1",
+   "do": "talk",
+   "npc": "pie_woman",
+   "choose": [
+    "pie_woman3"
+   ],
+   "leave": true,
+   "note": "Errata 317, doc 133: the street's second voice, before its doors open.",
+   "expect": {
+    "flags": {
+     "T_TOLD_MONEY": true
+    }
+   }
+  },
+  {
+   "id": "A1.why",
+   "puzzle": "A1",
+   "do": "talk",
+   "npc": "man_leaving_tomorrow",
+   "choose": [
+    "leaving3"
+   ],
+   "leave": true,
+   "note": "Errata 317, doc 133: the street's third voice; now the doors open.",
+   "expect": {
+    "flags": {
+     "T_TOLD_WHY": true
+    }
+   }
+  },
+  {
    "id": "A1.hob.1",
    "puzzle": "A1",
    "do": "go",

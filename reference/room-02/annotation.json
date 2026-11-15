@@ -744,6 +744,36 @@
  "exitTransitScenes": {
   "to_company": [
    {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_MOTT_TOLD": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_MONEY": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_WHY": false
+    },
+    "stays": true
+   },
+   {
     "ref": "docs/115-the-three-papers.md::### II-5 · The wreath: the lines",
     "bold": "THE COMPANY'S DOOR",
     "when": {
@@ -752,9 +782,169 @@
     },
     "stays": true
    }
+  ],
+  "to_nugget": [
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_MOTT_TOLD": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_MONEY": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_WHY": false
+    },
+    "stays": true
+   }
+  ],
+  "to_clarion": [
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_MOTT_TOLD": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_MONEY": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_WHY": false
+    },
+    "stays": true
+   }
+  ],
+  "to_assay_office": [
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_MOTT_TOLD": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_MONEY": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_WHY": false
+    },
+    "stays": true
+   }
+  ],
+  "to_hotel": [
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_MOTT_TOLD": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_MONEY": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_WHY": false
+    },
+    "stays": true
+   }
+  ],
+  "to_mercantile": [
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_MOTT_TOLD": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_MONEY": false
+    },
+    "stays": true
+   },
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE STREET BEFORE THE DOORS",
+    "bold": "THE DOORS",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "T_SWINDLED": false,
+     "T_TOLD_WHY": false
+    },
+    "stays": true
+   }
   ]
  },
- "exitTransitScenesNote": "Errata 246, doc 115 II-5: while the Colonel is in the Company's doorway the way in is him.",
+ "exitTransitScenesNote": "Errata 317, doc 133: until he has heard the street's three (T_MOTT_TOLD, T_TOLD_MONEY, T_TOLD_WHY), its doors refuse him, one rule for each missing; held only until the swindle. Errata 246, doc 115 II-5: while the Colonel is in the Company's doorway the way in is him.",
  "motion": [
   {
    "kind": "twinkle",

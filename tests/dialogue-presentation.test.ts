@@ -81,6 +81,8 @@ test('the list is set from the top of the panel, so hitboxes and lines agree', a
 test('a goto node without a prompt lays out exactly as before: its rows and nothing else', async () => {
   const state = await fresh();
   const ui = state.content.ui.dialogue;
+  // Errata 317: the row that opens the second node (an assay) waits until he owns a claim.
+  state.flags.set('T_SWINDLED', true);
   state.dialogue.start(roomFiveTree(state));
   // The progress row that opens the second node, found by what it does.
   const opener = state.dialogue.presentOptions().find((p) => p.option.goto);

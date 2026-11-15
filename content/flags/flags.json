@@ -199,6 +199,24 @@
    "note": "Errata 309, 310: the map seller has told Thad who Obadiah Mott was (\"Who's Mott?\"). Hob's two questions about Mott wait on it: on the first night nobody had told Thad of him."
   },
   {
+   "id": "T_TOLD_MONEY",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:amb_pie_woman:root:pie_woman3"
+   ],
+   "note": "Errata 317, doc 133: the pie woman has told Thad where the money goes (\"Is there money to be made in Consolation?\"). One of the three that open Main Street's doors."
+  },
+  {
+   "id": "T_TOLD_WHY",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:amb_man_leaving_tomorrow:root:leaving3"
+   ],
+   "note": "Errata 317, doc 133: the man leaving tomorrow has told Thad why people came and why they stay (\"I've only just arrived.\"). One of the three that open Main Street's doors."
+  },
+  {
    "id": "T_SHARP_ACCUSED",
    "type": "boolean",
    "initial": false,

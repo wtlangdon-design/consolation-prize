@@ -364,5 +364,19 @@
       "halo": 69,
       "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
     }
-  ]
+  ],
+  "exitTransitScenes": {
+    "to_records": [
+      {
+        "ref": "docs/133-playthrough-rulings.md::## THE RECORDS ROOM",
+        "bold": "THE RECORDS ROOM DOOR",
+        "speaker": "winnie",
+        "when": {
+          "T_SECOND_LEDGER": false
+        },
+        "stays": true
+      }
+    ]
+  },
+  "exitTransitScenesNote": "Errata 317, doc 133: the records room door refuses him in Winnie's voice until she has shown him the second ledger. "
 }
