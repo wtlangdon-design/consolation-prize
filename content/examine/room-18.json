@@ -35,7 +35,7 @@
       ],
       "overrides": {
         "PICK_UP": "It is the register. It stays on the desk and the desk stays where it is.",
-        "USE": "I corrected my name in it. The next morning it was wrong again, differently. The register is alive, or the clerk is loyal to some principle I lack."
+        "USE": "I corrected my name in it. I looked away, and it was wrong again, differently. The register is alive, or the clerk is loyal to some principle I lack."
       }
     },
     {
@@ -59,7 +59,7 @@
       "LOOK_AT": [
         "Forty keys. Four of them are out. The hotel is one-tenth occupied and charges as though it were not.",
         "Four out of forty. The four are not near each other.",
-        "Number nineteen is mine! I've looked at it more than a man should look at a key."
+        "Number nineteen has the best hook on the rack. I've looked at it more than a man should look at a key."
       ],
       "LISTEN_TO": [
         "Nothing. A key only speaks when dropped.",
@@ -77,7 +77,7 @@
         }
       ],
       "overrides": {
-        "PICK_UP": "Three keys, and mine is one, and the other two belong to men I've never seen. The hotel is fuller of mystery than of guests."
+        "PICK_UP": "Four keys out, and mine is one, and the other three belong to men I've never seen. The hotel is fuller of mystery than of guests."
       }
     },
     {
@@ -121,7 +121,7 @@
         }
       ],
       "overrides": {
-        "USE": "I've sat on it. That's what happened next."
+        "USE": "I sat. It sighed. We both needed it."
       }
     },
     {
@@ -129,7 +129,7 @@
       "LOOK_AT": [
         "I won't be examining the spittoon closely. Some economies are false.",
         "Brass, and emptied. In a hotel lobby this counts as gentility.",
-        "It has been moved twice since this morning and it is still in the wrong place.",
+        "It has been moved since I last looked, and it is still in the wrong place.",
         "There is a ring on the carpet where it used to be and a ring where it is."
       ],
       "LISTEN_TO": [

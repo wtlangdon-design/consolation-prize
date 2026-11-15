@@ -117,13 +117,13 @@
             "say": "It knocks in the wind. A slow, patient count.",
             "repeat": [
               "Nothing.",
-              "The knock, slower than yesterday. The wind is tired, or the post is."
+              "The knock, slower now. The wind is tired, or the post is."
             ]
           }
         ]
       },
       "overrides": {
-        "PUSH": "It leans toward town today. Yesterday, the diggings. The post is the district's mood, on a stick."
+        "PUSH": "It leans toward town. Push it and it leans toward the diggings. The post is the district's mood, on a stick."
       },
       "walkTo": {
         "x": 510,
@@ -206,7 +206,7 @@
             "say": "Wind coming down off the diggings, and somewhere up there a bucket swinging on its rope.",
             "repeat": [
               "Far up, a pick, struck once, as though somebody had remembered something.",
-              "The road, quiet. It does all its talking at six in the morning."
+              "The road, quiet. It does all its talking first thing in the morning."
             ]
           }
         ],
@@ -246,13 +246,13 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Men walking out with tools over their shoulders, at six in the morning.",
+            "say": "Men walking out with tools over their shoulders, early and brisk. They are talking.",
             "repeat": [
               "Every one of them is carrying something he bought at the Mercantile. The Mercantile is the only claim in the district that pays.",
               "They walk fast. Optimism has a pace, and it is brisk. I keep up easily."
             ],
             "then": [
-              "They are talking. Several of them are talking at once."
+              "Several of them are talking at once."
             ]
           }
         ],
@@ -285,7 +285,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The same men, walking in, at seven at night. Same tools. Same road.",
+            "say": "The same men, walking in, as the light goes. Same tools. Same road.",
             "repeat": [
               "Nobody is carrying anything he did not take out.",
               "They walk slower than they walked out, and all at the same pace, without anyone having agreed to it."
@@ -440,7 +440,7 @@
             "say": "Wind coming down off the diggings, and somewhere up there a bucket swinging on its rope.",
             "repeat": [
               "Far up, a pick, struck once, as though somebody had remembered something.",
-              "The road, quiet. It does all its talking at six in the morning."
+              "The road, quiet. It does all its talking first thing in the morning."
             ]
           }
         ]

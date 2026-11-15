@@ -55,7 +55,7 @@
           "after": [
             "leaving1"
           ],
-          "say": "Tomorrow.",
+          "say": "I'm leaving. I've said so every day.",
           "afterUse": "remove"
         },
         {

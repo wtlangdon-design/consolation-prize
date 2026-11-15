@@ -8247,3 +8247,21 @@ Lesson:
 - `tests/no-early-spoiler.test.mjs`: nobody outside the photographer's studio and the Company's vault calls the Mott likeness a man in Ohio unless gated on C4; it fails on the Nugget portrait's old LISTEN.
 - Doc 55 §8: Thad knows only what he has been told or can see.
 
+## 336 · The Act I review, first batch: plain faults (Tyler, 2026-11-15: "Pilot"; "Approve all")
+
+Tyler asked for a team of reviewers, each reading or playing Act I as one member of a game studio would (puzzle designer, narrative designer, dialogue editor, art director, playtester), with one voice writing every fix and Tyler approving every line. This is the first batch from their reports: contradictions and traps, no taste calls.
+
+- **The right idea at the thing beside the thing.** The blanket, the eggs and the tonic used on the raccoon, who sits in the hole's mouth, are answered as on the hole. The fee laid on Sump's counter is the fee handed to Sump, and the deed and the survey handed to Sump are laid on his counter (`alsoAt` in `content/combinations.json`; `engine/core/VerbSystem.ts`). A hand-over to a person stays GIVE (errata 282).
+- **Lines that wait for their moment** (doc 133, THE ACT ONE REVIEW): the register before he has given his name; the mud before the deed is filed; the piano's LISTEN once it is tuned this visit.
+- **The hotel key is nineteen**, as the room is, and four keys are out, his among them (doc 121, doc 49, doc 26).
+- **Fanshawe's greeting** no longer says he has no bed, which the office door requires him to have (doc 04).
+- **The first night.** Lines that assumed yesterday, or a morning, or weeks in town, say what is true whenever read: the notices, the hills, the Company's door, the claim marker, the path down, the mile post, the miners (whose "six in the morning" and "seven at night" errata 332's check had missed; it holds them now), the spittoon, the register, the bed.
+- **Lines that did not read on one pass:** Hob's greeting, the livery man's verdict (Thad says what the mule did, which a direction had carried and the screen never showed), Winnie's printing, Sump's order, the scales, the hay loft, Grievance's blanket, and three in the hotel.
+- **One answer, one question:** the man leaving tomorrow no longer answers "Tomorrow." twice, and the map seller's "Do they work?" has its own answer. The Nugget's portrait line, doubled by errata 334's change, is one sentence again. The two dollars no longer say nobody plays the piano, or name a man behind a grille before he is met.
+- **Kept:** Vessel's "Course you will." It is the driver's line from the opening, on purpose (doc 27).
+
+Lesson:
+- `tests/room-23.test.ts`: the blanket on the raccoon is the blanket on the hole.
+- `tests/no-clocks.test.mjs`: an hour "in the morning" or "at night" is a clock.
+- Doc 55 §8: a correct idea is never answered by a stock refusal.
+

@@ -30,7 +30,7 @@ Kept, whatever the standard says: every flag, puzzle, gate and option id; the lo
 | Where | Was | Now | Why |
 |---|---|---|---|
 | The hotel clerk | Opened reading "Mr. Grubbe." from a register Thad had never signed | Asks "Name?" the first time; Thad: "Thaddeus Grubb. Two B's and no E, if you're writing it down." — "Grubbe." — "That has an E in it." — "As given." Every visit after: "Mr. Grubbe." | 2 |
-| Fanshawe, FAN_A0 | "Off the coach this morning and in my office by noon." | "Off the coach tonight, and in my office before you've found a bed." | 2 |
+| Fanshawe, FAN_A0 | "Off the coach this morning and in my office by noon." | "Off the coach tonight, and in my office before you've unpacked." | 2 |
 | Hob, HOB_A1 | Asked about Mott and Claim One on the first night | Mott asked after once the map seller has told him who Mott was (`T_MOTT_TOLD`); Claim One once Sump has (`T_BORDERS_MOTT`) | 2, 5 |
 | Frame, the photographer, the message boy, Sowerby | Asked about Mott before anyone had named him | The same gate | 2, 5 |
 | The card sharp | "They don't know what the Colonel is. Which of us is the problem?" | "They know what I am. In this town, that makes me the honest one." | 5: the Colonel unmet, and his secret hinted at two acts early |

@@ -3437,5 +3437,42 @@
       "Generosity, wasted on it. I'd do it again. I'm like that."
     ]
   },
-  "givePoolsNote": "Errata 282, doc 127: GIVE with no pair -- to a person, or to a thing. Said in turn."
+  "givePoolsNote": "Errata 282, doc 127: GIVE with no pair -- to a person, or to a thing. Said in turn.",
+  "alsoAt": [
+    {
+      "room": "prosperity",
+      "at": "raccoon",
+      "as": "hole",
+      "items": [
+        "blanket",
+        "eggs",
+        "tonic"
+      ]
+    },
+    {
+      "room": "claims_registrar",
+      "at": "counter",
+      "as": "sump",
+      "items": [
+        "filing_fee"
+      ],
+      "verbs": [
+        "USE",
+        "GIVE"
+      ]
+    },
+    {
+      "room": "claims_registrar",
+      "at": "sump",
+      "as": "counter",
+      "items": [
+        "deed",
+        "survey"
+      ],
+      "verbs": [
+        "GIVE"
+      ]
+    }
+  ],
+  "alsoAtNote": "Errata 336: the same answer at the thing beside the thing. The blanket, the eggs and the tonic on the raccoon in the hole's mouth are answered as on the hole; the fee laid on Sump's counter is the fee handed to Sump; the deed and the survey handed to Sump are laid on his counter. Hand-authored, kept across extraction."
 }

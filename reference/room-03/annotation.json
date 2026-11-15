@@ -626,6 +626,18 @@
    "ref": "docs/133-playthrough-rulings.md::### THE PIANIST",
    "head": "**THE TRIES**",
    "bullet": "- PUSH"
+  },
+  {
+   "hotspot": "piano",
+   "verbs": [
+    "LISTEN_TO"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: LINES THAT WAIT FOR THEIR MOMENT",
+   "head": "**THE PIANO**",
+   "bullet": "- LISTEN",
+   "when": {
+    "T_NUGGET_PIANO_TUNED": true
+   }
   }
  ]
 }

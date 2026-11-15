@@ -286,7 +286,7 @@ is the whole of his character.
 >   *Thad:* "Four years? Doesn't it come?"
 >   → "It comes. It's always today's."
 > ↳ "Why not take today's?" → "I'm packed for tomorrow."
-> ↳ `[COMIC]` "You're never leaving this town, are you?" → "Tomorrow."
+> ↳ `[COMIC]` "You're never leaving this town, are you?" → "I'm leaving. I've said so every day."
 > "I've only just arrived." → "*Arrived.*"
 >   → "Nobody arrives here, son. They just haven't left yet."
 >   *Thad:* "What brought you here, in the first place?"
@@ -547,7 +547,7 @@ is the whole of his character.
 >   → "That's his… the undertaker explains it better, sir. Down the lane."
 > "You knew Pike was dead." → "He's on the map, sir! I mark everybody. That hill's my most popular corner."
 > `[COMIC]` "Do you have one with pianos on? I'm a tuner." → "I do now, sir!" *(He draws a small piano on a map.)* "There! A piano, right on top of the strike. You'll be the first man to look there."
-> `[COMIC]` "Do they work?" → "They've not been *disproved*, sir!"
+> `[COMIC]` "Do they work?" → "Every time, sir! Every man who's bought one has gone somewhere."
 > ↳ "Have you ever dug where one says?" → "Dig, sir? And find out which one's right? I'd have to throw the other forty away!"
 
 

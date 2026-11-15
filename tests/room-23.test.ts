@@ -97,6 +97,19 @@ test('A5, the smoke: every verb on the hole and the raccoon refuses until he lea
   assert.equal(useOn(state, 'blanket', 'hole').say, fumes, 'not even the blanket');
 });
 
+test('A5: the blanket on the raccoon himself is the blanket on the hole he sits in (errata 336)', async () => {
+  // The Act I review: his hotspot sits in the hole's mouth and is found first, so the right idea aimed at him got the
+  // blanket's stock refusal ("Nothing's improved, though it does look cosier.") and a player would drop it.
+  const onHole = await inState('r23-a');
+  const onHim = await inState('r23-a');
+  for (const state of [onHole, onHim]) (state as unknown as { inventory: string[] }).inventory.push('blanket');
+  const wanted = useOn(onHole, 'blanket', 'hole');
+  const got = useOn(onHim, 'blanket', 'raccoon');
+  assert.ok(wanted.say, 'the hole answers the blanket');
+  assert.equal(got.say, wanted.say, 'and so does the raccoon in it');
+  assert.equal(onHim.puzzleComplete('A5'), onHole.puzzleComplete('A5'));
+});
+
 test('A5, the blanket: the hole goes cold, he walks off, and the blanket comes back', async () => {
   const state = await inState('r23-a');
   const layer = new AmbientLayer(state);

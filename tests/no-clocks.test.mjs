@@ -16,6 +16,7 @@ export const CLOCK = new RegExp([
   `\\b${NUM}[- ](?:minute|hour|day|week|fortnight)s?\\b(?!['’]s? (?:walk|ride))`,
   "\\b(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\\s+o['’]clock\\b",
   "\\b(?:on|since|last|this past) (?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\\b",
+  "\\b(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve) (?:in the (?:morning|afternoon|evening)|at night)\\b",
 ].join('|'), 'i');
 
 /** Where the story needs the number. Each is a piece of the line, and why. */
@@ -85,5 +86,6 @@ test('the check catches the line Tyler stopped on', () => {
   assert.equal(clocks(['Four minutes. C-sharp has come home, and nobody in this room has looked up.']).length, 1);
   assert.equal(clocks(['They drank to my memory on Tuesday.']).length, 1);
   assert.equal(clocks(['It will be in print by four o\'clock.']).length, 1);
+  assert.equal(clocks(['Men walking out with tools over their shoulders, at six in the morning.']).length, 1);
   assert.equal(clocks(['C-sharp has come home, and nobody in this room has looked up.']).length, 0);
 });

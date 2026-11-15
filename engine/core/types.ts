@@ -1288,6 +1288,14 @@ export interface PairRule {
 
 /** content/combinations.json -- doc 06's table, written by doc 24. */
 export interface CombinationsFile {
+  /**
+   * THE SAME ANSWER AT ANOTHER PLACE (errata 336). The Act I review found right ideas refused by a stock line because
+   * they were aimed at the thing beside the thing: the blanket on the raccoon sitting in the hole's mouth, the fee
+   * laid on Sump's counter instead of handed to him. An item used at `at` with no answer of its own there is
+   * answered as if at `as`. `items` limits it to those items; `verbs` says which carry verbs at `at` count (all when
+   * unnamed), since a hand-over to a person stays GIVE (errata 282) and a thing takes USE.
+   */
+  alsoAt?: { room: string; at: string; as: string; items?: string[]; verbs?: string[] }[];
   schema: number;
   note?: string;
   rule4?: string;

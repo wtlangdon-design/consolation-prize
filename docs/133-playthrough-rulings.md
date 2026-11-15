@@ -194,3 +194,17 @@ Night one is the town: Main Street, Lower Street, the Lane, and their doors, and
 *Tyler: "The insult Thad gives, and then corrects, with the pie lady still doesn't land well. He's just arrived in town, he doesn't actually try a pie, and he's ready to insult them? If she lets him sample it first, maybe? But then I think we'd have to create more animations." Errata 329.*
 
 No new drawing: she already has a frame holding a pie out. Thad asks to try a little first. She holds out a pie ("Corner's free. Go on.") and asks "Well?", and only then can he give his verdict, and catch himself. Her two identical answers are now two: "Course you will." for "I'll take a pie.", and "Pie'll be here. So will you." for the goodbye.
+
+## THE ACT ONE REVIEW: LINES THAT WAIT FOR THEIR MOMENT
+
+*Errata 336 (Tyler, 2026-11-15, approved). The review team found lines true only after an event the player may not have reached. Each of these is said in the state named, and the line it stands in for is said after.*
+
+**THE REGISTER** · *the hotel lobby, before he has given his name*
+- LOOK — "A register, open, with a pen beside it. Forty-one names, and none of them mine yet."
+
+**THE MUD** · *Prosperity, before the deed is filed*
+- USE — "I am using it. I'm standing in it. That's most of what it offers."
+
+**THE PIANO** · *the Nugget, tuned this visit*
+- LISTEN — "C-sharp, where it belongs. Nobody's noticed that either."
+

@@ -14,7 +14,7 @@
 **LISTEN** 1 "Boards, overhead. Somebody pacing a room about the size of mine." · 2 "Four steps, turn. Four steps, turn. Definitely the size of mine." · 3 "He's stopped. Somehow that's worse."
 
 ## THE FADED PORTRAIT
-**LOOK** 1 "A portrait of a man in a good collar, hung crooked. I asked who he is and got three answers. I asked three people and got three answers." · 2 "A governor, a founder, and 'that's Bill's uncle.' Bill was not available to confirm." · 3 "It's a face that gets around. I have a feeling I'll meet that collar again in this town."
+**LOOK** 1 "A portrait of a man in a good collar, hung crooked. I asked three people who he is, and got three answers." · 2 "A governor, a founder, and 'that's Bill's uncle.' Bill was not available to confirm." · 3 "It's a face that gets around. I have a feeling I'll meet that collar again in this town."
 **LISTEN** 1 "Silent. He's keeping quiet about who he is." · 2 "Not a word. Not even a crooked one." · 3 "Nothing. Whoever he is, nobody here is asking him."
 
 ## THE SPITTOON

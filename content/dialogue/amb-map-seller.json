@@ -180,7 +180,7 @@
           "id": "map_seller7",
           "text": "Do they work?",
           "tag": "COMIC",
-          "say": "They've not been disproved, sir!",
+          "say": "Every time, sir! Every man who's bought one has gone somewhere.",
           "afterUse": "remove"
         },
         {

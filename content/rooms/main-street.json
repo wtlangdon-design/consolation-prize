@@ -458,7 +458,7 @@
             "say": "Opportunity, pinned up in rows! Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. Somewhere on this board is my fortune. I'm almost sure of it.",
             "repeat": [
               "The lost-dog notice has been up six weeks, poor soul. And there's a dog lying right here on this street, looking entirely unlost.",
-              "Four claims for sale today! There were three yesterday. Somebody's going to get a bargain, and I'd like it to be me."
+              "Four claims for sale! Somebody's going to get a bargain, and I'd like it to be me."
             ]
           }
         ],
@@ -884,7 +884,7 @@
             "say": "Gold country! Every man here has looked at these hills for years and seen a number.",
             "repeat": [
               "Still gold country, and still, so far as anyone can say, no gold. Early days.",
-              "The same hills as yesterday. I check every time, in case they've changed their minds about me."
+              "The same hills as before. I check every time, in case they've changed their minds about me."
             ],
             "then": [
               "Give me a week and I'll see a bigger one."
@@ -1164,8 +1164,8 @@
           {
             "say": "CONSOLATION IMPROVEMENT COMPANY. The door is a great deal heavier than the building needs.",
             "repeat": [
-              "Everyone who goes in comes out pleased! I've watched eleven men do it, and I'd very much like to be the twelfth.",
-              "Three stories from here. I've been round the back. It's one."
+              "Everyone who goes in comes out pleased! I'd very much like to be next.",
+              "Three stories from here. From the side, it's one."
             ]
           }
         ],
@@ -1329,7 +1329,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Boots. A great many of them, going out. The most cheerful sound in Consolation, and it happens at six in the morning.",
+            "say": "Boots. A great many of them, going out. The most cheerful sound in Consolation, and it happens first thing in the morning.",
             "repeat": [
               "Nothing at the moment. They're all out there.",
               "Nothing coming back yet. They come back quiet."
