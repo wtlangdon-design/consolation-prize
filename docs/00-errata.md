@@ -8091,3 +8091,17 @@ Lesson:
 - `tests/way-out-on-the-floor.test.mjs`: every way out that comes down to the ground overlaps the floor. It fails on the Road to the Claims as it was. The ledge's drawn zigzag path is excused by name.
 - `tests/no-money-offered.test.ts`: before and after the swindle, the clerk's option 3 offers what Thad has, the clerk answers it, and the piano follows. It fails with the rephrase removed.
 - Doc 55 §8: a line that names a day is read at the earliest state its gate allows.
+
+## 324 · The town, one night at a time (Tyler, 2026-11-14)
+
+Tyler: "I'm wondering if maybe the town is too open to start with too much to potentially do? Which may leave the player feeling a bit aimless? I liked in MI that sometimes you couldn't also figure out where to go or what to do until you could, but I want there to also be some narrative structure where it feels like a story is progressing vs feeling haphazard." About twenty-five places were open on Thad's first evening, and about half had no part in Act I. Offered four ways, he chose: open places as the story reaches them (doc 133, THE TOWN, ONE NIGHT AT A TIME).
+
+- **Night one is the town:** Main Street, Lower Street, the Lane, and their doors. That is where Act I's first errand, Ezra Pike, is asked after. **The road to the claims stays open**: he can see it from the street, and errata 30c keeps it on the map so that the map never opens with fewer than two places. With the places beyond it off the map, it leads nowhere new until the story does.
+- **Mott's site** goes on the map once Sump has told him Prosperity borders it (`T_BORDERS_MOTT`, A9).
+- **The creek, Claim Row, Sheng's laundry, the high ridge, the boarding house, the bakehouse and the schoolhouse** go on the map from Act II (`ACT` ≥ 2). Nothing in them is Act I's: no item, no flag, and no Assay pair before Act II (checked room by room, and against the full-game walkthrough's order).
+
+Every flag that opens a place is written in play, so nothing is shut for good (invariant 6).
+
+Lesson:
+- `tests/act-one-places.test.ts`: on night one the map shows the town and the road, and nothing past it. Each far place appears when its flag is written, and every opening flag is written in play. It fails on the map as it was.
+- `tests/room-26`, `-27`, `-29` and `-30.test.ts`: each place goes on the map once the road has been walked and the story reaches it, and not on the road alone.
