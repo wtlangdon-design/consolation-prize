@@ -3,6 +3,7 @@
  "id": "hotel_clerk",
  "name": "THE HOTEL CLERK",
  "posture": "behind-counter",
+ "faces": "front",
  "room": "hotel_lobby",
  "x": 1209,
  "y": 423,

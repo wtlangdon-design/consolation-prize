@@ -3,6 +3,7 @@
  "id": "winnie_at_board",
  "name": "WINNIE LEDGER",
  "posture": "standing",
+ "faces": "front",
  "room": "assay_office",
  "when": {
   "T_SECOND_LEDGER": true,

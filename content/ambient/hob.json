@@ -3,6 +3,7 @@
  "id": "hob",
  "name": "HOB",
  "posture": "standing",
+ "faces": "left",
  "room": "back_alley",
  "when": {
   "T_EXECUTOR_NAMED": false

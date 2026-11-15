@@ -3,6 +3,7 @@
  "id": "bell_ringer",
  "name": "THE BELL-RINGER",
  "posture": "standing",
+ "faces": "front",
  "note": "Doc 07 #4: 'Church steps. Strikes the bell by hand, half a step flat, drunk.' Errata 161: he stands at the foot of the church steps on Lower Street, by the bell on its post, and strikes it. His tree and his barks are doc 07's, extracted; doc 97's Overrides answer a wrong verb on him.",
  "room": "lower_street",
  "x": 929,

@@ -62,6 +62,9 @@ const scenarios = {
   // Errata 314, Acts III and IV: Sowerby's eulogy for a tuner, said; Hob's one laugh, heard.
   'a3-sowerby': { fixture: 'r17-b', steps: [{ enter: 'church' }, { wait: 3 }, { talk: 'sowerby' }, { option: 'sowerby_c4' }], burst: 40 },
   'a3-hob-laugh': { fixture: 'r21-a', steps: [{ enter: 'watchmans_shack' }, { wait: 3 }, { talk: 'hob' }, { option: 'hob5' }], burst: 16 },
+  // Errata 321: a conversation stands in front of the face; the pie woman and the dog's owner, who were talked to from behind.
+  'pie-woman-stand': { fixture: 'r20-a', steps: [{ flags: { T_DUEL_CROWD: false, T_FUNERAL_DAY: false } }, { enter: 'main_street' }, { wait: 3 }, { talk: 'pie_woman' }, { option: 'pie_woman6' }], burst: 6 },
+  'dogs-owner-stand': { fixture: 'r20-a', steps: [{ flags: { T_BILL_FOUND: false } }, { enter: 'back_alley' }, { wait: 3 }, { talk: 'dogs_owner' }], burst: 3 },
   'deke-toast': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { flags: { T_PIKE_DEAD: false } }, { talk: 'deke_vessel' }, { option: 'deke_vessel9' }], burst: 6 },
 };
 

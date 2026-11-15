@@ -8070,3 +8070,13 @@ Lesson:
 - `tests/the-switch.test.mjs`: the game has one switch, the pie woman's, and the other two keep their ids.
 - `tests/scenery.test.ts`: under the horses the pointer finds their own hotspot.
 
+
+## 321 · Every talker says which way it faces; Thad's name to the pie woman (Tyler, 2026-11-14)
+
+- **The pie woman's side.** Tyler, with a screenshot: "Thad stands to the right of the pie lady when he talks to her but she's looking left." Errata 304's rule held only for a figure that declared `faces`. She never had, so the engine stood Thad on whichever side he came from. She now `faces` left, and her conversation stands in front of her face (2360, 652). The same read found the dog's owner in the back alley: drawn in profile, turned left, and talked to from his back at 720. He is now talked to at 400.
+- **Every talker declares.** Every figure that can be talked to now says `left`, `right` or `front`, judged by eye from its rest frame (doc 133). Hob and Pratt are turned left and were already talked to from that side. A talker's `front` means only "no side to stand on", and the skin measure in `tests/faces.test.mjs` misreads seated, reading and counter-cropped figures, so it no longer measures a talker's `front`. A judge's or a crowd's `front` is measured as before.
+- **"Grubb. Pianos. You may have heard."** Tyler: "such a random line." Three fragments where Thad introduces himself. Now (doc 07, errata 100's pass): "Thaddeus Grubb. Pianos are my profession. You may have heard the name." Her answer is unchanged: "I haven't." "Still a nickel."
+
+Lesson:
+- `tests/talk-faces.test.mjs`: every figure that can be talked to declares which way it faces. It fails with the pie woman's declaration removed, and with her stand put back at her back.
+- `tools/gauntlet/acted-proof.mjs`: scenarios `pie-woman-stand` and `dogs-owner-stand`, the look in the build.

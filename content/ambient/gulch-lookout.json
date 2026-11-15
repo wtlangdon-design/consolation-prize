@@ -3,6 +3,7 @@
  "id": "gulch_lookout",
  "name": "THE LOOKOUT",
  "posture": "standing",
+ "faces": "front",
  "note": "Doc 109, THE LOOKOUT: 'At the foot of the path, in the tents. G3.' Doc 107: 'Meets every stranger at the foot of the ledge path, because every stranger is a claim jumper.' He stands at the foot of the zigzag path where the composition master stood him (room-51 operation 1). His tree, barks and GIVE lines are doc 109's, extracted; doc 49's ROOM 51 answers a wrong verb on him (errata 202). Barks in turn, the same in every reputation state: the Gulch has not heard of Thad (doc 107).",
  "room": "gulch_tents",
  "x": 1560,

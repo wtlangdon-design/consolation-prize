@@ -125,7 +125,7 @@
         },
         {
           "id": "pie_woman6",
-          "text": "Grubb. Pianos.",
+          "text": "Thaddeus Grubb. Pianos are my profession.",
           "tag": "COMIC",
           "exchange": [
             {
@@ -142,7 +142,7 @@
             }
           ],
           "afterUse": "remove",
-          "echo": "Grubb. Pianos. You may have heard."
+          "echo": "Thaddeus Grubb. Pianos are my profession. You may have heard the name."
         },
         {
           "id": "pie_woman7",

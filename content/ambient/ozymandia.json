@@ -3,6 +3,7 @@
  "id": "ozymandia",
  "name": "MADAME OZYMANDIA",
  "posture": "behind-counter",
+ "faces": "front",
  "room": "ozymandias_tent",
  "when": {
   "T_SEANCE_ON": false

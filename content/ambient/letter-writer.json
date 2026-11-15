@@ -3,6 +3,7 @@
  "id": "letter_writer",
  "name": "THE LETTER-WRITER",
  "posture": "standing",
+ "faces": "front",
  "note": "Doc 07 #1. Writes letters home for men who can't. Charges by the page. Resolves the notice board hotspot. Doing better than anyone, because he sells the one thing that never runs out.",
  "room": "lower_street",
  "x": 1295,

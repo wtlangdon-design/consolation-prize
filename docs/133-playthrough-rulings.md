@@ -114,3 +114,20 @@ Errata 293 put three on Main Street. The pie woman's stays ("Madam, that pie is 
 - The map seller: "Your maps are a swindle, sir, and I'll tell the whole town so!" → "Tell them, sir! Every man in town owns one, and not one has asked for his money back."
 
 Both keep their option ids (`tools/town-barks.json` `keepIds`), so saves and the walkthrough still find them.
+
+## THE SIDE SHE FACES
+
+*Tyler, with a screenshot: "Thad stands to the right of the pie lady when he talks to her but she's looking left." Errata 321.*
+
+A conversation stands in front of the face (errata 304). That rule held only for a figure that said which way it faced. Now every talker says it, judged by eye from the figure as drawn:
+- **Turned left:** the pie woman, the dog's owner, Hob, Pratt, the man leaving tomorrow, both boarders, the second boundary man.
+- **Turned right:** the first boundary man, the message boy, Fanshawe at the duel.
+- **Every other talker:** front, which leaves the side to the way Thad comes.
+
+The pie woman and the dog's owner were the two talked to from behind. Both are moved.
+
+## THADDEUS GRUBB, TO THE PIE WOMAN
+
+*Tyler: "'Grubb. Pianos. You may have heard.' -- such a random line. Fix it."*
+
+The pie woman's `[COMIC]` row is Thad introducing himself, as a man of reputation, to a woman who sells nickel pies. Its three fragments read as nothing. Now: "Thaddeus Grubb. Pianos are my profession. You may have heard the name." Her answer is unchanged: "I haven't." *(beat)* "Still a nickel." It is not doc 27's "I'm Thaddeus Grubb. You'll have heard of me.", which another conversation already uses.

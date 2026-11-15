@@ -3,6 +3,7 @@
  "id": "livery_man",
  "name": "THE LIVERY MAN",
  "posture": "seated",
+ "faces": "front",
  "room": "livery",
  "x": 955,
  "y": 630,

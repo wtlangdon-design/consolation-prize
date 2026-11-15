@@ -3,6 +3,7 @@
  "id": "winnie",
  "name": "WINNIE LEDGER",
  "posture": "behind-counter",
+ "faces": "front",
  "room": "assay_office",
  "x": 1045,
  "y": 387,

@@ -3,6 +3,7 @@
  "id": "frame_stood_back",
  "name": "IGNATIUS FRAME",
  "posture": "standing",
+ "faces": "front",
  "room": "clarion",
  "whenAny": [
   {

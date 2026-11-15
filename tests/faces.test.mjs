@@ -39,7 +39,12 @@ export function facing(png, [fx, fy, w, h]) {
   return sn ? sx / sn - hx / hn : 0;
 }
 
-const figures = read('content/manifest.json').ambient.map(read).filter((npc) => npc.faces);
+// A talker's `front` is not measured (errata 321). Every talker now says which way it faces, judged by eye in the room
+// (tests/talk-faces.test.mjs), and for a talker `front` only means "no side to stand on". The skin measure misreads a
+// seated man, a woman reading, a face under a hat brim and a figure cropped at the counter by up to 11 either way,
+// so it holds a talker to a turn only where one is declared. Every `front` that is not a talker -- a judge, a crowd --
+// is measured as before.
+const figures = read('content/manifest.json').ambient.map(read).filter((npc) => npc.faces && !(npc.tree && npc.faces === 'front'));
 test('figures that must look somewhere say where', () => assert.ok(figures.length >= 5));
 for (const npc of figures) {
   test(`${npc.id} faces ${npc.faces}`, () => {

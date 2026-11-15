@@ -3,6 +3,7 @@
  "id": "fiddler",
  "name": "THE FIDDLER",
  "posture": "standing",
+ "faces": "front",
  "note": "Doc 07 #11. 'The Nugget. Tuned to the flat piano, therefore flat. Corrects first in Act IV.' He stands by the piano with his fiddle. HIS BARKS ARE ALL PLAYING (doc 07: 'mostly just playing'): none is a spoken line, so his file has none, and what doc 07 writes for R_BORDERS_MOTT, R_DEAD and R_TRUTH is music: his `barkCues` and Room 33's R33-FIDDLER (errata 116). While he is in the room the Nugget's music carries his fiddle (manifest, `whenPresent`). Doc 22: he idles in time with the bar grid.",
  "room": "nugget",
  "x": 600,
