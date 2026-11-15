@@ -50,7 +50,7 @@ import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, isRest, waitsForClick } from '../core/SpeechPolicy.ts';
 import { bootsToBeginCard, endingAt, titleItems, titleStampAt, TITLE_STAMPED, type TitleItem } from '../core/Bookends.ts';
 import { roomPose } from '../core/RoomPose.ts';
-import { besides, inTheWay } from '../core/LookAside.ts';
+import { besides, COVERS_A_PERSON, hidden, inTheWay } from '../core/LookAside.ts';
 import { clearOfFigures, hiddenClick, sameClickAgain, secondExitClick, touchNames } from '../core/Standing.ts';
 import {
   CYCLING_OPTION,
@@ -1956,25 +1956,36 @@ export class GameScene extends Phaser.Scene {
   }
 
   /**
-   * BESIDE WHAT HE EXAMINES, NOT IN FRONT OF IT (errata 330; engine/core/LookAside.ts). For LOOK AT and LISTEN TO,
-   * if the stand he was given (or the spot he is on, when he need not walk) would hide the thing from the player, he
-   * stands just clear of its nearer side instead, on floor he can reach, facing it. A person is not moved: a
-   * conversation's side is talkSide's. A thing that says why he must stand in front (`inFrontWhy`) keeps its stand.
+   * BESIDE WHAT HE ACTS ON, NOT IN FRONT OF IT (errata 330; engine/core/LookAside.ts). If the stand he was given (or
+   * the spot he is on, when he need not walk) would hide the thing from the player, he stands just clear of its nearer
+   * side instead, on floor he can reach, facing it. A person is not moved: a conversation's side is talkSide's. A
+   * thing that says why he must stand in front (`inFrontWhy`) keeps its stand.
+   * EVERY VERB, AND NOBODY BEHIND HIM (errata 337). It was LOOK AT and LISTEN TO only, and it looked only at the thing:
+   * the Act I playtest found him in front of the cat for PUSH, the barrel for USE, and in front of the Colonel and the
+   * undertaker while he looked at the things beside them. Any verb on a thing now stands him clear of it, and a stand
+   * that would hide a person in the room is passed over for one that does not.
    */
   private besideIt(target: Interactable, verb: string, staging: { x: number; y: number; facing: Facing } | null):
       { x: number; y: number; facing: Facing } | null {
-    if (!(this.state.content.verbs.examineVerbs ?? []).includes(verb) || target.inFrontWhy) return staging;
-    if ((target as { kind?: string }).kind === 'npc' || target.heldBy) return staging;
+    if (verb === 'WALK_TO' || target.inFrontWhy) return staging;
+    if ((target as { kind?: string }).kind === 'npc' || (target as { kind?: string }).kind === 'exit' || target.heldBy) return staging;
     const at = staging ?? { x: this.actor.x, y: this.actor.y };
     const height = this.state.actorHeightAt(at.x, at.y) ?? this.actor.height;
-    if (!inTheWay(at, height, target.rect)) return staging;
+    const people = this.ambient.present.filter((npc) => npc.id !== target.id).map((npc) => this.ambient.hitBox(npc));
+    const hidesSomebody = (spot: { x: number; y: number }, tall: number) => people.some((box) => hidden(spot, tall, box) > COVERS_A_PERSON);
+    const bad = (spot: { x: number; y: number }, tall: number) => inTheWay(spot, tall, target.rect) || hidesSomebody(spot, tall);
+    if (!bad(at, height)) return staging;
     const [rx, ry, rw, rh] = target.rect;
-    for (const want of besides(at, height, target.rect, { x: this.actor.x, y: this.actor.y })) {
+    const from = { x: this.actor.x, y: this.actor.y };
+    // Beside the thing first; then beside whoever the stand would have hidden.
+    const wants = [...besides(at, height, target.rect, from),
+      ...people.filter((box) => hidden(at, height, box) > COVERS_A_PERSON).flatMap((box) => besides(at, height, box, from))];
+    for (const want of wants) {
       const floor = this.state.nearestFloor(want.x, want.y);
       if (!floor) continue;
       const stand = this.clearOfStanding(floor);
       const tall = this.state.actorHeightAt(stand.x, stand.y) ?? height;
-      if (inTheWay(stand, tall, target.rect)) continue;
+      if (bad(stand, tall)) continue;
       return { x: stand.x, y: stand.y, facing: this.actor.facingToward(rx + rw / 2, ry + rh / 2) };
     }
     return staging;
@@ -1997,9 +2008,14 @@ export class GameScene extends Phaser.Scene {
 
   /** A walk's end, moved off any mover standing on it (engine/core/Standing.ts; errata 129). */
   private clearOfStanding(to: { x: number; y: number }): { x: number; y: number } {
-    const standing = this.actors.all()
+    // AND THE PEOPLE OF THE ROOM (errata 337): the bystanders are not movers, so a walk could end on the letter-writer's
+    // exact spot and stand Thad inside him (the Act I playtest, Lower Street). Anyone drawn standing on the floor counts.
+    const bystanders = this.ambient.present
+      .filter((npc) => npc.posture === 'standing' || npc.posture === 'child')
+      .map((npc) => ({ x: npc.x, y: npc.y, height: this.ambient.hitBox(npc)[3] }));
+    const standing = [...this.actors.all()
       .filter((mover) => mover.id !== this.actors.playerId && !mover.isWalking)
-      .map((mover) => ({ x: mover.x, y: mover.y, height: mover.height }));
+      .map((mover) => ({ x: mover.x, y: mover.y, height: mover.height })), ...bystanders];
     return clearOfFigures(to, { x: this.actor.x, y: this.actor.y }, standing, this.actor.height);
   }
 

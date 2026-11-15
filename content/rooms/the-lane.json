@@ -769,7 +769,8 @@
         "nearHeight": 362
       },
       "neighbours": [
-        "mud_mid",
+        "mud_mid_0",
+        "mud_mid_1",
         "ground_passage_west",
         "ground_undertaker",
         "stairs_photographer",
@@ -780,18 +781,18 @@
       ]
     },
     {
-      "id": "mud_mid",
+      "id": "mud_mid_0",
       "points": [
         {
           "x": 40,
           "y": 704
         },
         {
-          "x": 1880,
+          "x": 795,
           "y": 704
         },
         {
-          "x": 1880,
+          "x": 795,
           "y": 778
         },
         {
@@ -810,6 +811,77 @@
       },
       "neighbours": [
         "mud_far",
+        "mud_mid_2",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_1",
+      "points": [
+        {
+          "x": 891,
+          "y": 704
+        },
+        {
+          "x": 1880,
+          "y": 704
+        },
+        {
+          "x": 1880,
+          "y": 778
+        },
+        {
+          "x": 891,
+          "y": 778
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 186,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_mid_2",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_2",
+      "points": [
+        {
+          "x": 795,
+          "y": 765
+        },
+        {
+          "x": 891,
+          "y": 765
+        },
+        {
+          "x": 891,
+          "y": 778
+        },
+        {
+          "x": 795,
+          "y": 778
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 186,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_mid_0",
+        "mud_mid_1",
         "mud_near"
       ]
     },
@@ -843,7 +915,9 @@
         "nearHeight": 362
       },
       "neighbours": [
-        "mud_mid"
+        "mud_mid_0",
+        "mud_mid_1",
+        "mud_mid_2"
       ]
     },
     {

@@ -865,7 +865,8 @@
         "nearHeight": 266
       },
       "neighbours": [
-        "mud_mid",
+        "mud_mid_0",
+        "mud_mid_1",
         "ground_road_west",
         "ground_registrar",
         "ground_alley",
@@ -880,18 +881,18 @@
       ]
     },
     {
-      "id": "mud_mid",
+      "id": "mud_mid_0",
       "points": [
         {
           "x": 40,
           "y": 711
         },
         {
-          "x": 1880,
+          "x": 1246,
           "y": 711
         },
         {
-          "x": 1880,
+          "x": 1246,
           "y": 781
         },
         {
@@ -910,6 +911,73 @@
       },
       "neighbours": [
         "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_1",
+      "points": [
+        {
+          "x": 1337,
+          "y": 711
+        },
+        {
+          "x": 1880,
+          "y": 711
+        },
+        {
+          "x": 1880,
+          "y": 781
+        },
+        {
+          "x": 1337,
+          "y": 781
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_2",
+      "points": [
+        {
+          "x": 1246,
+          "y": 775
+        },
+        {
+          "x": 1337,
+          "y": 775
+        },
+        {
+          "x": 1337,
+          "y": 781
+        },
+        {
+          "x": 1246,
+          "y": 781
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 137,
+        "nearY": 858,
+        "nearHeight": 266
+      },
+      "neighbours": [
         "mud_near"
       ]
     },
@@ -943,7 +1011,9 @@
         "nearHeight": 266
       },
       "neighbours": [
-        "mud_mid"
+        "mud_mid_0",
+        "mud_mid_1",
+        "mud_mid_2"
       ]
     },
     {
