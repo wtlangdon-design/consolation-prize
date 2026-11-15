@@ -1093,6 +1093,12 @@
    "date": "2026-11-14",
    "kind": "loosened",
    "why": "Errata 318: the livery blanket is asked for once Thad has seen his claim (T_SEEN_PROSPERITY), so the test sets the flag before it asks. It did not misfire: the content changed."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-14",
+   "kind": "reviewed",
+   "why": "Reviewed: three edits in two weeks, each because the floor or the camera changed under it by ruling: Main Street's zoom (errata 312), and now things on the floor carved with Thad's reach (errata 318). It has not misfired; it is a broad interface test that touches every room's floor. TUNED in this PR: its zone check looked at one exact pixel, a region's centre, and now looks along the region's row, so carving a thing that happens to sit at a centre no longer breaks it while a region with no floor still fails. Keep it."
   }
  ]
 }
