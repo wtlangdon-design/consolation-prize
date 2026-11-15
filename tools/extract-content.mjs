@@ -6463,7 +6463,11 @@ function townTrees() {
       const says = /\*Thad says:\*\s*"([^"]+)"/.exec(text.slice(0, arrow))?.[1];
       if (says && !comic) throw new Error(`doc 07 ${heading}: a switch on an option that is not [COMIC]: "${asked}"`);
       if (says && options.some((option) => option.id === `${spec.prefix}s`)) throw new Error(`doc 07 ${heading}: a second switch`);
-      const id = says ? `${spec.prefix}s` : `${spec.prefix}${options.filter((option) => option.id !== `${spec.prefix}s`).length + 1}`;
+      // AN ID KEPT (errata 320): a line that was a switch and is now said plainly keeps the switch's id, so saves,
+      // the walkthrough and every option after it keep theirs (tools/town-barks.json `keepIds`, by the menu's words).
+      const kept = spec.keepIds?.[asked];
+      const unnumbered = new Set([`${spec.prefix}s`, ...Object.values(spec.keepIds ?? {})]);
+      const id = kept ?? (says ? `${spec.prefix}s` : `${spec.prefix}${options.filter((option) => !unnumbered.has(option.id)).length + 1}`);
       const option = { id, text: plain(asked), tag: comic ? 'COMIC' : 'TOPIC', ...(says ? { echo: plain(says) } : {}),
         ...(followUp && lastTop ? { after: [lastTop] } : {}), exchange: spoken(text.slice(arrow + 1), speakers, spec.speaker) };
       Object.assign(option, routes[option.text] ?? {});

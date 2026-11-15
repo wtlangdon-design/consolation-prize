@@ -89,6 +89,12 @@
    520,
    370
   ],
+  "horses": [
+   1282,
+   532,
+   372,
+   222
+  ],
   "mud": [
    60,
    626,
@@ -637,9 +643,14 @@
    "x": 1700,
    "y": 620,
    "facing": "back"
+  },
+  "horses": {
+   "x": 1470,
+   "y": 786,
+   "facing": "back"
   }
  },
- "hotspotWalkToNote": "Errata 201. The point under the false fronts' centre, 1580,620, is behind the horses once they move right to clear the notice board (Tyler, 2026-11-08: \"move them a bit to the right so they're not overlapping the bulletin board at all\"): they would hide 55% of him there. The fronts run the whole street; he looks at them from 1700,620, 120 px on, past the paint's tail and clear of the trough.",
+ "hotspotWalkToNote": "Errata 201. The point under the false fronts' centre, 1580,620, is behind the horses once they move right to clear the notice board (Tyler, 2026-11-08: \"move them a bit to the right so they're not overlapping the bulletin board at all\"): they would hide 55% of him there. The fronts run the whole street; he looks at them from 1700,620, 120 px on, past the paint's tail and clear of the trough. Errata 320: THE HORSES, from in front of the rail, facing them.",
  "onEnterScenes": [
   {
    "fromRef": "docs/57-puzzle-completion.md::## C3 · Manufacture a funeral",
@@ -1782,5 +1793,8 @@
    ],
    "baseY": 592
   }
- ]
+ ],
+ "defaultVerbs": {
+  "horses": "LOOK_AT"
+ }
 }

@@ -38,7 +38,9 @@ const DOES_SOMETHING = ['set', 'add', 'take', 'grants', 'completes', 'goto', 'en
 
 test('there are switches, and each is a [COMIC] option that does nothing', () => {
   const found = switches();
-  assert.ok(found.length >= 3, `Main Street's three are in the game (found ${found.length})`);
+  // Errata 320 (Tyler, 2026-11-14: "I could see him doing it once, but back and back in multiple conversations seems
+  // repetitive"): one switch in the game, not three.
+  assert.equal(found.length, 1, `one switch in the game (found ${found.length}: ${found.map(({ option }) => option.id).join(', ')})`);
   for (const { tree, option } of found) {
     assert.equal(option.tag, 'COMIC', `${tree.id} ${option.id}: a switch is only ever [COMIC]`);
     const acts = DOES_SOMETHING.filter((key) => key in option);
@@ -63,7 +65,10 @@ test('a person has at most one switch, under its own id', () => {
   }
 });
 
-test("Main Street's three are the ones doc 07 writes", () => {
-  const ids = switches().map(({ option }) => option.id).sort();
-  for (const id of ['leavings', 'map_sellers', 'pie_womans']) assert.ok(ids.includes(id), `${id} is in the game`);
+test("the one switch is the pie woman's; the other two are said plainly, under the same ids", () => {
+  const ids = switches().map(({ option }) => option.id);
+  assert.deepEqual(ids, ['pie_womans']);
+  const plain = trees.flatMap((tree) => Object.values(tree.nodes ?? {}).flatMap((node) => node.options ?? []))
+    .filter((option) => ['leavings', 'map_sellers'].includes(option.id));
+  assert.equal(plain.length, 2, 'the man leaving tomorrow and the map seller keep their ids (errata 320, keepIds)');
 });

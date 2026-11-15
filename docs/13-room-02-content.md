@@ -85,6 +85,11 @@ Where a specific line exists it takes precedence over the pool.
 > PICK UP — "I pick up some mud. I am now a man holding mud, in a street, at night. I put it back."
 > USE — "Use it on what? I'm open to suggestions, but not to mud."
 
+**THE HORSES**
+> PICK UP — "Three horses. I could not lift one leg of one horse, and I have their full attention."
+> TALK TO — "How do you do. The palomino has decided I am not hay, and returned to the hay."
+> USE — "I'd ride one, if one were mine, and if I could ride."
+
 **THE HILLS**
 > PICK UP — "They're hills. I'm ambitious, but I'm not unreasonable."
 > TALK TO — "No."
@@ -129,6 +134,11 @@ First selection, then second, then third. Third repeats indefinitely thereafter.
 
 **LOOK** — 1 "Mud, the full width of the street and six inches deep! The boardwalk is six inches high. Somebody worked that out, and I'd like to buy him a drink." · 2 "The same mud. I've started to recognize individual portions of it, and nod to them." · 3 "That portion there, I've named. I won't be sharing the name."
 **LISTEN** — 1 "Nothing. It's mud, being mud." · 2 "Nothing new." · 3 "Nothing new. I want that understood."
+
+## THE HORSES
+*Errata 320 (Tyler, 2026-11-14: "I want them clickable"). Variant 1 is doc 05's.*
+**LOOK** — 2 "The black has been watching me since I came up the street. He knows a man with no horse when he sees one." · 3 "Whoever owns the paint keeps his saddle polished and his horse waiting. Out here that is the nearest thing to a plan."
+**LISTEN** — 2 "A long, low snort from the black, aimed at nobody, or possibly at me." · 3 "A hoof shifting in the mud, and the creak of the rail as somebody leans on it."
 
 ## THE HILLS
 **LOOK** — 2 "Still gold country, and still, so far as anyone can say, no gold. Early days." · 3 "The same hills as yesterday. I check every time, in case they've changed their minds about me."

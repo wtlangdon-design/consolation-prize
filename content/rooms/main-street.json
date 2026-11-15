@@ -759,6 +759,47 @@
       }
     },
     {
+      "id": "horses",
+      "name": "THE HORSES",
+      "rect": [
+        1282,
+        532,
+        372,
+        222
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Three horses at the rail: a black with a blaze, a palomino with her face in the hay, and a paint wearing a better saddle than I own. Somebody here rode in, and means to ride out.",
+            "repeat": [
+              "The black has been watching me since I came up the street. He knows a man with no horse when he sees one.",
+              "Whoever owns the paint keeps his saddle polished and his horse waiting. Out here that is the nearest thing to a plan."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Hay, chewed slowly, by the only creatures on this street with no opinion about gold.",
+            "repeat": [
+              "A long, low snort from the black, aimed at nobody, or possibly at me.",
+              "A hoof shifting in the mud, and the creak of the rail as somebody leans on it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Three horses. I could not lift one leg of one horse, and I have their full attention.",
+        "TALK_TO": "How do you do. The palomino has decided I am not hay, and returned to the hay.",
+        "USE": "I'd ride one, if one were mine, and if I could ride."
+      },
+      "walkTo": {
+        "x": 1470,
+        "y": 786,
+        "facing": "back"
+      }
+    },
+    {
       "id": "boardwalk",
       "name": "THE BOARDWALK",
       "rect": [

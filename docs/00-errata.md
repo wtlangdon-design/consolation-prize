@@ -8061,3 +8061,12 @@ Lesson:
 - `tests/no-cut-titles.test.mjs`: no line the game shows ends on a title.
 - `tests/feet-clear.test.ts` picks up the notice board, as it does every obstacle.
 
+## 320 · The horses, clickable; the switch, once (Tyler, 2026-11-14)
+
+- **The horses.** Tyler: "I want them clickable." Room 2's `horses` hotspot is laid over the group (reference/room-02/annotation.json, with a stand in front of the rail). Its lines are doc 05's THE HORSES and doc 13's variants and refusals. The figure stays `scenery`, so the pointer passes through it to the hotspot.
+- **The switch, once.** Tyler: "I could see him doing it once, but back and back in multiple conversations seems repetitive." The pie woman's switch is kept. The man leaving tomorrow's and the map seller's are said plainly, with new answers (doc 07; doc 133). Their ids are kept (`keepIds`).
+
+Lesson:
+- `tests/the-switch.test.mjs`: the game has one switch, the pie woman's, and the other two keep their ids.
+- `tests/scenery.test.ts`: under the horses the pointer finds their own hotspot.
+

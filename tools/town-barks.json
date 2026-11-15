@@ -53,7 +53,10 @@
    "tree": "amb_man_leaving_tomorrow",
    "file": "amb-man-leaving-tomorrow",
    "speaker": "man_leaving_tomorrow",
-   "prefix": "leaving"
+   "prefix": "leaving",
+   "keepIds": {
+    "You're never leaving this town, are you?": "leavings"
+   }
   },
   "11 · THE FIDDLER": {
    "tree": "amb_fiddler",
@@ -89,7 +92,10 @@
    "tree": "amb_map_seller",
    "file": "amb-map-seller",
    "speaker": "map_seller",
-   "prefix": "map_seller"
+   "prefix": "map_seller",
+   "keepIds": {
+    "Your maps are a swindle, sir, and I'll tell the whole town so!": "map_sellers"
+   }
   },
   "13 · THE ONE-STRIKE MAN": {
    "tree": "amb_one_strike_man",

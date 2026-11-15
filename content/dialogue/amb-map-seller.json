@@ -102,14 +102,13 @@
           "id": "map_sellers",
           "text": "Your maps are a swindle, sir, and I'll tell the whole town so!",
           "tag": "COMIC",
-          "echo": "Your maps are a sw— a wonder, sir! A wonder, and I'll tell the whole town so!",
           "after": [
             "map_seller1"
           ],
           "exchange": [
             {
               "speaker": "map_seller",
-              "line": "Tell them, sir! I'll draw you on the next one, telling them."
+              "line": "Tell them, sir! Every man in town owns one, and not one has asked for his money back."
             },
             {
               "speaker": "thad",

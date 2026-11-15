@@ -38,7 +38,7 @@ test('main_street_dawn: the horses are gone, and the rail stands empty', async (
 });
 
 for (const room of ['main_street']) {
-  test(`${room}: the hitching horses are drawn there, and the pointer passes through them`, async () => {
+  test(`${room}: the hitching horses are drawn there, and the pointer passes through the figure to their hotspot`, async () => {
     const content = await loadContent(fsReader);
     const state = new GameState(content, new MemoryStorage());
     state.enterRoom(room);
@@ -49,7 +49,8 @@ for (const room of ['main_street']) {
     // Over the group's middle, a fifth of a man above its feet: horse or rail, never bare sky.
     const at = { x: horses!.x, y: horses!.y - 40 };
     assert.equal(layer.npcAt(at.x, at.y), undefined, 'no figure answers the pointer over them');
-    assert.equal(state.targetAt(at.x, at.y)?.id, 'mud', 'the mud under them does');
+    // Errata 320 (Tyler: "I want them clickable"): what answers under them is their own hotspot, not the mud.
+    assert.equal(state.targetAt(at.x, at.y)?.id, 'horses', 'the horses\' own hotspot under them does');
   });
 
 }
