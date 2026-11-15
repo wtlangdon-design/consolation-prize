@@ -56,8 +56,14 @@ test('in Act IV the site answers with Part Two-B\'s line', async () => {
   assert.notEqual(later, act1.interact(ground(act1), 'LOOK_AT').say);
 });
 
-test('the site goes on the map once the road to the claims has been walked, and leads back to it', async () => {
+test('the site goes on the map once the road to the claims has been walked and the story reaches it, and leads back to it', async () => {
   const state = await inState(FIXTURE.fixtures[0]!.id);
+  // ERRATA 324 (doc 133, THE TOWN, ONE NIGHT AT A TIME): and once the story reaches it. Before that, the road is not enough.
+  state.flags.set('T_BORDERS_MOTT', false);
+  state.flags.set('T_SEEN_CLAIMS_ROAD', true);
+  state.enterRoom('town_map');
+  assert.ok(!state.mapLocations.some((one) => one.location.room === ROOM), 'not before the story reaches it, road or no road');
+  state.flags.set('T_BORDERS_MOTT', true);
   state.flags.set('T_SEEN_CLAIMS_ROAD', false);
   state.enterRoom('town_map');
   assert.ok(!state.mapLocations.some((one) => one.location.room === ROOM));

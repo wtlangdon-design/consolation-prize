@@ -79,10 +79,14 @@
     560
    ],
    "when": {
-    "T_SEEN_CLAIMS_ROAD": true
+    "T_SEEN_CLAIMS_ROAD": true,
+    "ACT": {
+     "atLeast": 2
+    }
    },
    "note": "Doc 20: the creek & sluice, 'via 22'. On the map once Thad has walked the road to the claims, the junction everything in the diggings is reached through (errata 99 A).",
-   "node": "creek"
+   "node": "creek",
+   "opensNote": "Errata 324 (Tyler, 2026-11-14: \"I'm wondering if maybe the town is too open to start with ... I want there to also be some narrative structure where it feels like a story is progressing\"; he chose: open places as the story reaches them). nothing at the creek is Act I's; from Act II."
   },
   {
    "id": "loc_claim_row",
@@ -92,10 +96,14 @@
     250
    ],
    "when": {
-    "T_SEEN_CLAIMS_ROAD": true
+    "T_SEEN_CLAIMS_ROAD": true,
+    "ACT": {
+     "atLeast": 2
+    }
    },
    "note": "Doc 20: the abandoned claim row, 'via 22'. On the map once Thad has walked the road to the claims (errata 99 A).",
-   "node": "row"
+   "node": "row",
+   "opensNote": "Errata 324 (Tyler, 2026-11-14: \"I'm wondering if maybe the town is too open to start with ... I want there to also be some narrative structure where it feels like a story is progressing\"; he chose: open places as the story reaches them). nothing on Claim Row is Act I's; from Act II."
   },
   {
    "id": "loc_laundry",
@@ -105,10 +113,14 @@
     340
    ],
    "when": {
-    "T_SEEN_CLAIMS_ROAD": true
+    "T_SEEN_CLAIMS_ROAD": true,
+    "ACT": {
+     "atLeast": 2
+    }
    },
    "note": "Doc 20: Sheng's laundry, 'via 22', at the foot of the high ridge path. On the map once Thad has walked the road to the claims (errata 99 A).",
-   "node": "laundry"
+   "node": "laundry",
+   "opensNote": "Errata 324 (Tyler, 2026-11-14: \"I'm wondering if maybe the town is too open to start with ... I want there to also be some narrative structure where it feels like a story is progressing\"; he chose: open places as the story reaches them). Sheng's laundry is first needed in Act II (D3, the Assay pair); from Act II."
   },
   {
    "id": "loc_high_ridge",
@@ -118,10 +130,14 @@
     130
    ],
    "when": {
-    "T_SEEN_CLAIMS_ROAD": true
+    "T_SEEN_CLAIMS_ROAD": true,
+    "ACT": {
+     "atLeast": 2
+    }
    },
    "note": "Doc 20: the high ridge, 'via 22', up the path from Sheng's door. On the map once Thad has walked the road to the claims (errata 99 A, E).",
-   "node": "ridge"
+   "node": "ridge",
+   "opensNote": "Errata 324 (Tyler, 2026-11-14: \"I'm wondering if maybe the town is too open to start with ... I want there to also be some narrative structure where it feels like a story is progressing\"; he chose: open places as the story reaches them). the ridge is reached from the laundry; from Act II with it."
   },
   {
    "id": "loc_motts_site",
@@ -131,10 +147,12 @@
     660
    ],
    "when": {
-    "T_SEEN_CLAIMS_ROAD": true
+    "T_SEEN_CLAIMS_ROAD": true,
+    "T_BORDERS_MOTT": true
    },
    "note": "Doc 20: Mott's supposed site, 'via 22'. On the map once Thad has walked the road to the claims (errata 99 A).",
-   "node": "motts"
+   "node": "motts",
+   "opensNote": "Errata 324 (Tyler, 2026-11-14: \"I'm wondering if maybe the town is too open to start with ... I want there to also be some narrative structure where it feels like a story is progressing\"; he chose: open places as the story reaches them). Mott's site once Sump has told him Prosperity borders it (A9), which is the first he hears of the place."
   },
   {
    "id": "loc_boot_hill",
@@ -157,9 +175,13 @@
     590
    ],
    "when": {
-    "T_SEEN_MAIN_STREET": true
+    "T_SEEN_MAIN_STREET": true,
+    "ACT": {
+     "atLeast": 2
+    }
    },
-   "node": "board"
+   "node": "board",
+   "opensNote": "Errata 324 (Tyler, 2026-11-14: \"I'm wondering if maybe the town is too open to start with ... I want there to also be some narrative structure where it feels like a story is progressing\"; he chose: open places as the story reaches them). nothing in the boarding house is Act I's; from Act II."
   },
   {
    "id": "loc_bakehouse",
@@ -169,9 +191,13 @@
     590
    ],
    "when": {
-    "T_SEEN_MAIN_STREET": true
+    "T_SEEN_MAIN_STREET": true,
+    "ACT": {
+     "atLeast": 2
+    }
    },
-   "node": "bake"
+   "node": "bake",
+   "opensNote": "Errata 324 (Tyler, 2026-11-14: \"I'm wondering if maybe the town is too open to start with ... I want there to also be some narrative structure where it feels like a story is progressing\"; he chose: open places as the story reaches them). nothing in the bakehouse is Act I's; from Act II."
   },
   {
    "id": "loc_schoolhouse",
@@ -181,9 +207,13 @@
     590
    ],
    "when": {
-    "T_SEEN_MAIN_STREET": true
+    "T_SEEN_MAIN_STREET": true,
+    "ACT": {
+     "atLeast": 2
+    }
    },
-   "node": "school"
+   "node": "school",
+   "opensNote": "Errata 324 (Tyler, 2026-11-14: \"I'm wondering if maybe the town is too open to start with ... I want there to also be some narrative structure where it feels like a story is progressing\"; he chose: open places as the story reaches them). nothing in the schoolhouse is Act I's; from Act II."
   }
  ],
  "pendingLocations": [],

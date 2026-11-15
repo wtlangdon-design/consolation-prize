@@ -56,8 +56,14 @@ test('down the path to the door it starts at, and back up through the door', asy
   assert.ok(state.room.entrances?.some((one) => one.from === down.to));
 });
 
-test('the ridge goes on the map once the road to the claims has been walked', async () => {
+test('the ridge goes on the map once the road to the claims has been walked and the story reaches it', async () => {
   const state = await inState();
+  // ERRATA 324 (doc 133, THE TOWN, ONE NIGHT AT A TIME): and once the story reaches it. Before that, the road is not enough.
+  state.flags.set('ACT', 1);
+  state.flags.set('T_SEEN_CLAIMS_ROAD', true);
+  state.enterRoom('town_map');
+  assert.ok(!state.mapLocations.some((one) => one.location.room === ROOM), 'not before the story reaches it, road or no road');
+  state.flags.set('ACT', 2);
   state.flags.set('T_SEEN_CLAIMS_ROAD', false);
   state.enterRoom('town_map');
   assert.ok(!state.mapLocations.some((one) => one.location.room === ROOM));
