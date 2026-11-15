@@ -176,3 +176,9 @@ Night one is the town: Main Street, Lower Street, the Lane, and their doors, and
 **A new drawing** (Tyler, 2026-11-14: "Can we get a good, new bartender?"). The first barman was too sharp, too bright and too white, and squeezing his numbers to Thad's in the cut made him flat and grey (errata 325; Tyler: "This looks awful"). Nothing of him was shipped. `reference/nugget-barman/brief.md` is now the second brief: the drinkers he stands among are the style reference, his colours are theirs, the cloth is in his hand in every frame, and nothing is regraded in the cut. A miss is a second operation, shown the side-by-side.
 
 **Drawn again** (errata 326): one new drawing and one correction, in the drinkers' colours. He polishes and looks along the bar, and Tyler sees him before he goes in.
+
+## THE PIE WOMAN'S TASTE
+
+*Tyler: "The insult Thad gives, and then corrects, with the pie lady still doesn't land well. He's just arrived in town, he doesn't actually try a pie, and he's ready to insult them? If she lets him sample it first, maybe? But then I think we'd have to create more animations." Errata 329.*
+
+No new drawing: she already has a frame holding a pie out. Thad asks to try a little first. She holds out a pie ("Corner's free. Go on.") and asks "Well?", and only then can he give his verdict, and catch himself. Her two identical answers are now two: "Course you will." for "I'll take a pie.", and "Pie'll be here. So will you." for the goodbye.
