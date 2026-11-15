@@ -39,7 +39,7 @@
 *Ten hotspots. Every one of them is generous.*
 
 **THE MODEL**
-> **LOOK:** "A scale model of Consolation as it will be. A bank, an opera house, a second church, a park. It is beautifully made. It has been beautifully made for nine years."
+> **LOOK:** "A scale model of Consolation as it will be. A bank, an opera house, a second church, a park. It is beautifully made. By the dust, it has been beautifully made for years."
 > **LISTEN:** "Nothing."
 
 **THE CHAIRS**

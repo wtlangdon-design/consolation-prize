@@ -235,22 +235,22 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A portrait of a man in a good collar, hung crooked. Nobody in here knows who he is.",
+            "say": "A portrait of a man in a good collar, hung crooked.",
             "repeat": [
               "A governor, a founder, and 'that's Bill's uncle.' Bill was not available to confirm.",
               "It's a face that gets around. I have a feeling I'll meet that collar again in this town."
             ],
             "then": [
-              "I asked three people and got three answers."
+              "I asked who he is and got three answers. I asked three people and got three answers."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Silent. He's kept quiet about who he is for years.",
+            "say": "Silent. He's keeping quiet about who he is.",
             "repeat": [
               "Not a word. Not even a crooked one.",
-              "Nothing. He's a man in Ohio, and nobody here is asking him."
+              "Nothing. Whoever he is, nobody here is asking him."
             ]
           }
         ]
@@ -331,7 +331,7 @@
                 "atMost": 2
               }
             },
-            "say": "I tune it Thursdays now. It's the only thing in Consolation that comes out more honest after I've been at it."
+            "say": "I tune it every time I'm in. It's the only thing in Consolation that comes out more honest after I've been at it."
           },
           {
             "when": {
@@ -361,13 +361,10 @@
             "say": "A. Four hundred and forty. In this town, at last, that's not a foreign language."
           },
           {
-            "say": "C-sharp is a semitone flat, and has been for years. Nobody's noticed.",
+            "say": "C-sharp is a semitone flat, and nobody's noticed, which means it's been that way a long time. I've noticed. I've noticed several times.",
             "repeat": [
               "C-sharp. Still flat. It's like a stone in my shoe, if my shoe were across the room.",
               "I could put it right in a few minutes. I've started thinking about it at mealtimes."
-            ],
-            "then": [
-              "I've noticed. I've noticed several times."
             ]
           }
         ]

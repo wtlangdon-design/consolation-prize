@@ -100,7 +100,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE CHURCH STEEPLE** *(distant)*
 > **LOOK:** "The tallest thing in Consolation, and the only building that is as deep as it is tall."
-> **LISTEN:** "The bell is a half-step flat. A man has rung it by hand for six years, and he doesn't care."
+> **LISTEN:** "The bell is a half-step flat. Whoever rings it has stopped caring, by the sound."
 
 **A DOG**
 > **LOOK:** "Now there's a dog! The settled look of an animal who's outlived several owners and holds no grudge against any of them."
@@ -130,7 +130,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE PIANO**
 > **LOOK:** "An upright, hauled four hundred miles by mule at ten times what it's worth. Nobody here can play it, and one man is proving it nightly. I could make it worth playing. I'd only need asking."
-> **LISTEN:** "C-sharp is a semitone flat, and has been for years. Nobody's noticed. I've noticed. I've noticed several times."
+> **LISTEN:** "C-sharp is a semitone flat, and nobody's noticed, which means it's been that way a long time. I've noticed. I've noticed several times."
 
 **THE CHANDELIER**
 > **LOOK:** "A chandelier. Underneath it, a dirt floor. The two have never been introduced."
@@ -160,7 +160,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE WINDOW SIGN**
 > **LOOK:** "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not."
-> **LISTEN:** "Nothing. It's been saying the same thing for six years, and it needs no help."
+> **LISTEN:** "Nothing. It's been saying the same thing for years, and it needs no help."
 
 **THE SCALES**
 > **LOOK:** "A balance, in a glass case, so accurate that men have wept in front of it. Mostly in the other direction."
@@ -327,7 +327,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE MOTT PHOTOGRAPH**
 > **LOOK:** "The only known likeness of Obadiah Mott. It has the look of a photograph that has done other work."
-> **LISTEN:** "Nothing. It is a picture of a man in Ohio."
+> **LISTEN:** "Nothing. A photograph keeps its own counsel."
 
 **FRAME'S DESK** · **THE INK** · **THE SPIKE** · **THE WINDOW** · **THE SCHEDULE BOARD** — *(working script)*
 
@@ -1384,7 +1384,7 @@ bark budget, not here.
 > **LISTEN:** "My name — one of its spellings — in a toast. It's a strange vintage, being remembered at cost price."
 
 **THE PIANO** *(act: 2)*
-> **LOOK:** "I tune it Thursdays now. It's the only thing in Consolation that comes out more honest after I've been at it."
+> **LOOK:** "I tune it every time I'm in. It's the only thing in Consolation that comes out more honest after I've been at it."
 
 **THE PIANO** *(act: 4)*
 > **LOOK:** "Tuned, and staying tuned. The room plays it softer now, like it knows what it cost."

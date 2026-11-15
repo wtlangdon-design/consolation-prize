@@ -17,10 +17,10 @@
 
 **THE PAINTING** — LOOK 2 "There is a goat on the nearest peak, looking out of the picture as though it was promised a better frame." · 3 "The signature is larger than the mountain. That, at least, is an honest account of the painter's priorities." | LISTEN 2 "The frame creaks. It is the most western thing about it." · 3 "Nothing. A painting of a mountain is quieter than a mountain, and that is the only improvement on offer."
 
-**THE FRONT WINDOW** — LOOK 2 "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves." · 3 "My own reflection, rippling. Even the window hasn't decided whether I've arrived. Give it time." | LISTEN 2 "A wagon, a dog, a man insisting. The glass lets the insisting through." · 3 "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
+**THE FRONT WINDOW** — LOOK 2 "The glass has a wave in it. Everything outside looks like it's reconsidering." · 3 "My own reflection, rippling. Even the window hasn't decided whether I've arrived. Give it time." | LISTEN 2 "A wagon, a dog, a man insisting. The glass lets the insisting through." · 3 "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
 
 ### THE PARLOR PIANO
-**LOOK** 1 "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor." · 2 "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since." · 3 "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else. One day somebody will ask me to. I'm keeping my hands warm."
+**LOOK** 1 "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor." · 2 "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since." · 3 "Dust on the keys and none anywhere else. Somebody dusts around them and won't touch them. Neither does anyone else. One day somebody will ask me to. I'm keeping my hands warm."
 **LISTEN** 1 "Nothing, until a cart goes by. Then every string answers, and every one of them is wrong in its own direction." · 2 "Still wrong. The A is the worst. The A is always the worst." · 3 "A few minutes' work, and a room for the night. I've done the arithmetic, which I gather is frowned on here."
 
 *Errata 75: A2's piano had no hotspot in any pass. It stands in the lobby's corner, which the hotel calls the parlor. Its LISTEN is the line A2 teaches LISTEN TO with.*
@@ -985,7 +985,7 @@
 
 **THE PROSPECTUS RACK** — LOOK 2 "On the back of each pamphlet, a small form: I WISH TO INVEST $___ IN TOMORROW. Several have been filled in and not mailed." · 3 "The river in the drawing has a steamboat on it now. Each edition, the town gets more water." | LISTEN 2 "A pamphlet slipping down in its slot, settling into a better position." · 3 "Nothing. Tomorrow keeps very quiet in print."
 
-**THE CLOCK** — LOOK 2 "The clerk winds it every morning, carefully, so that it stays eleven minutes slow." · 3 "Brass pendulum, walnut case. It is the best-made lie in the room, and it has competition." | LISTEN 2 "Tick. Tick. Wrong, wrong, with conviction." · 3 "The chime, gathering itself. It will strike eleven minutes after the town has gone to lunch."
+**THE CLOCK** — LOOK 2 "It's been wound with great care, and it's still eleven minutes slow. Somebody here likes it that way." · 3 "Brass pendulum, walnut case. It is the best-made lie in the room, and it has competition." | LISTEN 2 "Tick. Tick. Wrong, wrong, with conviction." · 3 "The chime, gathering itself. It will strike eleven minutes after the town has gone to lunch."
 
 **THE RECEPTION DESK** — LOOK 2 "A brass bell on the desk, polished, with no sign it has ever been rung. The clerk sees you coming." · 3 "The clerk's book is open at today. My name is in it already, with the time I arrived: eleven minutes early." | LISTEN 2 "The pen nib again, behind the panelling, steady as rain." · 3 "The clerk, breathing through his nose with the patience of a professional."
 

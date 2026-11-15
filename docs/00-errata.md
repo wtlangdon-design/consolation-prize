@@ -8226,3 +8226,24 @@ Each keeps its own id (`pie_womanr`, `leavingc`, `tools/town-barks.json` `keepId
 
 Lesson: none -- new lines Tyler approved; nothing was broken.
 
+## 334 · The sweep: what Thad couldn't know, and what isn't there (Tyler, 2026-11-15: "Sweep"; "Approve all")
+
+Tyler asked whether the playthrough's fixes taught anything that should be applied to the rest of the game. Two kinds of fault had been fixed only where he saw them: Thad stating things he had not been told (the Nugget's patrons, errata 330), and lines describing people the art does not show (the man on the landing). Every description in the game was read for both, with the first-hour conversations; eighteen lines changed, each approved:
+
+- **Main Street.** The Clarion's door no longer knows twelve years of front pages, and its press "knocks like it's done it for years". The steeple's ringer has "stopped caring, by the sound" (doc 14, doc 05).
+- **The Nugget.** The portrait: "I asked who he is and got three answers"; "He's keeping quiet about who he is"; and its third LISTEN no longer calls him a man in Ohio, which gave C4's twist away in the first hour. The piano is flat and "nobody's noticed, which means it's been that way a long time", and in Act II he tunes it "every time I'm in", as errata 331's A8 has it (doc 16, doc 05).
+- **The Clarion.** The Mott likeness's first LISTEN no longer says "a man in Ohio" either (doc 05).
+- **The assay office.** The window sign is "years old, by the ink", not six years (doc 25, doc 05).
+- **Lower Street.** Sump's window: "a man at a desk who doesn't look up. I mean to make him." (He looks up, for the first time, at A9.) The church's paint has "a collection box", not Sowerby, whom Thad has not met (doc 97, doc 106).
+- **The Company's lobby.** The clock "has been wound with great care" (no clerk's routine), and the model "by the dust, has been beautifully made for years" (doc 54, doc 09).
+- **The hotel lobby.** The parlour piano's dust says someone dusts around the keys; the front window no longer shows a man the plate does not have (doc 54).
+- **The Mercantile.** No man in the corner by the peaches; and the scales no longer mention Sheng, whom Thad has not met (doc 08, doc 49).
+
+**Held, for Tyler:** the Mercantile's proprietor. A dozen lines speak of him and nobody is drawn behind the counter; keeping him in the back room all game does not hold up (Thad buys on account and is served). Tyler chooses between drawing him (B) and an honour-system store (C). The nail line waits on that choice.
+
+**Read and fine:** the street's, the Nugget's and the Act I conversations hold no other joke that needs a setup the player has not had; every hotspot named for people has a figure, drawn or painted.
+
+Lesson:
+- `tests/no-early-spoiler.test.mjs`: nobody outside the photographer's studio and the Company's vault calls the Mott likeness a man in Ohio unless gated on C4; it fails on the Nugget portrait's old LISTEN.
+- Doc 55 §8: Thad knows only what he has been told or can see.
+

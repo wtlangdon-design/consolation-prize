@@ -530,7 +530,7 @@
             "say": "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor.",
             "repeat": [
               "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since.",
-              "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else. One day somebody will ask me to. I'm keeping my hands warm."
+              "Dust on the keys and none anywhere else. Somebody dusts around them and won't touch them. Neither does anyone else. One day somebody will ask me to. I'm keeping my hands warm."
             ]
           }
         ],
@@ -568,7 +568,7 @@
           {
             "say": "Main Street through glass with a wave in it.",
             "repeat": [
-              "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves.",
+              "The glass has a wave in it. Everything outside looks like it's reconsidering.",
               "My own reflection, rippling. Even the window hasn't decided whether I've arrived. Give it time."
             ],
             "then": [

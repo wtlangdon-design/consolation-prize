@@ -29,12 +29,12 @@
 ## THE CLARION OFFICE → Room 9
 
 **LOOK**
-1. "The Consolation Clarion. One press, one man, and the front page of every issue for twelve years has been about a hole nobody can find."
+1. "The Consolation Clarion. One press, one man, and a front page in the window about a hole nobody can find."
 2. "The door's open. The door's always open. He's desperate for somebody to say something quotable, and as it happens, I'm extremely quotable. Wait till Providence reads about me."
 3. "There's a bill in the window advertising the Clarion, printed by the Clarion, on the Clarion's press."
 
 **LISTEN**
-1. "The press. It knocks on the return stroke. It's knocked for years."
+1. "The press. It knocks on the return stroke. It knocks like it's done it for years."
 2. "Knocking. Still knocking."
 3. "He's talking to himself in there. Both sides of an interview. He's winning."
 

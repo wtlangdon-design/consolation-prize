@@ -318,7 +318,7 @@
         ]
       },
       "overrides": {
-        "USE": "I weighed my four dollars. The scales say three-eighty. The scales and Sheng should talk."
+        "USE": "I weighed my four dollars. The scales say three-eighty. I've decided not to argue with furniture."
       },
       "walkTo": {
         "x": 1205,
@@ -888,7 +888,7 @@
           {
             "say": "Tins from the East. The labels show harvests of implausible color.",
             "repeat": [
-              "Peaches, from Baltimore, at a dollar the tin. There is a man in the corner looking at them the way other men look at gold.",
+              "Peaches, from Baltimore, at a dollar the tin. A dollar the tin. Men here look at them the way other men look at gold.",
               "Every tin is dented in the same place at the same height. They came over the same mountain in the same crate."
             ],
             "then": [
