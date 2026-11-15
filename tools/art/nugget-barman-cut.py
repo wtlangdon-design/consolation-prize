@@ -40,6 +40,7 @@ OUT = 'art/actors/room-03-barman.png'
 FEET = (1580, 560)        # the brief: behind the bar, feet hidden at about y 560 (the curve's man there)
 COUNTER = 515             # the counter top's front edge: the band's bottom row
 CUT = 596                 # the sheet row where frame 3's set-down glass ends (measured: the glass spans 549-594)
+SOFT_CONTRAST = 34.0      # errata 325: the rest frame's luminance spread after softening, about Thad's at this man's size (32.3)
 BACK = 574                # the counter top's back edge, ~10 game px above its front edge: below it only the glass
 
 
@@ -95,6 +96,23 @@ def main(write):
         ox = int(round(half - torso_x(f))); oy = H - f.shape[0]
         c[oy:oy + f.shape[0], ox:ox + f.shape[1]][alpha(f)] = f[alpha(f)]
         cells.append(despill_edge(snap(c, block) if block > 1.05 else c, width=max(2, int(np.ceil(block)) + 1)))
+    # THE STYLE GATE'S CORRECTION, WITHOUT AN OPERATION (errata 325). The one operation came back about twice Thad's
+    # texture and contrast (11.41 and 62.5 against 6.60 and 32.3), and the cap was spent. Tyler rejects "accept it",
+    # so the miss is corrected here: every frame's luminance is drawn in toward the rest frame's own middle, by one
+    # factor for all four, until the rest frame's spread is Thad's. Each pixel moves all three channels by the same
+    # amount, so hue is kept: the same man, in the same lamp, with the hard light taken off him.
+    def lum3(x):
+        return 0.299 * x[..., 0] + 0.587 * x[..., 1] + 0.114 * x[..., 2]
+    rest_m = alpha(cells[0]); rest_l = lum3(cells[0][..., :3].astype(float))
+    centre = float(rest_l[rest_m].mean()); factor = SOFT_CONTRAST / float(rest_l[rest_m].std())
+    softened = []
+    for c in cells:
+        c = c.copy(); m = alpha(c); rgb = c[..., :3].astype(float); l = lum3(rgb)
+        shift = (centre + (l - centre) * factor) - l
+        rgb = np.clip(rgb + shift[..., None], 0, 255)
+        c[..., :3] = np.where(m[..., None], np.round(rgb), c[..., :3]).astype(np.uint8)
+        softened.append(c)
+    cells = softened
     sheet = np.zeros((H + 4, 2 + 4 * (W + 2), 4), np.uint8); rects = []
     for i, c in enumerate(cells):
         x = 2 + i * (W + 2); sheet[2:2 + H, x:x + W] = c; rects.append([x, 2, W, H])
@@ -118,6 +136,10 @@ def main(write):
     print(json.dumps(report, indent=1))
     if write:
         Image.fromarray(sheet).save(R(OUT))
+        # ONE LEVEL (errata 112; tests/one-level.test.mjs): the grid the game reads at his anchor row, so a re-cut
+        # lands on the same pixels the game ships (errata 325).
+        import subprocess
+        subprocess.run([sys.executable, R('tools/art/one-level.py'), '--only', 'room-03-barman'], check=True, stdout=subprocess.DEVNULL)
         render(cells, room, W, H)
 
 

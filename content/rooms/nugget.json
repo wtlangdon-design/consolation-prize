@@ -1616,6 +1616,7 @@
     "nugget_bar1",
     "nugget_bar2",
     "nugget_bar3",
+    "nugget_barman",
     "nugget_man1",
     "nugget_man2",
     "nugget_man34",
@@ -1654,7 +1655,8 @@
       "thad",
       "deke_vessel",
       "fiddler",
-      "nugget_pianist"
+      "nugget_pianist",
+      "nugget_barman"
     ],
     "light": [
       1,
