@@ -174,3 +174,5 @@ Night one is the town: Main Street, Lower Street, the Lane, and their doors, and
 - **The creek, Claim Row, Sheng's laundry, the high ridge, the boarding house, the bakehouse and the schoolhouse**, from Act II. Until then they are not on the map.
 
 **A new drawing** (Tyler, 2026-11-14: "Can we get a good, new bartender?"). The first barman was too sharp, too bright and too white, and squeezing his numbers to Thad's in the cut made him flat and grey (errata 325; Tyler: "This looks awful"). Nothing of him was shipped. `reference/nugget-barman/brief.md` is now the second brief: the drinkers he stands among are the style reference, his colours are theirs, the cloth is in his hand in every frame, and nothing is regraded in the cut. A miss is a second operation, shown the side-by-side.
+
+**Drawn again** (errata 326): one new drawing and one correction, in the drinkers' colours. He polishes and looks along the bar, and Tyler sees him before he goes in.

@@ -1,0 +1,70 @@
+{
+ "schema": 1,
+ "id": "nugget_barman",
+ "name": "THE BARMAN",
+ "posture": "band",
+ "note": "Errata 326, doc 133 (Tyler, 2026-11-14: \"Add a barman\"; then, of the first, \"This looks awful\", and \"Can we get a good, new bartender?\"). Three lines speak of the Nugget's barman (he pays for the tuning, doc 57 A7; he watches Thad consider the bar, doc 49; he keeps the lamps trimmed) and nobody stood behind the bar. Drawn by the second brief against the drinkers he stands among, with one correction (reference/nugget-barman/handback-2.md). Every colour is the drawing's own: nothing is regraded in the cut. He stands behind the counter between the second and third drinkers, inside the bar's own hotspot, so a click on him is a click on the bar, whose lines already speak of him. No tree, no barks, no approach: like the drinkers, he is the room's population, and nothing about him is marked (invariant 9).",
+ "room": "nugget",
+ "x": 1580,
+ "y": 515,
+ "zone": 1,
+ "approachRadius": 40,
+ "anchorNote": "A BAND, like the drinkers: the sheet stops at the counter top's front edge, and (x, y) is that edge under him (the hand-back's anchor, cell (50, 140)). He is the room's standing man at the bar (246 px crown to hidden feet), cut where his hands meet the counter. The plate's bottle on the counter stands in front of him at 1580; it hid only frame 2's glass, and frame 2 is not played, so he stays where the brief put him.",
+ "poseNote": "Polishing a glass with a cloth, the glass in his left hand and the cloth in his right. Frames 0, 1 and 3 are played. Frame 2 (the glass set down) put the cloth and the glass in each other's hands, which the correction did not fix, so the cloth would jump from hand to hand (errata 111). It stays on the sheet as drawn, unplayed.",
+ "barks": {},
+ "barksNote": "NONE. He says nothing of his own; the bar's lines are Thad's, and two of them are about him.",
+ "sprite": {
+  "sheet": "art/actors/room-03-barman.png",
+  "frames": [
+   [
+    2,
+    2,
+    100,
+    141
+   ],
+   [
+    104,
+    2,
+    100,
+    141
+   ],
+   [
+    308,
+    2,
+    100,
+    141
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.6,
+  "breaks": [
+   [
+    1,
+    0,
+    1,
+    0,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    1,
+    0,
+    1,
+    2,
+    2,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "frameNote": "0 polish A · 1 polish B (the glass turned, the cloth moved) · 2 here is the sheet's frame 3: he looks along the bar, the glass and cloth at his chest. He polishes slowly between 0 and 1; every few seconds a break polishes harder, and two breaks in three end with the look along the bar (tests/movement.test.mjs: a deliberate action at least every 15 s). Cut at the room's scale, so drawn 1:1.",
+  "provenance": "reference/nugget-barman/op-3.spec.json"
+ }
+}

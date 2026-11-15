@@ -1,0 +1,11 @@
+Image 1 is a sheet from my pixel-art adventure game: on the left Thad (the ruler, keep him exactly as he is), then four frames of the saloon's barman. Redraw ONLY the four barman frames, keeping everything that is right about them: the same man, the same face and moustache, the same build and height, the same clothes, the same four poses in the same places, the soles on the same row, the same magenta background.
+
+Image 2 shows him in the bar, side by side with the drinkers: he is still TOO BRIGHT and TOO SHARP beside them. Measured, he is about 1.7 times as bright as the drinkers and about three times as busy in texture. Image 3 is two of the drinkers, enlarged: match them.
+
+Change, in all four frames:
+- Darker overall, lit by the bar's warm, dim, low lamplight like the drinkers: about as bright as the right-hand drinker in image 3, no brighter. His face and hands a warm, shadowed tan, not bright orange.
+- His shirt the same dim, warm cream as that drinker's sleeves (not light, not white); his apron a darker, soiled tan; his waistcoat a dark brown; his trousers dark.
+- Softer and flatter: big simple shapes, two or three tones per material, broad soft shading, fewer and softer highlights, no fine wrinkles, no crisp little highlights, no hard dark lines inside the figure. Lower contrast.
+- Frame 3: the cloth stays in his RIGHT hand, as in frames 1, 2 and 4 (the hand on the viewer's left), and the glass is set down under his LEFT hand (the viewer's right). Nothing else about frame 3 changes.
+
+The cloth in his right hand in every frame; the same small glass in every frame; no towel over his shoulder. The same square pixel size. Flat pure magenta (#FF00FF) background, nothing touching. No bar, no counter, no floor, no shadows, no text, no numbers, no border.

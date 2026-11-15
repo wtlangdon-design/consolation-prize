@@ -8118,3 +8118,14 @@ Every flag that opens a place is written in play, so nothing is shut for good (i
 Lesson:
 - `tests/act-one-places.test.ts`: on night one the map shows the town and the road, and nothing past it. Each far place appears when its flag is written, and every opening flag is written in play. It fails on the map as it was.
 - `tests/room-26`, `-27`, `-29` and `-30.test.ts`: each place goes on the map once the road has been walked and the story reaches it, and not on the road alone.
+
+## 326 · The barman, drawn again and wired (Tyler, 2026-11-14)
+
+Tyler: "Can we get a good, new bartender?" The second brief (`reference/nugget-barman/brief.md`) took the drinkers he stands among as the style reference. Tyler raised the image budget to 4,450,000 and the asset's cap to 3. One new drawing and one correction (`reference/nugget-barman/handback-2.md`): a warm cream shirt, a soiled tan apron, a dark brown waistcoat, and the cloth in every frame. Nothing is regraded in the cut, so every colour is the drawing's own. Shipped: texture 8.27, contrast 40.0 and mean light 85.6, against Thad's 6.60, 32.3 and 59.9 and the drinkers' 3.3-3.8, 24.5-40.1 and 46.5-60.8. He is still above the brief's aim, and the hand-back says so. In the bar he reads as one of the room's men.
+
+- **Wired:** `content/ambient/nugget-barman.json`, a band behind the counter at (1580, 515), inside the bar's hotspot, with no lines. `tools/art/nugget-barman-cut-2.py` snaps him to one level after cutting, so a re-cut gives the shipped pixels.
+- **Frame 2 is not played.** In the set-down frame the cloth and the glass are in each other's hands, so the cloth would jump from hand to hand (errata 111). He plays polish A, polish B and the look along the bar.
+- **The bottle** painted on the counter stands in front of him at 1580. It hid only frame 2's glass, so he stays where the brief put him.
+- **Brighter than the drinkers, inside the limit.** He passes errata 205's check as drawn, with no `figureLight` grading.
+
+Lesson: none -- the first build of a figure from its hand-back. Errata 325 carries the lesson of the first attempt.
