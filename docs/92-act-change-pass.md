@@ -63,7 +63,7 @@ Written into doc 05 Part Two-B's blocks for Rooms 3, 5, 7, 18 and 19. Room 19's 
 | 3 | 3 | The mirror | LOOK | I look like a man who has recently been buried and is being brave about it. *(the base line's "robbed", grown)* |
 | 3 | 4 | The mirror | LOOK | I look like a man who knows something the whole room doesn't. It's not a good look on me. I'm keeping it. |
 | 3 | 3 | The patrons | LISTEN | Talk, all at the same volume. I came up once, between a mule and the price of flour. |
-| 3 | 4 | The patrons | LOOK | Nine men drinking to Mott's strike, up at seven to dig for it. I could tell them. I'm not sure who that would help. |
+| 3 | 4 | The patrons | LOOK | Men drinking to Mott's strike, who'll be up at dawn to dig for it. I could tell them. I'm not sure who that would help. |
 | 5 | 3 | The stove | LOOK | The stove, the kettle, the work. My funeral didn't stop any of it, and I find that very reassuring. |
 | 5 | 4 | The window sign | LOOK | THIS WINDOW CLOSES AT FOUR. In a town built on a story, it's the one sign that's never once exaggerated. |
 | 7 | 3 | The number spindle | LOOK | A spindle of numbered tickets. I was ninety-one. The dead don't queue, but I've kept my ticket. |

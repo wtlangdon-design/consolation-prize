@@ -754,7 +754,10 @@ test('repeat variants cycle FORWARD, then hold on the last one', async () => {
         for (const _ of full) {
           if (got.length && scripted()) break;
           state.verbs.selectVerb(verb);
-          got.push(state.interact(target, state.verbs.verbFor(target)).say);
+          const result = state.interact(target, state.verbs.verbFor(target));
+          // A THING THAT IS READ (errata 330, `readsAgain`): it is read again every time, and its variants come
+          // after the reading, as the last screen. The variant is that screen.
+          got.push(rule.readsAgain && got.length ? (result.then?.at(-1) as string | undefined) ?? null : result.say);
         }
         const expected = full.slice(0, got.length);
         if (expected.length < full.length) {
@@ -770,7 +773,8 @@ test('repeat variants cycle FORWARD, then hold on the last one', async () => {
         // and so asked the target's own defaultVerb -- which for the case is
         // LOOK AT, so the LISTEN sequence was checked for a LOOK line.
         state.verbs.selectVerb(verb);
-        assert.equal(state.interact(target, state.verbs.verbFor(target)).say, expected[expected.length - 1]);
+        const last = state.interact(target, state.verbs.verbFor(target));
+        assert.equal(rule.readsAgain ? last.then?.at(-1) : last.say, expected[expected.length - 1]);
         sequences += 1;
       }
     }

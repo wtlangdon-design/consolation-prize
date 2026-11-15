@@ -1117,6 +1117,30 @@
    "date": "2026-11-14",
    "kind": "loosened",
    "why": "Errata 321: every talker now declares faces by eye (tests/talk-faces.test.mjs). A talker's `front` is no longer measured, since the skin measure misreads seated, reading and counter-cropped figures by up to 11. Left and right declarations, and every non-talker's front, are measured as before."
+  },
+  {
+   "check": "tests/faces.test.mjs",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 330: a facing Tyler has ruled (`facesRuledBy`, quoting him) is not measured. The fiddler's face is half behind his fiddle; the measure read him front where Tyler saw him talk to the left."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 330: a thing that is read (`readsAgain`, the Nugget's handbill) is read again every time, and its repeat variants come as the last screen. The repeat-order check reads them there for such a rule. Changed by ruling."
+  },
+  {
+   "check": "tests/staging-clear.test.ts",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 330: an entrance with a `when` (the Nugget's back-room door, usable only after the swindle) is checked only against figures who can be there then. Tightened in the same change: a painted-in person (posture identity) now counts as a body."
+  },
+  {
+   "check": "tests/staging-clear.test.ts",
+   "kind": "reviewed",
+   "date": "2026-11-15",
+   "why": "Reviewed at the third change in fourteen days. Each change taught it WHEN a figure is there (a figure's own `when`, a stand's `walkToWhen`, an entrance's `when`), so it stops flagging two figures who never meet, and none raised its thresholds. The same change made it stricter: a person painted into the plate now counts as a body, which caught the card sharp covered 76%. Kept as it is: it is the check that holds Tyler's rule that a conversation never stands on who it is with. Not a candidate for retirement."
   }
  ]
 }

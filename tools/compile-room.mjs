@@ -973,7 +973,10 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
     // fields doc 05 put on the response beyond the words themselves.
     const base = variants?.first ? { ...lines[0], say: variants.first } : lines[0];
     const whole = variants?.rest.length ? { ...base, repeat: variants.rest } : base;
-    const split = splitUtterance(whole.say ?? '');
+    // A THING THAT IS READ (errata 330; annotation `readsAsScreens`): one sentence a screen, and read again on every
+    // look, so the Nugget's handbill can be read rule by rule as often as the player likes.
+    const screens = verb === 'LOOK_AT' && ann.readsAsScreens?.[id] ? (whole.say ?? '').split(/(?<=[.!?])\s+/) : null;
+    const split = screens && screens.length > 1 ? { say: screens[0], then: screens.slice(1), readsAgain: true } : splitUtterance(whole.say ?? '');
     responses[verb] = [split ? { ...whole, ...split } : whole];
     // The subject's act variants answer first, each in its own act.
     for (const variant of [...(actVariants.get(entry.docName) ?? [])].reverse()) {
@@ -1085,6 +1088,9 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
     ...(old?.defaultVerb ? { defaultVerb: old.defaultVerb }
       : ann.defaultVerbs?.[id] ? { defaultVerb: ann.defaultVerbs[id] }
         : fail(`${id} has no defaultVerb in the live file and none in the annotation's defaultVerbs`)),
+    // WHY HE STANDS IN FRONT OF IT TO LOOK (errata 330): by default he examines from beside a thing; one the
+    // annotation names in `inFront` keeps its stand, with the reason.
+    ...(ann.inFront?.[id] ? { inFrontWhy: ann.inFront[id] } : {}),
     // ACT VARIANTS THAT REPAINT SOMETHING ARE OBJECT STATES, NOT CONDITIONS.
     // presentation() picks a state from objectStates or the declared default
     // and nothing evaluates a `when` there -- and errata 60 is why that is

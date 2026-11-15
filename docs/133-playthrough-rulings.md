@@ -177,6 +177,18 @@ Night one is the town: Main Street, Lower Street, the Lane, and their doors, and
 
 **Drawn again** (errata 326): one new drawing and one correction, in the drinkers' colours. He polishes and looks along the bar, and Tyler sees him before he goes in.
 
+### THE PIANIST
+
+*Tyler, 2026-11-15: "TALK TO THE PIANIST has the tiniest little sliver of an interactable area. It needs to be much bigger so that a player knows they can actually interact with him." He stood inside the piano's hotspot, so only the edge of him outside it answered, and nothing was written for him to answer with. Now he answers wherever he is drawn in front of the piano (errata 330), with lines of his own. He still says nothing: he plays.*
+
+**LOOK** 1 "The man at the piano plays with tremendous confidence. The piano plays back with none." · 2 "A glass on the lid and a song in his head. Only the glass is going down well." · 3 "He hit a wrong note, looked at it, and hit it again, harder. I admire the conviction. I wince at the rest."
+**LISTEN** 1 "Every key, played with feeling. Several of the feelings are wrong." · 2 "He hums along, a shade off his own piano. Between the two of them they cover most of the notes." · 3 "A chord with an extra finger in it. Possibly two."
+
+**THE TRIES**
+- TALK TO — "I said hello. He answered on the piano, at length, in a key I can't place."
+- PICK UP — "He and that stool are held together by music. I wouldn't come between them."
+- PUSH — "Push a man mid-song? He'd only go on playing from the floor."
+
 ## THE PIE WOMAN'S TASTE
 
 *Tyler: "The insult Thad gives, and then corrects, with the pie lady still doesn't land well. He's just arrived in town, he doesn't actually try a pie, and he's ready to insult them? If she lets him sample it first, maybe? But then I think we'd have to create more animations." Errata 329.*
