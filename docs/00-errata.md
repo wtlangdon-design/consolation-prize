@@ -8148,3 +8148,9 @@ The moonlit inner face of the frame (about x 254–262) stays: the new drawing p
 
 Lesson:
 - Doc 55 §8: a mask found from the old picture follows the old picture's shapes. Where the new drawing's edge is straight, the mask is capped at a straight line.
+
+## 328 · The driver's last line, clearer (Tyler, 2026-11-15)
+
+Tyler, playing: "When the driver drops Thad off in Consolation what does he mean when he says, 'Wasn't for you.'?" Told that it means the coach was coming to Consolation regardless and Thad was only carried along ("He was freight", doc 17), he ruled: "I think it needs to be clearer, while keeping the snub." The driver's EXIT answer (doc 17) is now "Wasn't for you. Coach comes anyway. You were freight." Nothing else changes: the tree, its tags, and the coach leaving only after the line (doc 30 section 6.2).
+
+Lesson: none -- one line made clearer at Tyler's ruling; no check could have found that it read as odd.
