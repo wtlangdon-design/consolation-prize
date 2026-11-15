@@ -98,3 +98,19 @@ A finger has no hover, so the sentence line never got to say what a tap would do
 *Tyler: "Thad talks about Mr. Sheng in the printing press room before visiting Sheng the first time."*
 
 Doc 05's LOOK at the Clarion's photograph of Mott said he had seen it in Mr. Sheng's window, true only after the laundry. It now says only what the Clarion shows: "The only known likeness of Obadiah Mott. It has the look of a photograph that has done other work." The laundry's own collar advertisement makes the connection when he gets there. The line had also been cut in two after "Mr.", as "…in Mr." and "Sheng's window…". The compiler no longer cuts a line after a title.
+
+## THE HORSES
+
+*Tyler, told the horses at the rail were scenery because no document had written them a line: "I want them clickable." Errata 320.*
+
+Room 2's `horses` hotspot is laid over the group; the figure still lets the pointer through to it. Variant 1 of LOOK and LISTEN is doc 05's, variants 2 and 3 and the refusals are doc 13's. At dawn the rail is empty and has no hotspot.
+
+## THE SWITCH, ONCE
+
+*Tyler: "I don't think I like the lines where Thad is about to say something sassy but catches himself mid sentence and says something nice instead. I could see him doing it once, but back and back in multiple conversations seems repetitive."*
+
+Errata 293 put three on Main Street. The pie woman's stays ("Madam, that pie is a cr— a credit to the territory!"), because it is the cleanest. The other two are now said as the menu offers them, and answered:
+- The man leaving tomorrow: "You're never leaving this town, are you?" → "Tomorrow."
+- The map seller: "Your maps are a swindle, sir, and I'll tell the whole town so!" → "Tell them, sir! Every man in town owns one, and not one has asked for his money back."
+
+Both keep their option ids (`tools/town-barks.json` `keepIds`), so saves and the walkthrough still find them.

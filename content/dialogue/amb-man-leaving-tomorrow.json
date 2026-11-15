@@ -52,11 +52,10 @@
           "id": "leavings",
           "text": "You're never leaving this town, are you?",
           "tag": "COMIC",
-          "echo": "You're never leaving this town… without my very best wishes, I mean! There. You have them.",
           "after": [
             "leaving1"
           ],
-          "say": "Keep them. You'll need them more.",
+          "say": "Tomorrow.",
           "afterUse": "remove"
         },
         {

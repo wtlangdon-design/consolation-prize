@@ -106,6 +106,10 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LOOK:** "Now there's a dog! The settled look of an animal who's outlived several owners and holds no grudge against any of them."
 > **LISTEN:** "Breathing. Contented. He's the only solvent resident of Consolation."
 
+**THE HORSES**
+> **LOOK:** "Three horses at the rail: a black with a blaze, a palomino with her face in the hay, and a paint wearing a better saddle than I own. Somebody here rode in, and means to ride out."
+> **LISTEN:** "Hay, chewed slowly, by the only creatures on this street with no opinion about gold."
+
 **THE MUD** *(again)*
 > **LOOK:** "The same mud. I've started to recognize individual portions of it, and nod to them."
 > **LISTEN:** "Nothing new."

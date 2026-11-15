@@ -1099,6 +1099,18 @@
    "date": "2026-11-14",
    "kind": "reviewed",
    "why": "Reviewed: three edits in two weeks, each because the floor or the camera changed under it by ruling: Main Street's zoom (errata 312), and now things on the floor carved with Thad's reach (errata 318). It has not misfired; it is a broad interface test that touches every room's floor. TUNED in this PR: its zone check looked at one exact pixel, a region's centre, and now looks along the region's row, so carving a thing that happens to sit at a centre no longer breaks it while a region with no floor still fails. Keep it."
+  },
+  {
+   "check": "tests/the-switch.test.mjs",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 320 (Tyler: three switches on Main Street is repetitive): the test asserted at least three switches and named all three; it now asserts exactly one, the pie woman's, and that the other two keep their ids said plainly. Tightened in count, changed by ruling."
+  },
+  {
+   "check": "tests/scenery.test.ts",
+   "date": "2026-11-14",
+   "kind": "loosened",
+   "why": "Errata 320 (Tyler: \"I want them clickable\"): under the horses the pointer used to find the mud; it now finds their own hotspot. The figure still lets the pointer through. Changed by ruling."
   }
  ]
 }
