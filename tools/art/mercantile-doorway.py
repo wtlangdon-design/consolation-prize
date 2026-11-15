@@ -51,6 +51,54 @@ def mask_of(a):
     return m
 
 
+# THE DOORFRAME'S RIGHT EDGE, STRAIGHT (Tyler, 2026-11-14: "Clean them up"). The mask is found where the OLD view was
+# blue, so above the rail it stopped anywhere from x 226 to 239, row by row. Between there and the new drawing's own
+# edge (a straight line at about x 240), flecks of the old plate showed: a ragged edge of brown against the night.
+# In those rows the mask now runs on to where the new drawing's view ends, and never past one straight line, x 240:
+# the drawing's own view wanders a few pixels further in some rows, and following it put the specks back.
+EDGE_ROWS = (10, 312)
+EDGE_X = 240
+
+
+def to_the_new_edge(m, new):
+    m = m.copy()
+    r, b = new[..., 0].astype(int), new[..., 2].astype(int)
+    view = b > r + 8
+    for y in range(*EDGE_ROWS):
+        xs = np.nonzero(m[y])[0]
+        if not len(xs) or xs.max() < 220:
+            continue
+        x = xs.max() + 1
+        while x <= EDGE_X and view[y, x]:
+            m[y, x] = True
+            x += 1
+    return m
+
+
+# AND THE FRAME'S LIP (the same ruling). Just past the straightened edge, a few pixels of the old view's blue light are
+# left on the doorframe's lip (x 241-250, the same rows). Each takes the first wood pixel to its right in its row. The
+# long blue strip further in (about x 254-262) is the moonlit inner face of the frame, and stays: the new drawing paints
+# it too.
+LIP = (241, 251)
+
+
+def frame_lip(out, m):
+    out = out.copy()
+    r, b = out[..., 0].astype(int), out[..., 2].astype(int)
+    blue = b > r + 8
+    specks = np.zeros(m.shape, bool)
+    for y in range(*EDGE_ROWS):
+        for x in range(*LIP):
+            if m[y, x] or not blue[y, x]:
+                continue
+            for w in range(x + 1, min(x + 12, out.shape[1])):
+                if not blue[y, w]:
+                    out[y, x] = out[y, w]
+                    specks[y, x] = True
+                    break
+    return out, specks
+
+
 def main():
     write = '--write' in sys.argv
     old = np.asarray(Image.open(R(OLD)).convert('RGB'))
@@ -58,10 +106,13 @@ def main():
     cx0, cy0, cx1, cy1 = CROP
     new = np.asarray(Image.open(R(SHEET)).convert('RGB').resize((cx1 - cx0, cy1 - cy0), Image.LANCZOS))
     assert not m[cy1:, :].any() and not m[:, cx1:].any(), 'the mask reaches past what the operation was given'
+    m = to_the_new_edge(m, new)
     out = old.copy()
     sub = out[cy0:cy1, cx0:cx1]
     mm = m[cy0:cy1, cx0:cx1]
     sub[mm] = new[mm]
+    out, specks = frame_lip(out, m)
+    m = m | specks
     changed = np.any(out != old, axis=2)
     outside = int((changed & ~m).sum())
     assert outside == 0, f'{outside} pixels changed outside the mask'

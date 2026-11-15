@@ -8137,3 +8137,14 @@ Tyler: "Can we get a good, new bartender?" The second brief (`reference/nugget-b
 - **Brighter than the drinkers, inside the limit.** He passes errata 205's check as drawn, with no `figureLight` grading.
 
 Lesson: none -- the first build of a figure from its hand-back. Errata 325 carries the lesson of the first attempt.
+
+## 327 · The mercantile doorway's right edge, cleaned (Tyler, 2026-11-14: "Clean them up")
+
+Errata 325 left a few blue pixels of the old view on the doorframe's right inner edge, and that edge looked ragged. Two causes, both fixed in `tools/art/mercantile-doorway.py`, with no new operation:
+- **The mask followed the old picture.** It is found where the old view was blue, so above the rail it stopped anywhere from x 226 to 239, row by row, and flecks of the old plate showed between it and the new drawing's edge. In those rows it now runs to the new drawing's own edge, and never past one straight line at x 240.
+- **The frame's lip.** Blue pixels of the old view's light just past that line (x 241–250) each take the first wood pixel to their right. None are left.
+
+The moonlit inner face of the frame (about x 254–262) stays: the new drawing paints it too. 0 pixels change outside the mask, and the plate's hash is recorded.
+
+Lesson:
+- Doc 55 §8: a mask found from the old picture follows the old picture's shapes. Where the new drawing's edge is straight, the mask is capped at a straight line.
