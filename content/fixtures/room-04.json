@@ -22,7 +22,8 @@
     "T_BORDERS_MOTT": true,
     "T_SWINDLED": true,
     "ACT": 2,
-    "T_VESSEL_FOUND": true
+    "T_VESSEL_FOUND": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -80,7 +81,8 @@
     "ASSAY_PAIR_11": true,
     "ASSAY_PAIR_12": true,
     "ASSAY_PAIR_13": true,
-    "ASSAY_PAIR_14": true
+    "ASSAY_PAIR_14": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

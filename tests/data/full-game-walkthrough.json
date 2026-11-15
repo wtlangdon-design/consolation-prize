@@ -351,6 +351,18 @@
    }
   },
   {
+   "id": "A5.0",
+   "puzzle": "A5",
+   "do": "go",
+   "room": "prosperity",
+   "note": "Errata 318: he sees the raccoon in his hole before he asks for a blanket for it.",
+   "expect": {
+    "flags": {
+     "T_SEEN_PROSPERITY": true
+    }
+   }
+  },
+  {
    "id": "A5.1",
    "puzzle": "A5",
    "do": "go",

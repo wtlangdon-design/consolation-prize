@@ -51,3 +51,38 @@ A patron sits at the upright and plays badly, with confidence. The figure needs 
 - LOOK 3: "Bottle rings on the lid. Several. His glass is making another, and I am being very calm about it."
 
 He stands within the piano's own hotspot, so a click on him is a click on the piano, and he says nothing of his own. The LISTEN lines (C-sharp flat) were always true of a piano somebody plays.
+
+## WHAT OPENS
+
+*Tyler, 2026-11-14, told that the sealed letter was not the only thing in his pocket that answered OPEN with a line written for scenery ("It doesn't open. Very little here does, but I live in hope."): "Do all 5." Errata 318.*
+
+Each of these is a thing a player would naturally try to open, and opens. Each answers OPEN in its own terms, in Thad's voice, true in every act he carries it. Read by `tools/extract-content.mjs` into the item's file.
+
+- `clarion` — "I've read it. Page one is about me, and I have read page one more than once."
+- `company_ledger` — "Twelve months of figures, all agreeing with each other. I would only be interrupting."
+- `company_map` — "Unrolled: the district, the roads, and Claim Two, circled. It is still circled. I check."
+- `hymnal` — "Every hymn in it is pitched for a choir this town does not have. I have looked."
+- `invitation` — "It is a card, engraved on one side. The other side is blank, which is the most honest thing about it."
+- `obituary` — "I have read my own obituary. Once was moving. Twice would be vanity."
+- `padded_log` — "I have read enough of it. One sample, under a great many names."
+- `watch` — "It tells me the time, eleven minutes early. My father's idea of a kindness."
+- `eggs` — "I opened it once, in the street. The street has not forgiven me."
+- `tonic` — "Not indoors. Not near anyone I like."
+
+## THE NUGGET'S BACK ROOM
+
+*Tyler, 2026-11-14, asked whether the Nugget's back room should stay shut until there is a reason to go in: "You decide." Errata 318.*
+
+The back room is where the town holds its Liar's Assay. In Act I nothing there is Thad's business, and on his first day in town it is somebody else's back room. From Act II it is the Assay's room, and the chalk Pratt's turn is written with lies in it. The trials run in any order (doc 02), so it may be needed before Vessel is back. So the door refuses him through Act I, once he has arrived by the road, and opens from Act II.
+
+**THE BACK ROOM DOOR** *(WALK TO, OPEN or USE, in Act I)* — "Somebody's back room, on my first day in town. I'll wait to be asked."
+
+## WHAT THAD MUST ALREADY KNOW
+
+*Tyler: "Do all 5." The third was a read of every question that moves the story on (every PROGRESS row, act by act) for what Thad must already have, or have been told, for it to make sense. Errata 318.*
+
+Two did not:
+- **The livery man, "Could I borrow a blanket?"** It was offered before Thad had seen his claim, so he asked for a blanket for a raccoon he had never met. It now waits for `T_SEEN_PROSPERITY`, which arriving at Prosperity writes.
+- **Pratt, "There's a raccoon in my hole. Would you get him out?"** The same gate.
+
+The rest hold. The clerk's "Your piano is out of tune" stands: Thad has the ear, and the parlour piano's own LISTEN says every string answers a passing cart. The fifth item, a read for lines built to sound like sayings when no such saying exists (the driver's hat), found none.

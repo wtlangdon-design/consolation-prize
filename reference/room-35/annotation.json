@@ -37,7 +37,8 @@
     310,
     160
    ],
-   "note": "THE VISITOR'S CHAIR and the whisky glass beside it, on the floor."
+   "note": "THE VISITOR'S CHAIR and the whisky glass beside it, on the floor.",
+   "reach": true
   },
   {
    "id": "the_oil_lamp",
@@ -47,7 +48,8 @@
     95,
     100
    ],
-   "note": "The oil lamp under the gas lamp's place, standing on the floor."
+   "note": "The oil lamp under the gas lamp's place, standing on the floor.",
+   "reach": true
   }
  ],
  "scaling": {

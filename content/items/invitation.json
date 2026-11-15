@@ -22,6 +22,11 @@
           "Nothing. It has said 'this evening', and that was all it needed to say."
         ]
       }
+    ],
+    "OPEN": [
+      {
+        "say": "It is a card, engraved on one side. The other side is blank, which is the most honest thing about it."
+      }
     ]
   },
   "lostWhen": {

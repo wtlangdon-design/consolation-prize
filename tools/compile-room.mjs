@@ -2217,10 +2217,33 @@ for (const [spec, rule] of personBullets) {
     })),
     { obstacles: ann.obstacles, suffix: `_${gate[0][0].toLowerCase()}`, enabledWhen: Object.fromEntries(gate) }]
     : [{ obstacles: ann.obstacles ?? [], suffix: '', enabledWhen: undefined }];
+  // WHAT IS DRAWN, AND HIS BOOTS PAST IT (errata 316, 318). A walk box says where his centre may stand, and his feet
+  // reach past it: about a tenth of his height to the right and two-thirds of that to the left (the barrel's 43 and 29
+  // at a man of 426). An obstacle's rect is what is DRAWN, and with `reach` the carve is that plus his reach at its
+  // base row, at that row's own height. Tyler walked through the case and the spittoon, both carved at their own width.
+  const heightAtRow = (y) => {
+    const points = [[scale.farY, scale.farHeight], ...(scale.samples ?? []), [scale.nearY, scale.nearHeight]]
+      .sort((a, b) => a[0] - b[0]);
+    const at = Math.max(points[0][0], Math.min(points[points.length - 1][0], y));
+    for (let i = 0; i + 1 < points.length; i += 1) {
+      const [y0, h0] = points[i];
+      const [y1, h1] = points[i + 1];
+      if (at <= y1) return y1 === y0 ? h0 : h0 + (h1 - h0) * ((at - y0) / (y1 - y0));
+    }
+    return points[points.length - 1][1];
+  };
+  const carvedRect = (obstacle) => {
+    if (!obstacle.reach) return obstacle.rect;
+    const [x, y, w, h] = obstacle.rect;
+    const tall = heightAtRow(y + h);
+    const left = Math.ceil(tall * (43 / 426));
+    const right = Math.ceil(tall * (29 / 426));
+    return [x - left, y, w + left + right, h];
+  };
   const carve = (band, obstacles = steadyObstacles) => {
     let pieces = [band];
     for (const obstacle of obstacles) {
-      const [ox, oy, ow, oh] = obstacle.rect;
+      const [ox, oy, ow, oh] = carvedRect(obstacle);
       const next = [];
       for (const piece of pieces) {
         const [px, py, pw, ph] = piece;
@@ -2304,13 +2327,16 @@ for (const [spec, rule] of personBullets) {
   // be sliced into bands; the pieces the bands cannot hold are declared as rects (`walkBoxesExtra`), each with its own
   // plane from the same `occlusion.clipPlane` table by its id, and joined to the bands by the geometry below, as every
   // box is. Room 53's ford is one of them: level, so the water at his knees is one band of rows (plane 1).
-  for (const extra of ann.walkBoxesExtra ?? []) {
-    const [x, y, w, h] = extra.rect;
+  // HAND-LAID FLOOR IS CARVED TOO (errata 318): Main Street's ground is laid as rects up to the trough's and the dog's
+  // edges, so his boots reached into them; the obstacles' reach is cut out of these as out of the bands.
+  for (const laid of ann.walkBoxesExtra ?? []) for (const [index, piece] of carve(laid.rect).entries()) {
+    const extra = { ...laid, id: index === 0 ? laid.id : `${laid.id}_${index}` };
+    const [x, y, w, h] = piece;
     built.walkBoxes.push({
       id: extra.id,
       points: [{ x, y }, { x: x + w, y }, { x: x + w, y: y + h }, { x, y: y + h }],
       surface: extra.surface ?? 'mud',
-      clipPlane: authoredPlane(extra.id),
+      clipPlane: authoredPlane(laid.id),
       // A RAISED FLOOR (errata 301: Main Street's porches and their stairs). A man on a porch stands at the depth of
       // the ground at its foot, raised; the curve read at the deck's own rows would shrink him for climbing three
       // steps. `fixedAt` is the row of that foot, and the box is drawn at the curve's height there.

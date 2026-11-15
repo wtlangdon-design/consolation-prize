@@ -22,6 +22,11 @@
           "Nothing. Twelve months of nothing, added up correctly."
         ]
       }
+    ],
+    "OPEN": [
+      {
+        "say": "Twelve months of figures, all agreeing with each other. I would only be interrupting."
+      }
     ]
   }
 }

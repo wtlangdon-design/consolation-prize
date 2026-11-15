@@ -212,17 +212,19 @@
     60,
     80
    ],
-   "note": "The stool in front of the piano. He walks round it, not through it."
+   "note": "The stool in front of the piano. He walks round it, not through it.",
+   "reach": true
   },
   {
    "id": "spittoon",
    "rect": [
-    1321,
+    1364,
     740,
-    162,
+    90,
     78
    ],
-   "note": "Brass, on the floor, painted into the plate, so he can never pass behind it without being drawn over it. The rect is the spittoon as drawn (1364-1454, 740-818) and his boots past it each side, as the barrel's is: his feet reach 29 px left and 43 px right of his centre at this depth, so a rect the spittoon's own width let him stand with a boot in the brass (Tyler, 2026-11-14: \"He also can walk through the spittoon in the Nugget\"; errata 316). He walks round it."
+   "note": "Brass, on the floor, painted into the plate. The rect is the spittoon as drawn (1364-1454, 740-818); with `reach` the compiler carves his boots past it (errata 316, 318; Tyler, 2026-11-14: \"He also can walk through the spittoon\"). He walks round it.",
+   "reach": true
   },
   {
    "id": "card_table",
@@ -232,18 +234,20 @@
     336,
     216
    ],
-   "note": "The table, its chairs and the four men are one sprite; this is its footprint on the floor, which he walks round."
+   "note": "The table, its chairs and the four men are one sprite; this is its footprint on the floor, which he walks round.",
+   "reach": true
   },
   {
    "id": "whiskey_barrel",
    "rect": [
-    775,
+    817,
     790,
-    230,
+    145,
     26
    ],
    "keepsGroundAbove": true,
-   "note": "The whiskey barrel's footprint at its base: the barrel draws 817-962 at 890,812, and the rect runs about 40 px past it each side because his feet reach 29 px left and 43 px right of his centre -- a rect the barrel's own width let his boots walk through its staves (tools/gauntlet/barrel-proof.mjs). He walks round it; keepsGroundAbove so the floor behind it stays walkable and he can pass behind it, where it covers his legs."
+   "note": "The whiskey barrel's footprint at its base, as drawn: 817-962 at 890,812. With `reach` the compiler carves his boots past it each side (his feet reach 29 px left and 43 px right of his centre at this depth, tools/gauntlet/barrel-proof.mjs; errata 318). keepsGroundAbove so the floor behind it stays walkable and he can pass behind it, where it covers his legs.",
+   "reach": true
   }
  ],
  "provisional": {
@@ -547,5 +551,21 @@
    "flame": true,
    "halo": 61
   }
- ]
+ ],
+ "exitTransitScenes": {
+  "back_room_door": [
+   {
+    "ref": "docs/133-playthrough-rulings.md::## THE NUGGET'S BACK ROOM",
+    "bold": "THE BACK ROOM DOOR",
+    "when": {
+     "T_THAD_LEAVING": true,
+     "ACT": {
+      "atMost": 1
+     }
+    },
+    "stays": true
+   }
+  ]
+ },
+ "exitTransitScenesNote": "Errata 318, doc 133: the back room is somebody else's in Act I; the door refuses him, once he has arrived by the road, until Act II, when it is the Assay's room and holds the chalk."
 }

@@ -37,6 +37,7 @@
    "label": "R20-B Act III, Section nineteen said aloud: Hob on his rounds (E6)",
    "room": "back_alley",
    "flags": {
+    "T_SEEN_PROSPERITY": true,
     "T_OPENING_SAID": true,
     "T_DRIVER_ASKED": 3,
     "T_COACH_DEPARTED": true,

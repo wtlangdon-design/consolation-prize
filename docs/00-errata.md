@@ -8033,3 +8033,18 @@ Lesson:
 - `tests/aftermath.test.ts`: a counted-repeat row is bright before it is said and greyed after. `tests/dialogue-reveal.test.ts`'s oracle follows the same rule.
 - Doc 55 section 8: one row.
 
+## 318 · The same fixes, everywhere they apply (Tyler, 2026-11-14)
+
+Asked whether anything fixed in errata 315 to 317 belonged elsewhere in the game, and shown five places, Tyler: "Do all 5. You decide on #4." Doc 133 has each.
+
+1. **Things on the floor.** Every obstacle in every room now declares its rect as what is drawn, with `reach`, and `tools/compile-room.mjs` carves his boots past it at that row's height: a tenth of him to the right and two-thirds of that to the left. Main Street's hand-laid floor (`walkBoxesExtra`) is carved as the bands are. The spittoon and the barrel carry their drawn rects now, not hand-widened ones. Room 5's lifted board keeps its own rect, because Winnie kneels at its end, and says so (`reachException`).
+2. **What opens.** Ten items a player would naturally open answer OPEN in their own words, not with the scenery fallback (doc 133, WHAT OPENS). `tools/extract-content.mjs` merges them into whichever item file is written. The company map is hand-built, and its line is set there.
+3. **What Thad must already know.** Every question that moves the story on was read, act by act, for what he must already have, or have been told. Two did not hold: the livery blanket and asking Pratt to get the raccoon out. Both were offered before he had seen his claim. They wait for `T_SEEN_PROSPERITY`, written on arriving at Prosperity. Fixtures past that point carry it, and the walkthrough visits his claim before the livery.
+4. **The Nugget's back room** (Tyler: "You decide"). It refuses him through Act I, once he has arrived by the road ("Somebody's back room, on my first day in town. I'll wait to be asked."), and opens from Act II. It is not held until Vessel's return, because the chalk is in it, and the trials run in any order.
+5. **Sayings that are not sayings.** A read for lines built like idioms that exist nowhere found none besides the driver's hat.
+
+Lesson:
+- `tests/feet-clear.test.ts` covers every obstacle in every room. An obstacle carved without `reach` must give a reason. Proved on the old floors (errata 316).
+- `tests/what-opens.test.mjs`: every item doc 133 lists answers OPEN with its own line, word for word.
+- `tests/interface.test.ts`: the zone check looks along a region's own row when a carved thing sits at its centre.
+

@@ -22,7 +22,8 @@
     "T_SWINDLED": true,
     "T_EGGS_ON_ACCOUNT": true,
     "T_TONIC_ON_ACCOUNT": true,
-    "T_BLANKET_BORROWED": true
+    "T_BLANKET_BORROWED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -62,7 +63,8 @@
     "ACT": 2,
     "T_SURVEY_NEEDED": true,
     "T_NINETY_DAYS": true,
-    "T_PRATT_TRAIL": true
+    "T_PRATT_TRAIL": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -98,7 +100,8 @@
     "T_BLANKET_BORROWED": true,
     "ACT": 2,
     "T_SURVEY_NEEDED": true,
-    "T_NINETY_DAYS": true
+    "T_NINETY_DAYS": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -231,7 +234,8 @@
     "T_GROG_SEEN": true,
     "T_GULCH_MESSAGE_UP": true,
     "T_GULCH_MESSAGE_DOWN": true,
-    "T_LOG_WITH_WINNIE": true
+    "T_LOG_WITH_WINNIE": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "letter",

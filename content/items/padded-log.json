@@ -22,6 +22,11 @@
           "Nothing. It has already said enough."
         ]
       }
+    ],
+    "OPEN": [
+      {
+        "say": "I have read enough of it. One sample, under a great many names."
+      }
     ]
   },
   "lostWhen": {

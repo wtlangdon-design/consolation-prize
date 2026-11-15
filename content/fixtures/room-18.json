@@ -54,7 +54,8 @@
     "ACT": 4,
     "T_SWINDLED": true,
     "T_BORDERS_MOTT": true,
-    "T_ASSAY_QUEUE": true
+    "T_ASSAY_QUEUE": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

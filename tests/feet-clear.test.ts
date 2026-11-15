@@ -14,7 +14,7 @@
 // legs), or anywhere behind its base too (a thing painted into the plate, which can never cover him).
 
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import test from 'node:test';
 
 import { WalkBoxes, heightIn } from '../engine/core/WalkBoxes.ts';
@@ -34,7 +34,7 @@ const LEVEL = 4;
 
 type Thing = {
   room: string; what: string; drawn: [number, number, number, number]; painted: boolean;
-  flags?: Record<string, boolean>;
+  flags?: Record<string, boolean>; reach?: boolean;
 };
 const THINGS: Thing[] = [
   // Drawn: x 1010-1099, feet at y838 (art/objects/room-01-case-mud.png's own box); a sprite, until he picks it up.
@@ -45,6 +45,25 @@ const THINGS: Thing[] = [
   { room: ROOM_3, what: 'the whiskey barrel', drawn: [817, 700, 145, 112], painted: false },
 ];
 
+// AND EVERY OTHER THING ON A FLOOR (errata 318; Tyler: "Do all 5"): every annotation obstacle declares its rect as
+// what is drawn, with `reach`, and the compiler carves his boots past it. The rect's rows are the rows a man standing
+// in them would be level with it (its footprint), so no boot may stand in any of them.
+for (const dir of readdirSync(new URL('../reference/', import.meta.url)).filter((one) => /^room-\d+$/.test(one))) {
+  let annotation;
+  try { annotation = json(`reference/${dir}/annotation.json`); } catch { continue; }
+  for (const obstacle of annotation.obstacles ?? []) {
+    // One carved at its own rect says why (`reachException`): Room 5's lifted board, where Winnie kneels at its end.
+    if (!obstacle.reach) {
+      test(`${dir}: ${obstacle.id} carves his reach past it, or says why not`, () => assert.ok(obstacle.reachException));
+      continue;
+    }
+    THINGS.push({
+      room: String(annotation.room).replace(/_/g, '-'), what: `${obstacle.id} (${dir})`, drawn: obstacle.rect,
+      painted: true, flags: obstacle.when, reach: obstacle.reach,
+    });
+  }
+}
+
 function faults(boxes: WalkBox[], thing: Thing): string[] {
   const [x0, top, w, h] = thing.drawn;
   const x1 = x0 + w;
@@ -54,7 +73,7 @@ function faults(boxes: WalkBox[], thing: Thing): string[] {
     const xs = box.points.map((p) => p.x);
     const ys = box.points.map((p) => p.y);
     for (let y = Math.min(...ys); y <= Math.max(...ys); y += 2) {
-      const behind = thing.painted ? y >= top && y < base : Math.abs(y - base) < LEVEL;
+      const behind = thing.painted ? y > top && y < base : Math.abs(y - base) < LEVEL;
       if (!behind) continue;
       const tall = heightIn(box, y);
       for (let x = Math.min(...xs); x <= Math.max(...xs); x += 2) {

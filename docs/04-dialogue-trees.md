@@ -576,7 +576,7 @@ Pratt on his own claim, beside Prosperity, raking. The node exists for A5's "sen
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "There's a raccoon in my hole. Would you get him out?" | `[PROGRESS · remove]` | "Raccoon." *(beat)* "Put my hand in there once." *(beat)* "He's in there." → `T_PRATT_BITTEN` *(errata 75: offered only while the raccoon is in the hole)* |
+| 1 | "There's a raccoon in my hole. Would you get him out?" | `[PROGRESS · remove]` | "Raccoon." *(beat)* "Put my hand in there once." *(beat)* "He's in there." → `T_PRATT_BITTEN` *(errata 75: offered only while the raccoon is in the hole; errata 318: and once Thad has seen him there)* |
 | 2 | "Nine dollars for what?" | `[TOPIC · retain]` | "Your claim." *(second)* "Your claim. Nine dollars and a hen." |
 | 5 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "Yep." *(He rakes for a while.)* "Undertaker's got him." *(second)* "Undertaker's got him. Has had for a while." *(unless `T_PIKE_DEAD`)* |
 | 6 | "You knew Pike was dead." | `[TOPIC · retain]` | "Yep." *(He rakes.)* "Said so." *(second)* "Said the undertaker had him. That's what that means." *(req `T_PIKE_DEAD`)* |
@@ -890,7 +890,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 | 9 | "You knew Pike was dead." | `[TOPIC · retain]` | "She knew. She looked at me funny for a week." *(second)* "A whole week. Funny." → req `T_PIKE_DEAD` |
 | 3 | "Is the mule all right?" | `[COMIC · retain]` | "She's fine. She's just got a view." *(second)* "Still the same view. She's loyal to it." |
 | 4 | "What's that tune?" | `[TOPIC · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* "A tune a fella whistled in here once. Twelve years I've been getting it wrong." → req `T_HUM_HEARD` *(errata 68 F: B3 needs it; errata 75: the Assay pair is option 7; errata 278, doc 125: asked once he has been heard humming, which LISTEN TO THE LIVERY MAN does)* |
-| 5 | "Could I borrow a blanket?" | `[PROGRESS · remove]` | "Hers?" *(He looks at Grievance. Grievance looks at the blanket.)* "She's not using it. Bring it back before she notices." → THE LIVERY BLANKET *(errata 68 A; option added in Batch C, doc 54)* |
+| 5 | "Could I borrow a blanket?" | `[PROGRESS · remove]` | "Hers?" *(He looks at Grievance. Grievance looks at the blanket.)* "She's not using it. Bring it back before she notices." → THE LIVERY BLANKET; req `T_SEEN_PROSPERITY` *(errata 68 A; option added in Batch C, doc 54; errata 318: asked once he has seen the hole he wants it for)* |
 | 6 | "Your board says she went out once. Twelve years ago, four days, and nobody wrote down where." | `[PROGRESS · remove]` | "Once. Twelve years back. Fella came in at night, whistled at her, and she walked out after him like she'd been waiting." *(beat)* "Never saw him again. Never saw her move again, either." *(beat)* "Hm, hm-hm. Hmm, hm-hmm…" → `T_GRIEVANCE_MOTT` — **B2** *(errata 75)*; req `T_BOARD_GRIEVANCE` *(errata 278, doc 125: asked from what the board of names says; was "Has she ever moved for anybody?")* |
 | 7 | "Have you ever been in the Liar's Assay?" | `[ASSAY · remove]` | "Once. Fella told me, 'I once bought a saloon with a single nugget.' I said, 'I have been in it. You overpaid.'" *(beat)* "He's never forgiven me. Still owns the saloon." → pair 20 *(errata 75)* |
 

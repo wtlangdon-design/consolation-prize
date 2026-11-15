@@ -27,7 +27,8 @@
     "T_SURVEY_NEEDED": true,
     "T_NINETY_DAYS": true,
     "T_SEEN_CLAIMS_ROAD": true,
-    "T_PRATT_PAID": true
+    "T_PRATT_PAID": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -67,7 +68,8 @@
     "T_SEEN_CLAIMS_ROAD": true,
     "T_PRATT_PAID": true,
     "T_SHENG_HOLDS_PAPER": true,
-    "T_SHENG_TASK": true
+    "T_SHENG_TASK": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

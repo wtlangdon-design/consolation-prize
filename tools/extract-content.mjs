@@ -90,8 +90,25 @@ function assayAtOnce(tree) {
   return tree;
 }
 
+// WHAT OPENS (errata 318; doc 133): an item a player would naturally open answers OPEN in its own words, not with the
+// verb's fallback, which is written for scenery ("It doesn't open."). Read once, merged into whichever item file is
+// written, by whichever extractor writes it.
+let itemOpens = null;
+function openLines() {
+  if (itemOpens) return itemOpens;
+  const doc = read('docs/133-playthrough-rulings.md');
+  const at = doc.indexOf('## WHAT OPENS');
+  if (at < 0) throw new Error('doc 133: no "## WHAT OPENS"');
+  const body = doc.slice(at, (doc.indexOf('\n## ', at + 5) + 1 || doc.length + 1) - 1);
+  itemOpens = new Map([...body.matchAll(/^- `([a-z_]+)` — "([^"]+)"$/gm)].map((m) => [m[1], m[2]]));
+  if (itemOpens.size === 0) throw new Error('doc 133 WHAT OPENS: no lines read');
+  return itemOpens;
+}
 function write(relative, data, indent = 2) {
   if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = menuFirstSentence(asMonkeyIslandRan(assayAtOnce(greetOnce(quietExits(performDirections(data))))));
+  if (relative.startsWith('content/items/') && data?.id && data.responses && openLines().has(data.id)) {
+    data = { ...data, responses: { ...data.responses, OPEN: [{ say: openLines().get(data.id) }] } };
+  }
   const path = resolve(ROOT, relative);
   const wanted = `${JSON.stringify(data, null, indent)}\n`;
   if (CHECKING) {
@@ -5905,7 +5922,8 @@ function prattTree() {
     return { speaker: speakerOf(m[1]), line: said[0] };
   });
   const ROUTE = {
-    'PRA_A1 1': { when: { T_WARM_HOLE: false } },
+    // Errata 318: and only once he has seen the raccoon in it (T_SEEN_PROSPERITY, written on arriving there).
+    'PRA_A1 1': { when: { T_WARM_HOLE: false, T_SEEN_PROSPERITY: true } },
     'PRA_D2 1': { set: { T_PRATT_STAKE: true }, puzzle: { D2: 'pending' } },
     'PRA_B1 6': { puzzle: { D2: 'complete' } },
     'PRA_B1 7': { set: { T_PRATT_TURNED: true }, puzzle: { D5: 'complete' }, goto: 'PRA_D6', script: '## `PRA_D5`' },

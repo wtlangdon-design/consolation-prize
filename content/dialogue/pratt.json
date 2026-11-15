@@ -96,7 +96,8 @@
             }
           ],
           "when": {
-            "T_WARM_HOLE": false
+            "T_WARM_HOLE": false,
+            "T_SEEN_PROSPERITY": true
           },
           "set": {
             "T_PRATT_BITTEN": true

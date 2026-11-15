@@ -1102,7 +1102,10 @@
     "note": "Doc 111, ARRIVING: 'Prosperity, after E3.1, the raccoon back'. Said once (T_RACCOON_BACK_SEEN), on the first entry while he is back.",
     "say": [
       "The raccoon is back in my hole. He regards the eviction as a misunderstanding."
-    ]
+    ],
+    "set": {
+      "T_SEEN_PROSPERITY": true
+    }
   },
   "peopleResponses": {
     "prosperity_ozymandia": {

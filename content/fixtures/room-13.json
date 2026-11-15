@@ -64,7 +64,8 @@
     "T_NEED_TO_DIE": true,
     "T_EXECUTOR_RULE": true,
     "T_SOWERBY_PRICE": true,
-    "T_PIKE_DEAD": true
+    "T_PIKE_DEAD": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

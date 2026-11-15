@@ -109,7 +109,8 @@
     "T_FUNERAL_BOOKED": true,
     "T_COFFIN_SIZED": true,
     "T_OBITUARY": true,
-    "T_DECEASED": true
+    "T_DECEASED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -169,7 +170,8 @@
     "T_COFFIN_SIZED": true,
     "T_OBITUARY": true,
     "T_DECEASED": true,
-    "T_FUNERAL_DONE": true
+    "T_FUNERAL_DONE": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -220,7 +222,8 @@
     "T_BORDERS_MOTT": true,
     "ACT": 2,
     "T_FUNERAL_DAY": true,
-    "T_SHENG_TASK": true
+    "T_SHENG_TASK": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -278,7 +281,8 @@
     "T_OBITUARY": true,
     "T_DECEASED": true,
     "T_EXECUTOR_NAMED": true,
-    "T_PROCESSION_STALLED": true
+    "T_PROCESSION_STALLED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -341,7 +345,8 @@
     "T_DECEASED": true,
     "T_EXECUTOR_NAMED": true,
     "T_PROCESSION_STALLED": true,
-    "T_HILL_PRAYER": true
+    "T_HILL_PRAYER": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -397,7 +402,8 @@
     "T_FUNERAL_HILL_SAID": true,
     "T_HYMNAL_TAKEN": true,
     "ACT": 2,
-    "T_SWINDLED": true
+    "T_SWINDLED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -448,7 +454,8 @@
     "T_LINEN_ASKED": true,
     "T_HOLDS_PLATE": true,
     "ACT": 2,
-    "T_SWINDLED": true
+    "T_SWINDLED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

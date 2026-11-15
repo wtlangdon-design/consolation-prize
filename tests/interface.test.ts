@@ -355,9 +355,14 @@ test('the floor resolves everywhere, and a nearer point is never a smaller man',
     state.enterRoom(room.id);
     for (const region of room.walkable ?? []) {
       const [x, y, w, h] = region.rect;
+      // At its centre, or -- where a thing on the floor is carved out of its middle with his reach past it (errata 318:
+      // the Gulch's cook fire) -- at the nearest walkable point along the same row.
+      const row = y + h - 1;
       const middle = x + Math.floor(w / 2);
-      const height = state.actorHeightAt(middle, y + h - 1);
-      assert.ok(height !== null, `${room.id}/${region.id} should be walkable at its own centre`);
+      const along = [0, ...Array.from({ length: Math.ceil(w / 2) }, (_, i) => [i + 1, -(i + 1)]).flat()]
+        .map((d) => middle + d).filter((px) => px >= x && px < x + w);
+      const height = along.map((px) => state.actorHeightAt(px, row)).find((one) => one !== null) ?? null;
+      assert.ok(height !== null, `${room.id}/${region.id} should be walkable along its own row`);
       // A ROOM MAY DECLARE ITS OWN RANGE, and Room 2 does. The shared zone
       // table is Room 1's street; doc 36 Q10 ruled that Main Street is a
       // DEEPER room measured from its own architecture -- 105 at the building

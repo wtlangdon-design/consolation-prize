@@ -22,6 +22,11 @@
           "Ticking. Eleven minutes into the future, and in no hurry about it."
         ]
       }
+    ],
+    "OPEN": [
+      {
+        "say": "It tells me the time, eleven minutes early. My father's idea of a kindness."
+      }
     ]
   },
   "heldWhen": {

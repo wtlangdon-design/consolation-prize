@@ -22,6 +22,11 @@
           "Nothing. Whatever is in there has gone quiet, which is worse."
         ]
       }
+    ],
+    "OPEN": [
+      {
+        "say": "Not indoors. Not near anyone I like."
+      }
     ]
   }
 }

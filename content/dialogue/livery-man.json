@@ -102,6 +102,9 @@
           ],
           "set": {
             "T_BLANKET_ALLOWED": true
+          },
+          "when": {
+            "T_SEEN_PROSPERITY": true
           }
         },
         {

@@ -70,7 +70,8 @@
     "T_CASE_TAKEN": true,
     "T_BORDERS_MOTT": true,
     "T_SWINDLED": true,
-    "ACT": 2
+    "ACT": 2,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -125,7 +126,8 @@
     "T_SWINDLED": true,
     "ACT": 2,
     "T_ASSAY_QUEUE": true,
-    "T_QUEUE_PADDED": true
+    "T_QUEUE_PADDED": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -188,7 +190,8 @@
     "ACT": 2,
     "T_ASSAY_QUEUE": true,
     "T_QUEUE_PADDED": true,
-    "T_LOG_WITH_WINNIE": true
+    "T_LOG_WITH_WINNIE": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
@@ -253,7 +256,8 @@
     "T_NO_MOTT_GOLD": true,
     "T_SECOND_LEDGER": true,
     "T_STRIKE_FOUND": true,
-    "ACT": 4
+    "ACT": 4,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",

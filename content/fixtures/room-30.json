@@ -73,7 +73,8 @@
     "T_WARM_HOLE": true,
     "T_PICKAXE_ON_ACCOUNT": true,
     "T_SEEN_CLAIMS_ROAD": true,
-    "T_FUNERAL_DONE": true
+    "T_FUNERAL_DONE": true,
+    "T_SEEN_PROSPERITY": true
    },
    "inventory": [
     "tuning_fork",
