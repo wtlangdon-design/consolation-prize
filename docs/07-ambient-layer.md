@@ -398,10 +398,11 @@ is the whole of his character.
 
 **Micro-tree**
 *Rewritten by errata 288: agreeable, and loyal to the piano, which he offers as a virtue.*
+*Errata 331: his answer to "Do you want me to fix it?" sends Thad to the barman, whose piano it is. It had told him not to, and the puzzle that answer belongs to (A8) is the barman's.*
 > "You're flat." → "I'm tuned to the piano."
 > ↳ "The piano is flat." → "Then I'm tuned to the piano."
-> ↳ `[COMIC]` "Do you want me to fix it?" → "God, no. Then I'd be the only one right."
->   *Asked again:* "Still no. In tune, I'd be playing on my own."
+> ↳ "Do you want me to fix it?" → "Not up to me. It's the barman's piano, and the barman's money." *(beat)* "I'd only have to learn it all again."
+>   *Asked again:* "Ask the barman. I'll manage."
 > "Play me something." → "Anything you like, so long as the piano knows it."
 >   *Thad:* "What does the piano know?"
 >   → "Four songs, and the bottom half of a fifth."

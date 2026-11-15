@@ -85,9 +85,28 @@
 
 ---
 
+# THE BARMAN · Room 3
+### Gates A8, the filing fee (errata 331).
+
+**Voice:** the only person in Consolation who maintains anything, and he knows it (the room's light note: the lamps behind him are trimmed). Few words, all of them practical. Nothing he says is a joke to him.
+
+**Root:** "What'll it be?"
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "Is that piano ever in tune?" | `[TOPIC]` | "Not since it came over the pass. Everything else in here, I keep. That, I can't." *(beat)* "Two dollars to any man who can put it right." *(again)* "Still two dollars. Still no man." |
+| 2 | "I could put it right." | `[PROGRESS]` · after 1 | *(He looks at the piano, then at Thad.)* "Then there's two dollars on this bar the day it sounds like a piano." *(again)* "The day it sounds like a piano. Not the day before." → `T_PIANO_JOB` |
+| 3 | "Your piano's in tune." | `[PROGRESS]` · when `T_PIANO_OWED` | "So I hear. Nobody's looked up, which is how I know." *(He sets two dollars on the bar.)* "As promised. Obliged to you." — *"Two dollars, earned. It's the most professional transaction of my life."* *(again)* "Two dollars again. You're the steadiest trade I've got." → THE FILING FEE · **A8** |
+| 4 | "Is the whiskey any good?" | `[COMIC]` | "It's wet, and it's here." *(again)* "Still wet. Still here." |
+| 5 | `[EXIT]` "Carry on." | | "Always do." |
+
+*Errata 331 (Tyler, 2026-11-15): "there needs to be a conversation with the bartender where he tells him he's going to hire a piano tuner for $2 or something … Then maybe after Thad tunes it he can talk to the bartender again and then the bartender thanks him and gives him the money more deliberately?" Row 1 is the offer and row 2 takes it. Row 3 is the payment, said across the bar, and is offered only while he owes for a tuning (doc 57 A8). It pays every time it is offered, not only the first. The first time completes A8, and the asked-again answer is every later payment.*
+
+---
+
 # EXAMINE LAYERS
 
-*The eighteen lines. Each character is a hotspot in their room like anything else.*
+*The twenty-four lines. Each character is a hotspot in their room like anything else.*
 
 ## THE UNDERTAKER
 **LOOK** 1 "A man in his fifties in a clean apron, doing something careful with a plane. He has not looked up." · 2 "His hands are a carpenter's. Everything else about him is a clerk's." · 3 "He is the only man in Consolation who is not waiting for something."
@@ -101,6 +120,10 @@
 **LOOK** 1 "A man at the bar with his hat pushed back, entirely at ease, watching the door." · 2 "His boots are good. Everything above the boots isn't, and I've decided that's on purpose." · 3 "He's been in the territory a long time and he's leaving it in a very good mood. I'd like whatever he's having."
 **LISTEN** 1 "Talking. He's been talking since before I came in, and he hasn't said anything yet." · 2 "Still talking. A lovely voice for saying nothing in." · 3 "He's stopped talking. He's looking at me."
 
+
+## THE BARMAN
+**LOOK** 1 "The barman. He is polishing a glass that was clean when he started." · 2 "His moustache is trimmed, his lamps are trimmed, and both sleeves are rolled to the same height. Nothing else in this town has been looked after." · 3 "He's watched me since I came in, without once appearing to."
+**LISTEN** 1 "A cloth on a glass. It squeaks, which means it's clean, which it was." · 2 "Still polishing." · 3 "Nothing. He's put the glass down to listen to me listening."
 ---
 
 # VESSEL'S AUTO-OPEN — what re-arms it
