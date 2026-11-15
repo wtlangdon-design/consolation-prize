@@ -186,7 +186,7 @@ The plank, and arithmetic, follow "What rules?"
 
 ### amb_fiddler
 
-- `fiddler3` stays — "Still no. In tune, I'd be playing on my own."
+- `fiddler3` stays — "Ask the barman. I'll manage." *(errata 331: the answer sends Thad to the barman, and stays so he can be sent again)*
 
 ### amb_letter_writer
 

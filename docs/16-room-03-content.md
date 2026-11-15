@@ -47,7 +47,7 @@
 
 ## THE PIANO
 **LOOK** 2 "He hasn't stopped playing since I came in. I count the wrong notes. I count more than is healthy." · 3 "Bottle rings on the lid. Several. His glass is making another, and I am being very calm about it."
-**LISTEN** 2 "C-sharp. Still flat. It's like a stone in my shoe, if my shoe were across the room." · 3 "I could put it right in four minutes. I've started thinking about it at mealtimes."
+**LISTEN** 2 "C-sharp. Still flat. It's like a stone in my shoe, if my shoe were across the room." · 3 "I could put it right in a few minutes. I've started thinking about it at mealtimes."
 
 ## THE CHANDELIER
 **LOOK** 2 "Brass, crystal, and a dirt floor. Somebody made a decision about priorities. I'd like to shake his hand, and then check my pockets." · 3 "They light it after I've gone, apparently. It's always cooling when I come in."

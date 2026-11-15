@@ -439,7 +439,7 @@ class ModelBuilder {
           ...(option.after ?? []).map((id) => tok(`o:${T}/${nodeId}/${id}`)),
           option.afterAny?.length ? { any: option.afterAny.map((id) => [tok(`o:${T}/${nodeId}/${id}`)]) } : null];
         this.add(`dialogue:${T}:${nodeId}:${option.id}`, req, this.optionEffects(tree, nodeId, option, option.id),
-          { once: Boolean(option.gives?.length || option.takes?.length) });
+          { once: Boolean((option.gives?.length && !option.givesEachTime) || option.takes?.length) });
         if (option.afterUse === 'replace' && option.replaceWith) {
           this.add(`dialogue:${T}:${nodeId}:${option.id}:replaced`, [...req, tok(`o:${T}/${nodeId}/${option.id}`)],
             this.optionEffects(tree, nodeId, option.replaceWith, option.replaceWith.id));

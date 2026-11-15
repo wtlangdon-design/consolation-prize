@@ -16,6 +16,7 @@ import test from 'node:test';
 const NAMED_IN_SPEECH = {
   'LIV_A1/livery_man5': 'the reply is about the blanket in his hand, asked for by name in the option',
   'SHE_D1/sheng2': 'the reply names the sum, and the sum is the item',
+  'root/nugget_barman3': 'the barman names the sum, two dollars, as he pays it (errata 331), and the sum is the item',
 };
 
 const STOP = new Set(['the', 'and', 'of', 'my', 'mr', 'mrs', 'his', 'her', 'a', 'an', 'in', 'to', 's']);

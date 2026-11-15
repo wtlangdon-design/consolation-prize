@@ -59,7 +59,7 @@ Built as doc 17 v3 and doc 27 have it: the stage driver sends Thad to the undert
 3. USE THE TUNING FORK on the piano.
 
 > **THE PARLOR PIANO** · USE THE TUNING FORK, *before `T_TUNES_PIANOS`* — "Tuning a hotel's piano without being asked is how a man ends up in the street, holding a fork and an explanation."
-> **THE PARLOR PIANO** · USE THE TUNING FORK, *after `T_TUNES_PIANOS`* — doc 24's line ("Four minutes. It is the most honest work done in this building in some time."), then **CLERK:** "Top of the stairs, second door. The key sticks. You have to want it." → **A2**. *(The room is the reward; there is no key item. Room 19 opens.)*
+> **THE PARLOR PIANO** · USE THE TUNING FORK, *after `T_TUNES_PIANOS`* — doc 24's line ("There. It is the most honest work done in this building in some time."), then **CLERK:** "Top of the stairs, second door. The key sticks. You have to want it." → **A2**. *(The room is the reward; there is no key item. Room 19 opens.)*
 > **THE PARLOR PIANO** · USE THE TUNING FORK, *after A2* — "In tune. I keep checking. It keeps being."
 > **THE STAIRS** · USE or walk up, *before A2* — **CLERK:** "The stairs come with a room, sir. They are not sold separately."
 
@@ -113,13 +113,17 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 
 ## A8 · The filing fee
 
-*Room 3.* **Requires only the tuning fork** (doc 02's "requires the boundary" is withdrawn: it made the money circular). The barman pays; nobody else looks up. The piano is flat again every time Thad comes back, which is why this is the game's repeatable money and why "the joke improves with repetition" (doc 02's dead-end audit).
+*Room 3.* **Requires the tuning fork and the barman's word** (errata 331; doc 02's "requires the boundary" is withdrawn: it made the money circular). Tyler, 2026-11-15, asked that the barman say first that he will pay for the piano put right, and pay for it deliberately afterwards: the fork had paid by itself, and the puzzle jumped to its end. So it is three steps, each said out loud. THE BARMAN (doc 27) offers two dollars to any man who can put the piano right (`T_PIANO_JOB`). The fork puts it right, and he owes for it (`T_PIANO_OWED`). Told so across the bar, he pays (THE BARMAN, row 3). Nobody else looks up. The piano is flat again every time Thad comes back, which is why this is the game's repeatable money and why "the joke improves with repetition" (doc 02's dead-end audit).
 
-> **THE PIANO** · USE THE TUNING FORK, *first time* — doc 24's line ("Four minutes. C-sharp has come home, and nobody in this room has looked up."), then *(the barman sets two dollars on the bar beside Thad and goes back to his glasses)* "The barman has paid me. Neither of us has mentioned it. It is the most professional transaction of my life." → THE FILING FEE, **A8**.
-> **THE PIANO** · USE THE TUNING FORK, *second time* — "Flat again. A man at the bar says the right note was making him nervous. Four minutes. Two dollars, on the bar, unmentioned. We have a routine." → THE FILING FEE
-> **THE PIANO** · USE THE TUNING FORK, *third time and after* — "C-sharp, home again. Two dollars, again. I am, by the narrowest definition, employed." → THE FILING FEE
-> **THE PIANO** · USE THE TUNING FORK, *already holding THE FILING FEE* — "I have tuned it again, for nothing. The barman did not pay and I did not ask. It is a matter of principle, and I am not sure whose."
 > **THE PIANO** · USE THE TUNING FORK, *already tuned this visit* — "It is still in tune. Nobody has had time to undo it."
+> **THE PIANO** · USE THE TUNING FORK, *before the barman's offer* — "Not without asking whose it is. A man who tunes a stranger's piano unasked has adopted it."
+> **THE PIANO** · USE THE TUNING FORK, *still owed for the last* — "In tune again. He still owes me for the last time, so this one is a gesture of good faith."
+> **THE PIANO** · USE THE TUNING FORK, *already holding THE FILING FEE* — "I have tuned it again, for nothing. The barman did not pay and I did not ask. It is a matter of principle, and I am not sure whose."
+> **THE PIANO** · USE THE TUNING FORK, *first time* — doc 24's line ("C-sharp has come home, and nobody in this room has looked up."), then "Except the barman. He has."
+> **THE PIANO** · USE THE TUNING FORK, *second time* — "Flat again. A man at the bar says the right note was making him nervous. The barman has seen it done. We have a routine."
+> **THE PIANO** · USE THE TUNING FORK, *third time and after* — "C-sharp, home again. The barman is already reaching under the bar. I am, by the narrowest definition, employed."
+
+*The fork pays nothing itself. Every case but the first two tunes the piano for this visit, and the last three leave the barman owing. Payment is his row 3, which gives THE FILING FEE and, the first time, completes **A8**.*
 
 ## A9 · File the deed — the Act I turn
 

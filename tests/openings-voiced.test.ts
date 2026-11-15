@@ -82,8 +82,9 @@ function writtenOpenings(trees: Map<string, DialogueFile>): Written[] {
       if (top) heading = top[1]!;
       const root = /^\*\*Root:\*\*(.+)$/.exec(line);
       if (!root) return;
-      const tree = [...trees.values()].find((one) => (one as { speaker?: string }).speaker === slug(heading)
-        && sourceOf(one).includes(doc));
+      // By its speaker's id, or by its name where the id says where he stands (THE BARMAN is `nugget_barman`, errata 331).
+      const tree = [...trees.values()].find((one) => ((one as { speaker?: string }).speaker === slug(heading)
+        || (one as { name?: string }).name === heading) && sourceOf(one).includes(doc));
       assert.ok(tree, `${doc}:${index + 1}: a **Root:** under "# ${heading}", and no tree from ${doc} speaks as ${slug(heading)}`);
       const [first, later] = root[1]!.split(/\*\(every visit after the first\)\*/);
       found.push({ doc, at: index + 1, tree: tree.id, node: tree.start, lines: quotedIn(first!) });

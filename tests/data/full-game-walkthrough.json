@@ -300,16 +300,55 @@
   {
    "id": "A8.1",
    "puzzle": "A8",
+   "do": "talk",
+   "npc": "nugget_barman",
+   "choose": [
+    "nugget_barman1",
+    "nugget_barman2"
+   ],
+   "leave": true,
+   "note": "Errata 331: the barman offers two dollars for the piano put right.",
+   "expect": {
+    "flags": {
+     "T_PIANO_JOB": true
+    }
+   }
+  },
+  {
+   "id": "A8.1b",
+   "puzzle": "A8",
    "do": "use",
    "item": "tuning_fork",
    "on": "piano",
+   "expect": {
+    "flags": {
+     "T_PIANO_OWED": true
+    },
+    "notCarrying": [
+     "filing_fee"
+    ]
+   }
+  },
+  {
+   "id": "A8.1c",
+   "puzzle": "A8",
+   "do": "talk",
+   "npc": "nugget_barman",
+   "choose": [
+    "nugget_barman3"
+   ],
+   "leave": true,
+   "note": "Errata 331: told so across the bar, he pays.",
    "expect": {
     "puzzles": [
      "A8"
     ],
     "carrying": [
      "filing_fee"
-    ]
+    ],
+    "flags": {
+     "T_PIANO_OWED": false
+    }
    }
   },
   {
@@ -697,6 +736,21 @@
    "item": "tuning_fork",
    "on": "piano",
    "expect": {
+    "flags": {
+     "T_PIANO_OWED": true
+    }
+   }
+  },
+  {
+   "id": "A8.3b",
+   "puzzle": "A8",
+   "do": "talk",
+   "npc": "nugget_barman",
+   "choose": [
+    "nugget_barman3"
+   ],
+   "leave": true,
+   "expect": {
     "carrying": [
      "filing_fee"
     ]
@@ -967,6 +1021,21 @@
    "do": "use",
    "item": "tuning_fork",
    "on": "piano",
+   "expect": {
+    "flags": {
+     "T_PIANO_OWED": true
+    }
+   }
+  },
+  {
+   "id": "G1.2b",
+   "puzzle": "G1",
+   "do": "talk",
+   "npc": "nugget_barman",
+   "choose": [
+    "nugget_barman3"
+   ],
+   "leave": true,
    "expect": {
     "carrying": [
      "filing_fee"

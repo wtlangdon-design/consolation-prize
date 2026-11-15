@@ -120,7 +120,7 @@ export interface DialogueResolution {
   readonly duelChoice?: string;
   /** Who that counter scores for, so the slate can chalk it as the pencil goes down (errata 136 A). */
   readonly duelPoint?: 'player' | 'opponent';
-  /** Items the option hands over when this settles (its `gives`, first selection only). */
+  /** Items the option hands over when this settles (its `gives`: first selection only, or every one with `givesEachTime`). */
   readonly grants?: readonly string[];
   /** Items the option takes when this settles (its `takes`, first selection only), before it gives. */
   readonly payments?: readonly string[];
@@ -774,7 +774,7 @@ export class DialogueRunner {
     ];
 
     return {
-      ...(selection === 1 && option.gives?.length ? { grants: option.gives } : {}),
+      ...((selection === 1 || option.givesEachTime) && option.gives?.length ? { grants: option.gives } : {}),
       ...(selection === 1 && option.takes?.length ? { payments: option.takes } : {}),
       optionId: option.id,
       tree: treeId,

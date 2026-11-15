@@ -215,31 +215,17 @@
    "id": "A8",
    "completedBy": [
     {
-     "site": "with:nugget:piano:tuning_fork#2",
+     "site": "dialogue:BARMAN:root:nugget_barman3",
      "requires": [
-      "i:tuning_fork",
-      "r:nugget",
-      "T_NUGGET_PIANO_PAID=0",
-      {
-       "any": [
-        [
-         "not T_NUGGET_PIANO_TUNED=true"
-        ]
-       ]
-      },
-      {
-       "any": [
-        [
-         "-i:filing_fee"
-        ]
-       ]
-      }
+      "n:BARMAN/root",
+      "T_PIANO_OWED=true"
      ],
      "yields": [
-      "f:T_NUGGET_PIANO_TUNED=true",
+      "o:BARMAN/root/nugget_barman3",
+      "f:T_PIANO_OWED=false",
       "f:T_NUGGET_PIANO_PAID+",
-      "p:A8",
-      "i:filing_fee"
+      "i:filing_fee",
+      "p:A8"
      ]
     }
    ]

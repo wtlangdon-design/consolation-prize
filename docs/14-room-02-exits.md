@@ -15,7 +15,7 @@
 3. "The Nugget. It's bountiful the way a promise is bountiful."
 
 **LISTEN**
-1. "Talk, glasses, and a piano that's flat in one place. I could put it right in four minutes, and nobody's asked me."
+1. "Talk, glasses, and a piano that's flat in one place. I could put it right in a few minutes, and nobody's asked me."
 2. "Still flat. C-sharp. It's going to be C-sharp for the rest of my life."
 3. "Somebody in there is telling a story about a bear. The bear is bigger than it was."
 

@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "id": "BARMAN",
+  "speaker": "nugget_barman",
+  "name": "THE BARMAN",
+  "note": "EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not edit: change doc 27 and re-run. Speakers come from the document's own typography -- plain quotes are nugget_barman, italic quotes are Thad, and an italic bracket is a stage direction nobody says.",
+  "examine": {
+    "LOOK_AT": [
+      {
+        "say": "The barman. He is polishing a glass that was clean when he started.",
+        "repeat": [
+          "His mustache is trimmed, his lamps are trimmed, and both sleeves are rolled to the same height. Nothing else in this town has been looked after.",
+          "He has watched me the whole time, without once appearing to."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "A cloth on a glass. It squeaks, which means it's clean, which it was.",
+        "repeat": [
+          "Still polishing.",
+          "Nothing. He's put the glass down to listen to me listening."
+        ]
+      }
+    ]
+  },
+  "nodes": {
+    "root": {
+      "id": "root",
+      "prompt": "What'll it be?",
+      "opening": [
+        {
+          "speaker": "nugget_barman",
+          "line": "What'll it be?"
+        }
+      ],
+      "options": [
+        {
+          "id": "nugget_barman1",
+          "text": "Is that piano ever in tune?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "nugget_barman",
+              "line": "Not since it came over the pass. Everything else in here, I keep. That, I can't."
+            },
+            {
+              "speaker": "nugget_barman",
+              "line": "Two dollars to any man who can put it right."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "nugget_barman2",
+          "text": "I could put it right.",
+          "tag": "PROGRESS",
+          "repeat": "The day it sounds like a piano. Not the day before.",
+          "after": [
+            "nugget_barman1"
+          ],
+          "say": "Then there's two dollars on this bar the day it sounds like a piano.",
+          "set": {
+            "T_PIANO_JOB": true
+          }
+        },
+        {
+          "id": "nugget_barman3",
+          "text": "Your piano's in tune.",
+          "tag": "PROGRESS",
+          "repeat": "Two dollars. Obliged again.",
+          "when": {
+            "T_PIANO_OWED": true
+          },
+          "puzzle": {
+            "A8": "complete"
+          },
+          "exchange": [
+            {
+              "speaker": "nugget_barman",
+              "line": "So I hear. Nobody's looked up, which is how I know."
+            },
+            {
+              "speaker": "nugget_barman",
+              "line": "Two dollars, as promised. Obliged to you."
+            },
+            {
+              "speaker": "thad",
+              "line": "Earned. It's the most professional transaction of my life."
+            }
+          ],
+          "gives": [
+            "filing_fee"
+          ],
+          "givesEachTime": true,
+          "set": {
+            "T_PIANO_OWED": false
+          },
+          "add": {
+            "T_NUGGET_PIANO_PAID": 1
+          }
+        },
+        {
+          "id": "nugget_barman4",
+          "text": "Is the whiskey any good?",
+          "tag": "COMIC",
+          "say": "It's wet, and it's here.",
+          "afterUse": "remove"
+        },
+        {
+          "id": "nugget_barman5",
+          "text": "Carry on.",
+          "tag": "EXIT",
+          "say": "Always do."
+        }
+      ]
+    }
+  },
+  "start": "root"
+}

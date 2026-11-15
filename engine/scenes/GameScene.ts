@@ -917,29 +917,7 @@ export class GameScene extends Phaser.Scene {
       const { tree, at, evidence } = this.pendingTree;
       if (!this.pendingTree.greeted) {
         this.pendingTree.greeted = true;
-        // HE TURNS TO WHOEVER HE IS TALKING TO. Walking to a point beside the
-        // map seller left Thad facing whichever way the walk happened to end --
-        // in Tyler's screenshot, squarely at the building behind him. A man
-        // stops, turns, and then speaks.
-        // UNLESS THE STAGING SAYS WHICH WAY. `faceToward` takes the dominant
-        // axis, so a seated drinker whose feet are well above Thad's turned
-        // him to face the bar with his back to the room. A declared stand's
-        // `facing` is the authored answer, honoured when he is standing on it.
-        const talker = this.pendingTree.npc
-          ? this.ambient.present.find((each) => each.id === this.pendingTree?.npc) : undefined;
-        const declared = talker ? this.standOf(talker) : undefined;
-        if (declared?.facing && Math.abs(this.actor.x - declared.x) < 8 && Math.abs(this.actor.y - declared.y) < 8) {
-          this.actor.setFacing(declared.facing);
-        } else if (Math.abs(at.x - this.actor.x) >= SIDE_ON) {
-          // SIDE ON TO WHOEVER HE TALKS TO (errata 330; Tyler, 2026-11-15, of the one-strike man: "It's awkward for
-          // him to stand here with his back to the game player while he talks to him"). Turning by the larger axis
-          // gave his back to the room whenever the person sat higher up the screen than he stood to one side. A
-          // conversation turns him left or right, toward them; only someone straight above or below him is faced
-          // that way.
-          this.actor.setFacing(at.x < this.actor.x ? 'left' : 'right');
-        } else {
-          this.actor.faceToward(at.x, at.y);
-        }
+        this.turnToTalk(at, this.pendingTree.npc);
         // AND SITS, when the accost gave him a chair (errata 197): his seated clips until it ends.
         const seatDue = this.pendingTree.seat;
         if (seatDue) {
@@ -1002,8 +980,12 @@ export class GameScene extends Phaser.Scene {
       if (!(evidence && !evidence.committed) && this.sayLines.length === 0 && this.pendingSay.length === 0) {
         const called = this.pendingTree.duel;
         const owedByAction = this.pendingTree.owed === true;
+        const npcId = this.pendingTree.npc;
         this.pendingTree = null;
-        if (!owedByAction) this.actor.faceToward(at.x, at.y);
+        // THE SAME TURN AS THE GREETING'S, NOT THE LARGER AXIS (errata 331). This line turned him by the larger axis
+        // once the opening was said, so a man side-on through the greeting turned his back on the room for the menu:
+        // the barman, above and to his right, was talked to over Thad's shoulder blades.
+        if (!owedByAction) this.turnToTalk(at, npcId);
         if (called) this.state.dialogue.startDuel(tree, called);
         else this.state.dialogue.start(tree);
         this.markDirty();
@@ -2048,6 +2030,31 @@ export class GameScene extends Phaser.Scene {
       return pw * ph > bw * bh ? target : plain;
     }
     return plain;
+  }
+
+  /**
+   * HE TURNS TO WHOEVER HE IS TALKING TO. Walking to a point beside the map seller left Thad facing whichever way the
+   * walk happened to end -- in Tyler's screenshot, squarely at the building behind him. A man stops, turns, and then
+   * speaks.
+   * UNLESS THE STAGING SAYS WHICH WAY. `faceToward` takes the dominant axis, so a seated drinker whose feet are well
+   * above Thad's turned him to face the bar with his back to the room. A declared stand's `facing` is the authored
+   * answer, honoured when he is standing on it.
+   * SIDE ON TO WHOEVER HE TALKS TO (errata 330; Tyler, 2026-11-15, of the one-strike man: "It's awkward for him to
+   * stand here with his back to the game player while he talks to him"). Turning by the larger axis gave his back to
+   * the room whenever the person sat higher up the screen than he stood to one side. A conversation turns him left or
+   * right, toward them; only someone straight above or below him is faced that way. Used as the conversation opens
+   * and again as its menu does (errata 331), so the two never disagree.
+   */
+  private turnToTalk(at: { x: number; y: number }, npcId: string | undefined): void {
+    const talker = npcId ? this.ambient.present.find((each) => each.id === npcId) : undefined;
+    const declared = talker ? this.standOf(talker) : undefined;
+    if (declared?.facing && Math.abs(this.actor.x - declared.x) < 8 && Math.abs(this.actor.y - declared.y) < 8) {
+      this.actor.setFacing(declared.facing);
+    } else if (Math.abs(at.x - this.actor.x) >= SIDE_ON) {
+      this.actor.setFacing(at.x < this.actor.x ? 'left' : 'right');
+    } else {
+      this.actor.faceToward(at.x, at.y);
+    }
   }
 
   private faceTarget(target: Interactable): void {
