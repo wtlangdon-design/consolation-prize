@@ -144,6 +144,10 @@ def main(write):
     if write:
         assert OP == 3, 'only the correction (operation 3) is written; --op 2 measures'
         Image.fromarray(sheet).save(R(OUT))
+        # ONE LEVEL (errata 112; tests/one-level.test.mjs): the grid the game reads at his anchor row, once he is wired,
+        # so a re-cut lands on the pixels the game ships (errata 326).
+        import subprocess
+        subprocess.run([sys.executable, R('tools/art/one-level.py'), '--only', 'room-03-barman'], check=True, stdout=subprocess.DEVNULL)
         render(cells, room, W, H)
 
 
