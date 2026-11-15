@@ -975,6 +975,8 @@
 
 ## Repeats
 
+**THE CLERK** — LOOK 2 "Sleeve garters, and a collar so stiff he turns his whole body to read the next line. He has not had to turn it toward me." · 3 "He keeps his ledger the way other men keep a vow. I hope whatever it promised him, he gets." | LISTEN 2 "His blotter: pressed, lifted, pressed. He blots like a man who has never once smudged." · 3 "Nothing from him at all. A man can be silent politely, and he is doing it at me."
+
 **THE CHAIRS** — LOOK 2 "The cushions are plumped after every visitor. I have watched the clerk do it, tenderly." · 3 "Each one faces the inner door. You wait looking at the thing you are waiting for." | LISTEN 3 "A long, comfortable exhale of horsehair. It is the sound of an afternoon going missing."
 
 **THE CARPET** — LOOK 3 "A path is worn in it from the street door to the inner door, and nowhere else. Nobody wanders in here." | LISTEN 2 "Nothing. It takes my footsteps and keeps them." · 3 "A faint grit underfoot by the door, where the territory got in."

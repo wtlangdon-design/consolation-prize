@@ -146,6 +146,25 @@ The room was never for sale to Thad: the clerk trades it for the piano. The only
 
 **HOTEL CLERK** · option 3, *after A3* — "I have nothing. Could nothing be persuaded?" → "Then you have nothing and no room. Those are compatible."
 
+## THE MERCANTILE'S DOORS
+
+*Tyler: "There's a weird background sfx in the mercantile that doesn't seem to match anything seen in the store. Also the way things look from inside the mercantile looking out, doesn't match what's actually outside." Errata 323.*
+
+The sound was the batwings' hinge, looped every twelve seconds beside doors that do not move. Now they swing once, as he comes through them, as the Nugget's do. The view through them is to be repainted as the street really is (`reference/mercantile-doorway/brief.md`).
+
+## THE COMPANY'S CLERK
+
+*Tyler, told that the clerk at the Improvement Company's desk could not be clicked (pointing at him found Fanshawe's portrait behind him) and that no document had written him a line, chose: clickable, says little. Errata 323.*
+
+He can be clicked; a click talks to him. His LOOK and LISTEN are doc 05's and doc 54's, his refusals doc 49's. Talked to, he will not help, and he sends Thad to the Colonel, in every act:
+
+> **THE CLERK** · TALK TO — "Excuse me. Who would I speak to, about anything?" — **CLERK:** "The Colonel." — "And who would I speak to about speaking to the Colonel?" — **CLERK:** "The Colonel."
+
+## THE NUGGET'S BARMAN
+
+*Tyler: "Do we need a bartender in the Nugget?" Told that nobody stands behind the bar while three lines speak of a barman (he pays for the tuning, he watches Thad consider the bar, he keeps the lamps trimmed), he chose: add a barman. Errata 323.*
+
+He stands behind the bar, polishing, and says nothing of his own. One image operation (`reference/nugget-barman/brief.md`).
 ## THE TOWN, ONE NIGHT AT A TIME
 
 *Tyler: "As I'm starting to play more, I'm wondering if maybe the town is too open to start with too much to potentially do? Which may leave the player feeling a bit aimless? I liked in MI that sometimes you couldn't also figure out where to go or what to do until you could, but I want there to also be some narrative structure where it feels like a story is progressing vs feeling haphazard." Shown that about twenty-five places were open on Thad's first evening and about half had no part in Act I, he chose: open places as the story reaches them. Errata 324.*
