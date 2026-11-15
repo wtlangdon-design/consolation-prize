@@ -53,6 +53,11 @@ export function menuFirstSentence(tree) {
   for (const node of nodes) {
     for (const option of node.options ?? []) {
       if (typeof option.text !== 'string' || keepsWholeLine(option, tree.id)) continue;
+      // A REPHRASE IS A MENU LINE TOO (errata 322): its first sentence on the menu, the whole of it said.
+      if (option.rephrase && !option.rephrase.echo && menuLine(option.rephrase.text) !== option.rephrase.text) {
+        option.rephrase.echo = option.rephrase.text;
+        option.rephrase.text = menuLine(option.rephrase.text);
+      }
       const first = menuLine(option.text);
       if (first === option.text) continue;
       option.echo = option.text;

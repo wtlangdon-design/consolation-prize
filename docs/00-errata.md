@@ -8080,3 +8080,14 @@ Lesson:
 Lesson:
 - `tests/talk-faces.test.mjs`: every figure that can be talked to declares which way it faces. It fails with the pie woman's declaration removed, and with her stand put back at her back.
 - `tools/gauntlet/acted-proof.mjs`: scenarios `pie-woman-stand` and `dogs-owner-stand`, the look in the build.
+
+## 322 · From the playthrough: the ways back down, money he has spent, the Tuesday coach (Tyler, 2026-11-14)
+
+- **The ways back down.** Tyler: "Once you go into the Road to the Claims room, is there a way out? I couldn't figure it out and could only leave via the map." There was: a strip of scrub in the bottom-left corner, short of the end of the road, with no path drawn to it. Claim Row, the creek, Mott's site, the high ridge and Pratt's claim had the same strip. Each way back now reaches the end of the floor, so walking to the end of the road and clicking there leaves (reference/room-22, -25, -26, -27, -29, -30). At Mott's site and Pratt's claim it covers only the floor's end, so the sieve pile, the initials and the border stones keep their clicks.
+- **Money he has spent.** Tyler: "If thad buys the deed before getting a room, does that mean he no longer has money for a room?" The room is earned by the piano (A2), never paid for, so the puzzle holds in either order. But the clerk's option 3 still offered "I have four. Could four be persuaded?" after Deke had the four. Once A3 is complete it reads "I have nothing. Could nothing be persuaded?", and the clerk answers "Then you have nothing and no room. Those are compatible." (doc 27). Doc 27's reader takes a rephrase as doc 04 writes one. A rephrase's menu line is its first sentence (errata 292), and the engine says a rephrased option's own words, not the old echo (`echoOf`).
+- **The Tuesday coach.** Tyler: "The printing press guy says Deke left on Tuesday even though I just got the claim from him." Frame's destination line can be asked the minute after the swindle. It is now "Vessel was on the first coach to Fiddler's Gulch after you paid him." (doc 04, FRA_B1).
+
+Lesson:
+- `tests/way-out-on-the-floor.test.mjs`: every way out that comes down to the ground overlaps the floor. It fails on the Road to the Claims as it was. The ledge's drawn zigzag path is excused by name.
+- `tests/no-money-offered.test.ts`: before and after the swindle, the clerk's option 3 offers what Thad has, the clerk answers it, and the piano follows. It fails with the rephrase removed.
+- Doc 55 §8: a line that names a day is read at the earliest state its gate allows.

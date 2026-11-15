@@ -513,10 +513,10 @@
       "id": "to_claims_road",
       "name": "THE ROAD",
       "rect": [
-        0,
-        450,
-        170,
-        414
+        470,
+        660,
+        140,
+        204
       ],
       "colour": 0,
       "to": "claims_road",

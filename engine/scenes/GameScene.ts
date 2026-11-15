@@ -12,6 +12,7 @@ import { planCut, planRoom } from '../core/BootAssets.ts';
 import { MapWalk, homeLocation, mapPath, placePoint } from '../core/MapWalk.ts';
 import { Music } from '../core/Music.ts';
 import { ambienceFor } from '../core/Ambience.ts';
+import { echoOf } from '../core/DialogueRunner.ts';
 import { RoomActors } from '../core/RoomActors.ts';
 import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
@@ -2883,7 +2884,7 @@ export class GameScene extends Phaser.Scene {
     // THE WORDING AS DRAWN, which is the option's own or its rephrase.
     // DOC 30 §6.2's `option.echo when present`: the letters home name a
     // version in the list and speak the letter (doc 04 Part Three).
-    const echo = { speaker: this.state.content.actor.id, line: chosen.option.echo ?? chosen.text };
+    const echo = { speaker: this.state.content.actor.id, line: echoOf(chosen) };
     // A REPLY AS IT IS PERFORMED: a stage direction printed in parentheses
     // (doc 58), or acted by a figure in the room with nothing printed (doc 95).
     const present = this.ambient.present;

@@ -2152,7 +2152,7 @@ export interface DialogueOption {
    */
   afterUse?: AfterUse;
   /** The wording and answer this option takes once a canonical milestone is reached. */
-  rephrase?: { after: string; text: string; say: string };
+  rephrase?: { after: string; text: string; say: string; echo?: string };
   /** The option shown in this one's place after its first selection (`afterUse: replace`). */
   replaceWith?: DialogueOption;
   /**
