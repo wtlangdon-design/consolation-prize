@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "id": "STOREKEEPER",
+  "speaker": "storekeeper",
+  "name": "THE STOREKEEPER",
+  "note": "EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not edit: change doc 27 and re-run. Speakers come from the document's own typography -- plain quotes are storekeeper, italic quotes are Thad, and an italic bracket is a stage direction nobody says.",
+  "examine": {
+    "LOOK_AT": [
+      {
+        "say": "The storekeeper, behind his counter, in sleeve garters, with a pencil behind each ear.",
+        "repeat": [
+          "He keeps one hand on the ledger at all times, the way other men keep a hand on a gun.",
+          "He smiles at everyone who comes in. He has a page for every one of them."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "A pencil, adding.",
+        "repeat": [
+          "Still adding. He has not yet subtracted anything.",
+          "Nothing. He's stopped writing to watch what I'm holding."
+        ]
+      }
+    ]
+  },
+  "nodes": {
+    "root": {
+      "id": "root",
+      "prompt": "On account?",
+      "opening": [
+        {
+          "speaker": "storekeeper",
+          "line": "On account?"
+        }
+      ],
+      "options": [
+        {
+          "id": "storekeeper1",
+          "text": "What do you sell?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "storekeeper",
+              "line": "Whatever a man needs to find gold. Picks, pans, maps, peaches."
+            },
+            {
+              "speaker": "thad",
+              "line": "Has anyone found any?"
+            },
+            {
+              "speaker": "storekeeper",
+              "line": "Not yet. That's why they keep needing it."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "storekeeper2",
+          "text": "Could I open an account?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "storekeeper",
+              "line": "You have one. I opened it when the coach came in. Everybody's got one."
+            },
+            {
+              "speaker": "thad",
+              "line": "And if a man can't pay?"
+            },
+            {
+              "speaker": "storekeeper",
+              "line": "Then he stays. I've never lost a customer."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "storekeeper3",
+          "text": "Is that dynamite next to the stove?",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "storekeeper",
+              "line": "Perfectly safe. Keeps it dry."
+            },
+            {
+              "speaker": "thad",
+              "line": "It keeps it warm."
+            },
+            {
+              "speaker": "storekeeper",
+              "line": "Dry and warm. It's never been happier."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "storekeeper4",
+          "text": "Your scales lean to one side.",
+          "tag": "COMIC",
+          "say": "Toward me. Everything in here does, eventually.",
+          "afterUse": "remove"
+        },
+        {
+          "id": "storekeeper5",
+          "text": "Do you know Ezra Pike?",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "exchange": [
+            {
+              "speaker": "storekeeper",
+              "line": "Pike's account is closed."
+            },
+            {
+              "speaker": "thad",
+              "line": "Paid up?"
+            },
+            {
+              "speaker": "storekeeper",
+              "line": "Ruled off. The undertaker has the rest of him."
+            }
+          ],
+          "afterUse": "remove"
+        },
+        {
+          "id": "storekeeper6",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "say": "I ruled him off. I don't rule off the living. It's bad for business.",
+          "afterUse": "remove"
+        },
+        {
+          "id": "storekeeper7",
+          "text": "Just looking.",
+          "tag": "EXIT",
+          "say": "Look all you like. It's free until you touch something."
+        }
+      ]
+    }
+  },
+  "start": "root"
+}

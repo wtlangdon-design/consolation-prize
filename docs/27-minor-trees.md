@@ -104,9 +104,30 @@
 
 ---
 
+# THE STOREKEEPER · Room 12
+### No puzzle. The Mercantile's proprietor, whom a dozen of the store's lines already describe (errata 335).
+
+**Voice:** patient, cheerful, and owed money by everybody in town. Every man has a page in his ledger, and none of them can leave until he pays.
+
+**Root:** "On account?"
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "What do you sell?" | `[TOPIC]` | "Whatever a man needs to find gold. Picks, pans, maps, peaches." — *"Has anyone found any?"* — "Not yet. That's why they keep needing it." |
+| 2 | "Could I open an account?" | `[TOPIC]` | "You have one. I opened it when the coach came in. Everybody's got one." — *"And if a man can't pay?"* — "Then he stays. I've never lost a customer." |
+| 3 | "Is that dynamite next to the stove?" | `[COMIC]` | "Perfectly safe. Keeps it dry." — *"It keeps it warm."* — "Dry and warm. It's never been happier." |
+| 4 | "Your scales lean to one side." | `[COMIC]` | "Toward me. Everything in here does, eventually." |
+| 5 | "Do you know Ezra Pike?" | `[TOPIC]` · unless `T_PIKE_DEAD` | "Pike's account is closed." — *"Paid up?"* — "Ruled off. The undertaker has the rest of him." |
+| 6 | "You knew Pike was dead." | `[TOPIC]` · when `T_PIKE_DEAD` | "I ruled him off. I don't rule off the living. It's bad for business." |
+| 7 | `[EXIT]` "Just looking." | | "Look all you like. It's free until you touch something." |
+
+*Errata 335 (Tyler, 2026-11-15): Tyler chose to have him drawn, and approved these lines. Row 5 is the town's Pike thread (doc 98), and "ruled off" is what Thad finds on his own account in Act III (THE CREDIT LEDGER, doc 54).*
+
+---
+
 # EXAMINE LAYERS
 
-*The twenty-four lines. Each character is a hotspot in their room like anything else.*
+*The thirty lines. Each character is a hotspot in their room like anything else.*
 
 ## THE UNDERTAKER
 **LOOK** 1 "A man in his fifties in a clean apron, doing something careful with a plane. He has not looked up." · 2 "His hands are a carpenter's. Everything else about him is a clerk's." · 3 "He is the only man in Consolation who is not waiting for something."
@@ -124,6 +145,10 @@
 ## THE BARMAN
 **LOOK** 1 "The barman. He is polishing a glass that was clean when he started." · 2 "His mustache is trimmed, his lamps are trimmed, and both sleeves are rolled to the same height. Nothing else in this town has been looked after." · 3 "He has watched me the whole time, without once appearing to."
 **LISTEN** 1 "A cloth on a glass. It squeaks, which means it's clean, which it was." · 2 "Still polishing." · 3 "Nothing. He's put the glass down to listen to me listening."
+
+## THE STOREKEEPER
+**LOOK** 1 "The storekeeper, behind his counter, in sleeve garters, with a pencil behind each ear." · 2 "He keeps one hand on the ledger at all times, the way other men keep a hand on a gun." · 3 "He smiles at everyone who comes in. He has a page for every one of them."
+**LISTEN** 1 "A pencil, adding." · 2 "Still adding. He has not yet subtracted anything." · 3 "Nothing. He's stopped writing to watch what I'm holding."
 ---
 
 # VESSEL'S AUTO-OPEN — what re-arms it
