@@ -1269,6 +1269,12 @@
    "why": "Reviewed with errata 352, at the third change since its last review (2026-11-09 Tier 7, 2026-11-10 the sparrings played, 2026-11-16 the watch handed back). Each followed a ruled change to the duels themselves, and each old property was restated in its new form, not dropped. The one assertion changed here (who speaks last when Duel Two is won) was holding an accident of the script, so it now holds the thing that matters: the hand-back is said. The test is not misfiring; it is the duels' only full-play test and stays as it is."
   },
   {
+   "check": "tests/plate-edges.test.mjs",
+   "date": "2026-11-16",
+   "kind": "loosened",
+   "why": "Errata 353. Read as loosened because a condition changed; it is tighter. It compared the edge row with the row five in, and the bands on the Clarion, Mott's site and the vault are six to nine rows wide, so it compared band with band and passed them. It now looks twelve rows in, on all four edges, and the bottom asks only that the band be grey (as the top always did), not that the floor inside be more saturated than it by a margin."
+  },
+  {
    "check": "content/fixtures/room-05.json",
    "date": "2026-11-15",
    "kind": "loosened",
