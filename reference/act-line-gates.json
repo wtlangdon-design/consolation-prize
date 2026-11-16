@@ -89,10 +89,6 @@
     }
    },
    {
-    "says": "went out of print somewhere between the filing",
-    "remove": true
-   },
-   {
     "says": "nobody waiting in any of them",
     "when": {
      "T_FANSHAWE_BEATEN": true

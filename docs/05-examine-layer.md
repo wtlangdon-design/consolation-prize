@@ -1513,7 +1513,7 @@ bark budget, not here.
 ## ROOM 10 — IMPROVEMENT COMPANY LOBBY
 
 **THE PROSPECTUS RACK** *(act: 4)*
-> **LOOK:** "The rack is empty. TERRITORY OF TOMORROW went out of print somewhere between the filing and the morning after."
+> **LOOK:** "The rack is empty. TERRITORY OF TOMORROW has gone out of print, and nobody has said when."
 > **LISTEN:** "The draft, unemployed."
 
 **THE CHAIRS** *(act: 4)*

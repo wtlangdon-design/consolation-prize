@@ -195,6 +195,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "The rack is empty. TERRITORY OF TOMORROW has gone out of print, and nobody has said when."
+          },
+          {
             "say": "Pamphlets: CONSOLATION — TERRITORY OF TOMORROW.",
             "repeat": [
               "On the back of each pamphlet, a small form: I WISH TO INVEST $___ IN TOMORROW. Several have been filled in and not mailed.",
