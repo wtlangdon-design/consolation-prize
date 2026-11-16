@@ -163,7 +163,7 @@ def sign():
         im.convert('RGB').crop((850, 300, 1450, 820)).save(R('renders/room-44-seance-sign-with-thad.png'))
 
 
-HEARSE_GROUND = (560, 575)  # the hearse's wheels on the ground just behind the coffin (room x of its centre, y of its wheels).
+HEARSE_GROUND = (505, 578)  # the hearse's wheels on the ground just behind the coffin (room x of its centre, y of its wheels).
                             # Grievance, the mule (content/ambient/funeral-grievance.json, x 129), stands hitched at its
                             # front, clear of it: at x 330 the new, longer hearse hid her whole. Her sprite carries a strip
                             # of the OLD hearse beside her (x ~215-255); from x 205 the new hearse covers that strip.
@@ -260,7 +260,15 @@ def grievance():
         from scipy import ndimage as ndi
         lid = ndi.binary_dilation(lid, iterations=1) & (xx >= 190) & (yy >= 300)
         ground = (xx >= 150) & (yy >= 420)
-        kill = (box | lid | ground) & (f[..., 3] > 0)
+        # the master's grass around her legs: green over blue and over red (the plate's night grass is blue; her coat
+        # and harness are neutral), from her chest down; grown by one pixel within the same hue, then any piece left
+        # cut off from her body is cleared too
+        grassy = (a[..., 1] - a[..., 2] >= 3) & (a[..., 1] - a[..., 0] >= 5) & (yy >= 290)
+        grass = ndi.binary_opening(grassy, iterations=1) | (grassy & ndi.binary_dilation(ndi.binary_opening(grassy, iterations=1)))
+        kill = (box | lid | ground | grass) & (f[..., 3] > 0)
+        keep = (f[..., 3] > 0) & ~kill
+        lab, n = ndi.label(keep); sizes = ndi.sum(keep, lab, range(1, n + 1))
+        if n: kill |= keep & (lab != (int(np.argmax(sizes)) + 1))
         cleared.append(int(kill.sum())); f[kill] = 0
     print(json.dumps({'job': 'grievance', 'clearedPerFrame': cleared}))
     if WRITE:

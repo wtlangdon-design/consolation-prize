@@ -93,21 +93,25 @@ It is drawn against the gate's hearse at 2x and the funeral with Thad.
 
 Both are fixed with no new operation:
 - **The coffin's foot end.** Item 2's operation drew the whole box, but its right end ran about 12 px past the old 422-wide sheet, and the cut cropped it there. The sheet now grows 20 px to the right, so the box is whole. Its left edge stays where it was.
-- **Space between coffin and hearse.** The hearse is set back and to the right: its wheels sit at room (560, 575), not (480, 620). It stands deeper in the yard, a little smaller on the room's curve, still 1.292 of the man there. The coffin stands clear in front of it.
+- **Space between coffin and hearse.** The hearse is set back: its wheels sit at room (505, 578), not (480, 620). It stands deeper in the yard, a little smaller on the room's curve, still 1.292 of the man there. The coffin stands clear in front of it.
 - **The old hearse beside Grievance.** Grievance's own sheet, `art/actors/room-31-grievance.png`, had been cut from room-31's composition master with three leftovers of the old prop: the old hearse's front, the old lid's corner, and a scrap of grass beside her. With the hearse set back, these read as a second hearse.
   - The tool clears the same three regions in all four of her frames, 22,386 px each (`tools/art/acts-two-to-four-cut.py grievance`).
   - Her own pixels and her frames are unchanged.
   - **This is a sheet outside the four items**, changed because item 4 made those leftovers visible.
+
+**Tyler's second look:** "the horse is clearly a cut out with different color grass around it and it's not attached."
+- **The grass:** the master's green grass around her legs is cleared from her sheet, so she stands on the night plate's own blue ground. It is the green-over-blue, green-over-red pixels from her chest down; her coat and harness are neutral and stay. Any piece cut off from her body is cleared too. That makes 36,648 px cleared a frame in all, the same in every frame.
+- **Attached:** the hearse's front comes left to meet her (its left edge at room x 239), so her traces run into its front wheel. Its wheels are at (505, 578), still set back behind the coffin.
 
 **The sheet changed size, so the record must change with it.** These are wiring numbers, not done here:
 
 | | x | y | frame |
 |---|---|---|---|
 | was | 361 | 733 | `[0, 0, 422, 578]` |
-| **now** | **488** | 733 | **`[0, 0, 676, 580]`** |
+| **now** | **461** | 733 | **`[0, 0, 622, 578]`** |
 
 - The coffin group lands where it was, its left edge unmoved.
-- The hearse spans x 294-826, clear of the grave.
+- The hearse spans x 239-772, clear of the grave.
 
 **Tests.** "No prop paints the plate over a figure behind it" now passes, both with the record as it is and with the new record applied (tried, then reverted). The overlap that tripped it was the dark hearse over the old-hearse strip, and that strip is gone.
 
@@ -117,7 +121,7 @@ Both are fixed with no new operation:
 
 1. Hob's face in the coffin plate.
 2. The new hearse is brighter and a touch greener than the old navy one, because it is the gate's colours. It is not regraded.
-3. Grievance, now without the old hearse beside her: her traces end in the air short of the new hearse's front.
+3. Grievance, now without the old hearse or the master's grass, her traces into the hearse's front wheel. A faint blue edge from the master's sky still rims her plume and ears.
 4. Thad's stand point at the séance sign hides the board.
 
 ## Checks
