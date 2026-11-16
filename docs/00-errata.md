@@ -8496,6 +8496,7 @@ Lesson:
 - `tests/next-thing.test.mjs`: four tests, each failing on main before this.
 - Doc 55 §8: a finished goal hands over the next one.
 
+
 ## 353 · Four more plate edges, and the night on Thad at Prosperity and Boot Hill (Tyler, 2026-11-15, on the Acts II to IV review: "Shop your drafted lines too. And feel free to change a puzzles design or the story too.")
 
 From the review's art directors. No image operation; each is a recorded script or a value.
