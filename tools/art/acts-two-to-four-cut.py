@@ -163,12 +163,12 @@ def sign():
         im.convert('RGB').crop((850, 300, 1450, 820)).save(R('renders/room-44-seance-sign-with-thad.png'))
 
 
-HEARSE_GROUND = (505, 578)  # the hearse's wheels on the ground just behind the coffin (room x of its centre, y of its wheels).
+HEARSE_GROUND = (560, 505)  # its wheels' row (x unused for the side-on hearse): up the slope, 40 px behind the grave's back edge (y ~545) -- at y 578 its rear wheel stood at the hole's edge (Tyler: "it looks like the carriage is about to fall into the hole")
 HEARSE_OP = 2               # Tyler, 2026-11-16, of the mule at a right angle to the three-quarter-rear hearse: "Redraw the
                             # hearse side-on". Operation 2 (the asset's correction) is the gate's hearse side-on, empty,
                             # its front to the left, in line with Grievance. Operation 1 (three-quarter rear) is kept.
 SHAFTS_END = 405            # operation 2's columns left of its front lamp: the shafts, trimmed
-HEARSE_LEFT = 335           # room x of its front end: Grievance (the gate's, 385 wide here) ahead of it with her head on screen, its rear clear of the grave's headstone (x ~960)
+HEARSE_LEFT = 325           # room x of its front end, just behind Grievance's shaft stub
                             # Grievance, the mule (content/ambient/funeral-grievance.json, x 129), stands hitched at its
                             # front, clear of it: at x 330 the new, longer hearse hid her whole. Her sprite carries a strip
                             # of the OLD hearse beside her (x ~215-255); from x 205 the new hearse covers that strip.
@@ -287,7 +287,7 @@ def grievance():
 
 
 GATE_MULE_X0 = 600          # the gate's frames: Grievance from her rump (~625) and a stub of her shafts behind it
-MULE_SHAFT_END = 380        # room x of her shafts' stub ends: tucked under the hearse's front, at its front wheel
+MULE_SHAFT_END = 355        # room x of her shafts' stub ends: tucked under the hearse's front; her ears clear of the screen's left edge
 COFFIN_DX = 60              # the coffin group slid right along the hearse, clear of Grievance's hind legs (it stood over
                             # them in front of her; tests/lessons.test.ts read its dark trestles as plate over her)
 

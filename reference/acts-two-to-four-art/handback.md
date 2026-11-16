@@ -125,14 +125,20 @@ Both are fixed with no new operation:
 - **The coffin:** the coffin group is slid 60 px right along the hearse (`COFFIN_DX`), clear of her hind legs; it had stood in front of them. Its hotspots move with it (below).
 - **The old sheet:** kept at `art/staging/acts-two-to-four-art/hearse/grievance-old.png`. The new sheet is padded to the old one's height, so her unwired record still fits it.
 
+**Tyler's fifth look:** "it looks like the carriage is about to fall into the hole." At wheels y 578 its rear wheel stood on the grave's near-left edge (the hole runs about x 850-1090, its back edge at y ~545).
+- **The move:** the hearse and Grievance now stand up the slope, wheels and hooves on **y 505**, about 40 px behind the grave's back edge.
+- **Size:** each is smaller by the room's curve there (the man is 308.8): the hearse 581 x 399 and Grievance 363 wide.
+- **Placement:** the hearse's front is at x 325, her shaft stub at x 355, and her ears are clear of the screen's left edge.
+- **The coffin** stays in front, where it was.
+
 **For the wiring, Grievance** (`content/ambient/funeral-grievance.json`):
 
 | | x | y | frames |
 |---|---|---|---|
 | was | 129 | 700 | four of 276 x 505 |
-| **now** | **187** | **578** | `[2,2,385,425]`, `[389,2,385,425]`, `[776,2,385,425]`, `[1163,2,385,425]` |
+| **now** | **173** | **505** | `[2,2,363,401]`, `[367,2,363,401]`, `[732,2,363,401]`, `[1097,2,363,401]` |
 
-Her hotspot GRIEVANCE, IN BLACK `[0, 188, 255, 512]` becomes about `[0, 160, 380, 420]`.
+Her hotspot GRIEVANCE, IN BLACK `[0, 188, 255, 512]` becomes about `[0, 105, 355, 400]`.
 
 **For the wiring, the coffin's hotspots** move right by 60:
 - THE COFFIN `[180, 440, 392, 292]` → `[240, 440, 392, 292]`, its stand point x 376 → 436;
@@ -143,9 +149,9 @@ Her hotspot GRIEVANCE, IN BLACK `[0, 188, 255, 512]` becomes about `[0, 160, 380
 | | x | y | frame |
 |---|---|---|---|
 | was | 361 | 733 | `[0, 0, 422, 578]` |
-| **now** | **580** | 733 | **`[0, 0, 741, 578]`** |
+| **now** | **558** | 733 | **`[0, 0, 696, 627]`** |
 
-- The hearse spans x 335-951, its rear clear of the headstone. The coffin group spans about x 210-652, 60 px right of where it stood.
+- The hearse spans x 325-906, its wheels on y 505, about 40 px up the slope behind the grave's back edge (y ~545). The sheet is now 627 tall, because the hearse stands higher. The coffin group spans about x 210-652, 60 px right of where it stood.
 
 **Tests.** "No prop paints the plate over a figure behind it" now passes, both with the record as it is and with the new record applied (tried, then reverted). The overlap that tripped it was the dark hearse over the old-hearse strip, and that strip is gone.
 
@@ -161,5 +167,5 @@ Her hotspot GRIEVANCE, IN BLACK `[0, 188, 255, 512]` becomes about `[0, 160, 380
 ## Checks
 
 - All 67 checks pass.
-- 2,001 of 2,002 tests pass as committed. The one failure is the one-level test reading Grievance's OLD frame rect (276 x 505) over her new drawing; it passes with her new record applied (tried, then reverted).
-- With both records applied (Grievance and the hearse prop), everything passes except `reference/room-31/annotation.json`'s place for the hearse (361), which the wiring moves to 580 and compiles.
+- All 2,002 tests pass as committed.
+- With both records applied (Grievance and the hearse prop; tried, then reverted), everything passes except `reference/room-31/annotation.json`'s place for the hearse (361), which the wiring moves to 558 and compiles.
