@@ -128,7 +128,9 @@ test('Duel Two won yields Document A and the watch, and closes the rematch', asy
   assert.equal(result.outcome, 'won');
   assert.deepEqual(result.yields, ['document_a', 'watch']);
   assert.equal(result.sets.T_DUEL_TWO_WON, true);
-  assert.equal(result.lines.at(-1)?.speaker, 'deke_vessel');
+  // Errata 352: the watch is handed back, and the last word on it is its owner's.
+  assert.ok(result.lines.some((one) => one.speaker === 'deke_vessel' && /runs fast/.test(one.line)), 'the watch is seen coming back');
+  assert.equal(result.lines.at(-1)?.speaker, 'thad');
 });
 
 test('a lost Duel Two ends on the reply that lost it and the judges\' mark (errata 73 H, 130 B)', async () => {

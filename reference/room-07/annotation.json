@@ -431,7 +431,8 @@
    "bullet": "- OPEN, *with an executor and no obituary*",
    "when": {
     "T_EXECUTOR_NAMED": true,
-    "T_OBITUARY": false
+    "T_OBITUARY": false,
+    "T_FUNERAL_DONE": false
    }
   },
   {

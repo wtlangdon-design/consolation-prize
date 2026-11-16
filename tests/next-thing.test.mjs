@@ -39,7 +39,7 @@ test('the ledger is read aloud, and the watch is handed back', () => {
 
 test('each stalled state of the archive door says what is missing', () => {
   const rules = hotspot('claims-registrar', 'sealed_archive_door').responses.OPEN;
-  const states = [{ T_DECEASED: true, T_EXECUTOR_NAMED: false }, { T_EXECUTOR_NAMED: true, T_OBITUARY: false },
+  const states = [{ T_DECEASED: true, T_EXECUTOR_NAMED: false }, { T_EXECUTOR_NAMED: true, T_OBITUARY: false, T_FUNERAL_DONE: false },
     { T_EXECUTOR_NAMED: true, T_OBITUARY: true, T_FUNERAL_DONE: false }];
   for (const state of states) assert.ok(rules.some((rule) => JSON.stringify(rule.when) === JSON.stringify(state)), JSON.stringify(state));
   const early = option('winnie', 'WIN_B4', 'winnie5');
