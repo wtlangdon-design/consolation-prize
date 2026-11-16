@@ -85,3 +85,20 @@ test('one headboard for one grave, and the peg on it', () => {
     assert.ok(any, `row ${y} under the peg is empty: the peg floats above the board`);
   }
 });
+
+test('the window frame runs whole past where the lamp stood', () => {
+  // Errata 364 (Tyler, 2026-11-16: "There's a chunk of window frame missing"). The lamp patch put wall where the
+  // frame's lower-left corner is. With the patch drawn, the frame's outer column below the chimney is wood as it is
+  // above the chimney (red over green in about three pixels of four; the wall is green over red).
+  const plate = png('art/backgrounds/room-19-thads-room-act4.png');
+  const patch = png('art/props/room-19-lamp-taken.png');
+  const prop = room('thads_room').props.find((one) => one.id === 'lamp_taken');
+  const left = prop.x - Math.floor(prop.frame[2] / 2); const top = prop.y - prop.frame[3] + 1;
+  let wood = 0; let all = 0;
+  for (let y = 392; y < 425; y += 1) for (let x = 774; x < 779; x += 1) {
+    const p = at(patch, x - left, y - top)[3] > 0 ? at(patch, x - left, y - top) : at(plate, x, y);
+    if (p[0] > p[1] + 3) wood += 1;
+    all += 1;
+  }
+  assert.ok(wood / all > 0.65, `only ${wood} of ${all} pixels of the frame's corner are wood`);
+});
