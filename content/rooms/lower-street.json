@@ -835,6 +835,10 @@
       "LOOK_AT": [
         {
           "say": "A man standing under a bell with a mallet. I've rarely seen anyone so plainly between jobs.",
+          "repeat": [
+            "He holds the mallet loosely, for a man whose whole career is one swing.",
+            "The bell isn't ringing and he isn't ringing it. They seem to have come to an arrangement."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE BELL-RINGER** - LOOK"
         }
       ]
@@ -843,6 +847,10 @@
       "LOOK_AT": [
         {
           "say": "A man in a bowler with a writing case under his arm. He looks like he charges by the word and thinks in long ones.",
+          "repeat": [
+            "He holds the writing case like it has other people's secrets in it, which, professionally, it does.",
+            "He watches passers-by as a tailor watches a coat, working out how many words each would take."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE LETTER-WRITER** - LOOK"
         }
       ]

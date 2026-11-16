@@ -39,3 +39,23 @@ test('everybody written for answers LOOK AT in their own words, where they first
 test('the men at the bar can be spoken to', () => {
   for (const id of ['nugget_bar1', 'nugget_bar2', 'nugget_bar3']) assert.ok(rooms.get('nugget').peopleResponses[id].TALK_TO?.length, `${id} answers TALK TO`);
 });
+
+// Errata 359. The second click on an Act I person said the first line again, word for word: the look had no repeat.
+// Each person written for in Act I now has a second and a third look. Proved against the defect: on main before
+// errata 359 every name here fails.
+const ACT_ONE = ['pie_woman', 'map_seller', 'man_leaving_tomorrow', 'hob', 'dogs_owner', 'letter_writer', 'bell_ringer', 'message_boy', 'card_sharp',
+  'fiddler', 'one_strike_man', 'nugget_bar1', 'nugget_bar2', 'nugget_bar3', 'fanshawe', 'lobby_clerk', 'frame', 'sump', 'winnie', 'livery_man', 'ozymandia',
+  'pratt', 'boundary_a', 'boundary_b'];
+
+test('a second and a third look at everybody in Act I is not the first again', () => {
+  for (const id of ACT_ONE) {
+    const person = people.get(id);
+    const rules = rooms.get(person.room)?.peopleResponses?.[id]?.LOOK_AT ?? [];
+    const plain = rules.filter((rule) => !rule.when);
+    assert.ok(plain.length, `${id} has a LOOK in ${person.room} that holds in every state`);
+    for (const rule of plain) {
+      assert.equal(rule.repeat?.length, 2, `${id}'s LOOK has a second and a third line`);
+      assert.equal(new Set([rule.say, ...rule.repeat]).size, 3, `${id}'s three looks differ`);
+    }
+  }
+});

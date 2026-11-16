@@ -3824,6 +3824,10 @@
       "LOOK_AT": [
         {
           "say": "Hands in his pockets, a bag at his feet. He looks like a man waiting for a coach, and the bag looks like it's heard that before.",
+          "repeat": [
+            "He has packed light. Whatever he brought out here, most of it seems to have stayed in the ground.",
+            "Now and then he checks the bag is still there, as you check on a decision."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MAN LEAVING TOMORROW** - LOOK"
         }
       ]
@@ -3832,6 +3836,10 @@
       "LOOK_AT": [
         {
           "say": "A man holding up a map the way a watchman holds up a lantern. He has a pencil behind his ear, in case the gold moves.",
+          "repeat": [
+            "He holds the map so the creek faces me. I suspect it faces whoever is buying.",
+            "He hasn't glanced at his own map once. He knows it by heart, or he'd rather not."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MAP SELLER** - LOOK"
         }
       ]
@@ -3840,6 +3848,10 @@
       "LOOK_AT": [
         {
           "say": "A woman with a basket of pies and the look of somebody who has never once been haggled down.",
+          "repeat": [
+            "She carries the basket on her hip as other people carry a grudge: easily, and for years.",
+            "I could ask the price. She would tell me, and then I would know."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE PIE WOMAN** - LOOK"
         }
       ]

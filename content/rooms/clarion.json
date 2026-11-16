@@ -199,6 +199,7 @@
               "T_HEADLINE_B6_SEEN": true,
               "T_HEADLINE_C5_SEEN": true,
               "T_HEADLINE_C3_SEEN": true,
+              "T_HEADLINE_E1_SEEN": true,
               "T_HEADLINE_E3_SEEN": true,
               "T_HEADLINE_E5_SEEN": true
             },
@@ -223,12 +224,36 @@
               "T_HEADLINE_B6_SEEN": true,
               "T_HEADLINE_C5_SEEN": true,
               "T_HEADLINE_C3_SEEN": true,
+              "T_HEADLINE_E1_SEEN": true,
               "T_HEADLINE_E3_SEEN": true
             },
             "add": {
               "MISSPELLINGS_SEEN": 1
             },
             "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after E3"
+          },
+          {
+            "afterPuzzles": [
+              "E1"
+            ],
+            "when": {
+              "T_HEADLINE_E1_SEEN": false
+            },
+            "say": "MOTT SPEAKS: 'I AM DEAD.' The first thing I have said in this town that they printed exactly as I said it.",
+            "set": {
+              "T_HEADLINE_A3_SEEN": true,
+              "T_HEADLINE_A5_SEEN": true,
+              "T_HEADLINE_A7_SEEN": true,
+              "T_HEADLINE_B5_SEEN": true,
+              "T_HEADLINE_B6_SEEN": true,
+              "T_HEADLINE_C5_SEEN": true,
+              "T_HEADLINE_C3_SEEN": true,
+              "T_HEADLINE_E1_SEEN": true
+            },
+            "add": {
+              "MISSPELLINGS_SEEN": 1
+            },
+            "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after E1"
           },
           {
             "afterPuzzles": [
@@ -799,6 +824,10 @@
       "LOOK_AT": [
         {
           "say": "A tall man with a notebook. The pencil over his ear has never rested there long.",
+          "repeat": [
+            "He looks at everyone as if they might be a headline. Some of us, I suspect, already are.",
+            "He hasn't asked me anything yet. In a newspaperman that isn't politeness. It's a trap being set."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **IGNATIUS FRAME** - LOOK"
         }
       ]

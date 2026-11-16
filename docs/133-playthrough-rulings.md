@@ -217,74 +217,74 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 
 ## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY
 
-*Errata 344 (Tyler, 2026-11-15, approved). The playtester found that LOOK AT on nearly everyone in Act I answered with the one line written for a person nobody had written for. Each of these is what the figure is drawn doing, and is said where the figure first stands.*
+*Errata 344 (Tyler, 2026-11-15, approved). The playtester found that LOOK AT on nearly everyone in Act I answered with the one line written for a person nobody had written for. Each of these is what the figure is drawn doing, and is said where the figure first stands. Errata 359 gives each a second and a third look, so a second click is not the first line again.*
 
 **THE PIE WOMAN**
-- LOOK — "A woman with a basket of pies and the look of somebody who has never once been haggled down."
+- LOOK — "A woman with a basket of pies and the look of somebody who has never once been haggled down." *(second)* "She carries the basket on her hip as other people carry a grudge: easily, and for years." "I could ask the price. She would tell me, and then I would know."
 
 **THE MAP SELLER**
-- LOOK — "A man holding up a map the way a watchman holds up a lantern. He has a pencil behind his ear, in case the gold moves."
+- LOOK — "A man holding up a map the way a watchman holds up a lantern. He has a pencil behind his ear, in case the gold moves." *(second)* "He holds the map so the creek faces me. I suspect it faces whoever is buying." "He hasn't glanced at his own map once. He knows it by heart, or he'd rather not."
 
 **THE MAN LEAVING TOMORROW**
-- LOOK — "Hands in his pockets, a bag at his feet. He looks like a man waiting for a coach, and the bag looks like it's heard that before."
+- LOOK — "Hands in his pockets, a bag at his feet. He looks like a man waiting for a coach, and the bag looks like it's heard that before." *(second)* "He has packed light. Whatever he brought out here, most of it seems to have stayed in the ground." "Now and then he checks the bag is still there, as you check on a decision."
 
 **HOB**
-- LOOK — "An old man with a lantern, looking at the gap between two buildings as if it owed him money."
+- LOOK — "An old man with a lantern, looking at the gap between two buildings as if it owed him money." *(second)* "He holds the lantern low, as if what he's looking for is short." "Whatever is in that gap, he has been waiting for it longer than I've been in town."
 
 **THE DOG'S OWNER**
-- LOOK — "A man with a coiled leash and nothing on the end of it. He keeps looking up the alley."
+- LOOK — "A man with a coiled leash and nothing on the end of it. He keeps looking up the alley." *(second)* "The leash is coiled neatly. He expects to need it again." "He holds it at exactly the height of a dog. Old habits are the last thing to leave."
 
 **THE LETTER-WRITER**
-- LOOK — "A man in a bowler with a writing case under his arm. He looks like he charges by the word and thinks in long ones."
+- LOOK — "A man in a bowler with a writing case under his arm. He looks like he charges by the word and thinks in long ones." *(second)* "He holds the writing case like it has other people's secrets in it, which, professionally, it does." "He watches passers-by as a tailor watches a coat, working out how many words each would take."
 
 **THE BELL-RINGER**
-- LOOK — "A man standing under a bell with a mallet. I've rarely seen anyone so plainly between jobs."
+- LOOK — "A man standing under a bell with a mallet. I've rarely seen anyone so plainly between jobs." *(second)* "He holds the mallet loosely, for a man whose whole career is one swing." "The bell isn't ringing and he isn't ringing it. They seem to have come to an arrangement."
 
 **THE MESSAGE BOY**
-- LOOK — "A boy with a note in one hand and a penny in the other. He's weighing which to deliver."
+- LOOK — "A boy with a note in one hand and a penny in the other. He's weighing which to deliver." *(second)* "The note is folded small. Whoever wrote it didn't want it read on the way, so it will be." "He has looked at the penny more than the note. I can't fault his priorities."
 
 **THE CARD SHARP**
-- LOOK — "He holds his cards closer than his drink. His drink I could reach."
+- LOOK — "He holds his cards closer than his drink. His drink I could reach." *(second)* "He hasn't looked at his own cards once. He looks at everybody else's." "He's smiling at nobody in particular. In a card player that isn't friendliness; it's inventory."
 
 **THE FIDDLER**
-- LOOK — "A fiddler, keeping time with a piano that isn't keeping time with anything. I admire the loyalty."
+- LOOK — "A fiddler, keeping time with a piano that isn't keeping time with anything. I admire the loyalty." *(second)* "He nods along to his own playing, which is more than the room does." "Nobody is paying him that I can see. He plays like a man who stopped expecting it."
 
 **THE ONE-STRIKE MAN**
-- LOOK — "A man who was right once, loudly, and has been dining on it since."
+- LOOK — "A man who was right once, loudly, and has been dining on it since." *(second)* "He leans on the bar like he paid for it. Once, he very nearly could have." "The posture of a man who was right once, and the coat of a man who hasn't been since."
 
 **THE MEN AT THE BAR**
-- LOOK — "Men at a bar, facing the bottles. Whatever they came to forget, they're being thorough."
+- LOOK — "Men at a bar, facing the bottles. Whatever they came to forget, they're being thorough." *(second)* "None of them has turned around. The bottles are better company, and they never ask what you've found." "Three backs and one opinion between them, which they are keeping to themselves."
 - TALK TO — "I said good evening to the row of them. One nodded. I'm counting it."
 
 **COLONEL FANSHAWE**
-- LOOK — "A silver gentleman with his hands on his waistcoat. He looks delighted to see me. He looked delighted before I came in."
+- LOOK — "A silver gentleman with his hands on his waistcoat. He looks delighted to see me. He looked delighted before I came in." *(second)* "He smiles with everything but his eyes. Those are doing sums." "A waistcoat with more buttons than it needs. He has wanted for nothing all his life, and bought it anyway."
 
 **THE COMPANY'S CLERK**
-- LOOK — "A clerk with both hands flat on a bare desk, guarding it."
+- LOOK — "A clerk with both hands flat on a bare desk, guarding it." *(second)* "There's nothing on the desk to guard. He guards it anyway. That is what makes him good at it." "He sits very straight. I think the chair was issued to him with instructions."
 
 **IGNATIUS FRAME**
-- LOOK — "A tall man with a notebook. The pencil over his ear has never rested there long."
+- LOOK — "A tall man with a notebook. The pencil over his ear has never rested there long." *(second)* "He looks at everyone as if they might be a headline. Some of us, I suspect, already are." "He hasn't asked me anything yet. In a newspaperman that isn't politeness. It's a trap being set."
 
 **REGISTRAR SUMP**
-- LOOK — "A man behind a ledger, in spectacles. He hasn't looked up. I don't think the ledger has finished with him."
+- LOOK — "A man behind a ledger, in spectacles. He hasn't looked up. I don't think the ledger has finished with him." *(second)* "He reads the ledger as other men read scripture: slowly, and hoping it says what he needs." "If I stood here long enough, I think he would file me."
 
 **WINNIE LEDGER**
-- LOOK — "A woman writing, in a hand I can tell is neat from here. She hasn't looked up either, but hers feels like a decision."
+- LOOK — "A woman writing, in a hand I can tell is neat from here. She hasn't looked up either, but hers feels like a decision." *(second)* "She hasn't crossed out a single word. I've never managed a page like that, and mine were mostly my name." "She knows I'm here. She is letting the pen finish its sentence first."
 
 **THE LIVERY MAN**
-- LOOK — "Tipped back in a chair with his hat over his eyes. He's either asleep or the most relaxed man in the territory. There may be no difference."
+- LOOK — "Tipped back in a chair with his hat over his eyes. He's either asleep or the most relaxed man in the territory. There may be no difference." *(second)* "The chair is on two legs, and so, as far as I can tell, is the business." "He breathes like a man who has been told the horses will wake him if anything matters."
 
 **MADAME OZYMANDIA**
-- LOOK — "Fingertips at her temples, eyes closed. Either the spirits are speaking or she has a headache. I'd charge for both."
+- LOOK — "Fingertips at her temples, eyes closed. Either the spirits are speaking or she has a headache. I'd charge for both." *(second)* "She is sitting very still. Whatever she is receiving, it's a long message." "The tent smells of incense and of somebody who knows exactly what incense is for."
 
 **NICKEL PRATT**
-- LOOK — "A man leaning on a rake, checking the sky between strokes, as though the weather might be up to something."
+- LOOK — "A man leaning on a rake, checking the sky between strokes, as though the weather might be up to something." *(second)* "Every few strokes he stops to look at what he's raked up. So far it's been gravel. He takes that well." "A patience about him that only comes from small claims or large debts."
 
 **THE BOUNDARY MAN**
-- LOOK — "Arms folded. He's standing exactly on what he believes is the line."
+- LOOK — "Arms folded. He's standing exactly on what he believes is the line." *(second)* "He hasn't looked at the other man once. That's how you can tell he's sure where he stands." "His boots are planted. If the line moves, it will have to go around him."
 
 **THE OTHER BOUNDARY MAN**
-- LOOK — "Hands on his hips. He's standing exactly on what he believes is the line, a foot to the left."
+- LOOK — "Hands on his hips. He's standing exactly on what he believes is the line, a foot to the left." *(second)* "He keeps glancing at the other man's feet, in case they've gained an inch." "Chin out. He's ready to argue with a surveyor, and there isn't one in sight."
 ## THE ACT ONE REVIEW: TRUE WHEN SAID
 
 *Errata 342 (Tyler, 2026-11-15, approved). Two lines that are true in one state and not the other. Each is said in the state named; the line it stands beside is said in the other.*

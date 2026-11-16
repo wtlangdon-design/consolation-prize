@@ -1324,6 +1324,10 @@
       "LOOK_AT": [
         {
           "say": "A boy with a note in one hand and a penny in the other. He's weighing which to deliver.",
+          "repeat": [
+            "The note is folded small. Whoever wrote it didn't want it read on the way, so it will be.",
+            "He has looked at the penny more than the note. I can't fault his priorities."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MESSAGE BOY** - LOOK"
         }
       ]

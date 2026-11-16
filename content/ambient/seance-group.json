@@ -45,6 +45,8 @@
     515
    ]
   ],
+  "faceBand": 0.4,
+  "faceBandNote": "Errata 359: the sitters' faces reach from Madame's crown at the top of the cut-out to Mr. Frame's in the front-left chair, about two fifths down; no line is drawn across them.",
   "depthY": 755,
   "depthYNote": "The depth the group's 1:1 scale belongs to: the floor before the table at the walk band's far edge, where Room 16's man is 448, the 450 the cut snapped the sheet at (tools/art/act3-seance-cut.py MAN). Read by the checks only (tests/one-level.test.mjs); the engine draws the sheet 1:1.",
   "rate": 0.25,

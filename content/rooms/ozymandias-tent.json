@@ -1641,6 +1641,10 @@
       "LOOK_AT": [
         {
           "say": "Fingertips at her temples, eyes closed. Either the spirits are speaking or she has a headache. I'd charge for both.",
+          "repeat": [
+            "She is sitting very still. Whatever she is receiving, it's a long message.",
+            "The tent smells of incense and of somebody who knows exactly what incense is for."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **MADAME OZYMANDIA** - LOOK"
         }
       ]

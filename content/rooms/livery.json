@@ -700,6 +700,10 @@
       "LOOK_AT": [
         {
           "say": "Tipped back in a chair with his hat over his eyes. He's either asleep or the most relaxed man in the territory. There may be no difference.",
+          "repeat": [
+            "The chair is on two legs, and so, as far as I can tell, is the business.",
+            "He breathes like a man who has been told the horses will wake him if anything matters."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE LIVERY MAN** - LOOK"
         }
       ]

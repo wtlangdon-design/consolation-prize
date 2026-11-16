@@ -1999,6 +1999,10 @@
       "LOOK_AT": [
         {
           "say": "Men at a bar, facing the bottles. Whatever they came to forget, they're being thorough.",
+          "repeat": [
+            "None of them has turned around. The bottles are better company, and they never ask what you've found.",
+            "Three backs and one opinion between them, which they are keeping to themselves."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MEN AT THE BAR** - LOOK"
         }
       ]
@@ -2013,6 +2017,10 @@
       "LOOK_AT": [
         {
           "say": "Men at a bar, facing the bottles. Whatever they came to forget, they're being thorough.",
+          "repeat": [
+            "None of them has turned around. The bottles are better company, and they never ask what you've found.",
+            "Three backs and one opinion between them, which they are keeping to themselves."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MEN AT THE BAR** - LOOK"
         }
       ]
@@ -2027,6 +2035,10 @@
       "LOOK_AT": [
         {
           "say": "Men at a bar, facing the bottles. Whatever they came to forget, they're being thorough.",
+          "repeat": [
+            "None of them has turned around. The bottles are better company, and they never ask what you've found.",
+            "Three backs and one opinion between them, which they are keeping to themselves."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MEN AT THE BAR** - LOOK"
         }
       ]
@@ -2035,6 +2047,10 @@
       "LOOK_AT": [
         {
           "say": "A man who was right once, loudly, and has been dining on it since.",
+          "repeat": [
+            "He leans on the bar like he paid for it. Once, he very nearly could have.",
+            "The posture of a man who was right once, and the coat of a man who hasn't been since."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE ONE-STRIKE MAN** - LOOK"
         }
       ]
@@ -2043,6 +2059,10 @@
       "LOOK_AT": [
         {
           "say": "A fiddler, keeping time with a piano that isn't keeping time with anything. I admire the loyalty.",
+          "repeat": [
+            "He nods along to his own playing, which is more than the room does.",
+            "Nobody is paying him that I can see. He plays like a man who stopped expecting it."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE FIDDLER** - LOOK"
         }
       ]
@@ -2051,6 +2071,10 @@
       "LOOK_AT": [
         {
           "say": "He holds his cards closer than his drink. His drink I could reach.",
+          "repeat": [
+            "He hasn't looked at his own cards once. He looks at everybody else's.",
+            "He's smiling at nobody in particular. In a card player that isn't friendliness; it's inventory."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE CARD SHARP** - LOOK"
         }
       ]

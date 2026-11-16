@@ -1283,6 +1283,10 @@
       "LOOK_AT": [
         {
           "say": "A silver gentleman with his hands on his waistcoat. He looks delighted to see me. He looked delighted before I came in.",
+          "repeat": [
+            "He smiles with everything but his eyes. Those are doing sums.",
+            "A waistcoat with more buttons than it needs. He has wanted for nothing all his life, and bought it anyway."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **COLONEL FANSHAWE** - LOOK"
         }
       ]

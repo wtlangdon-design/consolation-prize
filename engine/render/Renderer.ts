@@ -316,6 +316,30 @@ export function speechTop(headY: number, figure: number, height: number): number
 export function clampSpeechX(screenX: number, half: number, right = half): number {
   return Math.round(Math.max(TEXT_MARGIN + half, Math.min(NATIVE_WIDTH - TEXT_MARGIN - right, screenX)));
 }
+
+/** A face's band on the screen: the top fifth of a drawn figure (or its sprite's `faceBand`), across its drawn width. */
+export interface FaceBand { left: number; right: number; top: number; bottom: number }
+/** How much of a figure's drawn height, from its crown, is its face's band (FaceBand). */
+export const FACE_BAND = 0.2;
+
+/**
+ * SPEECH IS NOT DRAWN ACROSS ANOTHER FACE (errata 359). A line was placed over its speaker's head and nothing else:
+ * Frame, seated at the front of the séance table, said his line across the faces of the sitters behind him, and the
+ * Colonel in the street said his across the judges on the porch. The block, [left, right] wide and `height` tall
+ * from `top`, is lifted above every face band it crosses, the highest last, as far as the top of the frame allows.
+ */
+export function clearOfFaces(top: number, height: number, left: number, right: number,
+  faces: readonly FaceBand[], gap: number, floor: number): number {
+  let y = top;
+  for (let pass = 0; pass < faces.length; pass += 1) {
+    const hit = faces.filter((face) => face.left < right && face.right > left && face.top < y + height && face.bottom > y);
+    if (!hit.length) break;
+    const lifted = Math.min(...hit.map((face) => face.top)) - gap - height;
+    if (lifted <= floor) return floor;
+    y = lifted;
+  }
+  return y;
+}
 const MAP_MARKER = 3 * GLYPH_SCALE;
 const MAP_LABEL_HEIGHT = 11 * GLYPH_SCALE;
 
@@ -2783,13 +2807,37 @@ export class Renderer {
     // the camera translate is restored. On a 3700-wide street that put every
     // line at the right-hand clamp regardless of who was speaking.
     const screenX = head.x;
-    return {
-      x: clampSpeechX(screenX, half, right),
-      // Two native pixels from the top, x GLYPH_SCALE, and never into the
-      // panel: doc 30 section 3.1's two clamps, in one expression.
-      y: Math.round(Math.max(2 * GLYPH_SCALE,
-        Math.min(PLAY_HEIGHT - height, top))),
+    const x = clampSpeechX(screenX, half, right);
+    // Two native pixels from the top, x GLYPH_SCALE, and never into the
+    // panel: doc 30 section 3.1's two clamps, in one expression.
+    const floor = 2 * GLYPH_SCALE;
+    const placed = Math.max(floor, Math.min(PLAY_HEIGHT - height, top));
+    // ABOVE EVERY OTHER FACE THE LINE WOULD CROSS (errata 359), the speaker's own excepted.
+    const y = clearOfFaces(placed, height, x - half, x + right, this.facesOtherThan(this.speaker), GLYPH_SCALE, floor);
+    return { x, y: Math.round(y) };
+  }
+
+  /** Every figure's face band on the screen this frame but the speaker's (FaceBand; errata 359). */
+  private facesOtherThan(speaker: string | null): FaceBand[] {
+    const bands: FaceBand[] = [];
+    const add = (x: number, top: number, width: number, height: number, band = FACE_BAND) => {
+      const a = this.state.toScreen(x - width / 2, top);
+      const b = this.state.toScreen(x + width / 2, top + height * band);
+      bands.push({ left: a.x, right: b.x, top: a.y, bottom: b.y });
     };
+    for (const npc of this.ambient.present) {
+      if (npc.id === speaker || npc.speaksAs === speaker || this.ambient.opacity(npc.id) <= 0) continue;
+      const frame = npc.sprite?.frames?.[0];
+      const drawn = this.ambientDrawnTop(npc);
+      if (!frame || !drawn) continue;
+      add(npc.x, drawn.top, this.ambientSize(npc, frame[2], frame[3])[0], drawn.height, npc.sprite?.faceBand);
+    }
+    const playerHidden = this.state.playerHidden;
+    for (const mover of this.actors.all()) {
+      if (mover.id === speaker || this.moversHidden || (mover.id === this.state.content.actor.id && playerHidden)) continue;
+      add(mover.x, mover.y - mover.height, mover.height * 0.3, mover.height);
+    }
+    return bands;
   }
 
   /**
