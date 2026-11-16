@@ -343,7 +343,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "My account is ruled off and marked DECEASED. Cleanest my finances have ever looked."
           },
@@ -391,7 +392,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Pickled eggs, the brine still working. It's outlasted me, officially. I suspect it'll outlast everyone."
           },
@@ -1008,7 +1010,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "The stove where the town's opinions are formed. This week the opinion is me, and it's very generous, considering."
           },
@@ -1029,7 +1032,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Iron ticking, and my name, said kindly."
           },

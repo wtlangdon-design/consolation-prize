@@ -201,7 +201,7 @@
                 "atMost": 4
               }
             },
-            "say": "The rack is empty. TERRITORY OF TOMORROW went out of print somewhere between the filing and the morning after."
+            "say": "The rack is empty. TERRITORY OF TOMORROW has gone out of print, and nobody has said when."
           },
           {
             "say": "Pamphlets: CONSOLATION — TERRITORY OF TOMORROW.",
@@ -422,7 +422,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Half-drawn, at the same angle, as if the building were in mourning. It isn't. It's always like this."
           },
@@ -641,7 +642,8 @@
               "ACT": {
                 "atLeast": 4,
                 "atMost": 4
-              }
+              },
+              "T_FANSHAWE_BEATEN": true
             },
             "say": "Six chairs, and for the first time in Company history, nobody waiting in any of them. Comfort with no takers. It is the saddest furniture in the territory and I cannot spare it a full minute."
           },

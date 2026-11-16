@@ -1,5 +1,8 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+
 import {
-  allDialogueOptions, allResponseCarriers, loadContent, Report, runCheck,
+  allDialogueOptions, allResponseCarriers, loadContent, Report, ROOT, runCheck,
 } from './lib/content.mjs';
 
 /**
@@ -44,6 +47,12 @@ function collectWrites(content) {
       for (const rules of Object.values(verbs)) for (const rule of rules) record(rule.set, rule.add);
     }
   }
+  // A DUEL WON WRITES TOO (content/assay/assay.json `setsOnWin`; errata 350): Duel Three sets T_FANSHAWE_BEATEN, and
+  // the check called every line that waits for the Colonel's defeat unsatisfiable.
+  try {
+    const assay = JSON.parse(readFileSync(resolve(ROOT, 'content/assay/assay.json'), 'utf8'));
+    for (const duel of Object.values(assay.duels ?? {})) record(duel.setsOnWin, null);
+  } catch { /* no duels in this content */ }
   for (const { option } of allDialogueOptions(content)) {
     record(option.set, option.add);
   }

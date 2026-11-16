@@ -1499,9 +1499,7 @@ bark budget, not here.
 
 ## ROOM 23 & 24 — PROSPERITY, AND THE HOLE
 
-**THE HOLE** *(act: 3)*
-> **LOOK:** "The hole. The warm air. I evicted a raccoon from the front door of a fortune and apologized to neither of us."
-> **LISTEN:** "Air. Moving. Warmer than the day. The same words as always; I am only now hearing what they were saying."
+*(Errata 350: THE HOLE had an act 3 LOOK and LISTEN here. Both are struck. The LOOK called the hole the front door of a fortune an act before Thad works it out, and the LISTEN remarked on the one line the game rests on, which no line may do (doc 92 rule 2; doc 54, A5). In Act III the hole says what it has always said.)*
 
 **THE CLAIM MARKER (MINE)** *(act: 4)*
 > **LOOK:** "Prosperity. Named by a liar, bought by a fool, and correct the entire time. There is a sermon in that and Sowerby cannot have it."
@@ -1515,7 +1513,7 @@ bark budget, not here.
 ## ROOM 10 — IMPROVEMENT COMPANY LOBBY
 
 **THE PROSPECTUS RACK** *(act: 4)*
-> **LOOK:** "The rack is empty. TERRITORY OF TOMORROW went out of print somewhere between the filing and the morning after."
+> **LOOK:** "The rack is empty. TERRITORY OF TOMORROW has gone out of print, and nobody has said when."
 > **LISTEN:** "The draft, unemployed."
 
 **THE CHAIRS** *(act: 4)*

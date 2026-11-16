@@ -283,7 +283,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "The stove, still lit. I've been buried since I last looked at it, and it's still the warmest thing in here."
           },
@@ -533,7 +534,8 @@
               "ACT": {
                 "atLeast": 4,
                 "atMost": 4
-              }
+              },
+              "T_FANSHAWE_BEATEN": false
             },
             "say": "Men drinking to Mott's strike, who'll be up at dawn to dig for it. I could tell them. I'm not sure who that would help."
           },
@@ -554,7 +556,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Talk, all at the same volume. I came up once, between a mule and the price of flour."
           },
@@ -596,7 +599,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "I look like a man who has recently been buried and is being brave about it."
           },
@@ -605,7 +609,8 @@
               "ACT": {
                 "atLeast": 4,
                 "atMost": 4
-              }
+              },
+              "T_FANSHAWE_BEATEN": false
             },
             "say": "I look like a man who knows something the whole room doesn't. It's not a good look on me. I'm keeping it."
           },
@@ -657,7 +662,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "They drank to my memory the other night. I was there. I'm told I was spoken of very warmly, briefly, between rounds."
           },
@@ -678,7 +684,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "My name — one of its spellings — in a toast. It's a strange vintage, being remembered at cost price."
           },

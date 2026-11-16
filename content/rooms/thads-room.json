@@ -332,7 +332,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "My good coat. It has been in a grave."
           },
@@ -524,7 +525,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "A basin and a pitcher. I've washed the grave off twice. The pitcher feels once was plenty."
           },
@@ -667,7 +669,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "A bed with a valley in it. After a coffin, it's the finest bed in the territory."
           },

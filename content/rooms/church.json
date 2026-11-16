@@ -305,7 +305,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "SERVICES SUNDAY. FUNERALS AS REQUIRED. I was required. I've never felt so needed by a notice."
           },
