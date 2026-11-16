@@ -206,7 +206,8 @@
  ],
  "figureLight": {
   "figures": [
-   "thad"
+   "thad",
+   "man_panning"
   ],
   "light": [
    0.84,
@@ -215,6 +216,11 @@
   ],
   "brightness": 0.8,
   "saturate": 0.85,
-  "note": "Errata 345: the night's light on the figures drawn in even light. The Act I review's art director found Thad standing in the night exteriors as bright as he stands indoors. A cool dim, as errata 198's on Main Street's horses."
+  "note": "Errata 345: the night's light on the figures drawn in even light. The Act I review's art director found Thad standing in the night exteriors as bright as he stands indoors. A cool dim, as errata 198's on Main Street's horses.",
+  "perFigure": {
+   "man_panning": {
+    "brightness": 0.85
+   }
+  }
  }
 }

@@ -82,3 +82,20 @@ for (const { figure, room } of GRADED) {
     assert.ok(bare.flagged, `without its grade ${figure} measures ${bare.ratio.toFixed(2)}, under the limit ${bare.limit.toFixed(2)}: the check would not hold it`);
   });
 }
+
+/**
+ * THE NIGHT ON THAD, OUT OF TOWN (errata 346; Tyler, 2026-11-15, on the before and after: "Ship it"). Errata 260 gave
+ * him each interior's light and left the exteriors ("the night is blue and so is he"). The Act I review's art director
+ * found him as bright on the claims as he is indoors. The four exteriors with no lamp where he stands grade him cool
+ * and dim; the back alley, Lower Street and the lane, where he stands in lamplight, do not, by trial.
+ * Proved against the defect: on main before errata 346 none of the four names him.
+ */
+test('Thad takes the night in the exteriors that have no lamp over him', () => {
+  for (const room of ['claims_road', 'pratts_claim', 'creek', 'claim_row']) {
+    const light = roomFile(room)?.figureLight;
+    assert.ok(light?.figures.includes('thad'), `${room} grades Thad`);
+    const grade = { ...light, ...(light.perFigure?.thad ?? {}) };
+    assert.ok(grade.brightness <= 0.85 && grade.light[2] > grade.light[0], `${room}: dimmer, and cooler than it is warm`);
+  }
+  for (const room of ['back_alley', 'lower_street', 'the_lane']) assert.ok(!roomFile(room)?.figureLight?.figures?.includes('thad'), `${room}: lamplit, left as drawn`);
+});

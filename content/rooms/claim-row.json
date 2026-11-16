@@ -927,6 +927,9 @@
       },
       "boundary_a": {
         "brightness": 0.85
+      },
+      "boundary_b": {
+        "brightness": 0.68
       }
     }
   },
