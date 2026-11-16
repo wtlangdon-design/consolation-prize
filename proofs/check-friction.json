@@ -1291,6 +1291,12 @@
    "date": "2026-11-16",
    "kind": "loosened",
    "why": "Errata 354: the room's LISTEN lines that were a bare \"Nothing.\" are given a small real sound, written in doc 133 (THE SOUND OF THINGS). The test reads the documents a line may come from, and doc 133 is added to its list (tests/room-28.test.ts likewise). Every line is still held to a document."
+  },
+  {
+   "check": "tests/room-28.test.ts",
+   "date": "2026-11-16",
+   "kind": "loosened",
+   "why": "Errata 354: as tests/room-30 and room-35. Doc 133 joins the documents a line may come from; every line is still held to one."
   }
  ]
 }
