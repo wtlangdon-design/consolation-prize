@@ -155,13 +155,13 @@
    430
   ],
   "seance_sign": [
-   1108,
-   470,
-   52,
-   180
+   1088,
+   540,
+   94,
+   110
   ]
  },
- "hotspotsNote": "Read off the plate (errata 161, part 3): generous over the thing the player sees (ruling 32). Errata 237 (doc 111, B): THE SÉANCE SIGN, chalked on a board against the tent pole, while the séance is on (T_SEANCE_ON), between the tent's right-hand fall and the barber's pole. PENDING ART: no board is drawn on the plate yet (act3-seance's brief names none); the rect stands where the board is to hang and is redrawn when it is.",
+ "hotspotsNote": "Read off the plate (errata 161, part 3): generous over the thing the player sees (ruling 32). Errata 237 (doc 111, B): THE SÉANCE SIGN, chalked on a board against the tent pole, while the séance is on (T_SEANCE_ON), between the tent's right-hand fall and the barber's pole. Errata 361: the board is drawn (art/props/room-44-seance-sign.png, the image session's chalkboard), an A-frame on the ground in front of the tent's right side, and the rect is over it.",
  "people": {},
  "exitSubjects": {
   "THE WAY BACK TO MAIN STREET": {
@@ -365,6 +365,32 @@
    "T_SEANCE_ON": true
   }
  },
+ "hotspotWalkTo": {
+  "seance_sign": {
+   "x": 1260,
+   "y": 735,
+   "facing": "left"
+  }
+ },
+ "hotspotWalkToNote": "Errata 361: the board's own stand point (1134, 735) put Thad squarely in front of it and hid it; he reads it from beside it, as the image session's render stands him (renders/room-44-seance-sign-with-thad.png).",
+ "props": [
+  {
+   "id": "seance_sign",
+   "sheet": "art/props/room-44-seance-sign.png",
+   "x": 1134,
+   "y": 645,
+   "frame": [
+    0,
+    0,
+    81,
+    96
+   ],
+   "when": {
+    "T_SEANCE_ON": true
+   },
+   "note": "Errata 361: THE SÉANCE SIGN, chalked SÉANCE TONIGHT and $2 (doc 111, B), out while the séance is on; drawn by the image session against the Lane with Thad (reference/acts-two-to-four-art/handback.md, item 3), 0.44 of the man where it stands. Bottom-centre on its feet."
+  }
+ ],
  "onEnterSetWhen": [
   {
    "when": {

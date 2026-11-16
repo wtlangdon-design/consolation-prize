@@ -8624,3 +8624,18 @@ The walkthrough asks Sump before the Lane (E1.0a, E1.0b), and the séance's fixt
 
 Lesson:
 - `tests/scenes-bc.test.ts`: no séance before the petition is refused, none after the obituary, and the refusal says what it leaves him; failing on main before this.
+
+## 361 · Four drawings wired, and the bar as it stands (Tyler, 2026-11-16)
+
+**The Nugget's bar.** Tyler, of Thad's stand at the barman across the drinker in the blue shirt (errata 331, 359): "I don't want to move a drinker. Thad can talk over a drinker to the barman, just like a real bar." The stand stays where errata 331 put it, and it is no longer listed as a fault.
+
+**The image session's four drawings** (errata 354's brief; `reference/acts-two-to-four-art/handback.md`), wired exactly as handed back. Five operations, cut by `tools/art/acts-two-to-four-cut.py`, nothing regraded.
+- **Room 32, the view up out of the coffin:** Hob leaning in, hat off, his lantern held low. It replaces the placeholder at the same path and size; nothing else changes.
+- **Boot Hill's graveside** (Tyler, of it: "That all looks soooo much better now"). The gate's hearse, drawn side-on, in line with the gate's Grievance in her black harness, both standing up the slope behind the grave; the coffin open, with a cushion, slid 60 px right, clear of her. The hearse prop is at x 558 on a 696 x 627 frame; Grievance at (173, 505) on four 363 x 401 frames, her frames the gate's own (rest, a breath, head turned back to the hearse, a hoof stamped). THE COFFIN, THE NAME PLATE and GRIEVANCE, IN BLACK are over what is drawn.
+- **The séance sign in the Lane:** a chalkboard, SÉANCE TONIGHT and $2, a prop while the séance is on. THE SÉANCE SIGN is over the board, and Thad reads it from beside it (1260, 735), not standing in front of it.
+
+Main's errata 358 cleaned the old hearse's blue fringe; the new sheet replaces that drawing, so its cleaning goes with it.
+
+Still for Tyler's eye: a faint blue edge from the gate's sky rims Grievance's plume and ears (the image session offers to clean it); Hob's face in the coffin plate, a closer Hob than any other.
+
+Lesson: none -- new art wired as handed back and a ruling recorded; the room tests that hold the graveside's figures and props (tests/staging-clear.test.ts, the room 31 tests) pass on the new records.

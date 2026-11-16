@@ -79,7 +79,7 @@
  ],
  "hotspots": {
   "name_plate": [
-   245,
+   305,
    540,
    70,
    45
@@ -127,16 +127,16 @@
    305
   ],
   "coffin": [
-   180,
+   240,
    440,
    392,
    292
   ],
   "grievance_in_black": [
    0,
-   188,
-   255,
-   512
+   105,
+   355,
+   400
   ],
   "mourners": [
    1232,
@@ -335,18 +335,18 @@
   {
    "id": "hearse",
    "sheet": "art/props/room-31-hearse.png",
-   "x": 361,
+   "x": 558,
    "y": 733,
    "frame": [
     0,
     0,
-    422,
-    578
+    696,
+    627
    ],
    "when": {
     "T_LAID_IN": false
    },
-   "note": "The hearse, and the pine coffin on its trestles in front of it with its lid propped and the name plate on the lid (doc 05, doc 54). One prop: they arrive and leave together. Cut from room-31's composition master by tools/art/room31-cast.py; gone by night (doc 57 E8)."
+   "note": "The hearse, and the pine coffin on its trestles in front of it with its lid propped and the name plate on the lid (doc 05, doc 54). One prop: they arrive and leave together; gone by night (doc 57 E8). Errata 361: the gate's hearse, drawn side-on in line with Grievance and standing up the slope behind the grave, and the coffin open with a cushion, slid 60 px right, clear of her (reference/acts-two-to-four-art/handback.md; tools/art/acts-two-to-four-cut.py coffin, then hearse)."
   }
  ],
  "occlusion": {
