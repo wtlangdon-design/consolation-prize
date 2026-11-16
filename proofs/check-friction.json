@@ -1217,7 +1217,7 @@
   {
    "check": "tests/figure-light.test.mjs",
    "date": "2026-11-15",
-   "kind": "tuned",
+   "kind": "loosened",
    "why": "Errata 349: not a misfire. The test held that errata 198's day-lit horses were too bright before their grade; those horses were redrawn for the night by the Act I review, and the test now holds that the drawing itself is within the night's limit."
   }
  ]
