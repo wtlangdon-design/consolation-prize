@@ -1213,6 +1213,12 @@
    "date": "2026-11-15",
    "kind": "loosened",
    "why": "Errata 342: two entries. A chain said in two states shares its first two lines (Main Street's road to the claims); the check reads the second state's as repeats."
+  },
+  {
+   "check": "tests/figure-light.test.mjs",
+   "date": "2026-11-15",
+   "kind": "tuned",
+   "why": "Errata 349: not a misfire. The test held that errata 198's day-lit horses were too bright before their grade; those horses were redrawn for the night by the Act I review, and the test now holds that the drawing itself is within the night's limit."
   }
  ]
 }

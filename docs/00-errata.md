@@ -8418,3 +8418,15 @@ Lesson: doc 55 §8, a thing Thad reads aloud and the board it is read from.
 
 Lesson:
 - `tests/held-and-framing.test.ts`: nothing is in hand after LOOK AT, LISTEN TO or USE with an item held; with Thad at the street's far edge the view's bottom reaches the dog's feet and the horses'.
+
+## 349 · Act I's four figures, redrawn in the cast's hand (Tyler, 2026-11-15: authorized in the image session; reference/act-one-art)
+
+From the Act I review's art director: four figures were in a different hand from Thad and the cast beside them. Each was redrawn against Thad in its own room (`reference/act-one-art/brief.md`, `handback.md`): Main Street's horses (flat and chunky like the street, no longer shiny), the Company's lobby clerk (pixels half the old size, in the lobby's light), the map seller (Thad's clarity, a grown man's breadth), and the first man at the Nugget's bar (as crisp as the man beside him). Six operations of the eight authorized.
+
+Two tests failed on the hand-back and were decided here, neither by loosening:
+- **The horses.** The test held that errata 198's day-lit horses were too bright before the street's grade. Those horses are gone; redrawn for the night they measure 1.09 of Thad ungraded, inside the limit. The street still grades them, and the test now holds that the drawing itself is the night's (`tests/figure-light.test.mjs`; `proofs/check-friction.json`).
+- **The clerk.** He declared no depth, so the one-level check read the floor in front of the desk and asked for blocks twice his size. He declares `depthY` 387, his own row, as the storekeeper does; and his breath, a one-pixel lift, is a lift of one of his blocks.
+
+Left: the map seller is trimmed at his cell's edge in three poses (widening the cell is a change to his record); Thad still has no clear place at the Nugget's bar, because the man in the blue shirt sits in it.
+
+Lesson: the same two tests, each now describing the figure it holds.
