@@ -40,7 +40,18 @@
             "repeat": [
               "Daylight, a long way up, the size of a coin.",
               "The coin of light has moved. It's later up there than I thought."
-            ]
+            ],
+            "when": {
+              "T_BROKE_THROUGH": true
+            }
+          },
+          {
+            "say": "The rope to the surface, and the coin of gray light at the top of it. Up there it is still the worthless claim, and so far down here it agrees.",
+            "repeat": [
+              "Daylight, a long way up, the size of a coin.",
+              "The coin of light has moved. It's later up there than I thought."
+            ],
+            "otherHalf": "T_BROKE_THROUGH"
           }
         ],
         "LISTEN_TO": [
@@ -49,7 +60,18 @@
             "repeat": [
               "The town. Very faint. Somebody is arguing about a boundary.",
               "Somebody up there laughing, very far off. They don't know yet."
-            ]
+            ],
+            "when": {
+              "T_BROKE_THROUGH": true
+            }
+          },
+          {
+            "say": "The surface, at a great distance: wind, and the suggestion of a town.",
+            "repeat": [
+              "The town. Very faint. Somebody is arguing about a boundary.",
+              "Somebody up there laughing, very far off. Not at me, for once."
+            ],
+            "otherHalf": "T_BROKE_THROUGH"
           }
         ]
       },
@@ -539,7 +561,21 @@
             ],
             "then": [
               "I'm declining to be excited. The territory has trained me thoroughly."
-            ]
+            ],
+            "when": {
+              "T_BROKE_THROUGH": true
+            }
+          },
+          {
+            "say": "Clay, then rock, then more rock. The lamp finds nothing it cares to point out.",
+            "repeat": [
+              "Rock.",
+              "Rock, mostly."
+            ],
+            "then": [
+              "I'm declining to be excited. The territory has trained me thoroughly."
+            ],
+            "otherHalf": "T_BROKE_THROUGH"
           }
         ],
         "LISTEN_TO": [
@@ -835,5 +871,15 @@
       "amount": 0.38,
       "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
     }
-  ]
+  ],
+  "onEnter": {
+    "sayOnce": "T_SEAM_ARRIVED",
+    "sayWhen": {
+      "T_BROKE_THROUGH": true
+    },
+    "note": "Errata 356: the seam is said on arrival, not left to a click.",
+    "say": [
+      "The wall gave. Behind it, at a slant into the dark, a seam the lamp cannot stop looking at. Mott said here. Mott was right, and never knew it."
+    ]
+  }
 }

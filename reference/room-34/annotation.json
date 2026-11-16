@@ -286,5 +286,14 @@
    "amount": 0.38,
    "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
   }
- ]
+ ],
+ "onEnterSay": {
+  "fromRef": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE LAST ACT, SAID WHERE IT IS PLAYED",
+  "bold": "ON ARRIVAL, AFTER THE BREAKTHROUGH",
+  "sayOnce": "T_SEAM_ARRIVED",
+  "sayWhen": {
+   "T_BROKE_THROUGH": true
+  },
+  "note": "Errata 356: the seam is said on arrival, not left to a click."
+ }
 }

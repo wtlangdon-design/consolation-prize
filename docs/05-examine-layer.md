@@ -1554,8 +1554,7 @@ bark budget, not here.
 **THE NOTICE OF SERVICES** *(act: 3)*
 > **LOOK:** "SERVICES SUNDAY. FUNERALS AS REQUIRED. I was required. I've never felt so needed by a notice."
 
-**THE WINDOW GLASS** *(act: 4)*
-> **LOOK:** "Plain glass. The dawn does the colors for free. In a town that charged for everything, I'd never noticed that."
+*(THE WINDOW GLASS's Act IV look is struck by errata 356: it spoke of a dawn the church never shows. The window's own lines answer in every act.)*
 
 ## ROOM 20 — THE BACK ALLEY
 

@@ -271,6 +271,12 @@
     "when": {
      "T_FANSHAWE_BEATEN": false
     }
+   },
+   {
+    "says": "A. Four hundred and forty. In this town, at last",
+    "when": {
+     "T_IN_TUNE": true
+    }
    }
   ],
   "thads_room": [
@@ -330,6 +336,26 @@
     "flag": "T_BILL_FOUND",
     "otherwise": "The dog. Still nobody's.",
     "doc": "docs/08-examine-batch-1.md"
+   }
+  ],
+  "under_prosperity": [
+   {
+    "says": "Clay, then rock, then a seam of something the lamp takes an interest in.",
+    "flag": "T_BROKE_THROUGH",
+    "otherwise": "Clay, then rock, then more rock. The lamp finds nothing it cares to point out.",
+    "doc": "docs/133-playthrough-rulings.md"
+   },
+   {
+    "says": "The rope to the surface, and the coin of gray light at the top of it. Up there this is still the worthless claim. I'm in no hurry to correct anyone.",
+    "flag": "T_BROKE_THROUGH",
+    "otherwise": "The rope to the surface, and the coin of gray light at the top of it. Up there it is still the worthless claim, and so far down here it agrees.",
+    "doc": "docs/133-playthrough-rulings.md"
+   },
+   {
+    "says": "Somebody up there laughing, very far off. They don't know yet.",
+    "flag": "T_BROKE_THROUGH",
+    "otherwise": "Somebody up there laughing, very far off. Not at me, for once.",
+    "doc": "docs/133-playthrough-rulings.md"
    }
   ]
  }

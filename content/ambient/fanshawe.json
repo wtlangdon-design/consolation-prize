@@ -11,7 +11,10 @@
  "approachRadius": 40,
  "when": {
   "T_FUNERAL_DAY": false,
-  "T_FANSHAWE_BEATEN": false
+  "T_FANSHAWE_BEATEN": false,
+  "ACT": {
+   "atMost": 3
+  }
  },
  "whenNote": "Errata 68 D: on the funeral day the office is drawn without him; he is up the hill. He never leaves his office except for funerals (doc 57).",
  "walkTo": {

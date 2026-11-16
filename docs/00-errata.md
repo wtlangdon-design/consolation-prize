@@ -8544,3 +8544,20 @@ The first group of the list Tyler was given this morning: what stops or misleads
 Lesson:
 - `tests/round-trips.test.mjs`: four tests, each failing on main before this.
 - Doc 55 §8: a puzzle of elimination hands over its tool before its answer.
+
+## 356 · The last act, said where it is played (Tyler, 2026-11-16: "Go"; the morning's rulings delegated to the producer: "You decide")
+
+From the Act IV narrative review. New lines are one voice, in /docs.
+
+- **The gift is decided on the path.** Thad filed his own strike in Mott's name and nothing the required path plays said it was his to keep, or why he gave it away. WIN_F1 option 1 (doc 04), after "File it.": Thad says it is his claim and he could file it in his own name; that the Colonel would have it and the town would learn it had lived on nothing; that he would rather Mott turned out to be right. Winnie: "Then put it in his name, Mr. Grubb. I'll sign whatever's true." Her "You understand you get nothing." at the counter stands as the coda.
+- **The room under Prosperity waits for the wall.** Three lines spoke of the seam, and of a town that "doesn't know yet", before the Listening. Each now has a before-state half (doc 133; `reference/act-line-gates.json` halves).
+- **The seam and the dawn are said on arrival.** The two facts the ending exists for (the strike is real; the search is over) were on optional clicks. Room 34's second state says the seam as he enters it; Room 36 says the morning, and the mud ("It held my boot the first night and the truth the whole time."), which sets up the last spoken line.
+- **"Leave the mud." is said to the man repainting the sign,** and Thad stays: doc 01 ends him on the worthless plot next door, and the letter goes home without him. No line changes; the arrival line is its setup.
+- **The Colonel is not at his desk in Act IV.** He greeted a man he knew to be dead with Act II's welcome, before and after the duel, while his vault stood open behind him. The office is drawn without him from Act IV (`ACT` at most 3).
+- **Hob's absence is meant.** After the confession he is not seen; the watchman's window says so in Act IV ("Nobody is standing at it now."). The filing's read-back already tells him, in his absence.
+- **Act IV lines wait for what they speak of.** The Nugget's piano says A is "not a foreign language" only once the town is in tune (`T_IN_TUNE`, the Listening's ninety seconds done); the church window's Act IV look is struck in doc 05, since it spoke of a dawn the church never shows.
+- **The old working under Prosperity stays unexplained.** Whose lantern and footprints they are is left for Tyler's next playthrough; nothing here contradicts the confession.
+
+Lesson:
+- `tests/last-act.test.mjs`: four tests, each failing on main before this.
+- Doc 55 §8: what the ending exists to say is said on the path.

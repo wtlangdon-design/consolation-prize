@@ -806,5 +806,11 @@
    ],
    "baseY": 592
   }
- ]
+ ],
+ "onEnterSay": {
+  "fromRef": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE LAST ACT, SAID WHERE IT IS PLAYED",
+  "bold": "ON ARRIVAL, AT DAWN",
+  "sayOnce": "T_DAWN_ARRIVED",
+  "note": "Errata 356: the dawn says the search is over, and sets up the last line, on arrival."
+ }
 }
