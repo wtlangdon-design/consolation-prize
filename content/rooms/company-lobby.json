@@ -1102,5 +1102,15 @@
       "halo": 67,
       "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
     }
-  ]
+  ],
+  "peopleResponses": {
+    "lobby_clerk": {
+      "LOOK_AT": [
+        {
+          "say": "A clerk with both hands flat on a bare desk, guarding it.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE COMPANY'S CLERK** - LOOK"
+        }
+      ]
+    }
+  }
 }

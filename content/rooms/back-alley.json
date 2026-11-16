@@ -833,6 +833,20 @@
         {
           "say": "He is holding a lantern and a great deal of patience. I am not going to put either of them to work."
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "An old man with a lantern, looking at the gap between two buildings as if it owed him money.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **HOB** - LOOK"
+        }
+      ]
+    },
+    "dogs_owner": {
+      "LOOK_AT": [
+        {
+          "say": "A man with a coiled leash and nothing on the end of it. He keeps looking up the alley.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE DOG'S OWNER** - LOOK"
+        }
       ]
     }
   },

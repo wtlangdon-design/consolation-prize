@@ -259,5 +259,25 @@
    "id": "stars",
    "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
   }
+ ],
+ "docBullets": [
+  {
+   "person": "boundary_a",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE BOUNDARY MAN**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "boundary_b",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE OTHER BOUNDARY MAN**",
+   "bullet": "- LOOK"
+  }
  ]
 }

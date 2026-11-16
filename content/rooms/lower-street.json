@@ -831,6 +831,20 @@
         {
           "say": "He has one use, and he is already putting it to work, half a step flat."
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "A man standing under a bell with a mallet. I've rarely seen anyone so plainly between jobs.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE BELL-RINGER** - LOOK"
+        }
+      ]
+    },
+    "letter_writer": {
+      "LOOK_AT": [
+        {
+          "say": "A man in a bowler with a writing case under his arm. He looks like he charges by the word and thinks in long ones.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE LETTER-WRITER** - LOOK"
+        }
       ]
     }
   },

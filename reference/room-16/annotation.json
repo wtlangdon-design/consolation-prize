@@ -743,6 +743,15 @@
    "speakers": {
     "OZYMANDIA": "ozymandia"
    }
+  },
+  {
+   "person": "ozymandia",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**MADAME OZYMANDIA**",
+   "bullet": "- LOOK"
   }
  ],
  "docBulletsNote": "Errata 237, doc 111 B, THE LINES: USE THE SÉANCE TABLE is refused while the lamp is lit; in the dark Thad goes under the cloth (T_UNDER_TABLE) and SEA_E1 is owed (content/dialogue/seance.json). TALK TO Mr. Frame at the table is his wrong try. Read from doc 111 by tools/compile-room.mjs (docBullet). Errata 239: THE SÉANCE, heard from under the table, is no longer this rule's own words (`thenBlock`), which queued behind SEA_E1's open list; it is SEA_E1's opening, said once (T_SEANCE_HEARD) before the list is offered, and the engine holds the tree until this rule's two lines and that opening have been read (GameState.owesTree). Errata 251, doc 120 I-3: the boundary walked. While T_SURVEYING the map fills the view and its seven subjects are the room's; USE on them in the survey's order (SURVEY_LEG 0 to 4: the stake, the slope, the larger rock, the slope, the stake) draws the line, and home grants THE SURVEY and completes A7 in doc 57's own three lines.",

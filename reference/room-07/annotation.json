@@ -397,5 +397,16 @@
    }
   }
  },
- "chainWaitsNote": "Errata 340: the ledger's second and third looks are about Claim One, and wait for the filing (the Act I turn)."
+ "chainWaitsNote": "Errata 340: the ledger's second and third looks are about Claim One, and wait for the filing (the Act I turn).",
+ "docBullets": [
+  {
+   "person": "sump",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**REGISTRAR SUMP**",
+   "bullet": "- LOOK"
+  }
+ ]
 }

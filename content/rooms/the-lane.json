@@ -1318,5 +1318,15 @@
       "flame": true,
       "halo": 110
     }
-  ]
+  ],
+  "peopleResponses": {
+    "message_boy": {
+      "LOOK_AT": [
+        {
+          "say": "A boy with a note in one hand and a penny in the other. He's weighing which to deliver.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MESSAGE BOY** - LOOK"
+        }
+      ]
+    }
+  }
 }

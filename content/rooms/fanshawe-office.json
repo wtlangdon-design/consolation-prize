@@ -1279,6 +1279,12 @@
         {
           "say": "He is the one who uses. It is not a position open to applicants."
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "A silver gentleman with his hands on his waistcoat. He looks delighted to see me. He looked delighted before I came in.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **COLONEL FANSHAWE** - LOOK"
+        }
       ]
     }
   },

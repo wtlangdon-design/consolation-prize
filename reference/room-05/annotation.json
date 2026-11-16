@@ -380,5 +380,16 @@
       }
     ]
   },
-  "exitTransitScenesNote": "Errata 317, doc 133: the records room door refuses him in Winnie's voice until she has shown him the second ledger. "
+  "exitTransitScenesNote": "Errata 317, doc 133: the records room door refuses him in Winnie's voice until she has shown him the second ledger. ",
+  "docBullets": [
+    {
+      "person": "winnie",
+      "verbs": [
+        "LOOK_AT"
+      ],
+      "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+      "head": "**WINNIE LEDGER**",
+      "bullet": "- LOOK"
+    }
+  ]
 }

@@ -1061,5 +1061,15 @@
       "seed": 702,
       "amount": 0.38
     }
-  ]
+  ],
+  "peopleResponses": {
+    "sump": {
+      "LOOK_AT": [
+        {
+          "say": "A man behind a ledger, in spectacles. He hasn't looked up. I don't think the ledger has finished with him.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **REGISTRAR SUMP** - LOOK"
+        }
+      ]
+    }
+  }
 }

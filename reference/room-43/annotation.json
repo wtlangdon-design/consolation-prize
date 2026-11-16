@@ -673,5 +673,25 @@
    "baseY": 630,
    "note": "The bell's post."
   }
+ ],
+ "docBullets": [
+  {
+   "person": "letter_writer",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE LETTER-WRITER**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "bell_ringer",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE BELL-RINGER**",
+   "bullet": "- LOOK"
+  }
  ]
 }

@@ -1295,5 +1295,15 @@
       "halo": 69,
       "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
     }
-  ]
+  ],
+  "peopleResponses": {
+    "winnie": {
+      "LOOK_AT": [
+        {
+          "say": "A woman writing, in a hand I can tell is neat from here. She hasn't looked up either, but hers feels like a decision.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **WINNIE LEDGER** - LOOK"
+        }
+      ]
+    }
+  }
 }

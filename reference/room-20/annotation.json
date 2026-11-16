@@ -274,5 +274,25 @@
    "id": "lantern",
    "note": ""
   }
+ ],
+ "docBullets": [
+  {
+   "person": "hob",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**HOB**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "dogs_owner",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE DOG'S OWNER**",
+   "bullet": "- LOOK"
+  }
  ]
 }

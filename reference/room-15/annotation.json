@@ -261,6 +261,15 @@
    "when": {
     "T_OATS_TAKEN": true
    }
+  },
+  {
+   "person": "livery_man",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE LIVERY MAN**",
+   "bullet": "- LOOK"
   }
  ],
  "docBulletsNote": "Errata 245 (doc 117 O-5, doc 118): the livery man gives leave (T_BLANKET_ALLOWED, LIV_A1 option 5) and Thad takes the blanket off her himself. Errata 250, doc 121 N-4: a handful of oats from her bin, once (T_OATS_TAKEN).",

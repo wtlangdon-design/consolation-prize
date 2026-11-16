@@ -3732,6 +3732,30 @@
           "sceneLine": "docs/115-the-three-papers.md::### THE COLONEL, IN HIS DOORWAY · **THE TRIES** - TALK TO"
         }
       ]
+    },
+    "man_leaving_tomorrow": {
+      "LOOK_AT": [
+        {
+          "say": "Hands in his pockets, a bag at his feet. He looks like a man waiting for a coach, and the bag looks like it's heard that before.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MAN LEAVING TOMORROW** - LOOK"
+        }
+      ]
+    },
+    "map_seller": {
+      "LOOK_AT": [
+        {
+          "say": "A man holding up a map the way a watchman holds up a lantern. He has a pencil behind his ear, in case the gold moves.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MAP SELLER** - LOOK"
+        }
+      ]
+    },
+    "pie_woman": {
+      "LOOK_AT": [
+        {
+          "say": "A woman with a basket of pies and the look of somebody who has never once been haggled down.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE PIE WOMAN** - LOOK"
+        }
+      ]
     }
   },
   "motion": [
