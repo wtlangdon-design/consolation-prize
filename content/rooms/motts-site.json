@@ -436,7 +436,8 @@
               "ACT": {
                 "atLeast": 4,
                 "atMost": 4
-              }
+              },
+              "T_FANSHAWE_BEATEN": true
             },
             "say": "The famous nothing, resting. The pilgrims have stopped coming — the gold has an address now, and it was never this one. The moon can have its claim back."
           },
@@ -454,7 +455,8 @@
               "ACT": {
                 "atLeast": 4,
                 "atMost": 4
-              }
+              },
+              "T_FANSHAWE_BEATEN": true
             },
             "say": "Wind in the workings, same as ever. It sounds different when it is no longer lying to anyone."
           },

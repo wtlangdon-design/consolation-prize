@@ -493,7 +493,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "A glass ball. In it: the tent, upside down, and me, small, and apparently deceased. I look well, considering."
           },

@@ -63,7 +63,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "A paper spike, loaded with stories that didn't run. Somewhere in there is the version of me that lived."
           },
@@ -555,7 +556,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Main Street, and someone reading aloud about the Piano Man. Both of them are pleased."
           },

@@ -67,17 +67,6 @@
         "Air. Moving. It's warmer than the day.",
         "Air. Moving. It's warmer than the day."
       ],
-      "acts": [
-        {
-          "act": "3",
-          "LOOK_AT": [
-            "The hole. The warm air. I evicted a raccoon from the front door of a fortune and apologized to neither of us."
-          ],
-          "LISTEN_TO": [
-            "Air. Moving. Warmer than the day. The same words as always; I am only now hearing what they were saying."
-          ]
-        }
-      ],
       "overrides": {
         "CLOSE": "I can't close a hole. I can only fill it, and I don't have anything to spare, including — on some mornings — the inclination.",
         "TALK_TO": "I said good morning down it. The echo said it back warmer than the town does.",

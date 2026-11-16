@@ -1,0 +1,328 @@
+{
+ "note": "WHEN AN ACT'S LINE BECOMES TRUE (errata 350). An act variant in the examine documents is gated on its act alone. The Act II to IV review found about fifty of them said something that was not true yet, or no longer: Act III's said Thad was dead and buried from the act's first minute, six puzzles before he thinks of dying (doc 92 rule 4 wrote them to be true 'from the funeral'), and Act IV's spoke from after the strike, the duel or the filing. Each entry names a line by a piece of its text and the flags its sentence needs as well as its act; `remove` drops a line with no state in which it can be read truthfully. Read by tools/compile-room.mjs, which fails if an entry matches no line. The words stay in the documents.",
+ "rooms": {
+  "claims_registrar": [
+   {
+    "says": "I was ninety-one",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "a certificate asserting my death",
+    "when": {
+     "T_DECEASED": true
+    }
+   },
+   {
+    "says": "somebody becoming official",
+    "when": {
+     "T_DECEASED": true
+    }
+   },
+   {
+    "says": "no line for the deceased",
+    "when": {
+     "T_OBITUARY": true
+    }
+   }
+  ],
+  "church": [
+   {
+    "says": "I was required",
+    "when": {
+     "T_FUNERAL_DONE": true
+    }
+   }
+  ],
+  "ozymandias_tent": [
+   {
+    "says": "apparently deceased",
+    "when": {
+     "T_OBITUARY": true
+    }
+   }
+  ],
+  "undertaker": [
+   {
+    "says": "They were at my funeral",
+    "when": {
+     "T_FUNERAL_DONE": true
+    }
+   }
+  ],
+  "assay_office": [
+   {
+    "says": "My funeral didn't stop any of it",
+    "when": {
+     "T_FUNERAL_DONE": true
+    }
+   }
+  ],
+  "clarion": [
+   {
+    "says": "the version of me that lived",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "reading aloud about the Piano Man",
+    "when": {
+     "T_OBITUARY": true
+    }
+   }
+  ],
+  "back_alley": [
+   {
+    "says": "still at half mast",
+    "when": {
+     "T_OBITUARY": true
+    }
+   }
+  ],
+  "company_lobby": [
+   {
+    "says": "as if the building were in mourning",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "went out of print somewhere between the filing",
+    "remove": true
+   },
+   {
+    "says": "nobody waiting in any of them",
+    "when": {
+     "T_FANSHAWE_BEATEN": true
+    }
+   }
+  ],
+  "hotel_lobby": [
+   {
+    "says": "My line is ruled through",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "Mine's still out",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "same as when I was alive",
+    "when": {
+     "T_OBITUARY": true
+    }
+   }
+  ],
+  "livery": [
+   {
+    "says": "Now he's seen me twice",
+    "when": {
+     "T_OBITUARY": true
+    }
+   }
+  ],
+  "main_street": [
+   {
+    "says": "My own funeral notice",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "my whole official existence",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "still alive to",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "its most annoying obstacle",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "For a man the whole town has buried",
+    "when": {
+     "T_FUNERAL_DONE": true
+    }
+   },
+   {
+    "says": "whatever the paper says",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "then remember I'm dead",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "Nobody's looking for me",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "as it did before I died",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "The mud sent no flowers",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "terribly sorry for my loss",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "agreeing I was a fine fellow",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "if I had anything to pay with",
+    "when": {
+     "T_STRIKE_FOUND": false
+    }
+   }
+  ],
+  "mercantile": [
+   {
+    "says": "marked DECEASED",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "outlasted me, officially",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "This week the opinion is me",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "my name, said kindly",
+    "when": {
+     "T_OBITUARY": true
+    }
+   }
+  ],
+  "nugget": [
+   {
+    "says": "I've been buried since",
+    "when": {
+     "T_FUNERAL_DONE": true
+    }
+   },
+   {
+    "says": "recently been buried",
+    "when": {
+     "T_FUNERAL_DONE": true
+    }
+   },
+   {
+    "says": "They drank to my memory",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "in a toast",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "between a mule and the price of flour",
+    "when": {
+     "T_OBITUARY": true
+    }
+   },
+   {
+    "says": "I could tell them",
+    "when": {
+     "T_FANSHAWE_BEATEN": false
+    }
+   },
+   {
+    "says": "knows something the whole room doesn't",
+    "when": {
+     "T_FANSHAWE_BEATEN": false
+    }
+   }
+  ],
+  "thads_room": [
+   {
+    "says": "It has been in a grave",
+    "when": {
+     "T_FUNERAL_DONE": true
+    }
+   },
+   {
+    "says": "washed the grave off",
+    "when": {
+     "T_FUNERAL_DONE": true
+    }
+   },
+   {
+    "says": "After a coffin",
+    "when": {
+     "T_FUNERAL_DONE": true
+    }
+   },
+   {
+    "says": "The gold is real. The story is better",
+    "remove": true,
+    "why": "The closing letter, word for word, readable in his room from the strike on; the ending then repeated it. It is the ending's to say."
+   }
+  ],
+  "prosperity": [
+   {
+    "says": "correct the entire time",
+    "when": {
+     "T_STRIKE_FOUND": true
+    }
+   }
+  ],
+  "motts_site": [
+   {
+    "says": "the gold has an address now",
+    "when": {
+     "T_FANSHAWE_BEATEN": true
+    }
+   },
+   {
+    "says": "no longer lying to anyone",
+    "when": {
+     "T_FANSHAWE_BEATEN": true
+    }
+   }
+  ]
+ }
+}

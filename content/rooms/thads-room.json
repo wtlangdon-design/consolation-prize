@@ -168,18 +168,6 @@
           },
           {
             "when": {
-              "ACT": 4,
-              "T_STRIKE_FOUND": true
-            },
-            "say": "Dear Mother.",
-            "then": [
-              "I was robbed, and it was the making of me.",
-              "The gold is real. The story is better. I will tell you both in the spring.",
-              "— Your Thaddeus."
-            ]
-          },
-          {
-            "when": {
               "ACT": 4
             },
             "say": "It goes out Thursday, with whatever is on it by Thursday."
@@ -332,7 +320,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "My good coat. It has been in a grave."
           },
@@ -524,7 +513,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "A basin and a pitcher. I've washed the grave off twice. The pitcher feels once was plenty."
           },
@@ -667,7 +657,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "A bed with a valley in it. After a coffin, it's the finest bed in the territory."
           },
