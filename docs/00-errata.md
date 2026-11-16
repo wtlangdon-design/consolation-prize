@@ -8390,3 +8390,14 @@ Not found, and told to Tyler: the thin line the art director saw down the Nugget
 
 Lesson:
 - `tests/plate-edges.test.mjs`: no room plate has a pale grey line along its top or bottom edge; the cleaned figures carry no key green.
+
+## 346 · The night on Thad, out of town (Tyler, 2026-11-15, on the before and after: "Ship it")
+
+Errata 260 gave Thad each interior's light and left the exteriors alone. The Act I review's art director found him standing on the claims at night as bright as he stands indoors. Tyler saw the before and after (`renders/act-one-room-light-before-after.png`) and shipped it.
+
+- **The claims road, Pratt's claim, the creek and claim row** grade Thad cool and dim (`figureLight`: light 0.84 / 0.9 / 1, brightness 0.8, saturation 0.85). Pratt takes it with him; the man panning and the two boundary men are brought down so that none stands brighter than Thad (`tools/check-figure-light.mjs`).
+- **The Company's lobby clerk**, far paler than his room, is brought down into it.
+- **Left as drawn, by trial:** the back alley, Lower Street and the lane. Thad stands in lamplight there, and dimmed he looked wrong in it.
+
+Lesson:
+- `tests/figure-light.test.mjs`: the four exteriors grade Thad, dimmer and cooler; the three lamplit ones do not.
