@@ -5862,7 +5862,10 @@ function lettersHome() {
         return { id: `letter${act}_${n + 1}`, tag: 'TOPIC', afterUse: 'retain', text: one.version, echo: unquote(one.lines[0]), ends: true };
       }),
     };
-    entries.push({ when: { ACT: act }, node: id });
+    // Act III's letters are written from after the obituary ("I am widely mour— ADMIRED."; errata 350): until it is
+    // printed he is still writing Act II's.
+    if (act === 3) entries.push({ when: { ACT: 3, T_OBITUARY: true }, node: id }, { when: { ACT: 3 }, node: 'LETTERS_2' });
+    else entries.push({ when: { ACT: act }, node: id });
   }
   const last = letters.find((one) => one.act === 4);
   const four = [...last.lines];

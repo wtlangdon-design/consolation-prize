@@ -278,7 +278,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "A spindle of numbered tickets. I was ninety-one. The dead don't queue, but I've kept my ticket."
           },
@@ -566,7 +567,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_DECEASED": true
             },
             "say": "Somewhere behind that partition is a certificate asserting my death, filed correctly, in perfect order. It is the best-organized thing that has ever happened to me."
           },
@@ -584,7 +586,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_DECEASED": true
             },
             "say": "Sump, stamping. Every third document is somebody becoming official. I know the weight of it now."
           },
@@ -624,7 +627,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Two roped lines, FILING and INQUIRIES, and no line for the deceased. I'd make a fuss, but who'd write it down?"
           },

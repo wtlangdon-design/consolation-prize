@@ -47,6 +47,8 @@ test('every subject answers LOOK and LISTEN with a line the documents write', as
 
 test('in Act IV the site answers with Part Two-B\'s line', async () => {
   const act4 = await inState(FIXTURE.fixtures[1]!.id);
+  // Errata 350: the act line waits for the duel.
+  act4.flags.set('T_FANSHAWE_BEATEN', true);
   const act1 = await inState(FIXTURE.fixtures[0]!.id);
   const ground = (state: GameState) => (state.room.hotspots ?? []).find((one) => one.defaultVerb === 'WALK_TO')!;
   const later = act4.interact(ground(act4), 'LOOK_AT').say!;

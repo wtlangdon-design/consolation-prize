@@ -441,7 +441,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "My own funeral notice, very prominently posted! 'THE PIANO MAN, MOURNED BY ALL.' At last, Frame has found a way of spelling me he can't get wrong."
           },
@@ -468,7 +469,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Paper in wind. One of those sheets is my whole official existence, flapping."
           },
@@ -518,7 +520,8 @@
               "ACT": {
                 "atLeast": 4,
                 "atMost": 4
-              }
+              },
+              "T_STRIKE_FOUND": false
             },
             "say": "Good old dog. He was here before the rumor, he'll be here after it, and he's never once looked worried. I'd pay handsomely for his secret, if I had anything to pay with."
           },
@@ -536,7 +539,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "He knows me. Tail, twice. The one resident who's never read a newspaper, so the one resident I'm still alive to."
           },
@@ -649,7 +653,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Fresh gilt on the lettering. Business is good. The Company's business is the search, and the search has just outlived its most annoying obstacle, which was me. I'm not finished being annoying."
           },
@@ -711,7 +716,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "My reflection, in three inches of water. For a man the whole town has buried, I look remarkably well. A touch worried about the eyes."
           },
@@ -732,7 +738,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Something's still living in it. So am I, whatever the paper says."
           },
@@ -814,7 +821,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Six inches above the mud. People still step aside for me, then remember I'm dead and look terribly embarrassed. I raise my hat to put them at their ease."
           },
@@ -867,7 +875,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Every pick in those hills is still looking for Mott's strike. Nobody's looking for me. I find I mind."
           },
@@ -939,7 +948,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Dear old mud. The one thing on this street that treats me exactly as it did before I died."
           },
@@ -957,7 +967,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Not a sound. The mud sent no flowers."
           },
@@ -1002,7 +1013,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Same false fronts. Last week every doorway said good morning to me. This week they're terribly sorry for my loss."
           },
@@ -1038,7 +1050,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Wind, and two men agreeing I was a fine fellow. Neither one ever met me. I'm touched."
           },

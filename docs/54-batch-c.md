@@ -97,7 +97,7 @@
 
 # ROOM 23 & 24 · PROSPERITY, AND THE HOLE
 
-*One pass only (doc 05). **THE HOLE's LISTEN is the line the entire game rests on** (doc 05) and is one of the three that must never be marked. Its repeats are therefore doc 05's line again, word for word: doc 05 Part Two-B's Act III variant says of it "The same words as always; I am only now hearing what they were saying", so the hole has only ever said one thing. Repeating it is how ten other subjects in the game repeat "Nothing", which is what keeps it from standing out. Declare both as deliberate repetitions in content; never as anything else.*
+*One pass only (doc 05). **THE HOLE's LISTEN is the line the entire game rests on** (doc 05) and is one of the three that must never be marked. Its repeats are therefore doc 05's line again, word for word: the hole has only ever said one thing (doc 05 Part Two-B wrote an Act III variant that remarked on that; errata 350 struck it, because remarking on the line is marking it). Repeating it is how ten other subjects in the game repeat "Nothing", which is what keeps it from standing out. Declare both as deliberate repetitions in content; never as anything else.*
 
 **THE CLAIM MARKER** ≡ **THE CLAIM MARKER (MINE)**
 **THE MUD** ≡ **THE MUD (DEEDED)**

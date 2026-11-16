@@ -346,7 +346,8 @@
               "ACT": {
                 "atLeast": 4,
                 "atMost": 4
-              }
+              },
+              "T_STRIKE_FOUND": true
             },
             "say": "Prosperity. Named by a liar, bought by a fool, and correct the entire time. There is a sermon in that and Sowerby cannot have it."
           },
@@ -533,15 +534,6 @@
             "sceneLine": "docs/57-puzzle-completion.md::## F1 · One last look at Prosperity · Act IV"
           },
           {
-            "when": {
-              "ACT": {
-                "atLeast": 3,
-                "atMost": 3
-              }
-            },
-            "say": "The hole. The warm air. I evicted a raccoon from the front door of a fortune and apologized to neither of us."
-          },
-          {
             "say": "A hole. Forty feet of my property goes down into it and does not come back.",
             "repeat": [
               "The edges are old and smooth. Whatever dug this was in no hurry.",
@@ -556,15 +548,6 @@
             },
             "say": "Not until the air clears. Possibly not until the season does.",
             "sceneLine": true
-          },
-          {
-            "when": {
-              "ACT": {
-                "atLeast": 3,
-                "atMost": 3
-              }
-            },
-            "say": "Air. Moving. Warmer than the day. The same words as always; I am only now hearing what they were saying."
           },
           {
             "say": "Air. Moving. It's warmer than the day.",

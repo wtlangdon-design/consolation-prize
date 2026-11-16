@@ -2801,6 +2801,29 @@ if (staleGeometry.length) {
 // one the live-file read taught eight lines up -- a compiler parameterised by
 // room number must be parameterised EVERYWHERE, and I changed the paths I
 // happened to trip over rather than looking for all of them.
+// WHEN AN ACT'S LINE BECOMES TRUE (errata 350; reference/act-line-gates.json). An act variant is gated on its act alone,
+// and many say something true only later in it ("My own funeral notice", from the act's first minute). The table names
+// a line by a piece of its text and the flags it also needs; the rule keeps its act and gains them, or is removed.
+{
+  const table = JSON.parse(read('reference/act-line-gates.json')).rooms[built.id] ?? [];
+  const lists = [];
+  for (const target of [...built.hotspots, ...(built.exits ?? [])]) for (const rules of Object.values(target.responses ?? {})) lists.push(rules);
+  for (const verbs of Object.values(built.peopleResponses ?? {})) for (const rules of Object.values(verbs)) lists.push(rules);
+  for (const entry of table) {
+    let found = 0;
+    for (const rules of lists) {
+      for (let n = rules.length - 1; n >= 0; n -= 1) {
+        const rule = rules[n];
+        const said = [rule.say, ...(rule.repeat ?? []), ...(rule.then ?? []).map((one) => (typeof one === 'string' ? one : one.line))].join(' ');
+        if (rule.when?.ACT === undefined || !said.includes(entry.says)) continue;
+        found += 1;
+        if (entry.remove) rules.splice(n, 1);
+        else rule.when = { ...rule.when, ...entry.when };
+      }
+    }
+    if (found !== 1) fail(`act-line-gates: "${entry.says}" matches ${found} act-gated lines in ${built.id}, not one`);
+  }
+}
 const OUT = ROOM_FILE;
 const wanted = `${JSON.stringify(built, null, 2)}\n`;
 

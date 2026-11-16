@@ -114,7 +114,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "The chair, tipped back at the angle of a man who's seen everything once. Now he's seen me twice."
           },

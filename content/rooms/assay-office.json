@@ -449,7 +449,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "The stove, the kettle, the work. My funeral didn't stop any of it, and I find that very reassuring."
           },

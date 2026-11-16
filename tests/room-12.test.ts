@@ -61,6 +61,8 @@ test('the tonic goes on account once; asked again, nothing more is given', async
 
 test('Act III: the credit ledger is ruled off, by its act line', async () => {
   const state = await inState('r12-b');
+  // Errata 350: the act line waits for the notice of his death.
+  state.flags.set('T_OBITUARY', true);
   const ledger = target(state, 'credit_ledger');
   const act = ledger.responses?.LOOK_AT?.find((rule) => rule.when && 'ACT' in rule.when);
   assert.ok(act, 'the ledger has an act line');

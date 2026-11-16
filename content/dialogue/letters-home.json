@@ -25,9 +25,16 @@
     },
     {
       "when": {
-        "ACT": 3
+        "ACT": 3,
+        "T_OBITUARY": true
       },
       "node": "LETTERS_3"
+    },
+    {
+      "when": {
+        "ACT": 3
+      },
+      "node": "LETTERS_2"
     }
   ],
   "start": "LETTERS_1",

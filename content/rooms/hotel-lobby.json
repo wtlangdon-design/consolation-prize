@@ -220,7 +220,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "My line is ruled through, respectfully. The clerk did it with a straightedge. In this town even the erasures are filed."
           },
@@ -411,7 +412,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Forty keys. Mine's still out. The clerk hasn't asked for it back, which is either tact or a backlog."
           },
@@ -499,7 +501,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_OBITUARY": true
             },
             "say": "Horsehair, sighing, same as when I was alive."
           },

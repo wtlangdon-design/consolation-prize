@@ -70,7 +70,8 @@
               "ACT": {
                 "atLeast": 3,
                 "atMost": 3
-              }
+              },
+              "T_FUNERAL_DONE": true
             },
             "say": "Wax lilies, dusted. They were at my funeral. They'll be at the next one. They don't play favorites."
           },
