@@ -19,14 +19,18 @@ import { LIMIT, measureCast } from '../tools/check-figure-light.mjs';
  */
 const find = (measured, figure, room) => measured.find((one) => one.figure === figure && one.room === room);
 
-test("errata 198's horses before the grade are brighter than their night", () => {
+test("the horses, redrawn for the night, are in it before the street's grade as well (errata 349)", () => {
+  // Was: "errata 198's horses before the grade are brighter than their night" (1.17 of Thad, flagged). Those horses
+  // were cut from a generation lit for the day. The Act I review had them redrawn in the cast's hand and for the
+  // night (reference/act-one-art), and ungraded they measure under the limit. The street's grade still dims them
+  // (the next test); what this holds now is that the drawing itself is not a day's.
   const { measured } = measureCast({
     ambient: { hitching_horses: { x: 1545, y: 850 } },
     rooms: { main_street: { figureLight: undefined } },
   });
   const horses = find(measured, 'hitching_horses', 'main_street');
   assert.ok(horses, 'the horses are measured');
-  assert.ok(horses.flagged, `ungraded, the horses measure ${horses.ratio.toFixed(2)} of Thad there, under the limit ${horses.limit.toFixed(2)}`);
+  assert.ok(!horses.flagged, `ungraded, the horses measure ${horses.ratio.toFixed(2)} of Thad there, over the limit ${horses.limit.toFixed(2)}`);
 });
 
 test('the horses as errata 198 graded them are in the same night as Thad', () => {

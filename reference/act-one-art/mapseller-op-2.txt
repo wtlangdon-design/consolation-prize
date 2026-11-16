@@ -1,0 +1,9 @@
+Image 1 is a sheet from my pixel-art adventure game: seven frames, on magenta, of a street map seller. Keep EVERYTHING about it -- the same man, the same seven poses in the same places, the same height, the same clothes, colours, map, satchel and the pencil behind his ear in every frame, the same magenta background -- and change only his FACE.
+
+Image 2 shows him beside Thad (the hero) in the street at game size: at that size his face reads as a dark band under the hat brim, so he has no face, while Thad's face reads clearly. In every frame:
+- tip his hat a little back so the brim does not shade his eyes;
+- light his face warmly from the front (the shop lantern), a clear light skin tone across the whole face, eyes and brows as small dark marks on it, a simple nose and mouth -- the face as plain and readable as Thad's in image 3;
+- no dark shadow band across the eyes, no dark glasses look.
+In frames 6 and 7, where he looks down at the map, his face is seen from above but still lit, not a dark band.
+
+Nothing else changes. Flat pure magenta (#FF00FF) background, nothing touching. No ground, no shadows, no text, no numbers, no border.

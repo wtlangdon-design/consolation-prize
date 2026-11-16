@@ -8419,6 +8419,18 @@ Lesson: doc 55 §8, a thing Thad reads aloud and the board it is read from.
 Lesson:
 - `tests/held-and-framing.test.ts`: nothing is in hand after LOOK AT, LISTEN TO or USE with an item held; with Thad at the street's far edge the view's bottom reaches the dog's feet and the horses'.
 
+## 349 · Act I's four figures, redrawn in the cast's hand (Tyler, 2026-11-15: authorized in the image session; reference/act-one-art)
+
+From the Act I review's art director: four figures were in a different hand from Thad and the cast beside them. Each was redrawn against Thad in its own room (`reference/act-one-art/brief.md`, `handback.md`): Main Street's horses (flat and chunky like the street, no longer shiny), the Company's lobby clerk (pixels half the old size, in the lobby's light), the map seller (Thad's clarity, a grown man's breadth), and the first man at the Nugget's bar (as crisp as the man beside him). Six operations of the eight authorized.
+
+Two tests failed on the hand-back and were decided here, neither by loosening:
+- **The horses.** The test held that errata 198's day-lit horses were too bright before the street's grade. Those horses are gone; redrawn for the night they measure 1.09 of Thad ungraded, inside the limit. The street still grades them, and the test now holds that the drawing itself is the night's (`tests/figure-light.test.mjs`; `proofs/check-friction.json`).
+- **The clerk.** He declared no depth, so the one-level check read the floor in front of the desk and asked for blocks twice his size. He declares `depthY` 441, as the storekeeper declares his: the row at which the room's curve makes the man his waist-up belongs to (about 258; `tests/scale.test.ts` holds a waist-up to 0.45 of the man where it stands). `tools/art/one-level.py` then snapped him to that man's level, blocks of 2.24 where the redraw was cut at 1.92 and the old sheet at 4. The redraw's pink edge pixels went the way of errata 345's (`tools/art/key-fringe.py`).
+
+Left: the map seller is trimmed at his cell's edge in three poses (widening the cell is a change to his record); Thad still has no clear place at the Nugget's bar, because the man in the blue shirt sits in it.
+
+Lesson: the same two tests, each now describing the figure it holds.
+
 ## 350 · An act's line is true when it can be read (Tyler, 2026-11-15, on the Acts II to IV review: "Shop your drafted lines too. And feel free to change a puzzles design or the story too.")
 
 **The ruling this and the errata after it are built on.** Tyler had the in-house review team read Acts II, III and IV overnight (fifteen reviewers; their reports are in the Consolation project as `claude/review-act2-2026-11-15.md`, `-act3-`, `-act4-`) and told the producer to implement what they found without waiting for him: new lines included, puzzle and story changes included, to be corrected as he plays. Kept regardless: the design invariants, one voice writing every line (the reviewers write none), no image operation without his authorization, and a record of what each thing was before.
