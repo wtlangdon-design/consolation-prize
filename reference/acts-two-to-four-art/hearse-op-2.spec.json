@@ -1,0 +1,17 @@
+{
+ "assetId": "room-31-hearse-match",
+ "subject": "room-31-hearse-match",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-31-funeral",
+ "promptFile": "reference/acts-two-to-four-art/hearse-op-2.txt",
+ "out": "art/staging/acts-two-to-four-art/hearse/op-2.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acts-two-to-four-art/hearse/gate-hearse@2x.png",
+  "art/staging/acts-two-to-four-art/hearse/op-1.png",
+  "art/staging/acts-two-to-four-art/hearse/grievance-now.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "derivedFrom": 1
+}

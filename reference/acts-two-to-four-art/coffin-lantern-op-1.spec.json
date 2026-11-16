@@ -1,0 +1,17 @@
+{
+ "assetId": "room-32-coffin-lantern",
+ "subject": "room-32-coffin-lantern",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-31-funeral",
+ "promptFile": "reference/acts-two-to-four-art/coffin-lantern-op-1.txt",
+ "out": "art/staging/acts-two-to-four-art/coffin-lantern/op-1.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/acts-two-to-four-art/coffin-lantern/template.png",
+  "art/staging/acts-two-to-four-art/coffin-lantern/funeral-night-thad-and-hob.png",
+  "art/staging/acts-two-to-four-art/coffin-lantern/hob@2x.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "derivedFrom": "art/backgrounds/room-32-coffin-lantern.png"
+}

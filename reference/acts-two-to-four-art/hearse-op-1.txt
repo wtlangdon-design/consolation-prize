@@ -1,0 +1,7 @@
+Draw ONE vehicle for my pixel-art adventure game, on a flat pure magenta (#FF00FF) background, large and centred, nothing else in the picture: THE SAME HEARSE as in image 1 -- a black horse-drawn funeral hearse with glass sides, tan curtains tied back inside the glass, two brass carriage lamps, a black finial on the roof, black spoked wheels, the same proportions and details -- but:
+- seen from THREE-QUARTER REAR: its back end, with the rear glass door, toward us and a little to the right, its long glass side running away to the left;
+- EMPTY: no coffin inside, only the dark floor of the hearse behind the glass and the curtains;
+- standing still with NO horse and no shafts in the picture (the horse is unhitched);
+- the whole hearse in the picture, finial to wheels, not cut off.
+
+It stands at a hillside graveyard (image 2, with Thad, the hero, at game size; a coffin on trestles will stand in front of it). Style: in the game's hand, as image 1 and Thad (image 3): flat, soft-shaded, low in texture, big simple shapes, two or three tones per material, square pixels, no fine detail, no crisp highlights. No ground, no shadow, no text, no border.

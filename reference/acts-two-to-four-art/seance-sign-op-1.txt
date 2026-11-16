@@ -1,0 +1,10 @@
+Draw ONE prop for my pixel-art adventure game, on a flat pure magenta (#FF00FF) background, large and centred, nothing else in the picture: a small wooden sandwich-board chalkboard (an A-frame sign), seen from the front and a little to one side, standing on its own two legs. Its slate face is black with a plain wooden frame. Lettered on it in white chalk, hand-written and slightly uneven:
+SÉANCE
+TONIGHT
+then a chalk line drawn under those words,
+then $2 written larger than the rest.
+Spell it exactly: S-É-A-N-C-E (with the accent on the E), T-O-N-I-G-H-T, and $2. No other words, no other marks.
+
+It stands outside a fortune-teller's star-patterned tent in a muddy lane at night (image 1, with Thad, the hero, at game size): the chalk a soft dim white, the wood dark and weathered, lit a little warm from the tent's lamp on one side; no brighter than the tent cloth beside it.
+
+Style: in the game's hand, as image 1 and Thad (image 2): flat, soft-shaded, low in texture, big simple shapes, two or three tones per material, square pixels, no fine wood grain, no crisp highlights. No ground, no shadow, no text other than the chalk lettering, no border.
