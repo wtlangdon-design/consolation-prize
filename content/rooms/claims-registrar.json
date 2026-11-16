@@ -1110,9 +1110,15 @@
   ],
   "peopleResponses": {
     "winnie_registrar": {
+      "TALK_TO": [
+        {
+          "say": "Not now, Mr. Grubb. I came to sign one thing, and I'd like to do it before I think better of it.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **WINNIE LEDGER** · *at the filing* - TALK TO"
+        }
+      ],
       "LOOK_AT": [
         {
-          "say": "Winnie, at the end of Sump's counter with her pen. She has come to sign something true, and she would like it done before anyone argues.",
+          "say": "Winnie, at the end of Sump's counter, arms folded. She has come to sign something true, and she would like it done before anyone argues.",
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **WINNIE LEDGER** · *at the filing* - LOOK"
         }
       ]

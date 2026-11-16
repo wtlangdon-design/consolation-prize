@@ -2573,6 +2573,15 @@
     "dialogue:FANSHAWE:FAN_E1 openingOnce"
    ],
    "note": "Errata 354: the Colonel's condolence has been heard; said once."
+  },
+  {
+   "id": "T_HOB_SIGNED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:HOB:HOB_E6:hob1"
+   ],
+   "note": "Errata 355: Hob has signed THE EXECUTOR'S FORM, which Sump issued blank at the decease (SUM_C1 option 1). Read by Sump's acceptance (E6) and the form's first LOOK."
   }
  ]
 }

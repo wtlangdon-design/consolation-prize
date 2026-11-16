@@ -433,7 +433,7 @@ Six options. **Five produce no response at all** — Hob keeps walking, and Thad
 
 ## ACT III — `HOB_E6`: the executor (E6) *(errata 75)*
 
-The first real conversation with Hob. Open once `T_EXECUTOR_RULE` is set and until E6 is complete; he is on his rounds at night (Main Street, the back alley). Doc 02: every other candidate has an interest; nobody has ever thought about Hob.
+The first real conversation with Hob. *(Errata 355: Sump issues the form blank when he records the death; Hob signs it.)* Open once `T_EXECUTOR_RULE` is set and until E6 is complete; he is on his rounds at night (Main Street, the back alley). Doc 02: every other candidate has an interest; nobody has ever thought about Hob.
 
 > **THAD:** "I need an executor. Somebody with no interest in any claim in this town."
 > **HOB:** "That's me."
@@ -442,7 +442,7 @@ The first real conversation with Hob. Open once `T_EXECUTOR_RULE` is set and unt
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "You'd be executor of my estate. It's forty feet of mud." | `[PROGRESS · remove]` | "I know the mud." *(beat)* "Signed. Form 31-E." | gives THE EXECUTOR'S FORM |
+| 1 | "You'd be executor of my estate. It's forty feet of mud." | `[PROGRESS · remove]` req `T_DECEASED` | "I know the mud." *(beat)* "Signed. Form 31-E." | signs THE EXECUTOR'S FORM |
 | 2 | "Will you come to the archive with me?" | `[TOPIC · retain]` | "No." | — |
 | 3 | "Have you ever been an executor before?" | `[TOPIC · retain]` | "No. I've buried a few things." | — |
 | 4 | "Why would you do this for me?" | `[TOPIC · retain]` | "You asked." | — |
@@ -857,7 +857,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "I have a death to record. Mine." | `[PROGRESS · remove]` | *(He examines it. He examines Thad. He stamps it.)* "The office does not require the deceased to be absent. An oversight, possibly. I do not correct statute. I administer it." |
+| 1 | "I have a death to record. Mine." | `[PROGRESS · remove]` | *(He examines it. He examines Thad. He stamps it.)* "The office does not require the deceased to be absent. An oversight, possibly. I do not correct statute. I administer it." *(beat)* "Form 31-E, Appointment of Executor. An estate must have one. Somebody with no interest in any claim in this town." *(beat)* "In my experience, Mr. Grubb, that person is never the first one asked." *(Errata 355: the blank form is his from here, so the five refusals can be heard before the answer is found.)* |
 | 2 | "You know I'm not dead." | `[TOPIC · remove]` | "I know what is *certified*, Mr. Grubb. It is the only kind of knowing this window does." |
 | 3 | "Is there a form for this?" | `[COMIC · retain]` | "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope." *(second)* "31-D. You are the first. I have made a note of it for the next printing." |
 

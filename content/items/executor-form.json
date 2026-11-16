@@ -7,6 +7,16 @@
   "responses": {
     "LOOK_AT": [
       {
+        "when": {
+          "T_HOB_SIGNED": false
+        },
+        "say": "Form 31-E, Appointment of Executor. Blank where the executor signs. Mr. Sump wants somebody with no interest in any claim in this town, which in Consolation narrows it to nearly nobody.",
+        "repeat": [
+          "A space for a signature, and beside it, in Mr. Sump's hand, the word EXECUTOR, underlined once.",
+          "The rest is filled in: my name, and DECEASED. All it lacks is a man who wants nothing from me."
+        ]
+      },
+      {
         "say": "Form 31-E, Appointment of Executor. Signed 'Hob', and nothing else. Mr. Sump will want a surname.",
         "repeat": [
           "A very neat hand. Small, upright, and in no hurry at all.",

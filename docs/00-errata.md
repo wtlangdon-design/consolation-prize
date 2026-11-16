@@ -8531,3 +8531,16 @@ Lesson:
 Lesson:
 - `tests/still-to-write.test.mjs`: one bare "Nothing." a room, game-wide, with the designed silences named; the Gulch, the Colonel and the assayer. Each fails on main.
 - `tests/a-look-for-everybody.test.mjs`: the ratchet gains the twenty-four.
+
+## 355 · Things a player hits (Tyler, 2026-11-16: "Go")
+
+The first group of the list Tyler was given this morning: what stops or misleads a player in Acts II to IV.
+
+- **The Gulch is a round trip.** Once at the washout he could not come home until Vessel agreed to the rematch, and the brass rod could only be hired in town. USE GRIEVANCE at the washout before then now rides home ("Home for now, Grievance. Vessel will keep."), placing him at the livery; USE GRIEVANCE there, while the trip is unfinished, rides back out (doc 109, GOING HOME). The washout road's third LOOK says he will not go back *for good* without Vessel.
+- **A paper laid at the filing stays in his pocket until the filing is done, as designed** (errata 133: the four are on file when `T_FILED` is set, and doc 23 keeps them until then). The playtest reported it as a fault; it is not, and nothing is changed. They are not drawn on the counter; that is a prop each, for later.
+- **The executor is the puzzle doc 02 designs.** The five refusals needed the form, and only Hob gave it, after he had said yes: the elimination came after the answer. Sump now issues Form 31-E blank when he records the death (doc 04 SUM_C1 option 1, with two new lines, the second "In my experience, Mr. Grubb, that person is never the first one asked."); Hob signs it (HOB_E6 option 1, his existing "Signed. Form 31-E.", once the death is recorded); Sump refuses it blank (doc 57, new line). The blank form has its own LOOK (doc 133).
+- **A figure with lines of her own is what a click on her means.** Winnie at the filing answered TALK TO as the archive door behind her ("I'll save my charm for something that can answer"), and the duel's judges answered as the false fronts. A figure with no conversation but lines written for her in the room now wins over a larger hotspot behind her, as a person with a conversation already did (engine/core/Ambient.ts), and Winnie at the filing has a TALK TO (doc 133). Her look no longer gives her a pen she is not drawn holding.
+
+Lesson:
+- `tests/round-trips.test.mjs`: four tests, each failing on main before this.
+- Doc 55 §8: a puzzle of elimination hands over its tool before its answer.

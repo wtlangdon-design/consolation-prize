@@ -375,6 +375,7 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 
 > **REGISTRAR SUMP** · USE THE EXECUTOR'S FORM, *with `T_DECEASED`* — **SUMP:** *(He reads the signature for some time.)* "Hob." *(beat)* "Surname." — "He didn't give one." — "The statute does not require one. It never imagined it would need to." *(He checks the rolls.)* "The night watchman. Holds no claim, owes nothing, is owed nothing, and has never filed so much as a complaint." *(Stamp.)* "Accepted." *(He hands the form back.)* → `T_EXECUTOR_NAMED`, **E6**.
 > **REGISTRAR SUMP** · USE THE EXECUTOR'S FORM, *before `T_DECEASED`* — **SUMP:** "The office appoints executors to estates, Mr. Grubb. You are not yet an estate."
+> **REGISTRAR SUMP** · USE THE EXECUTOR'S FORM, *unsigned* — **SUMP:** "It wants a signature where the executor goes, Mr. Grubb. The office does not appoint a blank, however disinterested."
 
 Asking anyone else to be executor is answered by the interest rule:
 

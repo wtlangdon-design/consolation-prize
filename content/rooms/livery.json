@@ -423,6 +423,24 @@
               "She is declining to participate."
             ]
           }
+        ],
+        "USE": [
+          {
+            "when": {
+              "T_GULCH_TRIP": true,
+              "T_VESSEL_FOUND": false
+            },
+            "say": "Back to the Gulch, Grievance.",
+            "then": [
+              {
+                "speaker": "thad",
+                "line": "The road again. It had held while we were away, which is more than it ever did with me on it.",
+                "overBlack": true
+              }
+            ],
+            "goto": "washout",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::## GOING HOME · **GRIEVANCE, at the livery** · USE, *while the trip is unfinished*"
+          }
         ]
       },
       "overrides": {

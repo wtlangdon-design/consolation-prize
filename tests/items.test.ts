@@ -31,6 +31,7 @@ const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(R
 const content = await loadContent(fsReader);
 const doc23 = readFileSync(resolve(ROOT, 'docs/23-inventory-act1.md'), 'utf8');
 const doc57 = readFileSync(resolve(ROOT, 'docs/57-puzzle-completion.md'), 'utf8');
+const doc133 = readFileSync(resolve(ROOT, 'docs/133-playthrough-rulings.md'), 'utf8');
 const walkthrough = JSON.parse(readFileSync(resolve(ROOT, 'tests/data/full-game-walkthrough.json'), 'utf8')) as { steps: Step[] };
 
 /** The real items: everything the manifest loads but the playtest fixture's token. */
@@ -199,7 +200,9 @@ test('every item is doc 23\'s: one row and one section each, the names it gives,
     for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
       const rules = item.responses?.[verb] ?? [];
       assert.ok(rules.length, `${item.id}: no ${verb}`);
-      const got = rules.map((rule) => [rule.say, ...(rule.repeat ?? [])].join(' / ')).sort();
+      // Errata 355: a LOOK said while the item is unfinished (doc 133, AN ITEM BEFORE IT IS FINISHED) is doc 133's, and
+      // is held there; the rest is doc 23's.
+      const got = rules.filter((rule) => !(rule.when && doc133.includes(`"${rule.say}"`))).map((rule) => [rule.say, ...(rule.repeat ?? [])].join(' / ')).sort();
       const want = section.runs[verb]!.map((run) => run.join(' / ')).sort();
       // Character for character: a curly quote typed over the document's
       // straight one is a hand edit, and the deed carried two.

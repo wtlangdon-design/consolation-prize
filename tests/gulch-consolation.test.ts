@@ -145,13 +145,13 @@ test('B1: either story buys the newspaper as well as Fiddler\'s Gulch', async ()
 
 test('B3 to the washout, and home again: USE on the mule once he has gone for the coach lands back in town', async () => {
   const { state, player } = await inFixture('r45-a');
-  const mule = state.targets.find((one) => one.responses?.USE?.some((response) => response.goto))!;
+  const mule = state.targets.find((one) => one.responses?.USE?.some((response) => response.goto && response.when?.T_VESSEL_FOUND))!;
   assert.ok(mule, 'something in the washout rides home');
-  const home = mule.responses!.USE!.find((response) => response.goto)!;
-  assert.ok(!state.flags.test(home.when), 'not before G9');
-  const early = state.interact(mule, 'USE');
-  assert.equal(state.roomId, state.content.fixtures.get('r45-a')!.room, 'and stays put');
-  assert.ok(early.say !== home.say);
+  const home = mule.responses!.USE!.find((response) => response.goto && response.when?.T_VESSEL_FOUND)!;
+  assert.ok(!state.flags.test(home.when), 'not to the back room before G9');
+  // Errata 355: before G9 the ride goes to the livery, and the livery's Grievance rides back out (a round trip).
+  const early = mule.responses!.USE!.find((response) => response.goto === 'livery');
+  assert.ok(early && state.flags.test(early.when) && early.say !== home.say, 'before G9 she goes home to the stable');
   state.flags.set('T_VESSEL_FOUND', true);
   const ride = player.verb(mule.id, 'USE');
   assert.equal(ride.say, home.say);

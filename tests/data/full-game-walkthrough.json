@@ -2744,6 +2744,30 @@
    }
   },
   {
+   "id": "E5.1",
+   "puzzle": "E5",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "E5.2",
+   "puzzle": "E5",
+   "do": "talk",
+   "npc": "sump",
+   "choose": [
+    "sump1"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_DECEASED": true
+    },
+    "carrying": [
+     "executor_form"
+    ]
+   }
+  },
+  {
    "id": "E6.1",
    "puzzle": "E6",
    "do": "go",
@@ -2764,31 +2788,20 @@
    ],
    "leave": true,
    "expect": {
+    "flags": {
+     "T_HOB_SIGNED": true
+    },
     "carrying": [
      "executor_form"
     ]
    }
   },
   {
-   "id": "E5.1",
-   "puzzle": "E5",
+   "id": "E6.3",
+   "puzzle": "E6",
    "do": "go",
-   "room": "claims_registrar"
-  },
-  {
-   "id": "E5.2",
-   "puzzle": "E5",
-   "do": "talk",
-   "npc": "sump",
-   "choose": [
-    "sump1"
-   ],
-   "leave": true,
-   "expect": {
-    "flags": {
-     "T_DECEASED": true
-    }
-   }
+   "room": "claims_registrar",
+   "note": "Errata 355: Sump issues the form blank at the decease; Hob signs it; back to Sump."
   },
   {
    "id": "E6.4",

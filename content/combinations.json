@@ -769,7 +769,8 @@
         {
           "case": "with T_DECEASED",
           "when": {
-            "T_DECEASED": true
+            "T_DECEASED": true,
+            "T_HOB_SIGNED": true
           },
           "by": "sump",
           "say": "Hob.",
@@ -799,6 +800,15 @@
             "T_EXECUTOR_NAMED": true
           },
           "completes": "E6"
+        },
+        {
+          "case": "unsigned",
+          "when": {
+            "T_DECEASED": true,
+            "T_HOB_SIGNED": false
+          },
+          "by": "sump",
+          "say": "It wants a signature where the executor goes, Mr. Grubb. The office does not appoint a blank, however disinterested."
         },
         {
           "case": "before T_DECEASED",
