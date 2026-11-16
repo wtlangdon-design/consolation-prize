@@ -11,27 +11,27 @@
 
 ### THE SETTEE
 **LOOK** 1 "A settee in worn blue plush, gone shiny at both arms and nowhere in the middle." · 2 "Two men have sat at either end of this for years and neither has moved to the center." · 3 "It's the only comfortable thing I've seen since the coach, and the coach wasn't comfortable."
-**LISTEN** 1 "Nothing. Horsehair, settling." · 2 "Nothing." · 3 "Nothing. Nobody is sitting on it and nobody is going to."
+**LISTEN** 1 "Nothing. Horsehair, settling." · 2 "A spring, somewhere in the middle, thinking it over." · 3 "Nobody is sitting on it and nobody is going to."
 
 ### THE STAIRS
 **LOOK** 1 "Stairs to the rooms, carpeted for the first four treads and bare above that. The carpet ran out." · 2 "Somebody measured wrong, or somebody ran out of money on the fifth tread." · 3 "The bare treads are worn more than the carpeted ones. Everyone is going up."
-**LISTEN** 1 "Somebody on the landing, not moving. There is always somebody on the landing not moving." · 2 "Still there." · 3 "Boards. Two rooms, both occupied, neither talking."
+**LISTEN** 1 "Somebody on the landing, not moving. Every hotel has one." · 2 "Still there." · 3 "Boards. Two rooms, both occupied, neither talking."
 
 ### THE STOVE
-**LOOK** 1 "A parlor stove with a nickel rail, polished. It is the only thing in this building anyone has spent an afternoon on." · 2 "Unlit. It has been unlit since I arrived, in a lobby with a rail for drying gloves." · 3 "The rail is for drying gloves. Nobody in Consolation owns gloves. When I've made my fortune I'll buy a pair, just to dry them here."
-**LISTEN** 1 "Nothing. Cold." · 2 "Nothing." · 3 "Nothing at all."
+**LOOK** 1 "A parlor stove with a nickel rail, polished. It is the only thing in this building anyone has spent an afternoon on." · 2 "Unlit, in a lobby with a rail for drying gloves." · 3 "The rail is for drying gloves. Nobody in Consolation owns gloves. When I've made my fortune I'll buy a pair, just to dry them here."
+**LISTEN** 1 "Nothing. Cold." · 2 "The nickel rail ticks when the door lets the night in." · 3 "Cold iron. It has the patience of a thing that was never asked."
 
 ### THE SPITTOON
 **LOOK** 1 "Brass, and emptied. In a hotel lobby this counts as gentility." · 2 "It has been moved since I last looked, and it is still in the wrong place." · 3 "There is a ring on the carpet where it used to be and a ring where it is."
-**LISTEN** 1 "Nothing, mercifully." · 2 "Nothing." · 3 "Nothing. We have both been spared."
+**LISTEN** 1 "Still no." · 2 "A fly, going round it. He's braver than I am." · 3 "The fly has left. We have both been spared."
 
 ## Repeat variants for docs 09's four
 
-**THE REGISTER** — LOOK 2 "Forty-one names. I've read all of them, and I don't know one. By the end of the month they'll all know mine." · 3 "Mine is the last, and it's spelled in a way I haven't previously encountered." | LISTEN 2 "Nothing." · 3 "Nothing. It is a list of people who are elsewhere."
+**THE REGISTER** — LOOK 2 "Forty-one names. I've read all of them, and I don't know one. By the end of the month they'll all know mine." · 3 "Mine is the last, and it's spelled in a way I haven't previously encountered." | LISTEN 2 "The clerk's sleeve on the counter, somewhere near it." · 3 "Paper. It's a list of people who are elsewhere, and it sounds like one."
 
-**THE KEY RACK** — LOOK 2 "Four out of forty. The four are not near each other." · 3 "Number nineteen has the best hook on the rack. I've looked at it more than a man should look at a key." | LISTEN 2 "Nothing." · 3 "Brass on wood, faintly, when the door goes."
+**THE KEY RACK** — LOOK 2 "Four out of forty. The four are not near each other." · 3 "Number nineteen has the best hook on the rack. I've looked at it more than a man should look at a key." | LISTEN 2 "Thirty-six keys, hanging still. It's a quiet trade, not being rented." · 3 "Brass on wood, faintly, when the door goes."
 
-**THE ENGRAVING** — LOOK 2 "There's a volcano in it, smoking politely. It's the calmest thing in the building." · 3 "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely." | LISTEN 2 "Nothing." · 3 "Nothing. It is a long way from home and so am I, and only one of us is framed."
+**THE ENGRAVING** — LOOK 2 "There's a volcano in it, smoking politely. It's the calmest thing in the building." · 3 "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely." | LISTEN 2 "Glass, and behind the glass a great deal of quiet water." · 3 "It's a long way from home and so am I, and only one of us is framed."
 
 **THE CLOCK** — LOOK 2 "The hands are brass and the case is pine. Somebody spent the money where it showed." · 3 "It is slow. In this town that is nearly an act of kindness." | LISTEN 2 "Ticking. Slow." · 3 "Ticking. I'm still not going to say anything."
 
@@ -47,8 +47,8 @@
 ## Exits
 
 **THE STREET DOOR → Room 2**
-**LOOK** 1 "The door out onto Main Street, with a bell that does not work and a mat that has given up." · 2 "The bell is a formality. Everybody who comes in is already known." · 3 "The street, past it. It's always brighter than I remember, which I choose to take as a good sign."
-**LISTEN** 1 "The street. Boots on the boardwalk." · 2 "Boots. Two men, and neither of them is coming in." · 3 "Nothing. It has gone quiet out there, which happens about four." *(Corrected — "Still the street." belongs to the assay office's door in doc 25.)*
+**LOOK** 1 "The door out onto Main Street, with a bell that does not work and a mat that has given up." · 2 "The bell is a formality. Everybody who comes in is already known." · 3 "The street, past it. Lamps, mud, and everything I came for."
+**LISTEN** 1 "The street. Boots on the boardwalk." · 2 "Boots. Two men, and neither of them is coming in." · 3 "Quiet, for the length of a breath. Then somebody remembers an argument." *(Corrected — "Still the street." belongs to the assay office's door in doc 25.)*
 
 **THE STAIRS → Room 19**
 > Uses THE STAIRS' lines above. OPEN and USE walk through.
@@ -137,7 +137,7 @@
 
 **THE GOOD SUIT** — LOOK 2 "Three sizes, on one hanger, and all three have been let out at the waist." · 3 "Half the men on Boot Hill were viewed in this and buried in their own clothes." | LISTEN 2 "Nothing." · 3 "Nothing."
 
-**THE LEDGER** — LOOK 2 "One hand, start to finish. The same pen, and the same price for the box." · 3 "Which means most of them left. I've been telling myself that all morning." | LISTEN 2 "Nothing." · 3 "Nothing."
+**THE LEDGER** — LOOK 2 "One hand, start to finish. The same pen, and the same price for the box." · 3 "Eleven pages, and room at the back. He's ruled the next one already." | LISTEN 2 "Nothing." · 3 "Nothing."
 
 **THE TABLE** — LOOK 2 "Scrubbed to the grain, and scrubbed again since." · 3 "It is the cleanest surface in the territory and I would rather look at the ceiling." | LISTEN 2 "Nothing." · 3 "Nothing."
 

@@ -20,9 +20,9 @@
       ],
       "LISTEN_TO": [
         "Pages settling. Mine has already been turned.",
-        "Nothing.",
-        "Nothing.",
-        "Nothing. It is a list of people who are elsewhere."
+        "The pen, rolling a quarter inch in its groove when the door goes.",
+        "The clerk's sleeve on the counter, somewhere near it.",
+        "Paper. It's a list of people who are elsewhere, and it sounds like one."
       ],
       "acts": [
         {
@@ -47,8 +47,8 @@
       ],
       "LISTEN_TO": [
         "It wants ringing. I decline.",
-        "Nothing. It is waiting me out.",
-        "Still nothing. The bell and I have reached an understanding, and the understanding is silence."
+        "It is waiting me out.",
+        "The bell and I have reached an understanding, and the understanding is silence."
       ],
       "overrides": {
         "USE": "I rang it. The clerk arrived from a direction the building does not have."
@@ -62,9 +62,9 @@
         "Number nineteen has the best hook on the rack. I've looked at it more than a man should look at a key."
       ],
       "LISTEN_TO": [
-        "Nothing. A key only speaks when dropped.",
-        "Nothing.",
-        "Nothing.",
+        "A key only speaks when dropped. These are well behaved.",
+        "One of them is swinging a little on its hook. Somebody came down in a hurry.",
+        "Thirty-six keys, hanging still. It's a quiet trade, not being rented.",
         "Brass on wood, faintly, when the door goes."
       ],
       "acts": [
@@ -90,7 +90,7 @@
       ],
       "LISTEN_TO": [
         "The fourth step confesses under any weight at all.",
-        "Somebody on the landing, not moving. There is always somebody on the landing not moving.",
+        "Somebody on the landing, not moving. Every hotel has one.",
         "Still there.",
         "Boards. Two rooms, both occupied, neither talking."
       ],
@@ -108,8 +108,8 @@
       ],
       "LISTEN_TO": [
         "Horsehair, resettling. It sighs longer than furniture should.",
-        "Nothing.",
-        "Nothing. Nobody is sitting on it and nobody is going to."
+        "A spring, somewhere in the middle, thinking it over.",
+        "Nobody is sitting on it and nobody is going to."
       ],
       "acts": [
         {
@@ -134,9 +134,9 @@
       ],
       "LISTEN_TO": [
         "No.",
-        "Nothing, mercifully.",
-        "Nothing.",
-        "Nothing. We have both been spared."
+        "Still no.",
+        "A fly, going round it. He's braver than I am.",
+        "The fly has left. We have both been spared."
       ],
       "overrides": {
         "PICK_UP": "Not for five dollars. Not for a room. Not for anything this hotel has ever offered."
@@ -152,7 +152,7 @@
       "LISTEN_TO": [
         "Canvas, ticking in a draft. The draft is real, at least.",
         "The frame creaks. It is the most western thing about it.",
-        "Nothing. A painting of a mountain is quieter than a mountain, and that is the only improvement on offer."
+        "A painting of a mountain is quieter than a mountain, and that's the only improvement on offer."
       ],
       "overrides": {
         "PULL": "Behind it: wall. I don't know what I expected. More wall, perhaps, but honest about it."
@@ -207,9 +207,9 @@
         "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely."
       ],
       "LISTEN_TO": [
-        "Nothing.",
-        "Nothing.",
-        "Nothing. It is a long way from home and so am I, and only one of us is framed."
+        "The wire it hangs on, ticking once.",
+        "Glass, and behind the glass a great deal of quiet water.",
+        "It's a long way from home and so am I, and only one of us is framed."
       ],
       "acts": [
         {
@@ -228,13 +228,13 @@
       "name": "THE STOVE",
       "LOOK_AT": [
         "A parlor stove with a nickel rail, polished. It is the only thing in this building anyone has spent an afternoon on.",
-        "Unlit. It has been unlit since I arrived, in a lobby with a rail for drying gloves.",
+        "Unlit, in a lobby with a rail for drying gloves.",
         "The rail is for drying gloves. Nobody in Consolation owns gloves. When I've made my fortune I'll buy a pair, just to dry them here."
       ],
       "LISTEN_TO": [
         "Nothing. Cold.",
-        "Nothing.",
-        "Nothing at all."
+        "The nickel rail ticks when the door lets the night in.",
+        "Cold iron. It has the patience of a thing that was never asked."
       ],
       "overrides": {
         "OPEN": "Cold, and empty, and it has been both for some time."
@@ -245,12 +245,12 @@
       "LOOK_AT": [
         "The door out onto Main Street, with a bell that does not work and a mat that has given up.",
         "The bell is a formality. Everybody who comes in is already known.",
-        "The street, past it. It's always brighter than I remember, which I choose to take as a good sign."
+        "The street, past it. Lamps, mud, and everything I came for."
       ],
       "LISTEN_TO": [
         "The street. Boots on the boardwalk.",
         "Boots. Two men, and neither of them is coming in.",
-        "Nothing. It has gone quiet out there, which happens about four."
+        "Quiet, for the length of a breath. Then somebody remembers an argument."
       ]
     },
     {

@@ -140,8 +140,8 @@
           {
             "say": "It wants ringing. I decline.",
             "repeat": [
-              "Nothing. It is waiting me out.",
-              "Still nothing. The bell and I have reached an understanding, and the understanding is silence."
+              "It is waiting me out.",
+              "The bell and I have reached an understanding, and the understanding is silence."
             ]
           }
         ]
@@ -180,9 +180,9 @@
           {
             "say": "No.",
             "repeat": [
-              "Nothing, mercifully.",
-              "Nothing.",
-              "Nothing. We have both been spared."
+              "Still no.",
+              "A fly, going round it. He's braver than I am.",
+              "The fly has left. We have both been spared."
             ]
           }
         ]
@@ -239,9 +239,9 @@
           {
             "say": "Pages settling. Mine has already been turned.",
             "repeat": [
-              "Nothing.",
-              "Nothing.",
-              "Nothing. It is a list of people who are elsewhere."
+              "The pen, rolling a quarter inch in its groove when the door goes.",
+              "The clerk's sleeve on the counter, somewhere near it.",
+              "Paper. It's a list of people who are elsewhere, and it sounds like one."
             ]
           }
         ]
@@ -287,10 +287,10 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "The wire it hangs on, ticking once.",
             "repeat": [
-              "Nothing.",
-              "Nothing. It is a long way from home and so am I, and only one of us is framed."
+              "Glass, and behind the glass a great deal of quiet water.",
+              "It's a long way from home and so am I, and only one of us is framed."
             ]
           }
         ]
@@ -332,7 +332,7 @@
             "say": "Canvas, ticking in a draft. The draft is real, at least.",
             "repeat": [
               "The frame creaks. It is the most western thing about it.",
-              "Nothing. A painting of a mountain is quieter than a mountain, and that is the only improvement on offer."
+              "A painting of a mountain is quieter than a mountain, and that's the only improvement on offer."
             ]
           }
         ]
@@ -428,10 +428,10 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. A key only speaks when dropped.",
+            "say": "A key only speaks when dropped. These are well behaved.",
             "repeat": [
-              "Nothing.",
-              "Nothing.",
+              "One of them is swinging a little on its hook. Somebody came down in a hurry.",
+              "Thirty-six keys, hanging still. It's a quiet trade, not being rented.",
               "Brass on wood, faintly, when the door goes."
             ]
           }
@@ -506,8 +506,8 @@
           {
             "say": "Horsehair, resettling. It sighs longer than furniture should.",
             "repeat": [
-              "Nothing.",
-              "Nothing. Nobody is sitting on it and nobody is going to."
+              "A spring, somewhere in the middle, thinking it over.",
+              "Nobody is sitting on it and nobody is going to."
             ]
           }
         ]
@@ -617,7 +617,7 @@
           {
             "say": "A parlor stove with a nickel rail, polished.",
             "repeat": [
-              "Unlit. It has been unlit since I arrived, in a lobby with a rail for drying gloves.",
+              "Unlit, in a lobby with a rail for drying gloves.",
               "The rail is for drying gloves. Nobody in Consolation owns gloves. When I've made my fortune I'll buy a pair, just to dry them here."
             ],
             "then": [
@@ -629,8 +629,8 @@
           {
             "say": "Nothing. Cold.",
             "repeat": [
-              "Nothing.",
-              "Nothing at all."
+              "The nickel rail ticks when the door lets the night in.",
+              "Cold iron. It has the patience of a thing that was never asked."
             ]
           }
         ]
@@ -674,7 +674,7 @@
           {
             "say": "The fourth step confesses under any weight at all.",
             "repeat": [
-              "Somebody on the landing, not moving. There is always somebody on the landing not moving.",
+              "Somebody on the landing, not moving. Every hotel has one.",
               "Still there.",
               "Boards. Two rooms, both occupied, neither talking."
             ]
@@ -725,7 +725,7 @@
             "say": "The door out onto Main Street, with a bell that does not work and a mat that has given up.",
             "repeat": [
               "The bell is a formality. Everybody who comes in is already known.",
-              "The street, past it. It's always brighter than I remember, which I choose to take as a good sign."
+              "The street, past it. Lamps, mud, and everything I came for."
             ]
           }
         ],
@@ -734,7 +734,7 @@
             "say": "The street. Boots on the boardwalk.",
             "repeat": [
               "Boots. Two men, and neither of them is coming in.",
-              "Nothing. It has gone quiet out there, which happens about four."
+              "Quiet, for the length of a breath. Then somebody remembers an argument."
             ]
           }
         ]
@@ -774,7 +774,7 @@
           {
             "say": "The fourth step confesses under any weight at all.",
             "repeat": [
-              "Somebody on the landing, not moving. There is always somebody on the landing not moving.",
+              "Somebody on the landing, not moving. Every hotel has one.",
               "Still there.",
               "Boards. Two rooms, both occupied, neither talking."
             ]

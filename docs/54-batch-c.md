@@ -13,9 +13,9 @@
 
 *Merged: doc 05's eight and doc 09's eight, eleven objects. THE REGISTER, THE KEY RACK, THE SETTEE, THE STAIRS and THE SPITTOON were written by both passes under the same name. THE PAINTING (doc 05, a mountain scene) and THE ENGRAVING (doc 09, the Bay of Naples) are not declared one object: they describe different pictures.*
 
-**THE CLERK'S BELL** — LOOK 2 "A card beside it reads RING FOR SERVICE, in the same hand as the card that reads NO CREDIT." · 3 "I've looked at this bell three times now. A lesser man would have rung it. So would a braver one." | LISTEN 2 "Nothing. It is waiting me out." · 3 "Still nothing. The bell and I have reached an understanding, and the understanding is silence."
+**THE CLERK'S BELL** — LOOK 2 "A card beside it reads RING FOR SERVICE, in the same hand as the card that reads NO CREDIT." · 3 "I've looked at this bell three times now. A lesser man would have rung it. So would a braver one." | LISTEN 2 "It is waiting me out." · 3 "The bell and I have reached an understanding, and the understanding is silence."
 
-**THE PAINTING** — LOOK 2 "There is a goat on the nearest peak, looking out of the picture as though it was promised a better frame." · 3 "The signature is larger than the mountain. That, at least, is an honest account of the painter's priorities." | LISTEN 2 "The frame creaks. It is the most western thing about it." · 3 "Nothing. A painting of a mountain is quieter than a mountain, and that is the only improvement on offer."
+**THE PAINTING** — LOOK 2 "There is a goat on the nearest peak, looking out of the picture as though it was promised a better frame." · 3 "The signature is larger than the mountain. That, at least, is an honest account of the painter's priorities." | LISTEN 2 "The frame creaks. It is the most western thing about it." · 3 "A painting of a mountain is quieter than a mountain, and that's the only improvement on offer."
 
 **THE FRONT WINDOW** — LOOK 2 "The glass has a wave in it. Everything outside looks like it's reconsidering." · 3 "My own reflection, rippling. Even the window hasn't decided whether I've arrived. Give it time." | LISTEN 2 "A wagon, a dog, a man insisting. The glass lets the insisting through." · 3 "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
 
