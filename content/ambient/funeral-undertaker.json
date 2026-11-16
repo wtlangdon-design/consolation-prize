@@ -8,7 +8,7 @@
   "T_LAID_IN": false
  },
  "note": "THE UNDERTAKER AT THE COFFIN (doc 57 E7: he speaks there -- 'Lid stays loose. Knock twice when they've gone.' -- and nails the lid). No examine pass writes him at the funeral, so he has no hotspot of his own; cut from room-31's composition master by tools/art/room31-cast.py, in his Room 13 apron (errata 99 G). Gone with the service: from T_LAID_IN the hill is night and empty.",
- "x": 616,
+ "x": 500,
  "y": 611,
  "zone": 2,
  "approachRadius": 0,
@@ -79,5 +79,6 @@
   "redrawn": "Errata 111 X (Tyler, 2026-11-06: 'The old man is super weirdly short and stout. The man in the blue jacket is a bad cutout.'). Drawn on magenta by cast-unify 31 (reference/cast-unify-29.txt) at ordinary lean proportions, as tall as Thad, cut with its own pixels and a clean edge, and relit into the funeral's night (tools/art/room31-relight-one.py). The undertaker at Thad's height (the brief before had asked for him 'a little shorter than the hero', and he came back squat).",
   "figureHeight": 400,
   "stature": 1.0
- }
+ },
+ "placeNote": "Errata 362: behind the coffin he has made, between it and the hearse. At 616 the coffin's foot end stood in front of all but his shoulders once the coffin moved 60 px right (errata 361)."
 }

@@ -8639,3 +8639,17 @@ Main's errata 358 cleaned the old hearse's blue fringe; the new sheet replaces t
 Still for Tyler's eye: a faint blue edge from the gate's sky rims Grievance's plume and ears (the image session offers to clean it); Hob's face in the coffin plate, a closer Hob than any other.
 
 Lesson: none -- new art wired as handed back and a ruling recorded; the room tests that hold the graveside's figures and props (tests/staging-clear.test.ts, the room 31 tests) pass on the new records.
+
+## 362 · Nobody stands wholly behind a prop (Tyler, 2026-11-16, of the graveside: "Is this what's wired? You put it over a character.")
+
+Errata 361 wired the graveside as handed back, and the image session's picture had been approved without the service in it. The hearse and coffin were one prop, standing at the coffin's feet (y 733), so the whole of it was drawn over everyone behind the coffin's foot row: Reverend Sowerby at the grave's head (502), where the new hearse stands, was hidden whole, and the undertaker (611) all but his shoulders behind the coffin, which had moved 60 px over him.
+
+- **Two props, each at its own feet.** The hearse stands on its wheels' row (y 505); the coffin group on its trestles' feet (y 726). Cut apart by the same tool (`tools/art/acts-two-to-four-cut.py hearse`); together they are the approved picture, pixel for pixel.
+- **The Reverend officiates between the coffin and the grave** (745, 650), in front of the hearse; THE REVEREND, OFFICIATING is over him there. His old place is the hearse's.
+- **The undertaker stands behind the coffin he made** (500, 611), between it and the hearse.
+
+Both new places are a staging call, for Tyler's eye.
+
+Lesson:
+- `tests/staging-clear.test.ts`: in every built room, no prop drawn in front of a person hides more than half of him; failing on main before this (the hearse hid 71% of the undertaker and 68% of the Reverend).
+- Doc 55 §8: a row (a drawing approved alone is placed among everyone who stands there).

@@ -162,6 +162,25 @@ for (const roomId of built) {
   });
   const most = (a: Mask[], b: Mask[]) => Math.max(...a.flatMap((ma) => b.map((mb) => shared(ma, mb) / Math.max(1, Math.min(area(ma), area(mb))))));
 
+  // NO PROP HIDES A PERSON BEHIND IT (errata 362; Tyler, 2026-11-16, of the graveside: "You put it over a
+  // character."). The new hearse was wired as one prop with the coffin, standing at the coffin's feet, so it was drawn
+  // over the Reverend at the grave's head and the undertaker behind the coffin, whole. A prop drawn in front of a
+  // figure (its foot row below his) may hide part of him, as a counter hides a barman's legs; not most of him.
+  test(`${roomId}: no prop hides most of a person drawn behind it`, () => {
+    const faults: string[] = [];
+    for (const prop of (room.props ?? []) as { id: string; sheet: string; x: number; y: number; frame: number[]; when?: Condition }[]) {
+      const art = sheet(prop.sheet);
+      if (prop.frame[2] === art.width && prop.frame[3] === art.height && art.width >= 1900) continue; // a picture over the whole view
+      const mask = maskOf(prop.sheet, prop.frame as [number, number, number, number], 1, prop.x, prop.y);
+      for (const one of people) {
+        if (one.y >= prop.y || !coexist(prop.when, one.when) || one.posture === 'band') continue;
+        const hidden = Math.min(...one.masks.map((m) => shared(m, mask) / Math.max(1, area(m))));
+        if (hidden > 0.5) faults.push(`${prop.id} (feet ${prop.y}) is drawn over ${one.npc.id} (feet ${one.y}) and hides ${(hidden * 100).toFixed(0)}% of him`);
+      }
+    }
+    assert.deepEqual(faults, [], `${roomId}: a prop stands at its own feet, and nobody stands wholly behind one`);
+  });
+
   test(`${roomId}: wherever the player stands to talk, he stands on nobody`, () => {
     const faults: string[] = [];
     // EVERY STAND, IN ITS OWN STATE (errata 330): a stand that holds only in some states (`walkToWhen`) is checked
