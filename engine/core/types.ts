@@ -1479,6 +1479,11 @@ export interface ItemFile {
    * check-item-names fails the build if two items would draw the same row.
    */
   short?: string;
+  /**
+   * WHAT IT IS CALLED, BY STATE (errata 357): the first entry whose `when` holds names it in the panel (and, with
+   * `name`, in full). Act II's two dollars were still THE FILING FEE, a fee spent in Act I.
+   */
+  shortWhen?: { when: Condition; short: string; name?: string }[];
   /** In the inventory from a new game. The fork never leaves it. */
   startsHeld?: boolean;
   /**

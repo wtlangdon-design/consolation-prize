@@ -23,5 +23,14 @@
         ]
       }
     ]
-  }
+  },
+  "shortWhen": [
+    {
+      "when": {
+        "T_BORDERS_MOTT": true
+      },
+      "short": "TWO DOLLARS",
+      "name": "Two dollars"
+    }
+  ]
 }

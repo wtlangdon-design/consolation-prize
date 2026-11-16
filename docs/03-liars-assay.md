@@ -307,7 +307,7 @@ That last one lands very differently in Act IV.
 *Puzzle B5. A camp two days out. Vessel is delighted to see Thad, which is the worst part.*
 
 > **VESSEL:** "Grubb! You came all this way. Was the claim not to your liking?"
-> **THAD:** "The claim contains a raccoon and an opinion."
+> **THAD:** "The claim contained a raccoon and an opinion. I've kept the opinion."
 > **VESSEL:** "It contained a raccoon when I sold it. You bought the whole thing."
 
 Vessel opens with pair 1. Thad has no counters. He loses five straight exchanges. After each, a bystander mutters the correct line and Thad writes it in a notebook, out loud, deadpan:

@@ -410,7 +410,7 @@ Asking anyone else to be executor is answered by the interest rule:
 
 *Rooms 7 and 8.*
 
-> **THE ARCHIVE DOOR** · OPEN, *with `T_EXECUTOR_NAMED`* — **SUMP:** "The executor of the late Mr. Grubb." — "His agent." — **SUMP:** *(He looks at Thad for some time.)* "You resemble him." — "So I'm told." — **SUMP:** *(He unlocks it.)* "Be brief. The archive closes at four, and so do I." → Room 8.
+> **THE ARCHIVE DOOR** · OPEN, *with `T_EXECUTOR_NAMED`* — **SUMP:** "The executor of the late Mr. Grubb." — "His agent." — **SUMP:** *(He looks at Thad for some time.)* "You resemble him." — "So I'm told." — **SUMP:** *(He unlocks it.)* "Be brief. The archive keeps office hours, and so do I." → Room 8.
 
 **Two ways to see it**, both quiet:
 
@@ -425,7 +425,7 @@ Asking anyone else to be executor is answered by the interest rule:
 
 **Act IV opens in Room 19, morning**, the case packed on the bed:
 
-> "Packed. It didn't take long; there was less to pack than there was to leave. The coach is at noon. I am going to look at my mud once more first, because nobody else will."
+> "Packed. It didn't take long; there was less to pack than there was to leave. The coach goes today. I am going to look at my mud once more first, because nobody else will."
 
 ---
 

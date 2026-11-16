@@ -1298,19 +1298,45 @@
     }
   ],
   "peopleResponses": {
+    "winnie": {
+      "LOOK_AT": [
+        {
+          "when": {
+            "T_STRIKE_FOUND": true
+          },
+          "say": "Winnie, at the window, with a number she believes written in her book. She looks, for once, like somebody who has been paid.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER · **WINNIE LEDGER** · *at her window, once the strike is found* - LOOK"
+        },
+        {
+          "when": {
+            "T_DEATH_CERTIFIED": true,
+            "T_STRIKE_FOUND": false
+          },
+          "say": "Winnie, writing. She has certified me dead and has not once looked at me as if I were.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER · **WINNIE LEDGER** · *at her window, once she has certified me* - LOOK"
+        },
+        {
+          "when": {
+            "ACT": {
+              "atLeast": 2
+            },
+            "T_DEATH_CERTIFIED": false,
+            "T_STRIKE_FOUND": false
+          },
+          "say": "Winnie Ledger, writing. Every line she writes is true, which in this town makes her the most dangerous person in it.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER · **WINNIE LEDGER** · *at her window, once Act II has begun* - LOOK"
+        },
+        {
+          "say": "A woman writing, in a hand I can tell is neat from here. She hasn't looked up either, but hers feels like a decision.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **WINNIE LEDGER** - LOOK"
+        }
+      ]
+    },
     "winnie_at_board": {
       "LOOK_AT": [
         {
           "say": "Winnie, out from behind her counter and down at the floor. In all my visits it's the first I've seen of her below the window.",
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **WINNIE LEDGER** · *at the loose board* - LOOK"
-        }
-      ]
-    },
-    "winnie": {
-      "LOOK_AT": [
-        {
-          "say": "A woman writing, in a hand I can tell is neat from here. She hasn't looked up either, but hers feels like a decision.",
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **WINNIE LEDGER** - LOOK"
         }
       ]
     }

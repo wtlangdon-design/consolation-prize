@@ -2850,6 +2850,26 @@ if (staleGeometry.length) {
     if (found !== 1) fail(`act-line-gates halves: "${entry.says}" matches ${found} lines in ${built.id}, not one`);
   }
 }
+// A PERSON'S LINES, MOST PARTICULAR FIRST (errata 357). The engine says the first rule whose condition holds, so an
+// unconditioned look written earlier hid every act's look written after it (Winnie at her window said her first
+// meeting's line in Act IV). Unconditioned rules go last; the order among the rest is kept.
+for (const verbs of Object.values(built.peopleResponses ?? {})) {
+  for (const [verb, rules] of Object.entries(verbs)) verbs[verb] = [...rules.filter((one) => one.when), ...rules.filter((one) => !one.when)];
+}
+// A WAY WITH NOTHING TO SAY (errata 357). An exit whose LOOK or LISTEN answered with silence: doc 133 writes it, by
+// room, exit and verb, and the build fails if the exit has the verb already (a line moved under it).
+{
+  const section = read('docs/133-playthrough-rulings.md').split('## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER')[1]?.split(/\n## /)[0] ?? '';
+  for (const m of section.matchAll(/^- `([a-z0-9_]+)` · `([a-z0-9_]+)` · (LOOK|LISTEN) — "([^"]+)"$/gm)) {
+    const [, roomId, exitId, verb, line] = m;
+    if (roomId !== built.id) continue;
+    const exit = [...(built.exits ?? []), ...built.hotspots].find((one) => one.id === exitId);
+    if (!exit) fail(`doc 133 WHAT IS TRUE LATER: no exit "${exitId}" in ${roomId}`);
+    const key = verb === 'LOOK' ? 'LOOK_AT' : 'LISTEN_TO';
+    if (exit.responses?.[key]?.length) fail(`doc 133 WHAT IS TRUE LATER: ${roomId} ${exitId} already answers ${key}`);
+    (exit.responses ??= {})[key] = [{ say: line }];
+  }
+}
 // THE SOUND OF THINGS (errata 354). Doc 133 lists, by room, object and click, the small real sounds that replace a bare
 // "Nothing." (a room keeps one, errata 343). Each entry must find "Nothing." exactly where it says, or the build fails:
 // a line that moved under it is a line somebody must look at again.

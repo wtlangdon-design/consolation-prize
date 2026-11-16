@@ -515,3 +515,20 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 
 **THE WINDOW** · *the watchman's shack, in Act IV*
 - LOOK — "It faces the Improvement Company, as it always has. Nobody is standing at it now."
+
+## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER
+
+*Errata 357. Lines and names that were true when first met and went on being said after they stopped being true.*
+
+- `filing_fee` *(once `T_BORDERS_MOTT`)* — TWO DOLLARS · "Two dollars"
+- `boot_hill` · `to_funeral_closed` · LOOK — "My grave, up past the gate, with the procession stopped short of it. It can wait. It has nowhere else to be."
+- `boot_hill` · `to_funeral_closed` · LISTEN — "The spade, ticking against the spoil heap whenever the wind finds it."
+
+**WINNIE LEDGER** · *at her window, once Act II has begun*
+- LOOK — "Winnie Ledger, writing. Every line she writes is true, which in this town makes her the most dangerous person in it."
+
+**WINNIE LEDGER** · *at her window, once she has certified me*
+- LOOK — "Winnie, writing. She has certified me dead and has not once looked at me as if I were."
+
+**WINNIE LEDGER** · *at her window, once the strike is found*
+- LOOK — "Winnie, at the window, with a number she believes written in her book. She looks, for once, like somebody who has been paid."

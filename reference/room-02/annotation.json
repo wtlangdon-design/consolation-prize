@@ -369,6 +369,24 @@
    ],
    "facing": "front",
    "note": "Errata 246 (doc 118 O-2): posting the funeral notice comes back to the street as the day then is (the pair's goto), and he is where he put it up, at the notice board, turned from it to the street. Without this he came back at the street's east edge."
+  },
+  {
+   "from": "fanshawe_office",
+   "at": [
+    765,
+    568
+   ],
+   "facing": "front",
+   "note": "Errata 357: placed from the Colonel's rooms at the Company's door, as from its lobby. The act's turn (E0b) goes to the street from his office, and with no entrance of its own he stood at the far end of town."
+  },
+  {
+   "from": "company_vault",
+   "at": [
+    765,
+    568
+   ],
+   "facing": "front",
+   "note": "Errata 357: placed from the Colonel's rooms at the Company's door, as from its lobby. The act's turn (E0b) goes to the street from his office, and with no entrance of its own he stood at the far end of town."
   }
  ],
  "onEnterSay": {

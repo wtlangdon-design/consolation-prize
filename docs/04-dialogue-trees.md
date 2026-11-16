@@ -916,7 +916,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 |---|---|---|---|
 | 1 | "You bought the hotel." | `[TOPIC · retain]` | "With your four dollars, and some other fellows' several thousand. A man has to put his money somewhere, and I put mine where people sleep." *(second)* "Outright, son. First thing I ever bought that I meant to keep." |
 | 2 | "Was it worth it?" | `[COMIC · retain]` | "The four dollars? Son, your four dollars *built the mezzanine*." *(second)* "Every cent. Every time you climb those stairs, son, you're walking on your own four dollars." |
-| 3 | "Is my room still mine?" | `[TOPIC · retain]` | "Yours till noon, son. I've put the rate up, on account of the history." *(second)* "Till noon. After noon it's a historic room, and those go for more." |
+| 3 | "Is my room still mine?" | `[TOPIC · retain]` | "Yours till the coach, son. I've put the rate up, on account of the history." *(second)* "Till the coach. After the coach it's a historic room, and those go for more." |
 | 4 | "Did the clerk come with it?" | `[TOPIC · retain]` | "He came with the building. Like the damp. I've grown fond of them both." *(second)* "Like the damp. Neither of them takes instruction, and I've stopped asking." |
 
 ## THE LIVERY MAN — one node *(the second never existed; errata 75)*

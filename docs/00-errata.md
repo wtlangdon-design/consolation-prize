@@ -8561,3 +8561,21 @@ From the Act IV narrative review. New lines are one voice, in /docs.
 Lesson:
 - `tests/last-act.test.mjs`: four tests, each failing on main before this.
 - Doc 55 §8: what the ending exists to say is said on the path.
+
+## 357 · What is true later (Tyler, 2026-11-16: "Go")
+
+The third group of the morning's list: lines and pictures the player will notice.
+
+- **No clock times where they were flagged** (settled rule 3). "The archive closes at four" (Sump, at the archive, at night) is "The archive keeps office hours, and so do I."; "The coach is at noon" (Act IV's opening) is "The coach goes today."; Vessel's "Yours till noon, son." is "Yours till the coach, son." The window sign's own "THIS WINDOW CLOSES AT FOUR." and Pratt's "Sump closes at four." are the running joke about the office, and stay.
+- **"The claim contains a raccoon" after the raccoon is gone** is "The claim contained a raccoon and an opinion. I've kept the opinion." (doc 03, Duel One).
+- **Act II's two dollars are TWO DOLLARS,** not THE FILING FEE, a fee spent in Act I (`ItemFile.shortWhen`, a name by state; doc 133).
+- **A person's later look can be reached.** The engine says the first rule that holds, and a person's unconditioned look written earlier hid every later one: Winnie at her window said her first meeting's line in Act IV. The compiler puts unconditioned rules last; Winnie has a look for Act II, for after the certificate, and for after the strike (doc 133).
+- **The closed way to the funeral answers LOOK and LISTEN** (Boot Hill's PIKE'S NEIGHBOR, while the procession is stalled, said nothing at all).
+- **Thad arrives at the river clear of the painted man at the rocker,** and at the Company's door when the act's turn takes him from the Colonel's office to the street (he stood at the far end of town).
+- **The Company's strongbox holds coin.** The plate drew gold ingots, the box's lines say coin, and the ledger shelf says the Company never traded in gold (`tools/art/vault-coin.py`, script-sized).
+- **The undertaker on Boot Hill is one target:** his hotspot covers the whole of him.
+
+Not done: the procession's prayer starting before "Let us bow our heads", and speech drawn over faces at the séance and the duel (staging, for the next pass); the livery's stand at Grievance was not reproduced.
+
+Lesson:
+- `tests/true-later.test.mjs`: four tests, each failing on main before this.

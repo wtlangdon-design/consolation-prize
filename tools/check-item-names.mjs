@@ -151,7 +151,9 @@ export function check() {
   let worstWidth = 0;
   let worstOf = null;
 
-  for (const { path, data } of items) {
+  // An item called something else by state (ItemFile.shortWhen, errata 357) is measured and compared under each name.
+  const named = items.flatMap(({ path, data }) => [{ path, data }, ...(data.shortWhen ?? []).map((one) => ({ path, data: { ...data, short: one.short, name: one.name ?? data.name, shortWhen: undefined, linesPending: true } }))]);
+  for (const { path, data } of named) {
     const label = data.short ?? data.name;
     // What the renderer actually draws, at the scale it actually draws it.
     const worst = worstSentence(content, label);

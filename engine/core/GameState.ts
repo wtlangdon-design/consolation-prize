@@ -326,7 +326,9 @@ export class GameState {
   }
 
   itemNamed(id: string): string {
-    return this.content.items.get(id)?.name ?? id;
+    const item = this.content.items.get(id);
+    const by = item?.shortWhen?.find((one) => this.flags.test(one.when));
+    return by?.name ?? item?.name ?? id;
   }
 
   /**
@@ -341,7 +343,8 @@ export class GameState {
    */
   itemLabel(id: string): string {
     const item = this.content.items.get(id);
-    return item?.short ?? item?.name ?? id;
+    const by = item?.shortWhen?.find((one) => this.flags.test(one.when));
+    return by?.short ?? item?.short ?? item?.name ?? id;
   }
 
   get inventoryScroll(): number {
