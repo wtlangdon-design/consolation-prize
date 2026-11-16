@@ -8511,7 +8511,7 @@ Lesson:
 - `tests/plate-edges.test.mjs`: twelve rows in, four edges. On main before this it fails on the four plates once it looks that deep.
 - `tests/figure-light.test.mjs`: the night-exteriors test names Prosperity and Boot Hill.
 
-## 354 · What was still to write, and four rulings (Tyler, 2026-11-16: "You decide on 1-4. Complete the \"still to write\" items.")
+## 354 · What was still to write, and four rulings (Tyler, 2026-11-16: "You decide on 1-4. Complete the 'still to write' items.")
 
 **The four rulings, decided as asked.**
 1. **Duel Three's winning truth stands as written.** "There is no gold in Mott's claim. There never was." is said by a man holding gold, but the gold came from under Prosperity (doc 02 F3: "the strike Mott invented, exactly where he randomly said it was"), not from Claim One, whose filing is blank. The line is literally true, the town hears it as the biggest lie ever told, and that is doc 03's point ("Consolation is structurally incapable of hearing the truth"). Changing it would trade the act's best joke for a tidier one.
