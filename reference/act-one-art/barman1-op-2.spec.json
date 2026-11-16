@@ -1,0 +1,17 @@
+{
+ "assetId": "act1-bar-man",
+ "subject": "act1-bar-man",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-03-nugget",
+ "promptFile": "reference/act-one-art/barman1-op-2.txt",
+ "out": "art/staging/act-one-art/barman1/op-2.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act-one-art/barman1/op-1.png",
+  "art/staging/act-one-art/barman1/side-by-side.png",
+  "art/staging/act-one-art/barman1/bar2@2x.png"
+ ],
+ "mask": "art/staging/act-one-art/barman1/mask.png",
+ "derivedFrom": 1
+}

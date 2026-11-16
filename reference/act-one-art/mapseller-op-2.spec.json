@@ -1,0 +1,16 @@
+{
+ "assetId": "act1-map-seller",
+ "subject": "act1-map-seller",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/act-one-art/mapseller-op-2.txt",
+ "out": "art/staging/act-one-art/mapseller/op-2.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act-one-art/mapseller/op-1.png",
+  "art/staging/act-one-art/mapseller/side-by-side.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "derivedFrom": 1
+}
