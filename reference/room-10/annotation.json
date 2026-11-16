@@ -285,7 +285,8 @@
  },
  "figureLight": {
   "figures": [
-   "thad"
+   "thad",
+   "lobby_clerk"
   ],
   "light": [
    1.0,
@@ -293,7 +294,13 @@
    0.72
   ],
   "brightness": 0.81,
-  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+  "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate.",
+  "perFigure": {
+   "lobby_clerk": {
+    "brightness": 0.78,
+    "saturate": 0.9
+   }
+  }
  },
  "motion": [
   {
