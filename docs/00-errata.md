@@ -8425,7 +8425,7 @@ From the Act I review's art director: four figures were in a different hand from
 
 Two tests failed on the hand-back and were decided here, neither by loosening:
 - **The horses.** The test held that errata 198's day-lit horses were too bright before the street's grade. Those horses are gone; redrawn for the night they measure 1.09 of Thad ungraded, inside the limit. The street still grades them, and the test now holds that the drawing itself is the night's (`tests/figure-light.test.mjs`; `proofs/check-friction.json`).
-- **The clerk.** He declared no depth, so the one-level check read the floor in front of the desk and asked for blocks twice his size. He declares `depthY` 387, his own row, as the storekeeper does; and his breath, a one-pixel lift, is a lift of one of his blocks.
+- **The clerk.** He declared no depth, so the one-level check read the floor in front of the desk and asked for blocks twice his size. He declares `depthY` 441, as the storekeeper declares his: the row at which the room's curve makes the man his waist-up belongs to (about 258; `tests/scale.test.ts` holds a waist-up to 0.45 of the man where it stands). `tools/art/one-level.py` then snapped him to that man's level, blocks of 2.24 where the redraw was cut at 1.92 and the old sheet at 4. The redraw's pink edge pixels went the way of errata 345's (`tools/art/key-fringe.py`).
 
 Left: the map seller is trimmed at his cell's edge in three poses (widening the cell is a change to his record); Thad still has no clear place at the Nugget's bar, because the man in the blue shirt sits in it.
 

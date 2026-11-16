@@ -82,8 +82,7 @@
   "waistOn": 377,
   "waistOnNote": "The plate row the figure's waist ends on: the desk's back edge (y 377 at x 1435); nothing is on the desk. Whatever lies on the counter in front of the waist is in front of the body, so the body stops at its far edge and only the hands come forward onto it. Tyler, 2026-11-06: 'body is partially on top of the book' -- the waist had been set on the counter's back edge, below the ledger's far edge. Held by tests/counter-surface.test.mjs against the plate.",
   "hands": "on-counter",
-  "depthY": 387,
-  "depthYNote": "Errata 349: the depth his 1:1 scale belongs to. He sits far behind the desk, and the room's curve carried back to his row makes a man about 221 px, the man he was redrawn and cut at (reference/act-one-art/handback.md). Without it the level read the floor in front of the desk (440) and asked for blocks twice the size.",
-  "breathNote": "Errata 349: his breath is a lift of two sheet pixels, one of his blocks (he is cut at 1.92 px to the block). tools/rig/ambient-breath.py lifts one, which is finer than his level; the frame was re-derived by hand from the rest frame when he was wired, and a re-cut must do the same."
+  "depthY": 441,
+  "depthYNote": "Errata 349: the depth his 1:1 scale belongs to. He is drawn 116 px from crown to the desk, a waist-up of a man of about 258, which is the room's curve carried back to this row; tests/scale.test.ts holds a waist-up to 0.45 of the man where it stands, and tools/art/one-level.py snapped him to that man's level (block 2.24). Without a depth the level read the floor in front of the desk (440) and asked for blocks of 3.83."
  }
 }

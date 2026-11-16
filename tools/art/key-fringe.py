@@ -15,7 +15,9 @@ from PIL import Image
 from scipy import ndimage
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SHEETS = ['art/actors/room-43-bell-ringer.png', 'art/actors/message-boy.png', 'art/actors/ambient-map-seller-master.png']
+# The map seller's sheet was on this list (errata 345) and came off when he was redrawn (errata 349): his red neckerchief
+# reaches his outline now, and the pink test would take it for fringe.
+SHEETS = ['art/actors/room-43-bell-ringer.png', 'art/actors/message-boy.png', 'art/actors/room-10-clerk.png']
 DRY = '--dry' in sys.argv
 
 
