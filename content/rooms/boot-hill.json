@@ -2218,7 +2218,8 @@
   "figureLight": {
     "figures": [
       "memorial_fanshawe",
-      "thad"
+      "thad",
+      "sowerby_gate"
     ],
     "light": [
       0.8,
@@ -2227,7 +2228,7 @@
     ],
     "brightness": 0.95,
     "saturate": 0.92,
-    "note": "Errata 242 (doc 113, C), retuned by errata 255. The hill's own cast is the moon's (Sowerby at the gate, the mourners); Fanshawe's sheet is painted warmer and brighter, so the room cools and dims him. Errata 242 set this for his Duel Three sheet and took half his colour out; on the hat-in-hand sheet that replaced it (errata 246) that left his face grey beside everyone else's (Tyler, 2026-11-10: \"a very different skin tone than everyone else in the scene and it makes him look sickly\"). Now a cool multiply and nearly all his colour kept: his skin measures 127/103/75 against the town's 135/107/75 behind him. Only he is named. Errata 353: Thad takes the hill's night as on the claims (errata 346's values); he was the brightest thing on it.",
+    "note": "Errata 242 (doc 113, C), retuned by errata 255. The hill's own cast is the moon's (Sowerby at the gate, the mourners); Fanshawe's sheet is painted warmer and brighter, so the room cools and dims him. Errata 242 set this for his Duel Three sheet and took half his colour out; on the hat-in-hand sheet that replaced it (errata 246) that left his face grey beside everyone else's (Tyler, 2026-11-10: \"a very different skin tone than everyone else in the scene and it makes him look sickly\"). Now a cool multiply and nearly all his colour kept: his skin measures 127/103/75 against the town's 135/107/75 behind him. Only he is named. Errata 353: Thad takes the hill's night as on the claims (errata 346's values); he was the brightest thing on it. Sowerby at the gate, painted a shade lighter than the hill, is graded with him so the pair stay in one light.",
     "perFigure": {
       "thad": {
         "light": [
@@ -2237,6 +2238,15 @@
         ],
         "brightness": 0.8,
         "saturate": 0.85
+      },
+      "sowerby_gate": {
+        "light": [
+          0.84,
+          0.9,
+          1.0
+        ],
+        "brightness": 0.84,
+        "saturate": 0.9
       }
     }
   },

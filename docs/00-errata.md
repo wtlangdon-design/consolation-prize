@@ -8502,7 +8502,7 @@ From the review's art directors. No image operation; each is a recorded script o
 
 - **The grey bands are off four more plates** (`tools/art/plate-edge-lines-2.py`): the Clarion's floor (bottom seven rows), Mott's site (bottom nine), Thad's room in Act IV (top two, bottom three) and the Company's vault (top nine rows, left three columns). The Clarion and Thad's room are graded from kept originals, which were cleaned and graded again.
 - **Why errata 345's test missed them:** it compared the edge row with the row five in, and these bands are six to nine rows wide, so it compared band with band. It now looks twelve rows in, on all four edges.
-- **Thad takes the night at Prosperity and on Boot Hill**, and Pratt with him on the claim, with errata 346's values (the claims next door). He stood in both in even indoor light: on Prosperity beside a Pratt who is night-blue one screen to the right, and on the hill brighter than every mourner.
+- **Thad takes the night at Prosperity and on Boot Hill**, and Pratt with him on the claim, with errata 346's values (the claims next door). He stood in both in even indoor light: on Prosperity beside a Pratt who is night-blue one screen to the right, and on the hill brighter than every mourner. Sowerby at the gate, painted a shade lighter than the hill, is graded with him, or the dimmed Thad would leave him the brightest figure there.
 
 Not done, and why: the laundry and Ozymandia's tent are lamplit interiors, where the back alley's trial showed a dimmed Thad looks wrong without a look at it first; the blue fringe on the hearse and on Grievance, the Colonel floating at the wreath, the lamp left on the desk, and the drawings (a hat, one hearse, the open coffin, the duel crowd) wait for Tyler and the image session.
 
