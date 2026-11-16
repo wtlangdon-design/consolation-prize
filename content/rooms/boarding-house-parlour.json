@@ -607,5 +607,23 @@
       "seed": 3702,
       "amount": 0.38
     }
-  ]
+  ],
+  "peopleResponses": {
+    "boarding_b": {
+      "LOOK_AT": [
+        {
+          "say": "The other proprietress. Between them they run the one business in Consolation that has never once gone looking for gold.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE OTHER BOARDING HOUSE WOMAN** - LOOK"
+        }
+      ]
+    },
+    "boarding_a": {
+      "LOOK_AT": [
+        {
+          "say": "One of the two women who keep the boarding house. She regards the gold rush as weather, and has dressed for it.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE BOARDING HOUSE WOMAN** - LOOK"
+        }
+      ]
+    }
+  }
 }

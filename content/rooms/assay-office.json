@@ -1298,6 +1298,14 @@
     }
   ],
   "peopleResponses": {
+    "winnie_at_board": {
+      "LOOK_AT": [
+        {
+          "say": "Winnie, out from behind her counter and down at the floor. In all my visits it's the first I've seen of her below the window.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **WINNIE LEDGER** · *at the loose board* - LOOK"
+        }
+      ]
+    },
     "winnie": {
       "LOOK_AT": [
         {

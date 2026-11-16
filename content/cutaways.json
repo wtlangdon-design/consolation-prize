@@ -53,7 +53,8 @@
           "atLeast": 3,
           "atMost": 3
         },
-        "T_FUNERAL_DAY": false
+        "T_FUNERAL_DAY": false,
+        "T_DECEASED": false
       },
       "done": "T_CUTAWAY_FANSHAWE",
       "establishing": {

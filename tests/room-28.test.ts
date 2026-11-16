@@ -24,7 +24,7 @@ import type { AmbientFile } from '../engine/core/types.ts';
 
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
-const docs = (await Promise.all(['docs/04-dialogue-trees.md', 'docs/05-examine-layer.md', 'docs/10-examine-batch-3.md', 'docs/54-batch-c.md', 'docs/08-examine-batch-1.md', 'docs/09-examine-batch-2.md']
+const docs = (await Promise.all(['docs/04-dialogue-trees.md', 'docs/05-examine-layer.md', 'docs/10-examine-batch-3.md', 'docs/54-batch-c.md', 'docs/08-examine-batch-1.md', 'docs/09-examine-batch-2.md', 'docs/133-playthrough-rulings.md' /* errata 354: the sound of things */]
   .map((path) => readFile(resolve(ROOT, path), 'utf8')))).join('\n');
 
 const inState = async (fixtureId: string) => {

@@ -621,7 +621,7 @@
             "say": "Reverend Sowerby, with his book open at the place, ready to see me off.",
             "repeat": [
               "There is a pencil behind his ear, for the counting.",
-              "He has not looked at me once. The clergy see the soul, and I am wearing a hat."
+              "He has not looked at me once. The clergy see the soul, and I am keeping mine out of sight."
             ]
           }
         ],
@@ -875,7 +875,7 @@
             "say": "Half the town, in black, at the gate.",
             "repeat": [
               "They are standing the way people stand at a stopped coach, politely, looking at their watches.",
-              "Not one of them has looked at me twice. A low hat does more than I would have guessed."
+              "Not one of them has looked at me twice. A funeral is the one place nobody looks anybody in the face."
             ],
             "then": [
               "Nobody here has buried me before, and they would like to get it right."

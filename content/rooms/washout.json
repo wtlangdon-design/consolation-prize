@@ -799,5 +799,15 @@
       "id": "pine_2",
       "note": ""
     }
-  ]
+  ],
+  "peopleResponses": {
+    "washout_grievance": {
+      "LOOK_AT": [
+        {
+          "say": "Grievance, on the one patch of grass for a mile, eating it slowly so it lasts.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **GRIEVANCE** · *at the washout* - LOOK"
+        }
+      ]
+    }
+  }
 }

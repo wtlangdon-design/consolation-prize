@@ -36,7 +36,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "Wind across the coins, a thin tin whisper, like change in a pocket a long way off.",
             "repeat": [
               "A coin settling as the dirt dries around it.",
               "Nothing. Whatever they paid for has not been delivered."
@@ -146,7 +146,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "A beetle, walking the groove of a letter. It takes the O very slowly.",
             "repeat": [
               "Nothing. Stone, with a name in it, keeping it.",
               "Wind across the letters, a faint whistle in the M."
@@ -495,7 +495,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "Wind dropping into the nearest pit and coming out of another, farther off.",
             "repeat": [
               "Loose dirt sliding back into a pit, slowly refilling what was emptied.",
               "Nothing. Four hundred holes, every one keeping the same secret, which is that there isn't one."

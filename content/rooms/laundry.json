@@ -74,7 +74,7 @@
           {
             "say": "Paper on a nail. The gentleman keeps his own counsel.",
             "repeat": [
-              "Nothing.",
+              "The paper ticking against the door each time the boilers knock.",
               "The paper lifting at one corner when the door opens, and lying flat again."
             ]
           }
@@ -111,7 +111,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "The iron, through the steam, setting down and lifting, and the book on the shelf giving a small jump each time.",
             "repeat": [
               "Nothing. Figures that balance make no noise.",
               "The page lifting in the steam and settling again, heavy with damp and arithmetic."
@@ -483,7 +483,7 @@
           {
             "say": "The chair is still warm-sounding, if that is a thing.",
             "repeat": [
-              "Nothing.",
+              "The rush seat crackling as it cools by the door.",
               "Nothing. The chair is empty, and he is at work, which is where he usually is."
             ],
             "then": [
@@ -875,6 +875,12 @@
       "USE": [
         {
           "say": "Everybody in town uses Sheng. He keeps a book of it."
+        }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "Mr. Sheng, ironing. He presses a collar as if signing a contract: once, and meaning it.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **AH-LAM SHENG** · *at his ironing board* - LOOK"
         }
       ]
     }

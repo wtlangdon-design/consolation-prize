@@ -14,6 +14,12 @@
     },
     {
       "when": {
+        "T_DEATH_CERTIFIED": true
+      },
+      "node": "WIN_C2"
+    },
+    {
+      "when": {
         "T_FUNERAL_BOOKED": true
       },
       "node": "WIN_C1"
@@ -776,6 +782,59 @@
       },
       "openingOnce": "T_WIN_C1_HEARD"
     },
+    "WIN_C2": {
+      "id": "WIN_C2",
+      "prompt": "You're dead, Mr. Grubb. I have it in my own hand. Don't make a liar of me in front of the window.",
+      "opening": [
+        {
+          "speaker": "winnie",
+          "line": "You're dead, Mr. Grubb. I have it in my own hand. Don't make a liar of me in front of the window."
+        }
+      ],
+      "options": [
+        {
+          "id": "winnie1",
+          "tag": "TOPIC",
+          "text": "How does it feel, certifying a man you're looking at?",
+          "afterUse": "remove",
+          "say": "Honest, for once. You are dead in every way this office can see."
+        },
+        {
+          "id": "winnie2",
+          "tag": "TOPIC",
+          "text": "Will it hold?",
+          "afterUse": "retain",
+          "say": "It's signed. Paper holds until somebody brings better paper.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "It'll hold. Stop asking. The dead don't fidget."
+            }
+          ]
+        },
+        {
+          "id": "winnie3",
+          "tag": "COMIC",
+          "text": "Do I look natural?",
+          "afterUse": "retain",
+          "say": "You look like a man who owes the undertaker.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still owing. Very lifelike."
+            }
+          ]
+        },
+        {
+          "id": "winniex",
+          "tag": "EXIT",
+          "text": "Thank you. This has been clarifying.",
+          "universal": true,
+          "ends": true
+        }
+      ],
+      "openingOnce": "T_WIN_C2_HEARD"
+    },
     "WIN_F1": {
       "id": "WIN_F1",
       "prompt": "…Get in the book. You're the book.",
@@ -844,7 +903,7 @@
         {
           "id": "winniex",
           "tag": "EXIT",
-          "text": "Thank you. This has been clarifying.",
+          "text": "I should go.",
           "universal": true,
           "ends": true
         }
@@ -979,7 +1038,7 @@
         {
           "id": "winniex",
           "tag": "EXIT",
-          "text": "I should go.",
+          "text": "I've taken enough of your time. I'll be taking more later.",
           "universal": true,
           "ends": true
         }

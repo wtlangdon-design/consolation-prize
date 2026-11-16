@@ -108,7 +108,7 @@ Funeral day, after the séance. The procession has reached the foot of Boot Hill
 **LISTEN** 1 "A long breath out through the nose, aimed at the coffin." · 2 "Her harness creaks as she shifts her weight. She shifts it away from the hill." · 3 "Nothing. She has said what she has to say."
 
 **THE MOURNERS**
-**LOOK** 1 "Half the town, in black, at the gate. Nobody here has buried me before, and they would like to get it right." · 2 "They are standing the way people stand at a stopped coach, politely, looking at their watches." · 3 "Not one of them has looked at me twice. A low hat does more than I would have guessed."
+**LOOK** 1 "Half the town, in black, at the gate. Nobody here has buried me before, and they would like to get it right." · 2 "They are standing the way people stand at a stopped coach, politely, looking at their watches." · 3 "Not one of them has looked at me twice. A funeral is the one place nobody looks anybody in the face."
 **LISTEN** 1 "Somebody says I was a quiet sort of fellow. Somebody else says I was new. They agree that will be it." · 2 "A watch being wound, and then a second watch, out of sympathy." · 3 "Somebody asks whether the mule always does this. The undertaker says she has never done it before. Everybody looks at the coffin."
 
 **THE UNDERTAKER**
@@ -116,7 +116,7 @@ Funeral day, after the séance. The procession has reached the foot of Boot Hill
 **LISTEN** 1 "He is murmuring to the mule. It sounds like an apology." · 2 "His boots shift on the gravel. He would like to be anywhere else, the box included." · 3 "Nothing. He has stopped murmuring. It was not working."
 
 **REVEREND SOWERBY, AT THE GATE**
-**LOOK** 1 "Reverend Sowerby, with his book open at the place, ready to see me off." · 2 "There is a pencil behind his ear, for the counting." · 3 "He has not looked at me once. The clergy see the soul, and I am wearing a hat."
+**LOOK** 1 "Reverend Sowerby, with his book open at the place, ready to see me off." · 2 "There is a pencil behind his ear, for the counting." · 3 "He has not looked at me once. The clergy see the soul, and I am keeping mine out of sight."
 **LISTEN** 1 "He is turning pages to find his place, and finding it twice." · 2 "He hums the opening of a hymn under his breath, to see if it still fits." · 3 "Nothing. He is saving it."
 
 **TALK TO THE UNDERTAKER** · *while stalled*
@@ -157,7 +157,7 @@ Funeral day, after the séance. The procession has reached the foot of Boot Hill
 3. "It was a smoother ride than the stagecoach. I recommend it to anyone, at the end."
 
 **ARRIVING AT THE GRAVE** · *Room 31, the first entry after the ride*
-> "By the time the town caught us up, the coffin was on its trestles and I was at the back with my hat down, as out of breath as anybody."
+> "By the time the town caught us up, the coffin was on its trestles and I was at the back with my head down, as out of breath as anybody."
 
 **THE WRONG TRIES** · *while stalled*
 - **GRIEVANCE, AT THE GATE** · USE THE TUNING FORK — the existing line: "She has heard it. She does not need to hear it twice."

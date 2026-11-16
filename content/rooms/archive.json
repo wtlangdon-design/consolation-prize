@@ -113,7 +113,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "A dry tick from the binding as the shelf settles. Every name in it opened it once.",
             "repeat": [
               "Nothing. A book of visitors, none of whom is visiting.",
               "The page settling as I close it. Twenty names now, and one of them still breathing."
@@ -299,7 +299,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "A faint hiss where my sleeve brushes the shelf. The dust, putting itself back.",
             "repeat": [
               "Nothing. Dust is very good at being undisturbed.",
               "Nothing. I sneezed once. It's the loudest thing this room has heard in a year, and I apologized to it."

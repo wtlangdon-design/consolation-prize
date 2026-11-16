@@ -2555,6 +2555,24 @@
     "room:claims_registrar:statute_book:OPEN"
    ],
    "note": "Errata 352: Thad has read section nineteen, sub-section four, in the statute book (Act IV). Read by nothing; it records that the reading Sump remarks on at the filing happened."
+  },
+  {
+   "id": "T_WIN_C2_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_C2 openingOnce"
+   ],
+   "note": "Errata 354: Winnie's after-the-signing opening has been heard; said once."
+  },
+  {
+   "id": "T_FAN_E1_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FANSHAWE:FAN_E1 openingOnce"
+   ],
+   "note": "Errata 354: the Colonel's condolence has been heard; said once."
   }
  ]
 }

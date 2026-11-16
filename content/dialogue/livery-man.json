@@ -144,6 +144,27 @@
           "echo": "Your board says she went out once. Twelve years ago, four days, and nobody wrote down where."
         },
         {
+          "id": "livery_man10",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Will anything in here take me as far as Fiddler's Gulch?",
+          "exchange": [
+            {
+              "speaker": "livery_man",
+              "line": "That's a road for a mule, and there's one mule in here."
+            },
+            {
+              "speaker": "livery_man",
+              "line": "Whether she goes is between you and her."
+            }
+          ],
+          "repeat": "One mule. I don't speak for her.",
+          "when": {
+            "T_VESSEL_LOCATION": true,
+            "T_GULCH_TRIP": false
+          }
+        },
+        {
           "id": "livery_man7",
           "tag": "ASSAY",
           "afterUse": "remove",

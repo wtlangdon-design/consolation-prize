@@ -556,7 +556,7 @@
    "id": "C6",
    "completedBy": [
     {
-     "site": "dialogue:WINNIE:entry#2:first",
+     "site": "dialogue:WINNIE:entry#3:first",
      "requires": [
       "t:WINNIE",
       "T_ASSAY_BACK=true",
@@ -564,6 +564,13 @@
        "any": [
         [
          "not T_STRIKE_FOUND=true"
+        ]
+       ]
+      },
+      {
+       "any": [
+        [
+         "not T_DEATH_CERTIFIED=true"
         ]
        ]
       },

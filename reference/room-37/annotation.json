@@ -239,5 +239,25 @@
    "seed": 3702,
    "amount": 0.38
   }
+ ],
+ "docBullets": [
+  {
+   "person": "boarding_a",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE BOARDING HOUSE WOMAN**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "boarding_b",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE OTHER BOARDING HOUSE WOMAN**",
+   "bullet": "- LOOK"
+  }
  ]
 }

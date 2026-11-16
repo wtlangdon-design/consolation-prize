@@ -813,6 +813,69 @@
    "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
    "head": "**THE MAN LEAVING TOMORROW**",
    "bullet": "- LOOK"
+  },
+  {
+   "person": "duel_fanshawe",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**COLONEL FANSHAWE** · *in the street*",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "duel_sowerby",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**REVEREND SOWERBY** · *on the porch*",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "duel_judge_1",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE BALD JUDGE**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "duel_judge_2",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE GAUNT JUDGE**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "duel_judge_3",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE BEARDED JUDGE**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "duel_town_left",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE TOWN** · *at the saloon end*",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "duel_town_right",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE TOWN** · *at the road end*",
+   "bullet": "- LOOK"
   }
  ],
  "docBulletsNote": "Errata 246, doc 115 II-5: THE COLONEL, IN HIS DOORWAY is the figure wreath_fanshawe, on the funeral day until he is pushed through (T_COLONEL_OUT). His tries are read from doc 115's THE TRIES; PUSH is the one that does it, the game's second solving PUSH (doc 114 X-1). Errata 258, doc 123 F-1: the dog is scratched behind the ear, once (T_DOG_SCRATCHED).",

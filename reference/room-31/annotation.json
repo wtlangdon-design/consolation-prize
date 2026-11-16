@@ -415,5 +415,16 @@
    "id": "stars",
    "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
   }
+ ],
+ "docBullets": [
+  {
+   "person": "funeral_undertaker",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE UNDERTAKER** · *at the coffin*",
+   "bullet": "- LOOK"
+  }
  ]
 }

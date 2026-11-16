@@ -91,7 +91,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "Wind across the notches, a dry little rattle of days.",
             "repeat": [
               "Nothing. A count kept in wood makes no sound adding up.",
               "Nothing. Tomorrow there will be one more mark, made quietly."
@@ -249,7 +249,7 @@
           {
             "say": "The pan swings a little. A single soft gong, on the hour, when the wind is right.",
             "repeat": [
-              "Nothing.",
+              "The pick, ticking against its peg. Even his tools wait their turn in order.",
               "The pan again, one soft note. Pratt's clock, and it keeps better time than the Company's."
             ]
           }
@@ -325,7 +325,7 @@
           {
             "say": "Gravel, settling by size. Even the discard sorts itself here.",
             "repeat": [
-              "Nothing.",
+              "A pebble rolling from the coarse side over to the fines and stopping there, out of place.",
               "Nothing. It has been sorted, and it has nothing more to say."
             ]
           }
