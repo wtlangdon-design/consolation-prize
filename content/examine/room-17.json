@@ -130,15 +130,6 @@
         "Wind. The glass thins it into something nearly sung.",
         "Nothing.",
         "The wind again, nearly sung. It never quite reaches the note."
-      ],
-      "acts": [
-        {
-          "act": "4",
-          "LOOK_AT": [
-            "Plain glass. The dawn does the colors for free. In a town that charged for everything, I'd never noticed that."
-          ],
-          "LISTEN_TO": []
-        }
       ]
     },
     {

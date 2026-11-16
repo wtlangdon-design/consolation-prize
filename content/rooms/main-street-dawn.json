@@ -2784,5 +2784,12 @@
       "baseY": 592
     }
   ],
-  "zoom": 1.5
+  "zoom": 1.5,
+  "onEnter": {
+    "sayOnce": "T_DAWN_ARRIVED",
+    "note": "Errata 356: the dawn says the search is over, and sets up the last line, on arrival.",
+    "say": [
+      "Morning, and not a pick going in the hills. The mud is where I left it. It held my boot the first night and the truth the whole time."
+    ]
+  }
 }

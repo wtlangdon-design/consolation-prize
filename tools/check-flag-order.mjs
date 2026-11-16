@@ -75,6 +75,8 @@ function collectWrites(content) {
   // Errata 31c's room-entry writes. Standing somewhere is a write like any
   // other, and it is the only one no hotspot response can make.
   for (const { data } of content.rooms) record(data.onEnter?.set, undefined);
+  // THE LISTENING (Room 33): the void found, and the ninety seconds done (errata 356 reads the first).
+  for (const { data } of content.rooms) if (data.listening) record({ ...(data.listening.foundFlag ? { [data.listening.foundFlag]: true } : {}), ...(data.listening.tune?.doneFlag ? { [data.listening.tune.doneFlag]: true } : {}) }, undefined);
   for (const { data } of content.rooms) record(data.onEnter?.saySet, undefined);
   // Doc 35's auto-open: a character who opens on the player writes his
   // once-only flags when he does.

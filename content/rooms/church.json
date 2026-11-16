@@ -434,15 +434,6 @@
       "responses": {
         "LOOK_AT": [
           {
-            "when": {
-              "ACT": {
-                "atLeast": 4,
-                "atMost": 4
-              }
-            },
-            "say": "Plain glass. The dawn does the colors for free. In a town that charged for everything, I'd never noticed that."
-          },
-          {
             "say": "Plain glass, no colors. The territory does its own stained glass at dawn and dusk, and the church accepts the donation.",
             "repeat": [
               "Real glass, freighted four hundred miles. The single most expensive object in Consolation, and it looks out at mud.",

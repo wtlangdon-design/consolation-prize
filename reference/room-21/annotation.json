@@ -253,5 +253,21 @@
    "amount": 0.38,
    "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
   }
+ ],
+ "docBullets": [
+  {
+   "hotspot": "window",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE LAST ACT, SAID WHERE IT IS PLAYED",
+   "head": "**THE WINDOW** · *the watchman's shack, in Act IV*",
+   "bullet": "- LOOK",
+   "when": {
+    "ACT": {
+     "atLeast": 4
+    }
+   }
+  }
  ]
 }

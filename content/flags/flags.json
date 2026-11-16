@@ -2582,6 +2582,24 @@
     "dialogue:HOB:HOB_E6:hob1"
    ],
    "note": "Errata 355: Hob has signed THE EXECUTOR'S FORM, which Sump issued blank at the decease (SUM_C1 option 1). Read by Sump's acceptance (E6) and the form's first LOOK."
+  },
+  {
+   "id": "T_SEAM_ARRIVED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:under_prosperity:onEnter"
+   ],
+   "note": "Errata 356: the seam's arrival line, said once (Room 34 onEnter)."
+  },
+  {
+   "id": "T_DAWN_ARRIVED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:main_street_dawn:onEnter"
+   ],
+   "note": "Errata 356: the dawn's arrival line, said once (Room 36 onEnter)."
   }
  ]
 }

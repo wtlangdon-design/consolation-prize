@@ -134,6 +134,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4
+              }
+            },
+            "say": "It faces the Improvement Company, as it always has. Nobody is standing at it now.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE LAST ACT, SAID WHERE IT IS PLAYED · **THE WINDOW** · *the watchman's shack, in Act IV* - LOOK"
+          },
+          {
             "say": "It faces Main Street. It faces the Improvement Company.",
             "repeat": [
               "The glass has been cleaned in one square only, at the height of a man on a stool. The rest of the window may do as it likes.",

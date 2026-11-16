@@ -368,7 +368,8 @@
               "ACT": {
                 "atLeast": 4,
                 "atMost": 4
-              }
+              },
+              "T_IN_TUNE": true
             },
             "say": "A. Four hundred and forty. In this town, at last, that's not a foreign language."
           },

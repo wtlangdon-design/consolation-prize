@@ -497,3 +497,21 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 *Errata 355. A LOOK said first while the flag named is unset; the item's own lines follow once it is set.*
 
 - `executor_form` *(until `T_HOB_SIGNED`)* — "Form 31-E, Appointment of Executor. Blank where the executor signs. Mr. Sump wants somebody with no interest in any claim in this town, which in Consolation narrows it to nearly nobody." · "A space for a signature, and beside it, in Mr. Sump's hand, the word EXECUTOR, underlined once." · "The rest is filled in: my name, and DECEASED. All it lacks is a man who wants nothing from me."
+
+## THE ACTS TWO TO FOUR REVIEW: THE LAST ACT, SAID WHERE IT IS PLAYED
+
+*Errata 356. Act IV's lines that every player walks past, said where the act is played; and the room under Prosperity before the wall gives.*
+
+**ON ARRIVAL, AFTER THE BREAKTHROUGH** — "The wall gave. Behind it, at a slant into the dark, a seam the lamp cannot stop looking at. Mott said here. Mott was right, and never knew it."
+
+**ON ARRIVAL, AT DAWN** — "Morning, and not a pick going in the hills. The mud is where I left it. It held my boot the first night and the truth the whole time."
+
+**THE WALLS** · *under Prosperity, before the wall gives*
+- LOOK — "Clay, then rock, then more rock. The lamp finds nothing it cares to point out."
+
+**THE WAY BACK UP** · *before the wall gives*
+- LOOK — "The rope to the surface, and the coin of gray light at the top of it. Up there it is still the worthless claim, and so far down here it agrees."
+- LISTEN — "Somebody up there laughing, very far off. Not at me, for once."
+
+**THE WINDOW** · *the watchman's shack, in Act IV*
+- LOOK — "It faces the Improvement Company, as it always has. Nobody is standing at it now."

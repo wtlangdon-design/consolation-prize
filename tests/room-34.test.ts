@@ -19,7 +19,7 @@ import { MemoryStorage } from '../engine/core/SaveManager.ts';
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
 const docs = (await Promise.all(['docs/05-examine-layer.md', 'docs/10-examine-batch-3.md', 'docs/54-batch-c.md',
-  'docs/57-puzzle-completion.md', 'docs/49-wrong-answers.md']
+  'docs/57-puzzle-completion.md', 'docs/49-wrong-answers.md', 'docs/133-playthrough-rulings.md' /* errata 356: before the wall gives */]
   .map((path) => readFile(resolve(ROOT, path), 'utf8')))).join('\n');
 const FIXTURE = JSON.parse(await readFile(resolve(ROOT, 'content/fixtures/room-34.json'), 'utf8')) as { fixtures: { id: string; room: string }[] };
 const ROOM = FIXTURE.fixtures[0]!.room;
