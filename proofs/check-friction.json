@@ -1257,6 +1257,12 @@
    "why": "Reviewed with errata 351, at the third change in fourteen days. All three followed a deliberate change to the scene it plays (the seance redrawn seated, twice on 2026-11-09; PICK UP made to take the raccoon here), and none was a misfire: the test plays doc 111's scenes step by step, so a changed step changes it. It is doing its job, which is to fail when a scene's steps move. Kept; nothing to merge it with. Its assertions on the lines themselves were not weakened in any of the three."
   },
   {
+   "check": "tests/assay.test.ts",
+   "date": "2026-11-16",
+   "kind": "loosened",
+   "why": "Errata 352: Duel Two's win now ends on the watch handed back, so its last speaker is Thad, not Vessel. The test holds that the hand-back is there. tests/room-08.test.ts finds the archive door's opening rule by its `goto`, the door having gained rules for the states short of the funeral."
+  },
+  {
    "check": "content/fixtures/room-05.json",
    "date": "2026-11-15",
    "kind": "loosened",

@@ -413,7 +413,8 @@
           {
             "when": {
               "T_EXECUTOR_NAMED": true,
-              "T_OBITUARY": false
+              "T_OBITUARY": false,
+              "T_FUNERAL_DONE": false
             },
             "say": "Locked. I have an executor and no obituary, and in this town nothing has happened until the Clarion has misspelled it.",
             "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID · **THE SEALED ARCHIVE DOOR** - OPEN, *with an executor and no obituary*"

@@ -39,7 +39,8 @@ const target = (state: GameState, id: string) => {
 test('E9: the executor\'s agent is let in, and the form on the file is the same hand', async () => {
   const state = await inState('r8-a');
   const door = target(state, 'sealed_archive_door');
-  const rule = door.responses?.OPEN?.find((one) => one.when && 'T_EXECUTOR_NAMED' in one.when);
+  // Errata 352: the door also answers the states short of the funeral; the one that opens is the one that leads somewhere.
+  const rule = door.responses?.OPEN?.find((one) => one.when && 'T_EXECUTOR_NAMED' in one.when && one.goto);
   assert.ok(rule?.goto, 'the door\'s executor line leads somewhere');
   const opened = state.interact(door, 'OPEN');
   assert.equal(opened.say, rule.say);
