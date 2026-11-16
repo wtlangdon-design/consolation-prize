@@ -7,9 +7,9 @@
  "when": {
   "T_LAID_IN": false
  },
- "note": "GRIEVANCE, IN BLACK (doc 05: 'in the hearse harness, wearing black well'). The mule in her black plume and harness, hitched to the hearse (a prop, room-31-hearse); cut from room-31's composition master by tools/art/room31-cast.py with the strip of hearse beside her, which never moves -- her actions move her head only (errata 99 G).",
- "x": 129,
- "y": 700,
+ "note": "GRIEVANCE, IN BLACK (doc 05: 'in the hearse harness, wearing black well'). The mule in her black plume and harness, hitched to the hearse (a prop, room-31-hearse). Errata 361: she is the gate's Grievance (content/ambient/procession-hearse.json's sheet), turned to face the side-on hearse's front, scaled to the man where she stands and snapped to the one level, her shaft stub at its front wheel; she and the hearse stand up the slope behind the grave (tools/art/acts-two-to-four-cut.py grievance_gate).",
+ "x": 173,
+ "y": 505,
  "zone": 2,
  "approachRadius": 0,
  "tree": "",
@@ -21,26 +21,26 @@
    [
     2,
     2,
-    276,
-    505
+    363,
+    401
    ],
    [
-    280,
+    367,
     2,
-    276,
-    505
+    363,
+    401
    ],
    [
-    558,
+    732,
     2,
-    276,
-    505
+    363,
+    401
    ],
    [
-    836,
+    1097,
     2,
-    276,
-    505
+    363,
+    401
    ]
   ],
   "rate": 0.2,
@@ -64,7 +64,7 @@
   ],
   "breakEvery": 7,
   "talkFrame": 0,
-  "frameNote": "0 rest, in the hearse harness · 1 an ear goes back · 2 her head goes down · 3 her head turns away from the hill. A break every `breakEvery` seconds (errata 77).",
+  "frameNote": "Errata 361 (the image session's hand-back, reference/acts-two-to-four-art/handback.md; Tyler, 2026-11-16: \"That all looks soooo much better now\"): the Boot Hill gate's Grievance, side-on in her black harness, in line ahead of the hearse. 0 rest, her head turned back a little toward the hearse · 1 a breath · 2 her head turned fully back at the hearse · 3 a front hoof stamped. A break every `breakEvery` seconds (errata 77); her `breaks` play 2 and 3 as actions.",
   "provenance": "art/staging/room-31/cast/cast.json"
  }
 }

@@ -1,0 +1,6 @@
+Image 1 is a black horse-drawn funeral hearse from my pixel-art adventure game, seen exactly SIDE-ON, with its horse in front of it. Redraw THE SAME HEARSE, SIDE-ON EXACTLY AS IN IMAGE 1 -- the same proportions, glass sides, tan curtains tied back, two brass carriage lamps, black finial on the roof, black spoked wheels, the same flat soft drawing -- with these changes only:
+- NO horse and no harness: only the hearse, its front shafts resting low toward the ground in front of it;
+- EMPTY: no coffin and nothing inside, only the dark floor behind the glass and the curtains;
+- the whole hearse in the picture, finial to wheels, nothing cut off.
+
+Image 2 is how its last drawing came out, seen from three-quarter rear: that angle is WRONG for the scene (the mule hitched to it, image 3, stands side-on); keep its colours and drawing, but draw the hearse side-on like image 1. Style: flat, soft-shaded, low in texture, as image 1 and Thad (image 4). Flat pure magenta (#FF00FF) background, nothing else. No ground, no shadow, no text, no border.

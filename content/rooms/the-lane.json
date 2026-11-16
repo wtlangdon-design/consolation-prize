@@ -169,10 +169,10 @@
       "id": "seance_sign",
       "name": "THE SÉANCE SIGN",
       "rect": [
-        1108,
-        470,
-        52,
-        180
+        1088,
+        540,
+        94,
+        110
       ],
       "when": {
         "T_SEANCE_ON": true
@@ -199,9 +199,9 @@
         ]
       },
       "walkTo": {
-        "x": 1134,
+        "x": 1260,
         "y": 735,
-        "facing": "back"
+        "facing": "left"
       }
     },
     {
@@ -1343,5 +1343,23 @@
         }
       ]
     }
-  }
+  },
+  "props": [
+    {
+      "id": "seance_sign",
+      "sheet": "art/props/room-44-seance-sign.png",
+      "x": 1134,
+      "y": 645,
+      "frame": [
+        0,
+        0,
+        81,
+        96
+      ],
+      "when": {
+        "T_SEANCE_ON": true
+      },
+      "note": "Errata 361: THE SÉANCE SIGN, chalked SÉANCE TONIGHT and $2 (doc 111, B), out while the séance is on; drawn by the image session against the Lane with Thad (reference/acts-two-to-four-art/handback.md, item 3), 0.44 of the man where it stands. Bottom-centre on its feet."
+    }
+  ]
 }

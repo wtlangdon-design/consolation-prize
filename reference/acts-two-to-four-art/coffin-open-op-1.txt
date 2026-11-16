@@ -1,0 +1,5 @@
+Image 1 is a prop from my pixel-art adventure game, on magenta: a black hearse and, in front of it, a plain pine coffin resting on two wooden trestles, with a separate coffin lid leaning against the near trestle. Only the area the mask leaves open may change: the TOP of the coffin.
+
+The coffin is OPEN: its lid is off (it is the lid already leaning against the trestle -- do not draw a second lid). Redraw the top of the coffin as the open box seen from slightly above: the four pine sides' top edges, the dark inside of the box, and a small pale cushion (an off-white pillow) at the head end, the end nearer the hearse's back wheel on the right. Keep the box's front side with its brass handles, the trestles, the leaning lid and the hearse exactly as they are; draw nothing outside the coffin's own shape.
+
+Style: image 2 is the graveyard with Thad (the hero) at game size; draw it in that hand and in the same pixel size as the coffin around it -- flat, soft-shaded, low in texture, the same pine colours, two or three tones, no fine detail, no crisp highlights. Image 3 is Thad, the standard. Flat pure magenta (#FF00FF) background stays.
