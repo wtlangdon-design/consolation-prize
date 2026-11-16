@@ -670,53 +670,6 @@
       }
     },
     {
-      "id": "my_own_plot",
-      "name": "MY OWN PLOT",
-      "rect": [
-        1630,
-        165,
-        200,
-        190
-      ],
-      "when": {
-        "ACT": {
-          "atLeast": 3,
-          "atMost": 4
-        },
-        "T_FUNERAL_DONE": true
-      },
-      "act": "3-4",
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "My plot, my headboard, HE TUNED. I visit.",
-            "repeat": [
-              "The grass has started over it. I am the first man in Consolation to watch his own grave come in.",
-              "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I'm not going to say."
-            ],
-            "then": [
-              "It is restful, in the way of problems that have been filed."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Wind in the oats. My grave is the only one here whose tenant can review the accommodations, and I give it high marks.",
-            "repeat": [
-              "Nothing. Not from me, and I'd know.",
-              "The oats again, and somewhere down the hill, a piano, in tune."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 1730,
-        "y": 657,
-        "facing": "back"
-      }
-    },
-    {
       "id": "to_funeral_closed",
       "stateOf": "to_funeral",
       "name": "PIKE'S NEIGHBOR",
@@ -768,6 +721,53 @@
         "facing": "back"
       },
       "note": "Errata 91 E: PIKE'S NEIGHBOR before it opens -- docs/110-act-three-scenes.md::### THE LINES."
+    },
+    {
+      "id": "my_own_plot",
+      "name": "MY OWN PLOT",
+      "rect": [
+        1630,
+        105,
+        200,
+        250
+      ],
+      "when": {
+        "ACT": {
+          "atLeast": 3,
+          "atMost": 4
+        },
+        "T_FUNERAL_DONE": true
+      },
+      "act": "3-4",
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "My plot, my headboard, HE TUNED. I visit.",
+            "repeat": [
+              "The grass has started over it. I am the first man in Consolation to watch his own grave come in.",
+              "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I'm not going to say."
+            ],
+            "then": [
+              "It is restful, in the way of problems that have been filed."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind in the oats. My grave is the only one here whose tenant can review the accommodations, and I give it high marks.",
+            "repeat": [
+              "Nothing. Not from me, and I'd know.",
+              "The oats again, and somewhere down the hill, a piano, in tune."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1730,
+        "y": 657,
+        "facing": "back"
+      }
     },
     {
       "id": "mott_s_marker",
@@ -2036,7 +2036,7 @@
         "T_OBITUARY": true,
         "T_FUNERAL_DONE": false
       },
-      "note": "Doc 05: the grave dug in Act III for Thad, open, the marker painted in Frame's spelling -- so from the obituary (E5) until the funeral. Room-14 operation 4's changed pixels (tools/art/room14-props.py)."
+      "note": "Doc 05: the grave dug in Act III for Thad, open, the marker painted in Frame's spelling -- so from the obituary (E5) until the funeral. Room-14 operation 4's changed pixels (tools/art/room14-props.py). Errata 363: its headboard is the graveside's, carried up the hill (tools/art/art-fixes-363.py headboard)."
     },
     {
       "id": "own_plot",
@@ -2047,12 +2047,12 @@
         0,
         0,
         215,
-        132
+        196
       ],
       "when": {
         "T_FUNERAL_DONE": true
       },
-      "note": "Doc 05 Part Two-B: after the funeral, the headboard, the grass starting over it, a tuning peg on top. Composed from operations 4 and 5 (tools/art/room14-compose.py, errata 87 F)."
+      "note": "Doc 05 Part Two-B: after the funeral, the headboard, the grass starting over it, a tuning peg on top. Composed from operations 4 and 5 (tools/art/room14-compose.py, errata 87 F). Errata 363: its headboard is the graveside's (the tall rounded board with the plaque), carried up the hill, with the tuning peg set on its top (tools/art/art-fixes-363.py headboard)."
     },
     {
       "id": "collection_plate",

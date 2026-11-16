@@ -878,7 +878,21 @@
     }
   ],
   "lamps": [],
-  "props": [],
+  "props": [
+    {
+      "id": "panner_water",
+      "sheet": "art/props/room-53-panner-water.png",
+      "x": 1790,
+      "y": 691,
+      "frame": [
+        0,
+        0,
+        120,
+        108
+      ],
+      "note": "Errata 363: where the panner's legs meet the channel, plane 2 cut them on a straight line (y 589). A broken ring of the channel's own highlight colours over that line, the legs' dark reflection under it, a few glints further out (tools/art/art-fixes-363.py panner). Its foot is one row below his, so it is drawn in front of him; it shows only water, so it is there whether or not he is."
+    }
+  ],
   "onEnter": {
     "accost": {
       "npc": "gulch_deacon",
