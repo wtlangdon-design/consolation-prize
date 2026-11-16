@@ -8401,3 +8401,11 @@ Errata 260 gave Thad each interior's light and left the exteriors alone. The Act
 
 Lesson:
 - `tests/figure-light.test.mjs`: the four exteriors grade Thad, dimmer and cooler; the three lamplit ones do not.
+
+## 348 · The item is put down, and Main Street's dog is in frame (Tyler, 2026-11-15: "Proceed", on two proposals from the Act I playtest)
+
+- **Any finished action puts the item in hand down.** Only USE and GIVE did (errata 140), so LOOK AT a thing with the fork in hand left it there, and the sentence line read "Look at THE TUNING FORK on ..." for every hover after: a sentence no click performs (`GameState.interact`).
+- **Main Street's view always reaches the dog.** The zoomed street (errata 312) follows Thad's feet, and from the boardwalk its bottom fell above the dog and the foot of the hitching rail: what the player could not see he could not click. The room declares the row its view always reaches down to (`RoomFile.viewFloor`, 776; `Camera.cameraYFor`). The rooftops it gives up are what pointing at the top of the picture shows. Before and after: `renders/main-street-view-floor-before-after.png`.
+
+Lesson:
+- `tests/held-and-framing.test.ts`: nothing is in hand after LOOK AT, LISTEN TO or USE with an item held; with Thad at the street's far edge the view's bottom reaches the dog's feet and the horses'.

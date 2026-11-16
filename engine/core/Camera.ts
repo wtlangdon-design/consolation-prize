@@ -79,8 +79,15 @@ export function cameraAt(actorX: number, width: number, view = NATIVE_WIDTH): nu
  * clicked. Clamped to the room. A room that fits has one answer, zero.
  */
 const FEET_AT = 0.82;
-export function cameraYFor(feetY: number, height: number, view: number, lookingUp = false): number {
+/**
+ * `floor` (RoomFile.viewFloor; errata 348) is a row of the room the view always reaches down to while he is not
+ * looking up: Main Street's dog and the foot of its hitching rail lie below where the view's bottom fell with Thad on
+ * the boardwalk, and a thing the player cannot see cannot be clicked. The rooftops it gives up are what pointing at
+ * the top of the picture shows.
+ */
+export function cameraYFor(feetY: number, height: number, view: number, lookingUp = false, floor = 0): number {
   const span = Math.max(0, height - view);
   if (span === 0) return 0;
-  return Math.round(Math.max(0, Math.min(span, lookingUp ? 0 : feetY - view * FEET_AT)));
+  const wanted = lookingUp ? 0 : Math.max(feetY - view * FEET_AT, floor - view);
+  return Math.round(Math.max(0, Math.min(span, wanted)));
 }

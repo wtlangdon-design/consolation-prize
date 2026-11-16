@@ -624,14 +624,14 @@ export class GameState {
     this.camera = cameraFollow(x, this.roomWidth, this.camera, this.viewWidth);
     // UP AND DOWN, EASED (errata 312): a zoomed street follows him up a porch's steps and back, a few pixels a frame
     // rather than at once, so a step up does not jolt the whole street; and it looks up while the player points high.
-    if (y !== undefined) this.cameraYWanted = cameraYFor(y, PLAY_HEIGHT_WORLD, this.viewHeight, lookingUp);
+    if (y !== undefined) this.cameraYWanted = cameraYFor(y, PLAY_HEIGHT_WORLD, this.viewHeight, lookingUp, this.room.viewFloor ?? 0);
     const gap = this.cameraYWanted - this.cameraYNow;
     this.cameraYNow = Math.abs(gap) <= 2 ? this.cameraYWanted : Math.round(this.cameraYNow + gap * 0.12);
   }
 
   /** On entering or loading: the view up and down where he will stand, at once, not eased (errata 312). */
   private cameraYSnapTo(feetY: number): void {
-    this.cameraYWanted = cameraYFor(feetY, PLAY_HEIGHT_WORLD, this.viewHeight);
+    this.cameraYWanted = cameraYFor(feetY, PLAY_HEIGHT_WORLD, this.viewHeight, false, this.room.viewFloor ?? 0);
     this.cameraYNow = this.cameraYWanted;
   }
 
@@ -1139,7 +1139,11 @@ export class GameState {
     // verb cleared when it finished and the fork stayed in hand, so the next
     // hover read "Look at THE TUNING FORK on THE COUNTER", a sentence no click
     // would perform, and USE on another item then carried the stale one.
-    if (used) this.held = null;
+    // AND WITH ANY OTHER VERB TOO (errata 348; the Act I playtest). Only a verb that carries an item put it down, so
+    // LOOK AT a thing with the fork in hand left the fork there, and the sentence line went on reading "Look at THE
+    // TUNING FORK on ..." for every hover after it. Any finished action puts the item down.
+    void used;
+    this.held = null;
     // ERRATA 28b AS AMENDED (Q74): A VERB CLEARS ON USE.
     //
     // 28b used to say "a selected verb persists until another is chosen. It is
