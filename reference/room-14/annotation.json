@@ -126,9 +126,9 @@
   ],
   "my_own_plot": [
    1630,
-   165,
+   105,
    200,
-   190
+   250
   ],
   "fence": [
    0,
@@ -364,7 +364,7 @@
     "T_OBITUARY": true,
     "T_FUNERAL_DONE": false
    },
-   "note": "Doc 05: the grave dug in Act III for Thad, open, the marker painted in Frame's spelling -- so from the obituary (E5) until the funeral. Room-14 operation 4's changed pixels (tools/art/room14-props.py)."
+   "note": "Doc 05: the grave dug in Act III for Thad, open, the marker painted in Frame's spelling -- so from the obituary (E5) until the funeral. Room-14 operation 4's changed pixels (tools/art/room14-props.py). Errata 363: its headboard is the graveside's, carried up the hill (tools/art/art-fixes-363.py headboard)."
   },
   {
    "id": "own_plot",
@@ -375,12 +375,12 @@
     0,
     0,
     215,
-    132
+    196
    ],
    "when": {
     "T_FUNERAL_DONE": true
    },
-   "note": "Doc 05 Part Two-B: after the funeral, the headboard, the grass starting over it, a tuning peg on top. Composed from operations 4 and 5 (tools/art/room14-compose.py, errata 87 F)."
+   "note": "Doc 05 Part Two-B: after the funeral, the headboard, the grass starting over it, a tuning peg on top. Composed from operations 4 and 5 (tools/art/room14-compose.py, errata 87 F). Errata 363: its headboard is the graveside's (the tall rounded board with the plaque), carried up the hill, with the tuning peg set on its top (tools/art/art-fixes-363.py headboard)."
   },
   {
    "id": "collection_plate",

@@ -8653,3 +8653,22 @@ Both new places are a staging call, for Tyler's eye.
 Lesson:
 - `tests/staging-clear.test.ts`: in every built room, no prop drawn in front of a person hides more than half of him; failing on main before this (the hearse hid 71% of the undertaker and 68% of the Reverend).
 - Doc 55 §8: a row (a drawing approved alone is placed among everyone who stands there).
+
+## 363 · Eight picture faults fixed by script, and one tried (Tyler, 2026-11-16: "Go")
+
+Tyler, on errata 361's two questions: "I like Hob's face." The coffin view stands. Of the blue edge on Grievance's plume at the graveside: a few dozen dark-blue pixels are left at the plume's tips, invisible against the night at game size; left.
+
+Then "Go", to the recommendations for the art the Acts II to IV reviews left. No image operation: every pixel below is one already drawn, moved, copied from the same picture or regraded toward its own range (`tools/art/art-fixes-363.py`, one job each; the plates it edits in place are read from their first state, kept in `art/staging/art-fixes-363/`). Before and after for each: `renders/art-fixes-363/`.
+
+1. **The lamp taken is gone from Thad's desk.** In Act IV's morning, once PICK UP takes it (`T_LAMP_TAKEN`), a prop of the morning plate's own wall, window jamb, sill and desk top, copied from beside it, covers it, and THE LAMP is no longer a hotspot.
+2. **Thad's Act IV room is the morning on him too.** The lamp's glow swells on the night plate only, and in Act IV Thad takes the morning plate's grade by errata 260's rule (`figureLightWhen`; light 1 / 1 / 0.93, brightness 0.84), not the lamp's.
+3. **The panner stands in water.** Where the river's plane 2 cut his legs on a ruled line, a broken ring of the channel's own highlight colours, his legs' reflection in its darker tones under it, and a few glints further out are drawn in front of him.
+4. **The river's seam is broken.** Where the mud bank met the water on one column (x 850), a zone 36 px wide is laid block by block, each block the bank's or the channel's, the bank's chance falling across it.
+5. **The dawn street, the game's last picture, has its colour back.** The ridge's emerald and teal (saturation at 207, against the street's own median of 65) and the Nugget's electric-blue posts, hoops and window blotches take half their saturation, keeping their hue and the order of their lights; the ridge's brightest rim a fifth less value. The steeple's spire, torn on its right against the sky, is its own clean left half mirrored about the tower's axis and shaded as the tower's right half is.
+6. **The wreath laid on the coffin is drawn**: the Colonel's wreath from the hill, 1:1, on the coffin's leaning lid under the name plate, once `T_WREATH_LAID` (doc 118 O-6). Its flag was read by nothing until now.
+7, 8. **One headboard for one grave, and the peg on it.** On Boot Hill the grave had the hill's carved-cross board; at the graveside, in the picture Tyler approved, a tall rounded board with a plaque. The graveside's board is carried up the hill, on the fresh plot and on his own, at the same share of a man as at the graveside and in the hill's own board's colour; the tuning peg that floated six pixels above the old board sits on the new board's top. THE PLOT's hotspot reaches the taller board.
+9. **Grievance's coat: tried, not shipped.** A brown coat by her own shading (`renders/art-fixes-363/room-31-grievance-brown-trial.png`) cannot be cut from her harness by colour: her black leather and her dark coat are the same darks, so her plume, blinkers and collar went brown with her. She stays as approved, black, at the gate and the graveside. A brown coat in a black harness is a drawing, for Tyler.
+
+Lesson:
+- `tests/art-fixes-363.test.mjs`: seven assertions, one for each fix shipped, each failing on main before this (the dawn ridge's 90th-percentile saturation was 1.00 and is 0.49; the spire was ragged on 44 rows and is on none).
+- Doc 55 §8: two rows (a thing taken leaves its place empty; a cut at a plane where a figure stands in water is drawn as water).

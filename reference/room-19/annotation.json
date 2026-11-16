@@ -324,7 +324,55 @@
    "rate": 0.05,
    "seed": 1901,
    "amount": 0.38,
-   "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297)."
+   "note": "Errata 298: the room's lit lamps and windows, found from the plate's own lit pixels (tools/art/place-glows.py), each swelling and sinking on its own period (errata 297). Errata 363: the night plate's only; in Act IV's morning the lamp is out and nothing swells over it.",
+   "plates": [
+    "art/backgrounds/room-19-thads-room.png"
+   ]
   }
- ]
+ ],
+ "figureLightWhen": [
+  {
+   "when": {
+    "ACT": {
+     "atLeast": 4
+    }
+   },
+   "light": {
+    "figures": [
+     "thad"
+    ],
+    "light": [
+     1.0,
+     1.0,
+     0.93
+    ],
+    "brightness": 0.84,
+    "note": "Errata 363: Act IV's morning plate, read by errata 260's rule (tools/art/thad-room-light.py's tint and brightness from the plate's mean colour below its top third): the lamp is out, and he no longer takes its warm light."
+   }
+  }
+ ],
+ "props": [
+  {
+   "id": "lamp_taken",
+   "sheet": "art/props/room-19-lamp-taken.png",
+   "x": 785,
+   "y": 489,
+   "frame": [
+    0,
+    0,
+    60,
+    135
+   ],
+   "when": {
+    "T_LAMP_TAKEN": true
+   },
+   "note": "Errata 363: once the lamp is taken to the dig (T_LAMP_TAKEN, which only Act IV's morning allows), the desk is bare: the morning plate's own wall, jamb, sill and desk top, copied from beside the lamp (tools/art/art-fixes-363.py lamp). Its foot is the lamp base's, so Thad always stands in front of it."
+  }
+ ],
+ "hotspotWhen": {
+  "lamp": {
+   "T_LAMP_TAKEN": false
+  }
+ },
+ "hotspotWhenNote": "Errata 363: THE LAMP is not there once it is taken."
 }

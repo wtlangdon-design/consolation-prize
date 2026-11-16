@@ -131,6 +131,23 @@
         "T_LAID_IN": false
       },
       "note": "The pine coffin on its trestles, open with a cushion, its lid leaning on the near trestle and the name plate on the lid (doc 05, doc 54; errata 361). Errata 362: its own prop, standing on its trestles' feet, cut apart from the hearse by tools/art/acts-two-to-four-cut.py hearse; the two together are the picture Tyler approved, pixel for pixel. Gone by night (doc 57 E8)."
+    },
+    {
+      "id": "wreath_on_coffin",
+      "sheet": "art/props/room-31-wreath-on-coffin.png",
+      "x": 318,
+      "y": 727,
+      "frame": [
+        0,
+        0,
+        70,
+        160
+      ],
+      "when": {
+        "T_WREATH_LAID": true,
+        "T_LAID_IN": false
+      },
+      "note": "Errata 363: the Colonel's wreath, once Thad has laid it on his own coffin (doc 118 O-6, T_WREATH_LAID): the hill's own wreath, 1:1 and already in the night, hung on the coffin's leaning lid under the name plate (tools/art/art-fixes-363.py wreath). Its foot is a row below the coffin's, so it is drawn on it."
     }
   ],
   "size": [
