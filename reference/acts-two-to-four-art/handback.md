@@ -111,15 +111,41 @@ Both are fixed with no new operation:
 - **Size:** it is still 1.292 of the man at its wheels, so 616 x 423.
 - **Departure from the brief:** the brief asked for three-quarter rear. Operation 1's three-quarter-rear drawing is kept in staging (`HEARSE_OP = 1` in the tool builds it again).
 
+**Tyler's fourth look:** "The hearse looks better that way but the horse still looks totally goofy and out of place." Asked how to fix her, he chose **"Use the gate's Grievance"**. No operation was spent.
+- **Her drawing:** `art/actors/room-31-grievance.png` is now Grievance from the Boot Hill gate's sheet (`content/ambient/procession-hearse.json`). She is side-on in her black harness, cut from the hearse with a stub of her shafts behind her (`GATE_MULE_X0` 600).
+- **Facing and scale:** turned to face left, where the side-on hearse's front is. Scaled by the man where she stands against the gate's `figureHeight` (x 1.099), and snapped to the one level.
+- **Placement:** she stands at the hearse's own depth (her hooves on y 578, its wheels' row), with her shaft stub at its front wheel (room x 380). The hearse's front is at x 335, clear of the headstone at about x 960; she is clear of the screen's left edge.
+- **Her frames are the gate's four, in order:**
+  - 0, rest, her head turned back a little toward the hearse;
+  - 1, a breath;
+  - 2, her head turned fully back at the hearse;
+  - 3, a front hoof stamped.
+
+  These replace the old 0 rest, 1 an ear back, 2 her head down, 3 her head turned away. **The main session updates her `frameNote`** (her `breaks` pool still plays 2 and 3 as actions).
+- **The coffin:** the coffin group is slid 60 px right along the hearse (`COFFIN_DX`), clear of her hind legs; it had stood in front of them. Its hotspots move with it (below).
+- **The old sheet:** kept at `art/staging/acts-two-to-four-art/hearse/grievance-old.png`. The new sheet is padded to the old one's height, so her unwired record still fits it.
+
+**For the wiring, Grievance** (`content/ambient/funeral-grievance.json`):
+
+| | x | y | frames |
+|---|---|---|---|
+| was | 129 | 700 | four of 276 x 505 |
+| **now** | **187** | **578** | `[2,2,385,425]`, `[389,2,385,425]`, `[776,2,385,425]`, `[1163,2,385,425]` |
+
+Her hotspot GRIEVANCE, IN BLACK `[0, 188, 255, 512]` becomes about `[0, 160, 380, 420]`.
+
+**For the wiring, the coffin's hotspots** move right by 60:
+- THE COFFIN `[180, 440, 392, 292]` → `[240, 440, 392, 292]`, its stand point x 376 → 436;
+- THE NAME PLATE `[245, 540, 70, 45]` → `[305, 540, 70, 45]`, stand x 280 → 340.
+
 **The sheet changed size, so the record must change with it.** These are wiring numbers, not done here:
 
 | | x | y | frame |
 |---|---|---|---|
 | was | 361 | 733 | `[0, 0, 422, 578]` |
-| **now** | **501** | 733 | **`[0, 0, 702, 578]`** |
+| **now** | **580** | 733 | **`[0, 0, 741, 578]`** |
 
-- The coffin group lands where it was, its left edge unmoved.
-- The hearse spans x 236-852. Its rear end stands behind the grave's far side.
+- The hearse spans x 335-951, its rear clear of the headstone. The coffin group spans about x 210-652, 60 px right of where it stood.
 
 **Tests.** "No prop paints the plate over a figure behind it" now passes, both with the record as it is and with the new record applied (tried, then reverted). The overlap that tripped it was the dark hearse over the old-hearse strip, and that strip is gone.
 
@@ -135,4 +161,5 @@ Both are fixed with no new operation:
 ## Checks
 
 - All 67 checks pass.
-- All 2,002 tests pass.
+- 2,001 of 2,002 tests pass as committed. The one failure is the one-level test reading Grievance's OLD frame rect (276 x 505) over her new drawing; it passes with her new record applied (tried, then reverted).
+- With both records applied (Grievance and the hearse prop), everything passes except `reference/room-31/annotation.json`'s place for the hearse (361), which the wiring moves to 580 and compiles.

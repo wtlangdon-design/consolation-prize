@@ -168,7 +168,7 @@ HEARSE_OP = 2               # Tyler, 2026-11-16, of the mule at a right angle to
                             # hearse side-on". Operation 2 (the asset's correction) is the gate's hearse side-on, empty,
                             # its front to the left, in line with Grievance. Operation 1 (three-quarter rear) is kept.
 SHAFTS_END = 405            # operation 2's columns left of its front lamp: the shafts, trimmed
-HEARSE_LEFT = 236           # room x of its front end, at Grievance's traces (her sheet's right edge is at x ~255)
+HEARSE_LEFT = 335           # room x of its front end: Grievance (the gate's, 385 wide here) ahead of it with her head on screen, its rear clear of the grave's headstone (x ~960)
                             # Grievance, the mule (content/ambient/funeral-grievance.json, x 129), stands hitched at its
                             # front, clear of it: at x 330 the new, longer hearse hid her whole. Her sprite carries a strip
                             # of the OLD hearse beside her (x ~215-255); from x 205 the new hearse covers that strip.
@@ -217,11 +217,11 @@ def hearse():
     grp = ndi.binary_fill_holes(ndi.binary_closing(warm, iterations=3)) & opaque
     grp[:268] = False
     # the canvas: everything both layers need, its foot on the coffin's foot row (y 733)
-    X0 = min(hx0, cx0); X1 = max(hx0 + Wd, cx0 + cp.shape[1]); Y0 = min(hy0, cy0); Y1 = p['y'] + 1
+    X0 = min(hx0, cx0 + COFFIN_DX); X1 = max(hx0 + Wd, cx0 + COFFIN_DX + cp.shape[1]); Y0 = min(hy0, cy0); Y1 = p['y'] + 1
     canvas = Image.new('RGBA', (X1 - X0, Y1 - Y0), (0, 0, 0, 0))
     canvas.alpha_composite(Image.fromarray(hearse_img), (hx0 - X0, hy0 - Y0))
     g = np.zeros_like(cp, dtype=np.uint8); g[grp] = cp[grp]
-    canvas.alpha_composite(Image.fromarray(g), (cx0 - X0, cy0 - Y0))
+    canvas.alpha_composite(Image.fromarray(g), (cx0 + COFFIN_DX - X0, cy0 - Y0))
     cv = np.asarray(canvas).copy(); ci = cv.astype(int)              # the last key pixels, wherever they landed
     left = (ci[..., 3] > 128) & (ci[..., 2] > ci[..., 1] + 30) & ((ci[..., 0] + ci[..., 2]) / 2 - ci[..., 1] > 80)
     cv[left] = 0; canvas = Image.fromarray(cv)
@@ -286,7 +286,56 @@ def grievance():
         Image.fromarray(new).save(R(sp['sheet']))
 
 
-JOBS = {'lantern': lantern, 'coffin': coffin, 'sign': sign, 'hearse': hearse, 'grievance': grievance}
+GATE_MULE_X0 = 600          # the gate's frames: Grievance from her rump (~625) and a stub of her shafts behind it
+MULE_SHAFT_END = 380        # room x of her shafts' stub ends: tucked under the hearse's front, at its front wheel
+COFFIN_DX = 60              # the coffin group slid right along the hearse, clear of Grievance's hind legs (it stood over
+                            # them in front of her; tests/lessons.test.ts read its dark trestles as plate over her)
+
+
+def grievance_gate():
+    """Tyler, 2026-11-16, of the graveside mule ("still looks totally goofy and out of place"), chose "Use the gate's
+    Grievance": the same mule from the gate's sheet (content/ambient/procession-hearse.json), side-on in her harness with
+    her shafts, cut from the hearse at column GATE_MULE_X0, turned to face left (the side-on hearse's front is to the
+    left), scaled by the man where she stands against the gate's figureHeight, and stood at the hearse's own depth (its
+    wheels' row) with her shafts' ends at its front. Her four frames are the gate's four, in order. No operation."""
+    ns, bt = helpers()
+    room = bt['load']('content/rooms/funeral.json')
+    g = json.load(open(R('content/ambient/procession-hearse.json')))['sprite']
+    sheet = Image.open(R(g['sheet'])).convert('RGBA')
+    cells = []
+    for (x, y, w, h) in g['frames']:
+        f = sheet.crop((x + GATE_MULE_X0, y, x + w, y + h)).transpose(Image.FLIP_LEFT_RIGHT)
+        cells.append(np.asarray(f))
+    feet_y = HEARSE_GROUND[1]
+    # the gate draws her 1:1 against a man of figureHeight; here the man where she stands
+    cw = cells[0].shape[1]
+    x_guess = MULE_SHAFT_END - cw // 2
+    man = bt['curve_man'](room, x_guess, feet_y)
+    k = man / g['figureHeight']
+    W, H = round(cw * k), round(cells[0].shape[0] * k)
+    out = []
+    for c in cells:
+        pm = c.astype(float); pm[..., :3] *= pm[..., 3:4] / 255
+        sm = np.asarray(Image.fromarray(pm.astype(np.uint8)).resize((W, H), Image.BOX)).astype(float)
+        al = sm[..., 3:4]; rgb = np.where(al > 0, sm[..., :3] * 255 / np.maximum(al, 1), 0)
+        cell = np.concatenate([np.clip(rgb, 0, 255), np.where(al >= 128, 255, 0)], 2).astype(np.uint8)
+        out.append(ns['snap'](cell, man / ns['N']))
+    # padded to the old sheet's height (509) so the record, until the main session rewires it, still fits its sheet
+    sheet_out = np.zeros((max(H + 4, 509), 2 + len(out) * (W + 2), 4), np.uint8); rects = []
+    for i, c in enumerate(out):
+        x = 2 + i * (W + 2); sheet_out[2:2 + H, x:x + W] = c; rects.append([x, 2, W, H])
+    rec_x = MULE_SHAFT_END - W + W // 2                     # bottom-centre x so her right edge (shafts' ends) is at MULE_SHAFT_END
+    print(json.dumps({'job': 'grievance_gate', 'scale': round(k, 4), 'manThere': round(man, 1), 'cell': [W, H],
+                      'record': {'x': rec_x, 'y': feet_y, 'frames': rects, 'sheet': 'art/actors/room-31-grievance.png',
+                                 'was': {'x': 129, 'y': 700, 'frames': '4 x [276, 505]'}},
+                      'framesAre': 'the gate\'s: 0 rest, head turned back a little toward the hearse; 1 breath; 2 head turned fully back, at the hearse; 3 a front hoof stamped'}))
+    if WRITE:
+        Image.fromarray(sheet_out).save(R('art/actors/room-31-grievance.png'))
+        return rec_x, feet_y, rects
+
+
+JOBS = {'lantern': lantern, 'coffin': coffin, 'sign': sign, 'hearse': hearse, 'grievance': grievance,
+        'grievance_gate': grievance_gate}
 
 if __name__ == '__main__':
     JOBS[JOB]()
