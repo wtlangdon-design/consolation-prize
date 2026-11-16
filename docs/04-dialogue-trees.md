@@ -203,6 +203,18 @@ Then:
 > **THAD:** "I don't think I can. I've checked."
 > **WINNIE:** *(signing)* "That's the first honest transaction at this window in nine years."
 
+## ACT III — `WIN_C2`: after the signing *(errata 354)*
+
+Once she has signed. The Act III review found her refusing again, to a man with the certificate in his pocket. Said once; after it, the three questions.
+
+> **WINNIE:** "You're dead, Mr. Grubb. I have it in my own hand. Don't make a liar of me in front of the window."
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "How does it feel, certifying a man you're looking at?" | `[TOPIC · remove]` | "Honest, for once. You are dead in every way this office can see." |
+| 2 | "Will it hold?" | `[TOPIC · retain]` | "It's signed. Paper holds until somebody brings better paper." *(second)* "It'll hold. Stop asking. The dead don't fidget." |
+| 3 | "Do I look natural?" | `[COMIC · retain]` | "You look like a man who owes the undertaker." *(second)* "Still owing. Very lifelike." |
+
 ## ACT IV — grown to nodes *(W1)*
 
 **`WIN_F1` — after `T_STRIKE_FOUND` (F3):**
@@ -331,7 +343,7 @@ Per the Fanshawe Rule: Thad receives the Registrar introduction; gives up that h
 
 | # | Option | Tag | Response | Rule ledger |
 |---|---|---|---|---|
-| 1 | "I need to see the Registrar about my boundary." | `[PROGRESS · remove]` | "Your *boundary*! A man who knows where he ends. Rare." *(beat)* "Sump is a dear friend. I shall send a note ahead; Sump respects notes the way other men respect weather." *(The note is warm, correct, and mentions the boundary. By Thursday the Company has filed three priority submissions on the parcels beside Claim One.)* | receives: the note. gives up: contiguity |
+| 1 | "I'm told a neighbor may see Claim One's filing." | `[PROGRESS · remove]` | "Are you! A *neighbor*. How very neighborly." *(beat)* "Sump is a dear friend. I shall send a note ahead; Sump respects notes the way other men respect weather." *(Errata 354: the boundary was settled in Act I; what Thad wants in Act II is the filing. The note is warm, correct, and mentions the neighbor. By Thursday the Company has filed three priority submissions on the parcels beside Claim One.)* | receives: the note. gives up: contiguity |
 | 2 | "What do you want for it?" | `[TOPIC · retain]` | "Want? Mr. Grubb, a favor that costs something is a *transaction*. I deal only in favours." *(second)* "Nothing at all. I've written it down, so that neither of us forgets." | — |
 | 3 | "Your clock is slow, Colonel. I've an ear for these things." | `[COMIC · retain]` | "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it." *(second)* "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb." | — |
 | 4 | "How does a man come to be a colonel?" | `[TOPIC · remove]` | "Young, Mr. Grubb. I took the rank at twenty-three. I'm thirty this spring, and I intend to stay there." | `WAR_CONTRADICTIONS` +1 |
@@ -342,11 +354,13 @@ Per the Fanshawe Rule: Thad receives the Registrar introduction; gives up that h
 
 Thad receives a copy of Claim One's index card; gives up confirmation he has seen the sealed filing.
 
-> **FANSHAWE:** "The famous card! Take a copy. Take two. History belongs to everybody."
+> **FANSHAWE:** "And while Sump considers it, remember the Company keeps a copy of everything. Ask."
+
+*Errata 354: the opening answered a question nobody had asked. "The famous card!" moves into the answer, and the card is read.*
 
 | # | Option | Tag | Response | Rule ledger |
 |---|---|---|---|---|
-| 1 | "I'd like to see Claim One's index card." | `[PROGRESS · remove]` | "Of course. You'll find it agrees with the sealed filing in every particular." *(beat)* | receives: the card. gives up: what he's seen |
+| 1 | "I'd like to see Claim One's index card." | `[PROGRESS · remove]` | "The famous card! Take a copy. Take two. History belongs to everybody." *(beat)* "You'll find it agrees with the sealed filing in every particular." — *"Claim One. O. Mott. See filing."* — *"It tells me to see the one thing I can't."* | receives: the card. gives up: what he's seen |
 | 2 | "Why does the Company keep copies of claim records?" | `[TOPIC · retain]` | "Because the courthouse could burn down, Mr. Grubb. Buildings do." *(second)* "Fire, Mr. Grubb. Flood. Sudden interest. One prepares." | — |
 | 3 | "Buena Vista must have been something." | `[TOPIC · remove]` | "Buena Vista! Spring of '48. I shall never forget it." — *"I'd have said February of '47."* — "Then I remember it twice, Mr. Grubb." → `WAR_CONTRADICTIONS` +1 | — |
 | 4 | "The chairs are new." | `[COMIC · retain]` | "They are! One must reinvest." *(second)* "Newer still. I had them reupholstered while you were looking." | — |
@@ -375,6 +389,20 @@ The scripted exchange above ("You were never a colonel."). One node, no other op
 **The turn:** on reading Clause 9, Thad reads it out, and then his aside *(errata 352: the clause was never shown)* — *"Clause nine. The holder shall not excavate, sink shaft, tunnel, or otherwise disturb the subsurface."* *"He doesn't want the claim. He wants it quiet."*
 
 ---
+
+## ACT III — `FAN_E1`: the condolence *(errata 354)*
+
+The first time Thad calls on the Colonel after the Clarion has printed him dead. The Act III review: the claimholder died and the Colonel never said a word. Said once; after it, his office is as it was.
+
+> **FANSHAWE:** "Mr. Grubb! I read your obituary at breakfast. They spelled you correctly, which I took as a mark of respect."
+> **THAD:** "I've had better notices."
+> **FANSHAWE:** "But none so final. Sit. The dead are always welcome here; they so rarely object to anything."
+
+| # | Option | Tag | Response | Rule ledger |
+|---|---|---|---|---|
+| 1 | "You don't seem surprised to see me." | `[TOPIC · remove]` | "In this town, Mr. Grubb, being dead has never stopped anyone doing business. I hold it against nobody." | — |
+| 2 | "What becomes of Prosperity now?" | `[TOPIC · remove]` | "It passes to whomever you left it to, and the Company will make them an offer before the ground has settled. I had the letter drafted before the Clarion went to press." | — |
+| 3 | "I'd hoped for a eulogy from you." | `[COMIC · remove]` | "I make it a rule never to speak well of a man before his estate is settled." | — |
 
 # HOB
 ### Night watchman
@@ -905,6 +933,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 | 4 | "What's that tune?" | `[TOPIC · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* "A tune a fella whistled in here once. Twelve years I've been getting it wrong." → req `T_HUM_HEARD` *(errata 68 F: B3 needs it; errata 75: the Assay pair is option 7; errata 278, doc 125: asked once he has been heard humming, which LISTEN TO THE LIVERY MAN does)* |
 | 5 | "Could I borrow a blanket? There's a warm draught I'd like to stop." | `[PROGRESS · remove]` | "Hers?" *(He looks at Grievance. Grievance looks at the blanket.)* "She's not using it. Bring it back before she notices." → THE LIVERY BLANKET; req `T_RACCOON_TRIED` *(errata 68 A; option added in Batch C, doc 54; errata 318: asked once he has seen the hole he wants it for; errata 340: and once he has tried something on the raccoon and failed, so the answer is not handed over before the puzzle is met)* |
 | 6 | "Your board says she went out once. Twelve years ago, four days, and nobody wrote down where." | `[PROGRESS · remove]` | "Once. Twelve years back. Fella came in at night, whistled at her, and she walked out after him like she'd been waiting." *(beat)* "Never saw him again. Never saw her move again, either." *(beat)* "Hm, hm-hm. Hmm, hm-hmm…" → `T_GRIEVANCE_MOTT` — **B2** *(errata 75)*; req `T_BOARD_GRIEVANCE` *(errata 278, doc 125: asked from what the board of names says; was "Has she ever moved for anybody?")* |
+| 10 | "Will anything in here take me as far as Fiddler's Gulch?" | `[TOPIC · retain]` | "That's a road for a mule, and there's one mule in here." *(beat)* "Whether she goes is between you and her." *(second)* "One mule. I don't speak for her." → req `T_VESSEL_LOCATION`, unless `T_GULCH_TRIP` *(errata 354: nothing in Act II said Grievance was the way to the Gulch)* |
 | 7 | "Have you ever been in the Liar's Assay?" | `[ASSAY · remove]` | "Once. Fella told me, 'I once bought a saloon with a single nugget.' I said, 'I have been in it. You overpaid.'" *(beat)* "He's never forgiven me. Still owns the saloon." → pair 20 *(errata 75)* |
 
 *Errata 172, doc 99's rewrite: a second answer for option 2, and the town's Pike thread (doc 98) in the livery man's way, which is through the mule.*

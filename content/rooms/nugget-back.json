@@ -192,7 +192,7 @@
           {
             "say": "Nothing. It's written every verdict in town and holds no opinion.",
             "repeat": [
-              "Nothing.",
+              "Graphite, settling against the wood. It is sharpened for a verdict and waiting for one.",
               "The chain clinking against the table leg when the door opens."
             ]
           }
@@ -430,7 +430,7 @@
           {
             "say": "Chalk dust, settling. The sound of standings.",
             "repeat": [
-              "Nothing.",
+              "The slate, knocking on its nail. It hangs a little crooked, and so, I would guess, do the standings.",
               "Nothing, then a crumb of chalk dropping from the ledge. History, settling."
             ]
           }
@@ -598,6 +598,12 @@
         {
           "say": "Nobody uses the judges. That is the one thing everyone here agrees on."
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "A judge of the Assay, sitting where the lamp can't reach him. I suspect that's in the rules.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE JUDGES** · *the first* - LOOK"
+        }
       ]
     },
     "room_04_judge_2": {
@@ -614,6 +620,12 @@
         {
           "say": "Nobody uses the judges. That is the one thing everyone here agrees on."
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "The middle judge. He has not blinked once while I've stood here, which is either judicial or taxidermy.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE JUDGES** · *the second* - LOOK"
+        }
       ]
     },
     "room_04_judge_3": {
@@ -629,6 +641,20 @@
       "USE": [
         {
           "say": "Nobody uses the judges. That is the one thing everyone here agrees on."
+        }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "The third judge, at the dark end of the table, writing nothing down and remembering all of it.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE JUDGES** · *the third* - LOOK"
+        }
+      ]
+    },
+    "sowerby": {
+      "LOOK_AT": [
+        {
+          "say": "The Reverend Sowerby, holding the pencil. He keeps the score the way he keeps a funeral, by the word, and the words are not cheap.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **REVEREND SOWERBY** · *with the pencil* - LOOK"
         }
       ]
     }

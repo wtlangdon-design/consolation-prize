@@ -590,5 +590,15 @@
       "flame": true,
       "halo": 52
     }
-  ]
+  ],
+  "peopleResponses": {
+    "barber": {
+      "LOOK_AT": [
+        {
+          "say": "The barber, who is also the dentist, who is also the surgeon. One chair, one set of instruments, and a great deal of confidence.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE BARBER-DENTIST-SURGEON** - LOOK"
+        }
+      ]
+    }
+  }
 }

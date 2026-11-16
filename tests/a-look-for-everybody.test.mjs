@@ -19,7 +19,11 @@ const people = new Map(all('content/ambient').map((one) => [one.id, one]));
 
 const WRITTEN = ['pie_woman', 'map_seller', 'man_leaving_tomorrow', 'hob', 'dogs_owner', 'letter_writer', 'bell_ringer', 'message_boy', 'card_sharp',
   'fiddler', 'one_strike_man', 'nugget_bar1', 'nugget_bar2', 'nugget_bar3', 'fanshawe', 'lobby_clerk', 'frame', 'sump', 'winnie', 'livery_man', 'ozymandia',
-  'pratt', 'boundary_a', 'boundary_b', 'storekeeper', 'nugget_barman', 'nugget_pianist'];
+  'pratt', 'boundary_a', 'boundary_b', 'storekeeper', 'nugget_barman', 'nugget_pianist',
+  // Errata 354: Acts II to IV and the Lane.
+  'sheng', 'sowerby', 'room_04_judge_1', 'room_04_judge_2', 'room_04_judge_3', 'frame_stood_back', 'pratt_registrar', 'winnie_at_board',
+  'winnie_registrar', 'funeral_undertaker', 'prosperity_ozymandia', 'duel_fanshawe', 'duel_sowerby', 'duel_judge_1', 'duel_judge_2', 'duel_judge_3',
+  'duel_town_left', 'duel_town_right', 'barber', 'photographer', 'boarding_a', 'boarding_b', 'grievance_out', 'washout_grievance'];
 
 test('everybody written for answers LOOK AT in their own words, where they first stand', () => {
   const stock = new Set(json('content/ui/verb-fallbacks.json').people.LOOK_AT);

@@ -37,7 +37,7 @@
             "say": "They shift when the floor does. I wish they wouldn't.",
             "repeat": [
               "Nothing. Obviously nothing. I checked, and I regret it.",
-              "Nothing.",
+              "A faint click from the jar when the floor shifts. I am choosing to believe it's the lid.",
               "Nothing. I've satisfied myself, and I'd like that to be the end of it."
             ]
           }
@@ -138,9 +138,9 @@
           {
             "say": "Chalk dust. Commerce, at its most certain.",
             "repeat": [
-              "Nothing.",
-              "Nothing.",
-              "Nothing."
+              "The board, knocking on a loose nail. Commerce, rattling to be let in.",
+              "A crumb of chalk dropping from the bottom figure. The total gets lighter by the hour, and never light enough.",
+              "Nothing it has not already said in chalk."
             ]
           }
         ]
@@ -215,9 +215,9 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "The saw, ringing faintly on its hook when the floor takes a step.",
             "repeat": [
-              "Nothing.",
+              "The plane's blade ticking against the wall. Sharp things settle louder.",
               "Nothing. He isn't working while I'm standing here."
             ]
           }
@@ -251,9 +251,9 @@
           {
             "say": "Wool, on a hanger, at rest. It has heard every eulogy in town and improved none of them.",
             "repeat": [
-              "Nothing.",
-              "Nothing.",
-              "Nothing."
+              "The hanger turning a quarter-inch on its peg, as if the suit had heard its name.",
+              "Moths, perhaps. Or the wool, sighing at the prospect of another viewing.",
+              "It has heard every word said in this room and repeats none of them. A professional."
             ]
           }
         ]
@@ -293,9 +293,9 @@
           {
             "say": "A page lifts and lies back down. Somebody's balance.",
             "repeat": [
-              "Nothing.",
-              "Nothing.",
-              "Nothing."
+              "The ribbon marker slipping a page further on. More of Boot Hill, owing.",
+              "The cover creaking under its own weight. It is heaviest at the back, where the debts are.",
+              "A long, slow book of patience. You can almost hear him not asking."
             ]
           }
         ]
@@ -364,9 +364,9 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "The cushion, sighing out the last of somebody's waiting.",
             "repeat": [
-              "Nothing.",
+              "A slat, ticking. It has been sat on by people who did not want to be here, and it has learned patience from them.",
               "Nothing. It is the quietest bench in the territory and it has earned it."
             ]
           }
@@ -466,9 +466,9 @@
           {
             "say": "Nothing at all. Not even the wind bothers.",
             "repeat": [
-              "Nothing.",
-              "Nothing.",
-              "Nothing."
+              "The oak, ticking dry after its last scrubbing.",
+              "A drop of water somewhere underneath, finding the floor at its leisure.",
+              "The legs, creaking as I lean near. It takes weight seriously."
             ]
           }
         ]
@@ -507,7 +507,7 @@
             "say": "Empty wood. A patient sound.",
             "repeat": [
               "Nothing. Naturally nothing. I don't know what I expected.",
-              "Nothing.",
+              "A trestle shifting under the pine. The coffins are steadier than the furniture.",
               "Nothing. Naturally nothing."
             ]
           }
@@ -550,8 +550,8 @@
           {
             "say": "The town, at a distance.",
             "repeat": [
-              "Nothing.",
-              "Nothing."
+              "A wagon, passing the door without slowing. Nobody slows for this door.",
+              "The latch lifting a little in the wind, and thinking better of it."
             ]
           }
         ]

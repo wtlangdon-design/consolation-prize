@@ -168,7 +168,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "A loose card, tapping at its pin. Somebody's hire, still trying to leave.",
             "repeat": [
               "Nothing. Paper pinned to wood, keeping accounts.",
               "The pin rattles in the draft. Twelve years of comings and goings, held up by one nail."
@@ -212,7 +212,7 @@
           {
             "say": "Wool and straw. A warm quiet.",
             "repeat": [
-              "Nothing.",
+              "Straw, sifting out of the weave, one stalk at a time.",
               "Nothing. It is the quietest thing in the stable, and it knows its worth."
             ]
           }
@@ -683,6 +683,14 @@
         {
           "say": "Tipped back in a chair with his hat over his eyes. He's either asleep or the most relaxed man in the territory. There may be no difference.",
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE LIVERY MAN** - LOOK"
+        }
+      ]
+    },
+    "grievance_out": {
+      "LOOK_AT": [
+        {
+          "say": "Grievance, stepping out of her stall as if she'd only been waiting for somebody to get the note right.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **GRIEVANCE** · *out of her stall* - LOOK"
         }
       ]
     }

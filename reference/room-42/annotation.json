@@ -214,6 +214,15 @@
    "when": {
     "T_CHAIR_TRIED": true
    }
+  },
+  {
+   "person": "barber",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE BARBER-DENTIST-SURGEON**",
+   "bullet": "- LOOK"
   }
  ],
  "docBulletsNote": "Errata 258, doc 123 F-2: the lever of the barber's chair, tried once (T_CHAIR_TRIED).",

@@ -208,6 +208,10 @@ The plank, and arithmetic, follow "What rules?"
 
 - `pie_woman1` stays — "Still pie. It's been pie all day."
 
+### LIVERY_MAN
+
+- `livery_man10` in `LIV_A1` stays — "One mule. I don't speak for her."
+
 ### UNDERTAKER
 
 - `undertaker4` stays — "Keep it. Paper's dear out here."
@@ -246,6 +250,8 @@ The plank, and arithmetic, follow "What rules?"
 - `winnie2` in `WIN_B4` stays — "Certified worthless. Asking twice won't lower it."
 - `winnie4` in `WIN_B4` stays — "I have told you this twice now. I'm keeping count."
 - `winnie5` in `WIN_B4` stays — "The undertaker, then me. That is the order people die in."
+- `winnie2` in `WIN_C2` stays — "It'll hold. Stop asking. The dead don't fidget."
+- `winnie3` in `WIN_C2` stays — "Still owing. Very lifelike."
 
 ### SOWERBY
 

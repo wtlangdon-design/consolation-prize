@@ -275,6 +275,42 @@
    "when": {
     "T_CHALK_TAKEN": true
    }
+  },
+  {
+   "person": "sowerby",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**REVEREND SOWERBY** · *with the pencil*",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "room_04_judge_1",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE JUDGES** · *the first*",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "room_04_judge_2",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE JUDGES** · *the second*",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "room_04_judge_3",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE JUDGES** · *the third*",
+   "bullet": "- LOOK"
   }
  ],
  "docBulletsNote": "Errata 245 (doc 117 O-1, doc 118): the chalk is taken from its tin, once (T_CHALK_TAKEN). It is what the turn of Pratt is written with.",

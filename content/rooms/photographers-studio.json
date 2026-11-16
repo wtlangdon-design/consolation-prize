@@ -595,5 +595,15 @@
       "id": "lamp",
       "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
     }
-  ]
+  ],
+  "peopleResponses": {
+    "photographer": {
+      "LOOK_AT": [
+        {
+          "say": "The photographer, beside his camera, standing as close as he can to the one thing in the room he trusts.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE PHOTOGRAPHER** - LOOK"
+        }
+      ]
+    }
+  }
 }

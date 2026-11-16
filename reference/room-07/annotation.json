@@ -464,6 +464,24 @@
    "set": {
     "T_SUBSECTION_FOUR": true
    }
+  },
+  {
+   "person": "pratt_registrar",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**NICKEL PRATT** · *at the Registrar's counter*",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "winnie_registrar",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**WINNIE LEDGER** · *at the filing*",
+   "bullet": "- LOOK"
   }
  ]
 }

@@ -69,7 +69,7 @@ function quietExits(tree) {
 const GREETED_ONCE = { 'OZYMANDIA/OZY_A1': 'T_OZY_GREETED', 'PANNER/PAN_G1': 'T_PANNER_GREETED',
   // Errata 351 (the Act III review): three scenes said whole on every later TALK TO, one of them a refusal
   // ("I need you to certify that I'm dead." "No.") replayed after she had signed.
-  'WINNIE/WIN_C1': 'T_WIN_C1_HEARD', 'FRAME/FRA_E1': 'T_FRA_E1_HEARD', 'HOB/HOB_E6': 'T_HOB_E6_HEARD' };
+  'WINNIE/WIN_C1': 'T_WIN_C1_HEARD', 'WINNIE/WIN_C2': 'T_WIN_C2_HEARD', 'FANSHAWE/FAN_E1': 'T_FAN_E1_HEARD', 'FRAME/FRA_E1': 'T_FRA_E1_HEARD', 'HOB/HOB_E6': 'T_HOB_E6_HEARD' };
 function greetOnce(tree) {
   for (const [key, flag] of Object.entries(GREETED_ONCE)) {
     const [treeId, nodeId] = key.split('/');
@@ -4268,7 +4268,7 @@ function winnieTree() {
   // stays complete.
   // WIN_C1 on T_FUNERAL_BOOKED alone: C5 is long complete by then (the funeral
   // is booked after the Act II turn, which needs Document B, which needs C5).
-  const ENTRY = { WIN_F1: { T_STRIKE_FOUND: true }, WIN_C1: { T_FUNERAL_BOOKED: true }, WIN_B4: { T_ASSAY_BACK: true }, WIN_B1: { T_BORDERS_MOTT: true, T_SUMP_DOCUMENTS_HEARD: true } };
+  const ENTRY = { WIN_F1: { T_STRIKE_FOUND: true }, WIN_C2: { T_DEATH_CERTIFIED: true }, WIN_C1: { T_FUNERAL_BOOKED: true }, WIN_B4: { T_ASSAY_BACK: true }, WIN_B1: { T_BORDERS_MOTT: true, T_SUMP_DOCUMENTS_HEARD: true } };
   // "The opening completes C6 and issues Document B" -- once.
   const ON_OPEN = { WIN_B4: { once: 'T_ASSAY_RETURNED', onOpen: { puzzle: { C6: 'complete' }, gives: ['document_b'] } } };
   const ASKED = { 'WIN_B2:1': { T_ASSAY_ASKED: true } };
@@ -5437,6 +5437,8 @@ function fanshaweTree() {
   const ENTRY = [
     ['FAN_C1', { T_CLAIM1_BLANK: true, T_EXCAVATION_CLAUSE: false }],
     ['FAN_A2', { T_BORDERS_MOTT: true, T_DINED: false }],
+    // Errata 354: the condolence, once, after the Clarion has printed him dead.
+    ['FAN_E1', { T_OBITUARY: true, T_FAN_E1_HEARD: false }],
     ['FAN_B1', { ACT: { atLeast: 2 } }],
     ['FAN_A1', { T_SWINDLED: true }],
   ];
@@ -5528,7 +5530,7 @@ function fanshaweTree() {
       exceptionReason: 'Doc 04 writes this node as a table only.' }),
       ...(opening.length ? { opening } : {}), options };
   }
-  for (const want of ['FAN_A0', 'FAN_A1', 'FAN_A2', 'FAN_B1', 'FAN_B2', 'FAN_C1']) {
+  for (const want of ['FAN_A0', 'FAN_A1', 'FAN_A2', 'FAN_B1', 'FAN_B2', 'FAN_C1', 'FAN_E1']) {
     if (!nodes[want]) throw new Error(`doc 04: ${want} was not extracted`);
   }
   for (const note of unplayed) process.stderr.write(`  doc 04 FANSHAWE: ${note}\n`);
@@ -6744,7 +6746,7 @@ function cutaways() {
       speakers: { pratt: 'pratt_jump' } },
     // Part Three, and only Part Three: E0b writes ACT 3. He is in his office
     // only on a day that is not a funeral day (content/ambient/fanshawe.json).
-    3: { id: 'fanshawe_chairs', room: 'fanshawe_office', when: { ACT: { atLeast: 3, atMost: 3 }, T_FUNERAL_DAY: false },
+    3: { id: 'fanshawe_chairs', room: 'fanshawe_office', when: { ACT: { atLeast: 3, atMost: 3 }, T_FUNERAL_DAY: false, T_DECEASED: false },
       done: 'T_CUTAWAY_FANSHAWE',
       // ERRATA 159: MONKEY ISLAND'S CLOSE-UP. Tyler, of LeChuck's scenes: "it
       // played like a video with a much better drawn version". Two frames,

@@ -390,6 +390,15 @@
       "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
       "head": "**WINNIE LEDGER**",
       "bullet": "- LOOK"
+    },
+    {
+      "person": "winnie_at_board",
+      "verbs": [
+        "LOOK_AT"
+      ],
+      "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+      "head": "**WINNIE LEDGER** · *at the loose board*",
+      "bullet": "- LOOK"
     }
   ]
 }

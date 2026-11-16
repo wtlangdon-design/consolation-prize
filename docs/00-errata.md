@@ -8510,3 +8510,24 @@ Not done, and why: the laundry and Ozymandia's tent are lamplit interiors, where
 Lesson:
 - `tests/plate-edges.test.mjs`: twelve rows in, four edges. On main before this it fails on the four plates once it looks that deep.
 - `tests/figure-light.test.mjs`: the night-exteriors test names Prosperity and Boot Hill.
+
+## 354 · What was still to write, and four rulings (Tyler, 2026-11-16: "You decide on 1-4. Complete the 'still to write' items.")
+
+**The four rulings, decided as asked.**
+1. **Duel Three's winning truth stands as written.** "There is no gold in Mott's claim. There never was." is said by a man holding gold, but the gold came from under Prosperity (doc 02 F3: "the strike Mott invented, exactly where he randomly said it was"), not from Claim One, whose filing is blank. The line is literally true, the town hears it as the biggest lie ever told, and that is doc 03's point ("Consolation is structurally incapable of hearing the truth"). Changing it would trade the act's best joke for a tidier one.
+2. **The closing letter stays readable once the strike is found** (errata 124, Tyler's own ruling; the review re-raised it and nothing has changed since).
+3. **LISTEN at the hole in Act IV stays as it is.** It is one of the three load-bearing lines (CLAUDE.md invariant 3); giving it an Act IV variant would mark it.
+4. **New drawings: four are briefed for the image session** (`reference/acts-two-to-four-art/brief.md`, with a paste-ready prompt): the view up out of the coffin with Hob's lantern (the one plate in Act III not in the game's hand), the open coffin top, the séance chalkboard (E1's first step is a hotspot over a blank wall), and the graveside hearse redrawn to the gate's design. The hat is not drawn: the three lines that said Thad was hidden under one are rewritten (below), which costs no image budget. The duel crowd and rooms 33 and 34 are listed for later.
+
+**Still to write.**
+- **The hat lines** (doc 110): the mourners' third LOOK, Sowerby's third at the gate, and the graveside narration no longer describe a hat Thad is not drawn wearing.
+- **The way to the Gulch** (doc 04 LIV_A1 option 10): once Frame has named the Gulch, the livery man says it is a road for a mule and there is one mule in the stable.
+- **The Colonel's Act II visit** (doc 04 FAN_B1, FAN_B2): option 1 asks for what Act II is about (a neighbor's sight of Claim One's filing), not the boundary Act I settled. FAN_B2's opening no longer answers a question nobody asked; "The famous card!" is in the answer, and the card is read aloud ("Claim One. O. Mott. See filing.").
+- **The Colonel hears of the death** (doc 04 FAN_E1, new): once, the first time Thad calls after the Clarion has printed him dead. The chairs cut-away waits for the death not to have happened (`T_DECEASED` false).
+- **Winnie after the signing** (doc 04 WIN_C2, new): her refusal no longer replays to a man with the certificate in his pocket.
+- **A look for everybody, Acts II to IV and the Lane** (doc 133): twenty-four figures who answered LOOK AT with "A person! I've decided to be polite about it."
+- **The sound of things** (doc 133): seventy-seven bare "Nothing." LISTEN answers replaced by small real sounds, so every reachable room keeps one at most. Three silences are designed and kept (the watchman's shack, Boot Hill's nineteen, claim row's markers). The review counted about 450 LISTEN lines that begin "Nothing."; about 330 of them go on to a joke ("Nothing. I sneezed once. It's the loudest thing this room has heard in a year, and I apologized to it."), are written comedy, and are kept.
+
+Lesson:
+- `tests/still-to-write.test.mjs`: one bare "Nothing." a room, game-wide, with the designed silences named; the Gulch, the Colonel and the assayer. Each fails on main.
+- `tests/a-look-for-everybody.test.mjs`: the ratchet gains the twenty-four.

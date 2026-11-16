@@ -823,6 +823,12 @@
         {
           "say": "Anything I hand him becomes a story. I am being careful what I hand him."
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "Mr. Frame, arms folded, stood back from his own press. A newspaperman letting somebody else make the news. It does not suit him.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **IGNATIUS FRAME** · *stood back from his press* - LOOK"
+        }
       ]
     }
   },

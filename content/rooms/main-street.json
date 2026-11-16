@@ -3746,6 +3746,62 @@
         }
       ]
     },
+    "duel_town_right": {
+      "LOOK_AT": [
+        {
+          "say": "The rest of Consolation, at the road end. They have the better view and the shorter walk home.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE TOWN** · *at the road end* - LOOK"
+        }
+      ]
+    },
+    "duel_town_left": {
+      "LOOK_AT": [
+        {
+          "say": "Half of Consolation, at the saloon end, ready to be on whichever side wins.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE TOWN** · *at the saloon end* - LOOK"
+        }
+      ]
+    },
+    "duel_judge_3": {
+      "LOOK_AT": [
+        {
+          "say": "The bearded judge, as solemn on a porch as at a table. He has brought the back room with him in his face.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE BEARDED JUDGE** - LOOK"
+        }
+      ]
+    },
+    "duel_judge_2": {
+      "LOOK_AT": [
+        {
+          "say": "The gaunt judge. In the open air he looks exactly as he did in the dark, which I find unsettling.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE GAUNT JUDGE** - LOOK"
+        }
+      ]
+    },
+    "duel_judge_1": {
+      "LOOK_AT": [
+        {
+          "say": "A judge, out of the back room and into the street. He stands like a man who has never been seen below the knees.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE BALD JUDGE** - LOOK"
+        }
+      ]
+    },
+    "duel_sowerby": {
+      "LOOK_AT": [
+        {
+          "say": "The Reverend on the porch, holding the pencil out here exactly as he holds it indoors, as if the street had a lamp over it.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **REVEREND SOWERBY** · *on the porch* - LOOK"
+        }
+      ]
+    },
+    "duel_fanshawe": {
+      "LOOK_AT": [
+        {
+          "say": "The Colonel, out in the open street with the town behind him, looking like a man who has already had the portrait done.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **COLONEL FANSHAWE** · *in the street* - LOOK"
+        }
+      ]
+    },
     "man_leaving_tomorrow": {
       "LOOK_AT": [
         {

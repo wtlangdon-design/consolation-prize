@@ -330,7 +330,7 @@
           {
             "say": "Wet paint, drying. My legacy, curing in the night air.",
             "repeat": [
-              "Nothing.",
+              "The board knocking against its stake whenever the wind pushes.",
               "Nothing now. The paint has set. It is official."
             ]
           }
@@ -487,7 +487,7 @@
           {
             "say": "Nothing from him. He mourns the way he watches.",
             "repeat": [
-              "Nothing.",
+              "His hat brim, turning slowly in his hands. Round once, and again.",
               "Nothing. I have never heard a man be so quiet on purpose."
             ],
             "then": [
@@ -661,7 +661,7 @@
           {
             "say": "Nothing from inside, which is the least I can do.",
             "repeat": [
-              "Nothing.",
+              "The handles, knocking softly as somebody brushes past. They were extra.",
               "Nothing yet. That changes shortly, and I am trying not to think about it."
             ]
           }
@@ -930,7 +930,7 @@
         "lines": [
           {
             "speaker": "thad",
-            "line": "By the time the town caught us up, the coffin was on its trestles and I was at the back with my hat down, as out of breath as anybody."
+            "line": "By the time the town caught us up, the coffin was on its trestles and I was at the back with my head down, as out of breath as anybody."
           }
         ],
         "after": {
@@ -975,5 +975,15 @@
       "id": "stars",
       "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
     }
-  ]
+  ],
+  "peopleResponses": {
+    "funeral_undertaker": {
+      "LOOK_AT": [
+        {
+          "say": "The undertaker, at my coffin. He is the only man here who knows how full it will be, and he is keeping it professional.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE UNDERTAKER** · *at the coffin* - LOOK"
+        }
+      ]
+    }
+  }
 }

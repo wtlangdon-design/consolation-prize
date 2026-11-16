@@ -333,3 +333,160 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 
 **THE STATUTE BOOK**
 - OPEN, *once the strike is found* — "Section nineteen has a sub-section four. A neighbor holding a Certificate of Contiguity may file an amended location on behalf of an absent claimholder." "I hold a certificate that says I am a neighbor. I had taken it for a ticket to look at a page."
+
+## THE ACTS TWO TO FOUR REVIEW: THE SOUND OF THINGS
+
+*Errata 354. A room answers LISTEN with one bare "Nothing." at most (errata 343, settled by the Act I review); a silent thing gets a small real sound instead. Each line below replaces a bare "Nothing." at the click it names (the first answer is click 1, the first repeat click 2, and so on), and is true in every state the object is seen in. The room keeps its one "Nothing." where it has earned it. Three silences are designed and kept whole: the watchman's shack (doc 05: "the truest room in Consolation is the one that makes no sound"), Boot Hill's nineteen and claim row's markers (doc 08: "the same word, eleven times").*
+
+- `archive` · `executors_ledger` · click 1 — "A dry tick from the binding as the shelf settles. Every name in it opened it once."
+- `archive` · `dust` · click 1 — "A faint hiss where my sleeve brushes the shelf. The dust, putting itself back."
+- `assay_records` · `register_of_assays` · click 2 — "My own breath on the open page, and nothing coming back off it. Nineteen names make a very small sound."
+- `back_alley` · `ash_pile` · click 1 — "A soft collapse deep in the heap. It sits a little lower every time I look at it."
+- `church` · `collection_plate` · click 2 — "Silence, while it hangs empty. It only speaks when somebody gives it something, which is a policy I respect."
+- `church` · `window_glass` · click 2 — "A fly against the inside of the pane, trying to leave by the light."
+- `church` · `pews` · click 2 — "A knot in the end of one pew, ticking as the wood dries out."
+- `claims_registrar` · `ledger` · click 1 — "The ribbon marker, stirring in the draft from the street. It keeps today's page, and every page was today once."
+- `claims_registrar` · `sumps_pen` · click 1 — "A nib, drying. It has the patient tick of a thing that will outlast everyone who signs with it."
+- `claims_registrar` · `map_of_claims` · click 1 — "One pin, loose in its hole, rattling faintly. Somebody's claim, coming unstuck."
+- `claims_registrar` · `bench` · click 1 — "The bench creaking under nobody. It seats nine, and it remembers every one of them."
+- `claims_registrar` · `bench` · click 2 — "A slat, ticking now and then. Waiting, done in wood."
+- `claims_registrar` · `counter` · click 1 — "Wood, worn hollow where a great many elbows have waited, giving back a little of the room."
+- `company_lobby` · `testimonials` · click 1 — "Four frames, tapping the wall in the stove's draft, slightly out of step with each other."
+- `company_lobby` · `subscription_book` · click 1 — "The pencil on its string, swinging against the stand. An invitation to every passer-by."
+- `company_lobby` · `map_wall` · click 1 — "The cord behind one frame, creaking under a great deal of confidence."
+- `company_vault` · `unsold_deeds` · click 1 — "Ribbon, under strain. Two hundred deeds, tied as if they might get away."
+- `company_vault` · `original_subscription` · click 1 — "The paper crackles when the air moves past it. Boston paper. It has never liked the West."
+- `company_vault` · `stock_portrait_boxes` · click 1 — "A box lid lifting a hair in the draft and setting down again, like a man clearing his throat."
+- `company_vault` · `maps` · click 1 — "A map curling at one corner, flattening, and curling again. It cannot settle on a shape either."
+- `creek` · `riffles` · click 2 — "Water, mostly. The gold, if there is any, is keeping its voice down."
+- `empty_storefront` · `sign` · click 1 — "Wind running along the top edge of the board, a thin note it cannot hold."
+- `funeral` · `headboard` · click 2 — "The board knocking against its stake whenever the wind pushes."
+- `funeral` · `one_who_knows` · click 2 — "His hat brim, turning slowly in his hands. Round once, and again."
+- `funeral` · `coffin` · click 2 — "The handles, knocking softly as somebody brushes past. They were extra."
+- `laundry` · `collar_advertisement` · click 2 — "The paper ticking against the door each time the boilers knock."
+- `laundry` · `ledger` · click 1 — "The iron, through the steam, setting down and lifting, and the book on the shelf giving a small jump each time."
+- `laundry` · `chair` · click 2 — "The rush seat crackling as it cools by the door."
+- `livery` · `board_of_names` · click 1 — "A loose card, tapping at its pin. Somebody's hire, still trying to leave."
+- `livery` · `grievance_s_blanket` · click 2 — "Straw, sifting out of the weave, one stalk at a time."
+- `mercantile` · `catalogue` · click 2 — "The binding groaning on the counter. Eleven hundred pages, and it carries every one of them personally."
+- `mercantile` · `credit_ledger` · click 2 — "The cover easing open by itself, the way a book does when it is opened too often."
+- `mercantile` · `shovels` · click 1 — "The blades, ringing very faintly when a wagon passes in the street."
+- `motts_site` · `offerings` · click 1 — "Wind across the coins, a thin tin whisper, like change in a pocket a long way off."
+- `motts_site` · `marker_stone` · click 1 — "A beetle, walking the groove of a letter. It takes the O very slowly."
+- `motts_site` · `pits` · click 1 — "Wind dropping into the nearest pit and coming out of another, farther off."
+- `nugget_back` · `judges_pencil` · click 2 — "Graphite, settling against the wood. It is sharpened for a verdict and waiting for one."
+- `nugget_back` · `scoreboard` · click 2 — "The slate, knocking on its nail. It hangs a little crooked, and so, I would guess, do the standings."
+- `ozymandias_tent` · `price_list` · click 2 — "Canvas breathing behind it. The tent moves; the prices don't."
+- `ozymandias_tent` · `testimonial_board` · click 2 — "One letter rustling louder than the rest, as though it wants to be read first."
+- `pratts_claim` · `tally_post` · click 1 — "Wind across the notches, a dry little rattle of days."
+- `pratts_claim` · `tool_rack` · click 2 — "The pick, ticking against its peg. Even his tools wait their turn in order."
+- `pratts_claim` · `tailings_pile` · click 2 — "A pebble rolling from the coarse side over to the fines and stopping there, out of place."
+- `schoolhouse` · `desks` · click 1 — "New wood, ticking to itself. Still settling into being furniture."
+- `thads_room` · `tuning_fork_case` · click 3 — "The hinge, which squeaks in no key at all. My father never tuned the hinges."
+- `thads_room` · `his_mother_s_letters` · click 2 — "Paper, folded and refolded until the creases do most of the talking."
+- `thads_room` · `coat_on_the_door` · click 1 — "The hook, complaining a little under the weight of it."
+- `thads_room` · `coat_on_the_door` · click 2 — "Wool, brushing the door when the hallway draft gets under it."
+- `thads_room` · `coat_on_the_door` · click 3 — "A button, tapping the wood. It has been loose for a year and declines to fall off."
+- `thads_room` · `washstand` · click 3 — "The pitcher's lip, singing very faintly when somebody climbs the stairs."
+- `thads_room` · `washstand` · click 4 — "The drip again, a beat behind where I'd put it."
+- `thads_room` · `desk` · click 3 — "The short leg, rocking on the claim notice when I lean. The only claim in town that pushes back."
+- `thads_room` · `bed` · click 2 — "The frame, creaking as the building settles round it."
+- `thads_room` · `bed` · click 3 — "One spring, still letting go of the shape of somebody, slowly."
+- `thads_room` · `door` · click 4 — "The key, turning a fraction in the lock by itself. It has its own ideas about security."
+- `undertaker` · `teeth` · click 3 — "A faint click from the jar when the floor shifts. I am choosing to believe it's the lid."
+- `undertaker` · `price_board` · click 2 — "The board, knocking on a loose nail. Commerce, rattling to be let in."
+- `undertaker` · `price_board` · click 3 — "A crumb of chalk dropping from the bottom figure. The total gets lighter by the hour, and never light enough."
+- `undertaker` · `price_board` · click 4 — "Nothing it has not already said in chalk."
+- `undertaker` · `tools` · click 1 — "The saw, ringing faintly on its hook when the floor takes a step."
+- `undertaker` · `tools` · click 2 — "The plane's blade ticking against the wall. Sharp things settle louder."
+- `undertaker` · `good_suit` · click 2 — "The hanger turning a quarter-inch on its peg, as if the suit had heard its name."
+- `undertaker` · `good_suit` · click 3 — "Moths, perhaps. Or the wool, sighing at the prospect of another viewing."
+- `undertaker` · `good_suit` · click 4 — "It has heard every word said in this room and repeats none of them. A professional."
+- `undertaker` · `ledger_of_accounts` · click 2 — "The ribbon marker slipping a page further on. More of Boot Hill, owing."
+- `undertaker` · `ledger_of_accounts` · click 3 — "The cover creaking under its own weight. It is heaviest at the back, where the debts are."
+- `undertaker` · `ledger_of_accounts` · click 4 — "A long, slow book of patience. You can almost hear him not asking."
+- `undertaker` · `waiting_bench` · click 1 — "The cushion, sighing out the last of somebody's waiting."
+- `undertaker` · `waiting_bench` · click 2 — "A slat, ticking. It has been sat on by people who did not want to be here, and it has learned patience from them."
+- `undertaker` · `viewing_table` · click 2 — "The oak, ticking dry after its last scrubbing."
+- `undertaker` · `viewing_table` · click 3 — "A drop of water somewhere underneath, finding the floor at its leisure."
+- `undertaker` · `viewing_table` · click 4 — "The legs, creaking as I lean near. It takes weight seriously."
+- `undertaker` · `coffins` · click 3 — "A trestle shifting under the pine. The coffins are steadier than the furniture."
+- `undertaker` · `back_to_street` · click 2 — "A wagon, passing the door without slowing. Nobody slows for this door."
+- `undertaker` · `back_to_street` · click 3 — "The latch lifting a little in the wind, and thinking better of it."
+
+## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY
+
+*Errata 354. The rest of the cast who answered LOOK AT with the line written for nobody ("A person! I've decided to be polite about it."), in Acts II to IV and the Lane, each in the place they stand.*
+
+**AH-LAM SHENG** · *at his ironing board*
+- LOOK — "Mr. Sheng, ironing. He presses a collar as if signing a contract: once, and meaning it."
+
+**REVEREND SOWERBY** · *with the pencil*
+- LOOK — "The Reverend Sowerby, holding the pencil. He keeps the score the way he keeps a funeral, by the word, and the words are not cheap."
+
+**THE JUDGES** · *the first*
+- LOOK — "A judge of the Assay, sitting where the lamp can't reach him. I suspect that's in the rules."
+
+**THE JUDGES** · *the second*
+- LOOK — "The middle judge. He has not blinked once while I've stood here, which is either judicial or taxidermy."
+
+**THE JUDGES** · *the third*
+- LOOK — "The third judge, at the dark end of the table, writing nothing down and remembering all of it."
+
+**IGNATIUS FRAME** · *stood back from his press*
+- LOOK — "Mr. Frame, arms folded, stood back from his own press. A newspaperman letting somebody else make the news. It does not suit him."
+
+**NICKEL PRATT** · *at the Registrar's counter*
+- LOOK — "Mr. Pratt, at the counter with his mallet, waiting his turn to swear. He has never met a queue he couldn't outstand."
+
+**WINNIE LEDGER** · *at the loose board*
+- LOOK — "Winnie, out from behind her counter and down at the floor. In all my visits it's the first I've seen of her below the window."
+
+**WINNIE LEDGER** · *at the filing*
+- LOOK — "Winnie, at the end of Sump's counter with her pen. She has come to sign something true, and she would like it done before anyone argues."
+
+**THE UNDERTAKER** · *at the coffin*
+- LOOK — "The undertaker, at my coffin. He is the only man here who knows how full it will be, and he is keeping it professional."
+
+**MADAME OZYMANDIA** · *on Prosperity*
+- LOOK — "Madame Ozymandia, on my claim, holding the rod and saying nothing. I've paid two dollars for less."
+
+**COLONEL FANSHAWE** · *in the street*
+- LOOK — "The Colonel, out in the open street with the town behind him, looking like a man who has already had the portrait done."
+
+**REVEREND SOWERBY** · *on the porch*
+- LOOK — "The Reverend on the porch, holding the pencil out here exactly as he holds it indoors, as if the street had a lamp over it."
+
+**THE BALD JUDGE**
+- LOOK — "A judge, out of the back room and into the street. He stands like a man who has never been seen below the knees."
+
+**THE GAUNT JUDGE**
+- LOOK — "The gaunt judge. In the open air he looks exactly as he did in the dark, which I find unsettling."
+
+**THE BEARDED JUDGE**
+- LOOK — "The bearded judge, as solemn on a porch as at a table. He has brought the back room with him in his face."
+
+**THE TOWN** · *at the saloon end*
+- LOOK — "Half of Consolation, at the saloon end, ready to be on whichever side wins."
+
+**THE TOWN** · *at the road end*
+- LOOK — "The rest of Consolation, at the road end. They have the better view and the shorter walk home."
+
+**THE BARBER-DENTIST-SURGEON**
+- LOOK — "The barber, who is also the dentist, who is also the surgeon. One chair, one set of instruments, and a great deal of confidence."
+
+**THE PHOTOGRAPHER**
+- LOOK — "The photographer, beside his camera, standing as close as he can to the one thing in the room he trusts."
+
+**THE BOARDING HOUSE WOMAN**
+- LOOK — "One of the two women who keep the boarding house. She regards the gold rush as weather, and has dressed for it."
+
+**THE OTHER BOARDING HOUSE WOMAN**
+- LOOK — "The other proprietress. Between them they run the one business in Consolation that has never once gone looking for gold."
+
+**GRIEVANCE** · *out of her stall*
+- LOOK — "Grievance, stepping out of her stall as if she'd only been waiting for somebody to get the note right."
+
+**GRIEVANCE** · *at the washout*
+- LOOK — "Grievance, on the one patch of grass for a mile, eating it slowly so it lasts."
+

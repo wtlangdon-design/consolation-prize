@@ -118,7 +118,7 @@
           {
             "say": "A ring when set down. It sounds fuller than it is, which is a kindness.",
             "repeat": [
-              "Nothing.",
+              "Silence, while it hangs empty. It only speaks when somebody gives it something, which is a policy I respect.",
               "A last ring as the plate settles on its bolt. Fuller than it is, again."
             ]
           }
@@ -454,7 +454,7 @@
           {
             "say": "Wind. The glass thins it into something nearly sung.",
             "repeat": [
-              "Nothing.",
+              "A fly against the inside of the pane, trying to leave by the light.",
               "The wind again, nearly sung. It never quite reaches the note."
             ]
           }
@@ -532,7 +532,7 @@
           {
             "say": "Wood, easing. Six days of quiet with one loud one coming.",
             "repeat": [
-              "Nothing.",
+              "A knot in the end of one pew, ticking as the wood dries out.",
               "A pew creaking under nobody. Old wood remembering a Sunday."
             ]
           }

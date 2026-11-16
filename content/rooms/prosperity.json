@@ -1196,6 +1196,12 @@
             "I'll leave you to it, then."
           ]
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "Madame Ozymandia, on my claim, holding the rod and saying nothing. I've paid two dollars for less.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **MADAME OZYMANDIA** · *on Prosperity* - LOOK"
+        }
       ]
     },
     "pratt_jump": {

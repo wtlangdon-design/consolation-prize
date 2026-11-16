@@ -2850,6 +2850,23 @@ if (staleGeometry.length) {
     if (found !== 1) fail(`act-line-gates halves: "${entry.says}" matches ${found} lines in ${built.id}, not one`);
   }
 }
+// THE SOUND OF THINGS (errata 354). Doc 133 lists, by room, object and click, the small real sounds that replace a bare
+// "Nothing." (a room keeps one, errata 343). Each entry must find "Nothing." exactly where it says, or the build fails:
+// a line that moved under it is a line somebody must look at again.
+{
+  const section = read('docs/133-playthrough-rulings.md').split('## THE ACTS TWO TO FOUR REVIEW: THE SOUND OF THINGS')[1]?.split(/\n## /)[0] ?? '';
+  for (const m of section.matchAll(/^- `([a-z0-9_]+)` · `([a-z0-9_]+)` · click (\d+) — "([^"]+)"$/gm)) {
+    const [, roomId, targetId, click, line] = m;
+    if (roomId !== built.id) continue;
+    const target = [...built.hotspots, ...(built.exits ?? [])].find((one) => one.id === targetId);
+    if (!target) fail(`doc 133 THE SOUND OF THINGS: no "${targetId}" in ${roomId}`);
+    const n = Number(click) - 1;
+    const rule = (target.responses?.LISTEN_TO ?? []).find((one) => [one.say, ...(one.repeat ?? [])][n] === 'Nothing.');
+    if (!rule) fail(`doc 133 THE SOUND OF THINGS: ${roomId} ${targetId} click ${click} is not "Nothing."`);
+    if (n === 0) rule.say = line;
+    else rule.repeat[n - 1] = line;
+  }
+}
 const OUT = ROOM_FILE;
 const wanted = `${JSON.stringify(built, null, 2)}\n`;
 

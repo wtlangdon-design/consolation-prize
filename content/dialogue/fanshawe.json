@@ -22,6 +22,13 @@
     },
     {
       "when": {
+        "T_OBITUARY": true,
+        "T_FAN_E1_HEARD": false
+      },
+      "node": "FAN_E1"
+    },
+    {
+      "when": {
         "ACT": {
           "atLeast": 2
         }
@@ -337,12 +344,12 @@
         {
           "id": "fanshawe1",
           "tag": "PROGRESS",
-          "text": "I need to see the Registrar about my boundary.",
+          "text": "I'm told a neighbor may see Claim One's filing.",
           "afterUse": "remove",
           "exchange": [
             {
               "speaker": "fanshawe",
-              "line": "Your boundary! A man who knows where he ends. Rare."
+              "line": "Are you! A neighbor. How very neighborly."
             },
             {
               "speaker": "fanshawe",
@@ -438,11 +445,11 @@
     },
     "FAN_B2": {
       "id": "FAN_B2",
-      "prompt": "The famous card! Take a copy. Take two. History belongs to everybody.",
+      "prompt": "And while Sump considers it, remember the Company keeps a copy of everything. Ask.",
       "opening": [
         {
           "speaker": "fanshawe",
-          "line": "The famous card! Take a copy. Take two. History belongs to everybody."
+          "line": "And while Sump considers it, remember the Company keeps a copy of everything. Ask."
         }
       ],
       "options": [
@@ -454,11 +461,23 @@
           "exchange": [
             {
               "speaker": "fanshawe",
-              "line": "Of course. You'll find it agrees with the sealed filing in every particular."
+              "line": "The famous card! Take a copy. Take two. History belongs to everybody."
             },
             {
               "speaker": "fanshawe",
               "line": "…"
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "You'll find it agrees with the sealed filing in every particular."
+            },
+            {
+              "speaker": "thad",
+              "line": "Claim One. O. Mott. See filing."
+            },
+            {
+              "speaker": "thad",
+              "line": "It tells me to see the one thing I can't."
             }
           ]
         },
@@ -650,6 +669,55 @@
           "ends": true
         }
       ]
+    },
+    "FAN_E1": {
+      "id": "FAN_E1",
+      "prompt": "But none so final. Sit. The dead are always welcome here; they so rarely object to anything.",
+      "opening": [
+        {
+          "speaker": "fanshawe",
+          "line": "Mr. Grubb! I read your obituary at breakfast. They spelled you correctly, which I took as a mark of respect."
+        },
+        {
+          "speaker": "thad",
+          "line": "I've had better notices."
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "But none so final. Sit. The dead are always welcome here; they so rarely object to anything."
+        }
+      ],
+      "options": [
+        {
+          "id": "fanshawe1",
+          "tag": "TOPIC",
+          "text": "You don't seem surprised to see me.",
+          "afterUse": "remove",
+          "say": "In this town, Mr. Grubb, being dead has never stopped anyone doing business. I hold it against nobody."
+        },
+        {
+          "id": "fanshawe2",
+          "tag": "TOPIC",
+          "text": "What becomes of Prosperity now?",
+          "afterUse": "remove",
+          "say": "It passes to whomever you left it to, and the Company will make them an offer before the ground has settled. I had the letter drafted before the Clarion went to press."
+        },
+        {
+          "id": "fanshawe3",
+          "tag": "COMIC",
+          "text": "I'd hoped for a eulogy from you.",
+          "afterUse": "remove",
+          "say": "I make it a rule never to speak well of a man before his estate is settled."
+        },
+        {
+          "id": "fanshawex",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ],
+      "openingOnce": "T_FAN_E1_HEARD"
     }
   }
 }

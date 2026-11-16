@@ -115,7 +115,7 @@
             "say": "Nothing, closed. It is a very good case.",
             "repeat": [
               "Nothing, closed.",
-              "Nothing."
+              "The hinge, which squeaks in no key at all. My father never tuned the hinges."
             ]
           }
         ]
@@ -243,7 +243,7 @@
           {
             "say": "Nothing. Paper is very quiet about this sort of thing.",
             "repeat": [
-              "Nothing.",
+              "Paper, folded and refolded until the creases do most of the talking.",
               "Nothing. Three letters, and not one of them has asked me anything I would have to answer."
             ]
           }
@@ -351,10 +351,10 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "The hook, complaining a little under the weight of it.",
             "repeat": [
-              "Nothing.",
-              "Nothing."
+              "Wool, brushing the door when the hallway draft gets under it.",
+              "A button, tapping the wood. It has been loose for a year and declines to fall off."
             ]
           }
         ]
@@ -547,8 +547,8 @@
             "say": "A drip that keeps no rhythm. I've tried tuning it. It resists.",
             "repeat": [
               "Nothing. Water, when I move it.",
-              "Nothing.",
-              "Nothing."
+              "The pitcher's lip, singing very faintly when somebody climbs the stairs.",
+              "The drip again, a beat behind where I'd put it."
             ]
           }
         ]
@@ -599,7 +599,7 @@
             "say": "Nothing. The drama is all in what gets written at it.",
             "repeat": [
               "Nothing. It is the only place in Consolation where nobody is talking.",
-              "Nothing."
+              "The short leg, rocking on the claim notice when I lean. The only claim in town that pushes back."
             ]
           }
         ]
@@ -690,8 +690,8 @@
           {
             "say": "Springs. They report every intention before I have finished forming it.",
             "repeat": [
-              "Nothing.",
-              "Nothing.",
+              "The frame, creaking as the building settles round it.",
+              "One spring, still letting go of the shape of somebody, slowly.",
               "Nothing. It is a bed and it is waiting, which is what they do."
             ]
           }
@@ -737,7 +737,7 @@
             "repeat": [
               "The lobby. A clock, and somebody on the landing.",
               "Still the clock.",
-              "Nothing."
+              "The key, turning a fraction in the lock by itself. It has its own ideas about security."
             ]
           }
         ]

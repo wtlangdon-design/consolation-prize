@@ -191,7 +191,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "The ribbon marker, stirring in the draft from the street. It keeps today's page, and every page was today once.",
             "repeat": [
               "A page, if I lean close. Not a word.",
               "Nothing. It has the whole town in it and no opinion about any of it."
@@ -263,7 +263,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "A nib, drying. It has the patient tick of a thing that will outlast everyone who signs with it.",
             "repeat": [
               "The chain, if I touch it.",
               "Nothing. It's chained, and quiet about it."
@@ -534,7 +534,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "One pin, loose in its hole, rattling faintly. Somebody's claim, coming unstuck.",
             "repeat": [
               "Paper, flat to the wall.",
               "Nothing. The pins aren't talking."
@@ -574,9 +574,9 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "The bench creaking under nobody. It seats nine, and it remembers every one of them.",
             "repeat": [
-              "Nothing.",
+              "A slat, ticking now and then. Waiting, done in wood.",
               "Nothing. There's nobody on it."
             ]
           }
@@ -634,7 +634,7 @@
             "say": "Sump, stamping. Every third document is somebody becoming official. I know the weight of it now."
           },
           {
-            "say": "Nothing.",
+            "say": "Wood, worn hollow where a great many elbows have waited, giving back a little of the room.",
             "repeat": [
               "The clock, over my shoulder, and nothing from the counter.",
               "Wood, being leaned on. By me. Against advice."
@@ -1109,6 +1109,22 @@
     }
   ],
   "peopleResponses": {
+    "winnie_registrar": {
+      "LOOK_AT": [
+        {
+          "say": "Winnie, at the end of Sump's counter with her pen. She has come to sign something true, and she would like it done before anyone argues.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **WINNIE LEDGER** · *at the filing* - LOOK"
+        }
+      ]
+    },
+    "pratt_registrar": {
+      "LOOK_AT": [
+        {
+          "say": "Mr. Pratt, at the counter with his mallet, waiting his turn to swear. He has never met a queue he couldn't outstand.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **NICKEL PRATT** · *at the Registrar's counter* - LOOK"
+        }
+      ]
+    },
     "sump": {
       "LOOK_AT": [
         {
