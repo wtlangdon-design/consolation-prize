@@ -28,6 +28,12 @@ Resolution runs most specific first.
 | **A9** | THE FILING FEE on **Registrar Sump** | "Two dollars, for a number in a book. He has taken it without looking at me, which I am told is the correct procedure." |
 | **C5** | THE SUBMISSION LOG on **Winnie** | *(→ opens `WIN_B2`; no line of its own -- the tree's authored opening is the showing; the log is kept. Errata 66 rulings A-C, Act II.)* |
 | **E5** | THE DEATH CERTIFICATE on **Frame** | *(→ opens `FRA_E1`; no line of its own -- the tree's authored opening is the showing; the certificate is kept for the county. Errata 274: the obituary is asked for with the death in hand, not by talking. TALK TO opens the same node.)* |
+| **E0** | DOCUMENT A on **Sump** | *(→ opens `SUM_B1`; no line of its own -- handing him a paper opens the window, where the topic about the fourth is. Errata 351: the three papers were refused by a stock line.)* |
+| **E0** | DOCUMENT B on **Sump** | *(→ opens `SUM_B1`; as Document A. Errata 351.)* |
+| **E0** | DOCUMENT D on **Sump** | *(→ opens `SUM_B1`; as Document A. Errata 351.)* |
+| **D4** | THE LINEN MONEY on **Sheng** | *(→ opens `SHE_D1`; no line of its own -- the money held out opens his ledger, where the option that pays him is. Errata 351.)* |
+| **G1** | THE FILING FEE on **Ozymandia** | *(→ opens `OZY_A1`; no line of its own -- in Act II the two dollars held out opens her tree, where the rod is hired. Errata 351.)* |
+| **F4** | THE SAMPLE on **Winnie** | *(→ opens `WIN_F1`; no line of its own -- the rock on her counter is the asking. Errata 351.)* |
 
 ---
 

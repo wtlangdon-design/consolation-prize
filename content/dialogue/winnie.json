@@ -30,7 +30,8 @@
     },
     {
       "when": {
-        "T_BORDERS_MOTT": true
+        "T_BORDERS_MOTT": true,
+        "T_SUMP_DOCUMENTS_HEARD": true
       },
       "node": "WIN_B1"
     }
@@ -272,7 +273,7 @@
               "line": "…"
             },
             {
-              "speaker": "winnie",
+              "speaker": "thad",
               "line": "You've stopped writing."
             },
             {

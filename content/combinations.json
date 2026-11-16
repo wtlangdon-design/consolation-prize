@@ -433,6 +433,103 @@
       ]
     },
     {
+      "item": "document_a",
+      "room": "claims_registrar",
+      "target": "sump",
+      "puzzle": "E0",
+      "requiresFlags": {
+        "T_SUMP_DOCUMENTS_HEARD": true,
+        "T_CLAIM1_BLANK": false
+      },
+      "opens": "SUMP",
+      "verbs": [
+        "GIVE"
+      ],
+      "note": "ERRATA 351: a trial paper held out to Sump opens SUM_B1, where the topic about Document C is. No `say`.",
+      "opensNode": "SUM_B1"
+    },
+    {
+      "item": "document_b",
+      "room": "claims_registrar",
+      "target": "sump",
+      "puzzle": "E0",
+      "requiresFlags": {
+        "T_SUMP_DOCUMENTS_HEARD": true,
+        "T_CLAIM1_BLANK": false
+      },
+      "opens": "SUMP",
+      "verbs": [
+        "GIVE"
+      ],
+      "note": "ERRATA 351: a trial paper held out to Sump opens SUM_B1, where the topic about Document C is. No `say`.",
+      "opensNode": "SUM_B1"
+    },
+    {
+      "item": "document_d",
+      "room": "claims_registrar",
+      "target": "sump",
+      "puzzle": "E0",
+      "requiresFlags": {
+        "T_SUMP_DOCUMENTS_HEARD": true,
+        "T_CLAIM1_BLANK": false
+      },
+      "opens": "SUMP",
+      "verbs": [
+        "GIVE"
+      ],
+      "note": "ERRATA 351: a trial paper held out to Sump opens SUM_B1, where the topic about Document C is. No `say`.",
+      "opensNode": "SUM_B1"
+    },
+    {
+      "item": "linen_money",
+      "room": "laundry",
+      "target": "sheng",
+      "puzzle": "D4",
+      "requiresFlags": {
+        "T_SHENG_TASK": true,
+        "T_PRATT_TRAIL": false
+      },
+      "opens": "SHENG",
+      "verbs": [
+        "GIVE"
+      ],
+      "note": "ERRATA 351: the Reverend's money held out to Sheng opens SHE_D1, where the option that pays him is. No `say`.",
+      "opensNode": "SHE_D1"
+    },
+    {
+      "item": "filing_fee",
+      "room": "ozymandias_tent",
+      "target": "ozymandia",
+      "puzzle": "G1",
+      "requiresFlags": {
+        "T_SUMP_DOCUMENTS_HEARD": true,
+        "T_ROD_HIRED": false,
+        "T_SEANCE_ON": false
+      },
+      "opens": "OZYMANDIA",
+      "verbs": [
+        "GIVE"
+      ],
+      "note": "ERRATA 351: in Act II the two dollars held out to Ozymandia opens OZY_A1, where the rod is hired. No `say`.",
+      "opensNode": "OZY_A1"
+    },
+    {
+      "item": "sample",
+      "room": "assay_office",
+      "target": "winnie",
+      "puzzle": "F4",
+      "requiresFlags": {
+        "T_STRIKE_FOUND": true,
+        "T_ASSAY_RUN": false
+      },
+      "opens": "WINNIE",
+      "verbs": [
+        "GIVE"
+      ],
+      "note": "ERRATA 351: the sample held out to Winnie opens WIN_F1, where she is asked to run it. No `say`.",
+      "opensNode": "WIN_F1"
+    },
+    {
       "item": "executor_form",
       "room": "archive",
       "target": "mott_file",

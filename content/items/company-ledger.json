@@ -25,6 +25,12 @@
     ],
     "OPEN": [
       {
+        "when": {
+          "T_LEDGER_CRACKED": false
+        },
+        "say": "It shuts again the moment I let go, as a book will that has never had company. A spine wants weight on it before it learns to stay open."
+      },
+      {
         "say": "Twelve months of figures, all agreeing with each other. I would only be interrupting."
       }
     ]

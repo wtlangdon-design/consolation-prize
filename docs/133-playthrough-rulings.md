@@ -66,6 +66,7 @@ Each of these is a thing a player would naturally try to open, and opens. Each a
 
 - `clarion` — "I've read it. Page one is about me, and I have read page one more than once."
 - `company_ledger` — "Twelve months of figures, all agreeing with each other. I would only be interrupting."
+- `company_ledger` *(until `T_LEDGER_CRACKED`)* — "It shuts again the moment I let go, as a book will that has never had company. A spine wants weight on it before it learns to stay open."
 - `company_map` — "Unrolled: the district, the roads, and Claim Two, circled. It is still circled. I check."
 - `hymnal` — "Every hymn in it is pitched for a choir this town does not have. I have looked."
 - `invitation` — "It is a card, engraved on one side. The other side is blank, which is the most honest thing about it."
