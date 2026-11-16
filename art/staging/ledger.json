@@ -54619,6 +54619,151 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-16T15:37:04.026Z"
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "assetId": "room-31-hearse-match",
+   "subject": "room-31-hearse-match",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/acts-two-to-four-art/hearse-op-2.txt",
+   "promptHash": "ebb25b8efdded26f0396d950b1116ca1aec86a3c573d06404810e42036127944",
+   "references": [
+    {
+     "path": "art/staging/acts-two-to-four-art/hearse/gate-hearse@2x.png",
+     "hash": "98c11971fa5ecba1c9e9b13be81f5642b98de18ab7925a2b93eab4d291b9da3c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/acts-two-to-four-art/hearse/op-1.png",
+     "hash": "7307ff99c1d09a3e1665138e27183590537c6b45e48250d4a3e1a630e87774e1",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/acts-two-to-four-art/hearse/grievance-now.png",
+     "hash": "d85b98fecefef88bb776d98b58a11f1f14315314a09b13166ddcc4ab8bddc53c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "reference/room-31/cast-board.png",
+     "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-31-funeral",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-14-boot-hill)",
+      "path": "art/backgrounds/room-14-boot-hill.png",
+      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the cast already drawn: Sowerby (Room 17), the undertaker (Room 13), Grievance (Room 15), Hob (Room 21))",
+      "path": "reference/room-31/cast-board.png",
+      "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "98c11971fa5ecba1c9e9b13be81f5642b98de18ab7925a2b93eab4d291b9da3c",
+   "sourcePath": "art/staging/acts-two-to-four-art/hearse/gate-hearse@2x.png",
+   "out": "art/staging/acts-two-to-four-art/hearse/op-2.png",
+   "outputHash": "f808f4110af2d028af296690d909a0aef6b5bcffb46a2d6d0757a51a388c5065",
+   "bytes": 1400334,
+   "usage": {
+    "input_tokens": 11624,
+    "input_tokens_details": {
+     "image_tokens": 11356,
+     "text_tokens": 268
+    },
+    "output_tokens": 158,
+    "output_tokens_details": {
+     "image_tokens": 158,
+     "text_tokens": 0
+    },
+    "total_tokens": 11782
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-16T16:30:42.847Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-16T16:30:42.861Z"
   }
  ],
  "promotions": [

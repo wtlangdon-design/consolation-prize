@@ -164,6 +164,11 @@ def sign():
 
 
 HEARSE_GROUND = (505, 578)  # the hearse's wheels on the ground just behind the coffin (room x of its centre, y of its wheels).
+HEARSE_OP = 2               # Tyler, 2026-11-16, of the mule at a right angle to the three-quarter-rear hearse: "Redraw the
+                            # hearse side-on". Operation 2 (the asset's correction) is the gate's hearse side-on, empty,
+                            # its front to the left, in line with Grievance. Operation 1 (three-quarter rear) is kept.
+SHAFTS_END = 405            # operation 2's columns left of its front lamp: the shafts, trimmed
+HEARSE_LEFT = 236           # room x of its front end, at Grievance's traces (her sheet's right edge is at x ~255)
                             # Grievance, the mule (content/ambient/funeral-grievance.json, x 129), stands hitched at its
                             # front, clear of it: at x 330 the new, longer hearse hid her whole. Her sprite carries a strip
                             # of the OLD hearse beside her (x ~215-255); from x 205 the new hearse covers that strip.
@@ -177,8 +182,10 @@ def hearse():
     sheet, so the sheet grows; its foot row stays y 733 and the record's new x and frame are reported for the wiring."""
     ns, bt = helpers()
     room = bt['load']('content/rooms/funeral.json'); p = room['props'][0]
-    a = np.asarray(Image.open(R(f'{ST}/hearse/op-1.png')).convert('RGB')).astype(int)
+    a = np.asarray(Image.open(R(f'{ST}/hearse/op-{HEARSE_OP}.png')).convert('RGB')).astype(int)
     op = ns['opaque_rgb'](a)
+    if HEARSE_OP == 2:
+        op[:, :SHAFTS_END] = False      # the shafts it drew lying ahead of it: Grievance's own traces carry the hitch
     from scipy import ndimage as ndi
     lab, n = ndi.label(op); sizes = ndi.sum(op, lab, range(1, n + 1))
     op = np.isin(lab, [i + 1 for i, z in enumerate(sizes) if z >= 200])
@@ -187,6 +194,10 @@ def hearse():
     crop[..., :3] = a[ys.min():ys.max() + 1, xs.min():xs.max() + 1]; crop[..., 3] = np.where(op[ys.min():ys.max() + 1, xs.min():xs.max() + 1], 255, 0)
     man = bt['curve_man'](room, *HEARSE_GROUND)
     H = round(GATE_RATIO * man); k = H / crop.shape[0]; Wd = round(crop.shape[1] * k)
+    if HEARSE_OP == 2:                  # side-on: its front (left) end set just behind Grievance's traces
+        HG = (HEARSE_LEFT + Wd // 2, HEARSE_GROUND[1])
+    else:
+        HG = HEARSE_GROUND
     pm = crop.astype(float); pm[..., :3] *= pm[..., 3:4] / 255
     sm = np.asarray(Image.fromarray(pm.astype(np.uint8)).resize((Wd, H), Image.BOX)).astype(float)
     al = sm[..., 3:4]; rgb = np.where(al > 0, sm[..., :3] * 255 / np.maximum(al, 1), 0)
@@ -196,7 +207,7 @@ def hearse():
     hi = hearse_img.astype(int)
     pocket = (hi[..., 3] > 0) & (hi[..., 0] > hi[..., 1] + 25) & (hi[..., 2] > hi[..., 1] + 25)
     hearse_img[pocket] = 0
-    hx0, hy0 = HEARSE_GROUND[0] - Wd // 2, HEARSE_GROUND[1] - H + 1
+    hx0, hy0 = HG[0] - Wd // 2, HG[1] - H + 1
     # item 2's coffin group: the warm wood of the prop below the old hearse's wheel line, whole pieces, holes filled
     cp = np.asarray(Image.open(R(f'{ST}/hearse/coffin-open-prop.png')).convert('RGBA')).astype(int)
     cx0, cy0 = p['x'] - p['frame'][2] // 2, p['y'] - cp.shape[0] + 1      # the old sheet's left edge (it grew rightward)

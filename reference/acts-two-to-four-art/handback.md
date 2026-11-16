@@ -4,7 +4,7 @@
 
 On Tyler's instruction (2026-11-16), `art/staging/caps.json` has four new entries, each with cap 2 and quoting him: `room-32-coffin-lantern`, `room-31-coffin-open`, `room-44-seance-sign` and `room-31-hearse-match`. He authorized up to eight operations for the brief.
 
-**Four operations are spent, one per item, and no correction was needed.** That is 45,136 billed tokens:
+**Five operations are spent**: one per item, and later item 4's correction on Tyler's look (below). That is 56,918 billed tokens:
 
 | Item | Asset | Attempt | Tokens |
 |---|---|---|---|
@@ -12,9 +12,10 @@ On Tyler's instruction (2026-11-16), `art/staging/caps.json` has four new entrie
 | 2 | room-31-coffin-open | 1 | 11,915 |
 | 3 | room-44-seance-sign | 1 | 9,565 |
 | 4 | room-31-hearse-match | 1 | 11,357 |
+| 4, redrawn side-on | room-31-hearse-match | 2 | 11,782 |
 
-- **Ledger:** 448 attempts and 4,569,656 tokens against `spendTokensTotal` 4,625,000. About 55,000 is left, so the ceiling was not reached.
-- **Corrections in hand:** each asset still has its second operation.
+- **Ledger:** 449 attempts and 4,581,438 tokens against `spendTokensTotal` 4,625,000. About 43,500 is left, so the ceiling was not reached.
+- **Corrections in hand:** items 1-3 each still have their second operation; item 4 has none left.
 - **Nothing wired:** nothing in `content/` or `docs/` is touched, as the brief says; the main session wires it.
 
 Each item was generated against a frame of Thad in its own room, with Thad's ruler frame (`art/staging/act-one-art/thad-ruler.png`). Prompts and specs are `reference/acts-two-to-four-art/<item>-op-1.txt` and `.spec.json`.
@@ -101,17 +102,24 @@ Both are fixed with no new operation:
 
 **Tyler's second look:** "the horse is clearly a cut out with different color grass around it and it's not attached."
 - **The grass:** the master's green grass around her legs is cleared from her sheet, so she stands on the night plate's own blue ground. It is the green-over-blue, green-over-red pixels from her chest down; her coat and harness are neutral and stay. Any piece cut off from her body is cleared too. That makes 36,648 px cleared a frame in all, the same in every frame.
-- **Attached:** the hearse's front comes left to meet her (its left edge at room x 239), so her traces run into its front wheel. Its wheels are at (505, 578), still set back behind the coffin.
+- **Attached:** the hearse's front comes left to meet her (its left edge at room x 239), so her traces run into its front wheel. Its wheels were at (505, 578); superseded below, still set back behind the coffin.
+
+**Tyler's third look:** "It seems weird the have the horse standing at like a 90 degree angle to the carriage, no?" Asked which to redraw, he chose **"Redraw the hearse side-on"**.
+- **Operation 2**, the asset's correction, drew the gate's hearse side-on, as the gate draws it. It is empty, front to the left, in line with Grievance.
+- **The shafts:** it drew them lying on the ground ahead of the hearse. They are trimmed (`SHAFTS_END`), because Grievance's own traces carry the hitch.
+- **Position:** its front end is set at room x 236, at her traces, with its wheels at y 578, still set back behind the coffin.
+- **Size:** it is still 1.292 of the man at its wheels, so 616 x 423.
+- **Departure from the brief:** the brief asked for three-quarter rear. Operation 1's three-quarter-rear drawing is kept in staging (`HEARSE_OP = 1` in the tool builds it again).
 
 **The sheet changed size, so the record must change with it.** These are wiring numbers, not done here:
 
 | | x | y | frame |
 |---|---|---|---|
 | was | 361 | 733 | `[0, 0, 422, 578]` |
-| **now** | **461** | 733 | **`[0, 0, 622, 578]`** |
+| **now** | **501** | 733 | **`[0, 0, 702, 578]`** |
 
 - The coffin group lands where it was, its left edge unmoved.
-- The hearse spans x 239-772, clear of the grave.
+- The hearse spans x 236-852. Its rear end stands behind the grave's far side.
 
 **Tests.** "No prop paints the plate over a figure behind it" now passes, both with the record as it is and with the new record applied (tried, then reverted). The overlap that tripped it was the dark hearse over the old-hearse strip, and that strip is gone.
 
