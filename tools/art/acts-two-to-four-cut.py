@@ -181,7 +181,10 @@ def hearse():
     group (box, cushion, trestles, leaning lid) in front, where it stood. The whole hearse no longer fits the old 422 x 578
     sheet, so the sheet grows; its foot row stays y 733 and the record's new x and frame are reported for the wiring."""
     ns, bt = helpers()
-    room = bt['load']('content/rooms/funeral.json'); p = room['props'][0]
+    room = bt['load']('content/rooms/funeral.json')
+    # The record the coffin group was cut against (it moves from here by COFFIN_DX): the prop as it stood before this
+    # job, so the job re-runs to the same pixels whatever the record says now (errata 362 changed it).
+    p = {'x': 361, 'y': 733, 'frame': [0, 0, 422, 578]}
     a = np.asarray(Image.open(R(f'{ST}/hearse/op-{HEARSE_OP}.png')).convert('RGB')).astype(int)
     op = ns['opaque_rgb'](a)
     if HEARSE_OP == 2:
@@ -232,8 +235,24 @@ def hearse():
                          'was': {'x': p['x'], 'y': p['y'], 'frame': p['frame']}},
               'drawnFromX': X0 - (new_x - canvas.size[0] // 2)}
     print(json.dumps(report))
+    # ERRATA 362: TWO PROPS, EACH AT ITS OWN FEET. As one prop the hearse stood at the coffin's foot row (y 733), so it
+    # was drawn over everybody standing anywhere behind the coffin: the Reverend at the grave's head (y 502) was gone
+    # behind it, and the undertaker (611) behind the coffin. The hearse is its own sheet, standing on its wheels'
+    # row; the coffin group is its own, on its trestles' feet. The figures between them sort between them.
+    def keyless(layer):
+        li = layer.astype(int)
+        gone = (li[..., 3] > 128) & (li[..., 2] > li[..., 1] + 30) & ((li[..., 0] + li[..., 2]) / 2 - li[..., 1] > 80)
+        out = layer.copy(); out[gone] = 0; return out
+    def trimmed(layer, left, bottom):
+        ys2, xs2 = np.nonzero(layer[..., 3]); cut = layer[ys2.min():ys2.max() + 1, xs2.min():xs2.max() + 1]
+        x0 = left + xs2.min(); w = cut.shape[1]
+        return cut, {'x': int(x0 + w // 2), 'y': int(bottom - (layer.shape[0] - 1 - ys2.max())), 'frame': [0, 0, int(w), int(cut.shape[0])]}
+    hearse_sheet, hearse_rec = trimmed(keyless(hearse_img), hx0, hy0 + H - 1)
+    coffin_sheet, coffin_rec = trimmed(keyless(g), cx0 + COFFIN_DX, p['y'])
+    print(json.dumps({'hearseProp': hearse_rec, 'coffinProp': coffin_rec}))
     if WRITE:
-        canvas.save(R('art/props/room-31-hearse.png'))
+        Image.fromarray(hearse_sheet).save(R('art/props/room-31-hearse.png'))
+        Image.fromarray(coffin_sheet).save(R('art/props/room-31-coffin.png'))
         plate = Image.open(R(room['background'])).convert('RGBA')
         thad = bt['load']('content/actors/thad.json')
         st = next(cl for cl in thad['clips'] if cl['id'] == 'stand' and cl['facing'] == 'left' and not cl.get('state'))

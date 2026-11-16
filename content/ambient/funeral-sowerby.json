@@ -8,8 +8,8 @@
   "T_LAID_IN": false
  },
  "note": "SOWERBY OFFICIATING (doc 48 S2 beat 2: 'Sowerby's eulogy loops as ambient bark'). Behind the grave, a finger raised; cut from room-31's composition master by tools/art/room31-cast.py. Examined through REVEREND SOWERBY, OFFICIATING over him; TALK TO is that hotspot's (doc 54: 'He is mid-adjective'). His bark is the eulogy, written into this file by tools/compile-room.mjs from doc 48 (errata 99 G).",
- "x": 828,
- "y": 502,
+ "x": 745,
+ "y": 650,
  "zone": 2,
  "approachRadius": 0,
  "tree": "",
@@ -94,5 +94,6 @@
   "figureHeightNote": "ERRATA 234. Crown to sole of the rest frame (the raised finger is below his crown). He was a 1:1 sheet, 314 tall: 1.02 of Thad behind the grave. Now drawn at the room's man at his feet, as Thad is.",
   "levelMan": 308,
   "levelManNote": "ERRATA 234: the man his sheet was snapped to one level at (errata 112 G: this room's man where he stands, 308), kept while he is drawn at 314. His art pixels are 1.02 of the level's (tests/one-level.test.mjs)."
- }
+ },
+ "placeNote": "Errata 362: between the coffin and the grave, in front of the hearse. He stood at the grave's head (828, 502), where the image session's hearse now stands (errata 361), and it was drawn over him whole."
 }

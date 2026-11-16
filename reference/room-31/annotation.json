@@ -109,10 +109,10 @@
    127
   ],
   "reverend_sowerby_officiating": [
-   757,
-   186,
-   140,
-   320
+   645,
+   300,
+   200,
+   350
   ],
   "one_who_knows": [
    1772,
@@ -335,18 +335,34 @@
   {
    "id": "hearse",
    "sheet": "art/props/room-31-hearse.png",
-   "x": 558,
-   "y": 733,
+   "x": 615,
+   "y": 505,
    "frame": [
     0,
     0,
-    696,
-    627
+    581,
+    399
    ],
    "when": {
     "T_LAID_IN": false
    },
-   "note": "The hearse, and the pine coffin on its trestles in front of it with its lid propped and the name plate on the lid (doc 05, doc 54). One prop: they arrive and leave together; gone by night (doc 57 E8). Errata 361: the gate's hearse, drawn side-on in line with Grievance and standing up the slope behind the grave, and the coffin open with a cushion, slid 60 px right, clear of her (reference/acts-two-to-four-art/handback.md; tools/art/acts-two-to-four-cut.py coffin, then hearse)."
+   "note": "The hearse, the gate's, drawn side-on in line with Grievance and standing up the slope behind the grave on its wheels' row (errata 361; reference/acts-two-to-four-art/handback.md). Errata 362: its own prop, at its own wheels, so the figures standing between it and the coffin are drawn in front of it. Gone by night (doc 57 E8)."
+  },
+  {
+   "id": "coffin",
+   "sheet": "art/props/room-31-coffin.png",
+   "x": 450,
+   "y": 726,
+   "frame": [
+    0,
+    0,
+    385,
+    303
+   ],
+   "when": {
+    "T_LAID_IN": false
+   },
+   "note": "The pine coffin on its trestles, open with a cushion, its lid leaning on the near trestle and the name plate on the lid (doc 05, doc 54; errata 361). Errata 362: its own prop, standing on its trestles' feet, cut apart from the hearse by tools/art/acts-two-to-four-cut.py hearse; the two together are the picture Tyler approved, pixel for pixel. Gone by night (doc 57 E8)."
   }
  ],
  "occlusion": {
