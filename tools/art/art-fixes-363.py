@@ -39,6 +39,7 @@ def side_by_side(name, before, after, zoom=2):
 # --- 1. THE LAMP, TAKEN ----------------------------------------------------------------------------------------------
 # Act IV's morning plate keeps the lamp on the desk after PICK UP takes it (T_LAMP_TAKEN). A prop of the same plate's
 # wall, window jamb, sill and desk top, copied from beside the lamp, is drawn over it once it is taken.
+WINDOW_MIRROR = 772 + 1001                # x + x' about the window's centre
 LAMP_BOX = (755, 355, 815, 490)          # x0, y0, x1, y1 on the plate: the lamp to the foot of its base, with a margin
 
 
@@ -48,14 +49,26 @@ def lamp():
     plate = rgba('reference/room-grade/originals/art__backgrounds__room-19-thads-room-act4.png')
     out = plate.copy()
     x0, y0, x1, y1 = LAMP_BOX
+    side = lambda xa, xb: plate[300:350, xa:xb, :3].reshape(-1, 3).astype(float).mean(0)
+    gains = {'frame': np.clip(side(772, 795) / side(WINDOW_MIRROR - 795 + 1, WINDOW_MIRROR - 772 + 1), 0.6, 1.8),
+             'wall': np.clip(side(740, 772) / side(WINDOW_MIRROR - 772 + 1, WINDOW_MIRROR - 740 + 1), 0.6, 1.8)}
     for y in range(y0, y1):
         for x in range(x0, x1):
-            if y < 390:
-                src = (x, y - 40)                       # the jamb and the wall run straight up past the chimney
-            elif x < 775 and y < 468:
-                src = (x - 25, y)                       # the wall left of the jamb, from just beside it
+            if y < 428:
+                # ERRATA 364 (Tyler, 2026-11-16: "There's a chunk of window frame missing"): the frame's lower-left
+                # corner, its jamb and rail down to the frame's foot (y 427), is the window's own lower-right corner
+                # mirrored about its centre (the frame runs x 772 to 1001), and the wall beyond it the wall beyond that.
+                # The right side is in shadow: the frame takes the light of the left frame, the wall of the left wall
+                # (each the ratio of the two sides' colour over the clean rows above the chimney, 300 to 350).
+                m = WINDOW_MIRROR - x
+                gain = gains['frame'] if x >= 772 else gains['wall']
+                out[y, x, :3] = np.clip(plate[y, m, :3] * gain, 0, 255).astype(np.uint8)
+                out[y, x, 3] = 255
+                continue
+            elif x < 772:
+                src = (x - 25, y)                       # the wall left of the frame, from just beside it
             elif y < 445:
-                src = (x + 45, y)                       # the sill and its shadow run on to the jamb
+                src = (x + 45, y)                       # the rail's shadow on the wall under it
             elif y < 468:
                 src = (x - 25 if x < 790 else x + 45, y)   # the wall under the sill
             else:

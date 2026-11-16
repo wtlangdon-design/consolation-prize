@@ -8672,3 +8672,9 @@ Then "Go", to the recommendations for the art the Acts II to IV reviews left. No
 Lesson:
 - `tests/art-fixes-363.test.mjs`: seven assertions, one for each fix shipped, each failing on main before this (the dawn ridge's 90th-percentile saturation was 1.00 and is 0.49; the spire was ragged on 44 rows and is on none).
 - Doc 55 §8: two rows (a thing taken leaves its place empty; a cut at a plane where a figure stands in water is drawn as water).
+
+## 364 · The window frame whole where the lamp stood (Tyler, 2026-11-16: "There's a chunk of window frame missing.")
+
+Errata 363's patch over the taken lamp put wall where the window frame's lower-left corner is: it ran the jamb straight up past the chimney and the rail on to it, but not the frame's outer edge or the corner where they meet. The frame's lower-left is now its own lower-right corner mirrored about the window's centre (the frame runs x 772 to 1001), in the left side's light (the right is in shadow: one gain for the frame and one for the wall, each the two sides' colour over the rows above the chimney). The wall under it and the desk are as before.
+
+Lesson: `tests/art-fixes-363.test.mjs`: the frame's corner below the chimney is wood, as it is above it; failing on main before this.
