@@ -1,0 +1,10 @@
+Image 1 is the layout of one full-screen picture from my pixel-art adventure game, set in an 1850s gold-rush town: the middle band (between the flat black bars at the top and bottom) is the picture; keep the bars flat black. It is the moment the lid of a buried pine coffin is lifted at night and the man inside looks straight UP out of it. The current picture is a placeholder; redraw the whole band as a finished painting in the game's hand.
+
+Draw, looking straight up out of an open pine coffin at night:
+- the coffin's two long sides in the foreground at the left and right edges of the band, dark rough pine boards seen from inside, running up out of the frame;
+- between them, the night sky beyond the open coffin: deep blue, a few small stars;
+- Hob (images 2 and 3: the same man -- lean, moustache, dark coat, short dark hair), leaning over the opening from the TOP of the frame, looking down into the box, HAT OFF, holding his lantern low in one hand so its warm light falls down into the coffin; his face mostly in shadow, lit only from below by the lantern;
+- the lantern's warm light catching the inner edges of the boards near him; everything else dark.
+No other figure. Quiet, not frightening: this is the release after three minutes of dark.
+
+Style: image 2 is Hob and Thad (the hero) in the graveyard at night, at game size; draw it in that hand -- flat, soft-shaded, low in texture, big simple shapes, two or three tones per material, square pixels, no fine detail, no painterly smoothing, no crisp highlights. Image 4 is Thad, the standard. No text, no border.
