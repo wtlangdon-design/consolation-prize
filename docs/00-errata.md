@@ -8378,3 +8378,15 @@ One line each, where three is the examine layer's rule: these are the first, and
 
 Lesson:
 - `tests/a-look-for-everybody.test.mjs`: a ratchet. Each person written for answers LOOK AT in their own words where they first stand, and may not fall back to the stock line.
+
+## 345 · Act I's art, cleaned by script (Tyler, 2026-11-15: "Go")
+
+From the Act I review's art director. No image operation; each is a recorded script.
+
+- **The frame left on six plates.** A pale grey line ran across the top of the Company's lobby, the livery, Ozymandia's tent and its two séance plates, and the church, and along the bottom of all but the lobby. Each edge now carries the picture's own first row (`tools/art/plate-edge-lines.py`; the church through its graded original).
+- **The key colour left on three figures.** Pink pixels on the outline of the bell-ringer and the map seller, and a green streak on the message boy's shin, take the colour of the figure beside them (`tools/art/key-fringe.py`).
+
+Not found, and told to Tyler: the thin line the art director saw down the Nugget's bar beside a glass. Owed: the town sign and the mile post lettered in the game's face; the room's light on Thad in the night exteriors, which waits for Tyler to see the before and after.
+
+Lesson:
+- `tests/plate-edges.test.mjs`: no room plate has a pale grey line along its top or bottom edge; the cleaned figures carry no key green.
