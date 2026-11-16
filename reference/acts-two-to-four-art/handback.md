@@ -131,6 +131,8 @@ Both are fixed with no new operation:
 - **Placement:** the hearse's front is at x 325, her shaft stub at x 355, and her ears are clear of the screen's left edge.
 - **The coffin** stays in front, where it was.
 
+**Tyler, on this placement:** "That all looks soooo much better now." The graveside as it stands here (hearse, open coffin, Grievance) is his approved look; wire it as given.
+
 **For the wiring, Grievance** (`content/ambient/funeral-grievance.json`):
 
 | | x | y | frames |
