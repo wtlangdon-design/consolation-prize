@@ -803,6 +803,12 @@ export interface AmbientFile {
      */
     footRow?: number;
     /**
+     * HOW FAR DOWN THE DRAWN FIGURE ITS FACES REACH, as a share of its drawn height from the top (errata 359): where
+     * nobody's line may be drawn across it (Renderer.clearOfFaces). Absent: the top fifth, a standing figure's head.
+     * A group cut as one figure -- the séance's sitters round their table -- has faces lower down than one man's.
+     */
+    faceBand?: number;
+    /**
      * THE MAN THIS SHEET WAS SNAPPED TO ONE LEVEL AT (errata 112 G), when it is
      * now drawn at another (errata 234: redrawn at Thad's height by its data,
      * its pixels not re-snapped). Read by tests/one-level.test.mjs only, which

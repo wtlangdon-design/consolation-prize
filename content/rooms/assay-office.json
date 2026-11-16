@@ -1328,6 +1328,10 @@
         },
         {
           "say": "A woman writing, in a hand I can tell is neat from here. She hasn't looked up either, but hers feels like a decision.",
+          "repeat": [
+            "She hasn't crossed out a single word. I've never managed a page like that, and mine were mostly my name.",
+            "She knows I'm here. She is letting the pen finish its sentence first."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **WINNIE LEDGER** - LOOK"
         }
       ]

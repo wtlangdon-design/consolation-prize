@@ -8593,3 +8593,21 @@ Not done (they need a drawing or a look first): the lamp left on Thad's desk aft
 
 Lesson:
 - `tests/act-three-pictures.test.mjs`: three tests, each failing on main before this.
+
+## 359 · A second look, a whole map, and nothing said over anything (Tyler, 2026-11-16: "Go")
+
+The Act I review's leftovers, and two staging faults from the Acts III and IV playtests.
+
+- **A second and a third look at everybody in Act I.** Twenty-four people answered every LOOK AT with errata 344's one line, word for word, however often they were clicked. Each now has two more (doc 133, A LOOK FOR EVERYBODY, after each first line), true wherever the figure is seen, none restating the first. New lines, one voice, under errata 350's permission.
+- **The map seller's map is whole.** Three of his poses were trimmed flat where his held-out map met his cell's edge. The cutter now grows a cell a pose does not fit, evenly at both sides, and lays the sheet again; his record takes the new frames (`tools/art/act1-figures-cut.py`, no image operation). Every colour is the drawing's own.
+- **No line is drawn across another face.** Speech was placed over its speaker's head and nothing else: Mr. Frame, at the front of the séance table, said his line across the sitters behind him, and the Colonel at the last duel said his across the judges and the Reverend on the porch. A line is now lifted above every face band it would cross, the speaker's own excepted, as far as the top of the frame (`Renderer.clearOfFaces`). A figure cut as a group says how far down its faces reach (`sprite.faceBand`; the séance's sitters, two fifths).
+- **The Clarion prints the séance.** Frame promises the dead man's words on the front page within the hour and Thad tells the Registrar they are in the paper; the headline board carried every edition of the running gag but that one. It now has one after E1 (doc 57; a new line, one voice).
+- **The prayer waits for "Let us bow our heads."** The flag that starts the Reverend's prayer is set as the exchange that ends with it begins, and his next speaking break said the prayer's first line over his own. No speaking break says its line while another line is being said; it keeps it for the next break.
+
+Not done: Thad's stand at the Nugget's bar still crosses the drinker in the blue shirt (errata 331): every stand clear of the drinkers covers the barman, so a better one moves a drinker, which is a staging call for Tyler's eye.
+
+Lesson:
+- `tests/a-look-for-everybody.test.mjs`: a second and a third look at everybody in Act I, each different; failing on main before this.
+- `tests/said-over.test.ts`: six tests, the séance's and the duel's geometry among them; failing on main before this.
+- `tests/clarion-prints.test.mjs`: the board prints the words promised, after E1; failing on main before this.
+- Doc 55 §8: two rows (a second look is a second thought; a pose wider than its cell grows the cell), the second held by the cutter, which refuses to write a grown sheet that still loses a pixel.

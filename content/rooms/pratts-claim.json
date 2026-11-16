@@ -619,6 +619,10 @@
       "LOOK_AT": [
         {
           "say": "A man leaning on a rake, checking the sky between strokes, as though the weather might be up to something.",
+          "repeat": [
+            "Every few strokes he stops to look at what he's raked up. So far it's been gravel. He takes that well.",
+            "A patience about him that only comes from small claims or large debts."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **NICKEL PRATT** - LOOK"
         }
       ]

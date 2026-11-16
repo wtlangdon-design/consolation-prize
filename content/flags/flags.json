@@ -1026,6 +1026,15 @@
    "note": "Doc 57's running gag: the edition after C3 has been read on the headline board (errata 82 D's routing flag)."
   },
   {
+   "id": "T_HEADLINE_E1_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 57's running gag: the edition after E1 has been read on the headline board (errata 359: the séance's front page, promised by Frame and Thad and never printed)."
+  },
+  {
    "id": "T_HEADLINE_E3_SEEN",
    "type": "boolean",
    "initial": false,

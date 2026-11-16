@@ -4402,6 +4402,10 @@ export class GameScene extends Phaser.Scene {
    * have said to his face.
    */
   private speakingBreaks(): void {
+    // NOT OVER A LINE BEING SAID (errata 359). The Reverend's prayer began on his next break, which fell while his own
+    // "Let us bow our heads." and the lines before it were still being said: the flag that starts the prayer is set
+    // as the exchange starts. A break that falls while anyone is speaking keeps its line for a later break.
+    if (this.sayLines.length > 0 || this.pendingSay.length > 0) return;
     for (const npc of this.ambient.present) {
       const speaks = npc.sprite?.breaksThatSpeak;
       if (!speaks?.length) continue;

@@ -501,6 +501,7 @@ Asking anyone else to be executor is answered by the interest rule:
 > *after B6* — "VESSEL SIGNS! 'T. GRUB.' I won, and it cost me a letter."
 > *after C5* — "ASSAY QUEUE 'SLIMS,' SAYS LEDGER. 'Mr. GRUBBE, a client.' The E is back. It was always going to come back."
 > *after C3* — "MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS. Frame added the refreshments. He was right to."
+> *after E1* — "MOTT SPEAKS: 'I AM DEAD.' The first thing I have said in this town that they printed exactly as I said it."
 > *after E3* — "FUNERAL THURSDAY: THE PIANO MAN. They have not used my name at all. It is the most accurate they have been."
 > *after E5* — "OBITUARY, PAGE ONE. 'THADEUS GRUBBE.' I have read my own death in the street, misspelled with great care."
 

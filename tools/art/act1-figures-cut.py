@@ -340,10 +340,15 @@ def torso_x(c):
     return (cols[0] + cols[-1]) / 2
 
 
-def standing(D, rec, room, op, render_out, thad_dx, crop_box):
+def standing(D, rec, room, op, render_out, thad_dx, crop_box, grow=False):
     """A full-length standing figure on a 1:1 sheet. Each frame is the whole figure the operation drew there; ONE
     factor for all frames makes the rest frame as tall as the old rest frame; each is laid in its old cell with its
-    soles on the old sole row and its torso where the old frame's torso was; snapped at the record's man."""
+    soles on the old sole row and its torso where the old frame's torso was; snapped at the record's man.
+
+    With `grow` (errata 359), a pose wider or taller than its old cell is not trimmed at the cell's edge: its cell is
+    widened evenly at both sides and grown at the top only, as far as the pose needs, and the sheet is laid again. The torso stays at the cell's centre offset and the soles on the cell's foot row, so the engine, which
+    centres each frame on the figure's x and stands it on its foot, draws it where the old cell stood. Returns the new
+    frame rects in `report['frames']` for the record."""
     sp = rec['sprite']
     lay = json.load(open(R(f'{D}/layout.json')))
     out_img = np.asarray(Image.open(R(f'{D}/op-{op}.png')).convert('RGB')).astype(int)
@@ -357,7 +362,7 @@ def standing(D, rec, room, op, render_out, thad_dx, crop_box):
     crown_old, sole_old = int(rows_of(orest)[0]), int(rows_of(orest)[-1])
     f = (sole_old - crown_old + 1) / figs[0].shape[0]
     block = (sp.get('levelMan') or sp['figureHeight']) / N     # the man tests/one-level.test.mjs reads for the record
-    cells, clipped = [], []
+    cells, clipped, rects = [], [], []
     for (fx, fy, fw, fh), fig in zip(sp['frames'], figs):
         sm = downscale(fig, max(1, round(fig.shape[1] * f)), max(1, round(fig.shape[0] * f)))
         sm = sm[:, alpha(sm).any(0)] if alpha(sm).any() else sm
@@ -365,6 +370,12 @@ def standing(D, rec, room, op, render_out, thad_dx, crop_box):
         cx = torso_x(ocell) if alpha(ocell).any() else fw / 2
         sole = int(rows_of(sm)[-1])
         ox = int(round(cx - torso_x(sm))); oy = sole_old - sole
+        if grow:
+            side = max(0, -ox, ox + sm.shape[1] - fw); top = max(0, -oy)
+            if side or top:
+                fw, fh, ox, oy = fw + 2 * side, fh + top, ox + side, oy + top
+                fx = fy = None
+        rects.append([fx, fy, fw, fh])
         c = np.zeros((fh, fw, 4), np.uint8)
         ys0, xs0 = max(0, oy), max(0, ox); ys1, xs1 = min(fh, oy + sm.shape[0]), min(fw, ox + sm.shape[1])
         c[ys0:ys1, xs0:xs1] = sm[ys0 - oy:ys1 - oy, xs0 - ox:xs1 - ox]
@@ -372,8 +383,20 @@ def standing(D, rec, room, op, render_out, thad_dx, crop_box):
         clipped.append(lost)
         cells.append(unpocket(despill_edge(snap(c, block), width=max(2, int(np.ceil(block)) + 1))))
     cells[1] = breath_of(D, cells[0])
-    sheet = np.zeros_like(old)
-    for (x, y, fw, fh), c in zip(sp['frames'], cells):
+    if rects[1][2:] != [cells[1].shape[1], cells[1].shape[0]]:
+        rects[1] = [None, None, cells[1].shape[1], cells[1].shape[0]]     # the breath is the rest's own size
+    if any(r[0] is None for r in rects):
+        # The sheet is laid again: the old rows kept, in order, each cell at its own size, two pixels apart as the
+        # sheet's own are.
+        ry = 2
+        for row in sorted({y for x, y, w, h in sp['frames']}):
+            rx = 2; members = [r for r, (x, y, w, h) in zip(rects, sp['frames']) if y == row]
+            for r in members: r[0], r[1] = rx, ry; rx += r[2] + 2
+            ry += max(r[3] for r in members) + 2
+        sheet = np.zeros((max(r[1] + r[3] for r in rects) + 2, max(r[0] + r[2] for r in rects) + 2, 4), np.uint8)
+    else:
+        sheet = np.zeros_like(old)
+    for (x, y, fw, fh), c in zip(rects, cells):
         sheet[y:y + fh, x:x + fw] = c
     man = bt['curve_man'](room, rec['x'], rec['y'])
     k = man / sp['figureHeight']
@@ -383,16 +406,18 @@ def standing(D, rec, room, op, render_out, thad_dx, crop_box):
               'restRows': {'old': [crown_old, sole_old], 'new': [int(rows_of(cells[0])[0]), int(rows_of(cells[0])[-1])]},
               'restWidth': {'old': int(np.ptp(np.nonzero(alpha(orest).any(0))[0]) + 1),
                             'new': int(np.ptp(np.nonzero(alpha(cells[0]).any(0))[0]) + 1)},
-              'pixelsLostAtCellEdge': clipped,
+              'pixelsLostAtCellEdge': clipped, 'frames': rects,
               'measures': measures(((rec['id'], game(cells[0])), ('before', game(orest)),
                                     ('thadAtThisMan', thad_at(man)), ('barman', barman_rest())))}
+    if grow and any(clipped):
+        sys.exit(f'{rec["id"]}: a grown cell still lost {clipped} pixels at its edge; not written')
     if WRITE:
         Image.fromarray(sheet).save(R(sp['sheet']))
-        render_standing(room, rec, old, sheet, k, render_out, thad_dx, crop_box)
+        render_standing(room, rec, old, sheet, k, render_out, thad_dx, crop_box, rects)
     return report
 
 
-def render_standing(room, rec, old, new, k, out, thad_dx, crop_box, zoom=1.5):
+def render_standing(room, rec, old, new, k, out, thad_dx, crop_box, new_frames=None, zoom=1.5):
     sp = rec['sprite']
     plate = Image.open(R(room['background'])).convert('RGBA')
     thad = bt['load']('content/actors/thad.json')
@@ -404,9 +429,9 @@ def render_standing(room, rec, old, new, k, out, thad_dx, crop_box, zoom=1.5):
     kt = bt['curve_man'](room, tx, ty) / st['figureHeight']
     ts = t.resize((round(t.width * kt), round(t.height * kt)), Image.NEAREST)
     rows = []
-    for sheet in (old, new):
+    for sheet, frames in ((old, sp['frames']), (new, new_frames or sp['frames'])):
         panels = []
-        for (fx, fy, fw, fh) in sp['frames']:
+        for (fx, fy, fw, fh) in frames:
             f = Image.fromarray(sheet[fy:fy + fh, fx:fx + fw]).resize((round(fw * k), round(fh * k)), Image.NEAREST)
             f = bt['lit'](f, bt['grade_for'](room, rec['id']), bt['mover_tint'](room.get('lamps'), rec['x'], rec['y']))
             im = plate.copy(); im.alpha_composite(f, (round(rec['x'] - fw * k / 2), round(rec['y'] - fh * k)))
@@ -426,8 +451,13 @@ def render_standing(room, rec, old, new, k, out, thad_dx, crop_box, zoom=1.5):
 def mapseller():
     rec = json.load(open(R('content/ambient/map-seller.json')))
     room = bt['load']('content/rooms/main-street.json')
+    # Errata 359: three poses were trimmed at the cell's edge; their cells grow instead, and the record takes the rects.
     rep = standing(f'{ST}/mapseller', rec, room, OPN or 2, 'renders/act-one-art-map-seller-before-after.png', -110,
-                   (rec['x'] - 170, rec['y'] - 190, rec['x'] + 60, rec['y'] + 20))
+                   (rec['x'] - 170, rec['y'] - 190, rec['x'] + 60, rec['y'] + 20), grow=True)
+    if WRITE and rep['frames'] != rec['sprite']['frames']:
+        path = R('content/ambient/map-seller.json'); text = open(path).read()
+        rec['sprite']['frames'] = rep['frames']
+        open(path, 'w').write(json.dumps(rec, indent=1, ensure_ascii=False) + ('\n' if text.endswith('\n') else ''))
     print(json.dumps({'job': 'mapseller', **rep}, indent=1))
 
 

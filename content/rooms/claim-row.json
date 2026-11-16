@@ -953,6 +953,10 @@
       "LOOK_AT": [
         {
           "say": "Hands on his hips. He's standing exactly on what he believes is the line, a foot to the left.",
+          "repeat": [
+            "He keeps glancing at the other man's feet, in case they've gained an inch.",
+            "Chin out. He's ready to argue with a surveyor, and there isn't one in sight."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE OTHER BOUNDARY MAN** - LOOK"
         }
       ]
@@ -961,6 +965,10 @@
       "LOOK_AT": [
         {
           "say": "Arms folded. He's standing exactly on what he believes is the line.",
+          "repeat": [
+            "He hasn't looked at the other man once. That's how you can tell he's sure where he stands.",
+            "His boots are planted. If the line moves, it will have to go around him."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE BOUNDARY MAN** - LOOK"
         }
       ]

@@ -1117,6 +1117,10 @@
       "LOOK_AT": [
         {
           "say": "A clerk with both hands flat on a bare desk, guarding it.",
+          "repeat": [
+            "There's nothing on the desk to guard. He guards it anyway. That is what makes him good at it.",
+            "He sits very straight. I think the chair was issued to him with instructions."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE COMPANY'S CLERK** - LOOK"
         }
       ]

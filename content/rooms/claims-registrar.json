@@ -1156,6 +1156,10 @@
       "LOOK_AT": [
         {
           "say": "A man behind a ledger, in spectacles. He hasn't looked up. I don't think the ledger has finished with him.",
+          "repeat": [
+            "He reads the ledger as other men read scripture: slowly, and hoping it says what he needs.",
+            "If I stood here long enough, I think he would file me."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **REGISTRAR SUMP** - LOOK"
         }
       ]

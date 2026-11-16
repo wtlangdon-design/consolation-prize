@@ -838,6 +838,10 @@
       "LOOK_AT": [
         {
           "say": "An old man with a lantern, looking at the gap between two buildings as if it owed him money.",
+          "repeat": [
+            "He holds the lantern low, as if what he's looking for is short.",
+            "Whatever is in that gap, he has been waiting for it longer than I've been in town."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **HOB** - LOOK"
         }
       ]
@@ -846,6 +850,10 @@
       "LOOK_AT": [
         {
           "say": "A man with a coiled leash and nothing on the end of it. He keeps looking up the alley.",
+          "repeat": [
+            "The leash is coiled neatly. He expects to need it again.",
+            "He holds it at exactly the height of a dog. Old habits are the last thing to leave."
+          ],
           "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE DOG'S OWNER** - LOOK"
         }
       ]
