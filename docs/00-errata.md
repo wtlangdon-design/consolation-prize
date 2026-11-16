@@ -8418,3 +8418,19 @@ Lesson: doc 55 §8, a thing Thad reads aloud and the board it is read from.
 
 Lesson:
 - `tests/held-and-framing.test.ts`: nothing is in hand after LOOK AT, LISTEN TO or USE with an item held; with Thad at the street's far edge the view's bottom reaches the dog's feet and the horses'.
+
+## 350 · An act's line is true when it can be read (Tyler, 2026-11-15, on the Acts II to IV review: "Shop your drafted lines too. And feel free to change a puzzles design or the story too.")
+
+**The ruling this and the errata after it are built on.** Tyler had the in-house review team read Acts II, III and IV overnight (fifteen reviewers; their reports are in the Consolation project as `claude/review-act2-2026-11-15.md`, `-act3-`, `-act4-`) and told the producer to implement what they found without waiting for him: new lines included, puzzle and story changes included, to be corrected as he plays. Kept regardless: the design invariants, one voice writing every line (the reviewers write none), no image operation without his authorization, and a record of what each thing was before.
+
+**This errata: no new words.** Three reviewers independently found the same family of fault.
+- **Act III's lines said Thad was dead from the act's first minute.** The act begins at the Colonel's offer, six puzzles before Thad thinks of dying; doc 92 rule 4 wrote its act 3 lines to be true "from the funeral", and they were gated on the act alone. Forty-three lines in fourteen rooms now also wait for what their sentence assumes: the obituary (`T_OBITUARY`), the recorded death (`T_DECEASED`) or the burial (`T_FUNERAL_DONE`). Act III's three letters home wait for the obituary; until then he is still writing Act II's.
+- **Act IV's lines spoke from a later phase of the act.** Prosperity's marker ("correct the entire time") waits for the strike; Mott's site and the Company's empty chairs wait for the duel; the Nugget's "I could tell them" and its mirror stop once he has told them; the dog's "if I had anything to pay with" stops at the strike. The Company's prospectus rack line, written from after the filing, when the lobby can no longer be entered, is removed.
+- **The hole's Act III LOOK and LISTEN are struck** (doc 05). The LOOK called it the front door of a fortune an act early; the LISTEN remarked on the line the game rests on, which is marking it (invariant 3; doc 92 rule 2).
+**Left, and told to Tyler:** two reviewers found that the closing letter can be read in Thad's room from the strike on, word for word, before the ending says it. That is errata 124's ruling (in Act IV the letter is the one version, written once the strike is found), so it stands until he says otherwise.
+
+The table is `reference/act-line-gates.json`, applied by `tools/compile-room.mjs`, which fails if an entry matches no line. The flag check learns that a duel won writes its flag (`tools/check-flag-order.mjs`).
+
+Lesson:
+- `tests/true-when-read.test.mjs`: no line gated on Act III alone speaks of his death, funeral or grave; the hole has no Act III variant.
+- Doc 55 §8: an act is not a state.
