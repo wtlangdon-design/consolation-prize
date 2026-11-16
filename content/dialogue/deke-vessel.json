@@ -309,7 +309,7 @@
           "tag": "TOPIC",
           "afterUse": "remove",
           "text": "Is my room still mine?",
-          "say": "Yours till noon, son. I've put the rate up, on account of the history."
+          "say": "Yours till the coach, son. I've put the rate up, on account of the history."
         },
         {
           "id": "ves_f1_4",
@@ -351,7 +351,7 @@
     },
     {
       "speaker": "thad",
-      "line": "The claim contains a raccoon and an opinion."
+      "line": "The claim contained a raccoon and an opinion. I've kept the opinion."
     },
     {
       "speaker": "deke_vessel",

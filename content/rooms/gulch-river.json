@@ -185,27 +185,27 @@
     ]
   ],
   "entrance": [
-    150,
-    760
+    560,
+    790
   ],
   "entrances": [
     {
       "from": "default",
       "at": [
-        150,
-        760
+        560,
+        790
       ],
       "facing": "right",
-      "note": "Down the bank from the tents."
+      "note": "Down the bank from the tents. Errata 357: in front of the rocker's man, not on him (the playtest found him arriving over the painted figure at 150,760)."
     },
     {
       "from": "gulch_tents",
       "at": [
-        150,
-        760
+        560,
+        790
       ],
       "facing": "right",
-      "note": "Down the bank from the tents (doc 109, THE RIVER, the way down)."
+      "note": "Down the bank from the tents (doc 109, THE RIVER, the way down). Errata 357: in front of the rocker's man, not on him (the playtest found him arriving over the painted figure at 150,760)."
     },
     {
       "from": "upstream",

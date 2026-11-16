@@ -545,64 +545,6 @@
       }
     },
     {
-      "id": "undertaker",
-      "name": "THE UNDERTAKER",
-      "rect": [
-        1750,
-        520,
-        100,
-        300
-      ],
-      "when": {
-        "T_PROCESSION_STALLED": true
-      },
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "The undertaker, at Grievance's head in his good apron.",
-            "repeat": [
-              "He keeps not looking at me, which is very nearly the same thing as looking at me.",
-              "He has a hand on her bridle. She allows it, the way she allows weather."
-            ],
-            "then": [
-              "He is the only man here who knows the coffin is empty, and he is sweating for both of us."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "He is murmuring to the mule. It sounds like an apology.",
-            "repeat": [
-              "His boots shift on the gravel. He would like to be anywhere else, the box included.",
-              "Nothing. He has stopped murmuring. It was not working."
-            ]
-          }
-        ],
-        "TALK_TO": [
-          {
-            "say": "She's never carried an empty box up this hill. I don't know how she can tell.",
-            "by": "procession_undertaker",
-            "then": [
-              "I know exactly how she can tell."
-            ],
-            "repeat": [
-              "Nine years, sir, and she has never once stopped at this gate."
-            ],
-            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO THE UNDERTAKER**"
-          }
-        ]
-      },
-      "overrides": {
-        "PICK_UP": "He is holding the mule. Somebody has to."
-      },
-      "walkTo": {
-        "x": 1690,
-        "y": 852,
-        "facing": "right"
-      }
-    },
-    {
       "id": "reverend_sowerby_at_the_gate",
       "name": "REVEREND SOWERBY, AT THE GATE",
       "rect": [
@@ -808,6 +750,16 @@
           {
             "say": "The funeral is waiting on the mule. So am I."
           }
+        ],
+        "LOOK_AT": [
+          {
+            "say": "My grave, up past the gate, with the procession stopped short of it. It can wait. It has nowhere else to be."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The spade, ticking against the spoil heap whenever the wind finds it."
+          }
         ]
       },
       "walkTo": {
@@ -854,6 +806,64 @@
         "x": 628,
         "y": 858,
         "facing": "back"
+      }
+    },
+    {
+      "id": "undertaker",
+      "name": "THE UNDERTAKER",
+      "rect": [
+        1730,
+        380,
+        140,
+        440
+      ],
+      "when": {
+        "T_PROCESSION_STALLED": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The undertaker, at Grievance's head in his good apron.",
+            "repeat": [
+              "He keeps not looking at me, which is very nearly the same thing as looking at me.",
+              "He has a hand on her bridle. She allows it, the way she allows weather."
+            ],
+            "then": [
+              "He is the only man here who knows the coffin is empty, and he is sweating for both of us."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "He is murmuring to the mule. It sounds like an apology.",
+            "repeat": [
+              "His boots shift on the gravel. He would like to be anywhere else, the box included.",
+              "Nothing. He has stopped murmuring. It was not working."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "say": "She's never carried an empty box up this hill. I don't know how she can tell.",
+            "by": "procession_undertaker",
+            "then": [
+              "I know exactly how she can tell."
+            ],
+            "repeat": [
+              "Nine years, sir, and she has never once stopped at this gate."
+            ],
+            "sceneLine": "docs/110-act-three-scenes.md::### THE LINES · **TALK TO THE UNDERTAKER**"
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "He is holding the mule. Somebody has to."
+      },
+      "walkTo": {
+        "x": 1690,
+        "y": 852,
+        "facing": "right"
       }
     },
     {

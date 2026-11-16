@@ -64,27 +64,27 @@
   "note": "ROOM 53'S DEPTH, FROM THE MASTER: Thad was painted 366 tall (in plate pixels) with his feet at y 676; along Room 5's exterior slope (0.68 a row), as the tents', that is 110 at y 300 and 490 at the bottom of the frame. The panner, cut at the curve, stands 375 at y 690 on the river bed."
  },
  "entrance": [
-  150,
-  760
+  560,
+  790
  ],
  "entrances": [
   {
    "from": "default",
    "at": [
-    150,
-    760
+    560,
+    790
    ],
    "facing": "right",
-   "note": "Down the bank from the tents."
+   "note": "Down the bank from the tents. Errata 357: in front of the rocker's man, not on him (the playtest found him arriving over the painted figure at 150,760)."
   },
   {
    "from": "gulch_tents",
    "at": [
-    150,
-    760
+    560,
+    790
    ],
    "facing": "right",
-   "note": "Down the bank from the tents (doc 109, THE RIVER, the way down)."
+   "note": "Down the bank from the tents (doc 109, THE RIVER, the way down). Errata 357: in front of the rocker's man, not on him (the playtest found him arriving over the painted figure at 150,760)."
   },
   {
    "from": "upstream",

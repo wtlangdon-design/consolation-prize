@@ -399,6 +399,47 @@
       "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
       "head": "**WINNIE LEDGER** · *at the loose board*",
       "bullet": "- LOOK"
+    },
+    {
+      "person": "winnie",
+      "verbs": [
+        "LOOK_AT"
+      ],
+      "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER",
+      "head": "**WINNIE LEDGER** · *at her window, once the strike is found*",
+      "bullet": "- LOOK",
+      "when": {
+        "T_STRIKE_FOUND": true
+      }
+    },
+    {
+      "person": "winnie",
+      "verbs": [
+        "LOOK_AT"
+      ],
+      "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER",
+      "head": "**WINNIE LEDGER** · *at her window, once she has certified me*",
+      "bullet": "- LOOK",
+      "when": {
+        "T_DEATH_CERTIFIED": true,
+        "T_STRIKE_FOUND": false
+      }
+    },
+    {
+      "person": "winnie",
+      "verbs": [
+        "LOOK_AT"
+      ],
+      "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER",
+      "head": "**WINNIE LEDGER** · *at her window, once Act II has begun*",
+      "bullet": "- LOOK",
+      "when": {
+        "ACT": {
+          "atLeast": 2
+        },
+        "T_DEATH_CERTIFIED": false,
+        "T_STRIKE_FOUND": false
+      }
     }
   ]
 }
