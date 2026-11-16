@@ -8401,3 +8401,12 @@ Errata 260 gave Thad each interior's light and left the exteriors alone. The Act
 
 Lesson:
 - `tests/figure-light.test.mjs`: the four exteriors grade Thad, dimmer and cooler; the three lamplit ones do not.
+
+## 347 · The mile post says what Thad reads off it (Tyler, 2026-11-15: "Ship the claims sign. Keep the original Consolation sign.")
+
+The Act I review's art director found the two things Thad reads aloud in Act I drawn with nothing on them. Both were lettered as a trial and shown to Tyler before and after (`renders/act-one-sign-lettering-before-after.png`).
+
+- **Shipped:** the claims road's mile post reads THE CLAIMS 1 MI. on the board pointing up the road, fresh, and TOWN 1 MI. on the board pointing back, peeling (`tools/art/sign-lettering.py`; no image operation).
+- **Kept as drawn, by ruling:** the town sign on the stage road. The opening plate is not touched, and its two planks stay blank.
+
+Lesson: doc 55 §8, a thing Thad reads aloud and the board it is read from.
