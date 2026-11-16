@@ -1233,6 +1233,12 @@
    "why": "Errata 351: a rule marked otherHalf (the documents' 'if not' half of a two-halved line) shares its other lines with its whole, and those are counted once. The dawn's dog and notice board."
   },
   {
+   "check": "tools/check-examine-lines.mjs",
+   "date": "2026-11-15",
+   "kind": "reviewed",
+   "why": "Reviewed with errata 351, at the third loosening in fourteen days. None of the three exempted a line: each taught the check a shape the room data already states (`stateOf`, one object in two states; `listening.surface`, a tap in place of a line; `otherHalf`, one answer in two halves), and each is read from that field, not from the allowlist. No real duplicate passes because of any of them: a rule without the field is still compared whole. Kept as it is; not merged, since no other check compares LOOK and LISTEN lines across the game."
+  },
+  {
    "check": "content/fixtures/room-05.json",
    "date": "2026-11-15",
    "kind": "loosened",
