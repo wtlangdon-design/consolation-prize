@@ -8579,3 +8579,17 @@ Not done: the procession's prayer starting before "Let us bow our heads", and sp
 
 Lesson:
 - `tests/true-later.test.mjs`: four tests, each failing on main before this.
+
+## 358 · Pictures fixed by script (Tyler, 2026-11-16: "Go")
+
+From the Acts II to IV review's art directors; no image operation.
+
+- **No blue key fringe on the graveside hearse** (`tools/art/blue-fringe.py`): a halo of cyan-blue pixels round its roof and finial, the key screen it was cut from. Grievance's plume has the same fringe and keeps it for now: most of what changes in her plume's toss, her one deliberate action, is the fringe itself, and taking it off fails the movement test. The toss needs redrawing first.
+- **The fresh grave does not draw through the Colonel's wreath** (`tools/art/fresh-plot-wreath.py`): the plot is drawn after the wreath and three columns of its headboard cut across it; the plot's sheet loses its pixels where the wreath is.
+- **The Colonel behind his wreath stands on his porch,** not about 22 px above it (`y` 528 to 550).
+- **Sump and Pratt at the counter take the Registrar's light.** Sump was twice Thad's brightness; Pratt stood in Prosperity's daylight sheet.
+
+Not done (they need a drawing or a look first): the lamp left on Thad's desk after he takes it, the three different lamps, Grievance black in harness and brown elsewhere, the tuning peg above the headboard, the panner cut flat at the shins, the seam in the river plate, the dawn street's relighting, and Thad's Act IV room graded for night on a morning plate.
+
+Lesson:
+- `tests/act-three-pictures.test.mjs`: three tests, each failing on main before this.

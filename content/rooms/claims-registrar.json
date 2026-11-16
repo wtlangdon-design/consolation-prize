@@ -1037,7 +1037,9 @@
   },
   "figureLight": {
     "figures": [
-      "thad"
+      "thad",
+      "sump",
+      "pratt_registrar"
     ],
     "light": [
       1,
@@ -1045,7 +1047,26 @@
       0.91
     ],
     "brightness": 0.87,
-    "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate."
+    "note": "Errata 260: Thad takes this room's light. Derived from the plate by tools/art/thad-room-light.py (the tint from its mean colour, the brightness from its luminance), as the Nugget's ruled grade is of the Nugget's plate. Errata 358: Sump (twice Thad's brightness at the counter, the Act IV review) and Pratt at the counter (in Prosperity's daylight sheet) take the room's light too.",
+    "perFigure": {
+      "sump": {
+        "light": [
+          1,
+          0.98,
+          0.91
+        ],
+        "brightness": 0.72
+      },
+      "pratt_registrar": {
+        "light": [
+          1,
+          0.98,
+          0.91
+        ],
+        "brightness": 0.8,
+        "saturate": 0.85
+      }
+    }
   },
   "motion": [
     {
