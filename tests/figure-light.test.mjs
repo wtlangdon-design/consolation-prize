@@ -95,7 +95,8 @@ for (const { figure, room } of GRADED) {
  * Proved against the defect: on main before errata 346 none of the four names him.
  */
 test('Thad takes the night in the exteriors that have no lamp over him', () => {
-  for (const room of ['claims_road', 'pratts_claim', 'creek', 'claim_row']) {
+  // Errata 353: Prosperity and Boot Hill were left out, and he stood on each brighter than anyone beside him.
+  for (const room of ['claims_road', 'pratts_claim', 'creek', 'claim_row', 'prosperity', 'boot_hill']) {
     const light = roomFile(room)?.figureLight;
     assert.ok(light?.figures.includes('thad'), `${room} grades Thad`);
     const grade = { ...light, ...(light.perFigure?.thad ?? {}) };

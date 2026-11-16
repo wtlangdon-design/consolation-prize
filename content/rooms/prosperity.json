@@ -1247,7 +1247,9 @@
   },
   "figureLight": {
     "figures": [
-      "hen_at_the_hole"
+      "hen_at_the_hole",
+      "thad",
+      "pratt_jump"
     ],
     "sheets": [
       "art/actors/room-23-raccoon-emerging.png"
@@ -1265,9 +1267,27 @@
       },
       "art/actors/room-23-raccoon-emerging.png": {
         "saturate": 0.8
+      },
+      "thad": {
+        "light": [
+          0.84,
+          0.9,
+          1
+        ],
+        "brightness": 0.8,
+        "saturate": 0.85
+      },
+      "pratt_jump": {
+        "light": [
+          0.84,
+          0.9,
+          1
+        ],
+        "brightness": 0.8,
+        "saturate": 0.85
       }
     },
-    "note": "Errata 238, as errata 207 B graded four figures into their night: Prosperity is night, and act3-estate-sale's hen was painted in daylight browns and its raccoon halfway out in neutral greys, a little lighter than the sitting raccoon, whose sheet is painted into the night (reference/act3-estate-sale/handback.md). The moon's colour as a multiply, then the hen a little darker and greyer, so she reads as a brown hen at night rather than in daylight, and the raccoon in the sitting sheet's cool grey. Graded by sheet for him (FigureLight.sheets): his sitting sheet is not touched. Judged by eye at the hole beside the sitting raccoon. tools/check-figure-light.mjs measures both against Thad."
+    "note": "Errata 238, as errata 207 B graded four figures into their night: Prosperity is night, and act3-estate-sale's hen was painted in daylight browns and its raccoon halfway out in neutral greys, a little lighter than the sitting raccoon, whose sheet is painted into the night (reference/act3-estate-sale/handback.md). The moon's colour as a multiply, then the hen a little darker and greyer, so she reads as a brown hen at night rather than in daylight, and the raccoon in the sitting sheet's cool grey. Graded by sheet for him (FigureLight.sheets): his sitting sheet is not touched. Judged by eye at the hole beside the sitting raccoon. tools/check-figure-light.mjs measures both against Thad. Errata 353: Thad and Pratt on the claim take the night as on Pratt's own claim next door (errata 346's values); they stood here in even indoor light."
   },
   "motion": [
     {

@@ -1273,6 +1273,12 @@
    "date": "2026-11-15",
    "kind": "loosened",
    "why": "Errata 351: three Act II fixtures, and one state in tests/aftermath.test.ts, gain T_SUMP_DOCUMENTS_HEARD, which WIN_B1 now waits for."
+  },
+  {
+   "check": "tests/plate-edges.test.mjs",
+   "date": "2026-11-16",
+   "kind": "loosened",
+   "why": "Errata 353. Read as loosened because a condition changed; it is tighter. It compared the edge row with the row five in, and the bands on the Clarion, Mott's site and the vault are six to nine rows wide, so it compared band with band and passed them. It now looks twelve rows in, on all four edges, and the bottom asks only that the band be grey (as the top always did), not that the floor inside be more saturated than it by a margin."
   }
  ]
 }
