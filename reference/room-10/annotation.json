@@ -338,5 +338,16 @@
    }
   }
  ],
- "sceneLinesNote": "Errata 323 (doc 133, THE COMPANY'S CLERK): TALK TO the clerk is his one exchange; he sends Thad to the Colonel."
+ "sceneLinesNote": "Errata 323 (doc 133, THE COMPANY'S CLERK): TALK TO the clerk is his one exchange; he sends Thad to the Colonel.",
+ "docBullets": [
+  {
+   "person": "lobby_clerk",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE COMPANY'S CLERK**",
+   "bullet": "- LOOK"
+  }
+ ]
 }

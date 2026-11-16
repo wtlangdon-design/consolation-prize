@@ -928,5 +928,23 @@
       "id": "stars",
       "note": "Errata 273: the room's own small motion (engine/render/MotionLayer.ts). Placed by eye on the plate; nothing here waits on a puzzle's flag."
     }
-  ]
+  ],
+  "peopleResponses": {
+    "boundary_b": {
+      "LOOK_AT": [
+        {
+          "say": "Hands on his hips. He's standing exactly on what he believes is the line, a foot to the left.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE OTHER BOUNDARY MAN** - LOOK"
+        }
+      ]
+    },
+    "boundary_a": {
+      "LOOK_AT": [
+        {
+          "say": "Arms folded. He's standing exactly on what he believes is the line.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE BOUNDARY MAN** - LOOK"
+        }
+      ]
+    }
+  }
 }

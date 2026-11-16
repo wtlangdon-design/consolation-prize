@@ -1636,6 +1636,12 @@
         {
           "say": "Anything I give her, she prices."
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "Fingertips at her temples, eyes closed. Either the spirits are speaking or she has a headache. I'd charge for both.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **MADAME OZYMANDIA** - LOOK"
+        }
       ]
     }
   },

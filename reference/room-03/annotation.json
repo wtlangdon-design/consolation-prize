@@ -638,6 +638,87 @@
    "when": {
     "T_NUGGET_PIANO_TUNED": true
    }
+  },
+  {
+   "person": "card_sharp",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE CARD SHARP**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "fiddler",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE FIDDLER**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "one_strike_man",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE ONE-STRIKE MAN**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "nugget_bar1",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE MEN AT THE BAR**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "nugget_bar1",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE MEN AT THE BAR**",
+   "bullet": "- TALK TO"
+  },
+  {
+   "person": "nugget_bar2",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE MEN AT THE BAR**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "nugget_bar2",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE MEN AT THE BAR**",
+   "bullet": "- TALK TO"
+  },
+  {
+   "person": "nugget_bar3",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE MEN AT THE BAR**",
+   "bullet": "- LOOK"
+  },
+  {
+   "person": "nugget_bar3",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE MEN AT THE BAR**",
+   "bullet": "- TALK TO"
   }
  ],
  "verbSets": {

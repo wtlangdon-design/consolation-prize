@@ -72,7 +72,7 @@
 > **CHANDELIER** · PULL — "It's nine feet up and heavier than I am. I'll admire it from down here, like everyone else."
 > **SPITTOON** · PICK UP — "No."
 > **STOVE** · OPEN — "It's lit. I'm not opening a lit stove in a wooden building full of drunk men. I've read how that story ends. Everyone has."
-> **PATRONS** · TALK TO — "I've tried. They're very friendly. They want to know what I know. I know nothing, and it disappoints them fresh every time."
+> **PATRONS** · TALK TO — "They're friendly enough. They want to know what I know. I know nothing, and I watched it disappoint them."
 > **HANDBILL** · PICK UP — "It's nailed on. Thoroughly. Somebody wanted the rules to stay up a great deal more than they wanted them read."
 > **CARDS** · PICK UP — "It isn't my hand. If it were, I'd be a lot more cheerful."
 > **CARDS** · USE — "I don't play. My father was very clear about that, and he was wrong about most things, so I've been meaning to start."

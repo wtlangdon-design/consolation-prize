@@ -677,6 +677,12 @@
             "The chair creaks. He has tipped it back another degree, to make a point."
           ]
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "Tipped back in a chair with his hat over his eyes. He's either asleep or the most relaxed man in the territory. There may be no difference.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE LIVERY MAN** - LOOK"
+        }
       ]
     }
   },

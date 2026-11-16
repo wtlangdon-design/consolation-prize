@@ -568,7 +568,7 @@
         ]
       },
       "overrides": {
-        "TALK_TO": "I've tried. They're very friendly. They want to know what I know. I know nothing, and it disappoints them fresh every time.",
+        "TALK_TO": "They're friendly enough. They want to know what I know. I know nothing, and I watched it disappoint them.",
         "PUSH": "Men who swing a pick for a living. I am going to push none of them, in any order."
       },
       "walkTo": {
@@ -1978,6 +1978,72 @@
         {
           "say": "I said hello. He answered on the piano, at length, in a key I can't place.",
           "sceneLine": "docs/133-playthrough-rulings.md::### THE PIANIST · **THE TRIES** - TALK TO"
+        }
+      ]
+    },
+    "nugget_bar3": {
+      "TALK_TO": [
+        {
+          "say": "I said good evening to the row of them. One nodded. I'm counting it.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MEN AT THE BAR** - TALK TO"
+        }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "Men at a bar, facing the bottles. Whatever they came to forget, they're being thorough.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MEN AT THE BAR** - LOOK"
+        }
+      ]
+    },
+    "nugget_bar2": {
+      "TALK_TO": [
+        {
+          "say": "I said good evening to the row of them. One nodded. I'm counting it.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MEN AT THE BAR** - TALK TO"
+        }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "Men at a bar, facing the bottles. Whatever they came to forget, they're being thorough.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MEN AT THE BAR** - LOOK"
+        }
+      ]
+    },
+    "nugget_bar1": {
+      "TALK_TO": [
+        {
+          "say": "I said good evening to the row of them. One nodded. I'm counting it.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MEN AT THE BAR** - TALK TO"
+        }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "Men at a bar, facing the bottles. Whatever they came to forget, they're being thorough.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE MEN AT THE BAR** - LOOK"
+        }
+      ]
+    },
+    "one_strike_man": {
+      "LOOK_AT": [
+        {
+          "say": "A man who was right once, loudly, and has been dining on it since.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE ONE-STRIKE MAN** - LOOK"
+        }
+      ]
+    },
+    "fiddler": {
+      "LOOK_AT": [
+        {
+          "say": "A fiddler, keeping time with a piano that isn't keeping time with anything. I admire the loyalty.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE FIDDLER** - LOOK"
+        }
+      ]
+    },
+    "card_sharp": {
+      "LOOK_AT": [
+        {
+          "say": "He holds his cards closer than his drink. His drink I could reach.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **THE CARD SHARP** - LOOK"
         }
       ]
     }

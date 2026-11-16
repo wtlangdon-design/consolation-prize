@@ -793,6 +793,12 @@
         {
           "say": "Anything I hand him becomes a story. I am being careful what I hand him."
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "A tall man with a notebook. The pencil over his ear has never rested there long.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **IGNATIUS FRAME** - LOOK"
+        }
       ]
     },
     "frame_stood_back": {

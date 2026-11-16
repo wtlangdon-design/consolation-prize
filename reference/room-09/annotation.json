@@ -275,6 +275,15 @@
    "when": {
     "T_B_TAKEN": true
    }
+  },
+  {
+   "person": "frame",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**IGNATIUS FRAME**",
+   "bullet": "- LOOK"
   }
  ],
  "docBulletsNote": "Errata 249, doc 118 O-2: Frame sets the funeral notice (T_NOTICE_SET) and Thad pulls it off THE PRESS himself. PULL grants the notice and completes C3. Errata 250, doc 121 N-4: a worn capital B from the type case, once (T_B_TAKEN).",

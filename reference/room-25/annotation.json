@@ -243,6 +243,15 @@
    "when": {
     "T_COFFEE_SMELLED": true
    }
+  },
+  {
+   "person": "pratt",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**NICKEL PRATT**",
+   "bullet": "- LOOK"
   }
  ],
  "docBulletsNote": "Errata 258, doc 123 F-4: the lid of the coffee pot lifted, once (T_COFFEE_SMELLED).",

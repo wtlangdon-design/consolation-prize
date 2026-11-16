@@ -552,5 +552,16 @@
    ]
   }
  ],
- "walkBoxesExtraNote": "Errata 303: each building's ground to its foot, and the two doorsteps, read off the plate."
+ "walkBoxesExtraNote": "Errata 303: each building's ground to its foot, and the two doorsteps, read off the plate.",
+ "docBullets": [
+  {
+   "person": "message_boy",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE MESSAGE BOY**",
+   "bullet": "- LOOK"
+  }
+ ]
 }

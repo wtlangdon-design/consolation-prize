@@ -8369,3 +8369,12 @@ The pattern for the other rooms, one at a time, each shown to Tyler first: doc 5
 Lesson:
 - `tests/one-nothing.test.mjs`: a room that has had the pass answers LISTEN with one bare "Nothing." at most. The lobby had seventeen.
 - Doc 55 §8: the rules of the pass.
+
+## 344 · A look for everybody (Tyler, 2026-11-15: "Approve all")
+
+The Act I playtest found that LOOK AT on nearly everyone answered with the one line written for a person nobody had written for. Twenty-two people in Act I's rooms have a look of their own, each written from what the figure is drawn doing (doc 133, A LOOK FOR EVERYBODY), and the men at the Nugget's bar can be spoken to. The card table's TALK TO no longer says the patrons are disappointed "fresh every time" on Thad's first night (doc 16).
+
+One line each, where three is the examine layer's rule: these are the first, and the second and third are owed. Left as they were: the two dogs, the cat, the horses, the mules and the men on the claims road, which the rooms' own hotspots answer for.
+
+Lesson:
+- `tests/a-look-for-everybody.test.mjs`: a ratchet. Each person written for answers LOOK AT in their own words where they first stand, and may not fall back to the stock line.

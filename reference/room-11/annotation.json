@@ -846,6 +846,15 @@
    "when": {
     "T_BORDERS_MOTT": false
    }
+  },
+  {
+   "person": "fanshawe",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**COLONEL FANSHAWE**",
+   "bullet": "- LOOK"
   }
  ],
  "docBulletsNote": "Errata 242 (doc 113, A · The double; Tyler, 2026-11-09: \"Let's build the act 2 scenes you recommended\"). On the funeral day the log is not lifted bare: PICK UP refuses and says why, THE LEDGERS give A COMPANY LEDGER once (T_LEDGER_TAKEN), and the ledger used on the log is the swap (a pair, content/combinations.json). After it the green book on the desk is THE LEDGER ON THE DESK (T_QUEUE_PADDED), the same rect. Errata 248, doc 120 I-1: the dinner's table. OPEN the covered dish serves the contract; CLOSE on the contract ends the dinner (doc 57 A10's beat 3, T_DINED, the handkerchief, A10) -- the game's solving CLOSE (doc 114 X-1). Errata 250, doc 121: PICK UP on THE CONTRACT takes the parsley, once (T_PARSLEY_TAKEN). N-1: the drawer is left open by the taking (T_DRAWER_OPEN), the door refuses while it is, and CLOSE shuts it: the game's second solving CLOSE.",

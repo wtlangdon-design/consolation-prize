@@ -615,6 +615,12 @@
         {
           "say": "He has a use already. It is this claim, and he is busy with it."
         }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "A man leaning on a rake, checking the sky between strokes, as though the weather might be up to something.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY · **NICKEL PRATT** - LOOK"
+        }
       ]
     }
   },

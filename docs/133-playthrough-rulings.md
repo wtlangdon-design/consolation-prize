@@ -214,6 +214,76 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 **THE PIANO** · *the Nugget, tuned this visit*
 - LISTEN — "C-sharp, where it belongs. Nobody's noticed that either."
 
+## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY
+
+*Errata 344 (Tyler, 2026-11-15, approved). The playtester found that LOOK AT on nearly everyone in Act I answered with the one line written for a person nobody had written for. Each of these is what the figure is drawn doing, and is said where the figure first stands.*
+
+**THE PIE WOMAN**
+- LOOK — "A woman with a basket of pies and the look of somebody who has never once been haggled down."
+
+**THE MAP SELLER**
+- LOOK — "A man holding up a map the way a watchman holds up a lantern. He has a pencil behind his ear, in case the gold moves."
+
+**THE MAN LEAVING TOMORROW**
+- LOOK — "Hands in his pockets, a bag at his feet. He looks like a man waiting for a coach, and the bag looks like it's heard that before."
+
+**HOB**
+- LOOK — "An old man with a lantern, looking at the gap between two buildings as if it owed him money."
+
+**THE DOG'S OWNER**
+- LOOK — "A man with a coiled leash and nothing on the end of it. He keeps looking up the alley."
+
+**THE LETTER-WRITER**
+- LOOK — "A man in a bowler with a writing case under his arm. He looks like he charges by the word and thinks in long ones."
+
+**THE BELL-RINGER**
+- LOOK — "A man standing under a bell with a mallet. I've rarely seen anyone so plainly between jobs."
+
+**THE MESSAGE BOY**
+- LOOK — "A boy with a note in one hand and a penny in the other. He's weighing which to deliver."
+
+**THE CARD SHARP**
+- LOOK — "He holds his cards closer than his drink. His drink I could reach."
+
+**THE FIDDLER**
+- LOOK — "A fiddler, keeping time with a piano that isn't keeping time with anything. I admire the loyalty."
+
+**THE ONE-STRIKE MAN**
+- LOOK — "A man who was right once, loudly, and has been dining on it since."
+
+**THE MEN AT THE BAR**
+- LOOK — "Men at a bar, facing the bottles. Whatever they came to forget, they're being thorough."
+- TALK TO — "I said good evening to the row of them. One nodded. I'm counting it."
+
+**COLONEL FANSHAWE**
+- LOOK — "A silver gentleman with his hands on his waistcoat. He looks delighted to see me. He looked delighted before I came in."
+
+**THE COMPANY'S CLERK**
+- LOOK — "A clerk with both hands flat on a bare desk, guarding it."
+
+**IGNATIUS FRAME**
+- LOOK — "A tall man with a notebook. The pencil over his ear has never rested there long."
+
+**REGISTRAR SUMP**
+- LOOK — "A man behind a ledger, in spectacles. He hasn't looked up. I don't think the ledger has finished with him."
+
+**WINNIE LEDGER**
+- LOOK — "A woman writing, in a hand I can tell is neat from here. She hasn't looked up either, but hers feels like a decision."
+
+**THE LIVERY MAN**
+- LOOK — "Tipped back in a chair with his hat over his eyes. He's either asleep or the most relaxed man in the territory. There may be no difference."
+
+**MADAME OZYMANDIA**
+- LOOK — "Fingertips at her temples, eyes closed. Either the spirits are speaking or she has a headache. I'd charge for both."
+
+**NICKEL PRATT**
+- LOOK — "A man leaning on a rake, checking the sky between strokes, as though the weather might be up to something."
+
+**THE BOUNDARY MAN**
+- LOOK — "Arms folded. He's standing exactly on what he believes is the line."
+
+**THE OTHER BOUNDARY MAN**
+- LOOK — "Hands on his hips. He's standing exactly on what he believes is the line, a foot to the left."
 ## THE ACT ONE REVIEW: TRUE WHEN SAID
 
 *Errata 342 (Tyler, 2026-11-15, approved). Two lines that are true in one state and not the other. Each is said in the state named; the line it stands beside is said in the other.*
