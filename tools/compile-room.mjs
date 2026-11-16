@@ -2589,6 +2589,8 @@ for (const [spec, rule] of personBullets) {
   if (ann.props) built.props = ann.props;
   // THE CAMERA'S ZOOM (RoomFile.zoom; errata 312).
   if (ann.zoom) built.zoom = ann.zoom;
+  // And the row its view always reaches down to (RoomFile.viewFloor; errata 348).
+  if (ann.viewFloor) built.viewFloor = ann.viewFloor;
   // Whole-plate animation, where a room declares it.
   if (ann.backgroundFrames) {
     built.backgroundFrames = ann.backgroundFrames;

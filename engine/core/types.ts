@@ -1642,6 +1642,11 @@ export interface RoomFile {
    * well as along. Absent is 1: every room that fits draws exactly as it did.
    */
   zoom?: number;
+  /**
+   * A row of a zoomed room that the view always reaches down to (errata 348): the lowest thing in it a player must
+   * be able to see and click from anywhere he stands. Main Street's dog. Absent, the view follows his feet alone.
+   */
+  viewFloor?: number;
   schema: number;
   id: string;
   name: string;

@@ -1847,5 +1847,7 @@
  "defaultVerbs": {
   "horses": "LOOK_AT"
  },
- "hotspotWalkToNote337": "Errata 337: the notices, the trough and the horses are stood beside, at their left ends, facing them. The Act I playtest found him centred in front of the palomino while describing her, his head on the notice board, and across the middle of the trough; the stand-beside rule leaves wide things alone and passed the board at 13% hidden, so these three are placed by hand."
+ "hotspotWalkToNote337": "Errata 337: the notices, the trough and the horses are stood beside, at their left ends, facing them. The Act I playtest found him centred in front of the palomino while describing her, his head on the notice board, and across the middle of the trough; the stand-beside rule leaves wide things alone and passed the board at 13% hidden, so these three are placed by hand.",
+ "viewFloor": 776,
+ "viewFloorNote": "Errata 348: the dog lies at y 765 and the horses stand at 746. From the boardwalk the zoomed view's bottom fell above both. The view always reaches row 776."
 }
