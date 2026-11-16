@@ -534,7 +534,9 @@ export class AmbientLayer {
     // which opens his naming and then carries his name.
     // Its TALK TO may be an override (doc 49's THE MOURNERS · TALK_TO), which
     // answers as surely as a rule does.
-    if (object && verb === 'TALK_TO' && !npc.tree
+    // Unless the room writes the figure a TALK TO of her own (errata 355: Winnie at the filing answered as the archive
+    // door behind her, "I'll save my charm for something that can answer").
+    if (object && verb === 'TALK_TO' && !npc.tree && !this.state.room.peopleResponses?.[npc.id]?.TALK_TO
       && (object.responses?.TALK_TO?.length || object.overrides?.TALK_TO)) return undefined;
     if (!object || verb === 'TALK_TO') return npc;
     const [, oy, ow, oh] = this.state.presentation(object)?.bounds ?? object.rect;
@@ -543,7 +545,11 @@ export class AmbientLayer {
     const answers = Boolean(npc.tree || this.state.room.peopleResponses?.[npc.id]);
     const carriesEarly = (this.state.content.verbs.carryVerbs ?? []).includes(verb ?? '');
     if (answers && !carriesEarly && npc.y > oy + oh + IN_FRONT) return npc;
-    if (!npc.tree) return undefined;
+    // A FIGURE WITH LINES OF HER OWN, SMALLER THAN THE THING BEHIND HER, IS WHAT THE POINTER IS ON (errata 355): the
+    // Act II to IV playtest found Winnie at the filing answering as the archive door, and the duel's judges as the
+    // false fronts. As for a person with a conversation (below), the smaller of the two wins: a thing as big as a
+    // wall is not what a click on a face means.
+    if (!npc.tree && !answers) return undefined;
     // A PERSON DRAWN IN FRONT OF A THING IS WHAT THE POINTER IS ON (errata 330; Tyler, 2026-11-15: "Most spots you
     // point at the Fiddler don't register as being able to interact with the Fiddler. Only when you point at his
     // legs."). The piano's hotspot stands behind his head and his fiddle, and, being a little smaller than his box,

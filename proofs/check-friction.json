@@ -1297,6 +1297,24 @@
    "date": "2026-11-16",
    "kind": "loosened",
    "why": "Errata 354: as tests/room-30 and room-35. Doc 133 joins the documents a line may come from; every line is still held to one."
+  },
+  {
+   "check": "tests/gulch-consolation.test.ts",
+   "date": "2026-11-16",
+   "kind": "loosened",
+   "why": "Errata 355: the design changed. USE on Grievance at the washout before G9 now rides home to the livery (a round trip), where it was a refusal. The test still holds that the ride to the back room waits for G9, and now that the early ride exists and is different."
+  },
+  {
+   "check": "tests/room-20.test.ts",
+   "date": "2026-11-16",
+   "kind": "loosened",
+   "why": "Errata 355: the design changed. Hob signs the executor's form Sump issued at the decease, where he gave it. The test sets the decease and the form first, finds the option that signs, and holds the Registrar's acceptance as before."
+  },
+  {
+   "check": "tests/room-20.test.ts",
+   "kind": "reviewed",
+   "date": "2026-11-16",
+   "why": "Reviewed with errata 355, at the third change in fourteen days. Each change followed a deliberate change to the back alley's puzzles (Hob's rounds, the blanket, now who issues the executor's form), and in each the property was restated, not dropped. It plays the room's puzzles step by step, so it moves when they do; it is not misfiring. Kept as it is."
   }
  ]
 }

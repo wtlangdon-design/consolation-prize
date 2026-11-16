@@ -131,6 +131,16 @@ function write(relative, data, indent = 2) {
     const before = itemOpensUntil.get(data.id);
     data = { ...data, responses: { ...data.responses, OPEN: [...(before ? [{ when: { [before.until]: false }, say: before.say }] : []), { say: openLines().get(data.id) }] } };
   }
+  // AN ITEM BEFORE IT IS FINISHED (errata 355; doc 133): a LOOK said first while a flag is unset (the executor's form,
+  // issued blank by Sump at the decease and signed by Hob).
+  if (relative.startsWith('content/items/') && data?.id && data.responses) {
+    const doc = read('docs/133-playthrough-rulings.md');
+    const at = doc.indexOf('## THE ACTS TWO TO FOUR REVIEW: AN ITEM BEFORE IT IS FINISHED');
+    const body = at < 0 ? '' : doc.slice(at, (doc.indexOf('\n## ', at + 5) + 1 || doc.length + 1) - 1);
+    const m = new RegExp(`^- \`${data.id}\` \\*\\(until \`([A-Z0-9_]+)\`\\)\\* — (.+)$`, 'm').exec(body);
+    const lines = m ? [...m[2].matchAll(/"([^"]+)"/g)].map((q) => q[1]) : [];
+    if (m) data = { ...data, responses: { ...data.responses, LOOK_AT: [{ when: { [m[1]]: false }, say: lines[0], repeat: lines.slice(1) }, ...data.responses.LOOK_AT.filter((one) => one.say !== lines[0])] } };
+  }
   const path = resolve(ROOT, relative);
   const wanted = `${JSON.stringify(data, null, indent)}\n`;
   if (CHECKING) {
@@ -1731,7 +1741,9 @@ function combinations() {
       item: 'executor_form', room: 'claims_registrar', target: 'sump', puzzle: 'E6', say: accepted[0].line,
       note: 'Doc 57 E6, step 2: the form Hob signed (HOB_E6 option 1), to Sump. The form is handed back; it is never consumed.',
       rules: [
-        { case: 'with T_DECEASED', when: { T_DECEASED: true }, ...said(accepted), set: { T_EXECUTOR_NAMED: true }, completes: 'E6' },
+        { case: 'with T_DECEASED', when: { T_DECEASED: true, T_HOB_SIGNED: true }, ...said(accepted), set: { T_EXECUTOR_NAMED: true }, completes: 'E6' },
+        // Errata 355: the form is issued blank; until it is signed it is only paper.
+        { case: 'unsigned', when: { T_DECEASED: true, T_HOB_SIGNED: false }, ...said(caseOf('REGISTRAR SUMP', 'unsigned', 'sump', 'SUMP')) },
         { case: 'before T_DECEASED', when: { T_DECEASED: false }, ...said(early) },
       ],
     });
@@ -3876,7 +3888,7 @@ function sumpTree() {
   const STATE = {
     'SUM_B1:1‴': { holds: ['document_a', 'document_b', 'document_d'], gives: ['document_c'],
       set: { T_CLAIM1_BLANK: true }, puzzle: { E0: 'complete' }, then: viewing },
-    'SUM_C1:1': { holds: ['death_certificate'], set: { T_DECEASED: true } },
+    'SUM_C1:1': { holds: ['death_certificate'], set: { T_DECEASED: true }, gives: ['executor_form'] },
     // The filing ends the conversation: doc 48 S6 beat 5, "T_FILED. Main Street dawn opens".
     // BEAT 3, THE COUNTY SEAL (doc 48 S6): "One stamp. It is the loudest sound in
     // the game and the score rests under it." A beat with the seal, between WIN_F2 and the
@@ -4604,7 +4616,11 @@ function hobTree() {
       // its pipe, and what the state gives is read from it.
       const [responseOnly, stateCell = ''] = responseCell.split(/[ \t]*\|[ \t]*/);
       const gives = /^gives (THE [A-Z' ]+)$/.exec(plain(stateCell).trim());
-      if (gives) {
+      // Errata 355: "signs THE EXECUTOR'S FORM" -- the form is Sump's, issued blank at the decease; Hob signs it.
+      const signs = /^signs THE EXECUTOR'S FORM$/.test(plain(stateCell).trim());
+      if (signs) {
+        option.set = { ...option.set, T_HOB_SIGNED: true };
+      } else if (gives) {
         const item = ITEMS.get(gives[1]);
         if (!item) throw new Error(`doc 04: ${where} gives "${gives[1]}", which no item is called`);
         option.gives = [item];

@@ -76,18 +76,22 @@ const caseOf = (state: GameState, label: string) => {
   return rule;
 };
 
-test('E6: Hob on his rounds gives the form; the Registrar takes it once the death is recorded', async () => {
+test('E6: Hob on his rounds signs the form; the Registrar takes it once the death is recorded', async () => {
   const state = await inState('r20-b');
+  // Errata 355: Sump issues the form blank when he records the death; Hob signs it.
+  state.flags.set('T_DECEASED', true);
+  const inventory = (state as unknown as { inventory: string[] }).inventory;
+  if (!inventory.includes('executor_form')) inventory.push('executor_form');
   const hob = [...state.content.ambient.values()].find((one) => one.room === state.roomId && one.tree
     && state.flags.test(one.when));
   assert.ok(hob?.tree, 'Hob is on his rounds in the alley, with his tree');
   state.dialogue.start(hob.tree);
   assert.equal(state.dialogue.positionSnapshot().node, 'HOB_E6', 'the executor, once Section nineteen is said aloud');
-  const first = state.dialogue.presentOptions().find((one) => one.option.gives?.length);
-  assert.ok(first, 'one option gives the form');
+  const first = state.dialogue.presentOptions().find((one) => one.option.set?.T_HOB_SIGNED);
+  assert.ok(first, 'one option signs the form');
   state.dialogue.select(first.option.id);
-  const form = first.option.gives![0]!;
-  assert.ok(state.carried.includes(form), 'THE EXECUTOR\'S FORM, signed');
+  const form = 'executor_form';
+  assert.equal(state.flags.get('T_HOB_SIGNED'), true, 'THE EXECUTOR\'S FORM, signed');
   state.dialogue.end();
 
   state.enterRoom('claims_registrar');

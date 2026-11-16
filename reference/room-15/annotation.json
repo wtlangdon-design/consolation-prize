@@ -361,5 +361,19 @@
    }
   }
  },
- "verbSetsNote": "Errata 278 (doc 125): the board's own first LOOK (doc 09) says somebody hired Grievance twelve years ago for four days; reading it opens LIV_A1 option 6, asked from it. Nothing marks it."
+ "verbSetsNote": "Errata 278 (doc 125): the board's own first LOOK (doc 09) says somebody hired Grievance twelve years ago for four days; reading it opens LIV_A1 option 6, asked from it. Nothing marks it.",
+ "departures": [
+  {
+   "hotspot": "grievance",
+   "verb": "USE",
+   "when": {
+    "T_GULCH_TRIP": true,
+    "T_VESSEL_FOUND": false
+   },
+   "ref": "docs/109-fiddlers-gulch-lines.md::## GOING HOME",
+   "startsWith": "**GRIEVANCE, at the livery** · USE, *while the trip is unfinished*",
+   "goto": "washout",
+   "note": "Errata 355: back out to the Gulch after going home early."
+  }
+ ]
 }

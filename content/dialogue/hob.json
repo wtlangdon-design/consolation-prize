@@ -152,9 +152,12 @@
           "tag": "PROGRESS",
           "text": "You'd be executor of my estate.",
           "afterUse": "remove",
-          "gives": [
-            "executor_form"
-          ],
+          "when": {
+            "T_DECEASED": true
+          },
+          "set": {
+            "T_HOB_SIGNED": true
+          },
           "exchange": [
             {
               "speaker": "hob",

@@ -255,17 +255,6 @@
    ],
    "ref": "docs/108-the-washout-and-the-mine.md::## THE WASHOUT",
    "startsWith": "**TALK TO**"
-  },
-  {
-   "hotspot": "grievance",
-   "verbs": [
-    "USE"
-   ],
-   "when": {
-    "T_VESSEL_FOUND": false
-   },
-   "ref": "docs/108-the-washout-and-the-mine.md::## THE WASHOUT",
-   "startsWith": "**USE** *(to ride home"
   }
  ],
  "props": [
@@ -297,6 +286,17 @@
     "T_GULCH_HOME": true
    },
    "note": "Doc 109, GOING HOME: after G9, the ride home over black, and Thad placed in the Nugget, as B3 placed him before the trip."
+  },
+  {
+   "hotspot": "grievance",
+   "verb": "USE",
+   "when": {
+    "T_VESSEL_FOUND": false
+   },
+   "ref": "docs/109-fiddlers-gulch-lines.md::## GOING HOME",
+   "startsWith": "**GRIEVANCE** · USE, *before G9*",
+   "goto": "livery",
+   "note": "Errata 355: home before G9, and back by the livery's Grievance."
   }
  ],
  "figureLight": {

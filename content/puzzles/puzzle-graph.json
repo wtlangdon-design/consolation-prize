@@ -914,7 +914,8 @@
      "requires": [
       "i:executor_form",
       "r:claims_registrar",
-      "T_DECEASED=true"
+      "T_DECEASED=true",
+      "T_HOB_SIGNED=true"
      ],
      "yields": [
       "f:T_EXECUTOR_NAMED=true",

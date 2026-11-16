@@ -394,6 +394,10 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 
 **GRIEVANCE** · USE, *after G9* — "Home, Grievance." Then **the ride**, over black: "The long way back on Grievance. Vessel took the coach, and was in the Nugget's back room before me, with a drink and the good chair." → Thad is placed in the Nugget, as B3 places him today.
 
+**GRIEVANCE** · USE, *before G9* — "Home for now, Grievance. Vessel will keep." Then **the ride**, over black: "Back the way we came, the whole of it, with nothing to show for the trip but the trip." → Thad is placed at the livery. *(Errata 355: the Act II review found the player held in the Gulch until it was finished, with the rod only hireable at home.)*
+
+**GRIEVANCE, at the livery** · USE, *while the trip is unfinished* — "Back to the Gulch, Grievance." Then **the ride**, over black: "The road again. It had held while we were away, which is more than it ever did with me on it." → Thad is placed at the washout.
+
 **VESSEL, in Room 4, after the trip** — his first TALK TO opens with: "Grubb! You came all this way. Again." *(In place of doc 03's opening, which is now said in the Gulch.)*
 
 ---

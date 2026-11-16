@@ -178,8 +178,16 @@
             "when": {
               "T_VESSEL_FOUND": false
             },
-            "say": "Not without Vessel. I've come all this way for him, and a mule's opinion is all I'd be taking home.",
-            "sceneLine": true
+            "say": "Home for now, Grievance. Vessel will keep.",
+            "then": [
+              {
+                "speaker": "thad",
+                "line": "Back the way we came, the whole of it, with nothing to show for the trip but the trip.",
+                "overBlack": true
+              }
+            ],
+            "goto": "livery",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::## GOING HOME · **GRIEVANCE** · USE, *before G9*"
           },
           {
             "when": {
@@ -274,7 +282,7 @@
             "say": "The road back to Consolation. Days of it, and most of it held.",
             "repeat": [
               "Somewhere down there is my claim, with a raccoon in it, keeping my place.",
-              "I'm not going back without Vessel. I've told the road, and it took it well."
+              "I'm not going back for good without Vessel. I've told the road, and it took it well."
             ]
           }
         ],

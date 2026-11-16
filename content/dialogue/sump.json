@@ -473,13 +473,29 @@
           "tag": "PROGRESS",
           "text": "I have a death to record.",
           "afterUse": "remove",
-          "say": "The office does not require the deceased to be absent. An oversight, possibly. I do not correct statute. I administer it.",
+          "exchange": [
+            {
+              "speaker": "sump",
+              "line": "The office does not require the deceased to be absent. An oversight, possibly. I do not correct statute. I administer it."
+            },
+            {
+              "speaker": "sump",
+              "line": "Form 31-E, Appointment of Executor. An estate must have one. Somebody with no interest in any claim in this town."
+            },
+            {
+              "speaker": "sump",
+              "line": "In my experience, Mr. Grubb, that person is never the first one asked."
+            }
+          ],
           "holds": [
             "death_certificate"
           ],
           "set": {
             "T_DECEASED": true
           },
+          "gives": [
+            "executor_form"
+          ],
           "echo": "I have a death to record. Mine."
         },
         {

@@ -443,7 +443,8 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 - LOOK — "Winnie, out from behind her counter and down at the floor. In all my visits it's the first I've seen of her below the window."
 
 **WINNIE LEDGER** · *at the filing*
-- LOOK — "Winnie, at the end of Sump's counter with her pen. She has come to sign something true, and she would like it done before anyone argues."
+- LOOK — "Winnie, at the end of Sump's counter, arms folded. She has come to sign something true, and she would like it done before anyone argues."
+- TALK TO — "Not now, Mr. Grubb. I came to sign one thing, and I'd like to do it before I think better of it."
 
 **THE UNDERTAKER** · *at the coffin*
 - LOOK — "The undertaker, at my coffin. He is the only man here who knows how full it will be, and he is keeping it professional."
@@ -490,3 +491,9 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 **GRIEVANCE** · *at the washout*
 - LOOK — "Grievance, on the one patch of grass for a mile, eating it slowly so it lasts."
 
+
+## THE ACTS TWO TO FOUR REVIEW: AN ITEM BEFORE IT IS FINISHED
+
+*Errata 355. A LOOK said first while the flag named is unset; the item's own lines follow once it is set.*
+
+- `executor_form` *(until `T_HOB_SIGNED`)* — "Form 31-E, Appointment of Executor. Blank where the executor signs. Mr. Sump wants somebody with no interest in any claim in this town, which in Consolation narrows it to nearly nobody." · "A space for a signature, and beside it, in Mr. Sump's hand, the word EXECUTOR, underlined once." · "The rest is filled in: my name, and DECEASED. All it lacks is a man who wants nothing from me."
