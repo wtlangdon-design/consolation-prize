@@ -135,7 +135,8 @@
             "T_GRIEVANCE_MOTT": true
           },
           "when": {
-            "T_BOARD_GRIEVANCE": true
+            "T_BOARD_GRIEVANCE": true,
+            "T_SUMP_DOCUMENTS_HEARD": true
           },
           "puzzle": {
             "B2": "complete"

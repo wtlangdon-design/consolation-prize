@@ -513,6 +513,9 @@
               "line": "Sump closes at four."
             }
           ],
+          "when": {
+            "T_NINETY_DAYS": true
+          },
           "set": {
             "T_PRATT_SWEARS": true
           }

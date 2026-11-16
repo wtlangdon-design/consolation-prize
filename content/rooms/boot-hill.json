@@ -169,8 +169,108 @@
         ],
         "PICK_UP": [
           {
+            "when": {
+              "T_PLATE_AT_GATE": true,
+              "T_HOLDS_PLATE": false,
+              "T_LINEN_COLLECTED": false,
+              "T_LINEN_ASKED": true,
+              "T_HYMNAL_TAKEN": false
+            },
+            "say": "They each have a hymnal held to the chest, like a pass. I have a tuning fork. I would be found out by the first widow.",
+            "sceneLine": "docs/118-objects-the-lines.md::### O-3 · The hymnal · **THE TOWN, COMING DOWN** · USE - *without the hymnal*"
+          },
+          {
+            "when": {
+              "T_PLATE_AT_GATE": true,
+              "T_HOLDS_PLATE": false,
+              "T_LINEN_COLLECTED": false,
+              "T_LINEN_ASKED": true,
+              "T_HYMNAL_TAKEN": true
+            },
+            "say": "Hat off, at the end of the line. The plate has come down it, hand to hand, and stopped with me.",
+            "then": [
+              "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not.",
+              {
+                "speaker": "sowerby_gate",
+                "line": "Mr. Grubb. The plate."
+              },
+              {
+                "speaker": "sowerby_gate",
+                "line": "I have the rim."
+              }
+            ],
+            "set": {
+              "T_HOLDS_PLATE": true
+            },
+            "holds": {
+              "clip": "plate",
+              "frames": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE LINE** - USE, *after*"
+          },
+          {
             "say": "It is in the hands of a widow, and she has a firm grip on other people's generosity.",
             "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE PLATE, IN THE LINE** - PICK UP"
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "T_PLATE_AT_GATE": true,
+              "T_LINEN_ASKED": false
+            },
+            "say": "If I stand in that line I shall be handed a plate, and expected to improve it.",
+            "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE LINE** - USE, *before the Reverend is asked*"
+          },
+          {
+            "when": {
+              "T_PLATE_AT_GATE": true,
+              "T_HOLDS_PLATE": false,
+              "T_LINEN_COLLECTED": false,
+              "T_LINEN_ASKED": true,
+              "T_HYMNAL_TAKEN": false
+            },
+            "say": "They each have a hymnal held to the chest, like a pass. I have a tuning fork. I would be found out by the first widow.",
+            "sceneLine": "docs/118-objects-the-lines.md::### O-3 · The hymnal · **THE TOWN, COMING DOWN** · USE - *without the hymnal*"
+          },
+          {
+            "when": {
+              "T_PLATE_AT_GATE": true,
+              "T_HOLDS_PLATE": false,
+              "T_LINEN_COLLECTED": false,
+              "T_LINEN_ASKED": true,
+              "T_HYMNAL_TAKEN": true
+            },
+            "say": "Hat off, at the end of the line. The plate has come down it, hand to hand, and stopped with me.",
+            "then": [
+              "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not.",
+              {
+                "speaker": "sowerby_gate",
+                "line": "Mr. Grubb. The plate."
+              },
+              {
+                "speaker": "sowerby_gate",
+                "line": "I have the rim."
+              }
+            ],
+            "set": {
+              "T_HOLDS_PLATE": true
+            },
+            "holds": {
+              "clip": "plate",
+              "frames": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "sceneLine": "docs/115-the-three-papers.md::### II-1 · The collection: the lines · **THE LINE** - USE, *after*"
           }
         ]
       },

@@ -206,7 +206,8 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "openingOnce": "T_HOB_E6_HEARD"
     },
     "HOB_C1": {
       "id": "HOB_C1",

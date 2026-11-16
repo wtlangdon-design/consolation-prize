@@ -36,6 +36,8 @@ export type FlagAdds = Record<string, number>;
 
 /** One branch of a verb response. The first branch whose `when` holds is used. */
 export interface ResponseRule {
+  /** Errata 351: this rule is the same answer as the one before it with the named flag unset; one line differs. */
+  otherHalf?: string;
   /**
    * HOW MANY OF THE CHAIN'S LINES A SCENE SAID FIRST (doc 109, THE WATCH: its first LOOK is THE FIND). This rule goes on
    * from there; the chain is whole (tools/check-written-content.mjs counts them).
@@ -3694,5 +3696,7 @@ export interface ListeningRoom {
   };
   /** Doc 48 S5 beat 1: the fork, struck once on the first entry. */
   fork?: { src: string; onceFlag: string };
+  /** Errata 351: an item that, used on the surface, taps it exactly as a LISTEN does. */
+  tapItem?: string;
   note?: string;
 }

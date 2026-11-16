@@ -17,6 +17,13 @@
     },
     {
       "when": {
+        "T_STRIKE_FOUND": true,
+        "T_FILED": false
+      },
+      "node": "SUM_F0"
+    },
+    {
+      "when": {
         "T_DEATH_CERTIFIED": true,
         "T_DECEASED": false
       },
@@ -257,7 +264,7 @@
               "line": "Herein."
             },
             {
-              "speaker": "sump",
+              "speaker": "thad",
               "line": "And on the back?"
             },
             {
@@ -267,6 +274,14 @@
             {
               "speaker": "sump",
               "line": "The office accepted it. It was a busy year."
+            },
+            {
+              "speaker": "thad",
+              "line": "One word. And a town standing on it."
+            },
+            {
+              "speaker": "thad",
+              "line": "The Colonel has built a Company on that page. I should like to be in the room when he hears what it says."
             }
           ]
         },
@@ -496,6 +511,69 @@
         }
       ]
     },
+    "SUM_F0": {
+      "id": "SUM_F0",
+      "prompt": "Amended location. Form 12-C. It is not a short form, Mr. Grubb, and it does not travel alone.",
+      "opening": [
+        {
+          "speaker": "thad",
+          "line": "Mr. Sump. I should like to move a claim."
+        },
+        {
+          "speaker": "sump",
+          "line": "Amended location. Form 12-C. It is not a short form, Mr. Grubb, and it does not travel alone."
+        }
+      ],
+      "options": [
+        {
+          "id": "sump1",
+          "tag": "TOPIC",
+          "text": "What does Form 12-C want with it?",
+          "afterUse": "retain",
+          "say": "Four things, on this counter. That the filer is a living party. That he holds the adjoining claim. That he is entitled to file for a holder who is absent. And that there is mineral at the place described, sworn to by somebody who can count.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Living. Adjoining. Entitled. Mineral. In any order. The counter does not mind."
+            }
+          ]
+        },
+        {
+          "id": "sump2",
+          "tag": "TOPIC",
+          "text": "Who may file for an absent claimholder?",
+          "afterUse": "retain",
+          "say": "Section nineteen has a sub-section four. I am not permitted to recommend reading.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "The book is on the counter, Mr. Grubb. It is not sealed."
+            }
+          ]
+        },
+        {
+          "id": "sump3",
+          "tag": "COMIC",
+          "text": "Is there a fee?",
+          "afterUse": "retain",
+          "say": "There is. It was waived in eighteen forty-six, for one claim, in a busy year. The office has not found the paper that un-waives it.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still waived. I have looked."
+            }
+          ]
+        },
+        {
+          "id": "sumpx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ],
+      "openingOnce": "T_SUM_F0_HEARD"
+    },
     "SUM_F1": {
       "id": "SUM_F1",
       "prompt": "Form 12-C, Amended. Location of Claim One. And the holder's name, in the holder's box.",
@@ -621,7 +699,7 @@
         {
           "id": "sumpx",
           "tag": "EXIT",
-          "text": "I should go.",
+          "text": "I've taken enough of your time. I'll be taking more later.",
           "universal": true,
           "ends": true
         }

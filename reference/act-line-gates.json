@@ -315,5 +315,22 @@
     }
    }
   ]
+ },
+ "halvesNote": "Errata 351: a line the documents write in two halves (if resolved / if not). `says` finds the built line, `flag` makes it true, `otherwise` is the other half, checked word for word against `doc`.",
+ "halves": {
+  "main_street_dawn": [
+   {
+    "says": "Claims for sale, claims disputed, and a new one: CLAIM ONE, FILED, O. MOTT, WORKINGS TO COMMENCE. The lost dog notice has been taken down.",
+    "flag": "T_BILL_FOUND",
+    "otherwise": "Claims for sale, claims disputed, and a new one: CLAIM ONE, FILED, O. MOTT, WORKINGS TO COMMENCE. The lost dog notice is still up.",
+    "doc": "docs/08-examine-batch-1.md"
+   },
+   {
+    "says": "Bill. He is sitting with somebody now. He does not appear to have noticed a difference.",
+    "flag": "T_BILL_FOUND",
+    "otherwise": "The dog. Still nobody's.",
+    "doc": "docs/08-examine-batch-1.md"
+   }
+  ]
  }
 }

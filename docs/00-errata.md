@@ -8446,3 +8446,52 @@ The table is `reference/act-line-gates.json`, applied by `tools/compile-room.mjs
 Lesson:
 - `tests/true-when-read.test.mjs`: no line gated on Act III alone speaks of his death, funeral or grave; the hole has no Act III variant.
 - Doc 55 §8: an act is not a state.
+
+## 351 · The right verb, at the right time (Tyler, 2026-11-15, on the Acts II to IV review: "Shop your drafted lines too. And feel free to change a puzzles design or the story too.")
+
+The puzzle reviews of Acts II, III and IV found the same fault many times: the player had the right idea and the game refused it, or the game offered an answer before the question. One new line is written (the ledger's); the rest is gates, verbs and pairs.
+
+- **The trials wait for the man who sets them.** All of Trial One, the Gulch included, could be played in Act I, and Trial Two between the filing and the dinner, each asking for a paper nobody had yet named. The livery man's tune (LIV_A1 option 6) and the assayer's Act II list (WIN_B1) now open once Sump has named the documents (`T_SUMP_DOCUMENTS_HEARD`). Frame still gives the Gulch the minute after the swindle; the road there opens in Act II. The walkthrough visits Sump first, as the act card says to.
+- **Trial Three is independent again.** The funeral could be asked of Sowerby only after a Trial Two question to Frame. It is offered once Pike is dead and either Frame has said the Colonel attends funerals or Sheng has set his task (SOW_A1 option 5; doc 04's row says so).
+- **The ninety days are sworn to once they have been heard of.** PRA_D6 option 5 waits for `T_NINETY_DAYS`.
+- **A hand-over opens the business it is for.** Documents A, B and D held out to Sump open SUM_B1; the linen money to Sheng opens SHE_D1; in Act II the two dollars to Ozymandia opens OZY_A1; the sample to Winnie opens WIN_F1 (doc 24, six rows that open a tree as the log on Winnie does). At the filing, the death certificate, the Certificate and the sample handed to Sump, or to Winnie beside him, are laid on the counter (`alsoAt`). Each was refused by a stock line.
+- **The collection plate answers as the line of mourners does.** The step into Trial Three's plate was USE on a crowd; USE and PICK UP on the plate itself now play the same three cases (reference/room-14). PICK UP before the Reverend is asked keeps the widow's grip.
+- **The ledger says what is wrong with it.** OPEN on the ledger, the verb its own refusal invites, got a joke. Until the spine is broken it answers, in doc 133: "It shuts again the moment I take my hand away, as a book will that has never had company. A spine wants weight on it before it learns to stay open." The chairs are still the player's to find.
+- **The raccoon halfway out is taken by PICK UP as by USE.** The coat is not an item, and the natural verb refused. The line written for PICK UP answers a push or a pull.
+- **The fork on the rock is a tap.** In the listening chamber USE THE TUNING FORK on the rock got the fork's stock jokes; it now taps where it was put, exactly as LISTEN does, and LISTEN stays chosen between taps (`listening.tapItem`). Nothing is marked: the same taps, the same one line at the void.
+- **Three scenes are said once.** Winnie's refusal ("I need you to certify that I'm dead." "No.") replayed on every TALK TO after she had signed, into Act IV; Frame's obituary scene and Hob's yes replayed the same way. Each is its node's opening once (`openingOnce`). Winnie's "You're right. Forget it." is offered once he has argued (doc 04: she can only be stopped being argued at).
+- **An italic quotation in her reply is Thad's.** "You've stopped writing." was given to Winnie; "And on the back?" to Sump (doc 57's read-back, set on separate lines).
+- **The dawn says the dog was found only if he was.** Doc 08 writes the notice board's and the dog's dawn lines in two halves; only the found half was built. Both are (`reference/act-line-gates.json`, `halves`, each checked word for word against the document).
+
+Not done here, and why: Grievance still will not carry him home before Vessel is found (new lines; the next pass); the closing letter and LISTEN at the hole in Act IV are Tyler's (errata 124; invariant 3).
+
+Lesson:
+- `tests/right-verb.test.mjs`: seven tests, each failing on main before this.
+- Doc 55 §8: the natural verb is answered at the thing itself.
+
+## 352 · The next thing is said (Tyler, 2026-11-15, on the Acts II to IV review: "Shop your drafted lines too. And feel free to change a puzzles design or the story too.")
+
+The narrative and puzzle reviews found places where the player had done what was asked and nothing said what came next, and places where the right try was refused without a word. These are new lines, one voice, each in a state the player is already in, none naming the solving action (doc 94's rules). No puzzle's solution changes.
+
+**Act II**
+- **The blank filing ends on what Thad wants.** The act's goal was reached and found empty, Sump had the last word, and the Colonel's offer waited behind a door nothing pointed at. After "It was a busy year." (doc 57, E0): "One word. And a town standing on it." / "The Colonel has built a Company on that page. I should like to be in the room when he hears what it says."
+- **Clause 9 is read out.** The act turned on a clause the player never saw; doc 04 had it as a direction. Thad reads it before his aside: "Clause nine. The holder shall not excavate, sink shaft, tunnel, or otherwise disturb the subsurface."
+- **Sheng reads the ledger.** He said he would read and then did not; the question the player asked (who pays Pratt) was never answered in words. Three lines, in doc 04's row: the second man, the Company's draft, and the Colonel's quarter a week.
+- **Pratt, on the claim, has a look of his own**, and once he has said he is paid it says where regular money gets written down (doc 133). The only line that pointed to the laundry was on his own claim, which he is not on.
+- **The watch is seen coming back.** Duel Two's win handed it over as an item and no more. After "That's worse." (doc 03): Vessel, "And this. It runs fast. I've been early to everything since Consolation, and it has not suited me." Thad: "It was set for somebody else."
+
+**Act III**
+- **The archive door says what is missing** in each state it refused in silence: dead on paper with no executor, an executor and no obituary, both and no burial (doc 133). The last names Boot Hill, which nothing did.
+- **Winnie says why she will not hear it yet.** Asked before the funeral is booked she answered with Act II's list. WIN_B4 gains "I need a death certified. Mine." while that is so.
+- **The price board no longer asks for a lender.** The loan went with errata 237; the clue stayed and pointed at Sheng, who has nothing. It now turns him toward selling (doc 94).
+
+**Act IV**
+- **Sump's window is Act IV's.** TALK TO after the strike opened Act III's petition, and its first option completed E1 again. A new node, SUM_F0 (doc 04), from the strike until the four papers are down: he names what Form 12-C must travel with, as requirements and not as things in a pocket, and where the rule is written.
+- **Sub-section four can be read.** At the filing Thad says he has read it, and nothing let him. THE STATUTE BOOK answers OPEN with it once the strike is found (doc 133).
+- **The Colonel is not at his desk after the duel.** He answered TALK TO with Act II's conversation. Doc 03 has him close his door; the office is drawn without him, as on the funeral day.
+
+Left for Tyler: Duel Three's winning truth ("There is no gold in Mott's claim.") is said by a man holding assayed gold; it is true of the claim as filed, and whether to say so in the line is his.
+
+Lesson:
+- `tests/next-thing.test.mjs`: four tests, each failing on main before this.
+- Doc 55 §8: a finished goal hands over the next one.

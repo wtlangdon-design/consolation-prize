@@ -30,7 +30,8 @@
     },
     {
       "when": {
-        "T_BORDERS_MOTT": true
+        "T_BORDERS_MOTT": true,
+        "T_SUMP_DOCUMENTS_HEARD": true
       },
       "node": "WIN_B1"
     }
@@ -272,7 +273,7 @@
               "line": "…"
             },
             {
-              "speaker": "winnie",
+              "speaker": "thad",
               "line": "You've stopped writing."
             },
             {
@@ -618,6 +619,24 @@
           ]
         },
         {
+          "id": "winnie5",
+          "tag": "TOPIC",
+          "text": "I need a death certified.",
+          "afterUse": "retain",
+          "say": "Then you'll want the funeral booked first, Mr. Grubb. I certify what has been arranged. I don't certify intentions.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "The undertaker, then me. That is the order people die in."
+            }
+          ],
+          "when": {
+            "T_NEED_TO_DIE": true,
+            "T_FUNERAL_BOOKED": false
+          },
+          "echo": "I need a death certified. Mine."
+        },
+        {
           "id": "winniex",
           "tag": "EXIT",
           "text": "I've taken enough of your time. I'll be taking more later.",
@@ -695,6 +714,11 @@
           "tag": "PROGRESS",
           "text": "You're right. Forget it.",
           "afterUse": "remove",
+          "afterAny": [
+            "winnie1",
+            "winnie2",
+            "winnie3"
+          ],
           "gives": [
             "death_certificate"
           ],
@@ -749,7 +773,8 @@
           "T_DEATH_CERTIFIED": true
         },
         "text": "Thank you, Miss Ledger."
-      }
+      },
+      "openingOnce": "T_WIN_C1_HEARD"
     },
     "WIN_F1": {
       "id": "WIN_F1",

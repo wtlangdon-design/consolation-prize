@@ -23,7 +23,9 @@ test('every one of them answers OPEN in its own words, as the document writes th
   for (const [id, line] of lines) {
     const open = item(id).responses?.OPEN;
     assert.ok(open?.length, `${id} has no OPEN of its own, so it says "It doesn't open"`);
-    assert.ok(open.every((rule) => rule.say === line), `${id}: OPEN is doc 133's line`);
+    // Errata 351: a line said until a flag comes first; the last, unconditioned, is the listed one, and both are the document's.
+    assert.equal(open.at(-1).say, line, `${id}: OPEN is doc 133's line`);
+    assert.ok(open.every((rule) => doc.includes(`"${rule.say}"`)), `${id}: every OPEN line is written in doc 133`);
   }
 });
 

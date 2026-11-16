@@ -77,6 +77,8 @@ const listenToHim = (state: GameState) => {
 
 test('B2: asked from the board; the tune is heard, then asked about; option 6 is B2', async () => {
   const state = await inState('r15-a');
+  // Errata 351: the tune waits for the trial that needs it.
+  state.flags.set('T_SUMP_DOCUMENTS_HEARD', true);
   state.dialogue.start(hostOf(state).tree as string);
   assert.equal(state.dialogue.positionSnapshot().node, 'LIV_A1');
   assert.ok(!shown(state).includes(opt(state, '6')), 'nothing to ask from before the board is read');

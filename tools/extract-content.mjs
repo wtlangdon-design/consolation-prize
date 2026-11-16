@@ -66,7 +66,10 @@ function quietExits(tree) {
  * Ozymandia's "The rod has been expecting you." (three visits) and the panner's "If he sent you…" (two). Each is
  * the first visit's; later visits open on the choices.
  */
-const GREETED_ONCE = { 'OZYMANDIA/OZY_A1': 'T_OZY_GREETED', 'PANNER/PAN_G1': 'T_PANNER_GREETED' };
+const GREETED_ONCE = { 'OZYMANDIA/OZY_A1': 'T_OZY_GREETED', 'PANNER/PAN_G1': 'T_PANNER_GREETED',
+  // Errata 351 (the Act III review): three scenes said whole on every later TALK TO, one of them a refusal
+  // ("I need you to certify that I'm dead." "No.") replayed after she had signed.
+  'WINNIE/WIN_C1': 'T_WIN_C1_HEARD', 'FRAME/FRA_E1': 'T_FRA_E1_HEARD', 'HOB/HOB_E6': 'T_HOB_E6_HEARD' };
 function greetOnce(tree) {
   for (const [key, flag] of Object.entries(GREETED_ONCE)) {
     const [treeId, nodeId] = key.split('/');
@@ -109,6 +112,7 @@ function assayOnceKnown(tree) {
 // verb's fallback, which is written for scenery ("It doesn't open."). Read once, merged into whichever item file is
 // written, by whichever extractor writes it.
 let itemOpens = null;
+let itemOpensUntil = new Map();
 function openLines() {
   if (itemOpens) return itemOpens;
   const doc = read('docs/133-playthrough-rulings.md');
@@ -117,12 +121,15 @@ function openLines() {
   const body = doc.slice(at, (doc.indexOf('\n## ', at + 5) + 1 || doc.length + 1) - 1);
   itemOpens = new Map([...body.matchAll(/^- `([a-z_]+)` — "([^"]+)"$/gm)].map((m) => [m[1], m[2]]));
   if (itemOpens.size === 0) throw new Error('doc 133 WHAT OPENS: no lines read');
+  // UNTIL A FLAG (errata 351): `- \`id\` *(until \`FLAG\`)* — "..."` answers first while the flag is unset.
+  itemOpensUntil = new Map([...body.matchAll(/^- `([a-z_]+)` \*\(until `([A-Z0-9_]+)`\)\* — "([^"]+)"$/gm)].map((m) => [m[1], { until: m[2], say: m[3] }]));
   return itemOpens;
 }
 function write(relative, data, indent = 2) {
   if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = assayOnceKnown(menuFirstSentence(asMonkeyIslandRan(assayAtOnce(greetOnce(quietExits(performDirections(data)))))));
   if (relative.startsWith('content/items/') && data?.id && data.responses && openLines().has(data.id)) {
-    data = { ...data, responses: { ...data.responses, OPEN: [{ say: openLines().get(data.id) }] } };
+    const before = itemOpensUntil.get(data.id);
+    data = { ...data, responses: { ...data.responses, OPEN: [...(before ? [{ when: { [before.until]: false }, say: before.say }] : []), { say: openLines().get(data.id) }] } };
   }
   const path = resolve(ROOT, relative);
   const wanted = `${JSON.stringify(data, null, indent)}\n`;
@@ -1304,10 +1311,34 @@ function combinations() {
     requiresFlags: { T_DECEASED: true, T_OBITUARY: false }, opens: 'FRAME',
     note: 'ERRATA 274: THE DEATH CERTIFICATE on Frame opens FRA_E1, the obituary. The target is the room\'s ambient character. No `say`: the pair\'s line is FRA_E1\'s opening. He hands it back; it is wanted at the county window (F5). TALK TO opens the same node, for a player who does not think of it.',
   };
+  // ERRATA 351 (the Acts II-IV review): the right thing held out to the right person opened nothing and was refused by
+  // a stock line. Each of these opens the tree at the node whose own option does the business; none completes anything.
+  for (const letter of ['A', 'B', 'D']) {
+    OPENING_PAIRS[`E0|DOCUMENT ${letter}|Sump`] = {
+      item: `document_${letter.toLowerCase()}`, room: 'claims_registrar', target: 'sump', puzzle: 'E0',
+      requiresFlags: { T_SUMP_DOCUMENTS_HEARD: true, T_CLAIM1_BLANK: false }, opens: 'SUMP', verbs: ['GIVE'],
+      note: 'ERRATA 351: a trial paper held out to Sump opens SUM_B1, where the topic about Document C is. No `say`.',
+    };
+  }
+  OPENING_PAIRS['D4|THE LINEN MONEY|Sheng'] = {
+    item: 'linen_money', room: 'laundry', target: 'sheng', puzzle: 'D4',
+    requiresFlags: { T_SHENG_TASK: true, T_PRATT_TRAIL: false }, opens: 'SHENG', verbs: ['GIVE'],
+    note: 'ERRATA 351: the Reverend\'s money held out to Sheng opens SHE_D1, where the option that pays him is. No `say`.',
+  };
+  OPENING_PAIRS['G1|THE FILING FEE|Ozymandia'] = {
+    item: 'filing_fee', room: 'ozymandias_tent', target: 'ozymandia', puzzle: 'G1',
+    requiresFlags: { T_SUMP_DOCUMENTS_HEARD: true, T_ROD_HIRED: false, T_SEANCE_ON: false }, opens: 'OZYMANDIA', verbs: ['GIVE'],
+    note: 'ERRATA 351: in Act II the two dollars held out to Ozymandia opens OZY_A1, where the rod is hired. No `say`.',
+  };
+  OPENING_PAIRS['F4|THE SAMPLE|Winnie'] = {
+    item: 'sample', room: 'assay_office', target: 'winnie', puzzle: 'F4',
+    requiresFlags: { T_STRIKE_FOUND: true, T_ASSAY_RUN: false }, opens: 'WINNIE', verbs: ['GIVE'],
+    note: 'ERRATA 351: the sample held out to Winnie opens WIN_F1, where she is asked to run it. No `say`.',
+  };
   const pairs = [];
   const opening = [];
   for (const line of doc.split('\n')) {
-    const row = line.match(/^\| \*\*([A-F]\d+)\*\* \| (.+?) \| (.+?) \|$/);
+    const row = line.match(/^\| \*\*([A-G]\d+)\*\* \| (.+?) \| (.+?) \|$/);
     if (!row) continue;
     const combo = row[2].match(/^([A-Z '’]+?) on \*\*(.+?)\*\*$/);
     const say = row[3].match(/^"(.+?)"/);
@@ -3797,6 +3828,8 @@ function sumpTree() {
   // all four are down"), until the filing is made.
   const ENTRIES = [
     { when: { F5_LAID: { atLeast: 4 }, T_FILED: false }, node: 'SUM_F1' },
+    // Errata 352: Act IV's window, from the strike until the four are down. It was Act III's petition.
+    { when: { T_STRIKE_FOUND: true, T_FILED: false }, node: 'SUM_F0' },
     { when: { T_DEATH_CERTIFIED: true, T_DECEASED: false }, node: 'SUM_C1' },
     { when: { ACT: { atLeast: 3 } }, node: 'SUM_E1' },
     { when: { ACT: { atLeast: 2 } }, node: 'SUM_B1' },
@@ -3957,6 +3990,7 @@ function sumpTree() {
   // "circular… linear" and all; it played on every Act II visit, so the joke was told whole twice on the
   // walkthrough. It is said the first time; later visits open on the choices.
   if (nodes.SUM_B1?.opening?.length) nodes.SUM_B1.openingOnce = 'T_SUMP_DOCUMENTS_HEARD';
+  if (nodes.SUM_F0?.opening?.length) nodes.SUM_F0.openingOnce = 'T_SUM_F0_HEARD';
   // SECTION NINETEEN FOLLOWS WHICHEVER WAY E1 WAS BROUGHT (doc 111: "Section nineteen (E2) follows in the same visit, as
   // now"): doc 04's "req E1" is the petition (option 1) or the séance's front page (row 1‴), whichever came first.
   {
@@ -4234,7 +4268,7 @@ function winnieTree() {
   // stays complete.
   // WIN_C1 on T_FUNERAL_BOOKED alone: C5 is long complete by then (the funeral
   // is booked after the Act II turn, which needs Document B, which needs C5).
-  const ENTRY = { WIN_F1: { T_STRIKE_FOUND: true }, WIN_C1: { T_FUNERAL_BOOKED: true }, WIN_B4: { T_ASSAY_BACK: true }, WIN_B1: { T_BORDERS_MOTT: true } };
+  const ENTRY = { WIN_F1: { T_STRIKE_FOUND: true }, WIN_C1: { T_FUNERAL_BOOKED: true }, WIN_B4: { T_ASSAY_BACK: true }, WIN_B1: { T_BORDERS_MOTT: true, T_SUMP_DOCUMENTS_HEARD: true } };
   // "The opening completes C6 and issues Document B" -- once.
   const ON_OPEN = { WIN_B4: { once: 'T_ASSAY_RETURNED', onOpen: { puzzle: { C6: 'complete' }, gives: ['document_b'] } } };
   const ASKED = { 'WIN_B2:1': { T_ASSAY_ASKED: true } };
@@ -4354,10 +4388,13 @@ function winnieTree() {
       const plainDirections = directions.filter((d) => !/^rephrases after/.test(d));
       const spoken = firstCell.replace(/\*\([^)]*\)\*/g, '');
       const lines = quoted(spoken);
+      // AN ITALIC QUOTE IS THE OTHER MAN'S (errata 351). Doc 04 writes Thad's
+      // interjection inside her answer as *"..."*; it was given to her.
+      const italic = new Set([...spoken.matchAll(/\*"([^"]+)"\*/g)].map((m) => m[1]));
       // EVERY QUOTED LINE IS SAID (errata 120). This kept the first and dropped
       // the rest, which lost WIN_F1's "File it. I'll be at the Registrar's when
       // you do." -- the only line that sends Thad to the last filing (F5).
-      if (lines.length > 1) option.exchange = lines.map((line) => ({ speaker: SPEAKER, line }));
+      if (lines.length > 1) option.exchange = lines.map((line) => ({ speaker: italic.has(line) ? 'thad' : SPEAKER, line }));
       else if (lines[0]) option.say = lines[0];
       for (const later of laterCells) {
         for (const d of later.cell.matchAll(/\*\(([^)]+)\)\*/g)) unplayed.push(`${id} option ${number} selection ${later.selection} staging: ${d[1]}`);
@@ -4389,6 +4426,8 @@ function winnieTree() {
       if (sets) option.set = { [sets[1]]: true };
       if (req) option.when = { [req[1]]: true };
       if (unless) option.when = { ...option.when, [unless[1]]: false };
+      // SHE CAN ONLY BE STOPPED BEING ARGUED AT (doc 04; errata 351): giving up is offered once he has argued.
+      if (`${id}:${number}` === 'WIN_C1:4') option.afterAny = [1, 2, 3].map((n) => `${SPEAKER}${n}`);
       const puzzleWrite = PUZZLE_WRITE[`${id}:${number}`];
       if (puzzleWrite) option.puzzle = puzzleWrite;
       if (ASKED[`${id}:${number}`]) option.set = { ...option.set, ...ASKED[`${id}:${number}`] };
@@ -5352,8 +5391,10 @@ function fanshaweTree() {
   const beat3Direction = /^- \*\*Beat 3, after option 6 settles:\*\* \*\(([^)]+)\)\*/m.exec(a10)?.[1];
   const beat3Staging = beat3Direction ? performedDirection(beat3Direction) : null;
   if (!beat3Staging) throw new Error('doc 57 A10: beat 3 lost its knocked glass');
-  const turn = /\*\*The turn:\*\*[^*]*\*"([^"]+)"\*/.exec(body)?.[1];
-  if (!turn) throw new Error('doc 04 FAN_C1: Thad\'s aside ("The turn") was not found');
+  // Every italic quotation on the line, in order (errata 352: the clause read out, then the aside).
+  const turnLine = /^\*\*The turn:\*\*.*$/m.exec(body)?.[0] ?? '';
+  const turns = [...turnLine.matchAll(/\*"([^"]+)"\*/g)].map((m) => m[1]);
+  if (!turns.length) throw new Error('doc 04 FAN_C1: Thad\'s aside ("The turn") was not found');
   const SPEAKER = 'fanshawe';
   // DOC 120 I-1, the two FAN_A2 rows it rewrites, read from its THE LINES.
   const dinner = (() => {
@@ -5387,7 +5428,7 @@ function fanshaweTree() {
     'FAN_B1:1': { goto: 'FAN_B2' },
     // THE WAR'S PAYOFF (errata 184): "available in Act III with all five" (doc 04, THE WAR).
     'FAN_B1:6': { when: { ACT: { atLeast: 3 }, WAR_CONTRADICTIONS: { atLeast: 5 } } },
-    'FAN_C1:1': { then: [{ speaker: 'thad', line: turn }], set: { ACT: 3, ...(actOpenings()[3] ? { [actOpenings()[3].due]: true } : {}) }, puzzle: { E0b: 'complete' } },
+    'FAN_C1:1': { then: turns.map((line) => ({ speaker: 'thad', line })), set: { ACT: 3, ...(actOpenings()[3] ? { [actOpenings()[3].due]: true } : {}) }, puzzle: { E0b: 'complete' } },
   };
   // Leaving the conversation is no longer leaving the table (doc 120 I-1): doc 57's line for leaving is said at the
   // door (Room 11's transit), and the conversation closes on doc 120's.
@@ -5650,7 +5691,8 @@ function liveryTree() {
     // Errata 245 (doc 117 O-5): he gives leave; Thad takes it off her himself (Room 15's hotspot).
     5: { set: { T_BLANKET_ALLOWED: true } },
     // Errata 278 (doc 125): he goes back to humming, which is what LISTEN then hears. The row's last direction is kept.
-    6: { puzzle: { B2: 'complete' }, trailingDirection: true },
+    // Errata 351: the tune waits for the trial that needs it.
+    6: { puzzle: { B2: 'complete' }, trailingDirection: true, when: { T_SUMP_DOCUMENTS_HEARD: true } },
     7: { set: { ASSAY_PAIR_20: true } },
   };
   const options = [];
@@ -5681,6 +5723,7 @@ function liveryTree() {
     if (req) option.when = { [req[1]]: true };
     const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(state);
     if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
+    if (route.when) option.when = { ...option.when, ...route.when };
     if (route.gives) option.gives = route.gives;
     if (route.puzzle) option.puzzle = route.puzzle;
     options.push(option);
@@ -5990,7 +6033,7 @@ function prattTree() {
     'PRA_D2 1': { set: { T_PRATT_STAKE: true }, puzzle: { D2: 'pending' } },
     'PRA_B1 6': { puzzle: { D2: 'complete' } },
     'PRA_B1 7': { set: { T_PRATT_TURNED: true }, puzzle: { D5: 'complete' }, goto: 'PRA_D6', script: '## `PRA_D5`' },
-    'PRA_D6 5': { set: { T_PRATT_SWEARS: true } },
+    'PRA_D6 5': { set: { T_PRATT_SWEARS: true }, when: { T_NINETY_DAYS: true } },
   };
   const node = (id, head, exitIndex) => {
     const text = section(head);
@@ -6175,7 +6218,7 @@ function sowerbyTree() {
   const SPEAKER = 'sowerby';
   const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
   const ROUTE = {
-    'SOW_A1:5': { set: { T_SOW_FUNERAL_ASKED: true }, when: { T_FANSHAWE_FUNERALS: true, T_PIKE_DEAD: true } },
+    'SOW_A1:5': { set: { T_SOW_FUNERAL_ASKED: true }, when: { T_PIKE_DEAD: true }, whenAny: [{ T_FANSHAWE_FUNERALS: true }, { T_SHENG_TASK: true }] },
     'SOW_A1:6': { when: { T_SHENG_TASK: true, T_FUNERAL_DAY: false } },
     'SOW_A1:7': { when: { T_MEMORIAL_BOOKED: true, T_FUNERAL_DAY: false },
       whenAny: [{ T_QUEUE_PADDED: false }, { T_PRATT_TRAIL: false }], set: { T_MEMORIAL_BOOKED: true } },

@@ -492,7 +492,8 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "openingOnce": "T_FRA_E1_HEARD"
     }
   }
 }

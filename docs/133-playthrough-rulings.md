@@ -66,6 +66,7 @@ Each of these is a thing a player would naturally try to open, and opens. Each a
 
 - `clarion` — "I've read it. Page one is about me, and I have read page one more than once."
 - `company_ledger` — "Twelve months of figures, all agreeing with each other. I would only be interrupting."
+- `company_ledger` *(until `T_LEDGER_CRACKED`)* — "It shuts again the moment I take my hand away, as a book will that has never had company. A spine wants weight on it before it learns to stay open."
 - `company_map` — "Unrolled: the district, the roads, and Claim Two, circled. It is still circled. I check."
 - `hymnal` — "Every hymn in it is pitched for a choir this town does not have. I have looked."
 - `invitation` — "It is a card, engraved on one side. The other side is blank, which is the most honest thing about it."
@@ -316,3 +317,19 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 > "Forty feet of mud, a stake, and a hole. I gave my father's watch for this."
 > "It's mine, though. Every wet inch."
 
+
+## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID
+
+*Errata 352. The reviewers found places where the player had done what was asked and nothing said what came next, or where the right try was refused without a reason. Each line below is said in a state the player is already in, and says what stands in the way, never the action that removes it (doc 94's rules).*
+
+**NICKEL PRATT** · *on the claim*
+- LOOK, *at first* — "Mr. Pratt, on my claim, beside a stake that is newer than mine and better driven."
+- LOOK, *once he has said he is paid* — "A man paid two dollars a week to stand on forty feet of mud. Money that regular gets written down somewhere, and the one man in town who writes everything down keeps the laundry."
+
+**THE SEALED ARCHIVE DOOR**
+- OPEN, *dead on paper, with no executor* — "Locked. The statute lets in the executor of a dead man. I am the dead man. It is the other one I have not got."
+- OPEN, *with an executor and no obituary* — "Locked. I have an executor and no obituary, and in this town nothing has happened until the Clarion has misspelled it."
+- OPEN, *with both, and no burial* — "Locked. Dead on paper, dead in print, and not yet in the ground. Boot Hill is expecting me, and it would be rude to be late."
+
+**THE STATUTE BOOK**
+- OPEN, *once the strike is found* — "Section nineteen has a sub-section four. A neighbor holding a Certificate of Contiguity may file an amended location on behalf of an absent claimholder." "I hold a certificate that says I am a neighbor. I had taken it for a ticket to look at a page."

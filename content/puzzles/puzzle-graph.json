@@ -307,7 +307,8 @@
      "site": "dialogue:LIVERY_MAN:LIV_A1:livery_man6",
      "requires": [
       "n:LIVERY_MAN/LIV_A1",
-      "T_BOARD_GRIEVANCE=true"
+      "T_BOARD_GRIEVANCE=true",
+      "T_SUMP_DOCUMENTS_HEARD=true"
      ],
      "yields": [
       "o:LIVERY_MAN/LIV_A1/livery_man6",
@@ -857,7 +858,20 @@
     {
      "site": "dialogue:WINNIE:WIN_C1:winnie4",
      "requires": [
-      "n:WINNIE/WIN_C1"
+      "n:WINNIE/WIN_C1",
+      {
+       "any": [
+        [
+         "o:WINNIE/WIN_C1/winnie1"
+        ],
+        [
+         "o:WINNIE/WIN_C1/winnie2"
+        ],
+        [
+         "o:WINNIE/WIN_C1/winnie3"
+        ]
+       ]
+      }
      ],
      "yields": [
       "o:WINNIE/WIN_C1/winnie4",

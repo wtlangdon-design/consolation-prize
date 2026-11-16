@@ -49,7 +49,7 @@ const useOn = (state: GameState, item: string) => {
   return state.interact(host(state), 'GIVE');
 };
 const ruleOf = (state: GameState, item: string, label: string) => {
-  const pair = state.content.combinations.pairs.find((one) => one.item === item && one.room === state.roomId);
+  const pair = state.content.combinations.pairs.find((one) => one.item === item && one.room === state.roomId && !one.opens);
   const rule = pair?.rules?.find((one) => one.case === label);
   assert.ok(rule, `${item}: a case "${label}"`);
   return rule;

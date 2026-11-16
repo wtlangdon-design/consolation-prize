@@ -166,9 +166,16 @@
             }
           ],
           "when": {
-            "T_FANSHAWE_FUNERALS": true,
             "T_PIKE_DEAD": true
           },
+          "whenAny": [
+            {
+              "T_FANSHAWE_FUNERALS": true
+            },
+            {
+              "T_SHENG_TASK": true
+            }
+          ],
           "set": {
             "T_SOW_FUNERAL_ASKED": true
           }

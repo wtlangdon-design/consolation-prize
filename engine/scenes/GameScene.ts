@@ -2359,18 +2359,25 @@ export class GameScene extends Phaser.Scene {
    */
   private listenAt(target: Interactable, verb: string): boolean {
     const listening = this.state.room.listening;
-    if (!listening || target.id !== listening.surface || verb !== 'LISTEN_TO' || !this.lastClick) return false;
+    if (!listening || target.id !== listening.surface || !this.lastClick) return false;
+    // ERRATA 351: the item the room is built for, used on the rock, is a tap too. It answered with the item's
+    // stock refusals, which read as "wrong idea" in the one room where it is the right one.
+    const withItem = verb !== 'LISTEN_TO' && Boolean(listening.tapItem) && this.state.heldItem === listening.tapItem;
+    if (verb !== 'LISTEN_TO' && !withItem) return false;
+    if (withItem) this.state.holdItem(null);
     const at = this.lastClick;
     const tap = tapAt(listening, at.x, at.y);
     this.sfx.play(tap.src, this.roomSoundGain());
     const now = this.time.now;
     this.ripples.push({ x: at.x, y: at.y, start: now, end: now + tap.tail * 1000, tail: tap.tail });
-    this.state.verbs.resetToDefault();
+    // The verb stays chosen between taps (errata 351): finding the void is many taps, not many re-selections.
+    if (withItem) this.state.verbs.resetToDefault();
     if (tap.void && !this.state.flags.test({ [listening.foundFlag]: true })) {
       // The void's one line, through the ordinary path so it is said, set and
       // completed as any rule is -- under its own name, never the hotspot's.
       this.applyInteraction({ id: `${listening.surface}#void`, name: target.name, rect: target.rect, colour: 0,
-        distant: true, responses: { LISTEN_TO: [listening.found] } } as Interactable, verb);
+        distant: true, responses: { LISTEN_TO: [listening.found] } } as Interactable, 'LISTEN_TO');
+      this.state.verbs.resetToDefault();
       this.tuneStart = now;
       this.sitDue = true;
     }

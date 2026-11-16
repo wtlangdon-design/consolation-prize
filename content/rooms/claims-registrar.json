@@ -139,6 +139,22 @@
               "Nothing. Everything in it has already been said, in triplicate."
             ]
           }
+        ],
+        "OPEN": [
+          {
+            "when": {
+              "T_STRIKE_FOUND": true,
+              "T_FILED": false
+            },
+            "say": "Section nineteen has a sub-section four. A neighbor holding a Certificate of Contiguity may file an amended location on behalf of an absent claimholder.",
+            "then": [
+              "I hold a certificate that says I am a neighbor. I had taken it for a ticket to look at a page."
+            ],
+            "set": {
+              "T_SUBSECTION_FOUR": true
+            },
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID · **THE STATUTE BOOK** - OPEN, *once the strike is found*"
+          }
         ]
       },
       "overrides": {
@@ -386,6 +402,32 @@
           }
         ],
         "OPEN": [
+          {
+            "when": {
+              "T_DECEASED": true,
+              "T_EXECUTOR_NAMED": false
+            },
+            "say": "Locked. The statute lets in the executor of a dead man. I am the dead man. It is the other one I have not got.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID · **THE SEALED ARCHIVE DOOR** - OPEN, *dead on paper, with no executor*"
+          },
+          {
+            "when": {
+              "T_EXECUTOR_NAMED": true,
+              "T_OBITUARY": false,
+              "T_FUNERAL_DONE": false
+            },
+            "say": "Locked. I have an executor and no obituary, and in this town nothing has happened until the Clarion has misspelled it.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID · **THE SEALED ARCHIVE DOOR** - OPEN, *with an executor and no obituary*"
+          },
+          {
+            "when": {
+              "T_EXECUTOR_NAMED": true,
+              "T_OBITUARY": true,
+              "T_FUNERAL_DONE": false
+            },
+            "say": "Locked. Dead on paper, dead in print, and not yet in the ground. Boot Hill is expecting me, and it would be rude to be late.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID · **THE SEALED ARCHIVE DOOR** - OPEN, *with both, and no burial*"
+          },
           {
             "when": {
               "T_EXECUTOR_NAMED": true,

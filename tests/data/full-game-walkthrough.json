@@ -977,6 +977,25 @@
    }
   },
   {
+   "id": "B0.1",
+   "puzzle": "B1",
+   "do": "go",
+   "room": "claims_registrar",
+   "note": "Errata 351: the trials wait for Sump to name the documents."
+  },
+  {
+   "id": "B0.2",
+   "puzzle": "B1",
+   "do": "talk",
+   "npc": "sump",
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_SUMP_DOCUMENTS_HEARD": true
+    }
+   }
+  },
+  {
    "id": "B1.1",
    "puzzle": "B1",
    "do": "go",
@@ -2708,6 +2727,7 @@
    "do": "talk",
    "npc": "winnie",
    "choose": [
+    "winnie3",
     "winnie4"
    ],
    "leave": true,

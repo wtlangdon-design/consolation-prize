@@ -316,7 +316,11 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 
 > **SUMP:** *(He brings Claim One's filing to the window, under its glass.)* "Claim One. Obadiah Mott, eighteen forty-six. 'The richest strike in the history of this territory, lying at the place herein described.'"
 > **THAD:** "Where is it described?"
-> **SUMP:** "Herein." — **THAD:** "And on the back?" — **SUMP:** "Blank." "The office accepted it. It was a busy year."
+> **SUMP:** "Herein."
+> **THAD:** "And on the back?"
+> **SUMP:** "Blank." "The office accepted it. It was a busy year."
+> **THAD:** "One word. And a town standing on it."
+> **THAD:** "The Colonel has built a Company on that page. I should like to be in the room when he hears what it says."
 > → `T_CLAIM1_BLANK`, **E0**.
 
 ## E0b · Fanshawe's offer — the Act II turn

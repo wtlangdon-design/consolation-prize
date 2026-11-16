@@ -369,6 +369,8 @@ Vessel escalates. Thad answers flatly, without pleasure, like a man reading corr
 > **VESSEL:** "You didn't enjoy that at all, did you."
 > **THAD:** "I found it educational."
 > **VESSEL:** "That's worse."
+> **VESSEL:** "And this. It runs fast. I've been early to everything since Consolation, and it has not suited me."
+> **THAD:** "It was set for somebody else."
 
 **Yields:** Document A. The pocket watch, returned, still eleven minutes fast.
 

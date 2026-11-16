@@ -407,6 +407,63 @@
    "ref": "docs/133-playthrough-rulings.md::## THE ACT ONE REVIEW: A LOOK FOR EVERYBODY",
    "head": "**REGISTRAR SUMP**",
    "bullet": "- LOOK"
+  },
+  {
+   "hotspot": "sealed_archive_door",
+   "verbs": [
+    "OPEN"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID",
+   "head": "**THE SEALED ARCHIVE DOOR**",
+   "bullet": "- OPEN, *dead on paper, with no executor*",
+   "when": {
+    "T_DECEASED": true,
+    "T_EXECUTOR_NAMED": false
+   }
+  },
+  {
+   "hotspot": "sealed_archive_door",
+   "verbs": [
+    "OPEN"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID",
+   "head": "**THE SEALED ARCHIVE DOOR**",
+   "bullet": "- OPEN, *with an executor and no obituary*",
+   "when": {
+    "T_EXECUTOR_NAMED": true,
+    "T_OBITUARY": false,
+    "T_FUNERAL_DONE": false
+   }
+  },
+  {
+   "hotspot": "sealed_archive_door",
+   "verbs": [
+    "OPEN"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID",
+   "head": "**THE SEALED ARCHIVE DOOR**",
+   "bullet": "- OPEN, *with both, and no burial*",
+   "when": {
+    "T_EXECUTOR_NAMED": true,
+    "T_OBITUARY": true,
+    "T_FUNERAL_DONE": false
+   }
+  },
+  {
+   "hotspot": "statute_book",
+   "verbs": [
+    "OPEN"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID",
+   "head": "**THE STATUTE BOOK**",
+   "bullet": "- OPEN, *once the strike is found*",
+   "when": {
+    "T_STRIKE_FOUND": true,
+    "T_FILED": false
+   },
+   "set": {
+    "T_SUBSECTION_FOUR": true
+   }
   }
  ]
 }

@@ -692,15 +692,6 @@
  },
  "docBullets": [
   {
-   "hotspot": "collection_plate",
-   "verbs": [
-    "PICK_UP"
-   ],
-   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
-   "head": "**THE PLATE, IN THE LINE**",
-   "bullet": "- PICK UP"
-  },
-  {
    "person": "sowerby_gate",
    "verbs": [
     "TALK_TO"
@@ -826,6 +817,80 @@
      0
     ]
    }
+  },
+  {
+   "hotspot": "collection_plate",
+   "verbs": [
+    "USE"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE LINE**",
+   "bullet": "- USE, *before the Reverend is asked*",
+   "when": {
+    "T_PLATE_AT_GATE": true,
+    "T_LINEN_ASKED": false
+   },
+   "note": "Errata 351: the plate answers as the line does. The way in was a verb on a crowd."
+  },
+  {
+   "hotspot": "collection_plate",
+   "verbs": [
+    "USE",
+    "PICK_UP"
+   ],
+   "ref": "docs/118-objects-the-lines.md::### O-3 · The hymnal",
+   "head": "**THE TOWN, COMING DOWN** · USE",
+   "bullet": "- *without the hymnal*",
+   "when": {
+    "T_PLATE_AT_GATE": true,
+    "T_HOLDS_PLATE": false,
+    "T_LINEN_COLLECTED": false,
+    "T_LINEN_ASKED": true,
+    "T_HYMNAL_TAKEN": false
+   },
+   "note": "Errata 351: the plate answers as the line does. The way in was a verb on a crowd."
+  },
+  {
+   "hotspot": "collection_plate",
+   "verbs": [
+    "USE",
+    "PICK_UP"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE LINE**",
+   "bullet": "- USE, *after*",
+   "speakers": {
+    "SOWERBY": "sowerby_gate"
+   },
+   "when": {
+    "T_PLATE_AT_GATE": true,
+    "T_HOLDS_PLATE": false,
+    "T_LINEN_COLLECTED": false,
+    "T_LINEN_ASKED": true,
+    "T_HYMNAL_TAKEN": true
+   },
+   "set": {
+    "T_HOLDS_PLATE": true
+   },
+   "holds": {
+    "clip": "plate",
+    "frames": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "note": "Errata 351: the plate answers as the line does. The way in was a verb on a crowd."
+  },
+  {
+   "hotspot": "collection_plate",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/115-the-three-papers.md::### II-1 · The collection: the lines",
+   "head": "**THE PLATE, IN THE LINE**",
+   "bullet": "- PICK UP"
   },
   {
    "hotspot": "mr_pike_s_collection",
