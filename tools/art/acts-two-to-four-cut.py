@@ -39,7 +39,11 @@ def masked_back(D, op, prop_old):
     pixels change, and only where the old prop was drawn (its outline is kept to the pixel)."""
     lay = json.load(open(R(f'{D}/layout.json')))
     K = lay['K']; X0, Y0 = lay['origin']; W, H = lay['size']
-    out = Image.open(R(f'{D}/op-{op}.png')).convert('RGB').crop((X0, Y0, X0 + W, Y0 + H))
+    # The operation drew the coffin's foot end a few pixels past the old sheet's right edge (the old cut had cropped it);
+    # the sheet is widened by PAD columns on the right so the whole box is kept.
+    PAD = 20
+    prop_old = np.concatenate([prop_old, np.zeros((prop_old.shape[0], PAD, 4), prop_old.dtype)], 1)
+    out = Image.open(R(f'{D}/op-{op}.png')).convert('RGB').crop((X0, Y0, X0 + W + round(PAD * K), Y0 + H))
     small = np.asarray(out.resize((prop_old.shape[1], prop_old.shape[0]), Image.BOX))
     # The operation redrew the whole coffin group -- box, trestles and leaning lid -- a few pixels from where they
     # were, not only the masked lid; a strip composite doubled the handles. So the group is taken whole: every drawn
@@ -48,7 +52,7 @@ def masked_back(D, op, prop_old):
     # Below that line the drawing and its outline are both the operation's: its box and trestles sit a few pixels from
     # the old ones, and the old outline clipped the far trestle and the box's end. The operation's outline is its
     # un-keyed pixels (magenta is the key).
-    new = prop_old.copy(); new[..., :3][m] = small[m]; new[..., 3][m] = 255
+    new = prop_old.copy().astype(np.uint8); new[..., :3][m] = small[m]; new[..., 3][m] = 255
     # Where the operation keyed the old grass patch away to magenta, the prop is left transparent there: the plate's own
     # ground shows through (copying the old patch back would bring the old trestles' legs with it).
     sm = small.astype(int)
@@ -73,6 +77,7 @@ def coffin():
     D = f'{ST}/coffin-open'
     old = np.asarray(Image.open(R(f'{D}/old-prop.png')).convert('RGBA'))
     new, m, n = masked_back(D, 1, old)
+    old = np.concatenate([old, np.zeros((old.shape[0], new.shape[1] - old.shape[1], 4), old.dtype)], 1)
     print(json.dumps({'job': 'coffin', 'takenFromRow': json.load(open(R(f'{D}/layout.json')))['takeFrom'],
                       'regionPixels': int(m.sum()), 'changed': n, 'changedAboveIt': 0}))
     if WRITE:
@@ -96,7 +101,7 @@ def render_funeral(old, new, out):
     panels = []
     for prop in (old, new):
         im = plate.copy(); pi = Image.fromarray(prop)
-        im.alpha_composite(pi, (p['x'] - pi.width // 2, p['y'] - pi.height + 1))
+        im.alpha_composite(pi, (p['x'] - p['frame'][2] // 2, p['y'] - pi.height + 1))   # left edge where it was
         im.alpha_composite(ts, (round(tx - st['anchor'][0] * kt), round(ty - st['anchor'][1] * kt)))
         panels.append(im.crop((100, 120, 900, 800)).convert('RGB'))
     img = Image.new('RGB', (1608, 680)); img.paste(panels[0], (0, 0)); img.paste(panels[1], (808, 0)); img.save(R(out))
@@ -158,7 +163,7 @@ def sign():
         im.convert('RGB').crop((850, 300, 1450, 820)).save(R('renders/room-44-seance-sign-with-thad.png'))
 
 
-HEARSE_GROUND = (480, 620)  # the hearse's wheels on the ground just behind the coffin (room x of its centre, y of its wheels).
+HEARSE_GROUND = (560, 575)  # the hearse's wheels on the ground just behind the coffin (room x of its centre, y of its wheels).
                             # Grievance, the mule (content/ambient/funeral-grievance.json, x 129), stands hitched at its
                             # front, clear of it: at x 330 the new, longer hearse hid her whole. Her sprite carries a strip
                             # of the OLD hearse beside her (x ~215-255); from x 205 the new hearse covers that strip.
@@ -194,7 +199,7 @@ def hearse():
     hx0, hy0 = HEARSE_GROUND[0] - Wd // 2, HEARSE_GROUND[1] - H + 1
     # item 2's coffin group: the warm wood of the prop below the old hearse's wheel line, whole pieces, holes filled
     cp = np.asarray(Image.open(R(f'{ST}/hearse/coffin-open-prop.png')).convert('RGBA')).astype(int)
-    cx0, cy0 = p['x'] - cp.shape[1] // 2, p['y'] - cp.shape[0] + 1
+    cx0, cy0 = p['x'] - p['frame'][2] // 2, p['y'] - cp.shape[0] + 1      # the old sheet's left edge (it grew rightward)
     opaque = cp[..., 3] >= 128
     warm = opaque & (cp[..., 0] > cp[..., 2] + 6)
     warm[:268] = False
@@ -235,7 +240,34 @@ def hearse():
         img = Image.new('RGB', (1928, 720)); img.paste(panels[0], (0, 0)); img.paste(panels[1], (968, 0)); img.save(R('renders/room-31-hearse-before-after.png'))
 
 
-JOBS = {'lantern': lantern, 'coffin': coffin, 'sign': sign, 'hearse': hearse}
+def grievance():
+    """Grievance, the mule (art/actors/room-31-grievance.png): her frames were cut from room-31's composition master with
+    the OLD hearse's front, the old lid's corner and a scrap of grass beside her; they never move between frames. With
+    the gate's hearse set back behind the coffin (item 4), they read as a second hearse beside her. The same three
+    regions are cleared in every frame; her own pixels are not touched. Frame-relative:
+      - the old hearse's box above her back: x >= 165, y < 150 (her back begins at y ~152);
+      - the old lid's corner: warm wood (red over blue by 20+, light) at x >= 190, y >= 300;
+      - the grass and ground under it, at x >= 150, y >= 420 (below her hooves' row, ~415)."""
+    rec = json.load(open(R('content/ambient/funeral-grievance.json'))); sp = rec['sprite']
+    old = np.asarray(Image.open(R(f'{ST}/hearse/grievance-old.png')).convert('RGBA'))
+    new = old.copy(); cleared = []
+    for (x, y, w, h) in sp['frames']:
+        f = new[y:y + h, x:x + w]; a = f.astype(int)
+        yy, xx = np.mgrid[0:h, 0:w]
+        box = (xx >= 165) & (yy < 150)
+        lum = 0.299 * a[..., 0] + 0.587 * a[..., 1] + 0.114 * a[..., 2]
+        lid = (xx >= 190) & (yy >= 300) & (a[..., 0] > a[..., 2] + 20) & (lum > 60)
+        from scipy import ndimage as ndi
+        lid = ndi.binary_dilation(lid, iterations=1) & (xx >= 190) & (yy >= 300)
+        ground = (xx >= 150) & (yy >= 420)
+        kill = (box | lid | ground) & (f[..., 3] > 0)
+        cleared.append(int(kill.sum())); f[kill] = 0
+    print(json.dumps({'job': 'grievance', 'clearedPerFrame': cleared}))
+    if WRITE:
+        Image.fromarray(new).save(R(sp['sheet']))
+
+
+JOBS = {'lantern': lantern, 'coffin': coffin, 'sign': sign, 'hearse': hearse, 'grievance': grievance}
 
 if __name__ == '__main__':
     JOBS[JOB]()

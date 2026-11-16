@@ -20,7 +20,7 @@ On Tyler's instruction (2026-11-16), `art/staging/caps.json` has four new entrie
 Each item was generated against a frame of Thad in its own room, with Thad's ruler frame (`art/staging/act-one-art/thad-ruler.png`). Prompts and specs are `reference/acts-two-to-four-art/<item>-op-1.txt` and `.spec.json`.
 
 All four are cut by **`tools/art/acts-two-to-four-cut.py JOB [--write]`**, JOB being `lantern`, `coffin`, `sign` or `hearse`. Nothing is regraded.
-- **Items 2 and 4 share one sheet.** Run `coffin` before `hearse` when re-running: `hearse` builds on the opened-coffin prop saved at `art/staging/acts-two-to-four-art/hearse/coffin-open-prop.png`.
+- **Items 2 and 4 share one sheet.** Run `coffin`, then `hearse`, then `grievance` when re-running: `hearse` builds on the opened-coffin prop saved at `art/staging/acts-two-to-four-art/hearse/coffin-open-prop.png`.
 
 ## 1. The view up out of the coffin, with Hob: `art/backgrounds/room-32-coffin-lantern.png`
 
@@ -89,35 +89,38 @@ It is drawn against the gate's hearse at 2x and the funeral with Thad.
 
 **Before and after:** `renders/room-31-hearse-before-after.png`.
 
+**Tyler's first look (2026-11-16):** "The right edge of the coffin is cutoff and it's like weirdly pushed up against the carriage."
+
+Both are fixed with no new operation:
+- **The coffin's foot end.** Item 2's operation drew the whole box, but its right end ran about 12 px past the old 422-wide sheet, and the cut cropped it there. The sheet now grows 20 px to the right, so the box is whole. Its left edge stays where it was.
+- **Space between coffin and hearse.** The hearse is set back and to the right: its wheels sit at room (560, 575), not (480, 620). It stands deeper in the yard, a little smaller on the room's curve, still 1.292 of the man there. The coffin stands clear in front of it.
+- **The old hearse beside Grievance.** Grievance's own sheet, `art/actors/room-31-grievance.png`, had been cut from room-31's composition master with three leftovers of the old prop: the old hearse's front, the old lid's corner, and a scrap of grass beside her. With the hearse set back, these read as a second hearse.
+  - The tool clears the same three regions in all four of her frames, 22,386 px each (`tools/art/acts-two-to-four-cut.py grievance`).
+  - Her own pixels and her frames are unchanged.
+  - **This is a sheet outside the four items**, changed because item 4 made those leftovers visible.
+
 **The sheet changed size, so the record must change with it.** These are wiring numbers, not done here:
 
 | | x | y | frame |
 |---|---|---|---|
 | was | 361 | 733 | `[0, 0, 422, 578]` |
-| **now** | **452** | 733 | **`[0, 0, 605, 578]`** |
+| **now** | **488** | 733 | **`[0, 0, 676, 580]`** |
 
-- The coffin group lands exactly where it was.
-- The hearse spans x 205-755.
+- The coffin group lands where it was, its left edge unmoved.
+- The hearse spans x 294-826, clear of the grave.
 
-**Why it moved right.** At first I placed it where the old one stood (centre x 330). The new hearse is longer, and there it hid Grievance (the mule, x 129) completely. At x 480 she stands clear at its front.
+**Tests.** "No prop paints the plate over a figure behind it" now passes, both with the record as it is and with the new record applied (tried, then reverted). The overlap that tripped it was the dark hearse over the old-hearse strip, and that strip is gone.
 
-**One test fails until a ruling.** `tests/lessons.test.ts`, "no prop paints the plate over a figure behind it":
-- **On this branch,** with the record unchanged, it reads 14,429 pixels.
-- **With the record above applied** (tried, then reverted), it reads 5,161 pixels where the hearse is drawn over Grievance.
-- **Why:** the new hearse's near-black body is dark and close to the night plate, which is exactly what this test takes for "plate". It is the hearse, not the plate.
-- **The overlap is deliberate.** Grievance's own sprite carries **a strip of the OLD hearse beside her** (about x 160-255, its corner and finial). The new hearse is placed over that strip so the old one does not show twice.
-- **What still shows:** the top of that old strip shows above the new hearse at left (in the render).
-- **The real fix** is to cut that strip out of `art/actors/room-31-grievance.png`, a tool cut with no operation. That is another figure's sheet and outside this brief, so I left it.
-- With the strip gone, the hearse can sit where it reads best and this test should pass. I loosened nothing.
+**The render** with Grievance, the coffin and Thad, in her frames 0 and 3: `renders/room-31-graveside-hearse-coffin-grievance.png`.
 
 ## For Tyler's eye
 
 1. Hob's face in the coffin plate.
 2. The new hearse is brighter and a touch greener than the old navy one, because it is the gate's colours. It is not regraded.
-3. The old-hearse strip still baked into Grievance's sprite.
+3. Grievance, now without the old hearse beside her: her traces end in the air short of the new hearse's front.
 4. Thad's stand point at the séance sign hides the board.
 
 ## Checks
 
 - All 67 checks pass.
-- 2,001 of 2,002 tests pass; the one failure is item 4's, explained above.
+- All 2,002 tests pass.
