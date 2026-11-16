@@ -319,6 +319,8 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 > **SUMP:** "Herein."
 > **THAD:** "And on the back?"
 > **SUMP:** "Blank." "The office accepted it. It was a busy year."
+> **THAD:** "One word. And a town standing on it."
+> **THAD:** "The Colonel has built a Company on that page. I should like to be in the room when he hears what it says."
 > → `T_CLAIM1_BLANK`, **E0**.
 
 ## E0b · Fanshawe's offer — the Act II turn

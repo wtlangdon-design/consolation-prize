@@ -1239,6 +1239,24 @@
    "why": "Reviewed with errata 351, at the third loosening in fourteen days. None of the three exempted a line: each taught the check a shape the room data already states (`stateOf`, one object in two states; `listening.surface`, a tap in place of a line; `otherHalf`, one answer in two halves), and each is read from that field, not from the allowlist. No real duplicate passes because of any of them: a rule without the field is still compared whole. Kept as it is; not merged, since no other check compares LOOK and LISTEN lines across the game."
   },
   {
+   "check": "tests/what-opens.test.mjs",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 351: an item may answer OPEN with a line said until a flag (the unbroken ledger) before its listed line. The test held that every OPEN rule was the listed line; it now holds that the last is, and that every one is written in doc 133."
+  },
+  {
+   "check": "tests/scenes-bc.test.ts",
+   "date": "2026-11-15",
+   "kind": "loosened",
+   "why": "Errata 351: PICK UP on the raccoon halfway out now takes him, as USE does. The step that tried his hands and expected the refusal is a PUSH, which keeps the line; tests/room-15 and room-16 set the new flag and skip the pair that opens a tree."
+  },
+  {
+   "check": "tests/scenes-bc.test.ts",
+   "date": "2026-11-15",
+   "kind": "reviewed",
+   "why": "Reviewed with errata 351, at the third change in fourteen days. All three followed a deliberate change to the scene it plays (the seance redrawn seated, twice on 2026-11-09; PICK UP made to take the raccoon here), and none was a misfire: the test plays doc 111's scenes step by step, so a changed step changes it. It is doing its job, which is to fail when a scene's steps move. Kept; nothing to merge it with. Its assertions on the lines themselves were not weakened in any of the three."
+  },
+  {
    "check": "content/fixtures/room-05.json",
    "date": "2026-11-15",
    "kind": "loosened",

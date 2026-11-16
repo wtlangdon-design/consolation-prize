@@ -3828,6 +3828,8 @@ function sumpTree() {
   // all four are down"), until the filing is made.
   const ENTRIES = [
     { when: { F5_LAID: { atLeast: 4 }, T_FILED: false }, node: 'SUM_F1' },
+    // Errata 352: Act IV's window, from the strike until the four are down. It was Act III's petition.
+    { when: { T_STRIKE_FOUND: true, T_FILED: false }, node: 'SUM_F0' },
     { when: { T_DEATH_CERTIFIED: true, T_DECEASED: false }, node: 'SUM_C1' },
     { when: { ACT: { atLeast: 3 } }, node: 'SUM_E1' },
     { when: { ACT: { atLeast: 2 } }, node: 'SUM_B1' },
@@ -3988,6 +3990,7 @@ function sumpTree() {
   // "circular… linear" and all; it played on every Act II visit, so the joke was told whole twice on the
   // walkthrough. It is said the first time; later visits open on the choices.
   if (nodes.SUM_B1?.opening?.length) nodes.SUM_B1.openingOnce = 'T_SUMP_DOCUMENTS_HEARD';
+  if (nodes.SUM_F0?.opening?.length) nodes.SUM_F0.openingOnce = 'T_SUM_F0_HEARD';
   // SECTION NINETEEN FOLLOWS WHICHEVER WAY E1 WAS BROUGHT (doc 111: "Section nineteen (E2) follows in the same visit, as
   // now"): doc 04's "req E1" is the petition (option 1) or the séance's front page (row 1‴), whichever came first.
   {
@@ -5388,8 +5391,10 @@ function fanshaweTree() {
   const beat3Direction = /^- \*\*Beat 3, after option 6 settles:\*\* \*\(([^)]+)\)\*/m.exec(a10)?.[1];
   const beat3Staging = beat3Direction ? performedDirection(beat3Direction) : null;
   if (!beat3Staging) throw new Error('doc 57 A10: beat 3 lost its knocked glass');
-  const turn = /\*\*The turn:\*\*[^*]*\*"([^"]+)"\*/.exec(body)?.[1];
-  if (!turn) throw new Error('doc 04 FAN_C1: Thad\'s aside ("The turn") was not found');
+  // Every italic quotation on the line, in order (errata 352: the clause read out, then the aside).
+  const turnLine = /^\*\*The turn:\*\*.*$/m.exec(body)?.[0] ?? '';
+  const turns = [...turnLine.matchAll(/\*"([^"]+)"\*/g)].map((m) => m[1]);
+  if (!turns.length) throw new Error('doc 04 FAN_C1: Thad\'s aside ("The turn") was not found');
   const SPEAKER = 'fanshawe';
   // DOC 120 I-1, the two FAN_A2 rows it rewrites, read from its THE LINES.
   const dinner = (() => {
@@ -5423,7 +5428,7 @@ function fanshaweTree() {
     'FAN_B1:1': { goto: 'FAN_B2' },
     // THE WAR'S PAYOFF (errata 184): "available in Act III with all five" (doc 04, THE WAR).
     'FAN_B1:6': { when: { ACT: { atLeast: 3 }, WAR_CONTRADICTIONS: { atLeast: 5 } } },
-    'FAN_C1:1': { then: [{ speaker: 'thad', line: turn }], set: { ACT: 3, ...(actOpenings()[3] ? { [actOpenings()[3].due]: true } : {}) }, puzzle: { E0b: 'complete' } },
+    'FAN_C1:1': { then: turns.map((line) => ({ speaker: 'thad', line })), set: { ACT: 3, ...(actOpenings()[3] ? { [actOpenings()[3].due]: true } : {}) }, puzzle: { E0b: 'complete' } },
   };
   // Leaving the conversation is no longer leaving the table (doc 120 I-1): doc 57's line for leaving is said at the
   // door (Room 11's transit), and the conversation closes on doc 120's.

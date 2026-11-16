@@ -236,12 +236,16 @@ The plank, and arithmetic, follow "What rules?"
 - `sump2` in `SUM_B1` stays — "Section nineteen has not changed since you asked. It is not that kind of section."
 - `sump3` in `SUM_C1` stays — "You are the first. I have made a note of it for the next printing."
 - `sump3` in `SUM_E1` stays — "No form in advance. I have checked again. I find it a serious gap."
+- `sump1` in `SUM_F0` stays — "Living. Adjoining. Entitled. Mineral. In any order. The counter does not mind."
+- `sump2` in `SUM_F0` stays — "The book is on the counter, Mr. Grubb. It is not sealed."
+- `sump3` in `SUM_F0` stays — "Still waived. I have looked."
 
 ### WINNIE
 
 - `winnie4` in `WIN_B2` stays — "Still offended. I'll tell you when it stops. It won't."
 - `winnie2` in `WIN_B4` stays — "Certified worthless. Asking twice won't lower it."
 - `winnie4` in `WIN_B4` stays — "I have told you this twice now. I'm keeping count."
+- `winnie5` in `WIN_B4` stays — "The undertaker, then me. That is the order people die in."
 
 ### SOWERBY
 

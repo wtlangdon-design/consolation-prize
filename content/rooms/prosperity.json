@@ -1199,6 +1199,20 @@
       ]
     },
     "pratt_jump": {
+      "LOOK_AT": [
+        {
+          "when": {
+            "T_PRATT_PAID": true,
+            "T_SHENG_HOLDS_PAPER": false
+          },
+          "say": "A man paid two dollars a week to stand on forty feet of mud. Money that regular gets written down somewhere, and the one man in town who writes everything down keeps the laundry.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID · **NICKEL PRATT** · *on the claim* - LOOK, *once he has said he is paid*"
+        },
+        {
+          "say": "Mr. Pratt, on my claim, beside a stake that is newer than mine and better driven.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID · **NICKEL PRATT** · *on the claim* - LOOK, *at first*"
+        }
+      ],
       "PICK_UP": [
         {
           "say": "May I see your mallet?",

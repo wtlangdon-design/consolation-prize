@@ -2537,6 +2537,24 @@
     "dialogue:HOB:HOB_E6 openingOnce"
    ],
    "note": "Errata 351: Hob's yes to being executor has been heard. It is HOB_E6's opening, said once (the node's openingOnce); later visits open on the choices."
+  },
+  {
+   "id": "T_SUM_F0_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SUMP:SUM_F0 openingOnce"
+   ],
+   "note": "Errata 352: Sump's Act IV opening (the amended location) has been heard. It is SUM_F0's opening, said once."
+  },
+  {
+   "id": "T_SUBSECTION_FOUR",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:claims_registrar:statute_book:OPEN"
+   ],
+   "note": "Errata 352: Thad has read section nineteen, sub-section four, in the statute book (Act IV). Read by nothing; it records that the reading Sump remarks on at the filing happened."
   }
  ]
 }

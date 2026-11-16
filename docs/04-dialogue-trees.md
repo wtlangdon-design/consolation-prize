@@ -177,6 +177,7 @@ Its opening is said straight after WIN_B2 option 1 *(errata 232, Tyler, 2026-11-
 | 2 | "So my claim is worthless. For now, I mean." | `[TOPIC · retain]` | "Comprehensively. It's certified. It's the most certain thing you own." *(second)* "Certified worthless. Asking twice won't lower it. Nothing could." | — |
 | 3 | "Thank you." | `[TOPIC · retain]` | "Don't thank me for a form. Thank me for something I chose." *(second)* "Still a form." | — |
 | 4 | "Was it the raccoon?" | `[COMIC · retain]` | "The raccoon is not an assayable substance. I have told you this." *(second)* "I have told you this twice now. I'm keeping count." | — |
+| 5 | "I need a death certified. Mine." | `[TOPIC · retain]` | "Then you'll want the funeral booked first, Mr. Grubb. I certify what has been arranged. I don't certify intentions." *(second)* "The undertaker, then me. That is the order people die in." | req `T_NEED_TO_DIE`, unless `T_FUNERAL_BOOKED` *(errata 352: she said nothing of it, and he was refused without a word)* |
 
 ## ACT III — `WIN_C1`: the death certificate (E4)
 
@@ -371,7 +372,7 @@ The scripted exchange above ("You were never a colonel."). One node, no other op
 | 5 | "I've named a raccoon after you." | `[COMIC · retain]` | "Have you! What a splendid animal it must be." — *"He isn't, particularly."* *(second)* "Still! You're very loyal, Mr. Grubb. I shall have to name something after you." |
 | 6 | "Who did you serve under in the war?" | `[TOPIC · remove]` | "Under Commodore Pelham, God rest him. The best horseman the Navy ever had." → `WAR_CONTRADICTIONS` +1 |
 
-**The turn:** on reading Clause 9, Thad's aside — *"He doesn't want the claim. He wants it quiet."*
+**The turn:** on reading Clause 9, Thad reads it out, and then his aside *(errata 352: the clause was never shown)* — *"Clause nine. The holder shall not excavate, sink shaft, tunnel, or otherwise disturb the subsurface."* *"He doesn't want the claim. He wants it quiet."*
 
 ---
 
@@ -712,7 +713,7 @@ The bank that does laundry. The loan scene, and the only due diligence in the te
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
 | 1 | "Show me the Thursday ledger." | `[PROGRESS · remove]` | "I will read it to you, when you have done me a service. Reverend Sowerby owes me for nine funerals' linens. He pays only on funeral days, because only on funeral days does he have money. Collect it." | **Sheng's terms.** D3; sets `T_SHENG_TASK` *(errata 75)* |
-| 1′ | "I have the Reverend's money." | `[PROGRESS · remove]` | *(He counts it, and the button, and returns the button.)* "Then I will read. A ledger leaves this room, my customers leave town." *(He reads. The second man's payments to Pratt trace, by amount and date, to a Company draft. He reads the amounts twice, because Thad's arithmetic is what it is.)* "And on the Company's own books, a line you will want: Claim Two, contingent, eleven thousand dollars." | req THE LINEN MONEY, which he keeps; D4; sets `T_PRATT_TRAIL` *(errata 75)* |
+| 1′ | "I have the Reverend's money." | `[PROGRESS · remove]` | *(He counts it, and the button, and returns the button.)* "Then I will read. A ledger leaves this room, my customers leave town." *(He reads. The second man's payments to Pratt trace, by amount and date, to a Company draft. Errata 352: the reading is said.)* "Two dollars, Thursdays, to Mr. Pratt, by the hand of a second man." "The second man is paid two dollars and a quarter, by a draft on the Improvement Company." "The Colonel spends a quarter a week so that he has paid nobody. It is the only money he spends carefully." "And on the Company's own books, a line you will want: Claim Two, contingent, eleven thousand dollars." | req THE LINEN MONEY, which he keeps; D4; sets `T_PRATT_TRAIL` *(errata 75)* |
 | 2 | "I need four dollars." | `[PROGRESS · remove]` | "You need two dollars and sixty cents, and you will have it at ten per cent, and you will pay it back, because I have watched you and you are honest in the one way that matters: absently." | req `T_NEED_TO_DIE` and D4; gives SHENG'S LOAN — E3's money, "Sheng's goodwill" *(errata 75)* |
 | 3 | "Why help me?" | `[TOPIC · retain]` | "You are the first customer in nine years whose collar and whose story got dirty in the same place. It suggests the story is true." *(second)* "I have told you: your collar. I stand by your collar, Mr. Grubb." | — |
 | 4 | "What do you think is under Claim One?" | `[TOPIC · retain]` | "Nothing. What is under a story? More story." *(He is exactly right, one ridge to the left.)* *(second)* "More story. I do not lend against it." | — |
@@ -833,6 +834,17 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 | 3 | "Is there a form for this?" | `[COMIC · retain]` | "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope." *(second)* "31-D. You are the first. I have made a note of it for the next printing." |
 
 *Option 3 added in Batch C (doc 54), 2026-10-31, at Tyler's instruction: the node had two options and no `[COMIC]`, against node rules 1 and 2. It answers SUM_A1's "Is there a form for that?"*
+
+**`SUM_F0` (Act IV — before the filing)** *(errata 352: at the last puzzle nothing said what the filing needs, and TALK TO opened Act III's petition)*. Open from the strike until the four are down.
+
+> **THAD:** "Mr. Sump. I should like to move a claim."
+> **SUMP:** "Amended location. Form 12-C. It is not a short form, Mr. Grubb, and it does not travel alone."
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "What does Form 12-C want with it?" | `[TOPIC · retain]` | "Four things, on this counter. That the filer is a living party. That he holds the adjoining claim. That he is entitled to file for a holder who is absent. And that there is mineral at the place described, sworn to by somebody who can count." *(second)* "Living. Adjoining. Entitled. Mineral. In any order. The counter does not mind." |
+| 2 | "Who may file for an absent claimholder?" | `[TOPIC · retain]` | "Section nineteen has a sub-section four. I am not permitted to recommend reading." *(second)* "The book is on the counter, Mr. Grubb. It is not sealed." |
+| 3 | "Is there a fee?" | `[COMIC · retain]` | "There is. It was waived in eighteen forty-six, for one claim, in a busy year. The office has not found the paper that un-waives it." *(second)* "Still waived. I have looked." |
 
 **`SUM_F1` (Act IV — the filing)** is doc 48's S6. His one human moment is scripted there: *"…That's a very old claim number."* He stamps it. He does not look up. He knows exactly what he is doing.
 

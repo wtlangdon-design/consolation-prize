@@ -923,6 +923,14 @@
         {
           "speaker": "deke_vessel",
           "line": "That's worse."
+        },
+        {
+          "speaker": "deke_vessel",
+          "line": "And this. It runs fast. I've been early to everything since Consolation, and it has not suited me."
+        },
+        {
+          "speaker": "thad",
+          "line": "It was set for somebody else."
         }
       ],
       "setsOnWin": {

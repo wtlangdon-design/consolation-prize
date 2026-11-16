@@ -8468,3 +8468,30 @@ Not done here, and why: Grievance still will not carry him home before Vessel is
 Lesson:
 - `tests/right-verb.test.mjs`: seven tests, each failing on main before this.
 - Doc 55 §8: the natural verb is answered at the thing itself.
+
+## 352 · The next thing is said (Tyler, 2026-11-15, on the Acts II to IV review: "Shop your drafted lines too. And feel free to change a puzzles design or the story too.")
+
+The narrative and puzzle reviews found places where the player had done what was asked and nothing said what came next, and places where the right try was refused without a word. These are new lines, one voice, each in a state the player is already in, none naming the solving action (doc 94's rules). No puzzle's solution changes.
+
+**Act II**
+- **The blank filing ends on what Thad wants.** The act's goal was reached and found empty, Sump had the last word, and the Colonel's offer waited behind a door nothing pointed at. After "It was a busy year." (doc 57, E0): "One word. And a town standing on it." / "The Colonel has built a Company on that page. I should like to be in the room when he hears what it says."
+- **Clause 9 is read out.** The act turned on a clause the player never saw; doc 04 had it as a direction. Thad reads it before his aside: "Clause nine. The holder shall not excavate, sink shaft, tunnel, or otherwise disturb the subsurface."
+- **Sheng reads the ledger.** He said he would read and then did not; the question the player asked (who pays Pratt) was never answered in words. Three lines, in doc 04's row: the second man, the Company's draft, and the Colonel's quarter a week.
+- **Pratt, on the claim, has a look of his own**, and once he has said he is paid it says where regular money gets written down (doc 133). The only line that pointed to the laundry was on his own claim, which he is not on.
+- **The watch is seen coming back.** Duel Two's win handed it over as an item and no more. After "That's worse." (doc 03): Vessel, "And this. It runs fast. I've been early to everything since Consolation, and it has not suited me." Thad: "It was set for somebody else."
+
+**Act III**
+- **The archive door says what is missing** in each state it refused in silence: dead on paper with no executor, an executor and no obituary, both and no burial (doc 133). The last names Boot Hill, which nothing did.
+- **Winnie says why she will not hear it yet.** Asked before the funeral is booked she answered with Act II's list. WIN_B4 gains "I need a death certified. Mine." while that is so.
+- **The price board no longer asks for a lender.** The loan went with errata 237; the clue stayed and pointed at Sheng, who has nothing. It now turns him toward selling (doc 94).
+
+**Act IV**
+- **Sump's window is Act IV's.** TALK TO after the strike opened Act III's petition, and its first option completed E1 again. A new node, SUM_F0 (doc 04), from the strike until the four papers are down: he names what Form 12-C must travel with, as requirements and not as things in a pocket, and where the rule is written.
+- **Sub-section four can be read.** At the filing Thad says he has read it, and nothing let him. THE STATUTE BOOK answers OPEN with it once the strike is found (doc 133).
+- **The Colonel is not at his desk after the duel.** He answered TALK TO with Act II's conversation. Doc 03 has him close his door; the office is drawn without him, as on the funeral day.
+
+Left for Tyler: Duel Three's winning truth ("There is no gold in Mott's claim.") is said by a man holding assayed gold; it is true of the claim as filed, and whether to say so in the line is his.
+
+Lesson:
+- `tests/next-thing.test.mjs`: four tests, each failing on main before this.
+- Doc 55 §8: a finished goal hands over the next one.

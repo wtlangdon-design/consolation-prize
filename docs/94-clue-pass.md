@@ -38,7 +38,7 @@ The audit found that every pointer to Sheng as the town's money is inside his ow
 
 The audit found that the price is never stated before Sheng states it. The joke that Sheng knows the exact figure before Thad does is kept: the board gives no total. Gated on `T_NEED_TO_DIE` and not `T_FUNERAL_BOOKED`.
 
-**THE PRICE BOARD** · LOOK — "My funeral, priced in chalk, with the Reverend's words to come on top. I can't afford to die. I'm going to need a lender."
+**THE PRICE BOARD** · LOOK — "My funeral, priced in chalk, with the Reverend's words to come on top. I can't afford to die. I shall have to sell something, and only one man in this town has ever made me an offer."
 
 ### E7 · the coffin, before the turnout (Room 31, until Hob's "Good turnout.")
 

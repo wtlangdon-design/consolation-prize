@@ -327,7 +327,7 @@ test('scene C: the wrong orders at the hole are answered and change nothing; the
   assert.equal(state.flags.get('T_RACCOON_OUT'), true);
   assert.ok(state.carried.includes('hen'), 'the hen stays with him');
   for (const [what, act] of [
-    ['his hands, with him halfway out', () => player.verb('raccoon', 'PICK_UP')],
+    ['his hands, with him halfway out (errata 351: a push; PICK UP now takes him)', () => player.verb('raccoon', 'PUSH')],
     ['the hen again, without the coat', () => player.use('hen', 'raccoon')],
   ] as [string, () => { say: string | null }][]) {
     assert.ok(written(act().say), `${what}: doc 111's line`);

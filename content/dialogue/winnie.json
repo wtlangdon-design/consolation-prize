@@ -619,6 +619,24 @@
           ]
         },
         {
+          "id": "winnie5",
+          "tag": "TOPIC",
+          "text": "I need a death certified.",
+          "afterUse": "retain",
+          "say": "Then you'll want the funeral booked first, Mr. Grubb. I certify what has been arranged. I don't certify intentions.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "The undertaker, then me. That is the order people die in."
+            }
+          ],
+          "when": {
+            "T_NEED_TO_DIE": true,
+            "T_FUNERAL_BOOKED": false
+          },
+          "echo": "I need a death certified. Mine."
+        },
+        {
           "id": "winniex",
           "tag": "EXIT",
           "text": "I've taken enough of your time. I'll be taking more later.",
