@@ -69,6 +69,7 @@
     "T_CASE_DOWN": true,
     "T_CASE_TAKEN": true,
     "T_BORDERS_MOTT": true,
+    "T_SUMP_DOCUMENTS_HEARD": true,
     "T_SWINDLED": true,
     "ACT": 2,
     "T_SEEN_PROSPERITY": true
@@ -123,6 +124,7 @@
     "T_CASE_DOWN": true,
     "T_CASE_TAKEN": true,
     "T_BORDERS_MOTT": true,
+    "T_SUMP_DOCUMENTS_HEARD": true,
     "T_SWINDLED": true,
     "ACT": 2,
     "T_ASSAY_QUEUE": true,
@@ -186,6 +188,7 @@
     "T_CASE_DOWN": true,
     "T_CASE_TAKEN": true,
     "T_BORDERS_MOTT": true,
+    "T_SUMP_DOCUMENTS_HEARD": true,
     "T_SWINDLED": true,
     "ACT": 2,
     "T_ASSAY_QUEUE": true,

@@ -2727,6 +2727,7 @@
    "do": "talk",
    "npc": "winnie",
    "choose": [
+    "winnie3",
     "winnie4"
    ],
    "leave": true,

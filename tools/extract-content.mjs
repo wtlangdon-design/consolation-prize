@@ -66,7 +66,10 @@ function quietExits(tree) {
  * Ozymandia's "The rod has been expecting you." (three visits) and the panner's "If he sent you…" (two). Each is
  * the first visit's; later visits open on the choices.
  */
-const GREETED_ONCE = { 'OZYMANDIA/OZY_A1': 'T_OZY_GREETED', 'PANNER/PAN_G1': 'T_PANNER_GREETED' };
+const GREETED_ONCE = { 'OZYMANDIA/OZY_A1': 'T_OZY_GREETED', 'PANNER/PAN_G1': 'T_PANNER_GREETED',
+  // Errata 351 (the Act III review): three scenes said whole on every later TALK TO, one of them a refusal
+  // ("I need you to certify that I'm dead." "No.") replayed after she had signed.
+  'WINNIE/WIN_C1': 'T_WIN_C1_HEARD', 'FRAME/FRA_E1': 'T_FRA_E1_HEARD', 'HOB/HOB_E6': 'T_HOB_E6_HEARD' };
 function greetOnce(tree) {
   for (const [key, flag] of Object.entries(GREETED_ONCE)) {
     const [treeId, nodeId] = key.split('/');
@@ -4420,6 +4423,8 @@ function winnieTree() {
       if (sets) option.set = { [sets[1]]: true };
       if (req) option.when = { [req[1]]: true };
       if (unless) option.when = { ...option.when, [unless[1]]: false };
+      // SHE CAN ONLY BE STOPPED BEING ARGUED AT (doc 04; errata 351): giving up is offered once he has argued.
+      if (`${id}:${number}` === 'WIN_C1:4') option.afterAny = [1, 2, 3].map((n) => `${SPEAKER}${n}`);
       const puzzleWrite = PUZZLE_WRITE[`${id}:${number}`];
       if (puzzleWrite) option.puzzle = puzzleWrite;
       if (ASKED[`${id}:${number}`]) option.set = { ...option.set, ...ASKED[`${id}:${number}`] };

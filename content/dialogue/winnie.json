@@ -696,6 +696,11 @@
           "tag": "PROGRESS",
           "text": "You're right. Forget it.",
           "afterUse": "remove",
+          "afterAny": [
+            "winnie1",
+            "winnie2",
+            "winnie3"
+          ],
           "gives": [
             "death_certificate"
           ],
@@ -750,7 +755,8 @@
           "T_DEATH_CERTIFIED": true
         },
         "text": "Thank you, Miss Ledger."
-      }
+      },
+      "openingOnce": "T_WIN_C1_HEARD"
     },
     "WIN_F1": {
       "id": "WIN_F1",

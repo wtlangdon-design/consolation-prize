@@ -109,7 +109,7 @@ test('counted-repeat: selections advance through the authored answers and clamp 
 });
 
 test('counted-repeat with an exchange at a later selection plays that exchange, whole', async () => {
-  const { state, tree } = await setup({ T_BORDERS_MOTT: true, T_RACCOON_NAMED: true });
+  const { state, tree } = await setup({ T_BORDERS_MOTT: true, T_SUMP_DOCUMENTS_HEARD: true, T_RACCOON_NAMED: true });
   const node = Object.entries(tree.nodes).find(([, n]) => n.options.some((o) => o.repeats?.some((r) => r.exchange)));
   assert.ok(node, 'a node has a repeat authored as an exchange');
   const [nodeId, data] = node;

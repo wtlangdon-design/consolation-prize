@@ -273,6 +273,7 @@
       "src": "audio/sfx/r33-fork.wav",
       "onceFlag": "T_FORK_STRUCK"
     },
+    "tapItem": "tuning_fork",
     "note": "Doc 28 Part Five and doc 45; errata 70 C-F and 71 E (errata 99 H)."
   },
   "walkBoxes": [

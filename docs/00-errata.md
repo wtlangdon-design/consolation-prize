@@ -8446,3 +8446,25 @@ The table is `reference/act-line-gates.json`, applied by `tools/compile-room.mjs
 Lesson:
 - `tests/true-when-read.test.mjs`: no line gated on Act III alone speaks of his death, funeral or grave; the hole has no Act III variant.
 - Doc 55 §8: an act is not a state.
+
+## 351 · The right verb, at the right time (Tyler, 2026-11-15, on the Acts II to IV review: "Shop your drafted lines too. And feel free to change a puzzles design or the story too.")
+
+The puzzle reviews of Acts II, III and IV found the same fault many times: the player had the right idea and the game refused it, or the game offered an answer before the question. One new line is written (the ledger's); the rest is gates, verbs and pairs.
+
+- **The trials wait for the man who sets them.** All of Trial One, the Gulch included, could be played in Act I, and Trial Two between the filing and the dinner, each asking for a paper nobody had yet named. The livery man's tune (LIV_A1 option 6) and the assayer's Act II list (WIN_B1) now open once Sump has named the documents (`T_SUMP_DOCUMENTS_HEARD`). Frame still gives the Gulch the minute after the swindle; the road there opens in Act II. The walkthrough visits Sump first, as the act card says to.
+- **Trial Three is independent again.** The funeral could be asked of Sowerby only after a Trial Two question to Frame. It is offered once Pike is dead and either Frame has said the Colonel attends funerals or Sheng has set his task (SOW_A1 option 5; doc 04's row says so).
+- **The ninety days are sworn to once they have been heard of.** PRA_D6 option 5 waits for `T_NINETY_DAYS`.
+- **A hand-over opens the business it is for.** Documents A, B and D held out to Sump open SUM_B1; the linen money to Sheng opens SHE_D1; in Act II the two dollars to Ozymandia opens OZY_A1; the sample to Winnie opens WIN_F1 (doc 24, six rows that open a tree as the log on Winnie does). At the filing, the death certificate, the Certificate and the sample handed to Sump, or to Winnie beside him, are laid on the counter (`alsoAt`). Each was refused by a stock line.
+- **The collection plate answers as the line of mourners does.** The step into Trial Three's plate was USE on a crowd; USE and PICK UP on the plate itself now play the same three cases (reference/room-14). PICK UP before the Reverend is asked keeps the widow's grip.
+- **The ledger says what is wrong with it.** OPEN on the ledger, the verb its own refusal invites, got a joke. Until the spine is broken it answers, in doc 133: "It shuts again the moment I take my hand away, as a book will that has never had company. A spine wants weight on it before it learns to stay open." The chairs are still the player's to find.
+- **The raccoon halfway out is taken by PICK UP as by USE.** The coat is not an item, and the natural verb refused. The line written for PICK UP answers a push or a pull.
+- **The fork on the rock is a tap.** In the listening chamber USE THE TUNING FORK on the rock got the fork's stock jokes; it now taps where it was put, exactly as LISTEN does, and LISTEN stays chosen between taps (`listening.tapItem`). Nothing is marked: the same taps, the same one line at the void.
+- **Three scenes are said once.** Winnie's refusal ("I need you to certify that I'm dead." "No.") replayed on every TALK TO after she had signed, into Act IV; Frame's obituary scene and Hob's yes replayed the same way. Each is its node's opening once (`openingOnce`). Winnie's "You're right. Forget it." is offered once he has argued (doc 04: she can only be stopped being argued at).
+- **An italic quotation in her reply is Thad's.** "You've stopped writing." was given to Winnie; "And on the back?" to Sump (doc 57's read-back, set on separate lines).
+- **The dawn says the dog was found only if he was.** Doc 08 writes the notice board's and the dog's dawn lines in two halves; only the found half was built. Both are (`reference/act-line-gates.json`, `halves`, each checked word for word against the document).
+
+Not done here, and why: Grievance still will not carry him home before Vessel is found (new lines; the next pass); the closing letter and LISTEN at the hole in Act IV are Tyler's (errata 124; invariant 3).
+
+Lesson:
+- `tests/right-verb.test.mjs`: seven tests, each failing on main before this.
+- Doc 55 §8: the natural verb is answered at the thing itself.

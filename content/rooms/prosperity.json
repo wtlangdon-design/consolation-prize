@@ -174,14 +174,72 @@
               "T_RACCOON_OUT": true,
               "T_RACCOON_IN_COAT": false
             },
-            "say": "With my hands? Mr. Pratt tried that, and now he has respect.",
-            "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - PICK UP, *with the raccoon halfway out*"
+            "say": "Coat off, and over him.",
+            "then": [
+              "…",
+              "There was a great deal of coat, and then a great deal of raccoon.",
+              "I have him. I am not sure which of us is winning."
+            ],
+            "set": {
+              "T_RACCOON_IN_COAT": true
+            },
+            "grants": [
+              "raccoon_in_coat"
+            ],
+            "holds": {
+              "clip": "coat-bundle",
+              "frames": [
+                2,
+                3
+              ]
+            },
+            "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - USE, *with the raccoon halfway out*"
           },
           {
             "say": "No. He is in residence, and I am not his landlord in any sense he recognizes.",
             "set": {
               "T_RACCOON_TRIED": true
             }
+          }
+        ],
+        "PUSH": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          },
+          {
+            "when": {
+              "T_RACCOON_OUT": true,
+              "T_RACCOON_IN_COAT": false
+            },
+            "say": "With my hands? Mr. Pratt tried that, and now he has respect.",
+            "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - PICK UP, *with the raccoon halfway out*"
+          },
+          {
+            "say": "I'm not going to push a raccoon further into a hole he already likes. That's encouragement.",
+            "set": {
+              "T_RACCOON_TRIED": true
+            }
+          }
+        ],
+        "PULL": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          },
+          {
+            "when": {
+              "T_RACCOON_OUT": true,
+              "T_RACCOON_IN_COAT": false
+            },
+            "say": "With my hands? Mr. Pratt tried that, and now he has respect.",
+            "sceneLine": "docs/111-scenes-b-and-c.md::### C · The estate sale · **THE RACCOON** · *in the hole - PICK UP, *with the raccoon halfway out*"
           }
         ],
         "TALK_TO": [
@@ -227,31 +285,7 @@
             "sceneLine": true
           }
         ],
-        "PUSH": [
-          {
-            "when": {
-              "T_FUMES": true
-            },
-            "say": "Not until the air clears. Possibly not until the season does.",
-            "sceneLine": true
-          },
-          {
-            "say": "I'm not going to push a raccoon further into a hole he already likes. That's encouragement.",
-            "set": {
-              "T_RACCOON_TRIED": true
-            }
-          }
-        ],
         "CLOSE": [
-          {
-            "when": {
-              "T_FUMES": true
-            },
-            "say": "Not until the air clears. Possibly not until the season does.",
-            "sceneLine": true
-          }
-        ],
-        "PULL": [
           {
             "when": {
               "T_FUMES": true

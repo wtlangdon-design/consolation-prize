@@ -89,8 +89,12 @@ export function check() {
       // rule's opening is the chain's second variant, not a second copy of it.
       const chain = new Set((rules ?? []).filter((rule) => !rule.sceneLine)
         .flatMap((rule) => [rule.say, ...(rule.repeat ?? [])]));
+      // ONE ANSWER IN TWO HALVES (errata 351; ResponseRule.otherHalf): the documents write a line as "if resolved ...
+      // if not ...", and the rule for the other half carries the same answer with that one line changed. The lines
+      // it shares with its whole are one line each, not a repeat.
+      const whole = new Set((rules ?? []).filter((rule) => !rule.otherHalf).flatMap((rule) => [rule.say, ...(rule.repeat ?? [])]));
       const lines = (rules ?? [])
-        .flatMap((rule) => (rule.sceneLine && chain.has(rule.say) ? [] : [rule.say, ...(rule.repeat ?? [])]))
+        .flatMap((rule) => (rule.sceneLine && chain.has(rule.say) ? [] : [rule.say, ...(rule.repeat ?? [])].filter((line) => !rule.otherHalf || !whole.has(line))))
         .filter((say) => typeof say === 'string');
 
       if (lines.length === 0) {

@@ -1395,6 +1395,7 @@ if (ann.listening) {
       ...(spec.completes ? { completes: spec.completes } : {}) },
     foundFlag: spec.foundFlag, tune: spec.tune,
     ...(spec.fork ? { fork: { src: taps.fork.src, onceFlag: spec.fork.onceFlag } } : {}),
+    ...(spec.tapItem ? { tapItem: spec.tapItem } : {}),
     note: spec.note,
   };
 }
@@ -2822,6 +2823,31 @@ if (staleGeometry.length) {
       }
     }
     if (found !== 1) fail(`act-line-gates: "${entry.says}" matches ${found} act-gated lines in ${built.id}, not one`);
+  }
+}
+// A LINE WITH TWO HALVES (errata 351). The examine documents write a few lines as "if resolved ... if not ...", and the
+// extraction kept the resolved half alone, so the dawn said the lost dog was found whether or not he was. The table's
+// `halves` name the line by a piece of its text, the flag that makes it true, and the other half, which must be in the
+// named document word for word. The rule is said as written with the flag set, and with the other half without it.
+{
+  const table = JSON.parse(read('reference/act-line-gates.json')).halves?.[built.id] ?? [];
+  for (const entry of table) {
+    if (!read(entry.doc).includes(`"${entry.otherwise}"`)) fail(`act-line-gates halves: ${entry.doc} does not write "${entry.otherwise}"`);
+    let found = 0;
+    const lists = [];
+    for (const target of [...built.hotspots, ...(built.exits ?? [])]) for (const rules of Object.values(target.responses ?? {})) lists.push(rules);
+    for (const verbs of Object.values(built.peopleResponses ?? {})) for (const rules of Object.values(verbs)) lists.push(rules);
+    for (const rules of lists) {
+      for (let n = rules.length - 1; n >= 0; n -= 1) {
+        const rule = rules[n];
+        const swap = (line) => (typeof line === 'string' ? line.replace(entry.says, entry.otherwise) : line);
+        if (![rule.say, ...(rule.repeat ?? [])].some((line) => line.includes(entry.says))) continue;
+        found += 1;
+        const without = { ...rule, say: swap(rule.say), ...(rule.repeat ? { repeat: rule.repeat.map(swap) } : {}) };
+        rules.splice(n, 1, { ...rule, when: { ...rule.when, [entry.flag]: true } }, { ...without, otherHalf: entry.flag });
+      }
+    }
+    if (found !== 1) fail(`act-line-gates halves: "${entry.says}" matches ${found} lines in ${built.id}, not one`);
   }
 }
 const OUT = ROOM_FILE;

@@ -2510,6 +2510,33 @@
     "room:prosperity:hole:LOOK_AT"
    ],
    "note": "Errata 340: the hole's first look with the raccoon in it has been said (doc 133, THE ACT ONE REVIEW: THE RACCOON); its own chain follows."
+  },
+  {
+   "id": "T_WIN_C1_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_C1 openingOnce"
+   ],
+   "note": "Errata 351: Winnie's refusal to certify has been heard. It is WIN_C1's opening, said once (the node's openingOnce); later visits open on the choices."
+  },
+  {
+   "id": "T_FRA_E1_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_E1 openingOnce"
+   ],
+   "note": "Errata 351: Frame's obituary scene has been heard. It is FRA_E1's opening, said once (the node's openingOnce); later visits open on the choices."
+  },
+  {
+   "id": "T_HOB_E6_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:HOB:HOB_E6 openingOnce"
+   ],
+   "note": "Errata 351: Hob's yes to being executor has been heard. It is HOB_E6's opening, said once (the node's openingOnce); later visits open on the choices."
   }
  ]
 }

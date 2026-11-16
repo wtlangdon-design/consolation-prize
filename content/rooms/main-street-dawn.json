@@ -550,7 +550,18 @@
             "repeat": [
               "Claims for sale, claims disputed, and a new one: CLAIM ONE, FILED, O. MOTT, WORKINGS TO COMMENCE. The lost dog notice has been taken down.",
               "Somebody has drawn a small raccoon in the corner of the official notice. I'm choosing not to know who."
-            ]
+            ],
+            "when": {
+              "T_BILL_FOUND": true
+            }
+          },
+          {
+            "say": "Under all the claims and disputes, one new notice, official, sealed, correctly spelled. It has the whole board's attention.",
+            "repeat": [
+              "Claims for sale, claims disputed, and a new one: CLAIM ONE, FILED, O. MOTT, WORKINGS TO COMMENCE. The lost dog notice is still up.",
+              "Somebody has drawn a small raccoon in the corner of the official notice. I'm choosing not to know who."
+            ],
+            "otherHalf": "T_BILL_FOUND"
           }
         ],
         "LISTEN_TO": [
@@ -589,7 +600,21 @@
             ],
             "then": [
               "He has always known something the rest of us are only learning this morning."
-            ]
+            ],
+            "when": {
+              "T_BILL_FOUND": true
+            }
+          },
+          {
+            "say": "The dog, in the early sun, in the middle of the street, on his back.",
+            "repeat": [
+              "The dog. Still nobody's.",
+              "He has rolled over to warm the other side. He had the right idea all along."
+            ],
+            "then": [
+              "He has always known something the rest of us are only learning this morning."
+            ],
+            "otherHalf": "T_BILL_FOUND"
           }
         ],
         "LISTEN_TO": [

@@ -3575,7 +3575,21 @@
       "as": "counter",
       "items": [
         "deed",
-        "survey"
+        "survey",
+        "death_certificate",
+        "document_c",
+        "sample"
+      ]
+    },
+    {
+      "room": "claims_registrar",
+      "at": "winnie_registrar",
+      "as": "counter",
+      "items": [
+        "sample",
+        "deed",
+        "death_certificate",
+        "document_c"
       ]
     }
   ],

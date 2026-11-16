@@ -166,8 +166,7 @@
             }
           ],
           "when": {
-            "T_PIKE_DEAD": true,
-            "T_FANSHAWE_FUNERALS": true
+            "T_PIKE_DEAD": true
           },
           "whenAny": [
             {

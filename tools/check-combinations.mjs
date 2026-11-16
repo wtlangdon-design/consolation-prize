@@ -82,7 +82,10 @@ export function check() {
     if (!items.has(pair.item)) {
       report.fail(`${where}: no such item`);
     }
-    const key = `${pair.item}|${pair.room}|${pair.target}`;
+    // A pair that opens a tree and a pair that says a line are found by different paths (GameState.evidencePairFor takes
+    // only the first kind, VerbSystem only the second), so one of each on the same target is two answers, not a duplicate
+    // (errata 351: the two dollars on the diviner pays her in Act I and opens her tree in Act II).
+    const key = `${pair.item}|${pair.room}|${pair.target}|${pair.opens ? 'opens' : 'says'}`;
     if (seen.has(key)) {
       report.fail(`${where}: declared twice -- only the first would ever fire`);
     }

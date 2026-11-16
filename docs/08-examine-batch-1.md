@@ -242,7 +242,7 @@
 > **LISTEN:** "Nothing. It doesn't move."
 
 **THE POSTED NOTICES**
-> **LOOK:** "Claims for sale, claims disputed, and a new one: CLAIM ONE, FILED, O. MOTT, WORKINGS TO COMMENCE. The lost dog notice has been taken down." *(Conditional on the player having resolved it. If they did not: "The lost dog notice is still up.")*
+> **LOOK:** "Claims for sale, claims disputed, and a new one: CLAIM ONE, FILED, O. MOTT, WORKINGS TO COMMENCE. The lost dog notice has been taken down." *(Conditional on the player having resolved it. If they did not: "Claims for sale, claims disputed, and a new one: CLAIM ONE, FILED, O. MOTT, WORKINGS TO COMMENCE. The lost dog notice is still up.")*
 > **LISTEN:** "Paper, in wind. Less of it."
 
 **THE CHURCH STEEPLE**
