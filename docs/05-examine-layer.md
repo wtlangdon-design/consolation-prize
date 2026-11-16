@@ -377,7 +377,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE KEY RACK**
 > **LOOK:** "Forty hooks, three keys. Either the hotel is full, or the keys leave and do not write."
-> **LISTEN:** "Nothing. A key only speaks when dropped."
+> **LISTEN:** "A key only speaks when dropped. These are well behaved."
 
 **THE STAIRS**
 > **LOOK:** "Worn in the middle by men going up hopeful and coming down otherwise."

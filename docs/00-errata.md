@@ -8355,3 +8355,17 @@ Left for Tyler: the undertaker's ledger's last look ("Which means most of them l
 
 Lesson:
 - `tests/act-one-story.test.mjs`: the letter's line by what Thad knows; a chain in two states differs only in the line the state changes.
+
+## 343 · The hotel lobby in the new voice: the sample (Tyler, 2026-11-15: "Approve it all")
+
+The Act I review's dialogue editor found "Nothing." the game's most repeated line, and lines that assumed weeks in town on the first night. Tyler asked for one room as a sample before any other is touched; this is it, and he approved it.
+
+- **The lobby's silent objects have sounds** (docs 05, 09, 26, 54): the bell, the spittoon, the register, the engraving, the painting, the key rack, the settee, the stove. The stove keeps the room's one "Nothing."
+- **True on the first night:** the stove is not "unlit since I arrived"; the street is not "always brighter than I remember" and does not go quiet "about four"; the landing has somebody on it because every hotel has one.
+- **The undertaker's ledger's last look** follows the line errata 342 put before it (doc 26).
+
+The pattern for the other rooms, one at a time, each shown to Tyler first: doc 55 §8.
+
+Lesson:
+- `tests/one-nothing.test.mjs`: a room that has had the pass answers LISTEN with one bare "Nothing." at most. The lobby had seventeen.
+- Doc 55 §8: the rules of the pass.

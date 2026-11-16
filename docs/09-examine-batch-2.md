@@ -192,22 +192,22 @@
 
 **THE REGISTER**
 > **LOOK:** "My name, spelled in a way it has never previously been spelled, in a hand of tremendous confidence."
-> **LISTEN:** "Nothing."
+> **LISTEN:** "The pen, rolling a quarter inch in its groove when the door goes."
 
 **THE KEY RACK**
 > **LOOK:** "Forty keys. Four of them are out. The hotel is one-tenth occupied and charges as though it were not."
-> **LISTEN:** "Nothing."
+> **LISTEN:** "One of them is swinging a little on its hook. Somebody came down in a hurry."
 
 **THE ENGRAVING**
 > **LOOK:** "An engraving of the Bay of Naples, in a hotel lobby, in a mining camp, four hundred miles from a paved road. Somebody carried this here on purpose."
-> **LISTEN:** "Nothing."
+> **LISTEN:** "The wire it hangs on, ticking once."
 
 **THE CLOCK**
 > **LOOK:** "A lobby clock. It disagrees with the Registrar's clock by nineteen minutes and neither has ever been challenged."
 > **LISTEN:** "Ticking. Slightly slow. I'm not going to say anything."
 
 **THE SETTEE** · **THE STAIRS** · **THE STOVE** · **THE SPITTOON**
-> *(The stairs — **LISTEN:** "Somebody on the landing, not moving. There is always somebody on the landing not moving.")*
+> *(The stairs — **LISTEN:** "Somebody on the landing, not moving. Every hotel has one.")*
 
 ---
 
