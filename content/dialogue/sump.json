@@ -341,8 +341,15 @@
             {
               "speaker": "sump",
               "line": "It is the most suspicious thing about him."
+            },
+            {
+              "speaker": "thad",
+              "line": "Then the one man left with standing to say he's dead is Mott."
             }
           ],
+          "set": {
+            "T_MOTT_PETITIONED": true
+          },
           "puzzle": {
             "E1": "complete"
           }
@@ -461,7 +468,8 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "openingOnce": "T_SUM_E1_GREETED"
     },
     "SUM_C1": {
       "id": "SUM_C1",

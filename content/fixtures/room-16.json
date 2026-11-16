@@ -161,7 +161,8 @@
     "T_GULCH_MESSAGE_DOWN": true,
     "T_SEANCE_ON": true,
     "T_LOG_WITH_WINNIE": true,
-    "T_SEEN_PROSPERITY": true
+    "T_SEEN_PROSPERITY": true,
+    "T_MOTT_PETITIONED": true
    },
    "inventory": [
     "letter",
@@ -213,11 +214,12 @@
     "G4": "complete",
     "G5": "complete",
     "G8": "complete",
-    "G9": "complete"
+    "G9": "complete",
+    "E1": "complete"
    },
    "derivedFrom": [
     "docs/111-scenes-b-and-c.md::B · In Ozymandia's tent",
-    "tests/data/full-game-walkthrough.json::E0b.2"
+    "tests/data/full-game-walkthrough.json::E1.0b"
    ],
    "expect": {
     "tree": "OZYMANDIA",
@@ -353,7 +355,8 @@
     "T_SEANCE_ARRIVED": true,
     "T_SEANCE_DARK": true,
     "T_LOG_WITH_WINNIE": true,
-    "T_SEEN_PROSPERITY": true
+    "T_SEEN_PROSPERITY": true,
+    "T_MOTT_PETITIONED": true
    },
    "inventory": [
     "letter",
@@ -405,7 +408,8 @@
     "G4": "complete",
     "G5": "complete",
     "G8": "complete",
-    "G9": "complete"
+    "G9": "complete",
+    "E1": "complete"
    },
    "dialogueCounts": {
     "OZYMANDIA": {
@@ -414,7 +418,7 @@
    },
    "derivedFrom": [
     "docs/111-scenes-b-and-c.md::B · In Ozymandia's tent",
-    "tests/data/full-game-walkthrough.json::E0b.2"
+    "tests/data/full-game-walkthrough.json::E1.0b"
    ],
    "expect": {
     "tree": "SEANCE",

@@ -2056,6 +2056,8 @@
         "when": {
           "ACT": 3,
           "T_MOTT_SPOKE": false,
+          "T_MOTT_PETITIONED": true,
+          "T_OBITUARY": false,
           "T_SEANCE_ON": false
         },
         "set": {
@@ -2075,6 +2077,15 @@
       },
       {
         "when": {
+          "T_OBITUARY": true,
+          "T_SEANCE_ON": true
+        },
+        "set": {
+          "T_SEANCE_ON": false
+        }
+      },
+      {
+        "when": {
           "T_UNDER_TABLE": true
         },
         "set": {
@@ -2084,7 +2095,9 @@
     ],
     "sayWhen": {
       "ACT": 3,
-      "T_MOTT_SPOKE": false
+      "T_MOTT_SPOKE": false,
+      "T_MOTT_PETITIONED": true,
+      "T_OBITUARY": false
     },
     "sayOnce": "T_SEANCE_ARRIVED",
     "note": "Doc 111, ARRIVING: 'Ozymandia's tent, the séance, the first entry'. Said once (T_SEANCE_ARRIVED), on the first entry while the séance is on; tested against the flags he walks in with, so it does not wait on T_SEANCE_ON's write.",
