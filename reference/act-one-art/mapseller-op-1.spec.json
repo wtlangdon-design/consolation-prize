@@ -1,0 +1,17 @@
+{
+ "assetId": "act1-map-seller",
+ "subject": "act1-map-seller",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/act-one-art/mapseller-op-1.txt",
+ "out": "art/staging/act-one-art/mapseller/op-1.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act-one-art/mapseller/template.png",
+  "art/staging/act-one-art/mapseller/street-east-with-thad.png",
+  "art/staging/act-one-art/thad-ruler.png",
+  "art/staging/act-one-art/barman@2x.png"
+ ],
+ "derivedFrom": "art/actors/ambient-map-seller-master.png"
+}

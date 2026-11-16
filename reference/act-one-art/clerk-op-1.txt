@@ -1,0 +1,11 @@
+Image 1 is a sheet from my pixel-art adventure game, enlarged 3 times: five frames, on magenta, of the same young clerk behind a high desk, seen from the waist up (the desk hides the rest): fair hair, a grey waistcoat, white shirt sleeves, a black tie, his forearms forward and his hands resting on the desk top at the bottom of each frame. Redraw ALL FIVE FRAMES IN PLACE: each exactly where it is on the sheet, the same size, the same head size and position, the same pose in each frame:
+1. (top left) rest: both hands resting on the bare desk top, looking out;
+2. (top middle) the same, a breath;
+3. (top right) writing: head down, one hand writing on the desk top;
+4. (bottom left) the watch: a pocket watch held up in one hand and read;
+5. (bottom right) looking up.
+His hands rest on the BARE desk top at the bottom of each frame: no book, no paper, no ledger, nothing on the desk is his. The watch only in frame 4 (it comes out of his waistcoat pocket); the writing pen only in frame 3.
+
+What must change is HOW he is drawn. He is now drawn in big coarse blocks (his face only four or five blocks across), pale and washed out, in a finely drawn lobby. Image 2 is the lobby at game size with Thad (the hero) at the desk and the clerk behind it; image 3 is Thad, the standard; image 4 is a storekeeper behind his counter, the nearest figure of his kind and the drawing style to match. Draw the clerk with pixels HALF the size of the ones he has now (twice as many across his face), in that soft flat style: big simple shapes, two or three tones per material, soft broad shading, no crisp highlights, no hard dark lines inside the figure. Lit by the lobby's warm, dim lamplight: his shirt a warm cream, NOT white; overall no brighter than the dark wood panelling behind him.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No desk, no shadows, no text, no numbers, no border.

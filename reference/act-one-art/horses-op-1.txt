@@ -1,0 +1,10 @@
+Image 1 is a sheet from my pixel-art adventure game: four frames, in a 2x2 grid on magenta, of the same group -- three saddled horses tied at a wooden hitching rail with a little hay on the ground: a black horse with a white blaze, a palomino and a brown-and-white paint. Redraw ALL FOUR FRAMES IN PLACE: each frame exactly where it is on the sheet, the same size, the same three horses in the same places, the same rail and posts in the same place, the same hay, and the same pose in each frame:
+- top left: the black looking out, the palomino head down eating the hay, the paint looking out over the rail;
+- top right: the same, but the black tosses its head up;
+- bottom left: the same as top left, but the palomino lifts its head from the hay;
+- bottom right: the same as top left, but the paint turns its head and swishes its tail.
+Keep each horse's hooves on the same row as now.
+
+What must change is HOW they are drawn. They are now painted smooth and finely detailed, with gradients and shiny highlights on the coats and the tack, so they look like a photograph laid on the game. Image 2 is the street they stand in at night at game size, with Thad (the hero) in it; image 3 is Thad, the standard; image 4 is the barman, the drawing style to match. Draw the horses in THAT hand: chunky square pixels, big simple shapes, two or three flat tones per material (coat, mane, saddle, blanket, rail), soft broad shading, no shiny highlights, no fine hair strands, no fine detail on the tack, no hard dark lines inside the shapes. It is night: the horses are dim and cool, no brighter than the street's mud around them, the white markings a dim grey-cream, not bright white.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.

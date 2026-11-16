@@ -1,0 +1,17 @@
+{
+ "assetId": "act1-lobby-clerk",
+ "subject": "act1-lobby-clerk",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-10-company-lobby",
+ "promptFile": "reference/act-one-art/clerk-op-1.txt",
+ "out": "art/staging/act-one-art/clerk/op-1.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act-one-art/clerk/template.png",
+  "art/staging/act-one-art/clerk/lobby-with-thad.png",
+  "art/staging/act-one-art/thad-ruler.png",
+  "art/staging/act-one-art/clerk/storekeeper@2x.png"
+ ],
+ "derivedFrom": "art/actors/room-10-clerk.png"
+}

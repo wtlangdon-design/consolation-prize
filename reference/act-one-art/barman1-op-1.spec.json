@@ -1,0 +1,18 @@
+{
+ "assetId": "act1-bar-man",
+ "subject": "act1-bar-man",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-03-nugget",
+ "promptFile": "reference/act-one-art/barman1-op-1.txt",
+ "out": "art/staging/act-one-art/barman1/op-1.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act-one-art/barman1/input.png",
+  "art/staging/act-one-art/barman1/talking-to-the-barman.png",
+  "art/staging/act-one-art/thad-ruler.png",
+  "art/staging/act-one-art/barman1/bar2@2x.png"
+ ],
+ "mask": "art/staging/act-one-art/barman1/mask.png",
+ "derivedFrom": "art/actors/nugget-bar1.png"
+}

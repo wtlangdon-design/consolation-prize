@@ -1,0 +1,12 @@
+Image 1 is a sheet from my pixel-art adventure game, enlarged 3 times: seven frames, on magenta, of the same street map seller, standing full length: a hat, a tan jacket, a red neckerchief, a satchel strap across his chest and the satchel at his hip, tan trousers, boots, a folded paper map in his hand, and a PENCIL TUCKED BEHIND HIS EAR. Redraw ALL SEVEN FRAMES IN PLACE: each exactly where it is on the sheet, the same height (crown and boots on the same rows as now), the same pose in each frame:
+1. (top row, 1st) standing, the map held up beside his head;
+2. (top row, 2nd) the same, a breath;
+3. (top row, 3rd) the map held out, offered;
+4. (top row, 4th) the map lowered at his side;
+5. (top row, 5th) pointing at the map held at his chest;
+6. and 7. (bottom row) drawing on the map with a pencil, his head bent to it.
+The map in his hand in every frame. The pencil behind his ear in every frame.
+
+What must change is HOW he is drawn. He is now soft, blurry and narrow beside Thad, with a muddy face under his hat. Image 2 is the street at night at game size, with Thad (the hero) beside him under the office lantern; image 3 is Thad, the standard; image 4 is the barman, the drawing style to match. Draw him at Thad's clarity: clean crisp pixel edges, a readable face with eyes, nose and mouth under the hat brim, a body as broad as a grown man's beside Thad, in Thad's flat soft style -- big simple shapes, two or three tones per material, soft broad shading, no fine wrinkles, no crisp highlights, no hard dark lines inside the figure. He stands in the lantern's warm light: warm but not bright, no brighter than Thad.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.
