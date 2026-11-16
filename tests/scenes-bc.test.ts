@@ -102,6 +102,22 @@ test('scene B: the sign and the séance are on from the act turn until the dead 
   late.enterRoom(TENT);
   assert.equal(late.flags.get('T_SEANCE_ON'), false, 'over by Act IV');
   assert.deepEqual(seanceSubjects(late).filter((id) => isTarget(late, id)), []);
+  // Errata 360: not before Sump has refused the petition, which is his reason to sit in.
+  const early = inFixture(SEANCE, { T_SEANCE_ON: false, T_MOTT_PETITIONED: false }, 'town_map').state;
+  early.enterRoom(lane);
+  assert.equal(early.flags.get('T_SEANCE_ON'), false, 'no séance before the petition is refused');
+  assert.ok(!isTarget(early, sign.id), 'no sign before the petition is refused');
+  // Errata 360: and over once his obituary is printed, so its printer does not hail him at the table as a stranger.
+  const printed = inFixture(SEANCE, { T_SEANCE_ON: true, T_OBITUARY: true }, 'town_map').state;
+  printed.enterRoom(lane);
+  assert.equal(printed.flags.get('T_SEANCE_ON'), false, 'over once the obituary is out');
+});
+
+test('scene B: the refusal that gives the séance its reason is said, and sets it going', () => {
+  const asks = [...content.dialogue.values()].flatMap((tree) => Object.values(tree.nodes))
+    .flatMap((node) => node!.options).filter((one) => one.set?.T_MOTT_PETITIONED === true);
+  assert.equal(asks.length, 1, 'one row marks the petition refused');
+  assert.ok(asks[0]!.exchange?.some((said) => said.speaker === content.actor.id), 'and he says what the refusal leaves him');
 });
 
 test('scene B: the first entry to the tent says its arrival once, and the séance stands in place of the table and lamp', () => {

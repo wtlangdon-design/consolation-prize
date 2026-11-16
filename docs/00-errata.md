@@ -8611,3 +8611,16 @@ Lesson:
 - `tests/said-over.test.ts`: six tests, the séance's and the duel's geometry among them; failing on main before this.
 - `tests/clarion-prints.test.mjs`: the board prints the words promised, after E1; failing on main before this.
 - Doc 55 §8: two rows (a second look is a second thought; a pose wider than its cell grows the cell), the second held by the cutter, which refuses to write a grown sheet that still loses a pixel.
+
+## 360 · The séance has a reason (Tyler, 2026-11-15: "feel free to change a puzzles design or the story too")
+
+The Acts III reviewers' puzzle and narrative findings: the séance could be played before anything had said that Mott being dead would help, and it stayed on all act, so after the obituary its printer hailed Thad at the table as a stranger.
+
+- **The order is goal, refusal, séance.** Sump's refusal of the petition (SUM_E1 1, still E1, blocked by design) now ends on Thad seeing what it leaves him: the one man with standing to say Mott is dead is Mott (doc 04; a new line, one voice), and sets `T_MOTT_PETITIONED`. The séance and its sign in the Lane go on only after that. The Act III opening already sends him to Sump first.
+- **It is over once the obituary is printed** (`T_OBITUARY`), as it is over once the dead have spoken or the act turns.
+- The séance itself, its lines and SUM_E1's row for it are unchanged; it stays a second way to meet the same refusal, now played for a reason.
+
+The walkthrough asks Sump before the Lane (E1.0a, E1.0b), and the séance's fixtures stand after the refusal.
+
+Lesson:
+- `tests/scenes-bc.test.ts`: no séance before the petition is refused, none after the obituary, and the refusal says what it leaves him; failing on main before this.

@@ -2369,6 +2369,31 @@
    }
   },
   {
+   "id": "E1.0a",
+   "puzzle": "E1",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "E1.0b",
+   "puzzle": "E1",
+   "do": "talk",
+   "npc": "sump",
+   "choose": [
+    "sump1"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "E1"
+    ],
+    "flags": {
+     "T_MOTT_PETITIONED": true,
+     "T_SEANCE_ON": false
+    }
+   }
+  },
+  {
    "id": "E1.1",
    "puzzle": "E1",
    "do": "go",

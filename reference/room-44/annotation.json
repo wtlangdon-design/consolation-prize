@@ -370,6 +370,8 @@
    "when": {
     "ACT": 3,
     "T_MOTT_SPOKE": false,
+    "T_MOTT_PETITIONED": true,
+    "T_OBITUARY": false,
     "T_SEANCE_ON": false
    },
    "set": {
@@ -386,9 +388,18 @@
    "set": {
     "T_SEANCE_ON": false
    }
+  },
+  {
+   "when": {
+    "T_OBITUARY": true,
+    "T_SEANCE_ON": true
+   },
+   "set": {
+    "T_SEANCE_ON": false
+   }
   }
  ],
- "onEnterSetWhenNote": "Errata 237 (doc 111, B): the séance is on from the evening after Fanshawe's offer (E0b, which makes ACT 3) until Mott has spoken (T_MOTT_SPOKE), and its sign is out in the Lane; the tent is reached only from here. A player who never sat in finds it over in Act IV.",
+ "onEnterSetWhenNote": "Errata 237 (doc 111, B): the séance is on from the evening after Fanshawe's offer (E0b, which makes ACT 3) until Mott has spoken (T_MOTT_SPOKE). Errata 360: and only once Sump has refused the petition (T_MOTT_PETITIONED, SUM_E1 1), which gives Thad his reason to sit in, and not after his obituary is printed (T_OBITUARY), when the man at the table who printed it would hail him as a stranger, and its sign is out in the Lane; the tent is reached only from here. A player who never sat in finds it over in Act IV.",
  "motion": [
   {
    "kind": "twinkle",

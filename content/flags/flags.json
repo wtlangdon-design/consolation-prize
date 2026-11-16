@@ -770,6 +770,24 @@
    "note": "Doc 57 D1: SUM_B1 option 1'' (About Document D)."
   },
   {
+   "id": "T_SUM_E1_GREETED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SUMP:SUM_E1 openingOnce"
+   ],
+   "note": "Errata 360: Sump's Act III greeting has been said; later visits open on the choices (tools/extract-content.mjs GREETED_ONCE)."
+  },
+  {
+   "id": "T_MOTT_PETITIONED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SUMP:SUM_E1:sump1"
+   ],
+   "note": "Errata 360: Sump has refused to declare Mott dead for want of a petitioner with standing, and Thad has seen that only Mott could say it. The séance goes on after this (rooms 16 and 44), so it has a reason."
+  },
+  {
    "id": "T_SECTION_NINETEEN",
    "type": "boolean",
    "initial": false,
