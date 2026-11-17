@@ -8703,3 +8703,13 @@ Wired as handed back: the town, left, on five 402 x 255 frames at figureHeight 2
 Left as it is: `room-14-fanshawe-coming-down.png`, which no record uses. The Colonel at his desk is drawn at the size he ships at today, not the room's curve, which is the lobby clerk's open question (`reference/act-one-art/handback.md`).
 
 Lesson: none -- new art wired as handed back and approved; no defect is fixed.
+
+## 367 · The Colonel at his desk, 15% bigger (Tyler, 2026-11-16: "Yeah fanshawe is too short behind the desk", then "Go")
+
+He stands behind his desk, drawn 1:1 with his waist on its back edge, at the size his sheet was cut to rather than the room's curve (errata 366 left this open). He is now drawn 15% bigger, at his desk and turned to the table at the dinner, without an image operation: `tools/art/desk-figures-bigger.py` reads each frame back to its own art pixels, draws it 15% larger, and puts it back on the game's one level (errata 112 G) with `tools/art/one-level.py --resnap`, which takes each block's colour from the drawing at its centre, so nothing is blurred; about one row and column in seven is drawn twice. The bottom row stays on the desk's edge and each frame grows about its centre, so he does not move. The sheets as they were, and their frames, are kept in `art/staging/desk-figures-bigger/`, and the tool reads from them, so a re-run gives the same pixels.
+
+Not the lobby clerk, though it was offered: drawn 15% bigger he is 0.52 of a man from crown to counter, past the waist-up rule's 0.45 (`tests/scale.test.ts`, from the church preacher "enormous behind the podium"). As he is, he is at that rule's limit, so he stays.
+
+Seen in the build with Thad in the room: the office and the dinner.
+
+Lesson: `tests/desk-figures-bigger.test.mjs`: each of his frames, and the figure drawn in them, is at least 14% taller than the kept sheets'; failing on main before this.
