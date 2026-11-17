@@ -8723,3 +8723,17 @@ Lesson: `tests/desk-figures-bigger.test.mjs`: each of his frames, and the figure
 **Grievance's colour, answered.** Tyler asked why she must be brown. Doc 54 makes her a mule "the color of a wet saddle", and the livery draws her so. At the gate and the graveside she is drawn black all over, coat and harness; the lines there say only that the harness is black ("Black harness on a peg... he borrows Grievance, who wears black well", doc 05). So the funeral's mule reads as another animal, which is all errata 363 meant. It is a continuity nicety, not a defect any line depends on.
 
 Lesson: `tests/caves-dark.test.mjs`: each cave plate is no brighter on average than the plate it replaced; failing on main before this.
+
+## 369 · The tuning fork in Room 34, and Grievance's colour ruled (Tyler, 2026-11-16: "Let's do the fork correction."; "The horses color doesn't bother me")
+
+**The fork.** The image session drew it alone on magenta (Part C of `reference/duel-and-caves-art/brief.md`; asset `room-34-fork`, cap 1, one operation, 6,890 tokens; `reference/duel-and-caves-art/handback-fork.md`): two straight prongs, a rounded U and a short stem, lying as the old one lay. Wired by `tools/art/room34-fork.py`:
+- one prop, `tuning_fork`, over both plates (before and after the seam), 85 px tip to tip, half the lamp's height, about twice the old fork's size, centred where it lay (636, 571);
+- reduced to the room's block of 4 px and drawn back up nearest, because drawn at the operation's own pixel it was about twice as fine as the stump under it;
+- the old smudge painted out of both plates' untouched originals under it, filled from the stump around it, and the plates graded again (errata 368);
+- graded with the room like the plates, and its click area widened to the new fork (606, 541, 60 x 60).
+
+Seen in the build with Thad, before and after the seam. Left as drawn: the steel is warm and pale all over, with little of the cooler grey on its shadowed side the brief asked for; beside the lamp it reads as lit metal.
+
+**Grievance.** She stays black at the gate and the graveside, as approved; her brown elsewhere is as it was. The colour is not on any list of things to draw.
+
+Lesson: `tests/room-34-fork.test.mjs`: a prop at the fork's click area in both states, at least 75 px tip to tip, and no grey-steel pixels left of the old fork in either plate; failing on main before this.
