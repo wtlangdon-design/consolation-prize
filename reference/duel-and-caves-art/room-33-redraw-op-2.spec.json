@@ -1,0 +1,17 @@
+{
+  "assetId": "room-33-redraw",
+  "subject": "room-33-listening-chamber",
+  "role": "plate",
+  "purpose": "room-art",
+  "baselineRoom": "room-33-listening-chamber",
+  "promptFile": "reference/duel-and-caves-art/room-33-redraw-op-2.txt",
+  "out": "art/staging/duel-and-caves-art/room-33/redraw-2.png",
+  "size": "1536x1024",
+  "images": [
+    "art/staging/duel-and-caves-art/room-33/current-plate.png",
+    "art/staging/duel-and-caves-art/prosperity-above.png",
+    "art/staging/duel-and-caves-art/hotel-table-lamp.png"
+  ],
+  "authorizedBy": "Tyler, 2026-11-17: reference/duel-and-caves-art/brief.md Part B item 1 (room-33-redraw, cap 2; up to eight operations for Part B; token ceiling raised by 100,000); the correction: attempt 1 came back at the API's own low quality, no finer than the old plate and still mottled",
+  "quality": "high"
+}

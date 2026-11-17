@@ -1,9 +1,9 @@
 {
  "room": "listening_chamber",
  "plate": "art/backgrounds/room-33-listening-chamber.png",
- "plateNote": "Read on the promoted plate (art/staging/room-33/plate-01/candidate-lifted-1920x864.png, room-33 attempt 2, the standard 20:9 crop -- frame.json); the broken wall (attempt 3) shares the frame, and the void is where it broke.",
+ "plateNote": "Read on the promoted plate (art/staging/room-33/plate-01/candidate-lifted-1920x864.png, room-33 attempt 2, the standard 20:9 crop -- frame.json); the broken wall (attempt 3) shares the frame, and the void is where it broke. Errata 365: redrawn by the image session (reference/duel-and-caves-art/handback.md, Part B): the same composition at Prosperity's finer pixel, no checker dither, and the lamp the hotel's glass-chimney table lamp Thad took from his room.",
  "plateShipping": "art/backgrounds/room-33-listening-chamber.png",
- "plateShippingHash": "77c9a9a4eeba",
+ "plateShippingHash": "ad2c5c10638ce024d44250dfc0ccb13ec3ce2db6a09422277dae2077f8c4055f",
  "plateSize": [
   1920,
   864
@@ -114,14 +114,14 @@
   {
    "id": "the_lamp",
    "at": [
-    760,
-    770
+    738,
+    722
    ],
    "radius": 200,
    "amount": 0.09,
    "rate": 0.7,
    "phase": 0.4,
-   "note": "Thad's lamp on the floor. It slows to stillness across the score's ninety seconds (invariant 8); otherwise it is only a flame (invariant 9)."
+   "note": "Thad's lamp on the floor. It slows to stillness across the score's ninety seconds (invariant 8); otherwise it is only a flame (invariant 9). Errata 365: on the redrawn plate's flame."
   }
  ],
  "defaultVerbs": {
@@ -179,7 +179,7 @@
    0.92,
    0.8
   ],
-  "brightness": 0.67,
-  "note": "Errata 109, from the pre-playthrough art audit: Thad is drawn in even light so he can go in every room, and here, where the room around him averages 12.8 (of 255) against his 57, he read as pasted on. Graded to about 38, the room's surround plus 25 -- the margin the lit rooms keep -- under a warm lamp multiply gentle enough to keep his coat blue, as the Nugget's (variant B, Tyler, 2026-11-01). A measurement, not a verdict: Tyler's playthrough decides."
+  "brightness": 0.85,
+  "note": "Errata 109, from the pre-playthrough art audit: Thad is drawn in even light so he can go in every room, and here, where the room around him averages 12.8 (of 255) against his 57, he read as pasted on. Graded to about 38, the room's surround plus 25 -- the margin the lit rooms keep -- under a warm lamp multiply gentle enough to keep his coat blue, as the Nugget's (variant B, Tyler, 2026-11-01). A measurement, not a verdict: Tyler's playthrough decides. Errata 365: the redrawn plate is lighter (mean 26.7 against 14.7); by the same rule, the surround plus 25, about 48: brightness 0.85 (was 0.67)."
  }
 }

@@ -8678,3 +8678,18 @@ Lesson:
 Errata 363's patch over the taken lamp put wall where the window frame's lower-left corner is: it ran the jamb straight up past the chimney and the rail on to it, but not the frame's outer edge or the corner where they meet. The frame's lower-left is now its own lower-right corner mirrored about the window's centre (the frame runs x 772 to 1001), in the left side's light (the right is in shadow: one gain for the frame and one for the wall, each the two sides' colour over the rows above the chimney). The wall under it and the desk are as before.
 
 Lesson: `tests/art-fixes-363.test.mjs`: the frame's corner below the chimney is wood, as it is above it; failing on main before this.
+
+## 365 · Rooms 33 and 34 redrawn, wired
+
+The image session's Part B (`reference/duel-and-caves-art/handback.md`; Tyler raised the token ceiling by 100,000 for it, 2026-11-17): both caves under Prosperity, and their after-plates, redrawn at the same 1920 x 864 composition with every object in its place, at Prosperity's finer pixel, with no checker dither, and the lamp the hotel's glass-chimney table lamp Thad took from his room, so it is one lamp in his room, under Prosperity and in the listening chamber. Five operations, 41,556 tokens. The after-plates are edits of the new plates (1.3 and 1.4 per cent differ), as before.
+
+Wired as handed back, with what the new pictures move:
+- Each lamp's flicker sits on the new flame: Room 33's at (738, 722), Room 34's at (567, 505), and Room 34's glow with it. The slowing of Room 33's lamp across the ninety seconds (invariant 8) is unchanged.
+- THE LAMP in Room 34 reaches the new chimney, about 30 px above the old lantern's top.
+- The new plates are lighter (mean 26.7 against 14.7 in Room 33, 26.3 against 19.2 in Room 34), so Thad's grade is re-measured by errata 109's rule, the room's surround plus 25: brightness 0.85 in Room 33 (was 0.67), 0.95 in Room 34 (was 0.84). His light's colour is unchanged.
+
+For Tyler's eye: the caves are lighter than they were, and can be darkened without an operation; the tuning fork on the stump is as small as before and does not clearly read as a fork.
+
+Part A (the duel crowd) did not run.
+
+Lesson: none -- new art wired as handed back; no defect is fixed.

@@ -1,0 +1,16 @@
+{
+  "assetId": "room-33-after",
+  "subject": "room-33-listening-chamber-after",
+  "role": "plate",
+  "purpose": "room-art",
+  "baselineRoom": "room-33-listening-chamber",
+  "promptFile": "reference/duel-and-caves-art/room-33-after-op-1.txt",
+  "out": "art/staging/duel-and-caves-art/room-33/after-1.png",
+  "size": "1536x1024",
+  "quality": "high",
+  "images": [
+    "art/staging/duel-and-caves-art/room-33/redraw-2.png",
+    "art/staging/duel-and-caves-art/room-33/current-after.png"
+  ],
+  "authorizedBy": "Tyler, 2026-11-17: reference/duel-and-caves-art/brief.md Part B item 2 (room-33-after, cap 2), an edit of the new Room 33 (room-33-redraw attempt 2)"
+}

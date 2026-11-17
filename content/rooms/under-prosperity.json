@@ -265,42 +265,6 @@
       }
     },
     {
-      "id": "lamp",
-      "name": "THE LAMP",
-      "rect": [
-        533,
-        442,
-        64,
-        120
-      ],
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "One lamp, and not a great deal of oil in it.",
-            "repeat": [
-              "Less oil now. I'm doing the arithmetic more often than I'd like.",
-              "It throws my shadow up the wall, three times my size and twice as confident."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Burning.",
-            "repeat": [
-              "A soft hiss as the wick drinks.",
-              "Burning, still. The most reassuring word in the language."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 565,
-        "y": 834,
-        "facing": "back"
-      }
-    },
-    {
       "id": "old_lantern",
       "name": "THE OLD LANTERN",
       "rect": [
@@ -344,6 +308,42 @@
       },
       "walkTo": {
         "x": 686,
+        "y": 834,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "lamp",
+      "name": "THE LAMP",
+      "rect": [
+        530,
+        405,
+        72,
+        180
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One lamp, and not a great deal of oil in it.",
+            "repeat": [
+              "Less oil now. I'm doing the arithmetic more often than I'd like.",
+              "It throws my shadow up the wall, three times my size and twice as confident."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Burning.",
+            "repeat": [
+              "A soft hiss as the wick drinks.",
+              "Burning, still. The most reassuring word in the language."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 566,
         "y": 834,
         "facing": "back"
       }
@@ -807,14 +807,14 @@
     {
       "id": "the_lamp",
       "at": [
-        565,
-        470
+        567,
+        505
       ],
       "radius": 240,
       "amount": 0.08,
       "rate": 0.7,
       "phase": 0.1,
-      "note": "Thad's lamp on the stump: a slow flame, nothing more (invariant 9)."
+      "note": "Thad's lamp on the stump: a slow flame, nothing more (invariant 9). Errata 365: on the redrawn plate's flame."
     }
   ],
   "props": [],
@@ -834,8 +834,8 @@
       0.92,
       0.8
     ],
-    "brightness": 0.84,
-    "note": "Errata 109, from the pre-playthrough art audit: Thad is drawn in even light so he can go in every room, and here, where the room around him averages 23.3 (of 255) against his 57, he read as pasted on. Graded to about 48, the room's surround plus 25 -- the margin the lit rooms keep -- under a warm lamp multiply gentle enough to keep his coat blue, as the Nugget's (variant B, Tyler, 2026-11-01). A measurement, not a verdict: Tyler's playthrough decides."
+    "brightness": 0.95,
+    "note": "Errata 109, from the pre-playthrough art audit: Thad is drawn in even light so he can go in every room, and here, where the room around him averages 23.3 (of 255) against his 57, he read as pasted on. Graded to about 48, the room's surround plus 25 -- the margin the lit rooms keep -- under a warm lamp multiply gentle enough to keep his coat blue, as the Nugget's (variant B, Tyler, 2026-11-01). A measurement, not a verdict: Tyler's playthrough decides. Errata 365: the redrawn plate is lighter (mean 26.3 against 19.2); by the same rule, the surround plus 25, about 57, Thad's own: brightness 0.95, the ceiling the rule keeps (was 0.84)."
   },
   "motion": [
     {
@@ -862,7 +862,7 @@
       "id": "glow_1",
       "rect": [
         541,
-        482,
+        478,
         55,
         65
       ],

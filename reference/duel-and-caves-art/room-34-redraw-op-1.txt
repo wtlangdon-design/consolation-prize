@@ -1,0 +1,13 @@
+Image 1 is a finished background from my pixel-art adventure game: a mine working underground, lit by one lamp. Redraw image 1 completely, at the same size and with EXACTLY the same composition: the same camera and framing, every object in exactly the same place and at the same size --
+- at the left, the shaft going up, with its rope hanging down it;
+- the tree stump left of centre, with the lamp standing on it and the small metal tuning fork lying on it beside the lamp;
+- the timber frame in the middle: two upright posts, a cap beam across their tops, and the diagonal braces in its top corners;
+- the dark back wall behind the frame;
+- at the right, the rock face and the dark tunnel mouth low in it;
+- the earth floor.
+Change how it is drawn, not what it shows:
+- A FINER pixel grid, about the size of image 2's (the town street directly above this mine, from the same game). Image 1's blocks are much too coarse: each of your pixels should be about half the size of image 1's, so the rock, the timber and the floor show finer detail.
+- NO checker dithering and no noisy mottling anywhere. Flat areas of colour with soft, simple shading and little texture, like image 2. The floor is smooth packed earth in a few flat tones, not speckled.
+- The lamp is the hotel table lamp in image 3: a tall glass chimney on a round brass base, lit, its flame glowing warm amber. Draw it standing on the stump exactly where image 1's lamp stands, at the same size. It is not a barn lantern: no wire cage, no handle.
+- Warm amber lamplight falls from the lamp onto the stump, the near rock and the floor, and fades to darkness at the edges, as in image 1.
+The grey strips above and below stay plain grey. No people, no text.
