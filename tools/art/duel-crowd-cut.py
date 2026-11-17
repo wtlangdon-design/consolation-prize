@@ -90,7 +90,13 @@ def main():
     op = opaque_rgb(out_img)
     old = np.asarray(Image.open(R(f'{ST}/{name}-old.png')).convert('RGBA'))
     K = lay['k']; w, h = sp['frames'][0][2], sp['frames'][0][3]
-    figs = [window(out_img, op, pos, round(w * K), round(h * K), margin=min(30, round(w * K * 0.05))) for pos in lay['positions']]
+    # One row of poses (Fanshawe): the window reaches well above and below the template's cell -- the operation drew him
+    # taller than the cell (rows 217-823 against 252-772), and a window held to the cell cut off his shoes and hat-top.
+    one_row = len({p[1] for p in lay['positions']}) == 1
+    figs = [window(out_img, op, pos, round(w * K), round(h * K), margin=min(30, round(w * K * 0.05)),
+                   vmargin=150 if one_row else 0) for pos in lay['positions']]
+    for fg in figs:                                   # nothing of the drawing may touch the window's top or bottom
+        assert not alpha(fg)[0].any() and not alpha(fg)[-1].any(), 'a pose runs past its window: widen it'
     orest = old[sp['frames'][0][1]:sp['frames'][0][1] + h, sp['frames'][0][0]:sp['frames'][0][0] + w]
     o_r = rows_of(orest); n_r = rows_of(figs[0])
     f = (o_r[-1] - o_r[0] + 1) / (n_r[-1] - n_r[0] + 1)

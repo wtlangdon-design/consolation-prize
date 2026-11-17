@@ -175,6 +175,11 @@ They are drawn seven heads tall from the first try.
 
 **For the wiring.** His cells are unchanged (271 x 400).
 
+**Tyler's first look:** "Whoever it is, he has no feet."
+- **Cause:** the cut's window for him was held to the template's cell (rows 252-772), but the operation drew him taller (rows 217-823). His shoes and the top of his hat were cut off.
+- **Fix:** for a sheet of one row of poses, the window now reaches 150 px above and below. The tool asserts that no pose touches its window's top or bottom, so this cannot happen again unseen.
+- **Result:** re-cut whole, with no new operation: hat to shoes, scaled to his old rest height (factor 0.6507). His figureHeight is still 363 (1.004 of Thad).
+
 **Facing.** `tests/faces.test.mjs` passes for his `faces: right`, but only just: his rest pose reads as near front-on. My first prompt asked for him "turned toward the viewer's left", which was wrong. The brief's "turned to Thad" is weak in the drawing, and both his operations are spent.
 
 ## For the wiring (records in `content/ambient/`)
@@ -195,7 +200,7 @@ They are drawn seven heads tall from the first try.
 |---|---|---|---|
 | town left: before / **after** / Thad | 9.75 / **8.60** / 8.54 | 40.3 / **38.6** / 32.1 | 66.8 / **61.0** / 59.7 |
 | town right: before / **after** / Thad | 8.41 / **4.96** / 8.59 | 38.4 / **25.5** / 32.0 | 63.0 / **42.8** / 60.2 |
-| Fanshawe: before / **after** / Thad | 8.18 / **10.57** / 8.77 | 40.0 / **40.2** / 31.9 | 51.5 / **55.5** / 60.1 |
+| Fanshawe: before / **after** / Thad | 8.18 / **11.33** / 8.77 | 40.0 / **38.5** / 31.9 | 51.5 / **53.2** / 60.1 |
 
 Fanshawe's texture is a little above Thad's; at game size it reads as the cast's hand, with his face no longer the largest on the screen.
 
