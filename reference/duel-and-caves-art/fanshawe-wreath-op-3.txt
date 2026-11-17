@@ -1,0 +1,9 @@
+Image 1 is a sheet from my pixel-art adventure game: three frames on magenta -- Colonel Fanshawe in his top hat holding a large round funeral wreath of white lilies lettered SINCERELY in front of him (pushing politely; pushing harder with his hat knocked askew), and the wreath alone. Keep EVERYTHING about it: the same wreath at the same size with the same lettering, the same hands, legs and shoes, the same poses, each frame in the same place, the soles on the same row, the same flat soft drawing.
+
+Image 2 shows, at the same scale, Thad, then Fanshawe as drawn for the duel scene (CORRECT), then this drawing: his FACE IS STILL TOO WIDE, about 1.4 times the duel Fanshawe's. In the two frames with him, make his HEAD NARROWER AND SMALLER:
+- his face only about TWO THIRDS OF THE WIDTH OF ONE LILY FLOWER on the wreath (now it is as wide as a whole lily);
+- his top hat's brim no wider than one lily;
+- his grey moustache in proportion.
+Image 3 is the duel Fanshawe, the man to match. The third frame, the wreath alone, stays exactly as it is.
+
+Flat pure magenta (#FF00FF) background, nothing touching between frames. No ground, no shadows, no text other than SINCERELY on the sash, no numbers, no border.

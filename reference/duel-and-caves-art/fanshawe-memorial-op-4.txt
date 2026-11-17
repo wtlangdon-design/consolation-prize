@@ -1,0 +1,5 @@
+Image 1 is a sheet from my pixel-art adventure game: two frames of Colonel Fanshawe on magenta, in mourning -- bareheaded with his top hat held at his chest in gloved hands, and with his pocket watch out and the hat under his arm. Keep EVERYTHING about it exactly -- the same man, head, face, build, poses, each frame in the same place and the same size, the same flat soft drawing -- and change ONLY the colour of his frock coat and trousers.
+
+Image 2 shows him at the same scale beside Fanshawe as drawn for the duel scene (CORRECT, left): his frock coat and trousers are OLIVE GREEN and lighter. Make them the duel Fanshawe's colour (image 3): a DARK CHARCOAL with only a faint green cast, as dark as the duel's, with the same few soft tones. The brown waistcoat, white shirt, black cravat, gloves, hat and watch stay as they are.
+
+Flat pure magenta (#FF00FF) background, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.

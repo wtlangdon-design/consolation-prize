@@ -56701,6 +56701,392 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-17T04:30:34.210Z"
+  },
+  {
+   "attempt": 3,
+   "role": "derived-state",
+   "assetId": "room-14-memorial-fanshawe",
+   "subject": "room-14-memorial-fanshawe",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 2,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/duel-and-caves-art/fanshawe-memorial-op-3.txt",
+   "promptHash": "98bd603cd5ec6713e8d1d2dcaa34762e64749ded9a7b9c43128129bb70631e18",
+   "references": [
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/memorial-op-2.png",
+     "hash": "9887e668463a0c68fb3200bfc130bb0506df614cea4409b3872a71eabf461835",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/memorial-body-side-by-side.png",
+     "hash": "3e790dfdbb0496fc942ee2f6372a043bec1dd6837cf33b095d8d58ce72e47400",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-14-boot-hill",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "9887e668463a0c68fb3200bfc130bb0506df614cea4409b3872a71eabf461835",
+   "sourcePath": "art/staging/duel-and-caves-art/fanshawe-all/memorial-op-2.png",
+   "out": "art/staging/duel-and-caves-art/fanshawe-all/memorial-op-3.png",
+   "outputHash": "8665d0cfc5486754acb86508f5496cdc75221da53d5ac86648de407313d2e83b",
+   "bytes": 1305940,
+   "usage": {
+    "input_tokens": 9491,
+    "input_tokens_details": {
+     "image_tokens": 9209,
+     "text_tokens": 282
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 10863
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-17T04:37:38.198Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-17T04:37:38.211Z"
+  },
+  {
+   "attempt": 3,
+   "role": "derived-state",
+   "assetId": "room-02-wreath-fanshawe",
+   "subject": "room-02-wreath-fanshawe",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 2,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/duel-and-caves-art/fanshawe-wreath-op-3.txt",
+   "promptHash": "1f01112300e8ee463f2e725daa8840a94e34a524d6e338f3892ad42cad9e68e4",
+   "references": [
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/wreath-op-2.png",
+     "hash": "356d352bc851cda5e79b5cc3fcb55eb31a94c34334efaa3e9c7687c596ea2999",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/wreath-side-by-side-2.png",
+     "hash": "bcf1c1be1703ead72f04b897a08d646f4ae0fc5814d401792664be5fbdc0c636",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "room-art",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "356d352bc851cda5e79b5cc3fcb55eb31a94c34334efaa3e9c7687c596ea2999",
+   "sourcePath": "art/staging/duel-and-caves-art/fanshawe-all/wreath-op-2.png",
+   "out": "art/staging/duel-and-caves-art/fanshawe-all/wreath-op-3.png",
+   "outputHash": "c6c563bbfffd2a0110abb0a5812c512e8676f1e908f09baabbc8d849bb0dfe67",
+   "bytes": 1485917,
+   "usage": {
+    "input_tokens": 12398,
+    "input_tokens_details": {
+     "image_tokens": 12087,
+     "text_tokens": 311
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 13770
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-17T04:38:04.391Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-17T04:38:04.404Z"
+  },
+  {
+   "attempt": 4,
+   "role": "derived-state",
+   "assetId": "room-14-memorial-fanshawe",
+   "subject": "room-14-memorial-fanshawe",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 3,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/duel-and-caves-art/fanshawe-memorial-op-4.txt",
+   "promptHash": "56369c02e05d0e804c592c849c0c7ba44a8529f77bf4b74a9957ef86339bd2f7",
+   "references": [
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/memorial-op-3.png",
+     "hash": "8665d0cfc5486754acb86508f5496cdc75221da53d5ac86648de407313d2e83b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/memorial-coat-side-by-side.png",
+     "hash": "c824569ca24b62038219ac195452b076b65b31c966c2af1f07c2a4413ade3824",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-14-boot-hill",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "8665d0cfc5486754acb86508f5496cdc75221da53d5ac86648de407313d2e83b",
+   "sourcePath": "art/staging/duel-and-caves-art/fanshawe-all/memorial-op-3.png",
+   "out": "art/staging/duel-and-caves-art/fanshawe-all/memorial-op-4.png",
+   "outputHash": "a36750f192c1dff8451b26dc7b1b61fe73b3b993be639ced1dd523daeff34c7f",
+   "bytes": 1320063,
+   "usage": {
+    "input_tokens": 9772,
+    "input_tokens_details": {
+     "image_tokens": 9532,
+     "text_tokens": 240
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 10115
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-17T04:39:01.439Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-17T04:39:01.456Z"
   }
  ],
  "promotions": [

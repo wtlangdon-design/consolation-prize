@@ -308,3 +308,31 @@ All are then shown at one man (300 px) beside Thad, and the tool measures his fa
 - Shrunk to 304, he sat behind it like a child (tried, then reverted). His sheets are as first cut.
 
 **Spent on this:** two corrections, 23,485 tokens. **Ledger:** 466 attempts and 4,772,300 tokens against 4,840,000.
+
+## Matched (Tyler: "Memorial and dual versions seem to have slightly different bodies. Fix the wreath one too. Raise limits.")
+
+**Limits raised** on his word, each quoting him:
+- `room-14-memorial-fanshawe` 2 → 3, and then → 4 for the coat;
+- `room-02-wreath-fanshawe` 2 → 3.
+
+**Spent:** three operations, 34,748 tokens:
+- **memorial attempt 3** (10,863): his build made the duel Fanshawe's. Shown the two side by side, with waist, coat skirt and legs measured 5-20% wider than the duel's.
+- **wreath attempt 3** (13,770): his head made smaller against the wreath ("his face about two thirds of one lily's width").
+- **memorial attempt 4** (10,115): his frock coat and trousers, which were olive and lighter, made the duel's dark charcoal. Nothing else changed.
+
+**Ledger:** 469 attempts and 4,807,048 tokens against 4,840,000, about 33,000 left.
+
+**Face width per 300 px of man, now:**
+
+| Thad | duel | office | office, dinner | memorial | wreath |
+|---|---|---|---|---|---|
+| 26.4 | 28.0 | 30.0 | 28.7 | 26.5 | 29.1 |
+
+- **Build:** the memorial's build is within about 8% of the duel's at every height. He stands with his hands and hat at his chest where the duel man has his thumbs in his waistcoat, which accounts for most of what is left.
+- **Height:** figureHeights are unchanged; `tools/solve-figure-height.mjs` gives memorial 1.002 and wreath 1.005 of Thad.
+- **Render:** `renders/fanshawe-lineup.png`.
+
+**Checks.**
+- **As committed:** all 67 checks pass, and 2,080 of 2,083 tests pass.
+  - The three failures are the old frame rects of town-left (two) and the office (one).
+- **With every record in this hand-back applied:** all 2,083 tests pass.
