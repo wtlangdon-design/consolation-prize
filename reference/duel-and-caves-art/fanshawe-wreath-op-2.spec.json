@@ -1,0 +1,16 @@
+{
+ "assetId": "room-02-wreath-fanshawe",
+ "subject": "room-02-wreath-fanshawe",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/duel-and-caves-art/fanshawe-wreath-op-2.txt",
+ "out": "art/staging/duel-and-caves-art/fanshawe-all/wreath-op-2.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/duel-and-caves-art/fanshawe-all/wreath-op-1.png",
+  "art/staging/duel-and-caves-art/fanshawe-all/wreath-side-by-side.png",
+  "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png"
+ ],
+ "derivedFrom": 1
+}

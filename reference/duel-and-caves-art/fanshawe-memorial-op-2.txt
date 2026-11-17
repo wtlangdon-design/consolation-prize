@@ -1,0 +1,5 @@
+Image 1 is your redraw of a sheet from my pixel-art adventure game: two frames of Colonel Fanshawe on magenta, in mourning at a graveyard -- bareheaded with his top hat held at his chest, and with his pocket watch out and the hat under his arm. Keep EVERYTHING about it: the same man, the same clothes and colours, the same two poses, each frame in the same place, the same height (the crown of his head and his soles on the same rows), the same flat soft drawing.
+
+Image 2 shows, at the same scale, Thad, then Fanshawe as drawn for the duel scene (CORRECT), then this drawing: his HEAD is about 1.4 times too big. In both frames, make his head and face SMALLER -- as small as the duel Fanshawe's in image 2 (about seven tenths of its width now), with his grey hair and moustache in proportion -- and lengthen his neck and shoulders so the overall height stays the same. Image 3 is the duel Fanshawe, the man to match. Nothing else changes.
+
+Flat pure magenta (#FF00FF) background, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.
