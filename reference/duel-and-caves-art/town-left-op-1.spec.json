@@ -1,0 +1,16 @@
+{
+ "assetId": "room-02-duel-town-left",
+ "subject": "room-02-duel-town-left",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/duel-and-caves-art/town-left-op-1.txt",
+ "out": "art/staging/duel-and-caves-art/town-left-op-1.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/duel-and-caves-art/duel-town-left-template.png",
+  "art/staging/duel-and-caves-art/duel-town-left-with-thad.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "derivedFrom": "art/actors/room-02-duel-town-left.png"
+}

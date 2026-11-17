@@ -1,0 +1,5 @@
+Image 1 is your redraw of a sheet from my pixel-art adventure game: four frames of the same group of five townspeople on magenta, 2x. Keep EVERYTHING about it exactly: the same five people, the same proportions (seven heads tall, small heads), the same clothes, the same poses, each frame in the same place on the sheet and the same size, the same flat soft drawing.
+
+Image 2 shows them at game size beside Thad, the hero, in the street at night: they are BRIGHTER than he is. Change only their light, in all four frames: as dim as Thad (image 3) under the same night street light -- the shirts, the apron, the faces and the book a muted, darker tone, not light; the darks as dark as his coat's shadows. Not black, not grey: the same colours, lower.
+
+Flat pure magenta (#FF00FF) background, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.

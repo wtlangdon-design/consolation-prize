@@ -1,0 +1,9 @@
+Image 1 is your redraw of a sheet from my pixel-art adventure game: four frames of the same group of six townspeople on magenta, 2x. Keep everything that is right: the same six people in the same places, the same clothes and colours, the same poses and leaning in each frame, the same flat soft drawing, each frame in the same place on the sheet, and the same overall height of the group (the tallest crown and the lowest feet on the same rows).
+
+Image 2 shows them at game size beside Thad, the hero (right): their HEADS ARE TOO BIG and their bodies too short -- they are about five heads tall; Thad is about seven. Change, in all four frames:
+- every adult about SEVEN heads tall, like Thad (image 3): a noticeably SMALLER head on a longer body and longer legs; the same height overall, so the head shrinks and the body lengthens;
+- the boy a child about two thirds of a man's height with a small head, not a big one;
+- faces simple and small: two or three tones, no big features;
+- a little dimmer, no brighter than Thad in the night street.
+
+Flat pure magenta (#FF00FF) background, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.

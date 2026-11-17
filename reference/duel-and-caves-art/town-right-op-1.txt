@@ -1,0 +1,12 @@
+Image 1 is a sheet from my pixel-art adventure game, enlarged 2 times: four frames, on magenta, of the same group of five townspeople standing together in the street at night, watching a duel: a man in a brown hat with a coiled rope over his shoulder and a red neckerchief (left), Mr. Sheng, a bald Chinese man in a dark tunic and white apron with his arms folded, a man in a brown waistcoat with a hand to his chin (front), a gentleman in a black top hat and frock coat, and a woman in a dark dress and spectacles holding a book (right). Redraw ALL FOUR FRAMES IN PLACE: each exactly where it is on the sheet, the same five people in the same places, the same clothes and colours, the same overall height of the group (the tallest crown and the lowest feet on the same rows), the same pose in each frame:
+1. (top left) all watching;
+2. (top right) the same, but a few of them lean to each other;
+3. (bottom left) the same, but a different few lean to each other;
+4. (bottom right) the same, but another few lean to each other.
+
+What must change is HOW they are drawn. They are now in a different style from the hero: crisp, fully modelled faces, hard contrast inside the figures, and heads too big for their bodies. Image 2 is them in the street at night at game size beside Thad (the hero, in the blue coat); image 3 is Thad, the standard. Redraw them in Thad's hand:
+- every adult about SEVEN HEADS TALL like Thad: a SMALL head on a long body and long legs (NOT five heads tall, NOT big heads);
+- small, plain, simply shaded faces; flat colour, two or three tones per material, soft broad shading, no fine detail, no crisp highlights, no hard dark lines inside the figures, square pixels;
+- no brighter than Thad, in the same dim night street light.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.
