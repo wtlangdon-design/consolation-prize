@@ -1,0 +1,13 @@
+Image 1 is a sheet from my pixel-art adventure game, enlarged: four frames, on magenta, of the same man, Colonel Fanshawe, standing full length in the street at night: a black top hat, grey hair and a grey moustache, a white shirt and dark cravat, a brown waistcoat with a gold watch chain, a long black frock coat, dark trousers. Redraw ALL FOUR FRAMES IN PLACE: each exactly where it is on the sheet, the same man at the same height (crown of the hat and soles on the same rows), the same pose in each frame:
+1. thumbs hooked in his waistcoat, turned toward the viewer's left (toward the hero);
+2. one hand held out, palm up;
+3. looking at his pocket watch held up on its chain;
+4. tipping his top hat.
+
+What must change is HOW he is drawn. He is now in a different style from the hero: a crisp, fully modelled face, hard contrast, and his HEAD AND FACE TOO BIG -- his face is about one and a half times as wide as the hero's. Image 2 is him in the street at night at game size beside Thad (the hero, in the blue coat); image 3 is Thad, the standard. Redraw him in Thad's hand:
+- about SEVEN HEADS TALL like Thad: a SMALL head (his face no wider than Thad's) on a tall body -- a portly, important man, but not big-headed;
+- a small, plain, simply shaded face: grey moustache, a few marks, no fine wrinkles;
+- flat colour, two or three tones per material, soft broad shading, no crisp highlights, no hard dark lines inside the figure, square pixels;
+- no brighter than Thad, in the same dim night street light.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.

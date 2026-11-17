@@ -1,0 +1,9 @@
+Image 1 is your redraw of a sheet from my pixel-art adventure game: four frames of Colonel Fanshawe on magenta. Keep everything that is right: the same man, the same clothes and colours (top hat, grey hair and moustache, brown waistcoat and watch chain, long black coat), the same four poses, each frame in the same place, the same overall height (the hat's top and the soles on the same rows), the same flat soft drawing.
+
+Image 2 shows him beside Thad, the hero, at game size: his HEAD AND FACE ARE STILL TOO BIG -- his face is about one and a half times as wide as Thad's. Change, in all four frames:
+- a SMALLER head: his face no wider than Thad's face in image 2 (about two thirds of its width now), with the top hat in proportion to the smaller head;
+- the body correspondingly longer so the overall height stays the same: about seven heads tall, like Thad (image 3);
+- a small, plain face with a grey moustache, few marks.
+Nothing else changes.
+
+Flat pure magenta (#FF00FF) background, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.
