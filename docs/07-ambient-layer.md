@@ -541,7 +541,7 @@ is the whole of his character.
 >   → "Same map, sir. I look you in the eye while I sell it."
 > ↳ `[COMIC]` "Your maps are a swindle, sir, and I'll tell the whole town so!" → "Tell them, sir! I'll put you on the next map."
 >   *Thad:* "Saying it's a swindle?"
->   → "Pointing the way to the strike, sir. Little hat, arm out. A map sells better with a man on it, pointing."
+>   → "Pointing the way to the strike, sir! The man who called it a swindle, showing them where to dig. You can't buy advertising like that."
 > "Do you know Ezra Pike?" → "Pike? Pike's on every one of my maps, sir! Little cross, top of the hill."
 >   *Thad:* "That's his claim?"
 >   → "That's his… the undertaker explains it better, sir. Down the lane."
