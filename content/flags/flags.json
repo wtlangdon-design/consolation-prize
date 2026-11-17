@@ -2575,6 +2575,15 @@
    "note": "Errata 352: Sump's Act IV opening (the amended location) has been heard. It is SUM_F0's opening, said once."
   },
   {
+   "id": "T_WIN_F1_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_F1 openingOnce"
+   ],
+   "note": "Errata 372: Winnie's Act IV opening (the sample, 'You're the book.') has been heard. It is WIN_F1's opening, said once."
+  },
+  {
    "id": "T_SUBSECTION_FOUR",
    "type": "boolean",
    "initial": false,

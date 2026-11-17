@@ -40,32 +40,32 @@
   "note": "ROOM 23'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 733 and was drawn about 379 tall; along Room 5's slope (0.68 a row) that is 367 at the band's far edge and 464 at its near."
  },
  "entrance": [
-  240,
+  390,
   790
  ],
  "entrances": [
   {
    "from": "claims_road",
    "at": [
-    240,
+    390,
     790
    ],
    "facing": "right",
-   "note": "Up from the road, at left."
+   "note": "Up from the road, at left, clear of the claim marker (errata 372: at x 240 he arrived standing in its post)."
   },
   {
    "from": "default",
    "at": [
-    240,
+    390,
     790
    ],
    "facing": "right",
-   "note": "Up from the road, at left."
+   "note": "Up from the road, at left, clear of the claim marker (errata 372: at x 240 he arrived standing in its post)."
   },
   {
    "from": "town_map",
    "at": [
-    240,
+    390,
     790
    ],
    "facing": "right",
@@ -343,6 +343,21 @@
  },
  "hotspotWhenAnyNote": "Errata 237 (doc 111, C): THE RACCOON is over the figure in the hole's mouth in Act I until the eviction (T_WARM_HOLE), and again from E3.1, back in the hole, until he is in Thad's coat (content/ambient/raccoon-back.json).",
  "docBullets": [
+  {
+   "hotspot": "claim_marker",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER",
+   "head": "**THE CLAIM MARKER** · *on Prosperity, the last morning, before the strike*",
+   "bullet": "- LOOK",
+   "when": {
+    "ACT": {
+     "atLeast": 4
+    },
+    "T_STRIKE_FOUND": false
+   }
+  },
   {
    "hotspot": "raccoon",
    "verbs": [

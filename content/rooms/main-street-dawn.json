@@ -51,7 +51,7 @@
       "transitScene": [
         {
           "arrives": true,
-          "pause": 3.8,
+          "pause": 5,
           "say": "Leave the mud.",
           "then": [
             {

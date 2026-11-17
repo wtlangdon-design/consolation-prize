@@ -8752,3 +8752,25 @@ Lesson: doc 55 §8, "A line that needs a second read": an option's first sentenc
 Errata 370's version still asked the player to hold too many steps at once (Thad drawn on the map, as a pointing figure, so his accusation advertises the maps). Offered three ways, Tyler chose a simpler joke in the map seller's own character, the believer whose maps no one has ever disproved (doc 07 §16, "not one of them disproved"). Thad's accusation stands; the answer is now: "Tell them, sir! Every man who's called it a swindle has bought one to prove it." — "Have they proved it?" — "Not one, sir! They're still digging." Still `[COMIC]`, still no flag.
 
 Lesson: doc 55 §8, "A line that needs a second read", gains the case: when a joke needs explaining twice, replace it with one that needs no steps, rather than explaining it a third time.
+
+## 372 · The Act IV playtest (the scheduled rerun, 2026-11-17; Tyler's overnight go-ahead: "Shop your drafted lines too. And feel free to change a puzzles design or the story too.")
+
+A playtester played Act IV in the build from the confession to THE END. No dead end, softlock or crash. Fixed:
+
+- **The gift agrees with the counter.** At the assay Thad said he could file the strike "in my own name"; at the filing Sump says Claim One is Mott's and cannot be filed in his favour. Thad's choice is now the real one: "It's my find. I could sell the Colonel my silence and be the richest fool in the territory by supper." — "You could." — "And he'd bury it again before the ink was dry, and the town would go on living on a story. I'd rather Mott turned out to be right." (doc 04, WIN_F1).
+- **The duel's truth is true.** With the gold found and assayed, "There is no gold in Mott's claim. There never was." was no longer true, so "It's true." was a lie. Now: "Obadiah Mott never found an ounce of gold in his claim. He invented it to raise a grubstake off men in Boston, and every one of you built a house on top of it." Every word true, and still the biggest lie the town has heard (doc 03). This supersedes errata 354's keeping of the old wording.
+- **The coach.** "The coach goes today" on the morning of days of digging: now "There will be a coach east, and I mean to be on it." (doc 57; no day named, by the no-clocks rule).
+- **The breakthrough is followed.** The wall broken in the listening chamber is found again in Room 34 with the seam: Room 34's arrival now says the dark behind the wall "came round to the back of my own tunnel", and the chamber's rock, looked at after, has the hole in it (doc 133).
+- **Winnie's Act IV opening is said once** (`T_WIN_F1_HEARD`); it replayed the request for an assay after it was run. Her Act IV look waits for the assay, not the strike.
+- **Winnie's refusal at the filing is hers.** "Not now, Mr. Grubb..." was written with no speaker, so Thad said it (doc 133, now marked WINNIE).
+- **The lamp and fork set down on the stump** answer PICK UP with lines true to his having set them there, not the stock "part of the town" and "it stays where it is".
+- **The pickaxe** is introduced as the loose-headed one when it is picked up, not only on a third look (doc 54).
+- **Prosperity, the last morning:** the stake has a look of its own before the strike, in place of Act I's delight.
+- **Staging:** Thad arrives at Prosperity clear of the claim marker's post; at the dawn coach stop he walks to within a few steps of the man on the ladder before "Leave the mud.", and the beat waits for him.
+
+**Not changed, for Tyler:**
+- **Room 33's taps are sound only.** With the sound off there is nothing on screen, and nothing names LISTEN TO as the verb. The design is a sound puzzle tuned by Tyler's ear (doc 57 F2); a text cue would be new design.
+- **The screen went blank four times on Main Street** in the playtester's run (the browser's graphics context was lost). Its machine was a shared software renderer at 2 to 4 frames a second; every figure's sheet is held for the whole session (about 650 MB of the 820 MB resident). If Tyler has never seen a blank screen, it stays; if he has, the figure sheets join the near-loading plan.
+- The map seller still sells "Map to Mott's strike!" after the duel; the strike is now real, so it stands as the joke. The watchman's shack keeps its looks after the confession: still true. The old lantern on the beam (errata 356's "old working") is left for Tyler.
+
+Lesson: `tests/thad-not-mr-grubb.test.mjs`: no line Thad says, in any room's verb rules or any tree, calls him Mr. Grubb; failing on main before this.

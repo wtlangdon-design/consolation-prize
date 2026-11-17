@@ -160,6 +160,20 @@
   "tapItem": "tuning_fork",
   "note": "Doc 28 Part Five and doc 45; errata 70 C-F and 71 E (errata 99 H)."
  },
+ "docBullets": [
+  {
+   "hotspot": "every_rock_surface",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER",
+   "head": "**EVERY ROCK SURFACE** · *in the listening chamber, once I have broken through*",
+   "bullet": "- LOOK",
+   "when": {
+    "T_BROKE_THROUGH": true
+   }
+  }
+ ],
  "props": [],
  "occlusion": {
   "note": "No plane.",

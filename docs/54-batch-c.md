@@ -1204,7 +1204,7 @@
 > **DR. PURVIS'S TONIC** · PICK UP — "On account, with the eggs. It was wrapped for me as though it might go off, in either sense." *(→ the tonic)*
 > **DR. PURVIS'S TONIC** · PICK UP, *again* — "One bottle of Dr. Purvis is a remedy. Two is a diagnosis." *(errata 189)*
 > **THE PICKLE JAR** · PICK UP, *again* — "One is an account. Two is a habit."
-> **THE PICKAXES** · PICK UP — "The one with the loose head, on my account. It's the only one I can afford, and the only one honest about itself." *(→ THE PICKAXE; errata 75)*
+> **THE PICKAXES** · PICK UP — "The cheapest, on my account. Its head is loose, which is why I can afford it, and why it's the only one honest about itself." *(→ THE PICKAXE; errata 75)*
 > **THE PICKAXES** · PICK UP, *again* — "One pickaxe is equipment. Two is a statement, and I have nothing to say."
 
 ### THE BOOTS

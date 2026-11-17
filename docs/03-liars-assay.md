@@ -398,7 +398,7 @@ Then the fifth exchange.
 
 The player is offered four counters. Three are jokes. The fourth is **pair 24**, and it is not a lie:
 
-> **THAD:** "There is no gold in Mott's claim. There never was. Obadiah Mott invented it to raise a grubstake off men in Boston, and every one of you built a house on top of it."
+> **THAD:** "Obadiah Mott never found an ounce of gold in his claim. He invented it to raise a grubstake off men in Boston, and every one of you built a house on top of it."
 
 Silence on Main Street. Long. Fanshawe does not move.
 

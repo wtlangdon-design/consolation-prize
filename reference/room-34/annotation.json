@@ -230,6 +230,26 @@
   "floor": "WALK_TO"
  },
  "defaultVerbsNote": "Errata 28b. Everything is looked at on a bare click but the floor and the prints on it, which are walked on.",
+ "docBullets": [
+  {
+   "hotspot": "lamp",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER",
+   "head": "**THE LAMP** · *on the stump under Prosperity, where I set it down*",
+   "bullet": "- PICK UP"
+  },
+  {
+   "hotspot": "tuning_fork",
+   "verbs": [
+    "PICK_UP"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER",
+   "head": "**THE TUNING FORK** · *on the stump under Prosperity, where I set it down*",
+   "bullet": "- PICK UP"
+  }
+ ],
  "props": [
   {
    "id": "tuning_fork",

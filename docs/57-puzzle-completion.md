@@ -425,7 +425,7 @@ Asking anyone else to be executor is answered by the interest rule:
 
 **Act IV opens in Room 19, morning**, the case packed on the bed:
 
-> "Packed. It didn't take long; there was less to pack than there was to leave. The coach goes today. I am going to look at my mud once more first, because nobody else will."
+> "Packed. It didn't take long; there was less to pack than there was to leave. There will be a coach east, and I mean to be on it. I am going to look at my mud once more first, because nobody else will."
 
 ---
 
