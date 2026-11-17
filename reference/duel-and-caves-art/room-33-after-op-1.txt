@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: an underground chamber of rounded stones, lit by a table lamp standing on its floor. Image 2 is an older drawing of the same chamber, in a coarser style, AFTER a wall has been broken through: it has a dark opening broken through the stone wall right of centre, with broken stones and rubble spilled below it.
+
+Make exactly ONE change to image 1: break through its wall in the same place as image 2's opening, at the same size and shape -- a dark, ragged-edged opening through the rounded stones right of centre, black inside, with a few broken stones and a little rubble spilled on the floor below it, as image 2 shows. Draw it in image 1's own style, pixel size, colours and lamplight; do not copy image 2's coarse blocks or dithering.
+
+Change nothing else at all: same framing, same camera, same pixel grid, same colours, same light; every other stone, the tunnel mouth at the left, the floor and the lamp exactly as in image 1, pixel for pixel. The grey strips above and below stay plain grey. No people, no text.

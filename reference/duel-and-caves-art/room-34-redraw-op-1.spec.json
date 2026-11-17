@@ -1,0 +1,17 @@
+{
+  "assetId": "room-34-redraw",
+  "subject": "room-34-under-prosperity",
+  "role": "plate",
+  "purpose": "room-art",
+  "baselineRoom": "room-34-under-prosperity",
+  "promptFile": "reference/duel-and-caves-art/room-34-redraw-op-1.txt",
+  "out": "art/staging/duel-and-caves-art/room-34/redraw-1.png",
+  "size": "1536x1024",
+  "quality": "high",
+  "images": [
+    "art/staging/duel-and-caves-art/room-34/current-plate.png",
+    "art/staging/duel-and-caves-art/prosperity-above.png",
+    "art/staging/duel-and-caves-art/hotel-table-lamp.png"
+  ],
+  "authorizedBy": "Tyler, 2026-11-17: reference/duel-and-caves-art/brief.md Part B item 3 (room-34-redraw, cap 2; up to eight operations for Part B)"
+}

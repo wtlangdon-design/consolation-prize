@@ -6,7 +6,7 @@
 // operation in art/staging/ledger.json.
 //
 // usage: NODE_USE_ENV_PROXY=1 node tools/art/char-op.mjs <spec.json>
-// spec: { assetId, subject, role, promptFile, out, size, images: [...], authorizedBy, derivedFrom? }
+// spec: { assetId, subject, role, promptFile, out, size, images: [...], authorizedBy, derivedFrom?, quality? }
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, basename } from 'node:path';
 
@@ -23,6 +23,9 @@ I.assertStaged(spec.out);
 const text = readFileSync(resolve(R, spec.promptFile), 'utf8');
 const form = new FormData();
 form.append('model', model); form.append('prompt', text); form.append('size', spec.size);
+// A spec may name the quality (low, medium, high). Left out, the API chooses, and for a whole plate it has chosen
+// low (343 output tokens): a coarse grid, which is what a redraw at a finer pixel exists to remove.
+if (spec.quality) form.append('quality', spec.quality);
 const references = [];
 for (const p of spec.images) {
   const bytes = readFileSync(resolve(R, p));
@@ -56,7 +59,7 @@ mkdirSync(resolve(R, dirname(spec.out)), { recursive: true });
 writeFileSync(resolve(R, spec.out), bytes);
 const row = S.record({ assetId: spec.assetId, subject: spec.subject, role: spec.role, operation: 'edit', model,
   ...(spec.derivedFrom ? { derivedFrom: spec.derivedFrom } : {}),
-  parameters: { size: spec.size, quality: null, stream: true, partial_images: 2 }, prompt: null,
+  parameters: { size: spec.size, quality: spec.quality ?? null, stream: true, partial_images: 2 }, prompt: null,
   promptFile: spec.promptFile, promptHash: I.sha256(Buffer.from(text)), references, baseline: null, mask: null,
   sourceHash: references[0]?.hash ?? null, sourcePath: references[0]?.path ?? null,
   out: spec.out, outputHash: I.sha256(bytes), bytes: bytes.length, usage: completed.usage ?? null,

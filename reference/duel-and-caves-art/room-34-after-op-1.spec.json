@@ -1,0 +1,16 @@
+{
+  "assetId": "room-34-after",
+  "subject": "room-34-under-prosperity-after",
+  "role": "plate",
+  "purpose": "room-art",
+  "baselineRoom": "room-34-under-prosperity",
+  "promptFile": "reference/duel-and-caves-art/room-34-after-op-1.txt",
+  "out": "art/staging/duel-and-caves-art/room-34/after-1.png",
+  "size": "1536x1024",
+  "quality": "high",
+  "images": [
+    "art/staging/duel-and-caves-art/room-34/redraw-1.png",
+    "art/staging/duel-and-caves-art/room-34/current-after.png"
+  ],
+  "authorizedBy": "Tyler, 2026-11-17: reference/duel-and-caves-art/brief.md Part B item 4 (room-34-after, cap 2), an edit of the new Room 34 (room-34-redraw attempt 1)"
+}
