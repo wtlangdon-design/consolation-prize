@@ -232,10 +232,10 @@
       "id": "tuning_fork",
       "name": "THE TUNING FORK",
       "rect": [
-        608,
-        549,
-        52,
-        38
+        606,
+        541,
+        60,
+        60
       ],
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -259,7 +259,7 @@
         ]
       },
       "walkTo": {
-        "x": 634,
+        "x": 636,
         "y": 834,
         "facing": "back"
       }
@@ -817,7 +817,21 @@
       "note": "Thad's lamp on the stump: a slow flame, nothing more (invariant 9). Errata 365: on the redrawn plate's flame."
     }
   ],
-  "props": [],
+  "props": [
+    {
+      "id": "tuning_fork",
+      "sheet": "art/props/room-34-tuning-fork.png",
+      "x": 636,
+      "y": 600,
+      "frame": [
+        0,
+        0,
+        60,
+        60
+      ],
+      "note": "Errata 369: the tuning fork, drawn alone (room-34-fork attempt 1) and laid over the stump on both plates, 85 px tip to tip at the room's 4 px block; the old fork is painted out of both plates under it (tools/art/room34-fork.py). It lies on the stump top, so its foot is the stump's; Thad always stands in front of it."
+    }
+  ],
   "occlusionPlanes": [],
   "occlusionBands": [
     "mud_far",
