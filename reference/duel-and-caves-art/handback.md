@@ -299,12 +299,12 @@ All are then shown at one man (300 px) beside Thad, and the tool measures his fa
 | face, px per 300 px of man (first drawings) | 26.4 | 28.0 | 30.0 | 28.7 | 42.9 | 41.2 |
 | **after the corrections** | 26.4 | 28.0 | 30.0 | 28.7 | **29.6** | **38.8** |
 
-**The memorial's head was 1.4 times too big.** Its correction (attempt 2, 12,163 tokens) was shown itself beside the duel Fanshawe at one scale, and it now matches.
+**The memorial's head was 1.4 times too big.** Its correction (attempt 2, 9,737 tokens) was shown itself beside the duel Fanshawe at one scale, and it now matches.
 
-**The wreath's head was too big as well.** Its correction (attempt 2, 9,734 tokens) brought it from 41 to 39. It is **still about 1.35 times the others.** Its two operations are spent, and raising its cap is Tyler's call.
+**The wreath's head was too big as well.** Its correction (attempt 2, 13,748 tokens) brought it from 41 to 39. It is **still about 1.35 times the others.** Its two operations are spent, and raising its cap is Tyler's call.
 
 **The desk's man.** The office busts measure right only against the desk's real man, about 470, which is the level the one-level test reads.
 - The room's curve at his `y` gives 304. That is a far floor that does not hold the desk.
 - Shrunk to 304, he sat behind it like a child (tried, then reverted). His sheets are as first cut.
 
-**Spent on this:** two corrections, 21,897 tokens. **Ledger:** 466 attempts and 4,772,300 tokens against 4,840,000.
+**Spent on this:** two corrections, 23,485 tokens. **Ledger:** 466 attempts and 4,772,300 tokens against 4,840,000.
