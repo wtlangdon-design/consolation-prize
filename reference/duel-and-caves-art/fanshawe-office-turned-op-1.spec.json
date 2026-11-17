@@ -1,0 +1,17 @@
+{
+ "assetId": "room-11-fanshawe-turned",
+ "subject": "room-11-fanshawe-turned",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-11-fanshawe-office",
+ "promptFile": "reference/duel-and-caves-art/fanshawe-office-turned-op-1.txt",
+ "out": "art/staging/duel-and-caves-art/fanshawe-all/office-turned-op-1.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/duel-and-caves-art/fanshawe-all/office-turned-template.png",
+  "art/staging/duel-and-caves-art/fanshawe-all/office-turned-with-thad.png",
+  "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "derivedFrom": "art/actors/room-11-fanshawe-turned.png"
+}

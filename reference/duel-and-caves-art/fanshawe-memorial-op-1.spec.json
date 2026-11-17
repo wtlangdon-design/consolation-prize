@@ -1,0 +1,17 @@
+{
+ "assetId": "room-14-memorial-fanshawe",
+ "subject": "room-14-memorial-fanshawe",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-14-boot-hill",
+ "promptFile": "reference/duel-and-caves-art/fanshawe-memorial-op-1.txt",
+ "out": "art/staging/duel-and-caves-art/fanshawe-all/memorial-op-1.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/duel-and-caves-art/fanshawe-all/memorial-template.png",
+  "art/staging/duel-and-caves-art/fanshawe-all/memorial-with-thad.png",
+  "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "derivedFrom": "art/actors/room-14-fanshawe-hat-in-hand.png"
+}

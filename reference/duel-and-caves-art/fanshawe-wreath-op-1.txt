@@ -1,0 +1,9 @@
+Image 1 is a sheet from my pixel-art adventure game, enlarged: three frames, on magenta. In the first two, Colonel Fanshawe in his black top hat stands full length holding a large round funeral wreath of white lilies and green leaves in front of him, a black sash across it lettered SINCERELY in gold; his face shows over the top of the wreath and his legs and shoes below it. The third frame is the wreath alone. Redraw ALL THREE FRAMES IN PLACE: each exactly where it is, the same height (the hat's top and the soles on the same rows), the same wreath at the same size with the same lettering SINCERELY, the same pose in each:
+1. pushing politely from inside the wreath, his face over it;
+2. a harder push, his top hat knocked askew;
+3. the wreath alone, no man.
+Only the man changes: a smaller head and face.
+
+Image 3 is the SAME man as he is now drawn in the duel scene: match him exactly -- his small head and face, grey hair and moustache, his proportions (about seven heads tall), his flat soft drawing and colours. Image 4 is Thad, the hero, the standard. Image 2 is the current drawing in its room beside Thad: his HEAD IS TOO BIG there (about twice the size it should be). Draw him in Thad's hand: a SMALL head (face about Thad's size at the same depth), flat colour, two or three tones per material, soft broad shading, no fine wrinkles, no crisp highlights, no hard dark lines inside the figure, square pixels, no brighter than now.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text other than SINCERELY on the wreath's sash, no numbers, no border.

@@ -1,0 +1,5 @@
+Image 1 is a sheet from my pixel-art adventure game: two frames of Colonel Fanshawe on magenta, in mourning at a graveyard -- bareheaded with his top hat held at his chest in gloved hands, and with his pocket watch out and the hat under his arm. Keep his head, face, hair, moustache, the hat, the watch, the two poses, each frame in the same place, the crown of his head and his soles on the same rows, and the same flat soft drawing and colours.
+
+Image 2 shows him at the same scale beside Fanshawe as drawn for the duel scene (CORRECT, left): the two must be THE SAME MAN, but this body is a little too stout -- the waist, the frock coat's skirt and the legs are wider than the duel Fanshawe's. In both frames, give him EXACTLY the duel Fanshawe's body (image 3): the same shoulder width, the same waistcoat and frock coat with the same cut and the same coat length (the skirt ending at the same height above the knee), the same trouser width and leg length, the same shoes. Only the build changes.
+
+Flat pure magenta (#FF00FF) background, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.

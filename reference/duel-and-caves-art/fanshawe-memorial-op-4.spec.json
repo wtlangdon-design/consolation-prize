@@ -1,0 +1,16 @@
+{
+ "assetId": "room-14-memorial-fanshawe",
+ "subject": "room-14-memorial-fanshawe",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-14-boot-hill",
+ "promptFile": "reference/duel-and-caves-art/fanshawe-memorial-op-4.txt",
+ "out": "art/staging/duel-and-caves-art/fanshawe-all/memorial-op-4.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/duel-and-caves-art/fanshawe-all/memorial-op-3.png",
+  "art/staging/duel-and-caves-art/fanshawe-all/memorial-coat-side-by-side.png",
+  "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png"
+ ],
+ "derivedFrom": 3
+}

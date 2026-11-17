@@ -1,0 +1,16 @@
+{
+ "assetId": "room-02-duel-fanshawe",
+ "subject": "room-02-duel-fanshawe",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/duel-and-caves-art/fanshawe-op-2.txt",
+ "out": "art/staging/duel-and-caves-art/fanshawe-op-2.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/duel-and-caves-art/fanshawe-op-1.png",
+  "art/staging/duel-and-caves-art/fanshawe-side-by-side.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "derivedFrom": 1
+}

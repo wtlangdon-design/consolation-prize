@@ -1,0 +1,126 @@
+{
+ "office": {
+  "rec": "fanshawe",
+  "when": null,
+  "frames": [
+   [
+    2,
+    2,
+    246,
+    194
+   ],
+   [
+    250,
+    2,
+    246,
+    194
+   ],
+   [
+    498,
+    2,
+    246,
+    194
+   ],
+   [
+    746,
+    2,
+    246,
+    194
+   ],
+   [
+    994,
+    2,
+    246,
+    194
+   ]
+  ],
+  "sheet": "art/actors/room-11-fanshawe.png"
+ },
+ "office-turned": {
+  "rec": "fanshawe",
+  "when": 0,
+  "frames": [
+   [
+    2,
+    2,
+    347,
+    194
+   ],
+   [
+    351,
+    2,
+    347,
+    194
+   ],
+   [
+    700,
+    2,
+    347,
+    194
+   ],
+   [
+    1049,
+    2,
+    347,
+    194
+   ]
+  ],
+  "sheet": "art/actors/room-11-fanshawe-turned.png"
+ },
+ "memorial": {
+  "rec": "memorial-fanshawe",
+  "when": null,
+  "frames": [
+   [
+    2,
+    2,
+    271,
+    400
+   ],
+   [
+    275,
+    2,
+    271,
+    400
+   ],
+   [
+    548,
+    2,
+    271,
+    400
+   ]
+  ],
+  "sheet": "art/actors/room-14-fanshawe-hat-in-hand.png"
+ },
+ "wreath": {
+  "rec": "wreath-fanshawe",
+  "when": null,
+  "frames": [
+   [
+    2,
+    2,
+    260,
+    398
+   ],
+   [
+    264,
+    2,
+    260,
+    398
+   ],
+   [
+    526,
+    2,
+    260,
+    398
+   ],
+   [
+    788,
+    2,
+    260,
+    398
+   ]
+  ],
+  "sheet": "art/actors/room-02-fanshawe-wreath.png"
+ }
+}

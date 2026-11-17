@@ -22,31 +22,31 @@
    [
     2,
     2,
-    307,
+    329,
     250
    ],
    [
-    311,
+    333,
     2,
-    307,
+    329,
     250
    ],
    [
-    620,
+    664,
     2,
-    307,
+    329,
     250
    ],
    [
-    929,
+    995,
     2,
-    307,
+    329,
     250
    ],
    [
-    1238,
+    1326,
     2,
-    307,
+    329,
     250
    ]
   ],
@@ -72,7 +72,8 @@
   "breakEvery": 6,
   "frameNote": "0 watching · 1 breath (derived) · 2-4 a different few of them leaning to each other.",
   "provenance": "reference/cast-unify-27.spec.json",
-  "redrawn": "Errata 111 T (Tyler, 2026-11-06: 'all the characters in this scene are still a mess'). Eleven distinct townspeople drawn on magenta by cast-unify 29 (reference/cast-unify-27.txt), lean and in the cast's hand; each placed at his own spot on the street at the street's own scale and composed into this band by tools/art/room02-duel-town.py, drawn 1:1."
+  "redrawn": "Errata 111 T (Tyler, 2026-11-06: 'all the characters in this scene are still a mess'). Eleven distinct townspeople drawn on magenta by cast-unify 29 (reference/cast-unify-27.txt), lean and in the cast's hand; each placed at his own spot on the street at the street's own scale and composed into this band by tools/art/room02-duel-town.py, drawn 1:1.",
+  "figureHeight": 182
  },
  "stirsOn": [
   "F4-ERUPTS"
