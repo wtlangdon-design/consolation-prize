@@ -108,15 +108,15 @@
           "exchange": [
             {
               "speaker": "map_seller",
-              "line": "Tell them, sir! I'll put you on the next map, telling them."
+              "line": "Tell them, sir! I'll put you on the next map."
             },
             {
               "speaker": "thad",
-              "line": "Me?"
+              "line": "Saying it's a swindle?"
             },
             {
               "speaker": "map_seller",
-              "line": "On the map, sir! Little hat, arm out, top of the hill, pointing the way to the strike."
+              "line": "Pointing the way to the strike, sir! The man who called it a swindle, showing them where to dig. You can't buy advertising like that."
             }
           ],
           "afterUse": "remove"
@@ -156,7 +156,7 @@
         },
         {
           "id": "map_seller6",
-          "text": "Do you have one with pianos on?",
+          "text": "Do you have a map of the town's pianos?",
           "tag": "COMIC",
           "exchange": [
             {
@@ -174,7 +174,7 @@
             }
           ],
           "afterUse": "remove",
-          "echo": "Do you have one with pianos on? I'm a tuner."
+          "echo": "Do you have a map of the town's pianos? I tune them."
         },
         {
           "id": "map_seller7",

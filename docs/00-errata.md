@@ -8737,3 +8737,12 @@ Seen in the build with Thad, before and after the seam. Left as drawn: the steel
 **Grievance.** She stays black at the gate and the graveside, as approved; her brown elsewhere is as it was. The colour is not on any list of things to draw.
 
 Lesson: `tests/room-34-fork.test.mjs`: a prop at the fork's click area in both states, at least 75 px tip to tip, and no grey-steel pixels left of the old fork in either plate; failing on main before this.
+
+## 370 · The map seller, two exchanges made plain (Tyler, 2026-11-17: "Do you have one with pianos on? -- I don't understand this line. And I still don't understand the lines about the map seller drawing Thad onto the map pointing.")
+
+Both are his `[COMIC]` options and touch no flag. Rewritten in doc 07 (§16) and re-extracted; his answers' jokes are the ones written, said so they land.
+
+- **The pianos.** The menu shows the question's first sentence alone, and "one with pianos on" did not say what Thad wanted or why. Now: "Do you have a map of the town's pianos? I tune them." His answer is as it was: he draws a piano on top of the strike.
+- **Thad on the map.** Errata 329 put back the sentence the exchange hung on, and it still read as a picture with no point. The point is that he turns the man calling his maps a swindle into the little man on them pointing the way to the strike. Thad now says what he expects ("Saying it's a swindle?"), and the answer turns it and says plainly that Thad has become his advertisement (no hat: Thad does not wear one; Tyler, 2026-11-17: "Thad doesn't wear a hat though. And maybe we need to be more explicit that Thad is advertising them, inadvertently?"): "Pointing the way to the strike, sir! The man who called it a swindle, showing them where to dig. You can't buy advertising like that."
+
+Lesson: doc 55 §8, "A line that needs a second read": an option's first sentence stands alone in the menu, and a turned expectation is said on screen. Taste; no check can hold it.
