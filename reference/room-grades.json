@@ -14,6 +14,8 @@
   "boarding_house_parlour": { "tint": [125, 85, 105], "strength": 0.4, "saturate": 1.1, "why": "rose: a parlour kept nice" },
   "barbers": { "tint": [80, 110, 120], "strength": 0.35, "saturate": 1.08, "why": "pale teal: enamel and a mirror" },
   "watchmans_shack": { "tint": [100, 105, 70], "strength": 0.4, "saturate": 1.05, "why": "olive: canvas and tobacco" },
-  "undertaker": { "tint": [90, 120, 100], "strength": 0.3, "saturate": 1.05, "why": "a little more of the pale green it has" }
+  "undertaker": { "tint": [90, 120, 100], "strength": 0.3, "saturate": 1.05, "why": "a little more of the pale green it has" },
+  "listening_chamber": { "tint": [128, 128, 128], "strength": 0, "saturate": 1, "deepen": 1.29, "why": "errata 368: back to the dark it had before the redraw (mean 26.7 to about 14.7, errata 365), lit by its one lamp; no tint" },
+  "under_prosperity": { "tint": [128, 128, 128], "strength": 0, "saturate": 1, "deepen": 1.16, "why": "errata 368: back to the dark it had before the redraw (mean 26.3 to about 19.2, errata 365), lit by its one lamp; no tint" }
  }
 }
