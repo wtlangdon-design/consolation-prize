@@ -336,3 +336,5 @@ All are then shown at one man (300 px) beside Thad, and the tool measures his fa
 - **As committed:** all 67 checks pass, and 2,080 of 2,083 tests pass.
   - The three failures are the old frame rects of town-left (two) and the office (one).
 - **With every record in this hand-back applied:** all 2,083 tests pass.
+
+**Tyler, 2026-11-17, on all of the above:** "It all looks good now." Approved as handed back; wire it as given.
