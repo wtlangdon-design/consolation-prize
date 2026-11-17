@@ -25,6 +25,10 @@ alpha, rows_of, snap, despill_edge, opaque_rgb, N, downscale, measures, thad_at,
 
 ST = 'art/staging/duel-and-caves-art'
 JOBS = {'town-left': 'duel-town-left', 'town-right': 'duel-town-right', 'fanshawe': 'duel-fanshawe'}
+# Fanshawe everywhere else (Tyler, 2026-11-17: "Proceed"), redrawn against the duel Fanshawe: job -> (record, spriteWhen
+# index or None, room file). Their staging is art/staging/duel-and-caves-art/fanshawe-all/<job>-*.
+ALL = {'office': ('fanshawe', None, 'fanshawe-office'), 'office-turned': ('fanshawe', 0, 'fanshawe-office'),
+       'memorial': ('memorial-fanshawe', None, 'boot-hill'), 'wreath': ('wreath-fanshawe', None, 'main-street')}
 JOB = sys.argv[1]
 OPN = int(sys.argv[sys.argv.index('--op') + 1]) if '--op' in sys.argv else 1
 WRITE = '--write' in sys.argv
@@ -76,6 +80,10 @@ def rim_clean(c, passes=3):
     return c
 
 
+def pose_has_man(job, pose):
+    return not (job == 'wreath' and pose == 3)     # the wreath alone: centred as the old one was
+
+
 def best_shift_x(cell_alpha, old_alpha, dx):
     h, w = old_alpha.shape; a = np.zeros_like(old_alpha)
     xs0, xs1 = max(0, dx), min(w, w + dx); a[:, xs0:xs1] = cell_alpha[:, xs0 - dx:xs1 - dx]
@@ -83,12 +91,22 @@ def best_shift_x(cell_alpha, old_alpha, dx):
 
 
 def main():
-    name = JOBS[JOB]
-    rec = json.load(open(R(f'content/ambient/{name}.json'))); sp = rec['sprite']
-    lay = json.load(open(R(f'{ST}/{name}-layout.json')))
-    out_img = np.asarray(Image.open(R(f'{ST}/{JOB}-op-{OPN}.png')).convert('RGB')).astype(int)
+    if JOB in ALL:
+        name, when, room_id = ALL[JOB]; SD = f'{ST}/fanshawe-all'
+        rec = json.load(open(R(f'content/ambient/{name}.json')))
+        sp = rec['sprite'] if when is None else {**rec['sprite'], **rec['spriteWhen'][when]['sprite']}
+        lay = json.load(open(R(f'{SD}/{JOB}-layout.json')))
+        out_img = np.asarray(Image.open(R(f'{SD}/{JOB}-op-{OPN}.png')).convert('RGB')).astype(int)
+        old = np.asarray(Image.open(R(f'{SD}/{JOB}-old.png')).convert('RGBA'))
+        globals()['ROOM_ID'] = room_id; globals()['SPRITE'] = sp
+    else:
+        name = JOBS[JOB]
+        rec = json.load(open(R(f'content/ambient/{name}.json'))); sp = rec['sprite']
+        lay = json.load(open(R(f'{ST}/{name}-layout.json')))
+        out_img = np.asarray(Image.open(R(f'{ST}/{JOB}-op-{OPN}.png')).convert('RGB')).astype(int)
+        old = np.asarray(Image.open(R(f'{ST}/{name}-old.png')).convert('RGBA'))
+        globals()['ROOM_ID'] = 'main-street'; globals()['SPRITE'] = sp
     op = opaque_rgb(out_img)
-    old = np.asarray(Image.open(R(f'{ST}/{name}-old.png')).convert('RGBA'))
     K = lay['k']; w, h = sp['frames'][0][2], sp['frames'][0][3]
     # One row of poses (Fanshawe): the window reaches well above and below the template's cell -- the operation drew him
     # taller than the cell (rows 217-823 against 252-772), and a window held to the cell cut off his shoes and hat-top.
@@ -112,9 +130,14 @@ def main():
         man_here = bt['curve_man'](bt['load']('content/rooms/main-street.json'), rec['x'], rec['y'])
         f = man_here * 1.04 / (fr[-1] - fr[0] + 1)
         scale_by = f'frontmost man = {round(man_here, 1)} x 1.04'
-    man = sp.get('levelMan') or sp.get('figureHeight') or bt['curve_man'](bt['load']('content/rooms/main-street.json'), rec['x'], rec['y'])
+    man = sp.get('levelMan') or sp.get('figureHeight') or bt['curve_man'](bt['load'](f'content/rooms/{ROOM_ID}.json'), rec['x'], rec['y'])
     # the record's new figureHeight (tools/solve-figure-height.mjs, below) is the man the one-level test will read
     man = {'town-left': 213, 'town-right': 182}.get(JOB, man)
+    if JOB in ('office', 'office-turned'):
+        # The level the one-level test reads for this desk figure (tools/art/one-level.py --dry: block 4.09, the floor's man
+        # in front of the desk) and the level his old sheet shipped at. The man where he sits is 304 (block 2.64); that is
+        # the lobby clerk's open question (reference/act-one-art/handback.md), not settled here.
+        man = 4.09 * N
     block = man / N
     # The redrawn groups spread wider than the old cells at the same height. The cells are widened evenly about their
     # centre (W, the widest pose plus a margin) rather than the people shrunk: the record's x is the cell's centre, so
@@ -122,6 +145,14 @@ def main():
     def trimmed(fig):
         r = rows_of(fig); c = np.nonzero(alpha(fig).any(0))[0]; return fig[r[0]:r[-1] + 1, c[0]:c[-1] + 1]
     W = max(w, max(round(trimmed(fg).shape[1] * f) for fg in figs) + 16)
+    if JOB in ('fanshawe',) or JOB in ALL:
+        # one man, centred on his torso where the old frame's torso was: the cell must hold his widest reach either side
+        ocx = cut['torso_x'](orest) if alpha(orest).any() else w / 2
+        half = 0
+        for fg in figs:
+            t = trimmed(fg); sw = max(1, round(t.shape[1] * f)); tx = cut['torso_x'](t) * f
+            half = max(half, tx, sw - tx)
+        W = max(W if JOB not in ALL else w, int(np.ceil(2 * (half + abs(ocx - w / 2)))) + 6)
     W += (W - w) % 2
     pad = (W - w) // 2
     old_w = np.zeros((old.shape[0], 2 + len(sp['frames']) * (W + 2), 4), np.uint8)
@@ -139,7 +170,7 @@ def main():
         oc = np.nonzero(alpha(ocell).any(0))[0]; ocx = (oc[0] + oc[-1]) / 2
         cell = np.zeros((h, W, 4), np.uint8)
         oy = int(rows_of(ocell)[-1]) - (sm.shape[0] - 1); ox = int(round(ocx - (sm.shape[1] - 1) / 2))
-        if JOB == 'fanshawe':                       # one man: centred on his torso, so an arm held out does not move him
+        if (JOB == 'fanshawe' or JOB in ALL) and pose_has_man(JOB, pose):   # one man: centred on his torso
             ox = int(round(cut['torso_x'](ocell) - cut['torso_x'](sm)))
         ys0, xs0 = max(0, oy), max(0, ox); ys1, xs1 = min(h, oy + sm.shape[0]), min(W, ox + sm.shape[1])
         cell[ys0:ys1, xs0:xs1] = sm[ys0 - oy:ys1 - oy, xs0 - ox:xs1 - ox]
@@ -161,7 +192,7 @@ def main():
     for i, (x, y, fw, fh) in enumerate(new_frames):
         sheet[y:y + fh, x:x + fw] = cells[i]
     old = old_w
-    room = bt['load']('content/rooms/main-street.json')
+    room = bt['load'](f'content/rooms/{ROOM_ID}.json')
     gm = bt['curve_man'](room, rec['x'], rec['y'])
     k = gm * sp.get('stature', 1) / sp['figureHeight'] if sp.get('figureHeight') else 1
     def game(c):
@@ -173,6 +204,7 @@ def main():
     print(json.dumps(rep))
     if WRITE:
         Image.fromarray(sheet).save(R(sp['sheet']))
+        if JOB in ALL: print(json.dumps({'wrote': sp['sheet']}))
         render(rec, room, old, sheet)
 
 
@@ -186,12 +218,12 @@ def breath(rest, name):
 
 
 def render(rec, room, old, new):
-    sp = dict(rec['sprite']); sp['frames'] = NEW_FRAMES
+    sp = dict(SPRITE); sp['frames'] = NEW_FRAMES
     plate = Image.open(R(room['background'])).convert('RGBA')
     thad = bt['load']('content/actors/thad.json')
-    tx = rec['x'] + (300 if rec['x'] < 3000 else -300)
+    tx = rec['walkTo']['x'] if JOB in ('office', 'office-turned') else rec['x'] + (300 if rec['x'] < 3000 else -300)
     st = next(cl for cl in thad['clips'] if cl['id'] == 'stand' and cl['facing'] == ('left' if tx > rec['x'] else 'right') and not cl.get('state'))
-    ty = rec['y'] + 5
+    ty = rec['walkTo']['y'] if JOB in ('office', 'office-turned') else rec['y'] + 5
     t = Image.open(R(st['frames'][0])).convert('RGBA')
     t = bt['lit'](t, bt['grade_for'](room, 'thad'), bt['mover_tint'](room.get('lamps'), tx, ty))
     kt = bt['curve_man'](room, tx, ty) / st['figureHeight']
@@ -200,14 +232,14 @@ def render(rec, room, old, new):
     rows = []
     for sheet in (old, new):
         panels = []
-        for i in (0, 2, 3, 4):
+        for i in [p for p in (0, 2, 3, 4) if p < len(sp['frames'])]:
             x, y, w, h = sp['frames'][i]
             f = Image.fromarray(sheet[y:y + h, x:x + w]).resize((round(w * k), round(h * k)), Image.NEAREST)
             f = bt['lit'](f, bt['grade_for'](room, rec['id']), bt['mover_tint'](room.get('lamps'), rec['x'], rec['y']))
             im = plate.copy(); im.alpha_composite(f, (round(rec['x'] - w * k / 2), round(rec['y'] - h * k)))
             im.alpha_composite(ts, (round(tx - st['anchor'][0] * kt), round(ty - st['anchor'][1] * kt)))
-            x0 = min(rec['x'], tx) - 200
-            c = im.crop((x0, rec['y'] - 300, x0 + 700, rec['y'] + 40)).convert('RGB')
+            x0 = max(0, min(rec['x'], tx) - 200); y1 = max(rec['y'], ty) + 40
+            c = im.crop((x0, y1 - 560, x0 + 700, y1)).convert('RGB')
             panels.append(c)
         rows.append(panels)
     pw, ph = rows[0][0].size
@@ -215,7 +247,7 @@ def render(rec, room, old, new):
     for r, panels in enumerate(rows):
         for i, p in enumerate(panels):
             img.paste(p, (i * (pw + 6), r * (ph + 6)))
-    img.save(R(f'renders/room-02-{JOB}-before-after.png'))
+    img.save(R(f'renders/room-02-{JOB}-before-after.png' if JOB not in ALL else f'renders/fanshawe-{JOB}-before-after.png'))
 
 
 if __name__ == '__main__':

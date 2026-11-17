@@ -209,3 +209,77 @@ Fanshawe's texture is a little above Thad's; at game size it reads as the cast's
 - **As committed:** all 67 checks pass, and 2,081 of 2,083 tests pass.
   - The two failures are town-left read through its **old** frame rects (308 wide) over the new 402-wide sheet: the one-level test and the scale test.
 - **With the records above applied** (tried, then reverted): **all 2,083 tests pass**.
+
+---
+
+# Fanshawe everywhere else, redrawn to match the duel Fanshawe
+
+**Why.** Tyler asked: "Are you planning on changing him everywhere in the game?" The duel Fanshawe was then the only one drawn to Thad's proportions. Offered a redraw of the other four in-game sheets against him ("a drawing and possibly a correction each, so 4 to 8 operations"), he said **"Proceed"**.
+
+**The sheets.** These are the four that a record uses:
+- the office (`room-11-fanshawe.png`, record `fanshawe`);
+- the office at dinner, turned to his guest (`room-11-fanshawe-turned.png`, the same record's `spriteWhen`);
+- the memorial at Boot Hill (`room-14-fanshawe-hat-in-hand.png`, `memorial-fanshawe`);
+- the wreath on Main Street (`room-02-fanshawe-wreath.png`, `wreath-fanshawe`).
+
+`room-14-fanshawe-coming-down.png` is used by no record and is left as it is.
+
+## Spent
+
+**Caps.** `art/staging/caps.json` has four new entries, each with cap 2 and quoting him: `room-11-fanshawe-office`, `room-11-fanshawe-turned`, `room-14-memorial-fanshawe` and `room-02-wreath-fanshawe`.
+
+**Ceilings.** `spendTokensTotal` is raised by 50,000 (→ 4,840,000) and `attemptsTotal` by 8 (→ 471), for up to eight operations.
+
+**Four operations are spent**, one drawing each, with no correction needed. That is 48,660 billed tokens: 12,514, 11,294, 10,918 and 13,934.
+
+**Ledger, all of this branch:** 464 attempts and 4,748,815 tokens against 4,840,000, about 91,200 left. Each sheet still has its correction in hand.
+
+## How
+
+Each operation was given:
+- the sheet's distinct poses laid out in place, enlarged (`art/staging/duel-and-caves-art/fanshawe-all/<job>-template.png`);
+- the sheet in its room beside Thad (`<job>-with-thad.png`);
+- **the new duel Fanshawe** at 2x, as the man to match (`new-duel-fanshawe@2x.png`);
+- Thad's ruler frame.
+
+The prompts are `reference/duel-and-caves-art/fanshawe-<job>-op-1.txt`.
+
+**The cut:** `tools/art/duel-crowd-cut.py office | office-turned | memorial | wreath --write`.
+- **Same as Part A:** one scale for all poses, by the old rest frame's height; he is centred on his torso where the old torso was. Frame 1 is the derived breath. Nothing is regraded.
+- **The office bust:** the crown stays on its row and the bottom stays on the desk's back edge (`waistOn` 495), so the smaller head gives a longer torso. The counter-surface test passes.
+
+**Before and after** in each room: `renders/fanshawe-<job>-before-after.png`.
+
+## For the wiring
+
+| Record | Sheet | frames | figureHeight |
+|---|---|---|---|
+| `fanshawe.json` | `room-11-fanshawe.png` | **`[2+382i, 2, 380, 194]`**, i = 0-4 (was 246 wide: his welcoming hand reaches further) | — |
+| `fanshawe.json` `spriteWhen[0]` | `room-11-fanshawe-turned.png` | unchanged | — |
+| `memorial-fanshawe.json` | `room-14-fanshawe-hat-in-hand.png` | unchanged | unchanged, 385 (1.002 of Thad) |
+| `wreath-fanshawe.json` | `room-02-fanshawe-wreath.png` | unchanged | unchanged, 371 (1.005 of Thad) |
+
+## For Tyler's eye
+
+- **The office pixel size.** Both office sheets are snapped at block 4.09, the level the one-level test reads for this desk figure and the level his old sheet shipped at. It is the coarser look he has at the desk today.
+  - The man where he actually sits is 304 (block 2.64).
+  - This is the lobby clerk's open question (`reference/act-one-art/handback.md`): the test reads a desk figure's man from the floor in front of the desk.
+  - This brief does not settle it.
+- **The wreath** is the old wreath redrawn with him. Its lilies are as bright as before; the texture and contrast numbers measure mostly the wreath.
+- **The memorial** is at night at Boot Hill. He is a touch brighter than before (50.1 against 45.7) and still below Thad (60.2).
+
+## Measured (rest frame at game size)
+
+| | texture | contrast | mean light |
+|---|---|---|---|
+| office: before / **after** / Thad | 4.97 / **6.23** / 5.64 | 52.0 / **52.4** / 32.7 | 83.5 / **81.3** / 59.9 |
+| office, turned | 4.31 / **5.60** / 5.64 | 50.8 / **51.2** / 32.7 | 82.7 / **76.7** / 59.9 |
+| memorial | 4.06 / **4.88** / 5.60 | 36.9 / **40.7** / 32.7 | 45.7 / **50.1** / 60.2 |
+| wreath (mostly the wreath) | 18.17 / **24.60** / 10.44 | 64.6 / **68.4** / 31.0 | 97.6 / **103.5** / 59.3 |
+
+## Checks
+
+- **As committed:** all 67 checks pass, and 2,080 of 2,083 tests pass. The three failures are records read through their old frame rects over the new sheets:
+  - town-left: the one-level test and the scale test;
+  - the office: the waist test, through its 246-wide rects.
+- **With every record in this hand-back applied** (Part A's three and the office's; tried, then reverted): **all 2,083 tests pass**.

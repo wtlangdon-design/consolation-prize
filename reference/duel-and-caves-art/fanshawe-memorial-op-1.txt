@@ -1,0 +1,7 @@
+Image 1 is a sheet from my pixel-art adventure game, enlarged: two frames, on magenta, of Colonel Fanshawe standing full length in a graveyard at night, in mourning: grey hair, grey moustache, a black frock coat, brown waistcoat and watch chain, dark trousers, gloves. Redraw BOTH FRAMES IN PLACE: each exactly where it is, the same height (crown and soles on the same rows), the same pose in each:
+1. bareheaded, his black top hat held at his chest in both gloved hands;
+2. his pocket watch out on its chain in one hand, the top hat tucked under his other arm.
+
+Image 3 is the SAME man as he is now drawn in the duel scene: match him exactly -- his small head and face, grey hair and moustache, his proportions (about seven heads tall), his flat soft drawing and colours. Image 4 is Thad, the hero, the standard. Image 2 is the current drawing in its room beside Thad: his HEAD IS TOO BIG there (about twice the size it should be). Draw him in Thad's hand: a SMALL head (face about Thad's size at the same depth), flat colour, two or three tones per material, soft broad shading, no fine wrinkles, no crisp highlights, no hard dark lines inside the figure, square pixels, no brighter than now.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text other than SINCERELY on the wreath's sash, no numbers, no border.
