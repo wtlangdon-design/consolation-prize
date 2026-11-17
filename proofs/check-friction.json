@@ -1321,6 +1321,12 @@
    "date": "2026-11-16",
    "kind": "loosened",
    "why": "Errata 356: the room's three lines that spoke of the seam before the wall gave have before-state halves written in doc 133, and doc 133 joins the documents the test reads. Every line is still held to a document."
+  },
+  {
+   "check": "tests/room-grades.test.mjs",
+   "date": "2026-11-16",
+   "kind": "loosened",
+   "why": "Errata 368: a grade may lean to no colour (strength 0) when it only deepens a room (the caves, back to one lamp's dark); deepen is held between 1 and 1.5, and strength-0 tints are left out of the same-colour count. Every graded picture is still its original through the one function."
   }
  ]
 }

@@ -31,3 +31,19 @@ Every figure is generated against a frame of Thad in the actual room (CLAUDE.md 
 **Prompt B (Rooms 33 and 34; needs the ceiling raised):**
 
 > Read `reference/duel-and-caves-art/brief.md` on main and draw Part B, items 1 to 4, in that order. Tyler raises the token ceiling in `art/staging/caps.json` by 100,000 for this brief. Add a cap entry for each (asset ids `room-33-redraw`, `room-33-after`, `room-34-redraw`, `room-34-after`, cap 2 each); Tyler authorizes up to eight operations for Part B. Redraw each plate from the current one at the same size and composition, every object in place, at a finer pixel with no checker dither, the lamp the hotel's table lamp from Thad's room; make each after-plate as an edit of its new plate. Put the results on the branch `duel-and-caves-art` (with Part A's, if Part A ran) and add to its `handback.md`; do not wire anything.
+
+## Part C: the tuning fork in Room 34 (after errata 368)
+
+- **Why:** on the stump beside the lamp, the tuning fork is a small silver smudge about 45 px long. It is one of the room's click areas, and it does not read as a fork (Part B's handback, "For Tyler's eye").
+- **What:** one object, not a new plate. A steel tuning fork on its own on flat magenta (#FF00FF), so the main session can cut it and lay it over the stump on both Room 34 plates (before and after the seam) as a prop. That way the two plates stay exactly as approved, and one drawing serves both.
+  - Two straight parallel prongs joined at a rounded U, and a short round stem below the U. Unmistakably a tuning fork, not a comb, a key or a nail.
+  - Lying flat on its side, seen from slightly above as the stump is, the stem toward the lower right and the prongs toward the upper left, as the old one lies.
+  - Its length about half the lamp's height in the reference: about twice as big as the old fork, which is bigger than life on purpose so it reads.
+  - Lit by the lamp at its left: warm amber highlights along the top edges of the prongs, cooler grey steel in its shadowed side. No cast shadow, no stump, nothing else in the picture.
+  - Pixel art at the room's pixel size (the reference is shown at 4x: one of the reference's blocks is one block of the fork), flat soft shading, low texture, like the room around it. No outline darker than the steel's own shadow.
+- **Reference:** `art/staging/duel-and-caves-art/room-34/stump-with-fork-x4.png`: the stump, the lamp and the old fork from the shipped plate (x 470 to 750, y 380 to 620), at 4x.
+- **One operation** (asset `room-34-fork`, cap 1). Tyler, 2026-11-16: "Let's do the fork correction." A second attempt is Tyler's call.
+
+**Prompt C (the fork; one operation):**
+
+> Read `reference/duel-and-caves-art/brief.md` on main and draw Part C. Add a cap entry to `art/staging/caps.json` for asset `room-34-fork`, cap 1, quoting Tyler: "Let's do the fork correction." Use `art/staging/duel-and-caves-art/room-34/stump-with-fork-x4.png` as the reference image, and generate the tuning fork alone on flat magenta at high quality. Put the result on a new branch named `room-34-fork` with a `reference/duel-and-caves-art/handback-fork.md` saying what was spent, show me the fork beside the reference, and do not wire anything: the main session wires it.

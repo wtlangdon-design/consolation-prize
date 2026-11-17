@@ -8713,3 +8713,13 @@ Not the lobby clerk, though it was offered: drawn 15% bigger he is 0.52 of a man
 Seen in the build with Thad in the room: the office and the dinner.
 
 Lesson: `tests/desk-figures-bigger.test.mjs`: each of his frames, and the figure drawn in them, is at least 14% taller than the kept sheets'; failing on main before this.
+
+## 368 · The caves dark again, and the fork asked for (Tyler, 2026-11-16: "I defer to you on the caves. Let's do the fork correction.")
+
+**The caves.** Errata 365's redrawn caves came back lighter than the plates they replaced (mean 26.7 against 14.7 in Room 33, 26.3 against 19.2 in Room 34), their light more even and the lamp's pool softer. The design asks for the other thing: under Prosperity "a single oil lamp providing the only light, warm and small"; the listening chamber "unlit except by one lamp" (doc 12). Both rooms are graded back to the dark they had, by `tools/art/room-grade.py` from the untouched plates: a new `deepen`, a power on each pixel's brightness (1.29 in Room 33, 1.16 in Room 34), which takes the dark down and leaves a lamp's white-hot core where it is. Nothing is redrawn and no pixel moves, so the click areas, the after-plates and the lamp's flicker and slowing (invariant 8) are as they were. Thad's grade goes back by errata 109's rule to what it gave for that dark: brightness 0.67 in Room 33 and 0.84 in Room 34. Seen in the build with Thad in both: the shaft, the tunnel and the frame still read.
+
+**The fork.** Part C of `reference/duel-and-caves-art/brief.md`: one operation, the tuning fork alone on magenta, about twice the old one's size, to be laid over the stump on both Room 34 plates as one prop, so the approved plates stay as they are. Not drawn yet: it waits for Tyler to paste Prompt C into the image session.
+
+**Grievance's colour, answered.** Tyler asked why she must be brown. Doc 54 makes her a mule "the color of a wet saddle", and the livery draws her so. At the gate and the graveside she is drawn black all over, coat and harness; the lines there say only that the harness is black ("Black harness on a peg... he borrows Grievance, who wears black well", doc 05). So the funeral's mule reads as another animal, which is all errata 363 meant. It is a continuity nicety, not a defect any line depends on.
+
+Lesson: `tests/caves-dark.test.mjs`: each cave plate is no brighter on average than the plate it replaced; failing on main before this.

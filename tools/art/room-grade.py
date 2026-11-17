@@ -28,8 +28,10 @@ LUMA = np.array([0.2126, 0.7152, 0.0722])
 CHECK = '--check' in sys.argv
 
 
-def grade(image, tint, strength, saturate):
-    """Dark pixels lean to the tint at their own brightness; bright ones (the lamps' light) do not. Alpha is kept."""
+def grade(image, tint, strength, saturate, deepen=1.0):
+    """Dark pixels lean to the tint at their own brightness; bright ones (the lamps' light) do not. Alpha is kept.
+    `deepen` (errata 368) is a power on each pixel's brightness, taken after: above 1 the dark goes darker and a lamp's
+    white-hot core, near 1, stays where it is, so a room lit by one lamp is lit by it again."""
     rgba = np.array(image.convert('RGBA')).astype(float)
     a = rgba[..., :3] / 255
     lum = (a @ LUMA)[..., None]
@@ -39,6 +41,9 @@ def grade(image, tint, strength, saturate):
     mixed = a * (1 - lean) + toward * lean
     grey = (mixed @ LUMA)[..., None]
     out = grey + (mixed - grey) * saturate
+    if deepen != 1.0:
+        lum = np.maximum(np.clip(out, 0, 1) @ LUMA, 1e-4)[..., None]
+        out = out * lum ** (deepen - 1)
     rgba[..., :3] = np.round(np.clip(out, 0, 1) * 255)
     return Image.fromarray(rgba.astype('uint8'), 'RGBA')
 
@@ -76,7 +81,7 @@ def main():
                 stale += 1
                 continue
             shutil.copyfile(shipped, original)
-        out = grade(Image.open(original), spec['tint'], spec['strength'], spec['saturate'])
+        out = grade(Image.open(original), spec['tint'], spec['strength'], spec['saturate'], spec.get('deepen', 1.0))
         if Image.open(shipped).mode == 'RGB':
             out = out.convert('RGB')
         same = os.path.exists(shipped) and Image.open(shipped).convert('RGBA').tobytes() == out.convert('RGBA').tobytes()

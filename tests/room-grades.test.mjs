@@ -24,7 +24,11 @@ function graded([r, g, b], spec) {
   const t = spec.tint.map((v) => v / 255);
   const mixed = a.map((v, k) => v * (1 - lean) + (lum + 0.02) * (t[k] / luma(t)) * lean);
   const grey = luma(mixed);
-  return mixed.map((v) => Math.round(Math.max(0, Math.min(1, grey + (v - grey) * spec.saturate)) * 255));
+  let out = mixed.map((v) => Math.max(0, Math.min(1, grey + (v - grey) * spec.saturate)));
+  // DEEPEN (errata 368): a power on the pixel's brightness, after; a cave lit by one lamp is dark around it again.
+  const deepen = spec.deepen ?? 1;
+  if (deepen !== 1) { const by = Math.max(luma(out), 1e-4) ** (deepen - 1); out = out.map((v) => v * by); }
+  return out.map((v) => Math.round(Math.max(0, Math.min(1, v)) * 255));
 }
 const pictures = (room) => [...new Set([...readFileSync(new URL(room, root), 'utf8').matchAll(/"(art\/[^"]+\.png)"/g)].map((m) => m[1]))]
   .filter((path) => !/^art\/(masks|actors|staging|ui)\//.test(path));
@@ -67,13 +71,16 @@ test('every graded picture is its original, graded as the list says', () => {
 
 test('a grade is a lean, not a repaint, and the warm rooms the others are told apart from are left alone', () => {
   for (const [room, spec] of Object.entries(grades)) {
-    assert.ok(spec.strength > 0 && spec.strength <= 0.65, `${room}: strength ${spec.strength} repaints the room`);
+    // A room only deepened (errata 368: the caves, back to one lamp's dark) leans to no colour.
+    const deepened = (spec.deepen ?? 1) > 1;
+    assert.ok((spec.strength > 0 || deepened) && spec.strength <= 0.65, `${room}: strength ${spec.strength} repaints the room`);
+    assert.ok((spec.deepen ?? 1) >= 1 && (spec.deepen ?? 1) <= 1.5, `${room}: deepen ${spec.deepen} is more than the dark of one lamp`);
     assert.ok(spec.saturate >= 1 && spec.saturate <= 1.15, `${room}: saturate ${spec.saturate}`);
     assert.ok(spec.why, `${room}: says why this colour is its own`);
   }
   for (const warm of ['nugget', 'mercantile', 'livery', 'fanshawe_office', 'company_lobby']) {
     assert.ok(!grades[warm], `${warm} is the warm or the red the graded rooms are told apart from`);
   }
-  const tints = Object.values(grades).map((spec) => spec.tint.join(','));
+  const tints = Object.values(grades).filter((spec) => spec.strength > 0).map((spec) => spec.tint.join(','));
   assert.ok(new Set(tints).size >= tints.length - 1, 'the rooms are leaned to the same colour: that is the brown again');
 });
