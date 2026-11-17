@@ -108,15 +108,15 @@
           "exchange": [
             {
               "speaker": "map_seller",
-              "line": "Tell them, sir! I'll put you on the next map."
+              "line": "Tell them, sir! Every man who's called it a swindle has bought one to prove it."
             },
             {
               "speaker": "thad",
-              "line": "Saying it's a swindle?"
+              "line": "Have they proved it?"
             },
             {
               "speaker": "map_seller",
-              "line": "Pointing the way to the strike, sir! The man who called it a swindle, showing them where to dig. You can't buy advertising like that."
+              "line": "Not one, sir! They're still digging."
             }
           ],
           "afterUse": "remove"

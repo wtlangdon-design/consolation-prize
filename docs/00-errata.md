@@ -8746,3 +8746,9 @@ Both are his `[COMIC]` options and touch no flag. Rewritten in doc 07 (§16) and
 - **Thad on the map.** Errata 329 put back the sentence the exchange hung on, and it still read as a picture with no point. The point is that he turns the man calling his maps a swindle into the little man on them pointing the way to the strike. Thad now says what he expects ("Saying it's a swindle?"), and the answer turns it and says plainly that Thad has become his advertisement (no hat: Thad does not wear one; Tyler, 2026-11-17: "Thad doesn't wear a hat though. And maybe we need to be more explicit that Thad is advertising them, inadvertently?"): "Pointing the way to the strike, sir! The man who called it a swindle, showing them where to dig. You can't buy advertising like that."
 
 Lesson: doc 55 §8, "A line that needs a second read": an option's first sentence stands alone in the menu, and a turned expectation is said on screen. Taste; no check can hold it.
+
+## 371 · The map seller's swindle exchange, replaced (Tyler, 2026-11-17: "I still don't think the joke lands. He's saying it's a swindle but he's pointing to where to dig? Logically I'm just not following.")
+
+Errata 370's version still asked the player to hold too many steps at once (Thad drawn on the map, as a pointing figure, so his accusation advertises the maps). Offered three ways, Tyler chose a simpler joke in the map seller's own character, the believer whose maps no one has ever disproved (doc 07 §16, "not one of them disproved"). Thad's accusation stands; the answer is now: "Tell them, sir! Every man who's called it a swindle has bought one to prove it." — "Have they proved it?" — "Not one, sir! They're still digging." Still `[COMIC]`, still no flag.
+
+Lesson: doc 55 §8, "A line that needs a second read", gains the case: when a joke needs explaining twice, replace it with one that needs no steps, rather than explaining it a third time.
