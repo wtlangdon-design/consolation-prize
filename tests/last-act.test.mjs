@@ -19,7 +19,7 @@ const target = (name, id) => [...room(name).hotspots, ...(room(name).exits ?? []
 test('the gift is decided where every player hears it', () => {
   const run = json('content/dialogue/winnie.json').nodes.WIN_F1.options.find((one) => one.set?.T_ASSAY_RUN);
   const thad = run.exchange.filter((one) => one.speaker === 'thad').map((one) => one.line).join(' ');
-  assert.match(thad, /my own name/);
+  assert.match(thad, /sell the Colonel/); // errata 372: the choice the counter allows, not a filing in his own name
   assert.match(thad, /Mott/);
 });
 

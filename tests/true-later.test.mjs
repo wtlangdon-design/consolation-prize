@@ -39,7 +39,7 @@ test('a person\'s later look can be reached: the unconditioned look comes last',
       }
     }
   }
-  assert.ok(room('assay-office').peopleResponses.winnie.LOOK_AT.some((one) => one.when?.T_STRIKE_FOUND));
+  assert.ok(room('assay-office').peopleResponses.winnie.LOOK_AT.some((one) => one.when?.T_ASSAY_RUN)); // errata 372: after the assay, not the strike
 });
 
 test('staging and pictures the playtest found wrong', () => {
