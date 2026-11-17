@@ -378,6 +378,16 @@
           {
             "when": {
               "ACT": {
+                "atLeast": 4
+              },
+              "T_STRIKE_FOUND": false
+            },
+            "say": "My stake, still standing, still mine. I've come to say goodbye to it, and it's taking it better than I am.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER · **THE CLAIM MARKER** · *on Prosperity, the last morning, before the strike* - LOOK"
+          },
+          {
+            "when": {
+              "ACT": {
                 "atLeast": 4,
                 "atMost": 4
               },
@@ -911,25 +921,25 @@
     {
       "from": "claims_road",
       "at": [
-        240,
+        390,
         790
       ],
       "facing": "right",
-      "note": "Up from the road, at left."
+      "note": "Up from the road, at left, clear of the claim marker (errata 372: at x 240 he arrived standing in its post)."
     },
     {
       "from": "default",
       "at": [
-        240,
+        390,
         790
       ],
       "facing": "right",
-      "note": "Up from the road, at left."
+      "note": "Up from the road, at left, clear of the claim marker (errata 372: at x 240 he arrived standing in its post)."
     },
     {
       "from": "town_map",
       "at": [
-        240,
+        390,
         790
       ],
       "facing": "right",
@@ -985,7 +995,7 @@
     ]
   ],
   "entrance": [
-    240,
+    390,
     790
   ],
   "walkBoxes": [

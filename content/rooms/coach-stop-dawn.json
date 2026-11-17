@@ -133,10 +133,10 @@
  ],
  "onEnter": {
   "walkTo": [
-   1080,
+   760,
    770
   ],
-  "note": "He walks in off the road toward the sign before the beat's line, as the man on the ladder turns."
+  "note": "He walks in off the road toward the sign before the beat's line, as the man on the ladder turns. Errata 372: to within a few steps of the ladder (he stopped 600 px short of it, and the last line read as said to nobody); the beat's pause is long enough for the walk."
  },
  "blackWhen": {
   "T_CLOSE_SAID": true

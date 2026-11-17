@@ -256,6 +256,12 @@
               "A. The same A it gave in my father's shop. Some things don't move."
             ]
           }
+        ],
+        "PICK_UP": [
+          {
+            "say": "I'll take it up when I want it. It's where I'll find it.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER · **THE TUNING FORK** · *on the stump under Prosperity, where I set it down* - PICK UP"
+          }
         ]
       },
       "walkTo": {
@@ -339,6 +345,12 @@
               "A soft hiss as the wick drinks.",
               "Burning, still. The most reassuring word in the language."
             ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "say": "Not yet. I set it there to see by, and I'm still looking.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER · **THE LAMP** · *on the stump under Prosperity, where I set it down* - PICK UP"
           }
         ]
       },
@@ -893,7 +905,7 @@
     },
     "note": "Errata 356: the seam is said on arrival, not left to a click.",
     "say": [
-      "The wall gave. Behind it, at a slant into the dark, a seam the lamp cannot stop looking at. Mott said here. Mott was right, and never knew it."
+      "The wall gave, and the dark behind it came round to the back of my own tunnel. There, at a slant, a seam the lamp cannot stop looking at. Mott said here. Mott was right, and never knew it."
     ]
   }
 }

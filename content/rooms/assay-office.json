@@ -1302,10 +1302,10 @@
       "LOOK_AT": [
         {
           "when": {
-            "T_STRIKE_FOUND": true
+            "T_ASSAY_RUN": true
           },
           "say": "Winnie, at the window, with a number she believes written in her book. She looks, for once, like somebody who has been paid.",
-          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER · **WINNIE LEDGER** · *at her window, once the strike is found* - LOOK"
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER · **WINNIE LEDGER** · *at her window, once she has run my assay* - LOOK"
         },
         {
           "when": {

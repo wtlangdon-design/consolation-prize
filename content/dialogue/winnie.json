@@ -877,7 +877,7 @@
             },
             {
               "speaker": "thad",
-              "line": "It's my claim. I could file it in my own name and be the richest fool in the territory by supper."
+              "line": "It's my find. I could sell the Colonel my silence and be the richest fool in the territory by supper."
             },
             {
               "speaker": "winnie",
@@ -885,7 +885,7 @@
             },
             {
               "speaker": "thad",
-              "line": "And the Colonel would have it off me before the ink was dry, and the town would learn it has been living on nothing for twelve years. I'd rather Mott turned out to be right."
+              "line": "And he'd bury it again before the ink was dry, and the town would go on living on a story. I'd rather Mott turned out to be right."
             },
             {
               "speaker": "winnie",
@@ -929,7 +929,8 @@
           "T_ASSAY_RUN": true
         },
         "text": "I'll see you at the Registrar's."
-      }
+      },
+      "openingOnce": "T_WIN_F1_HEARD"
     },
     "WIN_SPAR": {
       "id": "WIN_SPAR",

@@ -406,10 +406,10 @@
         "LOOK_AT"
       ],
       "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER",
-      "head": "**WINNIE LEDGER** · *at her window, once the strike is found*",
+      "head": "**WINNIE LEDGER** · *at her window, once she has run my assay*",
       "bullet": "- LOOK",
       "when": {
-        "T_STRIKE_FOUND": true
+        "T_ASSAY_RUN": true
       }
     },
     {

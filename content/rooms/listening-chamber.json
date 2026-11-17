@@ -149,6 +149,16 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "T_BROKE_THROUGH": true
+            },
+            "say": "Rock, and in it the hole I made. It comes out at the back of my own tunnel, where the seam is.",
+            "repeat": [
+              "Rock, and my hole in it."
+            ],
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: WHAT IS TRUE LATER · **EVERY ROCK SURFACE** · *in the listening chamber, once I have broken through* - LOOK"
+          },
+          {
             "say": "Rock.",
             "repeat": [
               "Rock. Identical to the last rock.",

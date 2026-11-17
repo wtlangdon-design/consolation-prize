@@ -444,7 +444,7 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 
 **WINNIE LEDGER** · *at the filing*
 - LOOK — "Winnie, at the end of Sump's counter, arms folded. She has come to sign something true, and she would like it done before anyone argues."
-- TALK TO — "Not now, Mr. Grubb. I came to sign one thing, and I'd like to do it before I think better of it."
+- TALK TO — **WINNIE:** "Not now, Mr. Grubb. I came to sign one thing, and I'd like to do it before I think better of it."
 
 **THE UNDERTAKER** · *at the coffin*
 - LOOK — "The undertaker, at my coffin. He is the only man here who knows how full it will be, and he is keeping it professional."
@@ -502,7 +502,7 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 
 *Errata 356. Act IV's lines that every player walks past, said where the act is played; and the room under Prosperity before the wall gives.*
 
-**ON ARRIVAL, AFTER THE BREAKTHROUGH** — "The wall gave. Behind it, at a slant into the dark, a seam the lamp cannot stop looking at. Mott said here. Mott was right, and never knew it."
+**ON ARRIVAL, AFTER THE BREAKTHROUGH** — "The wall gave, and the dark behind it came round to the back of my own tunnel. There, at a slant, a seam the lamp cannot stop looking at. Mott said here. Mott was right, and never knew it."
 
 **ON ARRIVAL, AT DAWN** — "Morning, and not a pick going in the hills. The mud is where I left it. It held my boot the first night and the truth the whole time."
 
@@ -530,5 +530,17 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 **WINNIE LEDGER** · *at her window, once she has certified me*
 - LOOK — "Winnie, writing. She has certified me dead and has not once looked at me as if I were."
 
-**WINNIE LEDGER** · *at her window, once the strike is found*
+**EVERY ROCK SURFACE** · *in the listening chamber, once I have broken through*
+- LOOK — "Rock, and in it the hole I made. It comes out at the back of my own tunnel, where the seam is." *(second)* "Rock, and my hole in it."
+
+**THE CLAIM MARKER** · *on Prosperity, the last morning, before the strike*
+- LOOK — "My stake, still standing, still mine. I've come to say goodbye to it, and it's taking it better than I am."
+
+**THE LAMP** · *on the stump under Prosperity, where I set it down*
+- PICK UP — "Not yet. I set it there to see by, and I'm still looking."
+
+**THE TUNING FORK** · *on the stump under Prosperity, where I set it down*
+- PICK UP — "I'll take it up when I want it. It's where I'll find it."
+
+**WINNIE LEDGER** · *at her window, once she has run my assay*
 - LOOK — "Winnie, at the window, with a number she believes written in her book. She looks, for once, like somebody who has been paid."
