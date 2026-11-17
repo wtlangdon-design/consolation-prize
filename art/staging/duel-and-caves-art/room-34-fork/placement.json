@@ -1,0 +1,19 @@
+{
+ "cutSize": [
+  469,
+  459
+ ],
+ "diagonalAtOpScale": 656,
+ "lampHeightAt4x": 680,
+ "targetLengthAt4x": 340.0,
+ "scaleToRef4x": 0.5181,
+ "targetLengthInPlate": 85,
+ "oldForkCentreAt4x": [
+  665,
+  765
+ ],
+ "oldForkCentreInPlate": [
+  636.25,
+  571.25
+ ]
+}

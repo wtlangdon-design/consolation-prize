@@ -1,0 +1,14 @@
+{
+ "assetId": "room-34-fork",
+ "subject": "room-34-fork",
+ "role": "canonical-design",
+ "promptFile": "reference/duel-and-caves-art/fork-op-1.txt",
+ "out": "art/staging/duel-and-caves-art/room-34-fork/fork-1.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/duel-and-caves-art/room-34/stump-with-fork-x4.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-16: \"Let's do the fork correction.\" reference/duel-and-caves-art/brief.md Part C (room-34-fork, cap 1)",
+ "derivedFrom": "art/backgrounds/room-34-under-prosperity.png"
+}

@@ -1,0 +1,8 @@
+Image 1 is a detail of a room from my pixel-art adventure game, enlarged 4 times: a lit glass-chimney table lamp standing on a tree stump in a dark mine tunnel, and beside it, on the stump at the lower right, a small silver smudge that is meant to be a TUNING FORK but does not read as one.
+
+Draw ONE object only, alone on a flat pure magenta (#FF00FF) background, centred, nothing else in the picture: a steel TUNING FORK, drawn in the same pixel art as image 1, at the same 4x enlargement, so that one of image 1's square blocks is one block of the fork.
+- Unmistakably a tuning fork: two straight, parallel prongs joined at a rounded U at the bottom, and a short round stem below the U. Not a comb, not a key, not a nail, not a wrench.
+- Lying flat on its side, seen slightly from above as the stump is, the stem toward the LOWER RIGHT and the prongs toward the UPPER LEFT, at the same angle as the smudge lies in image 1.
+- Its length about HALF THE LAMP'S HEIGHT in image 1 (about twice the length of the smudge).
+- Lit by the lamp from its left: warm amber highlights along the top edges of the prongs and the U, cooler grey steel on its shadowed side.
+- Flat, soft pixel shading, few tones, low texture, like the room in image 1. No outline darker than the steel's own shadow. No cast shadow, no stump, no lamp, no text, no border.

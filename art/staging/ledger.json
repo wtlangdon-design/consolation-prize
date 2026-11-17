@@ -57087,6 +57087,58 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-17T04:39:01.456Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "room-34-fork",
+   "subject": "room-34-fork",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/backgrounds/room-34-under-prosperity.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/duel-and-caves-art/fork-op-1.txt",
+   "promptHash": "b66a755b28d53540e90f228036baf50169b6734382e5d48964c076974bf82e27",
+   "references": [
+    {
+     "path": "art/staging/duel-and-caves-art/room-34/stump-with-fork-x4.png",
+     "hash": "90ee27f62da7b4daf9a056e07f7a77a6fea5d2cce878a04691fa687bf8bc4f46",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "90ee27f62da7b4daf9a056e07f7a77a6fea5d2cce878a04691fa687bf8bc4f46",
+   "sourcePath": "art/staging/duel-and-caves-art/room-34/stump-with-fork-x4.png",
+   "out": "art/staging/duel-and-caves-art/room-34-fork/fork-1.png",
+   "outputHash": "3c320eede73a2ee40aa17ba72780b2ce8ae61600070a26e2f427617252ef8476",
+   "bytes": 1212878,
+   "usage": {
+    "input_tokens": 1402,
+    "input_tokens_details": {
+     "image_tokens": 1050,
+     "text_tokens": 352
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 6890
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-17T06:02:09.865Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-16: \"Let's do the fork correction.\" reference/duel-and-caves-art/brief.md Part C (room-34-fork, cap 1)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-17T06:02:09.885Z"
   }
  ],
  "promotions": [
