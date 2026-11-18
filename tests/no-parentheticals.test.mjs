@@ -57,7 +57,7 @@ const eggs = json('content/combinations.json').pairs.filter((pair) => pair.room 
 
 // The places a direction is printed across the game (one line can be printed in several), after the last room done.
 // It may only go down; a pass lowers it. Errata 314: Acts III and IV are done, and it is 0. Nothing is printed.
-const CAP = 0;
+const CAP = 0; // ratchet: a pass only lowers it
 
 test('in the rooms done, nothing is printed in parentheses', () => {
   const left = printed.filter((one) => DONE.some((done) => done(one))).map((one) => `${one.path}: (${one.words})`);
