@@ -35,10 +35,12 @@ jobs:
       # different set would drift from it, and the drift would be invisible
       # until the day they disagreed.
       # THE SUITE HAS A TIME BUDGET (Tyler, 2026-11-01: rules piling up must
-      # be noticed as they slow things, not weeks later). About 40 s today;
-      # three minutes is the alarm. Over it, the pull request makes the
-      # slowest checks faster -- `run-all` names them -- rather than dropping
-      # one, which only the review and Tyler may do.
+      # be noticed as they slow things, not weeks later). Three minutes is the
+      # alarm. Its three parts run side by side (tools/run-check.mjs, the check
+      # review ruled 2026-11-18), so the time is the slowest part's: the tests,
+      # about 75 s on Nov 18. Over it, the pull request makes the slowest
+      # faster -- `slowest checks:` and `slowest tests:` name them -- rather
+      # than dropping one, which only the review and Tyler may do.
       - name: npm run check
         run: |
           start=$(date +%s)

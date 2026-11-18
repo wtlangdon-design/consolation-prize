@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "validate": "node tools/run-all.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.ts tests/*.test.mjs",
-    "check": "npm run typecheck && npm run validate && npm run test",
+    "check": "node tools/run-check.mjs",
     "renders": "node tools/render-all.mjs",
     "gauntlet": "node tools/gauntlet/run.mjs",
     "gauntlet:full": "node --experimental-strip-types --no-warnings tools/gauntlet/full-game.mjs",
