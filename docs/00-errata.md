@@ -8807,3 +8807,9 @@ A playtester played Act III in the build from E0 to the PART FOUR card. No break
 **Not changed, for Tyler:** "Coat off, and over him." and Thad keeps his coat on until Pratt hands it back: a coatless Thad (standing and walking) is a drawing.
 
 Lesson: `tests/arrival-writes-saved.test.mjs`: an arrival line's writes are followed by an autosave; failing on main before this.
+
+## 376 · Fanshawe at Pike's memorial: the mourners are redrawn, not he (Tyler, 2026-11-17: "Fanshawe's head looks comically tiny compared to everyone else in the scene"; then, offered three ways, "Redraw the mourners")
+
+Measured, his face at the memorial matches Thad's and every other Fanshawe's (26.5 against Thad's 26.4 at a man's scale); the mourners beside him are drawn with heads about 1.3 to 1.4 times Thad's (the Act II art review, finding 9). The brief for one picture of them at Thad's proportions is `reference/memorial-crowd-art/brief.md`. Nothing is drawn until Tyler pastes its prompt into the image session; the main session then derives the other frames and wires it.
+
+Lesson: none -- a brief, not a fix; the fix will carry its check when the drawing is wired.
