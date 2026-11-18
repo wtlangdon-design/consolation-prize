@@ -8836,3 +8836,15 @@ The image session's two hand-backs are `reference/memorial-crowd-art/handback.md
 Seen in the build: the memorial, the procession, the funeral, the Nugget back room.
 
 Lesson: doc 55 §8, "When the line-up flags a head, look at that sheet beside Thad in its own room before overriding the number."
+
+## 378 · The Act III mourners take the memorial's redrawn drawing (Tyler, 2026-11-18, asked to fund redrawing everyone drawn with a bigger head than Thad's: "I think just the Act III mourners to match the previous mourners")
+
+The graveside's mourners (`funeral_mourners`, `art/actors/room-31-mourners-master.png`) were always the memorial's drawing, and the gate's (`procession_mourners`, `room-14-mourners-at-gate.png`) the same drawing with each cell mirrored. Both are now errata 377's sheet, `room-14-town-coming-down.png`: the graveside's a copy, the gate's mirrored by `tools/art/mirror-cells.py`. Their cells widen from 443 to 473 about the centre, as the memorial's did. Their soles stay on the same row, and figureHeight and placement are unchanged, so they stand where they stood. No image operation.
+
+The prayer at the gate (`T_HILL_PRAYER`, `room-14-mourners-bowed-at-gate.png` and its unmirrored source `room-14-mourners-bowed.png`) was painted on the old rest frame and needs a drawing. Its cells are widened the same way so it stays registered to the rest frame (`tests/hearse.test.ts`), and it keeps the old heads until the drawing in `reference/act3-mourners-bowed/brief.md` is made.
+
+The line-up of everyone else drawn with a bigger head than Thad's was shown to Tyler and is not redrawn on his ruling: the duel crowd and judges, the undertaker, Hob, Pratt, Frame, the Gulch's deacon, rule-keeper and panner, Sheng, the Nugget landing man and Sump.
+
+Seen in the build: the graveside (r31-a) and the gate (r14-stall-b).
+
+Lesson: none -- a copy of an approved drawing; `tests/hearse.test.ts` already holds the gate mirrored from the graveside and the prayer registered to the rest frame, and it caught the bowed sheet's width here.
