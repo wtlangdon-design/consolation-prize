@@ -194,7 +194,7 @@ test('the mine\'s lanterns mark no way: one on every way on, all alike in a room
   for (const room of mine) {
     const lanterns = (room.props ?? []).filter((prop) => prop.id.startsWith('lantern_'));
     // A state of another way (errata 375's right passage before the rod) is that way's lantern.
-    const onward = (room.exits ?? []).filter((exit) => !/back|washout/.test(exit.id) && !exit.stateOf);
+    const onward = (room.exits ?? []).filter((exit) => !/back|washout/.test(exit.id) && !(exit as { stateOf?: string }).stateOf);
     for (const exit of onward) assert.ok(lanterns.some((one) => one.id === `lantern_${exit.id}`), `${room.id}: ${exit.id} has its lantern`);
     const sizes = new Set(lanterns.map((one) => `${one.frame?.[2]}x${one.frame?.[3]}@${one.y}`));
     assert.equal(sizes.size, 1, `${room.id}: every lantern the same size at the same height`);
