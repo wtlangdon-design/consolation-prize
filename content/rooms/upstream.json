@@ -1,6 +1,8 @@
 {
   "schema": 1,
   "id": "upstream",
+  "name": "UPSTREAM",
+  "nameNote": "Errata 373: doc 107's name for the place (The places). A save made here showed its id.",
   "colours": {
     "sky": 0,
     "ground": 6

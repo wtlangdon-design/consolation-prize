@@ -752,6 +752,17 @@ export function format(template: string, vars: Record<string, string>): string {
 /** Overlay geometry. Sits over the play area, clear of the verb panel. */
 const MENU_X = 84 * GLYPH_SCALE;
 const MENU_WIDTH = 152 * GLYPH_SCALE;
+/**
+ * THE MENU IS AS WIDE AS ITS WIDEST ROW (errata 373: the Act II playtest saw a save slot's row, its room and when,
+ * run past the panel's edge over the room). It keeps its centre and grows to fit, up to the screen less a margin;
+ * `tests/save-menu-fits.test.mjs` holds every room's name to fitting in the widest it can be.
+ */
+export const MENU_MAX_WIDTH = 1920 - 12 * GLYPH_SCALE;
+export const MENU_TEXT_INSET = 8 * GLYPH_SCALE;
+export function menuBox(widest: number): { x: number; width: number } {
+  const width = Math.min(MENU_MAX_WIDTH, Math.max(MENU_WIDTH, widest + 2 * MENU_TEXT_INSET));
+  return { x: Math.round(MENU_X + MENU_WIDTH / 2 - width / 2), width };
+}
 const MENU_TOP = 18 * GLYPH_SCALE;
 const MENU_ROW = 12 * GLYPH_SCALE;
 
@@ -3009,17 +3020,18 @@ export class Renderer {
     const ctx = this.screen.context;
     const rows = menu.rows();
     const height = MENU_ROW * (rows.length + 2);
+    const box = menuBox(Math.max(this.font.measure(menu.title()), ...rows.map((row) => this.font.measure(row.label))));
 
-    this.screen.fill(MENU_X, MENU_TOP, MENU_WIDTH, height, this.screen.role('overlayBg'));
-    this.screen.outline(MENU_X, MENU_TOP, MENU_WIDTH, height, this.screen.role('outline'));
-    this.font.draw(ctx, menu.title(), MENU_X + 6 * GLYPH_SCALE, MENU_TOP + 3 * GLYPH_SCALE, this.screen.roleColour('inkBright'));
+    this.screen.fill(box.x, MENU_TOP, box.width, height, this.screen.role('overlayBg'));
+    this.screen.outline(box.x, MENU_TOP, box.width, height, this.screen.role('outline'));
+    this.font.draw(ctx, menu.title(), box.x + 6 * GLYPH_SCALE, MENU_TOP + 3 * GLYPH_SCALE, this.screen.roleColour('inkBright'));
 
     for (const [index, row] of rows.entries()) {
       const y = MENU_TOP + MENU_ROW * (index + 1);
       // A disabled row is drawn dim and still drawn: a menu that changes
       // length depending on whether a save exists is harder to learn.
       const colour = this.screen.roleColour(row.enabled ? 'ink' : 'inkDim');
-      this.font.draw(ctx, row.label, MENU_X + 8 * GLYPH_SCALE, y + 3 * GLYPH_SCALE, colour);
+      this.font.draw(ctx, row.label, box.x + MENU_TEXT_INSET, y + 3 * GLYPH_SCALE, colour);
     }
   }
 

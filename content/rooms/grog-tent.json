@@ -1,6 +1,8 @@
 {
   "schema": 1,
   "id": "grog_tent",
+  "name": "THE GROG TENT",
+  "nameNote": "Errata 373: doc 107's name for the place (The places). A save made here showed its id.",
   "colours": {
     "sky": 0,
     "ground": 6
@@ -119,7 +121,6 @@
             },
             "say": "A pocket watch on a nail in the ridgepole, so the whole camp can see the time.",
             "then": [
-              "It's my father's watch.",
               "That's my father's watch.",
               "…",
               {

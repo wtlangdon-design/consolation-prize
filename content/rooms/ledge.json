@@ -1,6 +1,8 @@
 {
   "schema": 1,
   "id": "ledge",
+  "name": "THE LEDGE",
+  "nameNote": "Errata 373: doc 107's name for the place (The places). A save made here showed its id.",
   "size": [
     1920,
     864

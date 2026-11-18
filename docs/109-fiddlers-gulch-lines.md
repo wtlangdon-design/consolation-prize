@@ -110,7 +110,7 @@ Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 
 
 ### THE WATCH
 *G4. The first LOOK is the find. LISTEN never says whose it is.*
-**LOOK** 1 "A pocket watch on a nail in the ridgepole, so the whole camp can see the time. It's my father's watch." → **THE FIND**, below. · 2 "My father's watch, keeping time for a camp full of strangers. Eleven minutes fast, as ever." · 3 "Every man here is eleven minutes early to everything, and none of them knows why. I know why."
+**LOOK** 1 "A pocket watch on a nail in the ridgepole, so the whole camp can see the time." → **THE FIND**, below. · 2 "My father's watch, keeping time for a camp full of strangers. Eleven minutes fast, as ever." · 3 "Every man here is eleven minutes early to everything, and none of them knows why. I know why."
 **LISTEN** 1 "Ticking, high up on the pole." · 2 "Ticking. It's the only thing in the camp in a hurry." · 3 "Ticking, steady, above all the talk."
 **PICK UP** — *before the find:* "It's on a nail above the keeper's head, and the keeper is watching me look at it." · *after:* "Vessel says it's the camp's now. The camp says it's Vessel's. Nobody says it's mine."
 

@@ -72,7 +72,9 @@ const GREETED_ONCE = { 'OZYMANDIA/OZY_A1': 'T_OZY_GREETED', 'PANNER/PAN_G1': 'T_
   'WINNIE/WIN_C1': 'T_WIN_C1_HEARD', 'WINNIE/WIN_C2': 'T_WIN_C2_HEARD', 'WINNIE/WIN_F1': 'T_WIN_F1_HEARD', 'FANSHAWE/FAN_E1': 'T_FAN_E1_HEARD', 'FRAME/FRA_E1': 'T_FRA_E1_HEARD', 'HOB/HOB_E6': 'T_HOB_E6_HEARD',
   // Errata 360: the petition is refused before the séance and the séance reported after, so Sump's greeting
   // ("the look of a man with a petition") is the first Act III visit's.
-  'SUMP/SUM_E1': 'T_SUM_E1_GREETED' };
+  'SUMP/SUM_E1': 'T_SUM_E1_GREETED',
+  // Errata 373 (the Act II playtest): Sowerby's condolence and "How wonderful" played on every visit to the church.
+  'SOWERBY/SOW_A1': 'T_SOW_A1_HEARD' };
 function greetOnce(tree) {
   for (const [key, flag] of Object.entries(GREETED_ONCE)) {
     const [treeId, nodeId] = key.split('/');
