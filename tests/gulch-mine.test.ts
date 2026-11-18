@@ -133,8 +133,12 @@ test('a wrong way costs one screen and says, in turn, BACK WHERE HE STARTED; the
   assert.equal(state.room.id, LINE, 'round in a loop to the line again');
   assert.equal(take(state, 'left_passage'), BACK[4], 'after the fifth, the fifth again');
   assert.equal(state.flags.get('T_MINE_CROSSED'), false);
+  // Errata 375 (Tyler: make the rod required): before the rod, the right passage loops back like the left.
+  take(state, 'right_passage_loop');
+  assert.equal(state.room.id, LINE, 'without the rod, the right passage brings him back to the line');
+  state.flags.set('ROD_AT_LINE', 1);
   take(state, 'right_passage');
-  assert.equal(state.room.id, LEDGE, 'the right passage leads out, with or without the rod');
+  assert.equal(state.room.id, LEDGE, 'the right passage leads out once the rod has been held out');
   assert.equal(state.flags.get('T_MINE_CROSSED'), true, 'the first crossing is kept');
 });
 
@@ -189,7 +193,8 @@ test('the mine\'s lanterns mark no way: one on every way on, all alike in a room
   assert.ok(mine.length >= 4, 'the four mine rooms');
   for (const room of mine) {
     const lanterns = (room.props ?? []).filter((prop) => prop.id.startsWith('lantern_'));
-    const onward = (room.exits ?? []).filter((exit) => !/back|washout/.test(exit.id));
+    // A state of another way (errata 375's right passage before the rod) is that way's lantern.
+    const onward = (room.exits ?? []).filter((exit) => !/back|washout/.test(exit.id) && !(exit as { stateOf?: string }).stateOf);
     for (const exit of onward) assert.ok(lanterns.some((one) => one.id === `lantern_${exit.id}`), `${room.id}: ${exit.id} has its lantern`);
     const sizes = new Set(lanterns.map((one) => `${one.frame?.[2]}x${one.frame?.[3]}@${one.y}`));
     assert.equal(sizes.size, 1, `${room.id}: every lantern the same size at the same height`);

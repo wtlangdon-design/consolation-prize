@@ -55,6 +55,11 @@
 ## THE MINE · ON FIRST ENTERING
 "It isn't as dark as I'd feared. The hill's been dug so often that the daylight gets in through the holes."
 
+## THE MINE · THE RIGHT PASSAGE, WITHOUT THE ROD
+*Errata 375 (Tyler, 2026-11-17: make the rod required). Until the rod has been held out at the line, the right passage loops back like the left. Said the first time it does; after that, BACK WHERE HE STARTED goes on.*
+
+1. "The line again. My survey says to go along the line the rod preferred, and nothing down here prefers anything without a rod to ask."
+
 ## THE MINE · BACK WHERE HE STARTED
 *Said when a wrong way brings Thad out into a screen he has already been in, one line each time, in order. After the fifth, the fifth is said again.*
 
