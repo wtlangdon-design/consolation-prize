@@ -47,3 +47,19 @@ test('the slowest tests are read from TAP, top-level points only, slowest first'
   ].join('\n');
   assert.deepEqual(slowestTests(tap), [['slow, with a comma', 9000], ['quick', 3.5]]);
 });
+
+test('a long log reaches a pipe whole, summary last, with the exit code the parts earned', async () => {
+  // CI's log is a pipe. The first CI run of tools/run-check.mjs exited at once after printing, and node had flushed
+  // only 64 KB: the tests' results and the summary never reached the log. Four megabytes here, through a real pipe.
+  const { spawnSync } = await import('node:child_process');
+  const script = [
+    `import { report } from ${JSON.stringify(new URL('../tools/run-check.mjs', import.meta.url).href)};`,
+    "const big = 'x'.repeat(4 << 20);",
+    "process.exitCode = report([{ name: 'typecheck', output: big, code: 0, seconds: 1 },",
+    "  { name: 'validate', output: 'ok', code: 1, seconds: 2 }, { name: 'test', output: 'ok 1 - t\\n  duration_ms: 5\\n', code: 0, seconds: 3 }], Date.now());",
+  ].join('\n');
+  const child = spawnSync(process.execPath, ['--input-type=module', '-e', script], { encoding: 'utf8', maxBuffer: 64 << 20 });
+  assert.ok(child.stdout.length > 4 << 20, `only ${child.stdout.length} bytes arrived`);
+  assert.match(child.stdout, /validate: 2s FAILED\ntest: 3s\nslowest tests: t 0\.0s\nall three, side by side: \d+s\n$/);
+  assert.equal(child.status, 1, 'a part failing fails the whole');
+});

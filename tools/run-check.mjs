@@ -65,18 +65,30 @@ export function slowestTests(tap, count = 5) {
   return timings.sort((a, b) => b[1] - a[1]).slice(0, count);
 }
 
+/**
+ * Print every part's output whole, then the summary; the exit code to leave with. Never `process.exit()` after it:
+ * to a pipe -- which is what CI's log is -- stdout is written in the background, and exiting at once cuts it off at
+ * 64 KB. The first run of this file in CI lost everything after the validation suite's first screen that way, the
+ * tests' results and the summary with them.
+ */
+export function report(results, started, write = (text) => process.stdout.write(text)) {
+  for (const result of results) {
+    write(`\n========== ${result.name} ==========\n`);
+    write(result.output.endsWith('\n') ? result.output : `${result.output}\n`);
+  }
+  const test = results.find((result) => result.name === 'test');
+  const lines = [''];
+  for (const result of results) lines.push(`${result.name}: ${result.seconds.toFixed(0)}s${result.code === 0 ? '' : ' FAILED'}`);
+  lines.push(`slowest tests: ${slowestTests(test?.output ?? '')
+    .map(([name, ms]) => `${name.length > 90 ? `${name.slice(0, 87)}...` : name} ${(ms / 1000).toFixed(1)}s`).join(', ')}`);
+  lines.push(`all three, side by side: ${((Date.now() - started) / 1000).toFixed(0)}s`);
+  write(`${lines.join('\n')}\n`);
+  return results.every((result) => result.code === 0) ? 0 : 1;
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
   const started = Date.now();
   const results = await Promise.all(PARTS.map(run));
-  for (const result of results) {
-    console.log(`\n========== ${result.name} ==========`);
-    process.stdout.write(result.output.endsWith('\n') ? result.output : `${result.output}\n`);
-  }
-  const test = results.find((result) => result.name === 'test');
-  console.log('');
-  for (const result of results) console.log(`${result.name}: ${result.seconds.toFixed(0)}s${result.code === 0 ? '' : ' FAILED'}`);
-  console.log(`slowest tests: ${slowestTests(test.output)
-    .map(([name, ms]) => `${name.length > 90 ? `${name.slice(0, 87)}...` : name} ${(ms / 1000).toFixed(1)}s`).join(', ')}`);
-  console.log(`all three, side by side: ${((Date.now() - started) / 1000).toFixed(0)}s`);
-  process.exit(results.every((result) => result.code === 0) ? 0 : 1);
+  // Set, not exit: node leaves once stdout has drained, with this code.
+  process.exitCode = report(results, started);
 }
