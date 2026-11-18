@@ -1,0 +1,11 @@
+Image 1 is a group of seven mourners from my pixel-art adventure game, enlarged 2 times, on magenta. Redraw the SAME SEVEN PEOPLE IN PLACE: the same clothes, the same arrangement, each person exactly where they are, the group the same overall size (the tallest crown and the lowest feet on the same rows, the same width), all in their rest pose:
+- back row, left to right: the young man with brown hair holding his hat at his chest, the man with the black moustache, the grey-bearded old man, the young man in spectacles;
+- front row, left to right: the woman in a black bonnet with her hands together low in front of her, the old woman in a grey shawl leaning on a cane, the young woman in a black hood;
+- turned a little down the hill toward the viewer's LEFT, hats in hand, solemn.
+
+What must change is HOW they are drawn. Image 2 is the scene at game size: Thad (the hero, in the blue coat at the far left), the Reverend, the obelisk, Colonel Fanshawe in the green coat with his hat in hand, and these mourners at the right. Their HEADS ARE TOO BIG -- about 1.3 to 1.4 times Thad's and Fanshawe's -- and their faces are drawn with more detail than his. Redraw them in Thad's and Fanshawe's hand:
+- every adult about SEVEN HEADS TALL, like Thad and Fanshawe: SMALL heads with plain, softly shaded faces (a face no wider than Fanshawe's in image 2);
+- flat colour, two or three tones per material, soft broad shading, low texture, no crisp highlights, no hard dark lines inside the figures, square pixels;
+- dark mourning clothes in the same dim night light, no brighter than Thad.
+
+Flat pure magenta (#FF00FF) background everywhere else. No ground, no shadows, no text, no numbers, no border.

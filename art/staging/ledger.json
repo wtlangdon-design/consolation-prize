@@ -57139,6 +57139,68 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-17T06:02:09.885Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "room-14-memorial-crowd",
+   "subject": "room-14-memorial-crowd",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/room-14-town-coming-down.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/memorial-crowd-art/op-1.txt",
+   "promptHash": "43b8bbf197ae61eb5850a2e757c681a825ae7f1e521ef032979cbd78d762c142",
+   "references": [
+    {
+     "path": "art/staging/memorial-crowd/template.png",
+     "hash": "6c668404187f237ede5368f067694250d84f464c64e5c7c5d7ff9e4a4e50a44f",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/memorial-crowd/boot-hill-memorial-as-it-is.png",
+     "hash": "895d826ee5423a1045a88fc7476dc7725185c157eac1a177eefbabc512d6310a",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "6c668404187f237ede5368f067694250d84f464c64e5c7c5d7ff9e4a4e50a44f",
+   "sourcePath": "art/staging/memorial-crowd/template.png",
+   "out": "art/staging/memorial-crowd/op-1.png",
+   "outputHash": "1a636e6bcd89f20360a44883dd006dd44a6773198b38e75c99e957a688eed91b",
+   "bytes": 1358827,
+   "usage": {
+    "input_tokens": 3888,
+    "input_tokens_details": {
+     "image_tokens": 3460,
+     "text_tokens": 428
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 9376
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T06:27:11.252Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-17: \"Redraw the mourners\" (errata 376; room-14-memorial-crowd, cap 2)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T06:27:11.281Z"
   }
  ],
  "promotions": [
