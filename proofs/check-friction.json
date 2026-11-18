@@ -1327,6 +1327,18 @@
    "date": "2026-11-16",
    "kind": "loosened",
    "why": "Errata 368: a grade may lean to no colour (strength 0) when it only deepens a room (the caves, back to one lamp's dark); deepen is held between 1 and 1.5, and strength-0 tints are left out of the same-colour count. Every graded picture is still its original through the one function."
+  },
+  {
+   "check": "tests/faces.test.mjs",
+   "date": "2026-11-18",
+   "kind": "loosened",
+   "why": "Errata 377: the head band starts at the first drawn row over the torso's columns and reads only those columns. The Reverend's duel sheet raises a pencil above his crown, and a band from the topmost drawn pixel read his hand as his face (-9.5; his head reads -2.4). The threshold is unchanged; every sheet in the game still passes."
+  },
+  {
+   "check": "tests/faces.test.mjs",
+   "date": "2026-11-18",
+   "kind": "reviewed",
+   "why": "Third loosening in five days, reviewed in the same pull request. All three misfires were one fault: the band that is taken to be the head was read from the wrong pixels (a seated or counter-cropped figure, a fiddle across the face, a hand raised over the crown). Errata 321 and 330 answered the first two by declaration; this one is TUNED in the measure itself, so a hat, a raised arm or a prop above the head no longer moves the band. Not a duplicate of tests/talk-faces.test.mjs (that holds what talkers declare; this measures everyone else). Keep it; no threshold has moved."
   }
  ]
 }
