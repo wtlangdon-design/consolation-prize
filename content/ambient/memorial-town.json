@@ -21,31 +21,31 @@
    [
     2,
     2,
-    443,
+    473,
     403
    ],
    [
-    447,
+    477,
     2,
-    443,
+    473,
     403
    ],
    [
-    892,
+    952,
     2,
-    443,
+    473,
     403
    ],
    [
-    1337,
+    1427,
     2,
-    443,
+    473,
     403
    ],
    [
-    1782,
+    1902,
     2,
-    443,
+    473,
     403
    ]
   ],
@@ -70,10 +70,10 @@
   ],
   "breakEvery": 6,
   "talkFrame": 0,
-  "frameNote": "0 hats held, turned down the hill · 1 breath (derived) · 2-4 a different two or three of them shifting their weight.",
-  "provenance": "reference/cast-unify-28.spec.json",
+  "frameNote": "0 hats held, turned down the hill (redrawn to Thad's proportions, errata 376) · 1 breath · 2-4 a different two or three of them shifting their weight (derived, tools/art/memorial-crowd-frames.py)",
+  "provenance": "reference/memorial-crowd-art/op-1.spec.json",
   "figureHeight": 350,
   "stature": 1.0,
-  "mirrored": "Each cell of art/actors/room-14-mourners-at-gate.png mirrored about its own centre by tools/art/mirror-cells.py, so the frame rectangles and the registration are that sheet's."
+  "mirrored": "Was each cell of art/actors/room-14-mourners-at-gate.png mirrored (tools/art/mirror-cells.py). Since errata 377 the rest frame is the image session's redraw at Thad's proportions (errata 376; reference/memorial-crowd-art/handback.md, cut by tools/art/memorial-crowd-cut.py) and frames 1-4 are derived from it by tools/art/memorial-crowd-frames.py; the gate's sheets keep the old drawing."
  }
 }
