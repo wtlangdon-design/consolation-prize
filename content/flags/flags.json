@@ -2575,6 +2575,15 @@
    "note": "Errata 352: Sump's Act IV opening (the amended location) has been heard. It is SUM_F0's opening, said once."
   },
   {
+   "id": "T_SOW_A1_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SOWERBY:SOW_A1 openingOnce"
+   ],
+   "note": "Errata 373: Sowerby's greeting ('My deepest— are you well?') has been heard. It is SOW_A1's opening, said once."
+  },
+  {
    "id": "T_WIN_F1_HEARD",
    "type": "boolean",
    "initial": false,

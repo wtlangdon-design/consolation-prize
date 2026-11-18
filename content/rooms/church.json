@@ -189,7 +189,7 @@
             "when": {
               "T_HYMNAL_TAKEN": false
             },
-            "say": "One copy per pew, and nobody opens them. I have taken mine. It has my corrections in it, which makes it nearly my own work.",
+            "say": "One copy per pew, and nobody opens them. I have taken mine, and somebody's pencil corrections with it.",
             "set": {
               "T_HYMNAL_TAKEN": true
             },

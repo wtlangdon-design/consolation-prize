@@ -8774,3 +8774,20 @@ A playtester played Act IV in the build from the confession to THE END. No dead 
 - The map seller still sells "Map to Mott's strike!" after the duel; the strike is now real, so it stands as the joke. The watchman's shack keeps its looks after the confession: still true. The old lantern on the beam (errata 356's "old working") is left for Tyler.
 
 Lesson: `tests/thad-not-mr-grubb.test.mjs`: no line Thad says, in any room's verb rules or any tree, calls him Mr. Grubb; failing on main before this.
+
+## 373 · The Act II playtest (the scheduled rerun, 2026-11-17; Tyler's overnight go-ahead, as errata 372)
+
+A playtester played Act II in the build from B0 to E0b. No dead end, crash or softlock. Fixed:
+
+- **The save menu.** A slot's row ("Slot 1  THE CLAIMS REGISTRAR - just now") ran past the panel over the room, and a save in Fiddler's Gulch read "grog_tent": its ten rooms had no name. The menu now grows to its widest row, keeping its centre, and the ten rooms take doc 107's names (THE WASHOUT, THE MINE, THE LEDGE, THE TENTS, THE GROG TENT, THE RIVER, UPSTREAM).
+- **Sowerby's greeting is said once** (`T_SOW_A1_HEARD`), as errata 351 did for Winnie's, Frame's and Hob's; the church is visited three or four times in the act.
+- **The watch is found once.** The first LOOK ended "It's my father's watch." and THE FIND opened "That's my father's watch.": the LOOK now ends at the nail (doc 109).
+- **No hat.** "Hat off, at the end of the line" on Boot Hill is now "At the end of the line, head bowed" (Thad is never drawn with a hat; errata 354 changed the other three).
+- **The hymnal's corrections are not his.** "It has my corrections in it" against the look's somebody-else's pencil: "I have taken mine, and somebody's pencil corrections with it." (doc 118).
+- **The pie woman calls half as often.** Her call came every 65 s and was heard on nearly every crossing of Main Street, seven times between B0 and G1: five more silent breaks put it at every 130 s.
+
+**Not changed, for Tyler:**
+- **The plate on Boot Hill is not drawn held by two men.** The lines say Thad and Sowerby both hold it; the picture has Sowerby holding it out and Thad with his arms at his sides. It needs a pose of Thad with both hands on the plate: a drawing.
+- **The mine can be guessed.** Without the rod, the wrong turns loop back and the right one is one of two, so G1 (the rod) is never needed. Making the junction refuse a man without a rod would make it required; the puzzle review called the mine the act's best puzzle as it is.
+
+Lesson: `tests/save-menu-fits.test.mjs`: every room a game can be saved in has a name, and its save row fits the widest menu; failing on main before this.

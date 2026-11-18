@@ -187,7 +187,7 @@
               "T_LINEN_ASKED": true,
               "T_HYMNAL_TAKEN": true
             },
-            "say": "Hat off, at the end of the line. The plate has come down it, hand to hand, and stopped with me.",
+            "say": "At the end of the line, head bowed. The plate has come down it, hand to hand, and stopped with me.",
             "then": [
               "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not.",
               {
@@ -246,7 +246,7 @@
               "T_LINEN_ASKED": true,
               "T_HYMNAL_TAKEN": true
             },
-            "say": "Hat off, at the end of the line. The plate has come down it, hand to hand, and stopped with me.",
+            "say": "At the end of the line, head bowed. The plate has come down it, hand to hand, and stopped with me.",
             "then": [
               "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not.",
               {
@@ -1036,7 +1036,7 @@
               "T_LINEN_ASKED": true,
               "T_HYMNAL_TAKEN": true
             },
-            "say": "Hat off, at the end of the line. The plate has come down it, hand to hand, and stopped with me.",
+            "say": "At the end of the line, head bowed. The plate has come down it, hand to hand, and stopped with me.",
             "then": [
               "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not.",
               {

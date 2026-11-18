@@ -123,7 +123,7 @@ With it, doc 57's three lines stand, "I have borrowed the lamp from my room" amo
 *Built with doc 115, II-1.*
 
 **THE HYMNAL** · *in the church*
-- PICK UP, *the first time* — "One copy per pew, and nobody opens them. I have taken mine. It has my corrections in it, which makes it nearly my own work." → A HYMNAL
+- PICK UP, *the first time* — "One copy per pew, and nobody opens them. I have taken mine, and somebody's pencil corrections with it." → A HYMNAL
 - PICK UP, *again* — "One hymnal is devotion. Two is a choir, and I have heard this town's."
 
 **A HYMNAL** *(item)*

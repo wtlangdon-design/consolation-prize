@@ -128,7 +128,7 @@ The asking is doc 57 D4's three lines, word for word, then his.
 
 **THE LINE**
 - USE, *before the Reverend is asked* — "If I stand in that line I shall be handed a plate, and expected to improve it."
-- USE, *after* — "Hat off, at the end of the line. The plate has come down it, hand to hand, and stopped with me." "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not." **SOWERBY:** "Mr. Grubb. The plate." "I have the rim." → `T_HOLDS_PLATE`
+- USE, *after* — "At the end of the line, head bowed. The plate has come down it, hand to hand, and stopped with me." "I am holding Mr. Pike's collection. It is the most money I have touched since Providence, and every eye on this hill knows whose it is not." **SOWERBY:** "Mr. Grubb. The plate." "I have the rim." → `T_HOLDS_PLATE`
 
 **THE PLATE, HELD**
 - PUSH — "If I push, he has it. I have never won anything by pushing, except once today, and that was a wreath."

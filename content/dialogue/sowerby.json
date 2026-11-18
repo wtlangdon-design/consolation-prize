@@ -260,7 +260,8 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "openingOnce": "T_SOW_A1_HEARD"
     },
     "SOW_C1": {
       "id": "SOW_C1",
