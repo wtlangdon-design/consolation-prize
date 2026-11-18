@@ -8819,3 +8819,8 @@ Lesson: `tests/arrival-writes-saved.test.mjs`: an arrival line's writes are foll
 **No drawing spent (4).** Decided by the main session. The plate on Boot Hill already has its pose (Thad's `plate` clip, frame 2, arms out, held through the PULL exchange, errata 246); the playtester's capture came after the exchange, when the plate is released. A coatless Thad for the few beats between "Coat off, and over him." and Pratt handing the coat back would need a standing and a walking set; not worth the last image budget. About 26,000 tokens are left.
 
 Lesson: `tests/rod-required.test.mjs`: G2's site waits for the rod, only the rod writes `ROD_AT_LINE`, and the right passage before it loops back with the survey's line; failing on main before this.
+## 376 · Fanshawe at Pike's memorial: the mourners are redrawn, not he (Tyler, 2026-11-17: "Fanshawe's head looks comically tiny compared to everyone else in the scene"; then, offered three ways, "Redraw the mourners")
+
+Measured, his face at the memorial matches Thad's and every other Fanshawe's (26.5 against Thad's 26.4 at a man's scale); the mourners beside him are drawn with heads about 1.3 to 1.4 times Thad's (the Act II art review, finding 9). The brief for one picture of them at Thad's proportions is `reference/memorial-crowd-art/brief.md`. Nothing is drawn until Tyler pastes its prompt into the image session; the main session then derives the other frames and wires it.
+
+Lesson: none -- a brief, not a fix; the fix will carry its check when the drawing is wired.
