@@ -436,6 +436,31 @@
    ],
    "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID",
    "head": "**THE SEALED ARCHIVE DOOR**",
+   "bullet": "- OPEN, *alive, once Sump has named section nineteen*",
+   "when": {
+    "T_SECTION_NINETEEN": true,
+    "T_DECEASED": false
+   }
+  },
+  {
+   "hotspot": "sealed_archive_door",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID",
+   "head": "**THE SEALED ARCHIVE DOOR**",
+   "bullet": "- LOOK, *once I have been through it*",
+   "when": {
+    "T_SAME_HAND": true
+   }
+  },
+  {
+   "hotspot": "sealed_archive_door",
+   "verbs": [
+    "OPEN"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID",
+   "head": "**THE SEALED ARCHIVE DOOR**",
    "bullet": "- OPEN, *dead on paper, with no executor*",
    "when": {
     "T_DECEASED": true,

@@ -19,6 +19,10 @@
  "barksNote": "A hen; doc 111 writes her no barks.",
  "scenery": true,
  "sceneryNote": "Errata 238: the pointer passes through her to THE HOLE and THE RACCOON, whose lines answer what is done at the hole's mouth.",
+ "leaves": {
+  "fade": 0.8,
+  "note": "Errata 374 (the Act III playtest): once the coat goes over the raccoon she was still drawn at the hole until Thad next arrived, while she was in his inventory too. She goes as he watches, as the Duel Three cast do (errata 131 F), and is his to hand back at THE SALE."
+ },
  "sprite": {
   "sheet": "art/actors/room-23-hen.png",
   "frames": [

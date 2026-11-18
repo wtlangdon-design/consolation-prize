@@ -3264,7 +3264,13 @@ export class GameScene extends Phaser.Scene {
     if (entry.sayWhen !== undefined && !held && lines.length && entry.sayOnce) {
       this.state.flags.set(entry.sayOnce, true);
     }
-    if (!held && entry.say?.length && entry.saySet) this.state.flags.applyWrites(entry.saySet);
+    if (!held && entry.say?.length && entry.saySet) {
+      this.state.flags.applyWrites(entry.saySet);
+      // WHAT THE ARRIVAL WROTE IS SAVED WITH IT (errata 374, the Act III playtest). The room was autosaved as it was
+      // entered, before these writes, and a load is a resume, which says no arrival lines: CONTINUE straight after
+      // the coffin came back with the burial forgotten, and the archive door said he was not yet in the ground.
+      this.state.autosave();
+    }
     // The scenes' outcomes wait for the last line (doc 57 D6).
     const owed = scenes.map((scene) => scene.after).filter((after) => after !== undefined);
     if (owed.length) this.afterArrival = owed;

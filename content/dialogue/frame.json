@@ -223,7 +223,10 @@
           "when": {
             "T_MEMORIAL_BOOKED": true,
             "T_NOTICE_IN_HAND": false,
-            "T_NOTICE_SET": false
+            "T_NOTICE_SET": false,
+            "ACT": {
+              "atMost": 2
+            }
           }
         },
         {

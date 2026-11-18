@@ -8791,3 +8791,19 @@ A playtester played Act II in the build from B0 to E0b. No dead end, crash or so
 - **The mine can be guessed.** Without the rod, the wrong turns loop back and the right one is one of two, so G1 (the rod) is never needed. Making the junction refuse a man without a rod would make it required; the puzzle review called the mine the act's best puzzle as it is.
 
 Lesson: `tests/save-menu-fits.test.mjs`: every room a game can be saved in has a name, and its save row fits the widest menu; failing on main before this.
+
+## 374 · The Act III playtest (the scheduled rerun, 2026-11-17; Tyler's overnight go-ahead, as errata 372)
+
+A playtester played Act III in the build from E0 to the PART FOUR card. No break on the path. Fixed:
+
+- **Frame's "I need a funeral notice printed." is Act II's.** In Act III, whose goal is Thad's own funeral, it printed Pike's notice again. Offered in Act II only.
+- **A load after the coffin remembers the burial.** The graveside was autosaved as it was entered, before its arrival line wrote T_FUNERAL_DONE, and a load says no arrival lines: CONTINUE straight after the coffin found the archive door saying he was not yet in the ground. The game saves again once an arrival's writes land.
+- **Hob and the undertaker at the graveside answer TALK TO.** A click on the man picks the man, and neither had a TALK TO: Hob's line was on the hotspot behind him. Hob: "Not here. Not with the whole town watching me be dead." (as the hotspot's); the undertaker: "Not here. He's working, and the work is me." (doc 133).
+- **Thad stands beside them, not on them:** on Hob's left on the grass, and at the coffin's head end below the lid, where the undertaker shows over the coffin (Sowerby stands at its foot). Seen in the build.
+- **The hen leaves the hole** when the coat goes over the raccoon (she was drawn there until Thad next arrived, while also in his inventory).
+- **The sealed archive door** says what is missing when it is tried after section nineteen and before any death ("Nobody I know is dead, least of all me."), and its look after the archive no longer says he may not pass ("locked again behind me. I found what I went in for.").
+- **The Lane's three doors** (the barber's, the photographer's, the empty storefront's) answer LOOK and LISTEN; they said nothing (doc 133).
+
+**Not changed, for Tyler:** "Coat off, and over him." and Thad keeps his coat on until Pratt hands it back: a coatless Thad (standing and walking) is a drawing.
+
+Lesson: `tests/arrival-writes-saved.test.mjs`: an arrival line's writes are followed by an autosave; failing on main before this.

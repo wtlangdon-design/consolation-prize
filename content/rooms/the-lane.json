@@ -571,7 +571,18 @@
       ],
       "colour": 0,
       "to": "barbers",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The barber's door, beside the pole that doesn't turn."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Scissors behind the door, and a man being agreed with."
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 183: the barber's (Room 42) opens off the Lane, through the door beside the pole. No new lines (reference/ancillary-interiors/brief.md): the pole keeps doc 97's.",
@@ -593,7 +604,18 @@
       ],
       "colour": 0,
       "to": "photographers_studio",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The photographer's door, beside the window with the trustworthy gentleman in it."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A clamp being tightened, and a man being told not to blink."
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 183: the photographer's studio (Room 38) opens off the Lane, through the door beside his window (drawn by room-38 operation 4). No new lines (reference/ancillary-interiors/brief.md): the window keeps doc 97's.",
@@ -615,7 +637,18 @@
       ],
       "colour": 0,
       "to": "empty_storefront",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The storefront's door, boarded up with the rest of it."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind through the boards. It has the place to itself."
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 183 (Tyler, 2026-11-08: \"Door beside the window\"): the empty storefront (Room 40) opens off the Lane through a door drawn beside its boarded window (room-40 operation 3). The window stays boarded, so doc 97's lines about it stay true. No new lines: the storefront keeps doc 97's.",

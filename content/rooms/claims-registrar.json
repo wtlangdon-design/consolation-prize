@@ -385,6 +385,13 @@
             ]
           },
           {
+            "when": {
+              "T_SAME_HAND": true
+            },
+            "say": "The archive door, locked again behind me. I found what I went in for.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID · **THE SEALED ARCHIVE DOOR** - LOOK, *once I have been through it*"
+          },
+          {
             "say": "A door, locked, with a statute posted beside it explaining precisely who may pass through. I am not among them.",
             "repeat": [
               "The statute beside it lists four persons who may pass. I'm none of them, and neither is Mr Sump.",
@@ -402,6 +409,14 @@
           }
         ],
         "OPEN": [
+          {
+            "when": {
+              "T_SECTION_NINETEEN": true,
+              "T_DECEASED": false
+            },
+            "say": "Locked. The statute lets in the executor of a dead claimholder. Nobody I know is dead, least of all me.",
+            "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: THE NEXT THING IS SAID · **THE SEALED ARCHIVE DOOR** - OPEN, *alive, once Sump has named section nineteen*"
+          },
           {
             "when": {
               "T_DECEASED": true,

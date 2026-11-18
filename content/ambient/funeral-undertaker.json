@@ -80,5 +80,11 @@
   "figureHeight": 400,
   "stature": 1.0
  },
- "placeNote": "Errata 362: behind the coffin he has made, between it and the hearse. At 616 the coffin's foot end stood in front of all but his shoulders once the coffin moved 60 px right (errata 361)."
+ "placeNote": "Errata 362: behind the coffin he has made, between it and the hearse. At 616 the coffin's foot end stood in front of all but his shoulders once the coffin moved 60 px right (errata 361).",
+ "walkTo": {
+  "x": 290,
+  "y": 800,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM (errata 374, the Act III playtest: he stood in front of the open coffin with his back to us, and hid the undertaker behind it): at the coffin's head end, below the lid, side-on, so the undertaker shows over the coffin (doc 55 section 8). Not at its foot: Sowerby stands there."
 }

@@ -327,6 +327,8 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 - LOOK, *once he has said he is paid* — "A man paid two dollars a week to stand on forty feet of mud. Money that regular gets written down somewhere, and the one man in town who writes everything down keeps the laundry."
 
 **THE SEALED ARCHIVE DOOR**
+- OPEN, *alive, once Sump has named section nineteen* — "Locked. The statute lets in the executor of a dead claimholder. Nobody I know is dead, least of all me."
+- LOOK, *once I have been through it* — "The archive door, locked again behind me. I found what I went in for."
 - OPEN, *dead on paper, with no executor* — "Locked. The statute lets in the executor of a dead man. I am the dead man. It is the other one I have not got."
 - OPEN, *with an executor and no obituary* — "Locked. I have an executor and no obituary, and in this town nothing has happened until the Clarion has misspelled it."
 - OPEN, *with both, and no burial* — "Locked. Dead on paper, dead in print, and not yet in the ground. Boot Hill is expecting me, and it would be rude to be late."
@@ -448,6 +450,10 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 
 **THE UNDERTAKER** · *at the coffin*
 - LOOK — "The undertaker, at my coffin. He is the only man here who knows how full it will be, and he is keeping it professional."
+- TALK TO — "Not here. He's working, and the work is me."
+
+**THE ONE WHO KNOWS** · *at my funeral, by the far stones*
+- TALK TO — "Not here. Not with the whole town watching me be dead."
 
 **MADAME OZYMANDIA** · *on Prosperity*
 - LOOK — "Madame Ozymandia, on my claim, holding the rod and saying nothing. I've paid two dollars for less."
@@ -523,6 +529,12 @@ No new drawing: she already has a frame holding a pie out. Thad asks to try a li
 - `filing_fee` *(once `T_BORDERS_MOTT`)* — TWO DOLLARS · "Two dollars"
 - `boot_hill` · `to_funeral_closed` · LOOK — "My grave, up past the gate, with the procession stopped short of it. It can wait. It has nowhere else to be."
 - `boot_hill` · `to_funeral_closed` · LISTEN — "The spade, ticking against the spoil heap whenever the wind finds it."
+- `the_lane` · `to_barbers` · LOOK — "The barber's door, beside the pole that doesn't turn."
+- `the_lane` · `to_barbers` · LISTEN — "Scissors behind the door, and a man being agreed with."
+- `the_lane` · `to_photographers_studio` · LOOK — "The photographer's door, beside the window with the trustworthy gentleman in it."
+- `the_lane` · `to_photographers_studio` · LISTEN — "A clamp being tightened, and a man being told not to blink."
+- `the_lane` · `to_empty_storefront` · LOOK — "The storefront's door, boarded up with the rest of it."
+- `the_lane` · `to_empty_storefront` · LISTEN — "Wind through the boards. It has the place to itself."
 
 **WINNIE LEDGER** · *at her window, once Act II has begun*
 - LOOK — "Winnie Ledger, writing. Every line she writes is true, which in this town makes her the most dangerous person in it."

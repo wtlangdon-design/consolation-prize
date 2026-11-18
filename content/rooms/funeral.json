@@ -1010,7 +1010,21 @@
     }
   ],
   "peopleResponses": {
+    "funeral_hob": {
+      "TALK_TO": [
+        {
+          "say": "Not here. Not with the whole town watching me be dead.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE ONE WHO KNOWS** · *at my funeral, by the far stones* - TALK TO"
+        }
+      ]
+    },
     "funeral_undertaker": {
+      "TALK_TO": [
+        {
+          "say": "Not here. He's working, and the work is me.",
+          "sceneLine": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY · **THE UNDERTAKER** · *at the coffin* - TALK TO"
+        }
+      ],
       "LOOK_AT": [
         {
           "say": "The undertaker, at my coffin. He is the only man here who knows how full it will be, and he is keeping it professional.",
