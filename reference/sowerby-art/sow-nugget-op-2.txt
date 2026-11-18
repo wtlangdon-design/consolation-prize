@@ -1,0 +1,7 @@
+Image 1 is a sheet from my pixel-art adventure game on magenta: the town's Reverend, an old man with white hair and a white beard in a long black frock coat, in four frames. Keep every frame IN PLACE: the same man, the same poses, whatever he holds held the same way, the same overall height (the crown of his head and his soles on the same rows), the same colours and the same light.
+
+Image 2 is him in the back room at game size beside Thad (the hero, blue coat, right): the Reverend's HEAD IS COMICALLY SMALL, about half the size of Thad's, and his shoulders are narrow, so he reads as a pin-headed stick. Image 3 is Thad, the standard; image 4 is Colonel Fanshawe, an older gentleman drawn correctly in this game.
+
+Redraw him with a NORMAL HEAD: his head the same size as Thad's head (as wide and as tall as Thad's, crown to chin), about seven heads tall, NOT smaller; his face as wide as Thad's face; a grown man's shoulders as broad as Thad's; the body shortened to make room so his overall height stays the same. A plain, softly shaded face with his white hair and beard; flat colour, two or three tones per material, soft broad shading, no crisp highlights, no hard dark lines inside the figure, square pixels. Change nothing else.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.

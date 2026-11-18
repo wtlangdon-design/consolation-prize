@@ -1,0 +1,16 @@
+{
+ "assetId": "sowerby-master",
+ "subject": "sowerby-master",
+ "role": "derived-state",
+ "promptFile": "reference/sowerby-art/sow-master-op-2.txt",
+ "out": "art/staging/sowerby/sow-master-op-2.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/sowerby/sow-master-op-1.png",
+  "art/staging/sowerby/sow-master-side-by-side.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-master, cap 2)",
+ "derivedFrom": 1
+}

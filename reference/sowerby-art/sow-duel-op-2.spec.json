@@ -1,0 +1,16 @@
+{
+ "assetId": "sowerby-duel",
+ "subject": "sowerby-duel",
+ "role": "derived-state",
+ "promptFile": "reference/sowerby-art/sow-duel-op-2.txt",
+ "out": "art/staging/sowerby/sow-duel-op-2.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/sowerby/sow-duel-op-1.png",
+  "art/staging/sowerby/sow-duel-pencil-lost.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-duel, cap 2); correction: the pencil lost at game size (errata 111), found checking the Nugget sheet cut from this drawing after Tyler, 2026-11-18: \"The Nugget back image of the reverend has a comically small head\"",
+ "derivedFrom": 1
+}

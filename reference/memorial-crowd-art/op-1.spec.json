@@ -1,0 +1,16 @@
+{
+ "assetId": "room-14-memorial-crowd",
+ "subject": "room-14-memorial-crowd",
+ "role": "canonical-design",
+ "promptFile": "reference/memorial-crowd-art/op-1.txt",
+ "out": "art/staging/memorial-crowd/op-1.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/memorial-crowd/template.png",
+  "art/staging/memorial-crowd/boot-hill-memorial-as-it-is.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-17: \"Redraw the mourners\" (errata 376; room-14-memorial-crowd, cap 2)",
+ "derivedFrom": "art/actors/room-14-town-coming-down.png"
+}

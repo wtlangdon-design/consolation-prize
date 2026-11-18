@@ -1,0 +1,17 @@
+{
+ "assetId": "sowerby-duel",
+ "subject": "sowerby-duel",
+ "role": "derived-state",
+ "promptFile": "reference/sowerby-art/sow-duel-op-3.txt",
+ "out": "art/staging/sowerby/sow-duel-op-3.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/sowerby/sow-duel-op-2.png",
+  "art/staging/sowerby/sow-master-op-2.png",
+  "art/staging/sowerby/sow-duel-heads-compared.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-18: \"His face in the duel and the Nugget is very very rudimentary versus the way it looks in the other images of him. Also, why is he looking so yellow?\"; \"1 op, +1 correction (Recommended)\" (sowerby-duel cap 2 -> 4)",
+ "derivedFrom": 2
+}

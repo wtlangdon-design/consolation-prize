@@ -22,14 +22,28 @@ import { readPng } from '../tools/lib/png.mjs';
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const read = (p) => JSON.parse(readFileSync(resolve(ROOT, p), 'utf8'));
 
+// THE HEAD IS READ FROM THE CROWN OVER THE TORSO (errata 377). The Reverend's duel sheet raises a bold pencil above
+// his crown, and a band from the topmost drawn pixel took his raised hand for his face (-9.5; the head alone reads
+// -2.4). The band now starts at the first drawn row over the torso's columns -- the span of the widest run in the row
+// at 45% of the figure's height -- and reads only those columns, as the cut and line-up tools measure him. For a man
+// with nothing above his head, and for a crowd, it is the band it was.
 export function facing(png, [fx, fy, w, h]) {
   const px = (x, y) => { const i = ((fy + y) * png.width + fx + x) * 4; return png.pixels.slice(i, i + 4); };
-  let top = -1; let bottom = -1;
-  for (let y = 0; y < h; y += 1) for (let x = 0; x < w; x += 1) if (px(x, y)[3] > 128) { if (top < 0) top = y; bottom = y; }
+  let first = -1; let bottom = -1;
+  for (let y = 0; y < h; y += 1) for (let x = 0; x < w; x += 1) if (px(x, y)[3] > 128) { if (first < 0) first = y; bottom = y; }
+  const mid = first + Math.floor((bottom - first) * 0.45);
+  let c0 = 0; let c1 = w - 1; let best = 0;
+  for (let x = 0, run = 0; x <= w; x += 1) {
+    if (x < w && px(x, mid)[3] > 128) { run += 1; continue; }
+    if (run > best) { best = run; c0 = x - run; c1 = x - 1; }
+    run = 0;
+  }
+  let top = -1;
+  for (let y = first; y <= bottom && top < 0; y += 1) for (let x = c0; x <= c1; x += 1) if (px(x, y)[3] > 128) { top = y; break; }
   const rows = Math.max(4, Math.floor((bottom - top) * 0.16));
   let hx = 0; let hn = 0; let sx = 0; let sn = 0;
   for (let y = top; y < top + rows; y += 1) {
-    for (let x = 0; x < w; x += 1) {
+    for (let x = c0; x <= c1; x += 1) {
       const [r, g, b, a] = px(x, y);
       if (a <= 128) continue;
       hx += x; hn += 1;

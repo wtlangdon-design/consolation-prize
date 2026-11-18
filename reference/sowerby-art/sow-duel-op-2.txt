@@ -1,0 +1,7 @@
+Image 1 is a sheet from my pixel-art adventure game on magenta: the town's Reverend, an old man with white hair and a white beard in a long black frock coat, in four frames, holding a pencil: (1) the pencil raised beside his head; (2) the pencil held at his chest; (3) leaning, the pencil at his chest; (4) the pencil raised high. KEEP HIM EXACTLY: every frame in place, the same man, the same head size, the same poses, the same height, the same colours and light.
+
+Image 2 is the top of each frame as it appears in the game, reduced to the game's pixel size: in frames 1 and 2 THE PENCIL HAS DISAPPEARED, because it is drawn as a hairline, and in the raised frame it is barely there. The pencil must read in every frame.
+
+Redraw ONLY THE PENCIL, in every frame: a BOLD pencil, yellow-ochre with a dark tip, about as long as his hand and THREE TIMES THICKER than now, clearly visible against his coat, his hand and the background, held the same way in each pose. In the two raised poses keep his hand exactly where it is, with the pencil pointing up from his fist. Change nothing else.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.

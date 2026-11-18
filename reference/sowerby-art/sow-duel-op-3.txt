@@ -1,0 +1,11 @@
+Image 1 is a sheet from my pixel-art adventure game on magenta: the town's Reverend, an old man with white hair and a white beard in a long black frock coat, in four frames, holding a pencil: (1) the pencil raised beside his head; (2) the pencil held at his chest; (3) leaning, the pencil at his chest; (4) the pencil raised high. KEEP every frame IN PLACE: each exactly where it is on the sheet, the same poses, the same height (crown and soles on the same rows), the same head size, the pencil held the same way.
+
+Image 2 is the SAME Reverend drawn correctly in another scene: THIS IS THE STANDARD for his face and his colours. Image 3 shows his head at game size in five scenes: the three on the left are right; the two on the right (from image 1) are wrong in two ways:
+1. HIS FACE IS TOO SIMPLE: flat, a few blocks, almost no features. Draw his face as image 2 draws it: a modelled old face with brow, eyes, nose, cheek and mouth shaded in several soft tones, the white hair and beard with grey shading -- the same detail as image 2, at the same size.
+2. HE IS TOO YELLOW: his coat is olive green-brown and his skin orange-yellow. Draw his frock coat, waistcoat and trousers the deep near-black of image 2 (a neutral, very dark grey-black, not olive, not brown), his skin the muted, cool, pale old man's skin of image 2, his collar and hair the same white-grey as image 2.
+
+The pencil: a plain muted ochre-brown wooden pencil with a dark tip, NOT bright yellow, as thick as one of his fingers and as long as his hand, so it still shows at game size. Image 4 is Thad, the hero: the Reverend's head stays this size against him.
+
+Soft broad shading, two or three tones per material on the clothes, square pixels, no crisp highlights, no hard dark lines inside the figure. Change nothing else.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.

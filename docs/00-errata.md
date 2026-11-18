@@ -8824,3 +8824,27 @@ Lesson: `tests/rod-required.test.mjs`: G2's site waits for the rod, only the rod
 Measured, his face at the memorial matches Thad's and every other Fanshawe's (26.5 against Thad's 26.4 at a man's scale); the mourners beside him are drawn with heads about 1.3 to 1.4 times Thad's (the Act II art review, finding 9). The brief for one picture of them at Thad's proportions is `reference/memorial-crowd-art/brief.md`. Nothing is drawn until Tyler pastes its prompt into the image session; the main session then derives the other frames and wires it.
 
 Lesson: none -- a brief, not a fix; the fix will carry its check when the drawing is wired.
+
+## 377 · The mourners and the Reverend, redrawn to Thad's proportions, wired (Tyler, 2026-11-17 and 18: "Redraw the mourners"; "now the priest is the one character out of place", "All six sheets (Recommended)"; "The Nugget back image of the reverend has a comically small head"; on his duel and Nugget face and colour, "1 op, +1 correction (Recommended)")
+
+The image session's two hand-backs are `reference/memorial-crowd-art/handback.md` and `reference/sowerby-art/handback.md` (ten operations in all: one for the mourners, nine for the Reverend; `art/staging/caps.json` and `ledger.json` as the branch left them). Tyler approved how the Reverend looks.
+
+- **The mourners at Pike's memorial** (`memorial_town`): the redrawn rest frame (`art/staging/memorial-crowd/rest-cut.png`, the cell widened 443 to 473 about its centre, soles on the old row) is frame 0 of `art/actors/room-14-town-coming-down.png`; frames 1 to 4 (a breath, and a different few shifting their weight each time) are derived from it by `tools/art/memorial-crowd-frames.py`, room31-cast.py's method. figureHeight unchanged. Their heads are now Fanshawe's size. The same mourners at the gate and bowed (Act III's procession) and at the graveside keep the old drawing.
+- **The Reverend in all five sheets.** The master (funeral, procession, gate), the praying and the plate sheets drop in at their own paths with their frames. The duel and the Nugget back room sheets are taller at the top, for the raised pencil: `duel-sowerby` frames are now `[2 + 196i, 2, 194, 424]` and `sowerby` `[2 + 224i, 2, 222, 493]`; figureHeight and anchors unchanged, so he stands the same size in the same place.
+- **`tests/faces.test.mjs` reads the head from the crown over the torso.** With the bold pencil raised above his crown, the band from the topmost drawn pixel took his hand for his face (-9.5); read from the first drawn row over the torso's columns, his head reads -2.4, front, as the cut and line-up tools measure him. The threshold is unchanged and every other figure reads as it did.
+
+Seen in the build: the memorial, the procession, the funeral, the Nugget back room.
+
+Lesson: doc 55 §8, "When the line-up flags a head, look at that sheet beside Thad in its own room before overriding the number."
+
+## 378 · The Act III mourners take the memorial's redrawn drawing (Tyler, 2026-11-18, asked to fund redrawing everyone drawn with a bigger head than Thad's: "I think just the Act III mourners to match the previous mourners")
+
+The graveside's mourners (`funeral_mourners`, `art/actors/room-31-mourners-master.png`) were always the memorial's drawing, and the gate's (`procession_mourners`, `room-14-mourners-at-gate.png`) the same drawing with each cell mirrored. Both are now errata 377's sheet, `room-14-town-coming-down.png`: the graveside's a copy, the gate's mirrored by `tools/art/mirror-cells.py`. Their cells widen from 443 to 473 about the centre, as the memorial's did. Their soles stay on the same row, and figureHeight and placement are unchanged, so they stand where they stood. No image operation.
+
+The prayer at the gate (`T_HILL_PRAYER`, `room-14-mourners-bowed-at-gate.png` and its unmirrored source `room-14-mourners-bowed.png`) was painted on the old rest frame and needs a drawing. Its cells are widened the same way so it stays registered to the rest frame (`tests/hearse.test.ts`), and it keeps the old heads until the drawing in `reference/act3-mourners-bowed/brief.md` is made.
+
+The line-up of everyone else drawn with a bigger head than Thad's was shown to Tyler and is not redrawn on his ruling: the duel crowd and judges, the undertaker, Hob, Pratt, Frame, the Gulch's deacon, rule-keeper and panner, Sheng, the Nugget landing man and Sump.
+
+Seen in the build: the graveside (r31-a) and the gate (r14-stall-b).
+
+Lesson: none -- a copy of an approved drawing; `tests/hearse.test.ts` already holds the gate mirrored from the graveside and the prayer registered to the rest frame, and it caught the bowed sheet's width here.
