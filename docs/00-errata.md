@@ -8808,6 +8808,17 @@ A playtester played Act III in the build from E0 to the PART FOUR card. No break
 
 Lesson: `tests/arrival-writes-saved.test.mjs`: an arrival line's writes are followed by an autosave; failing on main before this.
 
+## 375 · The rod is required, and three of the playtests' questions answered (Tyler, 2026-11-17, to the four questions after errata 374: "1 - you decide 2 - no 3 - make the rod required 4 - you decide")
+
+**The rod is required (3).** At the mine's last junction the right passage was the way out with or without the rod, so a player could guess it and never hire the rod (G1). Now it leads out only once the rod has been held out at the line (`ROD_AT_LINE`); before that it loops back to the junction like the left, as `right_passage_loop`, a state of the same passage with its lines. The first time it does, Thad says what his survey said: "The line again. My survey says to go along the line the rod preferred, and nothing down here prefers anything without a rod to ask." (doc 108, THE RIGHT PASSAGE, WITHOUT THE ROD). After that the mine's back-where-he-started lines go on. No dead end: a player who came without the rod can ride Grievance home before Vessel is found ("Home for now, Grievance. Vessel will keep."), hire it and ride back. The walkthrough holds the rod out before taking the passage (G2.0, G2.0b); the derived graph has G2 waiting on it. Doc 107's "with or without it" is superseded.
+
+**Room 33's taps stay sound only (1).** Decided by the main session: the puzzle is a piano tuner listening, tuned by Tyler's ear, and a text cue for each tap would be the hint the design does without. Unchanged.
+
+**Blank screens (2).** Tyler has not seen one; the figure sheets stay loaded for the session as they are.
+
+**No drawing spent (4).** Decided by the main session. The plate on Boot Hill already has its pose (Thad's `plate` clip, frame 2, arms out, held through the PULL exchange, errata 246); the playtester's capture came after the exchange, when the plate is released. A coatless Thad for the few beats between "Coat off, and over him." and Pratt handing the coat back would need a standing and a walking set; not worth the last image budget. About 26,000 tokens are left.
+
+Lesson: `tests/rod-required.test.mjs`: G2's site waits for the rod, only the rod writes `ROD_AT_LINE`, and the right passage before it loops back with the survey's line; failing on main before this.
 ## 376 · Fanshawe at Pike's memorial: the mourners are redrawn, not he (Tyler, 2026-11-17: "Fanshawe's head looks comically tiny compared to everyone else in the scene"; then, offered three ways, "Redraw the mourners")
 
 Measured, his face at the memorial matches Thad's and every other Fanshawe's (26.5 against Thad's 26.4 at a man's scale); the mourners beside him are drawn with heads about 1.3 to 1.4 times Thad's (the Act II art review, finding 9). The brief for one picture of them at Thad's proportions is `reference/memorial-crowd-art/brief.md`. Nothing is drawn until Tyler pastes its prompt into the image session; the main session then derives the other frames and wires it.

@@ -1226,7 +1226,8 @@
     {
      "site": "room:mine_line:right_passage:transit:writes",
      "requires": [
-      "r:mine_line"
+      "r:mine_line",
+      "ROD_AT_LINE={\"atLeast\":1}"
      ],
      "yields": [
       "f:T_MINE_CROSSED=true",

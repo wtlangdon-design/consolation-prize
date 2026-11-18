@@ -1971,6 +1971,15 @@
    "note": "Doc 108: THE WAY THROUGH is said on the first walk straight through to the ledge, and not again."
   },
   {
+   "id": "RIGHT_LOOPED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:mine_line:right_passage_loop:transit"
+   ],
+   "note": "Errata 375: the right passage has brought him back to the line once without the rod, and he has said what the survey says about the rod (doc 108, THE RIGHT PASSAGE, WITHOUT THE ROD)."
+  },
+  {
    "id": "MINE_BACK_AGAIN",
    "type": "number",
    "initial": 0,
@@ -1979,7 +1988,8 @@
     "room:mine_adit:middle_opening:transit",
     "room:mine_climb:passage_on:transit",
     "room:mine_two_rocks:way_past_other_rock:transit",
-    "room:mine_line:left_passage:transit"
+    "room:mine_line:left_passage:transit",
+    "room:mine_line:right_passage_loop:transit"
    ],
    "note": "Doc 108, THE MINE · BACK WHERE HE STARTED: how many of its five lines have been said, one each time a wrong way brings him out where he has been; after the fifth, the fifth again. Counted in a flag so a save keeps its place (the brief)."
   },
@@ -1989,7 +1999,8 @@
    "initial": 0,
    "writtenBy": [
     "combination:brass_rod:mine_line:left_passage",
-    "combination:brass_rod:mine_line:right_passage"
+    "combination:brass_rod:mine_line:right_passage",
+    "combination:brass_rod:mine_line:right_passage_loop"
    ],
    "note": "Doc 108: THE BRASS ROD · USE, at the line -- its three variants in turn on either passage; after the third, the third again."
   },
