@@ -31,10 +31,6 @@
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
     {
-      "text": "nothing it's waiting",
-      "why": "found by the first run, errata 226; awaiting the voice pass"
-    },
-    {
       "text": "wind across",
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
@@ -231,10 +227,6 @@
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
     {
-      "text": "street muffled",
-      "why": "found by the first run, errata 226; awaiting the voice pass"
-    },
-    {
       "text": "ten thousand",
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
@@ -248,10 +240,6 @@
     },
     {
       "text": "at the height of a",
-      "why": "found by the first run, errata 226; awaiting the voice pass"
-    },
-    {
-      "text": "air and a drip",
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
     {
@@ -284,10 +272,6 @@
     },
     {
       "text": "coming back",
-      "why": "found by the first run, errata 226; awaiting the voice pass"
-    },
-    {
-      "text": "drip somewhere",
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
     {
@@ -371,10 +355,6 @@
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
     {
-      "text": "nothing it is the quietest",
-      "why": "found by the first run, errata 226; awaiting the voice pass"
-    },
-    {
       "text": "which in this town is",
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
@@ -388,14 +368,6 @@
     },
     {
       "text": "half a step flat",
-      "why": "found by the first run, errata 226; awaiting the voice pass"
-    },
-    {
-      "text": "nothing it has said",
-      "why": "found by the first run, errata 226; awaiting the voice pass"
-    },
-    {
-      "text": "nothing it is waiting",
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
     {
@@ -420,10 +392,6 @@
     },
     {
       "text": "going to say",
-      "why": "found by the first run, errata 226; awaiting the voice pass"
-    },
-    {
-      "text": "note a little",
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
     {
@@ -531,20 +499,12 @@
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
     {
-      "text": "town built",
-      "why": "found by the first run, errata 226; awaiting the voice pass"
-    },
-    {
       "text": "warm air",
       "why": "found by the first run, errata 226; awaiting the voice pass"
     },
     {
       "text": "wide enough",
       "why": "found by the first run, errata 226; awaiting the voice pass"
-    },
-    {
-      "text": "time like",
-      "why": "Errata 278: Tyler approved doc 125's lines (\"Approve\"); \"sags every time, like a step worn hollow\" reaches a fourth subject. Two clauses meeting at a comma, not a shape Thad reuses (see the friction review of 2026-11-10)."
     },
     {
       "text": "father's watch",
@@ -557,6 +517,114 @@
     {
       "text": "back door",
       "why": "Errata 342: Tyler approved the ash pile's first look (\"Approve all\"), swept out of the Company's back door; with the Nugget's it is a fourth subject. A thing's name, not a turn of phrase."
+    },
+    {
+      "text": "step flat",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "two hundred",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "nothing coming",
+      "why": "Doc 17's rule, as errata 94 records for the stage road's LISTEN: 'Nothing coming.' does not vary. Found as a phrase when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\")."
+    },
+    {
+      "text": "six years",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "somebody spent",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "somewhere else",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "somewhere inside",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "almost nothing",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "canvas breathing",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "every page",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "many times",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "next door",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "nineteen names",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "ninety days",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "piano tuner",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "several times",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "shaped like",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "since sacramento",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "somewhere along",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "still air",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "still loose",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "still quiet",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "thousand dollars",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "three thousand",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "two stories",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "years ago",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
+    },
+    {
+      "text": "years old",
+      "why": "Found when the check review bounded phrases at commas and stops (Tyler, 2026-11-18: \"do all four\"). Before, a phrase that ended a sentence was found only when the next sentence began with a stopword. Not ruled: waiting for the voice pass to judge."
     }
   ]
 }
