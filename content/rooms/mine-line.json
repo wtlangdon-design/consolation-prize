@@ -318,7 +318,128 @@
         "T_MINE_CROSSED": true
       },
       "completesOnTransit": "G2",
-      "note": "Doc 108: the way through; nothing on the plate shows it. Taking it is the first crossing (doc 107).",
+      "note": "Doc 108: the way through; nothing on the plate shows it. Taking it is the first crossing (doc 107). Errata 375 (Tyler, 2026-11-17: make the rod required): it leads out only once the rod has been held out at the line; before that, right_passage_loop stands in its place.",
+      "when": {
+        "ROD_AT_LINE": {
+          "atLeast": 1
+        }
+      },
+      "walkTo": {
+        "x": 1370,
+        "y": 655,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "right_passage_loop",
+      "name": "THE RIGHT PASSAGE",
+      "rect": [
+        1214,
+        145,
+        312,
+        450
+      ],
+      "colour": 0,
+      "to": "mine_line",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A passage into the dark, timbered, the same width as its neighbor.",
+            "repeat": [
+              "I've compared the two. They're the same passage, as far as I can tell, in two places.",
+              "I counted the timbers. I'd told myself I wouldn't. Seven."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drip, somewhere down it, at much the same pace.",
+            "repeat": [
+              "Still air. It isn't telling either.",
+              "Still air, and a drip. Nothing to choose by either."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "arrives": true,
+          "when": {
+            "RIGHT_LOOPED": false
+          },
+          "say": "The line again. My survey says to go along the line the rod preferred, and nothing down here prefers anything without a rod to ask.",
+          "set": {
+            "RIGHT_LOOPED": true
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · THE RIGHT PASSAGE, WITHOUT THE ROD · item 1"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 0,
+            "RIGHT_LOOPED": true
+          },
+          "say": "Ah. I've been here.",
+          "set": {
+            "MINE_BACK_AGAIN": 1
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 1"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 1,
+            "RIGHT_LOOPED": true
+          },
+          "say": "This chamber again. It's growing on me.",
+          "set": {
+            "MINE_BACK_AGAIN": 2
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 2"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 2,
+            "RIGHT_LOOPED": true
+          },
+          "say": "I know that rock. I've started naming the rocks.",
+          "set": {
+            "MINE_BACK_AGAIN": 3
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 3"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": 3,
+            "RIGHT_LOOPED": true
+          },
+          "say": "Back again. If anybody's surveying me, I'd like it noted that I'm thorough.",
+          "set": {
+            "MINE_BACK_AGAIN": 4
+          },
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 4"
+        },
+        {
+          "arrives": true,
+          "when": {
+            "MINE_BACK_AGAIN": {
+              "atLeast": 4
+            },
+            "RIGHT_LOOPED": true
+          },
+          "say": "Here.",
+          "sceneLine": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED · item 5"
+        }
+      ],
+      "note": "Errata 375: the right passage before the rod has been held out at the line. It loops back like the left; the first time, Thad says what the survey said about the rod.",
+      "stateOf": "right_passage",
+      "when": {
+        "ROD_AT_LINE": 0
+      },
       "walkTo": {
         "x": 1370,
         "y": 655,

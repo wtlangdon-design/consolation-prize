@@ -2075,7 +2075,7 @@ function combinations() {
  * The room and passage ids are routing, authored here as OPENING_PAIRS is; the words are the document's.
  */
 const MINE_ROOMS = ['mine_adit', 'mine_climb', 'mine_two_rocks', 'mine_line'];
-const LINE_PASSAGES = ['left_passage', 'right_passage'];
+const LINE_PASSAGES = ['left_passage', 'right_passage', 'right_passage_loop'];
 function gulchMine() {
   const doc = read('docs/108-the-washout-and-the-mine.md');
   const section = (heading) => {
@@ -2112,7 +2112,8 @@ function gulchMine() {
   const pairs = LINE_PASSAGES.map((target) => ({
     item: 'brass_rod', room: 'mine_line', target, puzzle: 'G2', say: atLine[0].lines[0],
     note: "Doc 108, THE MINE · THE LINE: THE BRASS ROD · USE, at the line -- either passage, one run (ROD_AT_LINE). It "
-      + 'tells, it does not open: the right passage leads out with or without it (doc 107).',
+      + 'tells, and since errata 375 (Tyler: make the rod required) it is what opens the right passage: before it, the '
+      + 'right passage loops back like the left (right_passage_loop).',
     rules,
   }));
   const source = 'docs/108-the-washout-and-the-mine.md::THE MINE · WRONG ANSWERS, ANYWHERE IN IT';

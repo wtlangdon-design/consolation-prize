@@ -155,11 +155,98 @@
    "id": "right_passage",
    "to": "ledge",
    "defaultVerb": "WALK_TO",
-   "note": "Doc 108: the way through; nothing on the plate shows it. Taking it is the first crossing (doc 107).",
+   "note": "Doc 108: the way through; nothing on the plate shows it. Taking it is the first crossing (doc 107). Errata 375 (Tyler, 2026-11-17: make the rod required): it leads out only once the rod has been held out at the line; before that, right_passage_loop stands in its place.",
+   "when": {
+    "ROD_AT_LINE": {
+     "atLeast": 1
+    }
+   },
    "setOnTransit": {
     "T_MINE_CROSSED": true
    },
    "completesOnTransit": "G2"
+  },
+  "THE RIGHT PASSAGE#loop": {
+   "id": "right_passage_loop",
+   "to": "mine_line",
+   "stateOf": "right_passage",
+   "defaultVerb": "WALK_TO",
+   "when": {
+    "ROD_AT_LINE": 0
+   },
+   "note": "Errata 375: the right passage before the rod has been held out at the line. It loops back like the left; the first time, Thad says what the survey said about the rod.",
+   "transitScene": [
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · THE RIGHT PASSAGE, WITHOUT THE ROD",
+     "item": 1,
+     "arrives": true,
+     "when": {
+      "RIGHT_LOOPED": false
+     },
+     "set": {
+      "RIGHT_LOOPED": true
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 1,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 0,
+      "RIGHT_LOOPED": true
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 1
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 2,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 1,
+      "RIGHT_LOOPED": true
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 2
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 3,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 2,
+      "RIGHT_LOOPED": true
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 3
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 4,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": 3,
+      "RIGHT_LOOPED": true
+     },
+     "set": {
+      "MINE_BACK_AGAIN": 4
+     }
+    },
+    {
+     "ref": "docs/108-the-washout-and-the-mine.md::## THE MINE · BACK WHERE HE STARTED",
+     "item": 5,
+     "arrives": true,
+     "when": {
+      "MINE_BACK_AGAIN": {
+       "atLeast": 4
+      },
+      "RIGHT_LOOPED": true
+     }
+    }
+   ]
   }
  },
  "exits": {
@@ -180,6 +267,12 @@
    145,
    312,
    450
+  ],
+  "right_passage_loop": [
+   1214,
+   145,
+   312,
+   450
   ]
  },
  "exitWalkTo": {
@@ -194,6 +287,11 @@
    "facing": "back"
   },
   "right_passage": {
+   "x": 1370,
+   "y": 655,
+   "facing": "back"
+  },
+  "right_passage_loop": {
    "x": 1370,
    "y": 655,
    "facing": "back"

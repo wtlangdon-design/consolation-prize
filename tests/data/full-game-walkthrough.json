@@ -1160,6 +1160,25 @@
    }
   },
   {
+   "id": "G2.0",
+   "puzzle": "G2",
+   "do": "go",
+   "room": "mine_line",
+   "note": "Errata 375: the rod is required. Before it is held out at the line, the right passage loops back."
+  },
+  {
+   "id": "G2.0b",
+   "puzzle": "G2",
+   "do": "use",
+   "item": "brass_rod",
+   "on": "right_passage_loop",
+   "expect": {
+    "flags": {
+     "ROD_AT_LINE": 1
+    }
+   }
+  },
+  {
    "id": "G2.1",
    "puzzle": "G2",
    "do": "go",
