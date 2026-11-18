@@ -134,5 +134,11 @@
   "levelMan": 384.615385,
   "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs).",
   "redrawn": "Errata 112 (one Hob, one level): drawn by cast-unify 38 from the redrawn Hob's own standing frame -- his face, coat and lantern -- bareheaded with his hat in his left hand (doc 05); relit into the funeral's night."
- }
+ },
+ "walkTo": {
+  "x": 1700,
+  "y": 612,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM (errata 374, the Act III playtest: he stood on Hob, over his lantern): beside him on the grass at his own depth, on his left, side-on (doc 55 section 8)."
 }

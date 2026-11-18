@@ -458,6 +458,24 @@
    "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
    "head": "**THE UNDERTAKER** · *at the coffin*",
    "bullet": "- LOOK"
+  },
+  {
+   "person": "funeral_undertaker",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE UNDERTAKER** · *at the coffin*",
+   "bullet": "- TALK TO"
+  },
+  {
+   "person": "funeral_hob",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "ref": "docs/133-playthrough-rulings.md::## THE ACTS TWO TO FOUR REVIEW: A LOOK FOR EVERYBODY",
+   "head": "**THE ONE WHO KNOWS** · *at my funeral, by the far stones*",
+   "bullet": "- TALK TO"
   }
  ]
 }

@@ -4203,7 +4203,9 @@ function frameTree() {
     const notice = nodes.FRA_A1?.options.find((option) => option.set?.T_NOTICE_SET);
     if (!notice) throw new Error('doc 04 FRA_A1: no option sets the funeral notice');
     notice.thenAfter = objectsBlock('**`FRA_A1` option, "I need a funeral notice printed."**', { FRAME: SPEAKER });
-    notice.when = { ...notice.when, T_NOTICE_IN_HAND: false, T_NOTICE_SET: false };
+    // Errata 374 (the Act III playtest): Pike's memorial is Act II's, and in Act III, whose goal is Thad's own funeral,
+    // the row printed Pike's notice again. Offered in Act II only.
+    notice.when = { ...notice.when, T_NOTICE_IN_HAND: false, T_NOTICE_SET: false, ACT: { atMost: 2 } };
   }
   const entries = Object.entries(ENTRY).filter(([node]) => nodes[node]).map(([node, when]) => ({ when, node }));
   for (const note of unplayed) process.stderr.write(`  doc 04 FRAME: ${note}\n`);
