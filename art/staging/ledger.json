@@ -57201,6 +57201,403 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-18T06:27:11.281Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "sowerby-master",
+   "subject": "sowerby-master",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/room-31-sowerby-master.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/sowerby-art/sow-master-op-1.txt",
+   "promptHash": "d0801ca092da788da4afc32f1d064d64187616e9350b1bae113418ea6e0e1a92",
+   "references": [
+    {
+     "path": "art/staging/sowerby/sow-master-template.png",
+     "hash": "a57ef8a767846e15c889a96d5092488ec2e8abfd32cb3ce65167bb5c04ca6836",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-14-memorial-crowd-in-the-scene.png",
+     "hash": "ebfc0aa16327704ffb8359d26fe979b4c25918d535ebe6ddd13c632d7b04222e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "a57ef8a767846e15c889a96d5092488ec2e8abfd32cb3ce65167bb5c04ca6836",
+   "sourcePath": "art/staging/sowerby/sow-master-template.png",
+   "out": "art/staging/sowerby/sow-master-op-1.png",
+   "outputHash": "852329cefd003d343ee08b673ce0032509a125228dc9acad38be4cfd751e1dde",
+   "bytes": 1339035,
+   "usage": {
+    "input_tokens": 4311,
+    "input_tokens_details": {
+     "image_tokens": 3952,
+     "text_tokens": 359
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 9799
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T07:55:14.758Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-master, cap 2)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T07:55:14.779Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "sowerby-praying",
+   "subject": "sowerby-praying",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/room-14-sowerby-praying.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/sowerby-art/sow-praying-op-1.txt",
+   "promptHash": "02304a4c5290e85985455598e82278ff9763d85749b049a228f7876760a12627",
+   "references": [
+    {
+     "path": "art/staging/sowerby/sow-praying-template.png",
+     "hash": "779a681125231da48485725aba881997673cd8345f4f55d715024c1c6371fdce",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-14-memorial-crowd-in-the-scene.png",
+     "hash": "ebfc0aa16327704ffb8359d26fe979b4c25918d535ebe6ddd13c632d7b04222e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "779a681125231da48485725aba881997673cd8345f4f55d715024c1c6371fdce",
+   "sourcePath": "art/staging/sowerby/sow-praying-template.png",
+   "out": "art/staging/sowerby/sow-praying-op-1.png",
+   "outputHash": "f91922d45a588c77e18ac3d01381fb25834ff7918419527791dbb5032235653b",
+   "bytes": 1287940,
+   "usage": {
+    "input_tokens": 4308,
+    "input_tokens_details": {
+     "image_tokens": 3952,
+     "text_tokens": 356
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 9796
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T07:56:15.429Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-praying, cap 2)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T07:56:15.442Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "sowerby-plate",
+   "subject": "sowerby-plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/room-14-sowerby-plate-right.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/sowerby-art/sow-plate-op-1.txt",
+   "promptHash": "771bfc2d2b90675ee877e889bc728cc6250d9691b33135f9351a7df5f471cfa0",
+   "references": [
+    {
+     "path": "art/staging/sowerby/sow-plate-template.png",
+     "hash": "b9cf84da865b80b63b806e582b199908286a07e42e798df1df7d588b663822c0",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-14-memorial-crowd-in-the-scene.png",
+     "hash": "ebfc0aa16327704ffb8359d26fe979b4c25918d535ebe6ddd13c632d7b04222e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "b9cf84da865b80b63b806e582b199908286a07e42e798df1df7d588b663822c0",
+   "sourcePath": "art/staging/sowerby/sow-plate-template.png",
+   "out": "art/staging/sowerby/sow-plate-op-1.png",
+   "outputHash": "f4f50ca294428b66e153775fa4ffead8c30a89cbc48865da23ce1e150bafc1d5",
+   "bytes": 1263524,
+   "usage": {
+    "input_tokens": 4330,
+    "input_tokens_details": {
+     "image_tokens": 3952,
+     "text_tokens": 378
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 9818
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T07:57:10.050Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-plate, cap 2)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T07:57:10.061Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "sowerby-duel",
+   "subject": "sowerby-duel",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/room-02-duel-sowerby-standing.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/sowerby-art/sow-duel-op-1.txt",
+   "promptHash": "7c04daee9ef186cca2577285b9cbfa924c8592cfa9219fa96a73cc1932cafcae",
+   "references": [
+    {
+     "path": "art/staging/sowerby/sow-duel-template.png",
+     "hash": "5a9c8666baba57eeba51467c2a0dcc5503e43b2d9171bc737957345221f7165b",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-14-memorial-crowd-in-the-scene.png",
+     "hash": "ebfc0aa16327704ffb8359d26fe979b4c25918d535ebe6ddd13c632d7b04222e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "5a9c8666baba57eeba51467c2a0dcc5503e43b2d9171bc737957345221f7165b",
+   "sourcePath": "art/staging/sowerby/sow-duel-template.png",
+   "out": "art/staging/sowerby/sow-duel-op-1.png",
+   "outputHash": "e4d37cdb87696ecc3324eae61ba806e6901bdbf4337f2060d1930a3393bc8786",
+   "bytes": 1333629,
+   "usage": {
+    "input_tokens": 4316,
+    "input_tokens_details": {
+     "image_tokens": 3952,
+     "text_tokens": 364
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 9804
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T07:58:10.512Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-duel, cap 2)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T07:58:10.534Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "sowerby-nugget",
+   "subject": "sowerby-nugget",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/room-04-sowerby-master.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/sowerby-art/sow-nugget-op-1.txt",
+   "promptHash": "ef50696f55416160f9a18b45d8e85637c2504ca1ef33205e6d213bcc664b9df2",
+   "references": [
+    {
+     "path": "art/staging/sowerby/sow-nugget-template.png",
+     "hash": "ed5520fd24f24bced003ea56ae9665ae44a6a77fed43eccc6ee0fd3e5ea85542",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-14-memorial-crowd-in-the-scene.png",
+     "hash": "ebfc0aa16327704ffb8359d26fe979b4c25918d535ebe6ddd13c632d7b04222e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "ed5520fd24f24bced003ea56ae9665ae44a6a77fed43eccc6ee0fd3e5ea85542",
+   "sourcePath": "art/staging/sowerby/sow-nugget-template.png",
+   "out": "art/staging/sowerby/sow-nugget-op-1.png",
+   "outputHash": "118712237fa70439d7a8bb06068447efc548753e4ff7ca73d7896ac476173719",
+   "bytes": 1373503,
+   "usage": {
+    "input_tokens": 4315,
+    "input_tokens_details": {
+     "image_tokens": 3952,
+     "text_tokens": 363
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 9803
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T07:59:06.760Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-nugget, cap 2)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T07:59:06.776Z"
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "assetId": "sowerby-master",
+   "subject": "sowerby-master",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/sowerby-art/sow-master-op-2.txt",
+   "promptHash": "7efec393c02545793eab4a476258ef79d7606d72cb61a0a59d58658212bbda61",
+   "references": [
+    {
+     "path": "art/staging/sowerby/sow-master-op-1.png",
+     "hash": "852329cefd003d343ee08b673ce0032509a125228dc9acad38be4cfd751e1dde",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/sowerby/sow-master-side-by-side.png",
+     "hash": "7516d5ed1b4ab09960b5150331d1fa893eb9686a51a6ccd4a0e9d4c03c59715e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "852329cefd003d343ee08b673ce0032509a125228dc9acad38be4cfd751e1dde",
+   "sourcePath": "art/staging/sowerby/sow-master-op-1.png",
+   "out": "art/staging/sowerby/sow-master-op-2.png",
+   "outputHash": "6d99e6d029466deaa3d10764ab331ee5688fed67dcaaaaeb8f26ed53f10a0c44",
+   "bytes": 1334244,
+   "usage": {
+    "input_tokens": 3759,
+    "input_tokens_details": {
+     "image_tokens": 3457,
+     "text_tokens": 302
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 9247
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T08:06:16.120Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-master, cap 2)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T08:06:16.133Z"
   }
  ],
  "promotions": [

@@ -29,6 +29,19 @@ JOBS = {'town-left': 'duel-town-left', 'town-right': 'duel-town-right', 'fanshaw
 # index or None, room file). Their staging is art/staging/duel-and-caves-art/fanshawe-all/<job>-*.
 ALL = {'office': ('fanshawe', None, 'fanshawe-office'), 'office-turned': ('fanshawe', 0, 'fanshawe-office'),
        'memorial': ('memorial-fanshawe', None, 'boot-hill'), 'wreath': ('wreath-fanshawe', None, 'main-street')}
+# The Reverend everywhere (Tyler, 2026-11-18: "now the priest is the one character out of place"; "All six sheets"):
+# staging art/staging/sowerby/<job>-*. FRAMES gives a sheet's whole cell list where the record shows only part of it
+# (the plate sheet: two states share it); BREATHS maps each derived breath cell to the cell it is derived from.
+SOW = {'sow-master': ('funeral-sowerby', None, 'funeral'), 'sow-praying': ('procession-sowerby', 0, 'boot-hill'),
+       'sow-plate': ('sowerby-gate', 0, 'boot-hill'), 'sow-duel': ('duel-sowerby', None, 'main-street'),
+       'sow-nugget': ('sowerby', None, 'nugget-back')}
+ALL.update(SOW)
+FRAMES = {'sow-plate': [[2 + 292 * i, 2, 290, 314] for i in range(6)]}
+BREATHS = {'sow-praying': {}, 'sow-plate': {1: 0, 5: 4}}
+# The operation drew the praying sheet's open-mouthed pose 7.5% taller than its rest (634 px against 590), the same man
+# standing the same way; the old sheet has both poses the same height (rows 0-313). Each pose is scaled to its own old
+# height, uniformly, so his crown is not cut off at the cell's top.
+PER_POSE = {'sow-praying'}
 JOB = sys.argv[1]
 OPN = int(sys.argv[sys.argv.index('--op') + 1]) if '--op' in sys.argv else 1
 WRITE = '--write' in sys.argv
@@ -92,9 +105,10 @@ def best_shift_x(cell_alpha, old_alpha, dx):
 
 def main():
     if JOB in ALL:
-        name, when, room_id = ALL[JOB]; SD = f'{ST}/fanshawe-all'
+        name, when, room_id = ALL[JOB]; SD = f'{ST}/fanshawe-all' if JOB not in SOW else 'art/staging/sowerby'
         rec = json.load(open(R(f'content/ambient/{name}.json')))
         sp = rec['sprite'] if when is None else {**rec['sprite'], **rec['spriteWhen'][when]['sprite']}
+        if JOB in FRAMES: sp = {**sp, 'frames': FRAMES[JOB]}
         lay = json.load(open(R(f'{SD}/{JOB}-layout.json')))
         out_img = np.asarray(Image.open(R(f'{SD}/{JOB}-op-{OPN}.png')).convert('RGB')).astype(int)
         old = np.asarray(Image.open(R(f'{SD}/{JOB}-old.png')).convert('RGBA'))
@@ -118,7 +132,7 @@ def main():
     orest = old[sp['frames'][0][1]:sp['frames'][0][1] + h, sp['frames'][0][0]:sp['frames'][0][0] + w]
     o_r = rows_of(orest); n_r = rows_of(figs[0])
     f = (o_r[-1] - o_r[0] + 1) / (n_r[-1] - n_r[0] + 1)
-    scale_by = 'old rest height'
+    scale_by = 'old rest height' if JOB not in PER_POSE else "each pose's own old height"
     if JOB == 'town-right':
         # Keeping the old group's height made the redrawn (longer-bodied) people taller than Thad beside them. The sheet
         # is 1:1 in the room (no figureHeight): its frontmost man -- the piece whose feet are lowest -- is the room's man
@@ -164,8 +178,9 @@ def main():
     for pose, fig in zip(lay['poses'], figs):
         r = rows_of(fig); c = np.nonzero(alpha(fig).any(0))[0]
         fig = fig[r[0]:r[-1] + 1, c[0]:c[-1] + 1]
-        sm = downscale(fig, max(1, round(fig.shape[1] * f)), max(1, round(fig.shape[0] * f)))
         ocell = old_cells[pose]
+        fp = (lambda r: (r[-1] - r[0] + 1) / fig.shape[0])(rows_of(ocell)) if JOB in PER_POSE else f
+        sm = downscale(fig, max(1, round(fig.shape[1] * fp)), max(1, round(fig.shape[0] * fp)))
         # start: soles on the old cell's sole row, centred as the old drawing is; then the best-overlap shift
         oc = np.nonzero(alpha(ocell).any(0))[0]; ocx = (oc[0] + oc[-1]) / 2
         cell = np.zeros((h, W, 4), np.uint8)
@@ -187,7 +202,8 @@ def main():
         if JOB == 'fanshawe' and pose in MIRROR:      # his record faces right (toward Thad); these poses were drawn facing left
             moved = moved[:, ::-1].copy()
         cells[pose] = rim_clean(unpocket(despill_edge(snap(moved, block), width=max(2, int(np.ceil(block)) + 1))))
-    cells[1] = snap(breath(cells[0], name), block)   # the derived breath, back on the level's grid (one-level test)
+    for dst, srci in BREATHS.get(JOB, {1: 0}).items():   # the derived breaths, back on the level's grid
+        cells[dst] = snap(breath(cells[srci], name), block)
     sheet = np.zeros_like(old_w)
     for i, (x, y, fw, fh) in enumerate(new_frames):
         sheet[y:y + fh, x:x + fw] = cells[i]
@@ -205,12 +221,18 @@ def main():
     if WRITE:
         Image.fromarray(sheet).save(R(sp['sheet']))
         if JOB in ALL: print(json.dumps({'wrote': sp['sheet']}))
+        if JOB == 'sow-nugget':
+            # His frame 0 read 8.7% finer than the level (tests/one-level.test.mjs lays its grid from the figure's first
+            # opaque column, the cut from the cell's): re-snapped on that grid, crisp, by the tool the test names.
+            import subprocess
+            subprocess.run([sys.executable, R('tools/art/one-level.py'), '--only', os.path.basename(sp['sheet']), '--resnap'],
+                           check=True, stdout=subprocess.DEVNULL)
         render(rec, room, old, sheet)
 
 
 def breath(rest, name):
     import subprocess
-    d = R(f'{ST}/{name}'); os.makedirs(d, exist_ok=True)
+    d = R(f'art/staging/sowerby/{name}' if JOB in SOW else f'{ST}/{name}'); os.makedirs(d, exist_ok=True)
     Image.fromarray(rest).save(f'{d}/rest.png')
     subprocess.run([sys.executable, R('tools/rig/ambient-breath.py'), f'{d}/rest.png', f'{d}/breath.png'], check=True,
                    capture_output=True)
@@ -232,7 +254,7 @@ def render(rec, room, old, new):
     rows = []
     for sheet in (old, new):
         panels = []
-        for i in [p for p in (0, 2, 3, 4) if p < len(sp['frames'])]:
+        for i in ([p for p in (0, 2, 3, 4) if p < len(sp['frames'])] if JOB != 'sow-praying' else [0, 1]):
             x, y, w, h = sp['frames'][i]
             f = Image.fromarray(sheet[y:y + h, x:x + w]).resize((round(w * k), round(h * k)), Image.NEAREST)
             f = bt['lit'](f, bt['grade_for'](room, rec['id']), bt['mover_tint'](room.get('lamps'), rec['x'], rec['y']))
@@ -247,7 +269,8 @@ def render(rec, room, old, new):
     for r, panels in enumerate(rows):
         for i, p in enumerate(panels):
             img.paste(p, (i * (pw + 6), r * (ph + 6)))
-    img.save(R(f'renders/room-02-{JOB}-before-after.png' if JOB not in ALL else f'renders/fanshawe-{JOB}-before-after.png'))
+    img.save(R(f'renders/room-02-{JOB}-before-after.png' if JOB not in ALL else
+               (f'renders/{JOB}-before-after.png' if JOB in SOW else f'renders/fanshawe-{JOB}-before-after.png')))
 
 
 if __name__ == '__main__':

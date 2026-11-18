@@ -1,0 +1,17 @@
+{
+ "assetId": "sowerby-plate",
+ "subject": "sowerby-plate",
+ "role": "canonical-design",
+ "promptFile": "reference/sowerby-art/sow-plate-op-1.txt",
+ "out": "art/staging/sowerby/sow-plate-op-1.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/sowerby/sow-plate-template.png",
+  "renders/room-14-memorial-crowd-in-the-scene.png",
+  "art/staging/act-one-art/thad-ruler.png",
+  "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-plate, cap 2)",
+ "derivedFrom": "art/actors/room-14-sowerby-plate-right.png"
+}

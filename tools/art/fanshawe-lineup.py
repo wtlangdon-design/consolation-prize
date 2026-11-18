@@ -7,6 +7,7 @@ standing frame at the same man. The desk busts are hung from a standing man's cr
 blob) is measured: its width per man is the check, since the same man's head must be the same size everywhere.
 
   python3 tools/art/fanshawe-lineup.py [--frames FILE]   writes renders/fanshawe-lineup.png, prints the face widths
+  python3 tools/art/fanshawe-lineup.py --sowerby          the Reverend's sheets instead: renders/sowerby-lineup.png
 
 --frames takes a JSON {record-or-job: [x, y, w, h]} for sheets whose new frames the records do not have yet.
 """
@@ -27,6 +28,17 @@ SHEETS = [  # label, record, spriteWhen index, room file
     ('office, dinner', 'fanshawe', 0, 'fanshawe-office'),
     ('memorial (Boot Hill)', 'memorial-fanshawe', None, 'boot-hill'),
     ('wreath (Main St)', 'wreath-fanshawe', None, 'main-street'),
+]
+# The Reverend from every scene (Tyler, 2026-11-18: "now the priest is the one character out of place"; "All six
+# sheets"), with Fanshawe at Boot Hill beside him for the head size: python3 tools/art/fanshawe-lineup.py --sowerby
+SOWERBY = [
+    ('funeral', 'funeral-sowerby', None, 'funeral'),
+    ('procession', 'procession-sowerby', 0, 'boot-hill'),
+    ('gate (holds plate)', 'sowerby-gate', 0, 'boot-hill'),
+    ('gate (linen in)', 'sowerby-gate', 1, 'boot-hill'),
+    ('duel (Main St)', 'duel-sowerby', None, 'main-street'),
+    ('Nugget, back', 'sowerby', None, 'nugget-back'),
+    ('Fanshawe, memorial', 'memorial-fanshawe', None, 'boot-hill'),
 ]
 
 
@@ -49,7 +61,8 @@ def face_width(a):
 def main():
     over = json.load(open(sys.argv[sys.argv.index('--frames') + 1])) if '--frames' in sys.argv else {}
     cells, report = [], {}
-    for label, rid, when, room_id in SHEETS:
+    sow = '--sowerby' in sys.argv
+    for label, rid, when, room_id in (SOWERBY if sow else SHEETS):
         rec = json.load(open(R(f'content/ambient/{rid}.json')))
         sp = rec['sprite'] if when is None else {**rec['sprite'], **rec['spriteWhen'][when]['sprite']}
         key = rid if when is None else f'{rid}#{when}'
@@ -81,7 +94,7 @@ def main():
         d.text((x, base + 8), label, fill=(230, 230, 230, 255), font=fnt)
         d.text((x, base + 28), f'face {report[label]}', fill=(200, 200, 200, 255), font=fnt)
         x += f.width + 30
-    o.convert('RGB').save(R('renders/fanshawe-lineup.png'))
+    o.convert('RGB').save(R('renders/sowerby-lineup.png' if sow else 'renders/fanshawe-lineup.png'))
     print(json.dumps({'faceWidthAtMan': M, **report}))
 
 
