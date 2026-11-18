@@ -1,0 +1,17 @@
+{
+ "assetId": "sowerby-nugget",
+ "subject": "sowerby-nugget",
+ "role": "derived-state",
+ "promptFile": "reference/sowerby-art/sow-nugget-op-2.txt",
+ "out": "art/staging/sowerby/sow-nugget-op-2.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/sowerby/sow-nugget-op-1.png",
+  "art/staging/sowerby/sow-nugget-side-by-side.png",
+  "art/staging/act-one-art/thad-ruler.png",
+  "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-nugget, cap 2); correction after Tyler, 2026-11-18: \"The Nugget back image of the reverend has a comically small head\"",
+ "derivedFrom": 1
+}

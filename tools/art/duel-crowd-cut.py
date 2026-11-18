@@ -42,6 +42,18 @@ BREATHS = {'sow-praying': {}, 'sow-plate': {1: 0, 5: 4}}
 # standing the same way; the old sheet has both poses the same height (rows 0-313). Each pose is scaled to its own old
 # height, uniformly, so his crown is not cut off at the cell's top.
 PER_POSE = {'sow-praying'}
+# Tyler, 2026-11-18: "The Nugget back image of the reverend has a comically small head". Both of sowerby-nugget's
+# operations drew it so (the correction drew him bigger, not his head), and its cap is spent. The duel sheet is the same
+# Reverend in the same four pencil poses, with his head right: the Nugget sheet is cut from the duel's drawing.
+FROM = {'sow-nugget': ('sow-duel', 2)}   # the duel's correction: the pencil bold enough to survive the snap
+# Rows of headroom added above a sheet's cells. The duel drawing's raised pose lifts the pencil hand above his crown; the
+# Nugget cell's crown is on its top row, so the hand and pencil were cut off (511 px) and the pencil would vanish in that
+# one frame (errata 111). The cells grow upward only: the soles and figureHeight stay, and the engine draws an ambient by
+# figureHeight and stands its frame on its bottom row, so he is the same size in the same place. The record's frame rects
+# change (reported); that is the wiring's.
+HEADROOM = {'sow-nugget': 56, 'sow-duel': 24}
+OL_RESNAP = {'sow-nugget'}
+BY_CROWN = {'sow-duel', 'sow-nugget'}
 JOB = sys.argv[1]
 OPN = int(sys.argv[sys.argv.index('--op') + 1]) if '--op' in sys.argv else 1
 WRITE = '--write' in sys.argv
@@ -109,8 +121,14 @@ def main():
         rec = json.load(open(R(f'content/ambient/{name}.json')))
         sp = rec['sprite'] if when is None else {**rec['sprite'], **rec['spriteWhen'][when]['sprite']}
         if JOB in FRAMES: sp = {**sp, 'frames': FRAMES[JOB]}
-        lay = json.load(open(R(f'{SD}/{JOB}-layout.json')))
-        out_img = np.asarray(Image.open(R(f'{SD}/{JOB}-op-{OPN}.png')).convert('RGB')).astype(int)
+        src, src_op = FROM.get(JOB, (JOB, OPN))
+        lay = json.load(open(R(f'{SD}/{src}-layout.json')))
+        out_img = np.asarray(Image.open(R(f'{SD}/{src}-op-{src_op}.png')).convert('RGB')).astype(int)
+        if src != JOB:                                 # the source's own cell is the window its drawing was laid in
+            sn, sw = SOW[src][0], SOW[src][1]
+            srec = json.load(open(R(f'content/ambient/{sn}.json')))
+            ssp = srec['sprite'] if sw is None else {**srec['sprite'], **srec['spriteWhen'][sw]['sprite']}
+            globals()['WIN'] = ssp['frames'][0][2:4]
         old = np.asarray(Image.open(R(f'{SD}/{JOB}-old.png')).convert('RGBA'))
         globals()['ROOM_ID'] = room_id; globals()['SPRITE'] = sp
     else:
@@ -122,17 +140,28 @@ def main():
         globals()['ROOM_ID'] = 'main-street'; globals()['SPRITE'] = sp
     op = opaque_rgb(out_img)
     K = lay['k']; w, h = sp['frames'][0][2], sp['frames'][0][3]
+    ww, wh = globals().get('WIN') or (w, h)
     # One row of poses (Fanshawe): the window reaches well above and below the template's cell -- the operation drew him
     # taller than the cell (rows 217-823 against 252-772), and a window held to the cell cut off his shoes and hat-top.
     one_row = len({p[1] for p in lay['positions']}) == 1
-    figs = [window(out_img, op, pos, round(w * K), round(h * K), margin=min(30, round(w * K * 0.05)),
+    figs = [window(out_img, op, pos, round(ww * K), round(wh * K), margin=min(30, round(ww * K * 0.05)),
                    vmargin=150 if one_row else 0) for pos in lay['positions']]
     for fg in figs:                                   # nothing of the drawing may touch the window's top or bottom
         assert not alpha(fg)[0].any() and not alpha(fg)[-1].any(), 'a pose runs past its window: widen it'
     orest = old[sp['frames'][0][1]:sp['frames'][0][1] + h, sp['frames'][0][0]:sp['frames'][0][0] + w]
     o_r = rows_of(orest); n_r = rows_of(figs[0])
     f = (o_r[-1] - o_r[0] + 1) / (n_r[-1] - n_r[0] + 1)
+    if JOB in BY_CROWN:
+        # The pencil raised in the rest pose stands above his crown in the bold redraw: measured to its tip, he came out
+        # 1.8% short. The crown is the top of the columns over his torso (a quarter of the figure's width either side).
+        def crown(fg):
+            r = rows_of(fg); c = np.nonzero(alpha(fg).any(0))[0]; t = fg[r[0]:r[-1] + 1, c[0]:c[-1] + 1]
+            tx = cut['torso_x'](t); q = t.shape[1] / 4
+            return int(np.nonzero(alpha(t)[:, max(0, int(tx - q)):int(tx + q) + 1].any(1))[0][0]), t.shape[0]
+        oc, oh = crown(orest); nc, nh = crown(figs[0])
+        f = (oh - oc) / (nh - nc)
     scale_by = 'old rest height' if JOB not in PER_POSE else "each pose's own old height"
+    if JOB in BY_CROWN: scale_by = 'old rest height, crown to sole'
     if JOB == 'town-right':
         # Keeping the old group's height made the redrawn (longer-bodied) people taller than Thad beside them. The sheet
         # is 1:1 in the room (no figureHeight): its frontmost man -- the piece whose feet are lowest -- is the room's man
@@ -169,9 +198,13 @@ def main():
         W = max(W if JOB not in ALL else w, int(np.ceil(2 * (half + abs(ocx - w / 2)))) + 6)
     W += (W - w) % 2
     pad = (W - w) // 2
+    HR = HEADROOM.get(JOB, 0)
+    if HR:
+        old = np.vstack([np.zeros((HR, old.shape[1], 4), np.uint8), old]); h += HR
     old_w = np.zeros((old.shape[0], 2 + len(sp['frames']) * (W + 2), 4), np.uint8)
     new_frames = []
     for i, (x, y, fw, fh) in enumerate(sp['frames']):
+        fh += HR
         nx = 2 + i * (W + 2); old_w[y:y + fh, nx + pad:nx + pad + fw] = old[y:y + fh, x:x + fw]; new_frames.append([nx, y, W, fh])
     old_cells = {i: old_w[fr[1]:fr[1] + h, fr[0]:fr[0] + W] for i, fr in enumerate(new_frames)}
     cells, regs = {}, []
@@ -204,6 +237,14 @@ def main():
         cells[pose] = rim_clean(unpocket(despill_edge(snap(moved, block), width=max(2, int(np.ceil(block)) + 1))))
     for dst, srci in BREATHS.get(JOB, {1: 0}).items():   # the derived breaths, back on the level's grid
         cells[dst] = snap(breath(cells[srci], name), block)
+    if JOB in OL_RESNAP:
+        # tests/one-level.test.mjs lays its grid from the figure's own box, this cut from the cell's: the Nugget sheet's
+        # frame 0 read 8.7% finer than the level. Each cell is re-snapped by tools/art/one-level.py's own snap, crisp
+        # (--resnap: sampled at each block's centre).
+        ol = {'np': np, 'Image': Image, 'RESNAP': True}
+        src = open(R('tools/art/one-level.py')).read()
+        exec(src[src.index('def jsround'):src.index('def man_at')], ol)
+        cells = {i: ol['snap'](c, block) for i, c in cells.items()}
     sheet = np.zeros_like(old_w)
     for i, (x, y, fw, fh) in enumerate(new_frames):
         sheet[y:y + fh, x:x + fw] = cells[i]
@@ -221,12 +262,6 @@ def main():
     if WRITE:
         Image.fromarray(sheet).save(R(sp['sheet']))
         if JOB in ALL: print(json.dumps({'wrote': sp['sheet']}))
-        if JOB == 'sow-nugget':
-            # His frame 0 read 8.7% finer than the level (tests/one-level.test.mjs lays its grid from the figure's first
-            # opaque column, the cut from the cell's): re-snapped on that grid, crisp, by the tool the test names.
-            import subprocess
-            subprocess.run([sys.executable, R('tools/art/one-level.py'), '--only', os.path.basename(sp['sheet']), '--resnap'],
-                           check=True, stdout=subprocess.DEVNULL)
         render(rec, room, old, sheet)
 
 

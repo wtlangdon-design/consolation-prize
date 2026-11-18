@@ -47,10 +47,16 @@ def face_width(a):
     skin = (a[..., 0] > 110) & (a[..., 0] - a[..., 2] > 35) & al
     # the face: the topmost skin blob of a face's size (a speck between wreath flowers is not one), measured on its
     # widest rows above the moustache -- rows where it is at least half its own widest, in its upper half
+    # A hand raised beside or above the head is not the face (the Reverend's pencil hand read as a 10 px face): the
+    # face's blob must stand over the torso -- its centre within a tenth of the figure's height of the torso's middle,
+    # the median column of the figure's rows from 30% to 60% down.
+    rows = np.nonzero(al.any(1))[0]; H = rows[-1] - rows[0] + 1
+    tx = np.median(np.nonzero(al[rows[0] + int(H * 0.3):rows[0] + int(H * 0.6)])[1])
     lab, n = ndi.label(skin); fig = al.sum(); best = None
     for i in range(1, n + 1):
         m = lab == i; ys, xs = np.nonzero(m)
         if len(ys) < 0.004 * fig or xs.max() - xs.min() < 6 or ys.max() - ys.min() < 6: continue
+        if abs(xs.mean() - tx) > H * 0.1: continue
         if best is None or ys.min() < best[0]: best = (ys.min(), m)
     if best is None: return 0
     m = best[1]; ys = np.nonzero(m.any(1))[0]

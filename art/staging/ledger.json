@@ -57598,6 +57598,135 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-18T08:06:16.133Z"
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "assetId": "sowerby-nugget",
+   "subject": "sowerby-nugget",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/sowerby-art/sow-nugget-op-2.txt",
+   "promptHash": "4010689b4895f94e44ff35f28ef0cdeec19485a1740d60465d073b3989d2e6ef",
+   "references": [
+    {
+     "path": "art/staging/sowerby/sow-nugget-op-1.png",
+     "hash": "118712237fa70439d7a8bb06068447efc548753e4ff7ca73d7896ac476173719",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/sowerby/sow-nugget-side-by-side.png",
+     "hash": "e71a701092eb623d6183974d16f831742f4345d2a13dc96d471e696c3c45aae7",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "118712237fa70439d7a8bb06068447efc548753e4ff7ca73d7896ac476173719",
+   "sourcePath": "art/staging/sowerby/sow-nugget-op-1.png",
+   "out": "art/staging/sowerby/sow-nugget-op-2.png",
+   "outputHash": "e14ee5bcc9482d5dd14a5ca2ec617c913201ab38c55a55765e77bcc8e774b10c",
+   "bytes": 1411726,
+   "usage": {
+    "input_tokens": 4688,
+    "input_tokens_details": {
+     "image_tokens": 4350,
+     "text_tokens": 338
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 10176
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T17:03:08.206Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-nugget, cap 2); correction after Tyler, 2026-11-18: \"The Nugget back image of the reverend has a comically small head\"",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T17:03:08.222Z"
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "assetId": "sowerby-duel",
+   "subject": "sowerby-duel",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/sowerby-art/sow-duel-op-2.txt",
+   "promptHash": "25724acf24d092332f6fb4f95316f0566965444fedf5ce87dff0db33486df710",
+   "references": [
+    {
+     "path": "art/staging/sowerby/sow-duel-op-1.png",
+     "hash": "e4d37cdb87696ecc3324eae61ba806e6901bdbf4337f2060d1930a3393bc8786",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/sowerby/sow-duel-pencil-lost.png",
+     "hash": "2531e6197d810f8f8afbddc7533d9ced0582c3d0980d0463593dc9b45aad26e9",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "e4d37cdb87696ecc3324eae61ba806e6901bdbf4337f2060d1930a3393bc8786",
+   "sourcePath": "art/staging/sowerby/sow-duel-op-1.png",
+   "out": "art/staging/sowerby/sow-duel-op-2.png",
+   "outputHash": "c3a1baff9e5cbb08a3e5b8a8789c3c10287452d7dd69b6dab78329ab6fd39786",
+   "bytes": 1343009,
+   "usage": {
+    "input_tokens": 3564,
+    "input_tokens_details": {
+     "image_tokens": 3254,
+     "text_tokens": 310
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 9052
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T17:14:35.100Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-18: \"All six sheets (Recommended)\" -- the Reverend redrawn in every sheet (sowerby-duel, cap 2); correction: the pencil lost at game size (errata 111), found checking the Nugget sheet cut from this drawing after Tyler, 2026-11-18: \"The Nugget back image of the reverend has a comically small head\"",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T17:14:35.113Z"
   }
  ],
  "promotions": [

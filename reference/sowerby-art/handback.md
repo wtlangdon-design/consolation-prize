@@ -11,19 +11,33 @@ Tyler, 2026-11-18, after the mourners: **"Great. But now the priest is the one c
 - `spendTokensTotal` raised 4,840,000 → 4,970,000;
 - `attemptsTotal` raised 471 → 483.
 
-**Six operations are spent, 58,267 billed tokens in all:**
+**Eight operations are spent, 77,495 billed tokens in all:**
 
 | Sheet | Operations | Tokens |
 |---|---|---|
 | master (funeral, procession, gate) | 2 (drawing + correction) | 19,046 |
 | praying (procession) | 1 | 9,796 |
 | plate (gate) | 1 | 9,818 |
-| duel (Main Street) | 1 | 9,804 |
-| Nugget, back room | 1 | 9,803 |
+| duel (Main Street) | 2 (drawing + correction) | 18,856 |
+| Nugget, back room | 2 (drawing + correction, **not used**) | 19,979 |
 
-The ledger is at 477 attempts and 4,881,581 tokens, about 88,000 under the cap. Four sheets still have their correction in hand.
+The ledger is at 479 attempts and 4,900,809 tokens, about 69,000 under the cap. The praying and plate sheets still have their correction in hand; the other three have none left.
 
-Nothing in `content/` or `docs/` is touched. Each sheet replaces the old one at its own path, with **the same frames, cells, soles and anchors**, so no record changes and nothing needs wiring beyond merging. **Not merged; the main session ships it.**
+Nothing in `content/` or `docs/` is touched. **Not merged; the main session ships it.**
+
+**Three sheets replace the old ones with the same frames, cells, soles and anchors:** master, praying and plate. **Two need their records' frame rects changed in the same merge** (below): the duel and the Nugget sheets are taller at the top. Merged without that change, the game reads the taller sheets with the old cells and draws them wrong.
+
+## The wiring: two records' frames
+
+| Record | `sprite.frames` now | `sprite.frames` to set |
+|---|---|---|
+| `content/ambient/duel-sowerby.json` | `[2 + 196i, 2, 194, 400]`, i = 0-4 | **`[2 + 196i, 2, 194, 424]`** |
+| `content/ambient/sowerby.json` | `[2 + 224i, 2, 222, 437]`, i = 0-4 | **`[2 + 224i, 2, 222, 493]`** |
+
+Nothing else changes:
+- `figureHeight` (380 and 437) and the anchors stay.
+- The cells grow **upward only**: 24 and 56 rows of headroom above the old top, with the soles on the same bottom row. The engine draws an ambient at `figureHeight` and stands the frame on its bottom row, so he is the same size in the same place.
+- The headroom holds his raised pencil hand. Without it, the top of the cell cut off the hand and the pencil in the raised pose, and the pencil would vanish in that one frame (errata 111).
 
 ## How
 
@@ -67,10 +81,10 @@ The correction was shown him beside Thad at the graveside (`art/staging/sowerby/
 | procession | 21.0 |
 | gate (holds plate) | 21.0 |
 | gate (linen in) | 23.9 |
-| duel | 29.2 |
-| Nugget | 18.5 |
+| duel | 26.1 |
+| Nugget | 26.1 |
 
-His white beard and hair are not skin, so that measure under-reads him. On a ruler at the line-up's scale, every Reverend head runs crown to beard in about 15-17 px per 300, the same as Thad's and Fanshawe's. The duel head is a shade broader and the Nugget's a shade narrower, each within a couple of pixels, so **no further correction was spent.**
+His white beard and hair are not skin, so that measure under-reads the funeral, procession and gate sheets (21-24). On a ruler at the line-up's scale, those heads run crown to beard in about 15-17 px per 300, the same as Thad's and Fanshawe's. **The first hand-back said the same of the Nugget sheet at 18.5, and that was wrong** (below).
 
 **Light and texture**, rest frame at game size:
 
@@ -79,14 +93,49 @@ His white beard and hair are not skin, so that measure under-reads him. On a rul
 | master (op 2) | 3.26 | 29.3 | 34.4 | 4.96 / 32.9 / 60.4 |
 | praying | 4.00 | 31.1 | 43.5 | 5.64 / 32.6 / 59.8 |
 | plate | 6.18 | 44.8 | 59.6 | 5.63 / 32.6 / 59.9 |
-| duel | 8.68 | 32.4 | 50.1 | 10.79 / 31.5 / 60.1 |
-| Nugget | 4.04 | 34.8 | 55.1 | 3.93 / 33.0 / 60.0 |
+| duel (op 2) | 8.81 | 35.2 | 54.3 | 10.79 / 31.5 / 60.1 |
+| Nugget (from the duel's op 2) | 3.18 | 33.8 | 49.6 | 3.93 / 33.0 / 60.0 |
 
 ## For Tyler's eye
 
-1. **The gate's plate sheet** is a little crisper and higher in contrast than Thad: texture 6.18 against 5.63, contrast 44.8 against 32.6. It passes the light check, and in the scene it reads as the same man. Its correction is in hand if you see it as sharp.
-2. **The master is now darker than the plate and praying sheets.** At the gate the sheet changes when he holds the plate or takes the linen in, so he lightens a little at that moment. The plate sheet's correction could darken it to match.
-3. **The duel sheet's pencil:** in the pose with it raised, its tip runs 44 px past the cell's top (the old pencil ran to row 0), so the tip is a few pixels shorter.
+1. **The pencil** (duel and Nugget) is bold and bright yellow, nearer a crayon than a pencil, so that it survives at game size. Neither sheet has an operation left to thin it.
+2. **The gate's plate sheet** is a little crisper and higher in contrast than Thad: texture 6.18 against 5.63, contrast 44.8 against 32.6. It passes the light check, and in the scene it reads as the same man. Its correction is in hand if you see it as sharp.
+3. **The master is now darker than the plate and praying sheets.** At the gate the sheet changes when he holds the plate or takes the linen in, so he lightens a little at that moment. The plate sheet's correction could darken it to match.
+
+## The Nugget's head, and the pencil (after Tyler's first look)
+
+Tyler, 2026-11-18: **"The Nugget back image of the reverend has a comically small head."** He was right.
+
+**The line-up flagged it and I overrode it.** It measured the Nugget face at 18.5 against Thad's 26.4. I read that as the beard fooling the measure, and checked the head in the line-up's strip rather than beside Thad in his own room. In the room it was plainly half-size.
+
+**Lesson, for doc 55 §8** (the main session's; `docs/` is not this branch's): when the line-up flags a head, look at that sheet beside Thad in its own room before overriding the number.
+
+**What was done:**
+1. **The Nugget correction missed.** Operation 2 (`sow-nugget-op-2.txt`) was shown him beside Thad and asked for a head Thad's size. It drew the whole man bigger, so cut to his height the head was as small as before. That sheet's cap is spent.
+2. **The Nugget sheet is cut from the duel's drawing instead.** The duel sheet is the same Reverend in the same four pencil poses (raised, at the chest, leaning, raised high), and its head measured right. `FROM` in the cut tool takes the duel's drawing and fits it to the Nugget sheet's cells, height and anchor. Its face now reads 26.1 against Thad's 26.4.
+3. **That showed the pencil was lost.** In the duel drawing the pencil is a hairline, and at game size the snap left a floating speck in poses 0 and 1. That would break errata 111 in both the duel and the Nugget sheets, and **it was in the first push of the duel sheet**: I missed it there.
+4. **The duel correction** (`sow-duel-op-2.txt`) was shown the frames as the game draws them. It redrew only the pencil, bold, and now it is in every frame of both sheets.
+5. **Headroom.** The bold pencil, raised, stands above his crown. Hence the taller cells above. The cut also scales both sheets by **crown to sole**, read over the torso's columns, not to the pencil tip. Measured to the tip, he came out 1.8% short. Now the sheets measure 378 against 380 and 435 against 437, within a block.
+6. **The Nugget sheet is re-snapped by `one-level.py`'s own `snap`**, crisp (`--resnap` mode), so the one-level test reads it on its own grid. The cut does this itself (`OL_RESNAP`).
+
+**The line-up tool's face finder misread the raised hand too.** It took the topmost skin blob, the pencil hand, as the face (10.3). It now takes only a blob centred over the torso. Fanshawe's line-up numbers are unchanged by this: 28.1, 34.4, 33.8, 26.5, 29.1.
+
+## One test for the main session to decide: `duel_sowerby faces front`
+
+With the new frames wired, all 67 checks pass and 2,095 of 2,096 tests pass. The one failure is `tests/faces.test.mjs`, "duel_sowerby faces front": it reads **-7.8** against its limit of ±3.
+
+- **It is the raised hand, not his face.** The test reads the top 16% of the figure, and with the bold pencil the top of the figure is the pencil tip. So his raised hand falls in the band and pulls the skin centroid left.
+- **Measured over the head alone** (columns right of the hand), he reads **-1.5** (the Nugget sheet **-1.3**): to the front.
+- The committed operation 1 sheet read 0.8, its thin pencil keeping the hand out of the band.
+
+**I changed nothing in the test.** Either teach `facing()` to start its band at the crown over the torso (as the cut and the line-up now do), or Tyler rules it (`facesRuledBy`). Neither is a looser threshold.
+
+**As pushed, with the old records,** four tests fail:
+- that one;
+- `tests/one-level.test.mjs`;
+- the two "drawn 0.97-1.03 of Thad" height tests for these two records.
+
+The last three are the taller sheets read with the old cells, and they pass once the frames above are set.
 
 ## What to look at
 
@@ -96,5 +145,5 @@ His white beard and hair are not skin, so that measure under-reads him. On a rul
 
 ## Checks
 
-- All 67 checks pass.
-- All 2,096 tests pass.
+- **With the two records' frames set as above:** all 67 checks pass, and 2,095 of 2,096 tests pass. The failure is the faces misread above.
+- **As pushed, with the old records:** all 67 checks pass, and 2,092 of 2,096 tests pass. The four failures are listed above.
