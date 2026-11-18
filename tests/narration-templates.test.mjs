@@ -86,3 +86,17 @@ test('the game as it stands passes, and every allowlisted phrase is still in use
   assert.ok(readAllowlist().length > 0);
   assert.deepEqual(report.notes.filter((one) => one.includes('can come off the list')), []);
 });
+
+test('a phrase never runs across a comma or a stop (the check review, 2026-11-18), and inside a clause is found as before', () => {
+  // Across: "every time, like a step" was "time like"; "Nothing. It's waiting" was "nothing it's waiting".
+  const across = each(
+    'Every time, like a step.', 'One more time, like a bell.', 'Each time, like a door.', 'A long time, like a hymn.',
+    'Nothing. It\'s waiting for me.', 'Nothing. It\'s waiting, I think.', 'Nothing. It\'s waiting again.', 'Nothing. It\'s waiting still.',
+  );
+  const phrases = findTemplates(across, { over: 0 }).map((one) => one.phrase);
+  assert.ok(!phrases.includes('time like'), phrases.join(' | '));
+  assert.ok(!phrases.some((phrase) => phrase.startsWith('nothing it')), phrases.join(' | '));
+  // Inside: the same words in one clause are still a habit.
+  const inside = each('Every time like a step.', 'One more time like a bell.', 'Each time like a door.', 'A long time like a hymn.');
+  assert.ok(check({ lines: inside, allowlist: [] }).failures.some((one) => one.startsWith('"time like" x4')));
+});

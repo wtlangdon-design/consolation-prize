@@ -19,7 +19,8 @@
  * the board, not a habit; "four minutes" said of four pianos is a habit. A
  * line written twice (the same pair under two items) is one line.
  *
- * A PHRASE is a run of three to five words inside one line, with its leading
+ * A PHRASE is a run of three to five words inside one clause of a line (it
+ * never runs across a comma or a stop: the check review, 2026-11-18), with its leading
  * and trailing stopwords taken off ("in four minutes" and "four minutes ago"
  * are both "four minutes"), and at least two words left -- except that five
  * words around a single one are kept whole, because that is what a sentence
@@ -186,14 +187,23 @@ export function gameThadLines() {
   return [...seen.values()];
 }
 
-/** The words of a line, lowercased, each with whether it was capitalised and whether it began a sentence. */
+/**
+ * The words of a line, lowercased, each with whether it was capitalised, whether it began a sentence, and which
+ * clause it is in. A CLAUSE ends at a comma as well as a stop (the check review, 2026-11-18): "every time, like a
+ * step" is not the phrase "time like", and a phrase is never read across one.
+ */
 function words(line) {
   const out = [];
+  let clause = 0;
   for (const sentence of line.split(/[.!?…:;—–"“”‘’()]+/)) {
-    const found = sentence.match(/[\p{L}\p{N}]+(?:['’][\p{L}]+)*/gu) ?? [];
-    found.forEach((word, at) => out.push({
-      word: word.toLowerCase().replace(/’/g, "'"), capital: /^\p{Lu}/u.test(word), opens: at === 0,
-    }));
+    sentence.split(',').forEach((part, index) => {
+      const found = part.match(/[\p{L}\p{N}]+(?:['’][\p{L}]+)*/gu) ?? [];
+      // Only a sentence's first word opens it: a clause after a comma does not, so a name is still judged there.
+      found.forEach((word, at) => out.push({
+        word: word.toLowerCase().replace(/’/g, "'"), capital: /^\p{Lu}/u.test(word), opens: index === 0 && at === 0, clause,
+      }));
+      clause += 1;
+    });
   }
   return out;
 }
@@ -251,8 +261,22 @@ export function findTemplates(input, { over = REPORT_OVER } = {}) {
   const where = new Map();
   parsed.forEach((said, index) => {
     const tokens = said.map((one) => one.word);
+    // A CLAUSE'S EDGE STANDS FOR A STOPWORD. A window that ran across a stop used to take its stopword from the next
+    // sentence ("Four minutes. A record." gave "four minutes" through "a"); bounded, the edge does that work, so a
+    // phrase that ends a clause is found as one in its middle is.
+    for (let at = 0; at + 2 <= tokens.length; at += 1) {
+      const clause = said[at].clause;
+      if (said[at + 1].clause !== clause) continue;
+      const opens = at === 0 || said[at - 1].clause !== clause;
+      const closes = at + 2 === said.length || said[at + 2].clause !== clause;
+      if (!(opens || closes) || STOPWORDS.has(tokens[at]) || STOPWORDS.has(tokens[at + 1])) continue;
+      const phrase = `${tokens[at]} ${tokens[at + 1]}`;
+      if (!where.has(phrase)) where.set(phrase, new Set());
+      where.get(phrase).add(index);
+    }
     for (let size = 3; size <= 5; size += 1) {
       for (let at = 0; at + size <= tokens.length; at += 1) {
+        if (said[at].clause !== said[at + size - 1].clause) continue;
         let gram = tokens.slice(at, at + size);
         while (gram.length && STOPWORDS.has(gram[0])) gram = gram.slice(1);
         while (gram.length && STOPWORDS.has(gram[gram.length - 1])) gram = gram.slice(0, -1);

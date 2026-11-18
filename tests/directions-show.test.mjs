@@ -22,7 +22,7 @@ const EXPLAINS = /\b(warmly|warmth|genuine(?:ly)?|delight|puzzled|wounded|savou?
 
 const PENDING = {
   // Row 168 of reference/acted-directions-3: the pose is to be drawn, and once acted it prints nothing (doc 95 rule 1).
-  'dialogue/amb-bell-ringer.json': 1,
+  'dialogue/amb-bell-ringer.json': 1, // ratchet: only ever lowered, then the line goes
 };
 
 function files(dir, prefix = '') {

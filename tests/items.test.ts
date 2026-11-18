@@ -212,6 +212,8 @@ test('every item is doc 23\'s: one row and one section each, the names it gives,
   }
 });
 
+// EVERY ITEM HAS AN ICON (CLAUDE.md, "Validation, not judgement"). tests/lessons.test.ts held a copy of this rule
+// until the check review merged it here (2026-11-18); lessons still holds that every item content hands over is loaded.
 test('every item has an icon cell inside the sheet, with something drawn in it', () => {
   const table = content.itemIcons;
   const sheet = readPng(readFileSync(resolve(ROOT, table.sheet)));

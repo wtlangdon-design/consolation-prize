@@ -72,10 +72,9 @@ test('a character whose condition ends while the player watches stays, unless he
 
 /* ---- 2. Every item the game can hand over is a real item ----------------- */
 
-test('every item content can grant, require or yield is in the manifest and has an icon', () => {
+test('every item content can grant, require or yield is in the manifest (its icon: tests/items.test.ts)', () => {
   const manifest = read('content/manifest.json') as { items: string[] };
   const items = new Map(manifest.items.map((path) => { const item = read(path); return [item.id as string, item]; }));
-  const icons = read('content/ui/item-icons.json').icons as Record<string, unknown>;
   const referenced = new Map<string, string>();
   const note = (id: unknown, where: string) => { if (typeof id === 'string') referenced.set(id, where); };
   const combinations = read('content/combinations.json');
@@ -130,9 +129,9 @@ test('every item content can grant, require or yield is in the manifest and has 
   }
   const missing = [...referenced].filter(([id]) => !items.has(id)).map(([id, where]) => `${id} (${where})`);
   assert.deepEqual(missing, [], 'items content hands over that the game does not load -- add them to the manifest');
-  // An icon another session is to draw (errata 237) says so, with the art it waits on (tools/check-item-names.mjs).
-  const noIcon = [...items.values()].filter((item) => !item.fixture && !icons[item.id] && !item.iconPending).map((item) => item.id);
-  assert.deepEqual(noIcon, [], 'items with no icon -- draw one in tools/pixelart/item_icons.py');
+  // ITS ICON is held in tests/items.test.ts, 'every item has an icon cell inside the sheet, with something drawn in
+  // it': the same rule, and more (the cell inside the sheet, something drawn in it). This test held a copy of it until
+  // the check review merged the two (recommended by the 2026-11-09 review; ruled by Tyler 2026-11-18, "do all four").
 });
 
 test('an item doc 23 holds "from the start" is carried before anything happens', async () => {

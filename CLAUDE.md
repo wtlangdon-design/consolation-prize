@@ -166,7 +166,7 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 - Save/load restores exact state including partial dialogue trees
 - 60fps on a Chromebook
 - Nobody stands on anybody: every conversation stand and every talking character is clear of the other figures, on drawn pixels (`tests/staging-clear.test.ts`)
-- Nobody vanishes in front of Thad; every item content hands over is loaded and has an icon; every puzzle sited in built rooms is played by a test or its reason is recorded (`tests/lessons.test.ts`)
+- Nobody vanishes in front of Thad; every item content hands over is loaded and has an icon; every puzzle sited in built rooms is played by a test or its reason is recorded (`tests/lessons.test.ts`; the icon in `tests/items.test.ts`)
 
 **Every correction carries its lesson.** A fix for something Tyler, a proof or a review found is not done until the same PR adds a check that fails on that defect (proved by reintroducing it), or, for matters of taste, a row in doc 55 §8. Fixing only the one room teaches the next thirty nothing. **CI enforces it** (`tools/check-lesson-carried.mjs`, in the `check` job on every pull request): a PR whose title or description reads as a fix and changes no test, no `tools/check-*.mjs` and no line of doc 55 §8 fails. A PR that fixes nothing -- a first build of a room, a build-log entry -- says so in its description with a line `Lesson: none -- <why>`.
 
