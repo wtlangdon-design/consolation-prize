@@ -57794,6 +57794,68 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-18T18:27:55.603Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "act3-mourners-bowed",
+   "subject": "act3-mourners-bowed",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/room-31-mourners-master.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/act3-mourners-bowed/op-1.txt",
+   "promptHash": "575d46de055c2f809f7c183fbce1f19976be49cc9626daa2f2b6d5d47d2de7db",
+   "references": [
+    {
+     "path": "art/staging/act3-mourners-bowed/op-1/template.png",
+     "hash": "a8fc871ddff62e27ac635d30ef9172c57cac810f22b75458192e01b4d99dbf6f",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act3-mourners-bowed/bowed-as-it-is.png",
+     "hash": "dbb6575ffcfe83bbe82c9cacb8ff83f193d3f2e9e4d280726a93cd3f24529b1e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act3-mourners-bowed/graveside-with-redrawn-mourners.png",
+     "hash": "bf6732386a535d86ca4923d8fcab5d6aca4ac5854081f7e284ae1a69d38c110d",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "a8fc871ddff62e27ac635d30ef9172c57cac810f22b75458192e01b4d99dbf6f",
+   "sourcePath": "art/staging/act3-mourners-bowed/op-1/template.png",
+   "out": "art/staging/act3-mourners-bowed/op-1/sheet.png",
+   "outputHash": "13c97a6ca634884db953ff61ac8c893e7d6ff2c13791962d484a2d584e86fc17",
+   "bytes": 1485596,
+   "usage": {
+    "input_tokens": 4224,
+    "input_tokens_details": {
+     "image_tokens": 3824,
+     "text_tokens": 400
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 9712
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T21:37:01.300Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-18: \"I think just the Act III mourners to match the previous mourners\" (act3-mourners-bowed, cap 2; reference/act3-mourners-bowed/brief.md, errata 378)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T21:37:01.317Z"
   }
  ],
  "promotions": [

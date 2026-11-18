@@ -12,7 +12,11 @@ snapped to one level -- into their own sheet, frames the size of the shipping on
 At their existing drawn size; the room scales them. The main session wires them (an ambient placement in Room 14,
 or frames appended to the Room 31 record).
 
-Usage: act3-mourners-cut.py [--write]
+Usage: act3-mourners-cut.py [--sheet STAGING.png] [--out SHEET.png] [--write]
+
+--sheet cuts another three-group drawing made the same way. act3-mourners-bowed operation 1 redrew the prayer from
+the memorial's new rest frame (errata 378; Tyler, 2026-11-18: "I think just the Act III mourners to match the previous
+mourners"): art/staging/act3-mourners-bowed/op-1/sheet.png. --out writes somewhere other than the shipping sheet.
 """
 import json, os, sys, tempfile
 import numpy as np
@@ -45,13 +49,14 @@ def spill_left(a, tolerance=6):
 
 
 REC = 'content/ambient/funeral-mourners.json'
-OUT = os.path.join(ROOT, 'art/actors/room-14-mourners-bowed.png')
+arg = lambda k, d: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
+OUT = os.path.join(ROOT, arg('--out', 'art/actors/room-14-mourners-bowed.png'))
 rec = read(REC); s = rec['sprite']
 sheet = np.asarray(Image.open(os.path.join(ROOT, s['sheet'])).convert('RGBA'))
 x, y, w, h = s['frames'][0]
 rest_cell = sheet[y:y + h, x:x + w].copy()
 target = int(rows(rest_cell)[-1] - rows(rest_cell)[0] + 1)
-STAGING = os.path.join(ROOT, 'art/staging/act3-hearse/op-2/sheet.png')
+STAGING = os.path.join(ROOT, arg('--sheet', 'art/staging/act3-hearse/op-2/sheet.png'))
 with tempfile.TemporaryDirectory() as tmp:
     # cut_row reads art/staging/cast-unify/batch-NN/sheet.png; point a batch number at this operation's sheet
     link = os.path.join(ROOT, 'art/staging/cast-unify/batch-act3-mourners')

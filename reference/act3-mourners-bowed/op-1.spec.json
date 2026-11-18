@@ -1,0 +1,16 @@
+{
+ "assetId": "act3-mourners-bowed",
+ "subject": "act3-mourners-bowed",
+ "role": "canonical-design",
+ "promptFile": "reference/act3-mourners-bowed/op-1.txt",
+ "out": "art/staging/act3-mourners-bowed/op-1/sheet.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/act3-mourners-bowed/op-1/template.png",
+  "art/staging/act3-mourners-bowed/bowed-as-it-is.png",
+  "art/staging/act3-mourners-bowed/graveside-with-redrawn-mourners.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-18: \"I think just the Act III mourners to match the previous mourners\" (act3-mourners-bowed, cap 2; reference/act3-mourners-bowed/brief.md, errata 378)",
+ "derivedFrom": "art/actors/room-31-mourners-master.png"
+}
