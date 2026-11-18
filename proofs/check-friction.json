@@ -1327,6 +1327,42 @@
    "date": "2026-11-16",
    "kind": "loosened",
    "why": "Errata 368: a grade may lean to no colour (strength 0) when it only deepens a room (the caves, back to one lamp's dark); deepen is held between 1 and 1.5, and strength-0 tints are left out of the same-colour count. Every graded picture is still its original through the one function."
+  },
+  {
+   "check": "tools/check-friction.mjs",
+   "date": "2026-11-18",
+   "kind": "loosened",
+   "why": "The twice-monthly check review (2026-11-16), ruled by Tyler 2026-11-18: \"do all four\". Two kinds its reviews kept clearing no longer count: a played-pending entry that carries its reason (one without fails here instead), and a line marked `// ratchet` whose numbers only go down. Not a misfire on any one pull request: the alarm counted every edit to a number as loosening, and a ratchet is edited each time it turns. It is also stricter: it now sees ruled scale ranges, comicExempt and reachException, which it could not."
+  },
+  {
+   "check": "tools/check-friction.mjs",
+   "date": "2026-11-18",
+   "kind": "reviewed",
+   "why": "TUNED in this pull request (The twice-monthly check review (2026-11-16), ruled by Tyler 2026-11-18: \"do all four\".). tests/check-friction.test.mjs proves each rule both ways: a ratchet lowered passes, raised or reshaped or newly marked and moved fails; a pending entry without a reason fails; the three newly watched lists are counted when they grow and not when they shrink. Not for retirement: it is the alarm CLAUDE.md asks for."
+  },
+  {
+   "check": "tools/check-narration-templates.mjs",
+   "date": "2026-11-18",
+   "kind": "loosened",
+   "why": "The twice-monthly check review (2026-11-16), ruled by Tyler 2026-11-18: \"do all four\". A phrase is now counted inside one clause, never across a comma or a stop -- the misfire the 2026-11-10 review found ('every time, like a step' was 'time like'). A clause's edge stands for the stopword the window used to borrow from the next sentence, so a phrase that ends one is still found. The count of what it reports moved both ways: ten allowlisted phrases were only ever misfires, and 27 it could not see before are found."
+  },
+  {
+   "check": "content/checks/narration-allowlist.json",
+   "date": "2026-11-18",
+   "kind": "loosened",
+   "why": "The twice-monthly check review (2026-11-16), ruled by Tyler 2026-11-18: \"do all four\". The 27 phrases the clause-bounded check finds that the old window could not ('still air' x4, 'somewhere inside' x5, 'step flat' x6 ...), listed for the voice pass to judge as the first run's were (errata 226), not ruled; 'nothing coming' is doc 17's. Ten entries that were only ever cross-punctuation misfires come off."
+  },
+  {
+   "check": "content/checks/narration-allowlist.json",
+   "date": "2026-11-18",
+   "kind": "reviewed",
+   "why": "TUNED, the tune the 2026-11-10 review put to this review: tools/check-narration-templates.mjs bounds phrases to a clause (The twice-monthly check review (2026-11-16), ruled by Tyler 2026-11-18: \"do all four\".). Its three loosenings in fourteen days (errata 339, errata 342, and this) were approved writing reaching a fourth subject and this tune's own findings, not misfires. Not for retirement: it is the only check that hears Thad repeating himself."
+  },
+  {
+   "check": "tests/lessons.test.ts",
+   "date": "2026-11-18",
+   "kind": "reviewed",
+   "why": "MERGED, as the 2026-11-09 review recommended (The twice-monthly check review (2026-11-16), ruled by Tyler 2026-11-18: \"do all four\".): its copy of the icon rule is gone, held once in tests/items.test.ts ('every item has an icon cell inside the sheet, with something drawn in it'), which checks more. Proved: removing tuning_fork's icon fails items.test. Lessons keeps 'every item content hands over is loaded'; CLAUDE.md's validation list names both files."
   }
  ]
 }
