@@ -57727,6 +57727,73 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-18T17:14:35.113Z"
+  },
+  {
+   "attempt": 3,
+   "role": "derived-state",
+   "assetId": "sowerby-duel",
+   "subject": "sowerby-duel",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 2,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/sowerby-art/sow-duel-op-3.txt",
+   "promptHash": "100bc79ee9d3fc55c1b840e5ce180aa682887148ce3b6fb2153a545d1f76781e",
+   "references": [
+    {
+     "path": "art/staging/sowerby/sow-duel-op-2.png",
+     "hash": "c3a1baff9e5cbb08a3e5b8a8789c3c10287452d7dd69b6dab78329ab6fd39786",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/sowerby/sow-master-op-2.png",
+     "hash": "6d99e6d029466deaa3d10764ab331ee5688fed67dcaaaaeb8f26ed53f10a0c44",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/sowerby/sow-duel-heads-compared.png",
+     "hash": "411c6a5451e2708fe4a71363723002266d4bd50dedd544eb0e6014404e179aab",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "c3a1baff9e5cbb08a3e5b8a8789c3c10287452d7dd69b6dab78329ab6fd39786",
+   "sourcePath": "art/staging/sowerby/sow-duel-op-2.png",
+   "out": "art/staging/sowerby/sow-duel-op-3.png",
+   "outputHash": "12652d8022c40bd595f4b6e5dfe1e229acfdcdba6e75f18ba3911d7c9d80225e",
+   "bytes": 1456330,
+   "usage": {
+    "input_tokens": 5421,
+    "input_tokens_details": {
+     "image_tokens": 4940,
+     "text_tokens": 481
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 10909
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-18T18:27:55.584Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-18: \"His face in the duel and the Nugget is very very rudimentary versus the way it looks in the other images of him. Also, why is he looking so yellow?\"; \"1 op, +1 correction (Recommended)\" (sowerby-duel cap 2 -> 4)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-18T18:27:55.603Z"
   }
  ],
  "promotions": [

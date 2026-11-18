@@ -45,12 +45,18 @@ PER_POSE = {'sow-praying'}
 # Tyler, 2026-11-18: "The Nugget back image of the reverend has a comically small head". Both of sowerby-nugget's
 # operations drew it so (the correction drew him bigger, not his head), and its cap is spent. The duel sheet is the same
 # Reverend in the same four pencil poses, with his head right: the Nugget sheet is cut from the duel's drawing.
-FROM = {'sow-nugget': ('sow-duel', 2)}   # the duel's correction: the pencil bold enough to survive the snap
+FROM = {'sow-nugget': ('sow-duel', 3)}   # the duel's third drawing: his face and colours to the master's, the pencil kept
 # Rows of headroom added above a sheet's cells. The duel drawing's raised pose lifts the pencil hand above his crown; the
 # Nugget cell's crown is on its top row, so the hand and pencil were cut off (511 px) and the pencil would vanish in that
 # one frame (errata 111). The cells grow upward only: the soles and figureHeight stay, and the engine draws an ambient by
 # figureHeight and stands its frame on its bottom row, so he is the same size in the same place. The record's frame rects
 # change (reported); that is the wiring's.
+# A drawing that did not keep its poses where the template put them. sow-duel operation 3 (Tyler, 2026-11-18: "His face
+# in the duel and the Nugget is very very rudimentary ... why is he looking so yellow?") drew the four poses a little to
+# the left, copied a row of heads from the reference along the bottom (rows 760-910) and Thad at the right. Below `clip`
+# is cleared to the key (only those copied heads are there; his soles are near 650), and the poses are found where they
+# stand: the `n` largest figures above it, left to right, Thad (the rightmost, in blue) left out.
+DETECT = {('sow-duel', 3): {'clip': 720, 'n': 4}}
 HEADROOM = {'sow-nugget': 56, 'sow-duel': 24}
 OL_RESNAP = {'sow-nugget'}
 BY_CROWN = {'sow-duel', 'sow-nugget'}
@@ -141,10 +147,19 @@ def main():
     op = opaque_rgb(out_img)
     K = lay['k']; w, h = sp['frames'][0][2], sp['frames'][0][3]
     ww, wh = globals().get('WIN') or (w, h)
+    det = DETECT.get(FROM.get(JOB, (JOB, OPN)) if JOB in FROM else (JOB, OPN)) if JOB in SOW else None
+    if det:
+        from scipy import ndimage as ndi
+        out_img = out_img.copy(); out_img[det['clip']:] = (255, 0, 255); op = opaque_rgb(out_img)
+        lab, n = ndi.label(op); sizes = ndi.sum(op, lab, range(1, n + 1))
+        big = sorted(range(n), key=lambda i: -sizes[i])[:det['n'] + 1]
+        boxes = sorted(ndi.find_objects(lab)[i] for i in big)
+        boxes = sorted(boxes, key=lambda b: b[1].start)[:det['n']]          # left to right; Thad, rightmost, left out
+        lay = {**lay, 'positions': [[int((b[1].start + b[1].stop) / 2 - round(ww * K) / 2), lay['positions'][0][1]] for b in boxes]}
     # One row of poses (Fanshawe): the window reaches well above and below the template's cell -- the operation drew him
     # taller than the cell (rows 217-823 against 252-772), and a window held to the cell cut off his shoes and hat-top.
     one_row = len({p[1] for p in lay['positions']}) == 1
-    figs = [window(out_img, op, pos, round(ww * K), round(wh * K), margin=min(30, round(ww * K * 0.05)),
+    figs = [window(out_img, op, pos, round(ww * K), round(wh * K), margin=10 if det else min(30, round(ww * K * 0.05)),
                    vmargin=150 if one_row else 0) for pos in lay['positions']]
     for fg in figs:                                   # nothing of the drawing may touch the window's top or bottom
         assert not alpha(fg)[0].any() and not alpha(fg)[-1].any(), 'a pose runs past its window: widen it'
