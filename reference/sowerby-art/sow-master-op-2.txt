@@ -1,0 +1,7 @@
+Image 1 is a sheet from my pixel-art adventure game on magenta: the town's Reverend, an old man with white hair and a white beard in a long black frock coat, in four frames. KEEP HIM EXACTLY: every frame in place, the same man, the same small head, the same poses, the same height, the same outline. Redraw only his LIGHT.
+
+Image 2 is him at the graveside at night beside Thad (the hero, blue coat, right), at game size: the Reverend is TOO BRIGHT for the night. His coat reads as a lit grey-green and his face, hair and beard as lit by a lamp, while Thad beside him stands in dim moonlight. Image 3 is Thad, the standard.
+
+Redraw the Reverend DARKER, in the same dim night light as Thad: the frock coat, waistcoat and trousers a deep near-black, darker than Thad's blue coat; the face and hands a muted, shadowed skin no lighter than Thad's face; the white hair, beard and collar a dim grey-white, not bright. Keep the soft broad shading, two or three tones per material, no crisp highlights, no hard dark lines inside the figure, square pixels. Change nothing else.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text, no numbers, no border.
