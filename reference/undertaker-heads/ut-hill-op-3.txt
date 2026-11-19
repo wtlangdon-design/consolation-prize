@@ -1,0 +1,7 @@
+Image 1 is a sheet from my pixel-art adventure game on magenta: the town's undertaker, a lean man with grey hair and a grey moustache in a long black frock coat, in four frames. KEEP HIM EXACTLY: every frame in place, the same man, the same small head, the same evenly lit face with both eyes clear, the same poses, the same height, the same outline, the hands held the same way. Redraw only his LIGHT.
+
+Image 2 is him at night at the graveside beside Thad (the hero, blue coat): he is A LITTLE TOO BRIGHT for the moonlight -- his face, hands, shirt front and grey hair read lighter than Thad's. Image 3 is Thad, the standard.
+
+Redraw him a little DARKER, in the same dim moonlight as Thad: his face and hands a muted, slightly shadowed skin, no lighter than Thad's face, but still lit evenly from the front with both eyes, the nose and the moustache clear; his grey hair and white shirt front a dimmer grey, not bright; the coat as dark as it is. Keep the soft broad shading, two or three tones per material, square pixels. Change nothing else.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No ground, no shadows, no text, no numbers, no border. Draw only these four frames: nothing else from the other images.

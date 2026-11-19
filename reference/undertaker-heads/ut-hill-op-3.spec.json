@@ -1,0 +1,16 @@
+{
+ "assetId": "undertaker-hill",
+ "subject": "undertaker-hill",
+ "role": "derived-state",
+ "promptFile": "reference/undertaker-heads/ut-hill-op-3.txt",
+ "out": "art/staging/undertaker-heads/ut-hill-op-3.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/undertaker-heads/ut-hill-op-2.png",
+  "art/staging/undertaker-heads/ut-hill-op-2-in-the-night.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-19: \"1 more op, darker (Recommended)\" (undertaker-hill cap 2 -> 3, attemptsTotal 485 -> 486): operation 2 measured 1.16x Thad's light at the graveside against a limit of 1.12x",
+ "derivedFrom": 2
+}

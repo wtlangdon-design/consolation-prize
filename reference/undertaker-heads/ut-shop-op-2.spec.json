@@ -1,0 +1,16 @@
+{
+ "assetId": "undertaker-shop",
+ "subject": "undertaker-shop",
+ "role": "derived-state",
+ "promptFile": "reference/undertaker-heads/ut-shop-op-2.txt",
+ "out": "art/staging/undertaker-heads/ut-shop-op-2.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/undertaker-heads/ut-shop-op-1.png",
+  "art/staging/undertaker-heads/ut-shop-side-by-side.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-19: \"It looks like the guy on the far right still has a big head?\"; \"1\" (to \"Both drawings, with the operation cap raised by 2\"); reference/undertaker-heads/brief.md, errata 380; correction: operation 1 measured brighter than the old drawing (mean light 134 against 124), and the brief asks \"no brighter than now\"",
+ "derivedFrom": 1
+}
