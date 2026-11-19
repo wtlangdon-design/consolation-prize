@@ -1,0 +1,8 @@
+Image 1 is a TEMPLATE: seven mourners at a funeral in my pixel-art adventure game, EXACTLY as they are drawn in the game, standing together as one group, three times side by side on magenta. Image 2 is the same seven people as they were drawn before, bowed in prayer: use it for the PRAYING POSE ONLY -- their old heads are too big, and Image 1's heads are the size to keep. Image 3 is the group in the game at night beside Thad (the hero, blue coat) and the Reverend: their heads are now the size of Thad's.
+
+Repaint Image 1. LEAVE THE FIRST GROUP EXACTLY AS IT IS. Repaint the other two as the SAME seven people in the SAME places, KEEPING EVERY FIGURE -- the same height, the same SMALL head size as in the first group, the same clothes, the same feet on the same line, the old woman's cane and the hats held as they are -- and changing ONLY their heads, eyes and hands:
+2. every one of them praying, as in Image 2: heads bowed forward and down, eyes shut, hands clasped or hats held at the chest;
+3. the same, heads bowed and eyes shut, except ONE of them -- the young man with spectacles at the back right of the group -- who has lifted his head a little and is peeking.
+Nothing else changes: no body moved, no one turned, no one added. The heads stay as small as in the first group.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the first group -- NOT sharper, NOT more detailed, NOT brighter. Flat pure magenta (#FF00FF) background, every group separated by clear magenta, nothing touching. No glow, no blur, no shadows, no ground, no text, no numbers, no border.
