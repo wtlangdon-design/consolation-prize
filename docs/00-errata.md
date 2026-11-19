@@ -8856,3 +8856,9 @@ The prayer at the gate (`T_HILL_PRAYER`) now uses the drawing in `reference/act3
 Seen in the build: the gate during the prayer.
 
 Lesson: none -- a drawing wired as its brief said; `tests/hearse.test.ts` holds the prayer registered to the rest frame and mirrored for the gate.
+
+## 380 · The undertaker, both drawings, to be redrawn to Thad's proportions (Tyler, 2026-11-19: "It looks like the guy on the far right still has a big head?"; asked "Both drawings, with the operation cap raised by 2" or "The hill only, within what's left": "1")
+
+The undertaker's hill sheet (`room-31-undertaker-master.png`: the graveside and the gate) and his shop sheet (`room-13-undertaker-master.png`) are to be redrawn in place with a head in Thad's proportions, as the Reverend's were. The operation cap is raised by 2 so that each drawing has one correction. The brief, its references and the paste-in prompt are in `reference/undertaker-heads/brief.md`. Nothing is drawn or wired yet.
+
+Lesson: none -- a brief; no defect is fixed here.
