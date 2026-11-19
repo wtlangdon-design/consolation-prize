@@ -47,6 +47,10 @@ UT = {'ut-hill': ('funeral-undertaker', None, 'funeral'), 'ut-shop': ('undertake
 ALL.update(UT)
 PREP = {'ut-hill': {'k': 1.7, 'gap': 150}, 'ut-shop': {'k': 2.0, 'gap': 50}}
 MATTE = {'ut-shop': {'plate': 'art/backgrounds/room-13-undertakers.png', 'guide': '1430:494,1650:516'}}
+# The hill's correction (operation 2, his face lit evenly so it reads at the graveside's size) turned frame 3's glance
+# down to the left, at the coffin, toward the front. Frame 3 is taken from operation 1, whose glance is in profile and
+# reads whole: {(job, op): {pose: from op}}.
+POSE_FROM_OP = {('ut-hill', 2): {3: 1}, ('ut-hill', 3): {3: 1}}   # op 3 (darker) kept op 2's front-facing frame 3
 STAGE = {**{j: 'art/staging/sowerby' for j in SOW}, **{j: 'art/staging/undertaker-heads' for j in UT}}
 FRAMES = {'sow-plate': [[2 + 292 * i, 2, 290, 314] for i in range(6)]}
 BREATHS = {'sow-praying': {}, 'sow-plate': {1: 0, 5: 4}}
@@ -175,6 +179,12 @@ def main():
     one_row = len({p[1] for p in lay['positions']}) == 1
     figs = [window(out_img, op, pos, round(ww * K), round(wh * K), margin=10 if det else min(30, round(ww * K * 0.05)),
                    vmargin=150 if one_row else 0) for pos in lay['positions']]
+    for pose_i, from_op in POSE_FROM_OP.get((JOB, OPN), {}).items():
+        # a pose taken from another operation of the same sheet, laid in the same template window
+        oi = np.asarray(Image.open(R(f'{STAGE[JOB]}/{JOB}-op-{from_op}.png')).convert('RGB')).astype(int)
+        k_i = lay['poses'].index(pose_i)
+        figs[k_i] = window(oi, opaque_rgb(oi), lay['positions'][k_i], round(ww * K), round(wh * K),
+                           margin=min(30, round(ww * K * 0.05)), vmargin=150 if one_row else 0)
     for fg in figs:                                   # nothing of the drawing may touch the window's top or bottom
         assert not alpha(fg)[0].any() and not alpha(fg)[-1].any(), 'a pose runs past its window: widen it'
     orest = old[sp['frames'][0][1]:sp['frames'][0][1] + h, sp['frames'][0][0]:sp['frames'][0][0] + w]

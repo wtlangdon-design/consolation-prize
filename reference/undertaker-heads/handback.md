@@ -7,18 +7,19 @@ This answers `brief.md` beside it. **Nothing is wired;** the main session wires 
 ## Budget
 
 `art/staging/caps.json`, quoting him:
-- `attemptsTotal` raised 483 → 485;
-- `undertaker-hill` and `undertaker-shop`, each with cap 2;
-- the token ceiling **not** raised.
+- **`attemptsTotal`:** 483 → 485, as asked, then 485 → **486**. Asked whether to spend one more operation, darker, he chose "1 more op, darker (Recommended)".
+- **`spendTokensTotal`:** 4,970,000 → **4,985,000**. Asked whether to raise it for the hill's prepared correction, he chose "Raise by 15,000 (Recommended)".
+- **`undertaker-hill`:** cap 2, raised to **3** on the "1 more op, darker" answer.
+- **`undertaker-shop`:** cap 2.
 
-**Three operations are spent, 30,636 billed tokens:**
+**Five operations are spent, 48,458 billed tokens:**
 
 | Sheet | Operations | Tokens |
 |---|---|---|
-| hill (`room-31-undertaker-master.png`) | 1 (no correction needed) | 11,769 |
-| shop (`room-13-undertaker-master.png`) | 2 (drawing + correction for light) | 18,867 |
+| hill (`room-31-undertaker-master.png`) | 3: drawing; correction, his face lit evenly; correction, darker | 29,591 |
+| shop (`room-13-undertaker-master.png`) | 2: drawing; correction for light | 18,867 |
 
-The ledger is at 484 attempts against 485, and 4,952,066 tokens against 4,970,000, about 18,000 left. The hill still has its correction in hand.
+The ledger is at 486 attempts against 486, and 4,969,888 tokens against 4,985,000, about 15,000 left. **Neither sheet has an operation left.**
 
 ## Nothing to change in `content/`
 
@@ -36,7 +37,7 @@ The shop's waist is re-matted along the bench's slanted back edge (`waist-matte.
 - `--prep` writes each job's template, layout and old sheet, so the inputs re-run;
 - `--write` cuts without snapping, then mattes the shop and snaps each sheet once with `one-level.py --resnap --only <sheet>`, as the brief says.
 
-**Re-running.** To reproduce the sheets: `python3 tools/art/duel-crowd-cut.py ut-hill --write` and `python3 tools/art/duel-crowd-cut.py ut-shop --op 2 --write`.
+**Re-running.** To reproduce the sheets: `python3 tools/art/duel-crowd-cut.py ut-hill --op 3 --write` and `python3 tools/art/duel-crowd-cut.py ut-shop --op 2 --write`.
 
 **Nothing is regraded:** every colour is the operations' own.
 
@@ -86,12 +87,12 @@ He is drawn lean, so his head sits at the narrow end of the cast.
 
 | | texture | contrast | mean light | Thad there (texture / contrast / light) |
 |---|---|---|---|---|
-| hill, new | 4.40 | 34.0 | 43.8 | 5.14 / 32.9 / 60.2 |
+| hill, final | 5.33 | 29.3 | 37.2 | 5.14 / 32.9 / 60.2 |
 | hill, old | 3.11 | 32.5 | 36.0 | |
 | shop, new (op 2) | 7.14 | 46.9 | 117.8 | 5.70 / 32.6 / 60.3 |
 | shop, old | 6.58 | 49.9 | 124.4 | |
 
-- The hill sheet is a little lighter than before (43.8 against 36.0), still well under Thad's 60 in the same light. `tools/check-figure-light.mjs` passes for both.
+- The hill sheet is as light as before (37.2 against 36.0). `tools/check-figure-light.mjs` passes for both.
 - The shop's raw light is the lamp's, as before; it is now under the old drawing's.
 
 ## After Tyler's first look: his face (2026-11-19)
@@ -108,15 +109,26 @@ Tyler: **"Looks like he's missing part of his face"** (the shop, the thumb-on-bl
 
 **Not checked here:** the Reverend's Nugget sheet was cut the same way (`OL_RESNAP`, already merged). It may have lost columns too.
 
-### The hill: the drawing shades half his face. Needs a correction, and the tokens are not there.
+### The hill: the drawing shaded half his face. Corrected twice.
 
 The same fix barely changed the hill sheet, so it was not the cause there.
 
-**The cause.** At the graveside he stands behind the coffin, so the game draws him smaller than the Reverend; his new small head is about 7 game pixels wide. Operation 1 shades his face dark down one side. At game size that side merges with his hair, so one eye and a cheek are lost and he reads as half a face. The drawing itself has both eyes; the size is what loses one.
+**The cause.** At the graveside he stands behind the coffin, so the game draws him smaller than the Reverend; his new small head is about 7 game pixels wide. Operation 1 shaded his face dark down one side. At that size that side merged with his hair, so one eye and a cheek were lost and he read as half a face.
 
-**The correction is prepared but not spent.** It is the hill's second operation, within its cap (`ut-hill-op-2.txt`, `ut-hill-op-2.spec.json`). It shows the frames at game size beside the Reverend (`art/staging/undertaker-heads/ut-hill-faces-at-game-size.png`) and asks for the same man, with his face lit evenly from the front and both eyes clear.
+**Operation 2** (`ut-hill-op-2.txt`) was shown his frames at game size beside the Reverend (`art/staging/undertaker-heads/ut-hill-faces-at-game-size.png`). It lit his face evenly with both eyes clear, and the faces read whole.
+- It first needed the token ceiling raised (above): `char-op.mjs` keeps a 20,000-token floor and refused it with 17,934 left.
+- Lit evenly, he measured **brighter than Thad's night**: 1.16x at the graveside and 1.12x at the gate, against a limit of 1.12, so `check-figure-light` failed.
+- **Grading him in the room was tried, temporarily, and reverted.** Adding him to each room's `figureLight` cleared the light check but failed `tests/skin-tone.test.mjs`: the grade greyed his face to 0.32 of its colour, where the faces round him keep 0.52.
 
-**`char-op.mjs` refused it before spending anything.** The tool keeps a 20,000-token floor under the ceiling, and only 17,934 tokens are left. The ledger is unchanged at 484. Tyler asked for the ceiling not to be raised, so it is his decision.
+**Operation 3** (`ut-hill-op-3.txt`) was shown operation 2 in the night beside Thad, and asked for the same faces a little darker. It did that, and every check passes:
+
+| | mean light | texture | contrast |
+|---|---|---|---|
+| hill, final | 37.2 | 5.33 | 29.3 |
+| old drawing | 36.0 | | |
+| Thad there | 60.2 | 5.14 | 32.9 |
+
+**Frame 3 comes from operation 1.** Operations 2 and 3 turned frame 3's glance, down to his left at the coffin, toward the front. Operation 1's frame 3 keeps the glance in profile, and its face reads whole. So the cut takes frames 0, 2 and 4 from operation 3 and frame 3 from operation 1 (`POSE_FROM_OP`). It is the same man, each pose in its own cell.
 
 ## What to look at
 
@@ -126,9 +138,8 @@ The same fix barely changed the hill sheet, so it was not the cause there.
 
 ## For Tyler's eye
 
-- **The hill face** (above): at the graveside one side of his face is lost at game size until the correction is drawn.
+- **The hill's frame 3** (the glance at the coffin) is from operation 1, so his face is a little lighter in that frame than in the others.
 - On the hill he is drawn leaner than before, with narrower shoulders under the smaller head.
-- His hill sheet is a touch lighter than it was, still darker than Thad.
 
 ## Checks
 

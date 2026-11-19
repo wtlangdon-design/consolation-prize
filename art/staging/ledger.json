@@ -58057,6 +58057,130 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-19T17:35:23.415Z"
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "assetId": "undertaker-hill",
+   "subject": "undertaker-hill",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/undertaker-heads/ut-hill-op-2.txt",
+   "promptHash": "759f59e2d88eeff345d943bccf3d3f26f0a24beffac1669ca728caae1865b638",
+   "references": [
+    {
+     "path": "art/staging/undertaker-heads/ut-hill-op-1.png",
+     "hash": "6e0beb4bd1f7e29ebb11d9b86d7d88ce27528b3abbce0c3bf1f01e2008b5ba9f",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/undertaker-heads/ut-hill-faces-at-game-size.png",
+     "hash": "39e99ebbd5b6d557e7e37cba587af56e7b1814d0e36d3e1ab49c4e9be0fbc6af",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "6e0beb4bd1f7e29ebb11d9b86d7d88ce27528b3abbce0c3bf1f01e2008b5ba9f",
+   "sourcePath": "art/staging/undertaker-heads/ut-hill-op-1.png",
+   "out": "art/staging/undertaker-heads/ut-hill-op-2.png",
+   "outputHash": "3d101e8a9dff18ec8e9953390a5cd772f58d0ddf14e212f7f346abe7dce90d46",
+   "bytes": 1323823,
+   "usage": {
+    "input_tokens": 3791,
+    "input_tokens_details": {
+     "image_tokens": 3404,
+     "text_tokens": 387
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 9279
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-19T17:54:04.689Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-19: \"It looks like the guy on the far right still has a big head?\"; \"1\" (to \"Both drawings, with the operation cap raised by 2\"); reference/undertaker-heads/brief.md, errata 380; correction after Tyler, 2026-11-19, of the graveside frames: \"Looks like he's missing part of his face\"; \"Here too\" (his face shaded dark down one side, lost at game size); the token ceiling raised 4,970,000 -> 4,985,000 for it: \"Raise by 15,000 (Recommended)\"",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-19T17:54:04.699Z"
+  },
+  {
+   "attempt": 3,
+   "role": "derived-state",
+   "assetId": "undertaker-hill",
+   "subject": "undertaker-hill",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 2,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/undertaker-heads/ut-hill-op-3.txt",
+   "promptHash": "deb789cd6aaeac42a33596b1b05bd23f44c88f03aeffb1804ccca8f2f6b5b7c5",
+   "references": [
+    {
+     "path": "art/staging/undertaker-heads/ut-hill-op-2.png",
+     "hash": "3d101e8a9dff18ec8e9953390a5cd772f58d0ddf14e212f7f346abe7dce90d46",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/undertaker-heads/ut-hill-op-2-in-the-night.png",
+     "hash": "830a639576ece9e7d188ca338c3b378415059f8024b638aa25fbea0bc73e9117",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "3d101e8a9dff18ec8e9953390a5cd772f58d0ddf14e212f7f346abe7dce90d46",
+   "sourcePath": "art/staging/undertaker-heads/ut-hill-op-2.png",
+   "out": "art/staging/undertaker-heads/ut-hill-op-3.png",
+   "outputHash": "cad8d381d338d806641b6a9397f68a5bdb6b96b52db4a894a3dad4da6bc0b23c",
+   "bytes": 1314065,
+   "usage": {
+    "input_tokens": 3055,
+    "input_tokens_details": {
+     "image_tokens": 2744,
+     "text_tokens": 311
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 8543
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-19T18:01:29.622Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-19: \"1 more op, darker (Recommended)\" (undertaker-hill cap 2 -> 3, attemptsTotal 485 -> 486): operation 2 measured 1.16x Thad's light at the graveside against a limit of 1.12x",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-19T18:01:29.633Z"
   }
  ],
  "promotions": [
