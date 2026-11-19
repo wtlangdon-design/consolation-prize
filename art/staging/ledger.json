@@ -58181,6 +58181,73 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-19T18:01:29.633Z"
+  },
+  {
+   "attempt": 3,
+   "role": "derived-state",
+   "assetId": "undertaker-shop",
+   "subject": "undertaker-shop",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 2,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/undertaker-heads/ut-shop-op-3.txt",
+   "promptHash": "f21de26892df302f1051c58484ae508cd90cdae0c4cf0b57a3eb5b40bb79dea8",
+   "references": [
+    {
+     "path": "art/staging/undertaker-heads/ut-shop-op-2.png",
+     "hash": "204e8803d5cf6fcfddff62b9a2825f17ab6a57096a8189186e02dba843dab5b9",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/undertaker-heads/ut-hill-op-1.png",
+     "hash": "6e0beb4bd1f7e29ebb11d9b86d7d88ce27528b3abbce0c3bf1f01e2008b5ba9f",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/undertaker-heads/ut-three-places-at-game-size.png",
+     "hash": "58ce888443832132e74e36c60296b6bb0c756d8c62ab4449c97bebf830b85a31",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "204e8803d5cf6fcfddff62b9a2825f17ab6a57096a8189186e02dba843dab5b9",
+   "sourcePath": "art/staging/undertaker-heads/ut-shop-op-2.png",
+   "out": "art/staging/undertaker-heads/ut-shop-op-3.png",
+   "outputHash": "1c7a9c872d984b2a8054522d1fdabb7d244054529f97e71eaa072148060b8eab",
+   "bytes": 1312812,
+   "usage": {
+    "input_tokens": 4730,
+    "input_tokens_details": {
+     "image_tokens": 4267,
+     "text_tokens": 463
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 10218
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-19T19:45:32.895Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-19: \"Can we use the top rendering everywhere? Or as the model for what he looks like everywhere else?\"; \"Redraw the shop (Recommended)\" (undertaker-shop cap 2 -> 3, attemptsTotal 486 -> 487, spendTokensTotal 4,985,000 -> 5,000,000)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-19T19:45:32.916Z"
   }
  ],
  "promotions": [

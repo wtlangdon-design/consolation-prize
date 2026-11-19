@@ -1,0 +1,17 @@
+{
+ "assetId": "undertaker-shop",
+ "subject": "undertaker-shop",
+ "role": "derived-state",
+ "promptFile": "reference/undertaker-heads/ut-shop-op-3.txt",
+ "out": "art/staging/undertaker-heads/ut-shop-op-3.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/undertaker-heads/ut-shop-op-2.png",
+  "art/staging/undertaker-heads/ut-hill-op-1.png",
+  "art/staging/undertaker-heads/ut-three-places-at-game-size.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-19: \"Can we use the top rendering everywhere? Or as the model for what he looks like everywhere else?\"; \"Redraw the shop (Recommended)\" (undertaker-shop cap 2 -> 3, attemptsTotal 486 -> 487, spendTokensTotal 4,985,000 -> 5,000,000)",
+ "derivedFrom": 2
+}

@@ -7,19 +7,25 @@ This answers `brief.md` beside it. **Nothing is wired;** the main session wires 
 ## Budget
 
 `art/staging/caps.json`, quoting him:
-- **`attemptsTotal`:** 483 → 485, as asked, then 485 → **486**. Asked whether to spend one more operation, darker, he chose "1 more op, darker (Recommended)".
-- **`spendTokensTotal`:** 4,970,000 → **4,985,000**. Asked whether to raise it for the hill's prepared correction, he chose "Raise by 15,000 (Recommended)".
-- **`undertaker-hill`:** cap 2, raised to **3** on the "1 more op, darker" answer.
-- **`undertaker-shop`:** cap 2.
 
-**Five operations are spent, 48,458 billed tokens:**
+| Limit | From | To | On Tyler's answer |
+|---|---|---|---|
+| `attemptsTotal` | 483 | 485 | "1", as asked |
+| | 485 | 486 | "1 more op, darker (Recommended)" |
+| | 486 | **487** | "Redraw the shop (Recommended)" |
+| `spendTokensTotal` | 4,970,000 | 4,985,000 | "Raise by 15,000 (Recommended)" |
+| | 4,985,000 | **5,000,000** | "Redraw the shop (Recommended)" |
+| `undertaker-hill` | | **3** | cap 2, raised on "1 more op, darker" |
+| `undertaker-shop` | | **3** | cap 2, raised on "Redraw the shop" |
+
+**Six operations are spent, 58,676 billed tokens:**
 
 | Sheet | Operations | Tokens |
 |---|---|---|
-| hill (`room-31-undertaker-master.png`) | 3: drawing (**ships**); correction, his face lit evenly; correction, darker (both not used) | 29,591 |
-| shop (`room-13-undertaker-master.png`) | 2: drawing; correction for light | 18,867 |
+| hill (`room-31-undertaker-master.png`) | 3: drawing (**ships**); correction, face lit evenly; correction, darker (both not used) | 29,591 |
+| shop (`room-13-undertaker-master.png`) | 3: drawing; correction for light (both superseded); redraw on the hill's model (**ships**) | 29,085 |
 
-The ledger is at 486 attempts against 486, and 4,969,888 tokens against 4,985,000, about 15,000 left. **Neither sheet has an operation left.**
+The ledger is at 487 attempts against 487, and 4,980,106 tokens against 5,000,000, about 20,000 left. **Neither sheet has an operation left.**
 
 ## Nothing to change in `content/`
 
@@ -37,7 +43,7 @@ The shop's waist is re-matted along the bench's slanted back edge (`waist-matte.
 - `--prep` writes each job's template, layout and old sheet, so the inputs re-run;
 - `--write` cuts without snapping, then mattes the shop and snaps each sheet once with `one-level.py --resnap --only <sheet>`, as the brief says.
 
-**Re-running.** To reproduce the sheets: `python3 tools/art/duel-crowd-cut.py ut-hill --op 1 --write` and `python3 tools/art/duel-crowd-cut.py ut-shop --op 2 --write`.
+**Re-running.** To reproduce the sheets: `python3 tools/art/duel-crowd-cut.py ut-hill --op 1 --write` and `python3 tools/art/duel-crowd-cut.py ut-shop --op 3 --write`.
 
 **Nothing is regraded:** every colour is the operations' own.
 
@@ -89,11 +95,11 @@ He is drawn lean, so his head sits at the narrow end of the cast.
 |---|---|---|---|---|
 | hill, shipped (op 1) | 4.40 | 34.0 | 44.4 | 5.14 / 32.9 / 60.2 |
 | hill, old | 3.11 | 32.5 | 36.0 | |
-| shop, new (op 2) | 7.14 | 46.9 | 117.8 | 5.70 / 32.6 / 60.3 |
+| shop, shipped (op 3) | 9.49 | 55.0 | 124.8 | 5.70 / 32.6 / 60.3 |
 | shop, old | 6.58 | 49.9 | 124.4 | |
 
 - The hill sheet is a little lighter than before (44.4 against 36.0), well under Thad's 60.2. `tools/check-figure-light.mjs` passes for both.
-- The shop's raw light is the lamp's, as before; it is now under the old drawing's.
+- The shop's raw light is the lamp's, as before, and level with the old drawing's.
 
 ## After Tyler's first look: his face (2026-11-19)
 
@@ -130,7 +136,24 @@ So the hill sheet ships **operation 1 alone**, cut with the single snap: `duel-c
 - **Operations 2 and 3 are spent and not used.** Their drawings and the cut path that combined them (`--op 3`, `POSE_FROM_OP`) stay in staging and in the tool for the record.
 - The graveside and the gate share this one sheet, so both are now the drawing Tyler chose.
 
-**The shop is a separate drawing,** waist-up in shirt and apron, warmer than the hill. Redrawing it on the hill's model is a new operation, and neither the shop's cap, the operation cap nor the token floor has one left. That is Tyler's to decide.
+### The shop redrawn on the hill's model
+
+Tyler had asked: "Can we use the top rendering everywhere? Or as the model for what he looks like everywhere else?" The shop is a separate drawing, waist-up in shirt and apron. Operation 2's shop man was warm and orange-skinned, with a sandy brown-grey head, so he read as a different man from the hill. Offered a redraw on the hill's model, Tyler chose **"Redraw the shop (Recommended)"**.
+
+**Operation 3** (`ut-shop-op-3.txt`) was given:
+- operation 2's shop drawing, as the poses to keep;
+- the hill's operation 1, as the model for his face and colour;
+- the undertaker in his three places at game size (`art/staging/undertaker-heads/ut-three-places-at-game-size.png`);
+- Thad.
+
+It returned the same four poses and plane with the hill's man: light grey hair, a grey moustache, pale cool skin, an off-white shirt and a grey-brown canvas apron.
+
+Cut with `ut-shop --op 3`:
+- frames and cells are unchanged, and nothing is lost at any edge;
+- the matte puts him at y 509, his record's place;
+- mean light 124.8, against 124.4 before, so he is no brighter.
+
+**For Tyler's eye:** it is crisper than Thad (texture 9.49 against his 5.70, contrast 55.0 against 32.6) and than the shop drawing it replaces (6.58 and 49.9). No operation is left to soften it.
 
 ## What to look at
 
@@ -141,6 +164,8 @@ So the hill sheet ships **operation 1 alone**, cut with the single snap: `duel-c
 ## For Tyler's eye
 
 - On the hill he is drawn leaner than before, with narrower shoulders under the smaller head.
+
+- **The shop** is crisper than Thad (above).
 
 ## Checks
 
