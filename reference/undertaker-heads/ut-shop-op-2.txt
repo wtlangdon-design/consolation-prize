@@ -1,0 +1,7 @@
+Image 1 is a sheet from my pixel-art adventure game on magenta: the town's undertaker in his workshop, waist up, in four frames holding a woodworking plane. KEEP HIM EXACTLY: every frame in place, the same man, the same SMALL head (exactly this size -- do not enlarge it), the same poses, the same height, the same outline, the plane held the same way. Redraw only his LIGHT.
+
+Image 2 shows him in his shop at game size beside Thad (the hero, blue coat): the top row is how he was, the bottom row is image 1. Image 1 is TOO BRIGHT: his cream shirt, canvas apron and face are lighter than before. Image 3 is Thad, the standard.
+
+Redraw him a little DARKER, in the shop's dim lamp light: the shirt a muted, warm, darker cream, the apron a darker canvas tan, his face and hands a warm shadowed skin -- overall NO LIGHTER than the top row of image 2. Keep the soft broad shading, two or three tones per material, no crisp highlights, no hard dark lines inside the figure, square pixels. Change nothing else.
+
+Flat pure magenta (#FF00FF) background everywhere else, nothing touching between frames. No bench, no ground, no shadows, no text, no numbers, no border. Draw only these four frames: nothing else from the other images.

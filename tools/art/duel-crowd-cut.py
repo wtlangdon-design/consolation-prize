@@ -1,7 +1,9 @@
 """The duel crowd and Fanshawe in the street, redrawn to Thad's look, cut (reference/duel-and-caves-art/brief.md Part A;
 Act IV art finding 4). No image operation.
 
-  python3 tools/art/duel-crowd-cut.py JOB [--op N] [--write]      JOB: town-left | town-right | fanshawe
+  python3 tools/art/duel-crowd-cut.py JOB [--op N] [--write]      JOB: town-left | town-right | fanshawe | office |
+      office-turned | memorial | wreath | sow-master | sow-praying | sow-plate | sow-duel | sow-nugget | ut-hill | ut-shop
+  python3 tools/art/duel-crowd-cut.py ut-hill|ut-shop --prep     writes the job's template, layout and old sheet
 
 Each operation redrew a sheet's four distinct poses (frames 0, 2, 3, 4) in place on a 2x2 or 1x4 template, enlarged.
 Each pose is the whole drawing the operation put in its window; ONE factor for all four makes the rest pose exactly as
@@ -36,12 +38,24 @@ SOW = {'sow-master': ('funeral-sowerby', None, 'funeral'), 'sow-praying': ('proc
        'sow-plate': ('sowerby-gate', 0, 'boot-hill'), 'sow-duel': ('duel-sowerby', None, 'main-street'),
        'sow-nugget': ('sowerby', None, 'nugget-back')}
 ALL.update(SOW)
+# The undertaker (errata 380; Tyler, 2026-11-19: "It looks like the guy on the far right still has a big head?", then
+# "1": both drawings): staging art/staging/undertaker-heads/<job>-*. Prepared with --prep (the template: the four drawn
+# poses enlarged K times in one row on magenta; the layout; the old sheet). Each sheet is snapped at the level
+# one-level.py reads for it (--dry), and after the cut the shop's waist is matted along the bench's slanted back edge as
+# tools/art/cast-softer.py did (waist-matte.py, its guide), then the sheet is re-snapped by one-level.py --resnap --only.
+UT = {'ut-hill': ('funeral-undertaker', None, 'funeral'), 'ut-shop': ('undertaker', None, 'undertaker')}
+ALL.update(UT)
+PREP = {'ut-hill': {'k': 1.7, 'gap': 150}, 'ut-shop': {'k': 2.0, 'gap': 50}}
+MATTE = {'ut-shop': {'plate': 'art/backgrounds/room-13-undertakers.png', 'guide': '1430:494,1650:516'}}
+STAGE = {**{j: 'art/staging/sowerby' for j in SOW}, **{j: 'art/staging/undertaker-heads' for j in UT}}
 FRAMES = {'sow-plate': [[2 + 292 * i, 2, 290, 314] for i in range(6)]}
 BREATHS = {'sow-praying': {}, 'sow-plate': {1: 0, 5: 4}}
 # The operation drew the praying sheet's open-mouthed pose 7.5% taller than its rest (634 px against 590), the same man
 # standing the same way; the old sheet has both poses the same height (rows 0-313). Each pose is scaled to its own old
 # height, uniformly, so his crown is not cut off at the cell's top.
-PER_POSE = {'sow-praying'}
+PER_POSE = {'sow-praying', 'ut-hill'}
+# The undertaker on the hill: operation 1 drew his looking-up pose (4) a little taller than his rest, the old sheet has
+# both at rows 0-399, and one scale cut 15 px of his hair at the cell's top -- each pose to its own old height.
 # Tyler, 2026-11-18: "The Nugget back image of the reverend has a comically small head". Both of sowerby-nugget's
 # operations drew it so (the correction drew him bigger, not his head), and its cap is spent. The duel sheet is the same
 # Reverend in the same four pencil poses, with his head right: the Nugget sheet is cut from the duel's drawing.
@@ -123,7 +137,7 @@ def best_shift_x(cell_alpha, old_alpha, dx):
 
 def main():
     if JOB in ALL:
-        name, when, room_id = ALL[JOB]; SD = f'{ST}/fanshawe-all' if JOB not in SOW else 'art/staging/sowerby'
+        name, when, room_id = ALL[JOB]; SD = STAGE.get(JOB, f'{ST}/fanshawe-all')
         rec = json.load(open(R(f'content/ambient/{name}.json')))
         sp = rec['sprite'] if when is None else {**rec['sprite'], **rec['spriteWhen'][when]['sprite']}
         if JOB in FRAMES: sp = {**sp, 'frames': FRAMES[JOB]}
@@ -147,7 +161,7 @@ def main():
     op = opaque_rgb(out_img)
     K = lay['k']; w, h = sp['frames'][0][2], sp['frames'][0][3]
     ww, wh = globals().get('WIN') or (w, h)
-    det = DETECT.get(FROM.get(JOB, (JOB, OPN)) if JOB in FROM else (JOB, OPN)) if JOB in SOW else None
+    det = DETECT.get(FROM.get(JOB, (JOB, OPN)) if JOB in FROM else (JOB, OPN)) if JOB in STAGE else None
     if det:
         from scipy import ndimage as ndi
         out_img = out_img.copy(); out_img[det['clip']:] = (255, 0, 255); op = opaque_rgb(out_img)
@@ -196,6 +210,12 @@ def main():
         # in front of the desk) and the level his old sheet shipped at. The man where he sits is 304 (block 2.64); that is
         # the lobby clerk's open question (reference/act-one-art/handback.md), not settled here.
         man = 4.09 * N
+    if JOB in UT:
+        # the level the one-level test reads for this sheet: for the shop it is the floor's man in front of the bench
+        import subprocess, re
+        dry = subprocess.run([sys.executable, R('tools/art/one-level.py'), '--dry', '--only', os.path.basename(sp['sheet'])],
+                             capture_output=True, text=True, check=True).stdout
+        man = float(re.search(r'block ([0-9.]+)', dry).group(1)) * N
     block = man / N
     # The redrawn groups spread wider than the old cells at the same height. The cells are widened evenly about their
     # centre (W, the widest pose plus a margin) rather than the people shrunk: the record's x is the cell's centre, so
@@ -212,6 +232,10 @@ def main():
             half = max(half, tx, sw - tx)
         W = max(W if JOB not in ALL else w, int(np.ceil(2 * (half + abs(ocx - w / 2)))) + 6)
     W += (W - w) % 2
+    if JOB in UT:
+        # The torso-centred reach above overestimated the shop's poses (it widened 166 to 202, and nothing fell outside
+        # 166): the brief keeps his cells and records, so the old cell is kept and any loss at its edge is reported.
+        W = w
     pad = (W - w) // 2
     HR = HEADROOM.get(JOB, 0)
     if HR:
@@ -277,12 +301,23 @@ def main():
     if WRITE:
         Image.fromarray(sheet).save(R(sp['sheet']))
         if JOB in ALL: print(json.dumps({'wrote': sp['sheet']}))
+        if JOB in UT:
+            import subprocess, tempfile
+            if JOB in MATTE:
+                with tempfile.TemporaryDirectory() as tmp:
+                    fj = os.path.join(tmp, 'frames.json'); json.dump({'frames': new_frames}, open(fj, 'w'))
+                    out = subprocess.run([sys.executable, R('tools/art/waist-matte.py'), R(sp['sheet']), fj, R(MATTE[JOB]['plate']),
+                                          str(rec['x']), MATTE[JOB]['guide'], R(sp['sheet'])], capture_output=True, text=True, check=True)
+                    print(json.dumps({'matte': json.loads(out.stdout.strip().splitlines()[-1]), 'recordY': rec['y']}))
+            subprocess.run([sys.executable, R('tools/art/one-level.py'), '--resnap', '--only', os.path.basename(sp['sheet'])],
+                           check=True, stdout=subprocess.DEVNULL)
+            sheet = np.asarray(Image.open(R(sp['sheet'])).convert('RGBA'))
         render(rec, room, old, sheet)
 
 
 def breath(rest, name):
     import subprocess
-    d = R(f'art/staging/sowerby/{name}' if JOB in SOW else f'{ST}/{name}'); os.makedirs(d, exist_ok=True)
+    d = R(f'{STAGE[JOB]}/{name}' if JOB in STAGE else f'{ST}/{name}'); os.makedirs(d, exist_ok=True)
     Image.fromarray(rest).save(f'{d}/rest.png')
     subprocess.run([sys.executable, R('tools/rig/ambient-breath.py'), f'{d}/rest.png', f'{d}/breath.png'], check=True,
                    capture_output=True)
@@ -293,9 +328,9 @@ def render(rec, room, old, new):
     sp = dict(SPRITE); sp['frames'] = NEW_FRAMES
     plate = Image.open(R(room['background'])).convert('RGBA')
     thad = bt['load']('content/actors/thad.json')
-    tx = rec['walkTo']['x'] if JOB in ('office', 'office-turned') else rec['x'] + (300 if rec['x'] < 3000 else -300)
+    tx = rec['walkTo']['x'] if JOB in ('office', 'office-turned', 'ut-shop') else rec['x'] + (300 if rec['x'] < 3000 else -300)
     st = next(cl for cl in thad['clips'] if cl['id'] == 'stand' and cl['facing'] == ('left' if tx > rec['x'] else 'right') and not cl.get('state'))
-    ty = rec['walkTo']['y'] if JOB in ('office', 'office-turned') else rec['y'] + 5
+    ty = rec['walkTo']['y'] if JOB in ('office', 'office-turned', 'ut-shop') else rec['y'] + 5
     t = Image.open(R(st['frames'][0])).convert('RGBA')
     t = bt['lit'](t, bt['grade_for'](room, 'thad'), bt['mover_tint'](room.get('lamps'), tx, ty))
     kt = bt['curve_man'](room, tx, ty) / st['figureHeight']
@@ -320,8 +355,28 @@ def render(rec, room, old, new):
         for i, p in enumerate(panels):
             img.paste(p, (i * (pw + 6), r * (ph + 6)))
     img.save(R(f'renders/room-02-{JOB}-before-after.png' if JOB not in ALL else
-               (f'renders/{JOB}-before-after.png' if JOB in SOW else f'renders/fanshawe-{JOB}-before-after.png')))
+               (f'renders/{JOB}-before-after.png' if JOB in STAGE else f'renders/fanshawe-{JOB}-before-after.png')))
+
+
+def prep():
+    """The template an operation redraws in place: the sheet's four drawn poses (0, 2, 3, 4), enlarged K times
+    (nearest), in one row on magenta, 1536 x 1024; the layout the cut reads; the old sheet the cut registers on."""
+    name, when, room_id = ALL[JOB]; SD = STAGE[JOB]; os.makedirs(R(SD), exist_ok=True)
+    rec = json.load(open(R(f'content/ambient/{name}.json')))
+    sp = rec['sprite'] if when is None else {**rec['sprite'], **rec['spriteWhen'][when]['sprite']}
+    sheet = Image.open(R(sp['sheet'])).convert('RGBA'); sheet.save(R(f'{SD}/{JOB}-old.png'))
+    K, gap = PREP[JOB]['k'], PREP[JOB]['gap']; poses = [0, 2, 3, 4]
+    cw, ch = round(sp['frames'][0][2] * K), round(sp['frames'][0][3] * K)
+    x0 = (1536 - (4 * cw + 3 * gap)) // 2; y0 = (1024 - ch) // 2
+    t = Image.new('RGBA', (1536, 1024), (255, 0, 255, 255)); pos = []
+    for i, p in enumerate(poses):
+        x, y, w, h = sp['frames'][p]
+        t.alpha_composite(sheet.crop((x, y, x + w, y + h)).resize((cw, ch), Image.NEAREST), (x0 + i * (cw + gap), y0))
+        pos.append([x0 + i * (cw + gap), y0])
+    t.convert('RGB').save(R(f'{SD}/{JOB}-template.png'))
+    json.dump({'poses': poses, 'positions': pos, 'k': K}, open(R(f'{SD}/{JOB}-layout.json'), 'w'))
+    print(json.dumps({'job': JOB, 'template': f'{SD}/{JOB}-template.png', 'positions': pos, 'k': K, 'cell': [cw, ch]}))
 
 
 if __name__ == '__main__':
-    main()
+    prep() if '--prep' in sys.argv else main()

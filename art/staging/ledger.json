@@ -57856,6 +57856,207 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-18T21:37:01.317Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "undertaker-hill",
+   "subject": "undertaker-hill",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/room-31-undertaker-master.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/undertaker-heads/ut-hill-op-1.txt",
+   "promptHash": "3f0dfdd17e672f292a243ff55a3b692b1f07c9594b7a08d9759d803b3b8c76b9",
+   "references": [
+    {
+     "path": "art/staging/undertaker-heads/ut-hill-template.png",
+     "hash": "cfa486feab68d78e96b8719613bbeeb19a50d3c4315a4cefaf851298917ad6f8",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/undertaker-heads/graveside-as-it-is.png",
+     "hash": "b0d2ca097f1868e865a49ed6e24ce752df5620ffbda9963ae00e2f4c1a6c5e1c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/undertaker-heads/gate-as-it-is.png",
+     "hash": "8134206106d9f3ada2177f901beecd6dfae9c5be0e8541bd5ced043814828dc5",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "cfa486feab68d78e96b8719613bbeeb19a50d3c4315a4cefaf851298917ad6f8",
+   "sourcePath": "art/staging/undertaker-heads/ut-hill-template.png",
+   "out": "art/staging/undertaker-heads/ut-hill-op-1.png",
+   "outputHash": "6e0beb4bd1f7e29ebb11d9b86d7d88ce27528b3abbce0c3bf1f01e2008b5ba9f",
+   "bytes": 1309672,
+   "usage": {
+    "input_tokens": 6281,
+    "input_tokens_details": {
+     "image_tokens": 5904,
+     "text_tokens": 377
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 11769
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-19T17:30:32.239Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-19: \"It looks like the guy on the far right still has a big head?\"; \"1\" (to \"Both drawings, with the operation cap raised by 2\"); reference/undertaker-heads/brief.md, errata 380",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-19T17:30:32.252Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "undertaker-shop",
+   "subject": "undertaker-shop",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/room-13-undertaker-master.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/undertaker-heads/ut-shop-op-1.txt",
+   "promptHash": "40eb44975af694aa94edab60ed5448b40d69d05b049577bc95b16192d33124bc",
+   "references": [
+    {
+     "path": "art/staging/undertaker-heads/ut-shop-template.png",
+     "hash": "f8ec05b2c4b7e0db60abd72238b736c2e0f9236666e4bb48de039c996b99c0a4",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/undertaker-heads/shop-as-it-is.png",
+     "hash": "bff1b209d5f2dffd6f55c46f51032baca4aafca270de84cf9cfa67b06f5980ce",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/duel-and-caves-art/fanshawe-all/new-duel-fanshawe@2x.png",
+     "hash": "799edc1adefc324f4d5ffd24a450deef77873692cc18bdabad18aeaa310d8105",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "f8ec05b2c4b7e0db60abd72238b736c2e0f9236666e4bb48de039c996b99c0a4",
+   "sourcePath": "art/staging/undertaker-heads/ut-shop-template.png",
+   "out": "art/staging/undertaker-heads/ut-shop-op-1.png",
+   "outputHash": "fd8ad507b9b0046b0662ad74bc658a808596df0d9e17d6b239e54b913e51a1a4",
+   "bytes": 1304035,
+   "usage": {
+    "input_tokens": 4846,
+    "input_tokens_details": {
+     "image_tokens": 4396,
+     "text_tokens": 450
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 10334
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-19T17:31:28.080Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-19: \"It looks like the guy on the far right still has a big head?\"; \"1\" (to \"Both drawings, with the operation cap raised by 2\"); reference/undertaker-heads/brief.md, errata 380",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-19T17:31:28.091Z"
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "assetId": "undertaker-shop",
+   "subject": "undertaker-shop",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": "high",
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/undertaker-heads/ut-shop-op-2.txt",
+   "promptHash": "7a3547326ffac550b527c4026090635d0fded5464794d2a483096721a52527ab",
+   "references": [
+    {
+     "path": "art/staging/undertaker-heads/ut-shop-op-1.png",
+     "hash": "fd8ad507b9b0046b0662ad74bc658a808596df0d9e17d6b239e54b913e51a1a4",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/undertaker-heads/ut-shop-side-by-side.png",
+     "hash": "7a44cb45f5c7dc9e32a40e10d734de18b32f00dec4c36923dc15c0b1367d94d4",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act-one-art/thad-ruler.png",
+     "hash": "7f4a9cab01456461ad9a66a9e441a51039f2380d1de319b8bea252f63602c044",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "fd8ad507b9b0046b0662ad74bc658a808596df0d9e17d6b239e54b913e51a1a4",
+   "sourcePath": "art/staging/undertaker-heads/ut-shop-op-1.png",
+   "out": "art/staging/undertaker-heads/ut-shop-op-2.png",
+   "outputHash": "204e8803d5cf6fcfddff62b9a2825f17ab6a57096a8189186e02dba843dab5b9",
+   "bytes": 1296109,
+   "usage": {
+    "input_tokens": 3045,
+    "input_tokens_details": {
+     "image_tokens": 2744,
+     "text_tokens": 301
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+     "image_tokens": 5488,
+     "text_tokens": 0
+    },
+    "total_tokens": 8533
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-19T17:35:23.403Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-19: \"It looks like the guy on the far right still has a big head?\"; \"1\" (to \"Both drawings, with the operation cap raised by 2\"); reference/undertaker-heads/brief.md, errata 380; correction: operation 1 measured brighter than the old drawing (mean light 134 against 124), and the brief asks \"no brighter than now\"",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-19T17:35:23.415Z"
   }
  ],
  "promotions": [
