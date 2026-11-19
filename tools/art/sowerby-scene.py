@@ -3,7 +3,7 @@ of place"; "All six sheets"). No image operation.
 
 Boot Hill at game size, as tools/art/memorial-crowd-cut.py draws it: the Reverend at the gate (sowerby_gate, frame 0),
 Colonel Fanshawe, the redrawn mourners (art/staging/memorial-crowd/rest-cut.png, not yet wired), the collection plate
-and Thad. Above, the Reverend's sheet as git HEAD has it; below, the sheet on disk.
+and Thad. Above, the Reverend's sheet as origin/main has it; below, the sheet on disk.
 
   python3 tools/art/sowerby-scene.py [--rev REV]      writes renders/room-14-reverend-in-the-scene.png
 """
@@ -15,7 +15,7 @@ R = lambda p: os.path.join(ROOT, p)
 mc = {'__file__': R('tools/art/memorial-crowd-cut.py'), '__name__': 'helpers'}
 exec(open(mc['__file__']).read().rsplit("\nif __name__ == '__main__':", 1)[0], mc)
 bt, place = mc['bt'], mc['place']
-REV = sys.argv[sys.argv.index('--rev') + 1] if '--rev' in sys.argv else 'HEAD'
+REV = sys.argv[sys.argv.index('--rev') + 1] if '--rev' in sys.argv else 'origin/main'   # HEAD showed an earlier redraw as "before" once a branch held one
 
 
 def main():

@@ -3,7 +3,9 @@ guy on the far right still has a big head?"). No image operation.
 
 Boot Hill at game size as the stalled procession (T_PROCESSION_STALLED) places it: the hearse, the Reverend and the
 undertaker (procession_undertaker, frame 0), with Thad beside the undertaker. The mourners stand at the far left,
-outside the crop. Above, the undertaker's hill sheet as git HEAD has it; below, the sheet on disk.
+outside the crop. Above, the undertaker's hill sheet as origin/main has it (the drawing before this redraw);
+below, the sheet on disk. HEAD was the default, and once the branch held a redrawn sheet the "before" was an earlier
+redraw, not the original (Tyler, 2026-11-19: "What's the difference between the top and bottom pictures?").
 
   python3 tools/art/undertaker-gate.py [--rev REV]     writes renders/room-14-undertaker-at-the-gate.png
 """
@@ -15,7 +17,7 @@ R = lambda p: os.path.join(ROOT, p)
 mc = {'__file__': R('tools/art/memorial-crowd-cut.py'), '__name__': 'helpers'}
 exec(open(mc['__file__']).read().rsplit("\nif __name__ == '__main__':", 1)[0], mc)
 bt, place = mc['bt'], mc['place']
-REV = sys.argv[sys.argv.index('--rev') + 1] if '--rev' in sys.argv else 'HEAD'
+REV = sys.argv[sys.argv.index('--rev') + 1] if '--rev' in sys.argv else 'origin/main'
 
 
 def frame0(rec, sheet=None):
