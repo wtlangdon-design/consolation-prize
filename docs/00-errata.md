@@ -8862,3 +8862,13 @@ Lesson: none -- a drawing wired as its brief said; `tests/hearse.test.ts` holds 
 The undertaker's hill sheet (`room-31-undertaker-master.png`: the graveside and the gate) and his shop sheet (`room-13-undertaker-master.png`) are to be redrawn in place with a head in Thad's proportions, as the Reverend's were. The operation cap is raised by 2 so that each drawing has one correction. The brief, its references and the paste-in prompt are in `reference/undertaker-heads/brief.md`. Nothing is drawn or wired yet.
 
 Lesson: none -- a brief; no defect is fixed here.
+
+## 381 · The undertaker, redrawn to Thad's proportions, wired (Tyler, 2026-11-19: "1", then of the hill's first drawing: "The top rendering in this pic is soooo much better ... Can we use the top rendering everywhere? Or as the model for what he looks like everywhere else?")
+
+Both of the undertaker's sheets are redrawn in place with a head in Thad's proportions (`reference/undertaker-heads/handback.md`). The hill sheet, `room-31-undertaker-master.png`, used at the graveside and the gate, is the first drawing, which Tyler chose over two corrections. The shop sheet, `room-13-undertaker-master.png`, is redrawn on that drawing's model, keeping his four poses and the plane. Cells, frames and records are unchanged. Spent: six operations, about 58,700 tokens, with each cap raise on Tyler's word as recorded in `art/staging/caps.json`.
+
+The shop drawing is crisper and higher in contrast than Thad, the usual "too sharp" miss. It is left for Tyler to judge in play; softening it needs another operation.
+
+The Reverend's Nugget sheet, cut the same twice-snapped way, was looked at frame by frame at 2x: his face is whole in all five.
+
+Lesson: doc 55 §8, "A sheet is snapped to the level once".
