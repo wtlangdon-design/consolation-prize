@@ -81,7 +81,7 @@
    "when": {
     "T_HILL_PRAYER": true
    },
-   "note": "Doc 110 section 2, TALK TO REVEREND SOWERBY: \"The mourners bow their heads and shut their eyes.\" While the prayer runs they are bowed, eyes shut (reference/act3-hearse/handback.md, operation 2), and now and then the young man in spectacles at the left peeks. Registered on the group's legs to their rest frame, so the group does not shift (errata 233).",
+   "note": "Doc 110 section 2, TALK TO REVEREND SOWERBY: \"The mourners bow their heads and shut their eyes.\" While the prayer runs they are bowed, eyes shut (redrawn to Thad's proportions from their new rest frame, reference/act3-mourners-bowed/handback.md, errata 379), and now and then the young man in spectacles at the left peeks. Registered on the group's legs to their rest frame, so the group does not shift (errata 233).",
    "sprite": {
     "sheet": "art/actors/room-14-mourners-bowed-at-gate.png",
     "frames": [

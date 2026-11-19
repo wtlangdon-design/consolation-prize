@@ -8848,3 +8848,11 @@ The line-up of everyone else drawn with a bigger head than Thad's was shown to T
 Seen in the build: the graveside (r31-a) and the gate (r14-stall-b).
 
 Lesson: none -- a copy of an approved drawing; `tests/hearse.test.ts` already holds the gate mirrored from the graveside and the prayer registered to the rest frame, and it caught the bowed sheet's width here.
+
+## 379 · The mourners bowed in prayer, redrawn, wired (Tyler, 2026-11-18: "I think just the Act III mourners to match the previous mourners")
+
+The prayer at the gate (`T_HILL_PRAYER`) now uses the drawing in `reference/act3-mourners-bowed/handback.md`: one operation, the second left unspent. The same seven people as the new rest frame, with heads bowed and eyes shut, and in the second frame the young man in spectacles lifts his head to peek. It is cut by `tools/art/act3-mourners-cut.py` into `art/actors/room-14-mourners-bowed.png` at the new cell size (473 x 403) and mirrored for the gate into `room-14-mourners-bowed-at-gate.png` by `tools/art/mirror-cells.py`, then the gate sheet re-snapped to one level (`tools/art/one-level.py --resnap --only`) and mirrored back so the two stay mirror images. Soles stay on the rest frame's row and the light matches it, so the group does not shift when they bow. With this, every Act III mourner sheet has the new heads.
+
+Seen in the build: the gate during the prayer.
+
+Lesson: none -- a drawing wired as its brief said; `tests/hearse.test.ts` holds the prayer registered to the rest frame and mirrored for the gate.
