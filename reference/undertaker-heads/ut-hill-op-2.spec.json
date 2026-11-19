@@ -1,0 +1,16 @@
+{
+ "assetId": "undertaker-hill",
+ "subject": "undertaker-hill",
+ "role": "derived-state",
+ "promptFile": "reference/undertaker-heads/ut-hill-op-2.txt",
+ "out": "art/staging/undertaker-heads/ut-hill-op-2.png",
+ "size": "1536x1024",
+ "quality": "high",
+ "images": [
+  "art/staging/undertaker-heads/ut-hill-op-1.png",
+  "art/staging/undertaker-heads/ut-hill-faces-at-game-size.png",
+  "art/staging/act-one-art/thad-ruler.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-19: \"It looks like the guy on the far right still has a big head?\"; \"1\" (to \"Both drawings, with the operation cap raised by 2\"); reference/undertaker-heads/brief.md, errata 380; correction after Tyler, 2026-11-19, of the graveside frames: \"Looks like he's missing part of his face\"; \"Here too\" (his face shaded dark down one side, lost at game size)",
+ "derivedFrom": 1
+}

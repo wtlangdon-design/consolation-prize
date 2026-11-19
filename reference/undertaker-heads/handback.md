@@ -34,7 +34,7 @@ The shop's waist is re-matted along the bench's slanted back edge (`waist-matte.
 
 **`tools/art/duel-crowd-cut.py`** now has `ut-hill` and `ut-shop` beside the Reverend's jobs:
 - `--prep` writes each job's template, layout and old sheet, so the inputs re-run;
-- `--write` cuts, then mattes the shop and re-snaps each sheet with `one-level.py --resnap --only <sheet>`, as the brief says.
+- `--write` cuts without snapping, then mattes the shop and snaps each sheet once with `one-level.py --resnap --only <sheet>`, as the brief says.
 
 **Re-running.** To reproduce the sheets: `python3 tools/art/duel-crowd-cut.py ut-hill --write` and `python3 tools/art/duel-crowd-cut.py ut-shop --op 2 --write`.
 
@@ -94,6 +94,30 @@ He is drawn lean, so his head sits at the narrow end of the cast.
 - The hill sheet is a little lighter than before (43.8 against 36.0), still well under Thad's 60 in the same light. `tools/check-figure-light.mjs` passes for both.
 - The shop's raw light is the lamp's, as before; it is now under the old drawing's.
 
+## After Tyler's first look: his face (2026-11-19)
+
+Tyler: **"Looks like he's missing part of his face"** (the shop, the thumb-on-blade frame), then **"Here too"** (the graveside).
+
+### The shop: the cut snapped him twice. Fixed, with no operation.
+
+**The cause.** The cut snapped each cell to the level on the cell's own grid. Then `one-level.py --resnap` snapped the sheet again, on a grid fitted to the figure's box. The two grids lay a fraction of a block apart, so the second, centre-sampled snap dropped whole columns. In frame 3 that took a strip of his face.
+
+**The fix.** The undertaker's cells now leave the cut unsnapped. The shop is matted, and `one-level.py --resnap --only` snaps each sheet **once**. Frame 3's face is whole again. Frames, cells, matte (y 509) and level (4.02) are unchanged.
+
+**Lesson, for doc 55 §8** (the main session's; `docs/` is not this branch's): a sheet is snapped to the level once. A cut that snaps and then hands the sheet to `one-level.py` drops columns where the two grids disagree.
+
+**Not checked here:** the Reverend's Nugget sheet was cut the same way (`OL_RESNAP`, already merged). It may have lost columns too.
+
+### The hill: the drawing shades half his face. Needs a correction, and the tokens are not there.
+
+The same fix barely changed the hill sheet, so it was not the cause there.
+
+**The cause.** At the graveside he stands behind the coffin, so the game draws him smaller than the Reverend; his new small head is about 7 game pixels wide. Operation 1 shades his face dark down one side. At game size that side merges with his hair, so one eye and a cheek are lost and he reads as half a face. The drawing itself has both eyes; the size is what loses one.
+
+**The correction is prepared but not spent.** It is the hill's second operation, within its cap (`ut-hill-op-2.txt`, `ut-hill-op-2.spec.json`). It shows the frames at game size beside the Reverend (`art/staging/undertaker-heads/ut-hill-faces-at-game-size.png`) and asks for the same man, with his face lit evenly from the front and both eyes clear.
+
+**`char-op.mjs` refused it before spending anything.** The tool keeps a 20,000-token floor under the ceiling, and only 17,934 tokens are left. The ledger is unchanged at 484. Tyler asked for the ceiling not to be raised, so it is his decision.
+
 ## What to look at
 
 - **`renders/ut-hill-before-after.png`**: at the graveside beside Thad, every pose, old above and new below.
@@ -102,6 +126,7 @@ He is drawn lean, so his head sits at the narrow end of the cast.
 
 ## For Tyler's eye
 
+- **The hill face** (above): at the graveside one side of his face is lost at game size until the correction is drawn.
 - On the hill he is drawn leaner than before, with narrower shoulders under the smaller head.
 - His hill sheet is a touch lighter than it was, still darker than Thad.
 

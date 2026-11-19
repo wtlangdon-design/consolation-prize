@@ -273,9 +273,13 @@ def main():
         regs.append({'pose': pose, 'iou': round(float(iou), 3), 'dx': dx, 'dy': dy, 'pixelsLostAtCellEdge': lost})
         if JOB == 'fanshawe' and pose in MIRROR:      # his record faces right (toward Thad); these poses were drawn facing left
             moved = moved[:, ::-1].copy()
-        cells[pose] = rim_clean(unpocket(despill_edge(snap(moved, block), width=max(2, int(np.ceil(block)) + 1))))
+        # The undertaker's sheets are snapped ONCE, by one-level.py after the cut (below). Snapped here on the cell's grid
+        # and again there on the figure's own, the two grids a fraction of a block apart dropped whole columns: a strip
+        # of his face went missing (Tyler, 2026-11-19: "Looks like he's missing part of his face"; "Here too").
+        cells[pose] = rim_clean(unpocket(despill_edge(moved if JOB in UT else snap(moved, block),
+                                                      width=max(2, int(np.ceil(block)) + 1))))
     for dst, srci in BREATHS.get(JOB, {1: 0}).items():   # the derived breaths, back on the level's grid
-        cells[dst] = snap(breath(cells[srci], name), block)
+        cells[dst] = breath(cells[srci], name) if JOB in UT else snap(breath(cells[srci], name), block)
     if JOB in OL_RESNAP:
         # tests/one-level.test.mjs lays its grid from the figure's own box, this cut from the cell's: the Nugget sheet's
         # frame 0 read 8.7% finer than the level. Each cell is re-snapped by tools/art/one-level.py's own snap, crisp
